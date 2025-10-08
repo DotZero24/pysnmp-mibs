@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module WWP-SYSTEM-CONTROL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciena/WWP-SYSTEM-CONTROL-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:03 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ciena/WWP-SYSTEM-CONTROL-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:10:52 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dot1dStpPort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dStpPort")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "DisplayString", "TextualConvention")
 wwpModules, = mibBuilder.importSymbols("WWP-SMI", "wwpModules")
 wwpSysCtrlMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6141, 2, 30))
 wwpSysCtrlMIB.setRevisions(('2001-04-03 17:00',))
@@ -30,4 +30,4 @@ wwpSysCtrlLacpEnable = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 30, 1, 1, 2), Truth
 if mibBuilder.loadTexts: wwpSysCtrlLacpEnable.setStatus('current')
 wwpPvstBpduReceived = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 30, 2, 0, 1)).setObjects(("BRIDGE-MIB", "dot1dStpPort"))
 if mibBuilder.loadTexts: wwpPvstBpduReceived.setStatus('current')
-mibBuilder.exportSymbols("WWP-SYSTEM-CONTROL-MIB", wwpSysCtrl=wwpSysCtrl, wwpSysCtrlBridgeRSTPEnable=wwpSysCtrlBridgeRSTPEnable, wwpSysCtrlMIBCompliances=wwpSysCtrlMIBCompliances, wwpSysCtrlMIB=wwpSysCtrlMIB, wwpSysCtrlMIBObjects=wwpSysCtrlMIBObjects, PYSNMP_MODULE_ID=wwpSysCtrlMIB, wwpSysCtrlMIBGroups=wwpSysCtrlMIBGroups, wwpSysCtrlLacpEnable=wwpSysCtrlLacpEnable, wwpPvstBpduReceived=wwpPvstBpduReceived, wwpSysCtrlMIBNotifications=wwpSysCtrlMIBNotifications, wwpSysCtrlMIBNotificationPrefix=wwpSysCtrlMIBNotificationPrefix, wwpSysCtrlMIBConformance=wwpSysCtrlMIBConformance)
+mibBuilder.exportSymbols("WWP-SYSTEM-CONTROL-MIB", wwpSysCtrlMIBCompliances=wwpSysCtrlMIBCompliances, wwpSysCtrlMIBGroups=wwpSysCtrlMIBGroups, wwpSysCtrl=wwpSysCtrl, PYSNMP_MODULE_ID=wwpSysCtrlMIB, wwpSysCtrlMIBObjects=wwpSysCtrlMIBObjects, wwpSysCtrlLacpEnable=wwpSysCtrlLacpEnable, wwpSysCtrlMIB=wwpSysCtrlMIB, wwpSysCtrlMIBConformance=wwpSysCtrlMIBConformance, wwpSysCtrlMIBNotifications=wwpSysCtrlMIBNotifications, wwpSysCtrlMIBNotificationPrefix=wwpSysCtrlMIBNotificationPrefix, wwpSysCtrlBridgeRSTPEnable=wwpSysCtrlBridgeRSTPEnable, wwpPvstBpduReceived=wwpPvstBpduReceived)

@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module IPV6-TUNNEL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/quanta/IPV6-TUNNEL-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:19 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/quanta/IPV6-TUNNEL-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:08:21 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-InetAddressPrefixLength, InetAddressIPv4 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressPrefixLength", "InetAddressIPv4")
-Ipv6AddressPrefix, Ipv6IfIndex, Ipv6Address = mibBuilder.importSymbols("IPV6-TC", "Ipv6AddressPrefix", "Ipv6IfIndex", "Ipv6Address")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+InetAddressIPv4, InetAddressPrefixLength = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv4", "InetAddressPrefixLength")
+Ipv6IfIndex, Ipv6Address, Ipv6AddressPrefix = mibBuilder.importSymbols("IPV6-TC", "Ipv6IfIndex", "Ipv6Address", "Ipv6AddressPrefix")
 switch, = mibBuilder.importSymbols("QUANTA-SWITCH-MIB", "switch")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, TimeTicks, MibIdentifier, Integer32, Bits, mib_2, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "TimeTicks", "MibIdentifier", "Integer32", "Bits", "mib-2", "IpAddress")
-DisplayString, RowStatus, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention", "PhysAddress")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+Gauge32, MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, mib_2 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "mib-2")
+RowStatus, PhysAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "PhysAddress", "TextualConvention", "DisplayString")
 ipv6Tunnel = ModuleIdentity((1, 3, 6, 1, 4, 1, 7244, 2, 27))
 if mibBuilder.loadTexts: ipv6Tunnel.setLastUpdated('201108310000Z')
 if mibBuilder.loadTexts: ipv6Tunnel.setOrganization('QCI')
@@ -48,4 +48,4 @@ agentTunnelIPV6PrefixPrefixLen = MibTableColumn((1, 3, 6, 1, 4, 1, 7244, 2, 27, 
 if mibBuilder.loadTexts: agentTunnelIPV6PrefixPrefixLen.setStatus('current')
 agentTunnelIPV6PrefixStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7244, 2, 27, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: agentTunnelIPV6PrefixStatus.setStatus('current')
-mibBuilder.exportSymbols("IPV6-TUNNEL-MIB", agentTunnelMode=agentTunnelMode, agentTunnelIPV6PrefixPrefixLen=agentTunnelIPV6PrefixPrefixLen, agentTunnelLocalIP4Addr=agentTunnelLocalIP4Addr, agentTunnelIPV6PrefixEntry=agentTunnelIPV6PrefixEntry, PYSNMP_MODULE_ID=ipv6Tunnel, agentTunnelLocalIfIndex=agentTunnelLocalIfIndex, agentTunnelIPV6PrefixTable=agentTunnelIPV6PrefixTable, ipv6Tunnel=ipv6Tunnel, agentTunnelIPV6Entry=agentTunnelIPV6Entry, agentTunnelIPV6Group=agentTunnelIPV6Group, agentTunnelRemoteIP4Addr=agentTunnelRemoteIP4Addr, agentTunnelIfIndex=agentTunnelIfIndex, agentTunnelStatus=agentTunnelStatus, agentTunnelIPV6PrefixStatus=agentTunnelIPV6PrefixStatus, agentTunnelIPV6Table=agentTunnelIPV6Table, agentTunnelIPV6PrefixPrefix=agentTunnelIPV6PrefixPrefix, agentTunnelID=agentTunnelID, agentTunnelIcmpUnreachableMode=agentTunnelIcmpUnreachableMode)
+mibBuilder.exportSymbols("IPV6-TUNNEL-MIB", ipv6Tunnel=ipv6Tunnel, agentTunnelStatus=agentTunnelStatus, PYSNMP_MODULE_ID=ipv6Tunnel, agentTunnelIfIndex=agentTunnelIfIndex, agentTunnelLocalIfIndex=agentTunnelLocalIfIndex, agentTunnelIPV6PrefixEntry=agentTunnelIPV6PrefixEntry, agentTunnelIPV6Group=agentTunnelIPV6Group, agentTunnelLocalIP4Addr=agentTunnelLocalIP4Addr, agentTunnelIPV6PrefixStatus=agentTunnelIPV6PrefixStatus, agentTunnelMode=agentTunnelMode, agentTunnelIPV6Table=agentTunnelIPV6Table, agentTunnelIPV6PrefixTable=agentTunnelIPV6PrefixTable, agentTunnelIPV6Entry=agentTunnelIPV6Entry, agentTunnelID=agentTunnelID, agentTunnelRemoteIP4Addr=agentTunnelRemoteIP4Addr, agentTunnelIcmpUnreachableMode=agentTunnelIcmpUnreachableMode, agentTunnelIPV6PrefixPrefix=agentTunnelIPV6PrefixPrefix, agentTunnelIPV6PrefixPrefixLen=agentTunnelIPV6PrefixPrefixLen)

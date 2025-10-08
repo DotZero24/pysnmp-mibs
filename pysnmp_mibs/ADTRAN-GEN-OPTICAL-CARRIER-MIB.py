@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module ADTRAN-GEN-OPTICAL-CARRIER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-GEN-OPTICAL-CARRIER-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:59 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/adtran/ADTRAN-GEN-OPTICAL-CARRIER-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:53:30 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 adGenSlotInfoIndex, = mibBuilder.importSymbols("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex")
 adGenSubSlotProdInfoIndex, = mibBuilder.importSymbols("ADTRAN-GENSLOT-SUB-MODULE-MIB", "adGenSubSlotProdInfoIndex")
-adGenOpticalCarrier, adGenOpticalCarrierID = mibBuilder.importSymbols("ADTRAN-SHARED-CND-SYSTEM-MIB", "adGenOpticalCarrier", "adGenOpticalCarrierID")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+adGenOpticalCarrierID, adGenOpticalCarrier = mibBuilder.importSymbols("ADTRAN-SHARED-CND-SYSTEM-MIB", "adGenOpticalCarrierID", "adGenOpticalCarrier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 adGenOpticalCarrierMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 40, 1))
 adGenOpticalCarrierMIB.setRevisions(('2012-01-12 00:00', '2011-05-23 00:00',))
 if mibBuilder.loadTexts: adGenOpticalCarrierMIB.setLastUpdated('201201120000Z')
@@ -48,4 +48,4 @@ adGenOpticalCarrierProdPortInsertionLossDB = MibTableColumn((1, 3, 6, 1, 4, 1, 6
 if mibBuilder.loadTexts: adGenOpticalCarrierProdPortInsertionLossDB.setStatus('current')
 adGenOpticalCarrierProdPortIfIndexReference = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 40, 1, 2, 1, 7), InterfaceIndex()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: adGenOpticalCarrierProdPortIfIndexReference.setStatus('current')
-mibBuilder.exportSymbols("ADTRAN-GEN-OPTICAL-CARRIER-MIB", adGenOpticalCarrierProdPortMaxWaveLengthPicoMeter=adGenOpticalCarrierProdPortMaxWaveLengthPicoMeter, adGenOpticalCarrierProductPortTable=adGenOpticalCarrierProductPortTable, adGenOpticalCarrierProdPortMinWaveLengthPicoMeter=adGenOpticalCarrierProdPortMinWaveLengthPicoMeter, adGenOpticalCarrierProdNumOfPorts=adGenOpticalCarrierProdNumOfPorts, adGenOpticalCarrierProdType=adGenOpticalCarrierProdType, adGenOpticalCarrierProductTable=adGenOpticalCarrierProductTable, adGenOpticalCarrierProductPortEntry=adGenOpticalCarrierProductPortEntry, adGenOpticalCarrierProdGridSpacing=adGenOpticalCarrierProdGridSpacing, adGenOpticalCarrierMIB=adGenOpticalCarrierMIB, adGenOpticalCarrierProdPortInsertionLossDB=adGenOpticalCarrierProdPortInsertionLossDB, PYSNMP_MODULE_ID=adGenOpticalCarrierMIB, adGenOpticalCarrierProdPortType=adGenOpticalCarrierProdPortType, adGenOpticalCarrierProdPortDirection=adGenOpticalCarrierProdPortDirection, adGenOpticalCarrierProduct=adGenOpticalCarrierProduct, adGenOpticalCarrierProdPortInfoIndex=adGenOpticalCarrierProdPortInfoIndex, adGenOpticalCarrierProdPortIfIndexReference=adGenOpticalCarrierProdPortIfIndexReference, adGenOpticalCarrierProductEntry=adGenOpticalCarrierProductEntry)
+mibBuilder.exportSymbols("ADTRAN-GEN-OPTICAL-CARRIER-MIB", adGenOpticalCarrierProduct=adGenOpticalCarrierProduct, adGenOpticalCarrierProdPortType=adGenOpticalCarrierProdPortType, adGenOpticalCarrierProdPortIfIndexReference=adGenOpticalCarrierProdPortIfIndexReference, adGenOpticalCarrierProdPortInfoIndex=adGenOpticalCarrierProdPortInfoIndex, adGenOpticalCarrierProductTable=adGenOpticalCarrierProductTable, adGenOpticalCarrierProdNumOfPorts=adGenOpticalCarrierProdNumOfPorts, PYSNMP_MODULE_ID=adGenOpticalCarrierMIB, adGenOpticalCarrierProdPortMaxWaveLengthPicoMeter=adGenOpticalCarrierProdPortMaxWaveLengthPicoMeter, adGenOpticalCarrierProdType=adGenOpticalCarrierProdType, adGenOpticalCarrierProdGridSpacing=adGenOpticalCarrierProdGridSpacing, adGenOpticalCarrierProdPortInsertionLossDB=adGenOpticalCarrierProdPortInsertionLossDB, adGenOpticalCarrierProdPortDirection=adGenOpticalCarrierProdPortDirection, adGenOpticalCarrierProductPortEntry=adGenOpticalCarrierProductPortEntry, adGenOpticalCarrierProductPortTable=adGenOpticalCarrierProductPortTable, adGenOpticalCarrierProdPortMinWaveLengthPicoMeter=adGenOpticalCarrierProdPortMinWaveLengthPicoMeter, adGenOpticalCarrierProductEntry=adGenOpticalCarrierProductEntry, adGenOpticalCarrierMIB=adGenOpticalCarrierMIB)

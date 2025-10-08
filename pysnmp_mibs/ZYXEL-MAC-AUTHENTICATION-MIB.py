@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ZYXEL-MAC-AUTHENTICATION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-MAC-AUTHENTICATION-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:07 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zyxel/ZYXEL-MAC-AUTHENTICATION-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:04:04 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
 EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
 zyxelMacAuthentication = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 46))
 if mibBuilder.loadTexts: zyxelMacAuthentication.setLastUpdated('201207010000Z')
@@ -46,4 +46,4 @@ zyMacAuthenticationCase = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 46, 1, 7),
 if mibBuilder.loadTexts: zyMacAuthenticationCase.setStatus('current')
 zyMacAuthenticationPasswordType = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 46, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("static", 1), ("mac-address", 2)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: zyMacAuthenticationPasswordType.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-MAC-AUTHENTICATION-MIB", zyMacAuthenticationState=zyMacAuthenticationState, zyMacAuthenticationPortState=zyMacAuthenticationPortState, zyMacAuthenticationDelimiter=zyMacAuthenticationDelimiter, zyMacAuthenticationTimeout=zyMacAuthenticationTimeout, zyMacAuthenticationPortTrustedVlan2k=zyMacAuthenticationPortTrustedVlan2k, zyMacAuthenticationPassword=zyMacAuthenticationPassword, PYSNMP_MODULE_ID=zyxelMacAuthentication, zyxelMacAuthenticationSetup=zyxelMacAuthenticationSetup, zyMacAuthenticationNamePrefix=zyMacAuthenticationNamePrefix, zyxelMacAuthenticationPortEntry=zyxelMacAuthenticationPortEntry, zyMacAuthenticationPortTrustedVlan3k=zyMacAuthenticationPortTrustedVlan3k, zyMacAuthenticationPortTrustedVlan4k=zyMacAuthenticationPortTrustedVlan4k, zyxelMacAuthentication=zyxelMacAuthentication, zyMacAuthenticationCase=zyMacAuthenticationCase, zyxelMacAuthenticationPortTable=zyxelMacAuthenticationPortTable, zyMacAuthenticationPortTrustedVlan1k=zyMacAuthenticationPortTrustedVlan1k, zyMacAuthenticationPasswordType=zyMacAuthenticationPasswordType)
+mibBuilder.exportSymbols("ZYXEL-MAC-AUTHENTICATION-MIB", zyMacAuthenticationDelimiter=zyMacAuthenticationDelimiter, zyxelMacAuthentication=zyxelMacAuthentication, zyMacAuthenticationPortTrustedVlan4k=zyMacAuthenticationPortTrustedVlan4k, zyxelMacAuthenticationPortEntry=zyxelMacAuthenticationPortEntry, zyxelMacAuthenticationPortTable=zyxelMacAuthenticationPortTable, zyMacAuthenticationPortTrustedVlan2k=zyMacAuthenticationPortTrustedVlan2k, zyMacAuthenticationPortState=zyMacAuthenticationPortState, zyMacAuthenticationPasswordType=zyMacAuthenticationPasswordType, zyMacAuthenticationPassword=zyMacAuthenticationPassword, zyMacAuthenticationPortTrustedVlan3k=zyMacAuthenticationPortTrustedVlan3k, zyMacAuthenticationPortTrustedVlan1k=zyMacAuthenticationPortTrustedVlan1k, zyMacAuthenticationCase=zyMacAuthenticationCase, zyMacAuthenticationNamePrefix=zyMacAuthenticationNamePrefix, PYSNMP_MODULE_ID=zyxelMacAuthentication, zyMacAuthenticationState=zyMacAuthenticationState, zyxelMacAuthenticationSetup=zyxelMacAuthenticationSetup, zyMacAuthenticationTimeout=zyMacAuthenticationTimeout)

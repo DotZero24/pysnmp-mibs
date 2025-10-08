@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module H3C-EVPN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-EVPN-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:26 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-EVPN-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:12 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 h3cEvpn = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173))
 h3cEvpn.setRevisions(('2017-10-21 09:00',))
 if mibBuilder.loadTexts: h3cEvpn.setLastUpdated('201710210900Z')
@@ -57,4 +57,4 @@ h3cEvpnESDFRouterIPType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1,
 if mibBuilder.loadTexts: h3cEvpnESDFRouterIPType.setStatus('current')
 h3cEvpnESDFRouterIP = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 3, 1, 6), InetAddress()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: h3cEvpnESDFRouterIP.setStatus('current')
-mibBuilder.exportSymbols("H3C-EVPN-MIB", h3cEvpnESESI=h3cEvpnESESI, h3cEvpnESIfIndex=h3cEvpnESIfIndex, h3cEvpnESMemberIsSelf=h3cEvpnESMemberIsSelf, h3cEvpnESDFVLANID=h3cEvpnESDFVLANID, h3cEvpnESMemberIP=h3cEvpnESMemberIP, h3cEvpnESDFEntry=h3cEvpnESDFEntry, h3cEvpnESDFAcIfIndex=h3cEvpnESDFAcIfIndex, h3cEvpnESMemberIPType=h3cEvpnESMemberIPType, h3cEvpnESDFRouterIP=h3cEvpnESDFRouterIP, h3cEvpnESEntry=h3cEvpnESEntry, h3cEvpnESDFTable=h3cEvpnESDFTable, h3cEvpnESIfName=h3cEvpnESIfName, h3cEvpnESDFACEvcSrvInstId=h3cEvpnESDFACEvcSrvInstId, h3cEvpnESDFRouterIPType=h3cEvpnESDFRouterIPType, h3cEvpnESMode=h3cEvpnESMode, PYSNMP_MODULE_ID=h3cEvpn, h3cEvpn=h3cEvpn, h3cEvpnESMemberTable=h3cEvpnESMemberTable, h3cEvpnESMemberEntry=h3cEvpnESMemberEntry, h3cEvpnObjects=h3cEvpnObjects, h3cEvpnESTable=h3cEvpnESTable, h3cEvpnESDFMode=h3cEvpnESDFMode)
+mibBuilder.exportSymbols("H3C-EVPN-MIB", h3cEvpnESDFRouterIP=h3cEvpnESDFRouterIP, h3cEvpnESMemberIPType=h3cEvpnESMemberIPType, h3cEvpnESESI=h3cEvpnESESI, h3cEvpnESMode=h3cEvpnESMode, h3cEvpnESMemberTable=h3cEvpnESMemberTable, h3cEvpnESDFACEvcSrvInstId=h3cEvpnESDFACEvcSrvInstId, h3cEvpnESIfIndex=h3cEvpnESIfIndex, h3cEvpnESDFVLANID=h3cEvpnESDFVLANID, h3cEvpn=h3cEvpn, h3cEvpnESDFRouterIPType=h3cEvpnESDFRouterIPType, h3cEvpnESDFTable=h3cEvpnESDFTable, PYSNMP_MODULE_ID=h3cEvpn, h3cEvpnESMemberIsSelf=h3cEvpnESMemberIsSelf, h3cEvpnESDFAcIfIndex=h3cEvpnESDFAcIfIndex, h3cEvpnESEntry=h3cEvpnESEntry, h3cEvpnESMemberEntry=h3cEvpnESMemberEntry, h3cEvpnESIfName=h3cEvpnESIfName, h3cEvpnObjects=h3cEvpnObjects, h3cEvpnESDFMode=h3cEvpnESDFMode, h3cEvpnESDFEntry=h3cEvpnESDFEntry, h3cEvpnESTable=h3cEvpnESTable, h3cEvpnESMemberIP=h3cEvpnESMemberIP)

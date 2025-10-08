@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module A3COM-HUAWEI-IPV6-ADDRESS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-IPV6-ADDRESS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:37 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-IPV6-ADDRESS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:32:47 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 h3cCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCommon")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 h3cIpv6AddrMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 71))
 h3cIpv6AddrMIB.setRevisions(('2006-03-15 00:00',))
 if mibBuilder.loadTexts: h3cIpv6AddrMIB.setLastUpdated('200603150000Z')
@@ -51,4 +51,4 @@ h3cIpv6AddrReadSourceType = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 
 if mibBuilder.loadTexts: h3cIpv6AddrReadSourceType.setStatus('current')
 h3cIpv6AddrReadCatalog = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 71, 1, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("nodelocal", 1), ("linklocal", 2), ("sitelocal", 3), ("orglocal", 4), ("global", 5)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: h3cIpv6AddrReadCatalog.setStatus('current')
-mibBuilder.exportSymbols("A3COM-HUAWEI-IPV6-ADDRESS-MIB", h3cIpv6AddrReadSourceType=h3cIpv6AddrReadSourceType, h3cIpv6AddrSetRowStatus=h3cIpv6AddrSetRowStatus, h3cIpv6AddressObjects=h3cIpv6AddressObjects, h3cIpv6AddrReadPfxLength=h3cIpv6AddrReadPfxLength, h3cIpv6AddrReadCatalog=h3cIpv6AddrReadCatalog, h3cIpv6AddressConfig=h3cIpv6AddressConfig, h3cIpv6AddrSetAddr=h3cIpv6AddrSetAddr, h3cIpv6AddrMIB=h3cIpv6AddrMIB, h3cIpv6AddrReadAddrType=h3cIpv6AddrReadAddrType, h3cIpv6AddrSetAddrType=h3cIpv6AddrSetAddrType, h3cIpv6AddrReadIfIndex=h3cIpv6AddrReadIfIndex, h3cIpv6AddrSetPfxLength=h3cIpv6AddrSetPfxLength, h3cIpv6AddrSetSourceType=h3cIpv6AddrSetSourceType, h3cIpv6AddrReadTable=h3cIpv6AddrReadTable, h3cIpv6AddrSetEntry=h3cIpv6AddrSetEntry, h3cIpv6AddrSetTable=h3cIpv6AddrSetTable, h3cIpv6AddrReadAddr=h3cIpv6AddrReadAddr, PYSNMP_MODULE_ID=h3cIpv6AddrMIB, h3cIpv6AddrSetIfIndex=h3cIpv6AddrSetIfIndex, h3cIpv6AddrReadEntry=h3cIpv6AddrReadEntry)
+mibBuilder.exportSymbols("A3COM-HUAWEI-IPV6-ADDRESS-MIB", h3cIpv6AddrReadSourceType=h3cIpv6AddrReadSourceType, h3cIpv6AddrSetEntry=h3cIpv6AddrSetEntry, h3cIpv6AddrMIB=h3cIpv6AddrMIB, h3cIpv6AddrSetTable=h3cIpv6AddrSetTable, h3cIpv6AddrReadPfxLength=h3cIpv6AddrReadPfxLength, PYSNMP_MODULE_ID=h3cIpv6AddrMIB, h3cIpv6AddrReadAddr=h3cIpv6AddrReadAddr, h3cIpv6AddrSetIfIndex=h3cIpv6AddrSetIfIndex, h3cIpv6AddrSetRowStatus=h3cIpv6AddrSetRowStatus, h3cIpv6AddrReadAddrType=h3cIpv6AddrReadAddrType, h3cIpv6AddrReadCatalog=h3cIpv6AddrReadCatalog, h3cIpv6AddrSetSourceType=h3cIpv6AddrSetSourceType, h3cIpv6AddressConfig=h3cIpv6AddressConfig, h3cIpv6AddrReadTable=h3cIpv6AddrReadTable, h3cIpv6AddrSetAddrType=h3cIpv6AddrSetAddrType, h3cIpv6AddressObjects=h3cIpv6AddressObjects, h3cIpv6AddrSetAddr=h3cIpv6AddrSetAddr, h3cIpv6AddrReadEntry=h3cIpv6AddrReadEntry, h3cIpv6AddrReadIfIndex=h3cIpv6AddrReadIfIndex, h3cIpv6AddrSetPfxLength=h3cIpv6AddrSetPfxLength)

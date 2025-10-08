@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module LEFTHAND-NETWORKS-NUS-COMMON-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/LEFTHAND-NETWORKS-NUS-COMMON-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:28 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/LEFTHAND-NETWORKS-NUS-COMMON-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:09:55 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-lhnNusCommonMIB, lhnModules = mibBuilder.importSymbols("LEFTHAND-NETWORKS-GLOBAL-REG", "lhnNusCommonMIB", "lhnModules")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+lhnModules, lhnNusCommonMIB = mibBuilder.importSymbols("LEFTHAND-NETWORKS-GLOBAL-REG", "lhnModules", "lhnNusCommonMIB")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 leftHandNetworksNusCommonModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 9804, 1, 1, 2))
 if mibBuilder.loadTexts: leftHandNetworksNusCommonModule.setLastUpdated('200106010000Z')
 if mibBuilder.loadTexts: leftHandNetworksNusCommonModule.setOrganization('LeftHand Networks, Inc.')
@@ -41,4 +41,4 @@ lhnNusCommonComplianceV1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 1,
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     lhnNusCommonComplianceV1 = lhnNusCommonComplianceV1.setStatus('current')
-mibBuilder.exportSymbols("LEFTHAND-NETWORKS-NUS-COMMON-MIB", lhnNusCommonStatus=lhnNusCommonStatus, lhnNusCommonNTP=lhnNusCommonNTP, lhnNusCommonShares=lhnNusCommonShares, lhnNusCommonSysOptions=lhnNusCommonSysOptions, lhnNusCommonAEBS=lhnNusCommonAEBS, lhnNusCommonNTDomain=lhnNusCommonNTDomain, lhnNusCommonDNS=lhnNusCommonDNS, lhnNusCommonStorage=lhnNusCommonStorage, lhnNusCommonEvents=lhnNusCommonEvents, PYSNMP_MODULE_ID=leftHandNetworksNusCommonModule, lhnNusCommonNIS=lhnNusCommonNIS, lhnNusCommonCompl=lhnNusCommonCompl, lhnNusCommonNotification=lhnNusCommonNotification, lhnNusCommonComplianceV1=lhnNusCommonComplianceV1, leftHandNetworksNusCommonModule=leftHandNetworksNusCommonModule, lhnNusCommonClustering=lhnNusCommonClustering, lhnNusCommonGroups=lhnNusCommonGroups, lhnNusCommonSecurity=lhnNusCommonSecurity, lhnNusCommonObjs=lhnNusCommonObjs, lhnNusCommonConfs=lhnNusCommonConfs, lhnNusCommonInfo=lhnNusCommonInfo, lhnNusCommonNetwork=lhnNusCommonNetwork, lhnNusCommonBasicGroup=lhnNusCommonBasicGroup)
+mibBuilder.exportSymbols("LEFTHAND-NETWORKS-NUS-COMMON-MIB", lhnNusCommonNTP=lhnNusCommonNTP, lhnNusCommonClustering=lhnNusCommonClustering, lhnNusCommonNetwork=lhnNusCommonNetwork, leftHandNetworksNusCommonModule=leftHandNetworksNusCommonModule, lhnNusCommonInfo=lhnNusCommonInfo, lhnNusCommonBasicGroup=lhnNusCommonBasicGroup, lhnNusCommonConfs=lhnNusCommonConfs, lhnNusCommonStatus=lhnNusCommonStatus, lhnNusCommonNIS=lhnNusCommonNIS, lhnNusCommonEvents=lhnNusCommonEvents, lhnNusCommonStorage=lhnNusCommonStorage, lhnNusCommonNotification=lhnNusCommonNotification, lhnNusCommonNTDomain=lhnNusCommonNTDomain, lhnNusCommonGroups=lhnNusCommonGroups, lhnNusCommonObjs=lhnNusCommonObjs, lhnNusCommonShares=lhnNusCommonShares, lhnNusCommonSecurity=lhnNusCommonSecurity, lhnNusCommonComplianceV1=lhnNusCommonComplianceV1, PYSNMP_MODULE_ID=leftHandNetworksNusCommonModule, lhnNusCommonAEBS=lhnNusCommonAEBS, lhnNusCommonCompl=lhnNusCommonCompl, lhnNusCommonDNS=lhnNusCommonDNS, lhnNusCommonSysOptions=lhnNusCommonSysOptions)

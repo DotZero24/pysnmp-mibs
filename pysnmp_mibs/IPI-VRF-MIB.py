@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module IPI-VRF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mrv/IPI-VRF-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:39 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mrv/IPI-VRF-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:16:46 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention, RowStatus, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus", "StorageType")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+StorageType, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "StorageType", "RowStatus", "TextualConvention", "DisplayString")
 ipiVrfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6926, 2, 35))
 ipiVrfMIB.setRevisions(('2014-05-16 12:25',))
 if mibBuilder.loadTexts: ipiVrfMIB.setLastUpdated('201405161225Z')
@@ -68,4 +68,4 @@ ipiMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6926, 2, 35, 2, 2, 1)).se
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ipiMIBCompliance = ipiMIBCompliance.setStatus('current')
-mibBuilder.exportSymbols("IPI-VRF-MIB", ipiMIBVrfNotifGroup=ipiMIBVrfNotifGroup, ipiMIBGroups=ipiMIBGroups, ipiVrfMIB=ipiVrfMIB, ipiVrfIfUp=ipiVrfIfUp, ipiVrfEntry=ipiVrfEntry, ipiVrf=ipiVrf, ipiVrfIfDown=ipiVrfIfDown, ipiVrfOperStatus=ipiVrfOperStatus, ipiVrfName=ipiVrfName, ipiMIBCompliances=ipiMIBCompliances, ipiVrfTable=ipiVrfTable, ipiInterface=ipiInterface, oaccess=oaccess, ipiVrfInterfaceRowStatus=ipiVrfInterfaceRowStatus, PYSNMP_MODULE_ID=ipiVrfMIB, ipiVrfRouteDistProt=ipiVrfRouteDistProt, ipiVrfIndex=ipiVrfIndex, ipiVrfMIBNotifs=ipiVrfMIBNotifs, ipiVrfMIBObjects=ipiVrfMIBObjects, ipiVrfRowStatus=ipiVrfRowStatus, ipiVrfInterfaceTable=ipiVrfInterfaceTable, ipiVrfStorageType=ipiVrfStorageType, ipiVrfInterfaceIndex=ipiVrfInterfaceIndex, ipiVrfInterfaceStorageType=ipiVrfInterfaceStorageType, ipiMIBCompliance=ipiMIBCompliance, ipiVrfInterfaceEntry=ipiVrfInterfaceEntry, ipiMIBVrfGroup=ipiMIBVrfGroup, ipiVrfMIBConform=ipiVrfMIBConform, ipiVrfInterfaceName=ipiVrfInterfaceName, oaOptiSwitch=oaOptiSwitch)
+mibBuilder.exportSymbols("IPI-VRF-MIB", ipiVrfMIBConform=ipiVrfMIBConform, ipiVrfInterfaceStorageType=ipiVrfInterfaceStorageType, oaccess=oaccess, ipiVrfMIBNotifs=ipiVrfMIBNotifs, ipiVrfStorageType=ipiVrfStorageType, ipiVrfIfDown=ipiVrfIfDown, ipiMIBCompliance=ipiMIBCompliance, ipiVrfInterfaceTable=ipiVrfInterfaceTable, ipiVrfIfUp=ipiVrfIfUp, ipiMIBCompliances=ipiMIBCompliances, PYSNMP_MODULE_ID=ipiVrfMIB, ipiVrfRowStatus=ipiVrfRowStatus, ipiVrfEntry=ipiVrfEntry, ipiVrf=ipiVrf, ipiVrfTable=ipiVrfTable, ipiMIBVrfGroup=ipiMIBVrfGroup, ipiVrfInterfaceName=ipiVrfInterfaceName, ipiVrfInterfaceEntry=ipiVrfInterfaceEntry, ipiVrfRouteDistProt=ipiVrfRouteDistProt, ipiVrfMIB=ipiVrfMIB, ipiInterface=ipiInterface, oaOptiSwitch=oaOptiSwitch, ipiVrfInterfaceIndex=ipiVrfInterfaceIndex, ipiVrfOperStatus=ipiVrfOperStatus, ipiVrfInterfaceRowStatus=ipiVrfInterfaceRowStatus, ipiMIBVrfNotifGroup=ipiMIBVrfNotifGroup, ipiMIBGroups=ipiMIBGroups, ipiVrfMIBObjects=ipiVrfMIBObjects, ipiVrfIndex=ipiVrfIndex, ipiVrfName=ipiVrfName)

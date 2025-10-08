@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SWITCH-SLOTCARDMGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/SWITCH-SLOTCARDMGMT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:56 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/raisecom/SWITCH-SLOTCARDMGMT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:54:47 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 raisecomAgent, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "raisecomAgent")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 EnableVar, = mibBuilder.importSymbols("SWITCH-TC", "EnableVar")
 raisecomSlotCardmgmt = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 1, 23))
 raisecomSlotCardmgmt.setRevisions(('2011-01-04 00:00',))
@@ -40,4 +40,4 @@ raisecomSlotCardType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 23, 2, 2, 1, 4
 if mibBuilder.loadTexts: raisecomSlotCardType.setStatus('current')
 raisecomSlotCardDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 23, 2, 2, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(240, 240)).setFixedLength(240)).setMaxAccess("readonly")
 if mibBuilder.loadTexts: raisecomSlotCardDescr.setStatus('current')
-mibBuilder.exportSymbols("SWITCH-SLOTCARDMGMT-MIB", raisecomSlotCardNotification=raisecomSlotCardNotification, raisecomSlotCardGlobalGroup=raisecomSlotCardGlobalGroup, raisecomSlotCardEntry=raisecomSlotCardEntry, raisecomSlotCardTable=raisecomSlotCardTable, raisecomSlotCardIndex=raisecomSlotCardIndex, raisecomSlotCardTrapEnable=raisecomSlotCardTrapEnable, raisecomSlotCardStateChange=raisecomSlotCardStateChange, raisecomSlotCardmgmt=raisecomSlotCardmgmt, raisecomSlotCardSerialNumber=raisecomSlotCardSerialNumber, raisecomSlotCardMibObjects=raisecomSlotCardMibObjects, raisecomSlotCardNum=raisecomSlotCardNum, raisecomSlotCardState=raisecomSlotCardState, raisecomSlotCardDescr=raisecomSlotCardDescr, raisecomSlotCardType=raisecomSlotCardType, PYSNMP_MODULE_ID=raisecomSlotCardmgmt)
+mibBuilder.exportSymbols("SWITCH-SLOTCARDMGMT-MIB", raisecomSlotCardTrapEnable=raisecomSlotCardTrapEnable, raisecomSlotCardStateChange=raisecomSlotCardStateChange, raisecomSlotCardGlobalGroup=raisecomSlotCardGlobalGroup, PYSNMP_MODULE_ID=raisecomSlotCardmgmt, raisecomSlotCardNotification=raisecomSlotCardNotification, raisecomSlotCardTable=raisecomSlotCardTable, raisecomSlotCardIndex=raisecomSlotCardIndex, raisecomSlotCardState=raisecomSlotCardState, raisecomSlotCardEntry=raisecomSlotCardEntry, raisecomSlotCardType=raisecomSlotCardType, raisecomSlotCardSerialNumber=raisecomSlotCardSerialNumber, raisecomSlotCardDescr=raisecomSlotCardDescr, raisecomSlotCardMibObjects=raisecomSlotCardMibObjects, raisecomSlotCardNum=raisecomSlotCardNum, raisecomSlotCardmgmt=raisecomSlotCardmgmt)

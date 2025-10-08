@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module TN-CLEAR-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TN-CLEAR-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:21:16 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nokia/TN-CLEAR-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:39:58 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TimeStamp", "DisplayString")
 tnEventAppIndex, = mibBuilder.importSymbols("TN-LOG-MIB", "tnEventAppIndex")
 TNamedItem, TmnxActionType = mibBuilder.importSymbols("TN-TC-MIB", "TNamedItem", "TmnxActionType")
-tnSRMIBModules, tnSRNotifyPrefix, tnSRObjs = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnSRMIBModules", "tnSRNotifyPrefix", "tnSRObjs")
+tnSRNotifyPrefix, tnSRObjs, tnSRMIBModules = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnSRNotifyPrefix", "tnSRObjs", "tnSRMIBModules")
 tnSysSwitchId, = mibBuilder.importSymbols("TROPIC-SYSTEM-MIB", "tnSysSwitchId")
 tnClearMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 7483, 5, 1, 3, 13))
 tnClearMIBModule.setRevisions(('2005-01-24 00:00', '2004-06-02 00:00', '2004-01-15 00:00', '2003-08-15 00:00', '2003-01-20 00:00', '2002-02-27 00:00',))
@@ -46,4 +46,4 @@ tnClearScalar2 = MibScalar((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 13, 102), Unsigned3
 if mibBuilder.loadTexts: tnClearScalar2.setStatus('current')
 tnClear = NotificationType((1, 3, 6, 1, 4, 1, 7483, 6, 1, 3, 13, 0, 1)).setObjects(("TN-CLEAR-MIB", "tnClearName"), ("TN-CLEAR-MIB", "tnClearParams"), ("TN-CLEAR-MIB", "tnClearLastClearedTime"), ("TN-CLEAR-MIB", "tnClearResult"), ("TN-CLEAR-MIB", "tnClearErrorText"))
 if mibBuilder.loadTexts: tnClear.setStatus('current')
-mibBuilder.exportSymbols("TN-CLEAR-MIB", tnClearTable=tnClearTable, tnClearName=tnClearName, tnClearParams=tnClearParams, tnClearErrorText=tnClearErrorText, tnClearNotificationsPrefix=tnClearNotificationsPrefix, tnClearLastClearedTime=tnClearLastClearedTime, tnClearScalar2=tnClearScalar2, tnClear=tnClear, tnClearResult=tnClearResult, tnClearIndex=tnClearIndex, tnClearMIBModule=tnClearMIBModule, tnClearScalar1=tnClearScalar1, tnClearEntry=tnClearEntry, tnClearAction=tnClearAction, PYSNMP_MODULE_ID=tnClearMIBModule, tnClearObjs=tnClearObjs, tnClearNotifications=tnClearNotifications)
+mibBuilder.exportSymbols("TN-CLEAR-MIB", tnClearNotifications=tnClearNotifications, tnClearMIBModule=tnClearMIBModule, tnClearAction=tnClearAction, tnClearObjs=tnClearObjs, tnClearParams=tnClearParams, tnClearResult=tnClearResult, tnClearErrorText=tnClearErrorText, tnClearLastClearedTime=tnClearLastClearedTime, tnClear=tnClear, tnClearEntry=tnClearEntry, PYSNMP_MODULE_ID=tnClearMIBModule, tnClearNotificationsPrefix=tnClearNotificationsPrefix, tnClearTable=tnClearTable, tnClearScalar1=tnClearScalar1, tnClearScalar2=tnClearScalar2, tnClearName=tnClearName, tnClearIndex=tnClearIndex)

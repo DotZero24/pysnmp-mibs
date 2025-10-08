@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ALCATEL-IND1-IPMRM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alcatel/ALCATEL-IND1-IPMRM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:40:05 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alcatel/ALCATEL-IND1-IPMRM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:06:52 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 routingIND1Ipmrm, = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "routingIND1Ipmrm")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 alcatelIND1IPMRMMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1))
 alcatelIND1IPMRMMIB.setRevisions(('2007-04-03 00:00',))
 if mibBuilder.loadTexts: alcatelIND1IPMRMMIB.setLastUpdated('200704030000Z')
@@ -50,4 +50,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 alaIpmrmDebugMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 2, 2, 2)).setObjects(("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugLevel"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugError"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugFib"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugAging"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugProtos"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugIpms"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugMip"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugInit"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugTm"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugMisc"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugAll"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     alaIpmrmDebugMIBGroup = alaIpmrmDebugMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("ALCATEL-IND1-IPMRM-MIB", alaIpmrmDebugConfig=alaIpmrmDebugConfig, alaIpmrmDebugInit=alaIpmrmDebugInit, alaIpmrmDebugIpms=alaIpmrmDebugIpms, alaIpmrmDebugAging=alaIpmrmDebugAging, alaIpmrmDebugFib=alaIpmrmDebugFib, alaIpmrmDebugTm=alaIpmrmDebugTm, alaIpmrmDebugAll=alaIpmrmDebugAll, alaIpmrmDebugMisc=alaIpmrmDebugMisc, alcatelIND1IPMRMMIBConformance=alcatelIND1IPMRMMIBConformance, alaIpmrmDebugLevel=alaIpmrmDebugLevel, alaIpmrmDebugMip=alaIpmrmDebugMip, alaIpmrmDebugMIBGroup=alaIpmrmDebugMIBGroup, alcatelIND1IPMRMMIBCompliances=alcatelIND1IPMRMMIBCompliances, alcatelIND1IPMRMMIBObjects=alcatelIND1IPMRMMIBObjects, alcatelIND1IPMRMMIB=alcatelIND1IPMRMMIB, alaIpmrmCompliance=alaIpmrmCompliance, PYSNMP_MODULE_ID=alcatelIND1IPMRMMIB, alcatelIND1IPMRMMIBGroups=alcatelIND1IPMRMMIBGroups, alaIpmrmDebugError=alaIpmrmDebugError, alaIpmrmDebugProtos=alaIpmrmDebugProtos)
+mibBuilder.exportSymbols("ALCATEL-IND1-IPMRM-MIB", alaIpmrmDebugInit=alaIpmrmDebugInit, alcatelIND1IPMRMMIBGroups=alcatelIND1IPMRMMIBGroups, alaIpmrmDebugAll=alaIpmrmDebugAll, alcatelIND1IPMRMMIBConformance=alcatelIND1IPMRMMIBConformance, alaIpmrmDebugAging=alaIpmrmDebugAging, alaIpmrmDebugMip=alaIpmrmDebugMip, alaIpmrmDebugProtos=alaIpmrmDebugProtos, alaIpmrmDebugConfig=alaIpmrmDebugConfig, alaIpmrmCompliance=alaIpmrmCompliance, alcatelIND1IPMRMMIB=alcatelIND1IPMRMMIB, alaIpmrmDebugMisc=alaIpmrmDebugMisc, alaIpmrmDebugFib=alaIpmrmDebugFib, alaIpmrmDebugError=alaIpmrmDebugError, alaIpmrmDebugLevel=alaIpmrmDebugLevel, PYSNMP_MODULE_ID=alcatelIND1IPMRMMIB, alcatelIND1IPMRMMIBObjects=alcatelIND1IPMRMMIBObjects, alaIpmrmDebugIpms=alaIpmrmDebugIpms, alaIpmrmDebugMIBGroup=alaIpmrmDebugMIBGroup, alcatelIND1IPMRMMIBCompliances=alcatelIND1IPMRMMIBCompliances, alaIpmrmDebugTm=alaIpmrmDebugTm)

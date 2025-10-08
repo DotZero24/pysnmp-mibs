@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module P8610-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/comet/P8610-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:37 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/comet/P8610-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:46:57 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, NotificationType, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 class DisplayString(OctetString):
     pass
 
@@ -75,4 +75,4 @@ trapCh1HighAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,11)).setObjec
 trapCh1LowAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,21)).setObjects(("P8610-MIB", "ch1Name"), ("P8610-MIB", "ch1Val"), ("P8610-MIB", "ch1Alarm"), ("P8610-MIB", "sensorName"), ("P8610-MIB", "messageString"))
 trapCh1ClrAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,31)).setObjects(("P8610-MIB", "ch1Name"), ("P8610-MIB", "ch1Val"), ("P8610-MIB", "ch1Alarm"), ("P8610-MIB", "sensorName"), ("P8610-MIB", "messageString"))
 trapCh1Error = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,41)).setObjects(("P8610-MIB", "ch1Name"), ("P8610-MIB", "ch1Val"), ("P8610-MIB", "ch1Alarm"), ("P8610-MIB", "sensorName"), ("P8610-MIB", "messageString"))
-mibBuilder.exportSymbols("P8610-MIB", trapNTPError=trapNTPError, historyTable=historyTable, p8610=p8610, comet=comet, ch1LimHyst=ch1LimHyst, trapEmailErrDNS=trapEmailErrDNS, trapEmailErrLogin=trapEmailErrLogin, historyEntry=historyEntry, ch1IntVal=ch1IntVal, ch1value=ch1value, ch1Alarm=ch1Alarm, trapSOAPErrDelivery=trapSOAPErrDelivery, ch1Min=ch1Min, trapCh1ClrAlarm=trapCh1ClrAlarm, serialNumber=serialNumber, sensorName=sensorName, trapEmailErrAuth=trapEmailErrAuth, ch1LimLo=ch1LimLo, ch1Unit=ch1Unit, ch1Name=ch1Name, channel1=channel1, traps=traps, tables=tables, messageString=messageString, ch1LimDelay=ch1LimDelay, trapCh1LowAlarm=trapCh1LowAlarm, trapSOAPErrDNS=trapSOAPErrDNS, trapSOAPErrSocket=trapSOAPErrSocket, trapCh1Error=trapCh1Error, ch1AlarmStr=ch1AlarmStr, trapEmailErrSocket=trapEmailErrSocket, deviceType=deviceType, trapEmailErrSome=trapEmailErrSome, ch1LimHi=ch1LimHi, trapTest=trapTest, channels=channels, products=products, ch1Max=ch1Max, ch1Val=ch1Val, pysmi_global=pysmi_global, trapCh1HighAlarm=trapCh1HighAlarm, DisplayString=DisplayString, trapSOAPErrFile=trapSOAPErrFile)
+mibBuilder.exportSymbols("P8610-MIB", trapNTPError=trapNTPError, trapCh1Error=trapCh1Error, trapSOAPErrFile=trapSOAPErrFile, DisplayString=DisplayString, p8610=p8610, trapEmailErrAuth=trapEmailErrAuth, messageString=messageString, trapCh1LowAlarm=trapCh1LowAlarm, trapEmailErrSocket=trapEmailErrSocket, traps=traps, trapEmailErrSome=trapEmailErrSome, sensorName=sensorName, ch1Unit=ch1Unit, ch1IntVal=ch1IntVal, serialNumber=serialNumber, trapSOAPErrDelivery=trapSOAPErrDelivery, ch1Min=ch1Min, trapSOAPErrDNS=trapSOAPErrDNS, comet=comet, pysmi_global=pysmi_global, ch1Name=ch1Name, deviceType=deviceType, trapCh1HighAlarm=trapCh1HighAlarm, trapTest=trapTest, historyTable=historyTable, ch1Val=ch1Val, ch1LimLo=ch1LimLo, ch1LimDelay=ch1LimDelay, trapSOAPErrSocket=trapSOAPErrSocket, trapCh1ClrAlarm=trapCh1ClrAlarm, historyEntry=historyEntry, products=products, ch1Alarm=ch1Alarm, channels=channels, ch1AlarmStr=ch1AlarmStr, tables=tables, trapEmailErrDNS=trapEmailErrDNS, channel1=channel1, ch1LimHi=ch1LimHi, ch1value=ch1value, ch1LimHyst=ch1LimHyst, ch1Max=ch1Max, trapEmailErrLogin=trapEmailErrLogin)

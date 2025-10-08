@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module CISCO-AAL5-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-AAL5-EXT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:53 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-AAL5-EXT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:25:37 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 aal5VccEntry, = mibBuilder.importSymbols("ATM-MIB", "aal5VccEntry")
 ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ciscoAal5ExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 9999))
 ciscoAal5ExtMIB.setRevisions(('2001-11-05 00:00',))
 if mibBuilder.loadTexts: ciscoAal5ExtMIB.setLastUpdated('200111050000Z')
@@ -51,4 +51,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 ciscoAal5ExtMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 9999, 2, 2, 1)).setObjects(("CISCO-AAL5-EXT-MIB", "cAal5VccInDroppedPkts"), ("CISCO-AAL5-EXT-MIB", "cAal5VccOutDroppedPkts"), ("CISCO-AAL5-EXT-MIB", "cAal5VccInDroppedOctets"), ("CISCO-AAL5-EXT-MIB", "cAal5VccOutDroppedOctets"), ("CISCO-AAL5-EXT-MIB", "cAal5VccInCells"), ("CISCO-AAL5-EXT-MIB", "cAal5VccOutCells"), ("CISCO-AAL5-EXT-MIB", "cAal5VccInDroppedCells"), ("CISCO-AAL5-EXT-MIB", "cAal5VccOutDroppedCells"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ciscoAal5ExtMIBGroup = ciscoAal5ExtMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-AAL5-EXT-MIB", cAal5ExtVccTable=cAal5ExtVccTable, cAal5VccInDroppedOctets=cAal5VccInDroppedOctets, cAal5VccOutDroppedPkts=cAal5VccOutDroppedPkts, cAal5VccInCells=cAal5VccInCells, cAal5VccInDroppedCells=cAal5VccInDroppedCells, ciscoAAL5ExtMIBGroups=ciscoAAL5ExtMIBGroups, cAal5VccOutDroppedCells=cAal5VccOutDroppedCells, cAal5VccInDroppedPkts=cAal5VccInDroppedPkts, ciscoAal5ExtMIB=ciscoAal5ExtMIB, cAal5VccOutCells=cAal5VccOutCells, ciscoAAL5ExtMIBConformance=ciscoAAL5ExtMIBConformance, cAal5ExtConnections=cAal5ExtConnections, cAal5VccOutDroppedOctets=cAal5VccOutDroppedOctets, ciscoAAL5ExtMIBCompliances=ciscoAAL5ExtMIBCompliances, ciscoAAL5ExtMIBCompliance=ciscoAAL5ExtMIBCompliance, ciscoAal5ExtMIBGroup=ciscoAal5ExtMIBGroup, ciscoAal5ExtMIBObjects=ciscoAal5ExtMIBObjects, cAal5ExtVccEntry=cAal5ExtVccEntry, PYSNMP_MODULE_ID=ciscoAal5ExtMIB)
+mibBuilder.exportSymbols("CISCO-AAL5-EXT-MIB", cAal5ExtVccEntry=cAal5ExtVccEntry, cAal5VccInDroppedCells=cAal5VccInDroppedCells, PYSNMP_MODULE_ID=ciscoAal5ExtMIB, cAal5VccInDroppedPkts=cAal5VccInDroppedPkts, ciscoAAL5ExtMIBCompliance=ciscoAAL5ExtMIBCompliance, cAal5VccOutDroppedPkts=cAal5VccOutDroppedPkts, cAal5VccOutCells=cAal5VccOutCells, ciscoAAL5ExtMIBConformance=ciscoAAL5ExtMIBConformance, ciscoAAL5ExtMIBGroups=ciscoAAL5ExtMIBGroups, cAal5VccOutDroppedCells=cAal5VccOutDroppedCells, ciscoAAL5ExtMIBCompliances=ciscoAAL5ExtMIBCompliances, cAal5VccInDroppedOctets=cAal5VccInDroppedOctets, ciscoAal5ExtMIB=ciscoAal5ExtMIB, cAal5VccOutDroppedOctets=cAal5VccOutDroppedOctets, cAal5VccInCells=cAal5VccInCells, ciscoAal5ExtMIBGroup=ciscoAal5ExtMIBGroup, ciscoAal5ExtMIBObjects=ciscoAal5ExtMIBObjects, cAal5ExtConnections=cAal5ExtConnections, cAal5ExtVccTable=cAal5ExtVccTable)

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module Th2e-v01-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/papouch/Th2e-v01-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:27:55 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/papouch/Th2e-v01-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:50:28 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, NotificationType, Integer32, enterprises, Gauge32, Counter64, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, Unsigned32, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Integer32", "enterprises", "Gauge32", "Counter64", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "Unsigned32", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 papouchProjekt = MibIdentifier((1, 3, 6, 1, 4, 1, 18248))
 the = MibIdentifier((1, 3, 6, 1, 4, 1, 18248, 20))
 version1 = MibIdentifier((1, 3, 6, 1, 4, 1, 18248, 20, 1))
@@ -47,4 +47,4 @@ if mibBuilder.loadTexts: deviceName.setStatus('mandatory')
 psAlarmString = MibScalar((1, 3, 6, 1, 4, 1, 18248, 20, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: psAlarmString.setStatus('mandatory')
 temp_msg = NotificationType((1, 3, 6, 1, 4, 1, 18248, 20, 1, 1) + (0,1)).setLabel("temp-msg").setObjects(("Th2e-v01-MIB", "deviceName"), ("Th2e-v01-MIB", "psAlarmString"))
-mibBuilder.exportSymbols("Th2e-v01-MIB", inChUnits=inChUnits, deviceName=deviceName, modeWatch=modeWatch, temp_msg=temp_msg, version1=version1, limitHi=limitHi, inChStatus=inChStatus, table_watchValue=table_watchValue, watchValTable=watchValTable, inChValue=inChValue, device_var=device_var, channelEntry=channelEntry, PositiveInteger=PositiveInteger, watchValEntry=watchValEntry, the=the, channelTable=channelTable, table_channel=table_channel, limitHy=limitHy, psAlarmString=psAlarmString, limitLo=limitLo, papouchProjekt=papouchProjekt)
+mibBuilder.exportSymbols("Th2e-v01-MIB", table_channel=table_channel, limitHy=limitHy, modeWatch=modeWatch, inChValue=inChValue, limitLo=limitLo, PositiveInteger=PositiveInteger, temp_msg=temp_msg, table_watchValue=table_watchValue, inChUnits=inChUnits, papouchProjekt=papouchProjekt, channelEntry=channelEntry, limitHi=limitHi, deviceName=deviceName, device_var=device_var, watchValTable=watchValTable, version1=version1, psAlarmString=psAlarmString, the=the, watchValEntry=watchValEntry, inChStatus=inChStatus, channelTable=channelTable)

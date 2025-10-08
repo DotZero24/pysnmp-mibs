@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module CIE1000-TC (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CIE1000-TC
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:21 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CIE1000-TC
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:32:19 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 class CIE1000Integer8(TextualConvention, Integer32):
     status = 'current'
@@ -174,4 +174,4 @@ class CIE1000PortStatusSpeed(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))
     namedValues = NamedValues(("undefined", 0), ("speed10M", 1), ("speed100M", 2), ("speed1G", 3), ("speed2G5", 4), ("speed5G", 5), ("speed10G", 6), ("speed12G", 7))
 
-mibBuilder.exportSymbols("CIE1000-TC", CIE1000MepDmTimeUnit=CIE1000MepDmTimeUnit, CIE1000VcapKeyType=CIE1000VcapKeyType, CIE1000Unsigned8=CIE1000Unsigned8, CIE1000EtherType=CIE1000EtherType, CIE1000VlanOrZero=CIE1000VlanOrZero, CIE1000ASRType=CIE1000ASRType, CIE1000Percent=CIE1000Percent, CIE1000AdvDestMacType=CIE1000AdvDestMacType, CIE1000Integer64=CIE1000Integer64, CIE1000VclProtoEncap=CIE1000VclProtoEncap, CIE1000ASType=CIE1000ASType, CIE1000MepInstanceDirection=CIE1000MepInstanceDirection, CIE1000VlanListQuarter=CIE1000VlanListQuarter, CIE1000Vlan=CIE1000Vlan, CIE1000Unsigned64=CIE1000Unsigned64, CIE1000DisplayString=CIE1000DisplayString, CIE1000BitType=CIE1000BitType, CIE1000DestMacType=CIE1000DestMacType, CIE1000PortStatusSpeed=CIE1000PortStatusSpeed, CIE1000RowEditorState=CIE1000RowEditorState, CIE1000Unsigned16=CIE1000Unsigned16, CIE1000MepTxRate=CIE1000MepTxRate, CIE1000VlanTagPriority=CIE1000VlanTagPriority, CIE1000SfpTransceiver=CIE1000SfpTransceiver, CIE1000InterfaceIndex=CIE1000InterfaceIndex, CIE1000TimeStamp=CIE1000TimeStamp, CIE1000Integer8=CIE1000Integer8, CIE1000PortList=CIE1000PortList, CIE1000Integer16=CIE1000Integer16, CIE1000IpAddress=CIE1000IpAddress, CIE1000VlanTagType=CIE1000VlanTagType, CIE1000InetAddress=CIE1000InetAddress)
+mibBuilder.exportSymbols("CIE1000-TC", CIE1000EtherType=CIE1000EtherType, CIE1000Unsigned8=CIE1000Unsigned8, CIE1000VlanTagPriority=CIE1000VlanTagPriority, CIE1000ASRType=CIE1000ASRType, CIE1000BitType=CIE1000BitType, CIE1000AdvDestMacType=CIE1000AdvDestMacType, CIE1000Unsigned16=CIE1000Unsigned16, CIE1000PortStatusSpeed=CIE1000PortStatusSpeed, CIE1000VlanOrZero=CIE1000VlanOrZero, CIE1000RowEditorState=CIE1000RowEditorState, CIE1000Percent=CIE1000Percent, CIE1000IpAddress=CIE1000IpAddress, CIE1000MepTxRate=CIE1000MepTxRate, CIE1000SfpTransceiver=CIE1000SfpTransceiver, CIE1000Integer8=CIE1000Integer8, CIE1000TimeStamp=CIE1000TimeStamp, CIE1000Vlan=CIE1000Vlan, CIE1000Integer16=CIE1000Integer16, CIE1000Unsigned64=CIE1000Unsigned64, CIE1000DestMacType=CIE1000DestMacType, CIE1000VlanTagType=CIE1000VlanTagType, CIE1000InetAddress=CIE1000InetAddress, CIE1000Integer64=CIE1000Integer64, CIE1000MepInstanceDirection=CIE1000MepInstanceDirection, CIE1000DisplayString=CIE1000DisplayString, CIE1000VlanListQuarter=CIE1000VlanListQuarter, CIE1000MepDmTimeUnit=CIE1000MepDmTimeUnit, CIE1000VclProtoEncap=CIE1000VclProtoEncap, CIE1000ASType=CIE1000ASType, CIE1000InterfaceIndex=CIE1000InterfaceIndex, CIE1000PortList=CIE1000PortList, CIE1000VcapKeyType=CIE1000VcapKeyType)

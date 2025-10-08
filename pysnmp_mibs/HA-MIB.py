@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module HA-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/brocade/HA-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:56 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/brocade/HA-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:15:24 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 fibrechannel, = mibBuilder.importSymbols("Brocade-REG-MIB", "fibrechannel")
-entPhysicalName, entPhysicalIndex = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalName", "entPhysicalIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-swID, swSsn = mibBuilder.importSymbols("SW-MIB", "swID", "swSsn")
+entPhysicalIndex, entPhysicalName = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex", "entPhysicalName")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+swSsn, swID = mibBuilder.importSymbols("SW-MIB", "swSsn", "swID")
 haMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2))
 haMIB.setRevisions(('2002-08-16 00:00', '2004-02-25 15:30', '2009-02-09 00:00', '2009-04-06 00:00', '2009-06-25 12:00', '2010-07-22 10:00', '2012-09-25 10:00', '2013-05-07 17:57',))
 if mibBuilder.loadTexts: haMIB.setLastUpdated('201305071757Z')
@@ -104,4 +104,4 @@ cpStatusChanged = NotificationType((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 2, 0, 2)).s
 if mibBuilder.loadTexts: cpStatusChanged.setStatus('current')
 fruHistoryTrap = NotificationType((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 2, 0, 3)).setObjects(("HA-MIB", "fruHistoryClass"), ("HA-MIB", "fruHistoryObjectNum"), ("HA-MIB", "fruHistoryEvent"), ("HA-MIB", "fruHistoryTime"), ("HA-MIB", "fruHistoryFactoryPartNum"), ("HA-MIB", "fruHistoryFactorySerialNum"))
 if mibBuilder.loadTexts: fruHistoryTrap.setStatus('current')
-mibBuilder.exportSymbols("HA-MIB", haMIB=haMIB, fruTable=fruTable, cpLastEvent=cpLastEvent, fruHistoryEntry=fruHistoryEntry, fruObjectNum=fruObjectNum, bpTable=bpTable, cpIpGateway=cpIpGateway, fruSupplierPartNum=fruSupplierPartNum, fruHistoryTable=fruHistoryTable, fruHistoryObjectNum=fruHistoryObjectNum, fruHistoryFactorySerialNum=fruHistoryFactorySerialNum, fruSupplierSerialNum=fruSupplierSerialNum, bpEntry=bpEntry, bpIpGateway=bpIpGateway, haMIBTrapPrefix=haMIBTrapPrefix, bpsubNetMaskIpaddress=bpsubNetMaskIpaddress, fruHistoryTrap=fruHistoryTrap, cpIpAddress=cpIpAddress, fruStatusChanged=fruStatusChanged, fruClass=fruClass, fruStatus=fruStatus, fruHistoryClass=fruHistoryClass, cpStatusChanged=cpStatusChanged, bpeth0IpAddress=bpeth0IpAddress, bpSasPriVersion=bpSasPriVersion, FruClass=FruClass, PYSNMP_MODULE_ID=haMIB, cpIpMask=cpIpMask, fruHistoryIndex=fruHistoryIndex, haMIBTraps=haMIBTraps, highAvailability=highAvailability, cpStatus=cpStatus, fruHistoryFactoryPartNum=fruHistoryFactoryPartNum, cpEntry=cpEntry, fruHistoryTime=fruHistoryTime, fruSupplierId=fruSupplierId, fruPowerConsumption=fruPowerConsumption, bpeth1IpAddress=bpeth1IpAddress, haStatus=haStatus, cpTable=cpTable, fruSupplierRevCode=fruSupplierRevCode, bpSasSecVersion=bpSasSecVersion, bpStatus=bpStatus, fruHistoryEvent=fruHistoryEvent, fRUEntry=fRUEntry)
+mibBuilder.exportSymbols("HA-MIB", fruTable=fruTable, bpEntry=bpEntry, bpSasSecVersion=bpSasSecVersion, bpSasPriVersion=bpSasPriVersion, fruSupplierSerialNum=fruSupplierSerialNum, fruHistoryEvent=fruHistoryEvent, cpEntry=cpEntry, PYSNMP_MODULE_ID=haMIB, cpTable=cpTable, haMIBTraps=haMIBTraps, fruHistoryFactorySerialNum=fruHistoryFactorySerialNum, fruSupplierRevCode=fruSupplierRevCode, cpLastEvent=cpLastEvent, haMIBTrapPrefix=haMIBTrapPrefix, fruHistoryTime=fruHistoryTime, fruHistoryIndex=fruHistoryIndex, cpIpMask=cpIpMask, fRUEntry=fRUEntry, fruStatusChanged=fruStatusChanged, bpIpGateway=bpIpGateway, fruHistoryTable=fruHistoryTable, fruPowerConsumption=fruPowerConsumption, cpStatus=cpStatus, bpStatus=bpStatus, bpTable=bpTable, fruSupplierId=fruSupplierId, fruHistoryEntry=fruHistoryEntry, cpIpAddress=cpIpAddress, cpIpGateway=cpIpGateway, fruClass=fruClass, fruHistoryTrap=fruHistoryTrap, fruStatus=fruStatus, FruClass=FruClass, bpeth0IpAddress=bpeth0IpAddress, fruObjectNum=fruObjectNum, bpeth1IpAddress=bpeth1IpAddress, haStatus=haStatus, fruHistoryFactoryPartNum=fruHistoryFactoryPartNum, bpsubNetMaskIpaddress=bpsubNetMaskIpaddress, haMIB=haMIB, cpStatusChanged=cpStatusChanged, highAvailability=highAvailability, fruHistoryObjectNum=fruHistoryObjectNum, fruHistoryClass=fruHistoryClass, fruSupplierPartNum=fruSupplierPartNum)

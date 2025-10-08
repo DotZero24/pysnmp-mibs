@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module RBTWS-CLIENT-SESSION-TC (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/RBTWS-CLIENT-SESSION-TC
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:56 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cabletron/RBTWS-CLIENT-SESSION-TC
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:13:46 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 rbtwsMibs, = mibBuilder.importSymbols("RBTWS-ROOT-MIB", "rbtwsMibs")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 rbtwsClientSessionTc = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 10))
 rbtwsClientSessionTc.setRevisions(('2007-10-08 00:10', '2006-09-26 00:01',))
@@ -41,4 +41,4 @@ class RbtwsClientAccessMode(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
     namedValues = NamedValues(("other", 1), ("ap", 2), ("wired", 3))
 
-mibBuilder.exportSymbols("RBTWS-CLIENT-SESSION-TC", RbtwsClientAuthenProtocolType=RbtwsClientAuthenProtocolType, rbtwsClientSessionTc=rbtwsClientSessionTc, RbtwsClientDot1xState=RbtwsClientDot1xState, RbtwsClientSessionState=RbtwsClientSessionState, PYSNMP_MODULE_ID=rbtwsClientSessionTc, RbtwsClientAccessMode=RbtwsClientAccessMode, RbtwsUserAccessType=RbtwsUserAccessType)
+mibBuilder.exportSymbols("RBTWS-CLIENT-SESSION-TC", RbtwsUserAccessType=RbtwsUserAccessType, RbtwsClientSessionState=RbtwsClientSessionState, RbtwsClientDot1xState=RbtwsClientDot1xState, RbtwsClientAuthenProtocolType=RbtwsClientAuthenProtocolType, RbtwsClientAccessMode=RbtwsClientAccessMode, rbtwsClientSessionTc=rbtwsClientSessionTc, PYSNMP_MODULE_ID=rbtwsClientSessionTc)

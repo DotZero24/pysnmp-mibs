@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SUNMANAGEMENTCENTER-TRAP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/oracle/SUNMANAGEMENTCENTER-TRAP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:08 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/oracle/SUNMANAGEMENTCENTER-TRAP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:45 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 traps = ModuleIdentity((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 0))
 traps.setRevisions(('1999-07-20 15:05',))
 if mibBuilder.loadTexts: traps.setLastUpdated('9907201505Z')
@@ -37,4 +37,4 @@ refreshOID = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 1, 3, 2), ObjectIdentifi
 if mibBuilder.loadTexts: refreshOID.setStatus('current')
 moduleInfo = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 1, 3, 5), OctetString()).setMaxAccess("accessiblefornotify")
 if mibBuilder.loadTexts: moduleInfo.setStatus('current')
-mibBuilder.exportSymbols("SUNMANAGEMENTCENTER-TRAP-MIB", base=base, refreshOID=refreshOID, statusChange=statusChange, valueRefresh=valueRefresh, PYSNMP_MODULE_ID=traps, sunsymon=sunsymon, moduleUnloaded=moduleUnloaded, moduleInfo=moduleInfo, prod=prod, traps=traps, statusOID=statusOID, agent=agent, trapInfoGroup=trapInfoGroup, sun=sun, moduleLoaded=moduleLoaded)
+mibBuilder.exportSymbols("SUNMANAGEMENTCENTER-TRAP-MIB", agent=agent, sun=sun, valueRefresh=valueRefresh, trapInfoGroup=trapInfoGroup, moduleLoaded=moduleLoaded, sunsymon=sunsymon, moduleInfo=moduleInfo, moduleUnloaded=moduleUnloaded, statusOID=statusOID, PYSNMP_MODULE_ID=traps, base=base, statusChange=statusChange, refreshOID=refreshOID, prod=prod, traps=traps)

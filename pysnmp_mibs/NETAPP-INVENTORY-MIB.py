@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module NETAPP-INVENTORY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netapp/NETAPP-INVENTORY-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:34 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/netapp/NETAPP-INVENTORY-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:59:14 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 fastPath, = mibBuilder.importSymbols("NETAPP-REF-MIB", "fastPath")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
 fastPathInventory = ModuleIdentity((1, 3, 6, 1, 4, 1, 789, 4413, 1, 1, 13))
 fastPathInventory.setRevisions(('2013-10-15 00:00', '2011-01-26 00:00', '2007-05-23 00:00', '2004-10-28 20:37', '2003-05-26 19:30',))
 if mibBuilder.loadTexts: fastPathInventory.setLastUpdated('201310150000Z')
@@ -60,4 +60,4 @@ agentInventoryComponentMnemonic = MibTableColumn((1, 3, 6, 1, 4, 1, 789, 4413, 1
 if mibBuilder.loadTexts: agentInventoryComponentMnemonic.setStatus('current')
 agentInventoryComponentName = MibTableColumn((1, 3, 6, 1, 4, 1, 789, 4413, 1, 1, 13, 5, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: agentInventoryComponentName.setStatus('current')
-mibBuilder.exportSymbols("NETAPP-INVENTORY-MIB", AgentInventoryCardType=AgentInventoryCardType, agentInventoryComponentGroup=agentInventoryComponentGroup, agentInventoryComponentEntry=agentInventoryComponentEntry, agentInventoryComponentIndex=agentInventoryComponentIndex, fastPathInventory=fastPathInventory, agentInventoryCardGroup=agentInventoryCardGroup, agentInventoryComponentMnemonic=agentInventoryComponentMnemonic, agentInventoryStackGroup=agentInventoryStackGroup, agentInventoryCardTypeEntry=agentInventoryCardTypeEntry, agentInventoryCardTypeTable=agentInventoryCardTypeTable, agentInventoryStackDeleteSTK=agentInventoryStackDeleteSTK, agentInventoryComponentName=agentInventoryComponentName, agentInventoryCardModelIdentifier=agentInventoryCardModelIdentifier, AgentInventoryUnitType=AgentInventoryUnitType, PYSNMP_MODULE_ID=fastPathInventory, agentInventoryStackSTKname=agentInventoryStackSTKname, agentInventoryStackActivateSTK=agentInventoryStackActivateSTK, agentInventoryComponentTable=agentInventoryComponentTable, agentInventoryCardIndex=agentInventoryCardIndex, AgentInventoryUnitPreference=AgentInventoryUnitPreference, agentInventoryCardType=agentInventoryCardType, agentInventoryCardDescription=agentInventoryCardDescription)
+mibBuilder.exportSymbols("NETAPP-INVENTORY-MIB", agentInventoryCardTypeEntry=agentInventoryCardTypeEntry, agentInventoryStackActivateSTK=agentInventoryStackActivateSTK, agentInventoryCardDescription=agentInventoryCardDescription, agentInventoryCardType=agentInventoryCardType, agentInventoryComponentIndex=agentInventoryComponentIndex, agentInventoryComponentName=agentInventoryComponentName, AgentInventoryUnitPreference=AgentInventoryUnitPreference, agentInventoryComponentEntry=agentInventoryComponentEntry, AgentInventoryCardType=AgentInventoryCardType, agentInventoryComponentMnemonic=agentInventoryComponentMnemonic, agentInventoryCardModelIdentifier=agentInventoryCardModelIdentifier, PYSNMP_MODULE_ID=fastPathInventory, agentInventoryComponentTable=agentInventoryComponentTable, agentInventoryCardTypeTable=agentInventoryCardTypeTable, AgentInventoryUnitType=AgentInventoryUnitType, agentInventoryComponentGroup=agentInventoryComponentGroup, agentInventoryStackDeleteSTK=agentInventoryStackDeleteSTK, agentInventoryCardGroup=agentInventoryCardGroup, agentInventoryStackSTKname=agentInventoryStackSTKname, agentInventoryCardIndex=agentInventoryCardIndex, agentInventoryStackGroup=agentInventoryStackGroup, fastPathInventory=fastPathInventory)

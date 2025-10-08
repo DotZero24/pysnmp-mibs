@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module INFINERA-PM-ODUKT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-PM-ODUKT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:52 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/INFINERA-PM-ODUKT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:21:13 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 HCPerfIntervalCount, = mibBuilder.importSymbols("HC-PerfHist-TC-MIB", "HCPerfIntervalCount")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 perfMon, = mibBuilder.importSymbols("INFINERA-REG-MIB", "perfMon")
 InfnSampleDuration, InfnServiceType = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnSampleDuration", "InfnServiceType")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 oduKtPmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 21))
 oduKtPmMIB.setRevisions(('2009-07-20 00:00',))
 if mibBuilder.loadTexts: oduKtPmMIB.setLastUpdated('200907200000Z')
@@ -74,4 +74,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 oduKtPmRealGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 21, 3, 2, 2)).setObjects(("INFINERA-PM-ODUKT-MIB", "oduKtPmRealCVT"), ("INFINERA-PM-ODUKT-MIB", "oduKtPmRealErroredBlocks"), ("INFINERA-PM-ODUKT-MIB", "oduKtPmRealBEICount"), ("INFINERA-PM-ODUKT-MIB", "oduKtPmRealDefectSeconds"), ("INFINERA-PM-ODUKT-MIB", "oduKtPmRealDefectSecondsFEND"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     oduKtPmRealGroup = oduKtPmRealGroup.setStatus('current')
-mibBuilder.exportSymbols("INFINERA-PM-ODUKT-MIB", oduKtPmRealCVT=oduKtPmRealCVT, oduKtPmGroups=oduKtPmGroups, oduKtPmRealCompliance=oduKtPmRealCompliance, oduKtPmRealTable=oduKtPmRealTable, oduKtPmDefectSeconds=oduKtPmDefectSeconds, oduKtPmRealEntry=oduKtPmRealEntry, oduKtPmCVT=oduKtPmCVT, oduKtPmValidity=oduKtPmValidity, oduKtPmTable=oduKtPmTable, oduKtPmCompliances=oduKtPmCompliances, oduKtPmRealErroredBlocks=oduKtPmRealErroredBlocks, oduKtPmEntry=oduKtPmEntry, oduKtPmSampleDuration=oduKtPmSampleDuration, oduKtPmRealBEICount=oduKtPmRealBEICount, oduKtPmCompliance=oduKtPmCompliance, oduKtPmBEICount=oduKtPmBEICount, oduKtPmRealDefectSeconds=oduKtPmRealDefectSeconds, oduKtPmDefectSecondsFEND=oduKtPmDefectSecondsFEND, oduKtPmConformance=oduKtPmConformance, oduKtPmRealGroup=oduKtPmRealGroup, oduKtPmGroup=oduKtPmGroup, oduKtPmRealDefectSecondsFEND=oduKtPmRealDefectSecondsFEND, oduKtPmTimestamp=oduKtPmTimestamp, oduKtPmCircuitId=oduKtPmCircuitId, oduKtPmMIB=oduKtPmMIB, oduKtPmErroredBlocks=oduKtPmErroredBlocks, oduKtPmPayloadType=oduKtPmPayloadType, PYSNMP_MODULE_ID=oduKtPmMIB)
+mibBuilder.exportSymbols("INFINERA-PM-ODUKT-MIB", oduKtPmPayloadType=oduKtPmPayloadType, oduKtPmValidity=oduKtPmValidity, oduKtPmRealEntry=oduKtPmRealEntry, oduKtPmRealCVT=oduKtPmRealCVT, oduKtPmGroup=oduKtPmGroup, oduKtPmCompliance=oduKtPmCompliance, oduKtPmTimestamp=oduKtPmTimestamp, oduKtPmCircuitId=oduKtPmCircuitId, oduKtPmTable=oduKtPmTable, oduKtPmCompliances=oduKtPmCompliances, oduKtPmEntry=oduKtPmEntry, oduKtPmRealErroredBlocks=oduKtPmRealErroredBlocks, oduKtPmRealDefectSecondsFEND=oduKtPmRealDefectSecondsFEND, oduKtPmConformance=oduKtPmConformance, oduKtPmRealBEICount=oduKtPmRealBEICount, oduKtPmDefectSeconds=oduKtPmDefectSeconds, oduKtPmRealTable=oduKtPmRealTable, PYSNMP_MODULE_ID=oduKtPmMIB, oduKtPmDefectSecondsFEND=oduKtPmDefectSecondsFEND, oduKtPmCVT=oduKtPmCVT, oduKtPmGroups=oduKtPmGroups, oduKtPmBEICount=oduKtPmBEICount, oduKtPmRealGroup=oduKtPmRealGroup, oduKtPmMIB=oduKtPmMIB, oduKtPmErroredBlocks=oduKtPmErroredBlocks, oduKtPmSampleDuration=oduKtPmSampleDuration, oduKtPmRealDefectSeconds=oduKtPmRealDefectSeconds, oduKtPmRealCompliance=oduKtPmRealCompliance)

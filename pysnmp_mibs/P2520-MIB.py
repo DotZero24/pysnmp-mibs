@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module P2520-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/comet/P2520-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:34 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/comet/P2520-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:46:53 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 class DisplayString(OctetString):
     pass
 
@@ -82,4 +82,4 @@ ch2StrAlarm = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 6, 2, 2, 13), DisplayString
 if mibBuilder.loadTexts: ch2StrAlarm.setStatus('mandatory')
 messageString = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 6, 3, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: messageString.setStatus('mandatory')
-mibBuilder.exportSymbols("P2520-MIB", ch1StrVal=ch1StrVal, ch1Dw100Val=ch1Dw100Val, ch2Int10Val=ch2Int10Val, ch2StrVal=ch2StrVal, comet=comet, ch2IntCurrent=ch2IntCurrent, ch2Dw100Val=ch2Dw100Val, ch1IntCurrent=ch1IntCurrent, ch2DwVal=ch2DwVal, ch1IntVal=ch1IntVal, ch1Int100Val=ch1Int100Val, ch2IntAlarm=ch2IntAlarm, ch2StrCurrent=ch2StrCurrent, ch1Dw10Val=ch1Dw10Val, ch1StrAlarm=ch1StrAlarm, ch1IntAlarm=ch1IntAlarm, serialNumber=serialNumber, sensorName=sensorName, ch1Int10Val=ch1Int10Val, ch1Unit=ch1Unit, ch1Name=ch1Name, channel1=channel1, traps=traps, ch2Int100Val=ch2Int100Val, channel2=channel2, messageString=messageString, deviceType=deviceType, ch2Dw10Val=ch2Dw10Val, p2520=p2520, ch2IntVal=ch2IntVal, ch2Name=ch2Name, channels=channels, ch1DwVal=ch1DwVal, products=products, ch1StrCurrent=ch1StrCurrent, pysmi_global=pysmi_global, ch2StrAlarm=ch2StrAlarm, DisplayString=DisplayString, ch2Unit=ch2Unit)
+mibBuilder.exportSymbols("P2520-MIB", ch1StrVal=ch1StrVal, ch1StrCurrent=ch1StrCurrent, ch2IntAlarm=ch2IntAlarm, DisplayString=DisplayString, ch1Int100Val=ch1Int100Val, ch2Unit=ch2Unit, ch1DwVal=ch1DwVal, messageString=messageString, ch1IntCurrent=ch1IntCurrent, traps=traps, p2520=p2520, sensorName=sensorName, ch1Unit=ch1Unit, ch1Dw100Val=ch1Dw100Val, ch1IntAlarm=ch1IntAlarm, ch1StrAlarm=ch1StrAlarm, ch1IntVal=ch1IntVal, serialNumber=serialNumber, comet=comet, ch2IntVal=ch2IntVal, pysmi_global=pysmi_global, ch1Dw10Val=ch1Dw10Val, ch1Name=ch1Name, deviceType=deviceType, ch2Name=ch2Name, ch2StrAlarm=ch2StrAlarm, ch2IntCurrent=ch2IntCurrent, ch2DwVal=ch2DwVal, channel2=channel2, ch2StrCurrent=ch2StrCurrent, products=products, channels=channels, ch2StrVal=ch2StrVal, ch2Dw100Val=ch2Dw100Val, channel1=channel1, ch2Int10Val=ch2Int10Val, ch2Dw10Val=ch2Dw10Val, ch2Int100Val=ch2Int100Val, ch1Int10Val=ch1Int10Val)

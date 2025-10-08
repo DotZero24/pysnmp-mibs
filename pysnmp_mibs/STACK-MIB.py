@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module STACK-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/STACK-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:45 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zte/STACK-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:10:23 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
 zte = MibIdentifier((1, 3, 6, 1, 4, 1, 3902))
 zxr10 = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 3))
 stack = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 3, 300))
@@ -74,4 +74,4 @@ zxr10StkDeviceCpuUtility5m = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 300, 3, 
 if mibBuilder.loadTexts: zxr10StkDeviceCpuUtility5m.setStatus('current')
 zxr10StkDeviceMemUtility = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 300, 3, 1, 6), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: zxr10StkDeviceMemUtility.setStatus('current')
-mibBuilder.exportSymbols("STACK-MIB", zxr10StkDeviceID=zxr10StkDeviceID, zte=zte, sysStkDeviceID=sysStkDeviceID, sysMacChagAgingTime=sysMacChagAgingTime, sysMemUpTime=sysMemUpTime, sysStkDeviceType=sysStkDeviceType, zxr10StkDeviceMacAddr=zxr10StkDeviceMacAddr, zxr10StkDeviceCpuUtility5m=zxr10StkDeviceCpuUtility5m, sysStkDeviceInfoTable=sysStkDeviceInfoTable, sysStkDeviceInfoEntry=sysStkDeviceInfoEntry, zxr10StkDeviceMemUtility=zxr10StkDeviceMemUtility, sysManagIf=sysManagIf, sysMacAddr=sysMacAddr, StkDeviceStatus=StkDeviceStatus, sysLastchagConfigTime=sysLastchagConfigTime, sysManagIpAddr=sysManagIpAddr, sysStkDeviceStatus=sysStkDeviceStatus, systemGrp=systemGrp, zxr10StkDeviceCpuUtility5s=zxr10StkDeviceCpuUtility5s, sysMemDeviceMacAddr=sysMemDeviceMacAddr, zxr10StackStatTable=zxr10StackStatTable, MasterSlaveDataSynStatus=MasterSlaveDataSynStatus, zxr10=zxr10, stack=stack, zxr10StkDeviceCpuUtility1m=zxr10StkDeviceCpuUtility1m, sysNetMask=sysNetMask, PYSNMP_MODULE_ID=stack, sysMasterSlaveDataSynStatus=sysMasterSlaveDataSynStatus, VendorIdType=VendorIdType, zxr10StackStatEntry=zxr10StackStatEntry)
+mibBuilder.exportSymbols("STACK-MIB", VendorIdType=VendorIdType, systemGrp=systemGrp, zxr10StkDeviceCpuUtility5s=zxr10StkDeviceCpuUtility5s, zxr10StackStatTable=zxr10StackStatTable, sysLastchagConfigTime=sysLastchagConfigTime, sysStkDeviceInfoEntry=sysStkDeviceInfoEntry, sysStkDeviceInfoTable=sysStkDeviceInfoTable, sysManagIpAddr=sysManagIpAddr, PYSNMP_MODULE_ID=stack, sysStkDeviceType=sysStkDeviceType, sysStkDeviceID=sysStkDeviceID, sysMemDeviceMacAddr=sysMemDeviceMacAddr, sysMasterSlaveDataSynStatus=sysMasterSlaveDataSynStatus, StkDeviceStatus=StkDeviceStatus, sysMacAddr=sysMacAddr, zxr10StkDeviceMemUtility=zxr10StkDeviceMemUtility, zxr10=zxr10, sysManagIf=sysManagIf, sysNetMask=sysNetMask, sysStkDeviceStatus=sysStkDeviceStatus, zxr10StackStatEntry=zxr10StackStatEntry, sysMacChagAgingTime=sysMacChagAgingTime, zxr10StkDeviceMacAddr=zxr10StkDeviceMacAddr, zte=zte, zxr10StkDeviceCpuUtility1m=zxr10StkDeviceCpuUtility1m, MasterSlaveDataSynStatus=MasterSlaveDataSynStatus, sysMemUpTime=sysMemUpTime, zxr10StkDeviceID=zxr10StkDeviceID, zxr10StkDeviceCpuUtility5m=zxr10StkDeviceCpuUtility5m, stack=stack)

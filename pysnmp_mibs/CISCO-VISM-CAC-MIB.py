@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module CISCO-VISM-CAC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-VISM-CAC-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:36 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-VISM-CAC-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:23:45 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-vismChanCnfGrp, voice = mibBuilder.importSymbols("BASIS-MIB", "vismChanCnfGrp", "voice")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+voice, vismChanCnfGrp = mibBuilder.importSymbols("BASIS-MIB", "voice", "vismChanCnfGrp")
 ciscoWan, = mibBuilder.importSymbols("CISCOWAN-SMI", "ciscoWan")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ciscoVismCacMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 351, 150, 96))
 ciscoVismCacMIB.setRevisions(('2004-02-20 00:00', '2003-06-18 00:00',))
 if mibBuilder.loadTexts: ciscoVismCacMIB.setLastUpdated('200402200000Z')
@@ -63,4 +63,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 ciscoVismCardCacFailuresGrp = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 96, 2, 1, 2)).setObjects(("CISCO-VISM-CAC-MIB", "vismPortCacPvcAddFailures"), ("CISCO-VISM-CAC-MIB", "vismPortCacSvcAddFailures"), ("CISCO-VISM-CAC-MIB", "vismVcCacPvcFailures"), ("CISCO-VISM-CAC-MIB", "vismVcCacPvcUpspeedFailures"), ("CISCO-VISM-CAC-MIB", "vismPortCacSvcUpspeedFailures"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ciscoVismCardCacFailuresGrp = ciscoVismCardCacFailuresGrp.setStatus('current')
-mibBuilder.exportSymbols("CISCO-VISM-CAC-MIB", vismChanCacMaster=vismChanCacMaster, vismVcCacPvcUpspeedFailures=vismVcCacPvcUpspeedFailures, ciscoVismCardCacFailuresGrp=ciscoVismCardCacFailuresGrp, ciscoVismCacMIBGroups=ciscoVismCacMIBGroups, vismChanVADDutyCycle=vismChanVADDutyCycle, vismPortCacPvcAddFailures=vismPortCacPvcAddFailures, vismChanCarrierLossPolicy=vismChanCarrierLossPolicy, ciscoVismCacCompliance=ciscoVismCacCompliance, networkCacConfigState=networkCacConfigState, vismChanCacRejectionPolicy=vismChanCacRejectionPolicy, vismVcCacPvcFailures=vismVcCacPvcFailures, vismChanCacPassedCons=vismChanCacPassedCons, vismPortCacSvcUpspeedFailures=vismPortCacSvcUpspeedFailures, vismChanVADTolerance=vismChanVADTolerance, ciscoVismCacMIB=ciscoVismCacMIB, vismChanCacRejectedCons=vismChanCacRejectedCons, vismCardCacFailuresGrp=vismCardCacFailuresGrp, ciscoVismCacMIBConformance=ciscoVismCacMIBConformance, vismChanCacTable=vismChanCacTable, vismPortCacSvcAddFailures=vismPortCacSvcAddFailures, ciscoVismChanCacGroup=ciscoVismChanCacGroup, vismChanCacEntry=vismChanCacEntry, PYSNMP_MODULE_ID=ciscoVismCacMIB, ciscoVismCacMIBCompliances=ciscoVismCacMIBCompliances, vismChanNum=vismChanNum)
+mibBuilder.exportSymbols("CISCO-VISM-CAC-MIB", vismChanNum=vismChanNum, vismPortCacPvcAddFailures=vismPortCacPvcAddFailures, vismChanVADDutyCycle=vismChanVADDutyCycle, vismChanCacTable=vismChanCacTable, vismPortCacSvcUpspeedFailures=vismPortCacSvcUpspeedFailures, vismChanCacEntry=vismChanCacEntry, vismCardCacFailuresGrp=vismCardCacFailuresGrp, PYSNMP_MODULE_ID=ciscoVismCacMIB, ciscoVismCacMIBConformance=ciscoVismCacMIBConformance, networkCacConfigState=networkCacConfigState, vismChanVADTolerance=vismChanVADTolerance, ciscoVismCacMIBGroups=ciscoVismCacMIBGroups, vismVcCacPvcFailures=vismVcCacPvcFailures, vismChanCacRejectionPolicy=vismChanCacRejectionPolicy, vismPortCacSvcAddFailures=vismPortCacSvcAddFailures, vismChanCacMaster=vismChanCacMaster, vismChanCacRejectedCons=vismChanCacRejectedCons, vismChanCacPassedCons=vismChanCacPassedCons, ciscoVismCacMIBCompliances=ciscoVismCacMIBCompliances, vismVcCacPvcUpspeedFailures=vismVcCacPvcUpspeedFailures, ciscoVismChanCacGroup=ciscoVismChanCacGroup, ciscoVismCacMIB=ciscoVismCacMIB, ciscoVismCacCompliance=ciscoVismCacCompliance, vismChanCarrierLossPolicy=vismChanCarrierLossPolicy, ciscoVismCardCacFailuresGrp=ciscoVismCardCacFailuresGrp)

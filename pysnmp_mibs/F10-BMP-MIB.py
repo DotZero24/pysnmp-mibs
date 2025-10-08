@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module F10-BMP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/force10/F10-BMP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:43:14 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/force10/F10-BMP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:10:46 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 f10Mgmt, = mibBuilder.importSymbols("FORCE10-SMI", "f10Mgmt")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 f10BmpMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 6027, 3, 23))
 f10BmpMib.setRevisions(('2014-07-21 12:00', '2011-12-07 12:48',))
 if mibBuilder.loadTexts: f10BmpMib.setLastUpdated('201112071248Z')
@@ -33,4 +33,4 @@ bmpRelay = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 23, 1, 7), Integer32().subtype(
 if mibBuilder.loadTexts: bmpRelay.setStatus('current')
 bmpRelayRemoteId = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 23, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: bmpRelayRemoteId.setStatus('current')
-mibBuilder.exportSymbols("F10-BMP-MIB", bmpRelayRemoteId=bmpRelayRemoteId, bmpConfigDownload=bmpConfigDownload, bmpReloadType=bmpReloadType, f10Bmp=f10Bmp, bmpDhcpTimeout=bmpDhcpTimeout, bmpRetryCount=bmpRetryCount, PYSNMP_MODULE_ID=f10BmpMib, f10BmpMib=f10BmpMib, bmpAutoSave=bmpAutoSave, bmpUserDefinedString=bmpUserDefinedString, bmpRelay=bmpRelay)
+mibBuilder.exportSymbols("F10-BMP-MIB", bmpDhcpTimeout=bmpDhcpTimeout, f10BmpMib=f10BmpMib, bmpRetryCount=bmpRetryCount, bmpUserDefinedString=bmpUserDefinedString, bmpConfigDownload=bmpConfigDownload, PYSNMP_MODULE_ID=f10BmpMib, bmpReloadType=bmpReloadType, bmpAutoSave=bmpAutoSave, bmpRelay=bmpRelay, bmpRelayRemoteId=bmpRelayRemoteId, f10Bmp=f10Bmp)

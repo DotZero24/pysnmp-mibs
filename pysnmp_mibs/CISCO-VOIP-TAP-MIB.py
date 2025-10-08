@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module CISCO-VOIP-TAP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-VOIP-TAP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:21 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-VOIP-TAP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:24:48 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-cTap2MediationContentId, cTap2StreamIndex = mibBuilder.importSymbols("CISCO-TAP2-MIB", "cTap2MediationContentId", "cTap2StreamIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+cTap2StreamIndex, cTap2MediationContentId = mibBuilder.importSymbols("CISCO-TAP2-MIB", "cTap2StreamIndex", "cTap2MediationContentId")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
 ciscoVoIpTapMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 716))
 ciscoVoIpTapMIB.setRevisions(('2009-10-01 00:00',))
 if mibBuilder.loadTexts: ciscoVoIpTapMIB.setLastUpdated('200910010000Z')
@@ -56,4 +56,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 ciscoVoIpTapStreamGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 716, 2, 2, 1)).setObjects(("CISCO-VOIP-TAP-MIB", "cvoiptapStreamCapabilities"), ("CISCO-VOIP-TAP-MIB", "cvoiptapStreamId"), ("CISCO-VOIP-TAP-MIB", "cvoiptapStreamType"), ("CISCO-VOIP-TAP-MIB", "cvoiptapStreamMatch"), ("CISCO-VOIP-TAP-MIB", "cvoiptapStreamMatchType"), ("CISCO-VOIP-TAP-MIB", "cvoiptapStreamCCMediationDevice"), ("CISCO-VOIP-TAP-MIB", "cvoiptapStreamRowStatus"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ciscoVoIpTapStreamGroup = ciscoVoIpTapStreamGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-VOIP-TAP-MIB", CvoipWarrantId=CvoipWarrantId, cvoiptapStreamType=cvoiptapStreamType, cvoiptapStreamId=cvoiptapStreamId, PYSNMP_MODULE_ID=ciscoVoIpTapMIB, ciscoVoIpTapMIBObjects=ciscoVoIpTapMIBObjects, cvoiptapStreamEntry=cvoiptapStreamEntry, cvoiptapStreamMatch=cvoiptapStreamMatch, ciscoVoIpTapMIBConform=ciscoVoIpTapMIBConform, cvoiptapStreamTable=cvoiptapStreamTable, ciscoVoIpTapMIB=ciscoVoIpTapMIB, ciscoVoIpTapMIBCompliances=ciscoVoIpTapMIBCompliances, cvoiptapStreamMatchType=cvoiptapStreamMatchType, cvoiptapStreamCapabilities=cvoiptapStreamCapabilities, ciscoVoIpTapMIBNotifs=ciscoVoIpTapMIBNotifs, ciscoVoIpTapMIBCompliance=ciscoVoIpTapMIBCompliance, ciscoVoIpTapStreamGroup=ciscoVoIpTapStreamGroup, CvoipSubscriberId=CvoipSubscriberId, cvoiptapStreamRowStatus=cvoiptapStreamRowStatus, ciscoVoIpTapMIBGroups=ciscoVoIpTapMIBGroups, cvoiptapStreamEncodePacket=cvoiptapStreamEncodePacket, cvoiptapStreamCCMediationDevice=cvoiptapStreamCCMediationDevice)
+mibBuilder.exportSymbols("CISCO-VOIP-TAP-MIB", ciscoVoIpTapMIB=ciscoVoIpTapMIB, ciscoVoIpTapMIBObjects=ciscoVoIpTapMIBObjects, CvoipWarrantId=CvoipWarrantId, cvoiptapStreamEntry=cvoiptapStreamEntry, cvoiptapStreamTable=cvoiptapStreamTable, cvoiptapStreamEncodePacket=cvoiptapStreamEncodePacket, cvoiptapStreamType=cvoiptapStreamType, cvoiptapStreamRowStatus=cvoiptapStreamRowStatus, cvoiptapStreamCCMediationDevice=cvoiptapStreamCCMediationDevice, ciscoVoIpTapMIBNotifs=ciscoVoIpTapMIBNotifs, cvoiptapStreamMatch=cvoiptapStreamMatch, ciscoVoIpTapMIBCompliance=ciscoVoIpTapMIBCompliance, ciscoVoIpTapStreamGroup=ciscoVoIpTapStreamGroup, PYSNMP_MODULE_ID=ciscoVoIpTapMIB, ciscoVoIpTapMIBGroups=ciscoVoIpTapMIBGroups, cvoiptapStreamCapabilities=cvoiptapStreamCapabilities, cvoiptapStreamMatchType=cvoiptapStreamMatchType, ciscoVoIpTapMIBCompliances=ciscoVoIpTapMIBCompliances, ciscoVoIpTapMIBConform=ciscoVoIpTapMIBConform, cvoiptapStreamId=cvoiptapStreamId, CvoipSubscriberId=CvoipSubscriberId)

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module OADWDM-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mrv/OADWDM-EXT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:43 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mrv/OADWDM-EXT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:16:53 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Integer32, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, ModuleIdentity, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "ModuleIdentity", "TimeTicks", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 oaLambdaDriver = ModuleIdentity((1, 3, 6, 1, 4, 1, 6926, 1, 41))
 oaLambdaDriver.setRevisions(('2009-06-28 00:00',))
 if mibBuilder.loadTexts: oaLambdaDriver.setLastUpdated('200907010000Z')
@@ -54,4 +54,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 oaLdPortsCntrGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6926, 1, 41, 100, 1, 1)).setObjects(("OADWDM-EXT-MIB", "oaLdPortsCntrSyncErrs"), ("OADWDM-EXT-MIB", "oaLdPortsCntrCrcErrs"), ("OADWDM-EXT-MIB", "oaLdPortsCntrInRateBits"), ("OADWDM-EXT-MIB", "oaLdPortsCntrOutRateBits"), ("OADWDM-EXT-MIB", "oaLdPortsCntrCodeViols"), ("OADWDM-EXT-MIB", "oaLdPortsCntrInPkts"), ("OADWDM-EXT-MIB", "oaLdPortsCntrOutPkts"), ("OADWDM-EXT-MIB", "oaLdPortsCntrInOctets"), ("OADWDM-EXT-MIB", "oaLdPortsCntrOutOctets"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     oaLdPortsCntrGroup = oaLdPortsCntrGroup.setStatus('current')
-mibBuilder.exportSymbols("OADWDM-EXT-MIB", oaLdPortsCntrInOctets=oaLdPortsCntrInOctets, oaLdPortsCntr=oaLdPortsCntr, oaLdPortsCntrInRateBits=oaLdPortsCntrInRateBits, oaLdPortsCntrOutOctets=oaLdPortsCntrOutOctets, PYSNMP_MODULE_ID=oaLambdaDriver, oaLambdaDriver=oaLambdaDriver, oaLdPortsCntrInPkts=oaLdPortsCntrInPkts, oaLdPortsCntrConformance=oaLdPortsCntrConformance, oaLdPortsCntrOutPkts=oaLdPortsCntrOutPkts, oaLdPortsCntrSlotNumber=oaLdPortsCntrSlotNumber, oaLdPortsCntrOutRateBits=oaLdPortsCntrOutRateBits, oaLdPortsCntrCompliances=oaLdPortsCntrCompliances, oaLdPortsCntrSyncErrs=oaLdPortsCntrSyncErrs, oaccess=oaccess, oaLdPortsCntrGroups=oaLdPortsCntrGroups, oaLdPortsCntrCrcErrs=oaLdPortsCntrCrcErrs, oaLdPortsCntrTable=oaLdPortsCntrTable, oaLdPortsCntrCompliance=oaLdPortsCntrCompliance, oaManagement=oaManagement, oaLdPortsCntrPortNumber=oaLdPortsCntrPortNumber, oaLdPortsCntrEntry=oaLdPortsCntrEntry, oaLdPortsCntrGroup=oaLdPortsCntrGroup, oaLdPortsCntrCodeViols=oaLdPortsCntrCodeViols)
+mibBuilder.exportSymbols("OADWDM-EXT-MIB", oaLdPortsCntrGroups=oaLdPortsCntrGroups, oaManagement=oaManagement, oaccess=oaccess, oaLdPortsCntrOutOctets=oaLdPortsCntrOutOctets, oaLdPortsCntrInPkts=oaLdPortsCntrInPkts, oaLdPortsCntrOutRateBits=oaLdPortsCntrOutRateBits, oaLdPortsCntrSyncErrs=oaLdPortsCntrSyncErrs, oaLdPortsCntrCodeViols=oaLdPortsCntrCodeViols, oaLdPortsCntrPortNumber=oaLdPortsCntrPortNumber, oaLdPortsCntrCompliance=oaLdPortsCntrCompliance, oaLdPortsCntrCompliances=oaLdPortsCntrCompliances, oaLdPortsCntrSlotNumber=oaLdPortsCntrSlotNumber, oaLambdaDriver=oaLambdaDriver, oaLdPortsCntrOutPkts=oaLdPortsCntrOutPkts, oaLdPortsCntrEntry=oaLdPortsCntrEntry, oaLdPortsCntrInOctets=oaLdPortsCntrInOctets, oaLdPortsCntrTable=oaLdPortsCntrTable, oaLdPortsCntrCrcErrs=oaLdPortsCntrCrcErrs, oaLdPortsCntrConformance=oaLdPortsCntrConformance, oaLdPortsCntr=oaLdPortsCntr, oaLdPortsCntrInRateBits=oaLdPortsCntrInRateBits, oaLdPortsCntrGroup=oaLdPortsCntrGroup, PYSNMP_MODULE_ID=oaLambdaDriver)

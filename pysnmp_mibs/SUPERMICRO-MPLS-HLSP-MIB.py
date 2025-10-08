@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SUPERMICRO-MPLS-HLSP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-MPLS-HLSP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:57 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-MPLS-HLSP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:52 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-MplsTunnelIndex, MplsExtendedTunnelId, MplsTunnelInstanceIndex = mibBuilder.importSymbols("MPLS-TC-STD-MIB", "MplsTunnelIndex", "MplsExtendedTunnelId", "MplsTunnelInstanceIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+MplsTunnelIndex, MplsTunnelInstanceIndex, MplsExtendedTunnelId = mibBuilder.importSymbols("MPLS-TC-STD-MIB", "MplsTunnelIndex", "MplsTunnelInstanceIndex", "MplsExtendedTunnelId")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 fsHlspMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58))
 fsHlspMIB.setRevisions(('2012-09-05 00:00',))
 if mibBuilder.loadTexts: fsHlspMIB.setLastUpdated('201209050000Z')
@@ -57,4 +57,4 @@ fsMplsHLSPAvailableBW = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 
 if mibBuilder.loadTexts: fsMplsHLSPAvailableBW.setStatus('current')
 fsMplsHLSPNoOfStackedTunnels = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 2, 1, 6), Unsigned32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: fsMplsHLSPNoOfStackedTunnels.setStatus('current')
-mibBuilder.exportSymbols("SUPERMICRO-MPLS-HLSP-MIB", fsHlspMIB=fsHlspMIB, fsMplsLSPMapTunnelEgressLSRId=fsMplsLSPMapTunnelEgressLSRId, fsMplsHLSPAvailableBW=fsMplsHLSPAvailableBW, fsMplsLSPMapTunnelInstance=fsMplsLSPMapTunnelInstance, fsMplsHLSPNoOfStackedTunnels=fsMplsHLSPNoOfStackedTunnels, fsMplsLSPMapSubTunnelIngressLSRId=fsMplsLSPMapSubTunnelIngressLSRId, fsMplsLSPMaptunnelOperation=fsMplsLSPMaptunnelOperation, fsMplsHLSPTable=fsMplsHLSPTable, fsMplsHlspConfigObjects=fsMplsHlspConfigObjects, fsMplsLSPMapTunnelIngressLSRId=fsMplsLSPMapTunnelIngressLSRId, fsMplsHLSPInstance=fsMplsHLSPInstance, fsMplsLSPMapTunnelEntry=fsMplsLSPMapTunnelEntry, fsMplsLSPMapSubTunnelEgressLSRId=fsMplsLSPMapSubTunnelEgressLSRId, PYSNMP_MODULE_ID=fsHlspMIB, fsMplsLSPMapSubTunnelIndex=fsMplsLSPMapSubTunnelIndex, fsMplsHLSPEntry=fsMplsHLSPEntry, fsMplsLSPMapTunnelTable=fsMplsLSPMapTunnelTable, fsMplsLSPMaptunnelRowStatus=fsMplsLSPMaptunnelRowStatus, fsMplsLSPMapTunnelIndex=fsMplsLSPMapTunnelIndex, fsMplsHLSPIngressLSRId=fsMplsHLSPIngressLSRId, fsMplsLSPMapSubTunnelInstance=fsMplsLSPMapSubTunnelInstance, fsMplsHLSPEgressLSRId=fsMplsHLSPEgressLSRId, fsMplsHLSPIndex=fsMplsHLSPIndex)
+mibBuilder.exportSymbols("SUPERMICRO-MPLS-HLSP-MIB", fsMplsLSPMapTunnelTable=fsMplsLSPMapTunnelTable, fsHlspMIB=fsHlspMIB, fsMplsHLSPEgressLSRId=fsMplsHLSPEgressLSRId, fsMplsHLSPAvailableBW=fsMplsHLSPAvailableBW, fsMplsLSPMapTunnelIngressLSRId=fsMplsLSPMapTunnelIngressLSRId, fsMplsLSPMapTunnelEgressLSRId=fsMplsLSPMapTunnelEgressLSRId, fsMplsHlspConfigObjects=fsMplsHlspConfigObjects, fsMplsLSPMapSubTunnelIngressLSRId=fsMplsLSPMapSubTunnelIngressLSRId, fsMplsLSPMapTunnelInstance=fsMplsLSPMapTunnelInstance, fsMplsLSPMapSubTunnelEgressLSRId=fsMplsLSPMapSubTunnelEgressLSRId, fsMplsHLSPTable=fsMplsHLSPTable, fsMplsHLSPEntry=fsMplsHLSPEntry, fsMplsLSPMaptunnelRowStatus=fsMplsLSPMaptunnelRowStatus, fsMplsHLSPIndex=fsMplsHLSPIndex, fsMplsLSPMapTunnelIndex=fsMplsLSPMapTunnelIndex, fsMplsHLSPInstance=fsMplsHLSPInstance, fsMplsLSPMaptunnelOperation=fsMplsLSPMaptunnelOperation, PYSNMP_MODULE_ID=fsHlspMIB, fsMplsHLSPNoOfStackedTunnels=fsMplsHLSPNoOfStackedTunnels, fsMplsLSPMapTunnelEntry=fsMplsLSPMapTunnelEntry, fsMplsLSPMapSubTunnelInstance=fsMplsLSPMapSubTunnelInstance, fsMplsHLSPIngressLSRId=fsMplsHLSPIngressLSRId, fsMplsLSPMapSubTunnelIndex=fsMplsLSPMapSubTunnelIndex)

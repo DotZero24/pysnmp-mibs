@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CAMBIUM-NETWORKS-IPV6-ND-RA-GUARD-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cambium/CAMBIUM-NETWORKS-IPV6-ND-RA-GUARD-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:48 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cambium/CAMBIUM-NETWORKS-IPV6-ND-RA-GUARD-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:06:31 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-dot1qTpFdbPort, dot1qStaticUnicastEntry, dot1qTpFdbEntry, PortList, VlanIdOrNone, dot1qVlanStaticEntry = mibBuilder.importSymbols("Q-BRIDGE-MIB", "dot1qTpFdbPort", "dot1qStaticUnicastEntry", "dot1qTpFdbEntry", "PortList", "VlanIdOrNone", "dot1qVlanStaticEntry")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+PortList, dot1qVlanStaticEntry, dot1qTpFdbPort, VlanIdOrNone, dot1qTpFdbEntry, dot1qStaticUnicastEntry = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList", "dot1qVlanStaticEntry", "dot1qTpFdbPort", "VlanIdOrNone", "dot1qTpFdbEntry", "dot1qStaticUnicastEntry")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
 cnRAGuardMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 17713, 24, 9))
 cnRAGuardMib.setRevisions(('2021-11-28 00:00', '2021-04-09 00:00',))
 if mibBuilder.loadTexts: cnRAGuardMib.setLastUpdated('202111280000Z')
@@ -32,4 +32,4 @@ cnRAGuardIfCfgPolicy = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 24, 9, 1, 1, 1, 
 if mibBuilder.loadTexts: cnRAGuardIfCfgPolicy.setStatus('current')
 cnRAGuardIfCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 24, 9, 1, 1, 1, 3), Gauge32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: cnRAGuardIfCounter.setStatus('current')
-mibBuilder.exportSymbols("CAMBIUM-NETWORKS-IPV6-ND-RA-GUARD-MIB", cnRAGuardIfCfgEntry=cnRAGuardIfCfgEntry, cnRAGuardIfCfgPolicy=cnRAGuardIfCfgPolicy, PYSNMP_MODULE_ID=cnRAGuardMib, cnRAGuardIfCfgIfIndex=cnRAGuardIfCfgIfIndex, cnRAGuardIfCounter=cnRAGuardIfCounter, RAGuardPolicy=RAGuardPolicy, cnRAGuardIfCfg=cnRAGuardIfCfg, cnRAGuardMib=cnRAGuardMib, cnRAGuardIfCfgTable=cnRAGuardIfCfgTable)
+mibBuilder.exportSymbols("CAMBIUM-NETWORKS-IPV6-ND-RA-GUARD-MIB", cnRAGuardIfCfgPolicy=cnRAGuardIfCfgPolicy, cnRAGuardIfCfgTable=cnRAGuardIfCfgTable, PYSNMP_MODULE_ID=cnRAGuardMib, cnRAGuardIfCounter=cnRAGuardIfCounter, cnRAGuardIfCfgEntry=cnRAGuardIfCfgEntry, cnRAGuardMib=cnRAGuardMib, RAGuardPolicy=RAGuardPolicy, cnRAGuardIfCfgIfIndex=cnRAGuardIfCfgIfIndex, cnRAGuardIfCfg=cnRAGuardIfCfg)

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ELTEX-QOS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-QOS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:40 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/eltex/ELTEX-QOS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:11:58 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 eltexLtd, = mibBuilder.importSymbols("ELTEX-SMI-ACTUAL", "eltexLtd")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 eltQos = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 20))
 eltQos.setRevisions(('2015-04-23 00:00',))
 if mibBuilder.loadTexts: eltQos.setLastUpdated('201504230000Z')
@@ -52,4 +52,4 @@ eltQosClassStatsPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 20, 2, 1, 1, 6),
 if mibBuilder.loadTexts: eltQosClassStatsPkts.setStatus('current')
 eltQosClassStatsDrops = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 20, 2, 1, 1, 7), Counter64()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: eltQosClassStatsDrops.setStatus('current')
-mibBuilder.exportSymbols("ELTEX-QOS-MIB", eltQosPolicyStatsBytes=eltQosPolicyStatsBytes, eltQosClassStatsifDescr=eltQosClassStatsifDescr, eltQosPolicyStatsPolicy=eltQosPolicyStatsPolicy, eltQosClassStatsDrops=eltQosClassStatsDrops, eltQosClassStatsPolicy=eltQosClassStatsPolicy, eltQosPolicyStatsTable=eltQosPolicyStatsTable, eltQosClassStats=eltQosClassStats, eltQosPolicyStats=eltQosPolicyStats, eltQosPolicyStatsPolicyIndex=eltQosPolicyStatsPolicyIndex, eltQos=eltQos, eltQosClassStatsEntry=eltQosClassStatsEntry, eltQosClassStatsClass=eltQosClassStatsClass, eltQosClassStatsClassIndex=eltQosClassStatsClassIndex, eltQosPolicyStatsifDescr=eltQosPolicyStatsifDescr, PYSNMP_MODULE_ID=eltQos, eltQosPolicyStatsEntry=eltQosPolicyStatsEntry, eltQosClassStatsPkts=eltQosClassStatsPkts, eltQosPolicyStatsPkts=eltQosPolicyStatsPkts, eltQosClassStatsBytes=eltQosClassStatsBytes, eltQosPolicyStatsDrops=eltQosPolicyStatsDrops, eltQosClassStatsTable=eltQosClassStatsTable)
+mibBuilder.exportSymbols("ELTEX-QOS-MIB", eltQosClassStatsPkts=eltQosClassStatsPkts, eltQosClassStatsClassIndex=eltQosClassStatsClassIndex, eltQosPolicyStatsPkts=eltQosPolicyStatsPkts, eltQosPolicyStatsPolicyIndex=eltQosPolicyStatsPolicyIndex, eltQosPolicyStatsPolicy=eltQosPolicyStatsPolicy, eltQosPolicyStatsDrops=eltQosPolicyStatsDrops, PYSNMP_MODULE_ID=eltQos, eltQosClassStats=eltQosClassStats, eltQosPolicyStatsEntry=eltQosPolicyStatsEntry, eltQosClassStatsEntry=eltQosClassStatsEntry, eltQosPolicyStatsifDescr=eltQosPolicyStatsifDescr, eltQosClassStatsBytes=eltQosClassStatsBytes, eltQosClassStatsClass=eltQosClassStatsClass, eltQos=eltQos, eltQosClassStatsifDescr=eltQosClassStatsifDescr, eltQosPolicyStats=eltQosPolicyStats, eltQosClassStatsDrops=eltQosClassStatsDrops, eltQosPolicyStatsTable=eltQosPolicyStatsTable, eltQosClassStatsPolicy=eltQosClassStatsPolicy, eltQosClassStatsTable=eltQosClassStatsTable, eltQosPolicyStatsBytes=eltQosPolicyStatsBytes)

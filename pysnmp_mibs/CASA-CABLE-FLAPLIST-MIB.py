@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module CASA-CABLE-FLAPLIST-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/casa/CASA-CABLE-FLAPLIST-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:43 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/casa/CASA-CABLE-FLAPLIST-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:14:58 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 casa, = mibBuilder.importSymbols("CASA-MIB", "casa")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, Bits, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "Bits", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Bits, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Bits", "Gauge32")
+RowStatus, DateAndTime, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
 casaFlapListMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 20858, 10, 11))
 if mibBuilder.loadTexts: casaFlapListMib.setLastUpdated('200809051453Z')
 if mibBuilder.loadTexts: casaFlapListMib.setOrganization('Casa Systems Inc')
@@ -74,4 +74,4 @@ casaFlapListCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 20858, 10, 11, 3, 1
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     casaFlapListCompliance = casaFlapListCompliance.setStatus('current')
-mibBuilder.exportSymbols("CASA-CABLE-FLAPLIST-MIB", casaFlapPowerAdjThreshold=casaFlapPowerAdjThreshold, casaFlapListGlobal=casaFlapListGlobal, casaFlapListTable=casaFlapListTable, casaFlapListMIBObjects=casaFlapListMIBObjects, casaFlapCmInsertionFails=casaFlapCmInsertionFails, casaFlapListGroups=casaFlapListGroups, casaFlapCmPowerAdjustments=casaFlapCmPowerAdjustments, casaFlapListMaxSize=casaFlapListMaxSize, casaFlapMissThreshold=casaFlapMissThreshold, casaFlapCmCRCCounts=casaFlapCmCRCCounts, casaFlapCmLastFlapTime=casaFlapCmLastFlapTime, PYSNMP_MODULE_ID=casaFlapListMib, casaFlapListGroup=casaFlapListGroup, casaFlapCmMisses=casaFlapCmMisses, casaFlapListLastClearTime=casaFlapListLastClearTime, casaFlapListMib=casaFlapListMib, casaFlapCmHits=casaFlapCmHits, casaFlapListAging=casaFlapListAging, casaFlapListClearAll=casaFlapListClearAll, casaFlapListCompliance=casaFlapListCompliance, casaFlapListCompliances=casaFlapListCompliances, casaFlapInsertionTime=casaFlapInsertionTime, casaFlapCmDownstreamIfIndex=casaFlapCmDownstreamIfIndex, casaFlapListLastResetTime=casaFlapListLastResetTime, casaFlapCmUpstreamIfIndex=casaFlapCmUpstreamIfIndex, casaFlapListEntry=casaFlapListEntry, casaFlapCmFlapRowStatus=casaFlapCmFlapRowStatus, casaFlapCmFlapCounts=casaFlapCmFlapCounts, casaFlapListCheckInterval=casaFlapListCheckInterval, casaFlapListResetAll=casaFlapListResetAll, casaFlapCmMacAddress=casaFlapCmMacAddress, casaMgmt=casaMgmt)
+mibBuilder.exportSymbols("CASA-CABLE-FLAPLIST-MIB", casaFlapPowerAdjThreshold=casaFlapPowerAdjThreshold, casaFlapListAging=casaFlapListAging, casaFlapListGroup=casaFlapListGroup, casaFlapListGroups=casaFlapListGroups, casaFlapCmPowerAdjustments=casaFlapCmPowerAdjustments, casaFlapCmFlapRowStatus=casaFlapCmFlapRowStatus, casaFlapListGlobal=casaFlapListGlobal, casaFlapListEntry=casaFlapListEntry, casaFlapMissThreshold=casaFlapMissThreshold, casaFlapListMaxSize=casaFlapListMaxSize, casaFlapListMib=casaFlapListMib, casaFlapListClearAll=casaFlapListClearAll, casaFlapCmMisses=casaFlapCmMisses, casaFlapCmInsertionFails=casaFlapCmInsertionFails, casaFlapListLastClearTime=casaFlapListLastClearTime, casaFlapListResetAll=casaFlapListResetAll, casaFlapCmHits=casaFlapCmHits, casaFlapListTable=casaFlapListTable, casaFlapCmUpstreamIfIndex=casaFlapCmUpstreamIfIndex, casaFlapCmFlapCounts=casaFlapCmFlapCounts, casaFlapListCheckInterval=casaFlapListCheckInterval, casaFlapInsertionTime=casaFlapInsertionTime, casaFlapCmDownstreamIfIndex=casaFlapCmDownstreamIfIndex, casaFlapListCompliance=casaFlapListCompliance, casaFlapListCompliances=casaFlapListCompliances, casaMgmt=casaMgmt, PYSNMP_MODULE_ID=casaFlapListMib, casaFlapCmLastFlapTime=casaFlapCmLastFlapTime, casaFlapListLastResetTime=casaFlapListLastResetTime, casaFlapListMIBObjects=casaFlapListMIBObjects, casaFlapCmMacAddress=casaFlapCmMacAddress, casaFlapCmCRCCounts=casaFlapCmCRCCounts)

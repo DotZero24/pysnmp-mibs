@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module ZXR10-OPTICAL-ALARM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZXR10-OPTICAL-ALARM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:54 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zte/ZXR10-OPTICAL-ALARM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:10:39 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 zxr10, = mibBuilder.importSymbols("ZXR10-SMI", "zxr10")
 zxr10OpticalAlarmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 3, 126))
@@ -78,4 +78,4 @@ zxr10opticalVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 126, 1, 2, 1, 6
 if mibBuilder.loadTexts: zxr10opticalVoltage.setStatus('current')
 zxr10opticalTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 126, 1, 2, 1, 7), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: zxr10opticalTemperature.setStatus('current')
-mibBuilder.exportSymbols("ZXR10-OPTICAL-ALARM-MIB", zxr10optIfName=zxr10optIfName, zxr10optAlarmEntry=zxr10optAlarmEntry, zxr10opticalIfIndex=zxr10opticalIfIndex, zxr10opticalState=zxr10opticalState, zxr10optAlarmIndex=zxr10optAlarmIndex, zxr10MIBObjects=zxr10MIBObjects, zxr10optLowWarnValue=zxr10optLowWarnValue, zxr10Notifications=zxr10Notifications, zxr10opticalVoltage=zxr10opticalVoltage, zxr10optHighAlarmValue=zxr10optHighAlarmValue, zxr10opticalTxCurrent=zxr10opticalTxCurrent, zxr10opticalTxPower=zxr10opticalTxPower, zxr10optLowAlarmValue=zxr10optLowAlarmValue, zxr10opticalTable=zxr10opticalTable, zxr10optIfIndex=zxr10optIfIndex, zxr10optAlarmType=zxr10optAlarmType, OptStatType=OptStatType, zxr10optAlarmOverType=zxr10optAlarmOverType, zxr10OpticalAlarmMIB=zxr10OpticalAlarmMIB, zxr10opticalTemperature=zxr10opticalTemperature, zxr10optAlarmTable=zxr10optAlarmTable, Zxr10optAlarmOverType=Zxr10optAlarmOverType, Zxr10optAlarmType=Zxr10optAlarmType, zxr10optHighWarnValue=zxr10optHighWarnValue, zxr10optAlarmOverCurValue=zxr10optAlarmOverCurValue, zxr10opticalRxPower=zxr10opticalRxPower, PYSNMP_MODULE_ID=zxr10OpticalAlarmMIB, zxr10opticalEntry=zxr10opticalEntry, zxr10optAlarmTrap=zxr10optAlarmTrap)
+mibBuilder.exportSymbols("ZXR10-OPTICAL-ALARM-MIB", zxr10Notifications=zxr10Notifications, zxr10opticalTxCurrent=zxr10opticalTxCurrent, zxr10optAlarmTrap=zxr10optAlarmTrap, zxr10optLowWarnValue=zxr10optLowWarnValue, zxr10opticalTable=zxr10opticalTable, zxr10optIfName=zxr10optIfName, zxr10opticalEntry=zxr10opticalEntry, zxr10optLowAlarmValue=zxr10optLowAlarmValue, zxr10optAlarmType=zxr10optAlarmType, zxr10optHighAlarmValue=zxr10optHighAlarmValue, zxr10opticalTxPower=zxr10opticalTxPower, zxr10optAlarmIndex=zxr10optAlarmIndex, zxr10optAlarmOverCurValue=zxr10optAlarmOverCurValue, zxr10optIfIndex=zxr10optIfIndex, zxr10opticalState=zxr10opticalState, Zxr10optAlarmOverType=Zxr10optAlarmOverType, zxr10opticalRxPower=zxr10opticalRxPower, zxr10optHighWarnValue=zxr10optHighWarnValue, OptStatType=OptStatType, zxr10opticalIfIndex=zxr10opticalIfIndex, zxr10MIBObjects=zxr10MIBObjects, zxr10optAlarmEntry=zxr10optAlarmEntry, zxr10opticalVoltage=zxr10opticalVoltage, zxr10optAlarmTable=zxr10optAlarmTable, zxr10optAlarmOverType=zxr10optAlarmOverType, zxr10OpticalAlarmMIB=zxr10OpticalAlarmMIB, zxr10opticalTemperature=zxr10opticalTemperature, Zxr10optAlarmType=Zxr10optAlarmType, PYSNMP_MODULE_ID=zxr10OpticalAlarmMIB)

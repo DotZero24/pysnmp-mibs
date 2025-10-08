@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module MPPANEL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/maipu/MPPANEL-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:59 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/maipu/MPPANEL-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:19:18 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 mpMgmt, = mibBuilder.importSymbols("MAIPU-SMI", "mpMgmt")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, ObjectSyntax, iso, MibIdentifier, ObjectName, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "ObjectSyntax", "iso", "MibIdentifier", "ObjectName", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectSyntax, Counter32, ModuleIdentity, TimeTicks, Counter64, ObjectIdentity, Gauge32, ObjectName = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectSyntax", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "ObjectIdentity", "Gauge32", "ObjectName")
+RowStatus, DateAndTime, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
 mpPanelMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 5651, 3, 1))
 if mibBuilder.loadTexts: mpPanelMib.setLastUpdated('0611270945Z')
 if mibBuilder.loadTexts: mpPanelMib.setOrganization('ĴͨŹɷ\u07b9˾, Maipu (Sichuan) Communication Technology Co. LTD.')
@@ -47,4 +47,4 @@ mprSwPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 1, 10, 1, 4), Intege
 if mibBuilder.loadTexts: mprSwPortSpeed.setStatus('current')
 mprSwPortDeplux = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 1, 10, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unkown", 1), ("half", 2), ("full", 3)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: mprSwPortDeplux.setStatus('current')
-mibBuilder.exportSymbols("MPPANEL-MIB", cE1IfIndex=cE1IfIndex, mprSwSlotNo=mprSwSlotNo, mprSwPortTable=mprSwPortTable, cE1TimeslotsTable=cE1TimeslotsTable, mpPanelMib=mpPanelMib, PYSNMP_MODULE_ID=mpPanelMib, cE1Timeslots=cE1Timeslots, mprSwPortDeplux=mprSwPortDeplux, panelIfIndex=panelIfIndex, cE1TimeslotsEntry=cE1TimeslotsEntry, panelEntry=panelEntry, panelIndex=panelIndex, panelType=panelType, mprSwPortEntry=mprSwPortEntry, mprSwPortNo=mprSwPortNo, mprSwPortSpeed=mprSwPortSpeed, panelTable=panelTable, mprSwPortLinkStatus=mprSwPortLinkStatus)
+mibBuilder.exportSymbols("MPPANEL-MIB", PYSNMP_MODULE_ID=mpPanelMib, cE1IfIndex=cE1IfIndex, mprSwPortEntry=mprSwPortEntry, panelIndex=panelIndex, mprSwSlotNo=mprSwSlotNo, mprSwPortNo=mprSwPortNo, mprSwPortLinkStatus=mprSwPortLinkStatus, panelIfIndex=panelIfIndex, mprSwPortTable=mprSwPortTable, cE1TimeslotsEntry=cE1TimeslotsEntry, panelTable=panelTable, cE1Timeslots=cE1Timeslots, panelEntry=panelEntry, mprSwPortSpeed=mprSwPortSpeed, panelType=panelType, mprSwPortDeplux=mprSwPortDeplux, cE1TimeslotsTable=cE1TimeslotsTable, mpPanelMib=mpPanelMib)

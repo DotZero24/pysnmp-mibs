@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module A3Com-Mip-r1-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3Com-Mip-r1-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:04 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/a3com/A3Com-Mip-r1-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:33:28 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 a3Com = MibIdentifier((1, 3, 6, 1, 4, 1, 43))
 brouterMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2))
 a3ComMIP = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2, 27))
@@ -59,4 +59,4 @@ a3ComMipSmdsGroupMediaAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 3, 
 if mibBuilder.loadTexts: a3ComMipSmdsGroupMediaAddr.setStatus('mandatory')
 a3ComMipSmdsGroupStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 3, 1, 3), RowStatus()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: a3ComMipSmdsGroupStatus.setStatus('mandatory')
-mibBuilder.exportSymbols("A3Com-Mip-r1-MIB", a3ComMipPortEntry=a3ComMipPortEntry, a3ComMipPortQueryInterval=a3ComMipPortQueryInterval, a3ComMipLocalGroupType=a3ComMipLocalGroupType, a3ComMipLocalGroupTable=a3ComMipLocalGroupTable, a3ComMipPortTable=a3ComMipPortTable, a3Com=a3Com, a3ComMipCConfig=a3ComMipCConfig, a3ComMipLocalGroupEntry=a3ComMipLocalGroupEntry, a3ComMIP=a3ComMIP, a3ComMipPortPaceMode=a3ComMipPortPaceMode, a3ComMipPortQuerier=a3ComMipPortQuerier, a3ComMipLocalGroupPort=a3ComMipLocalGroupPort, a3ComMipSConfig=a3ComMipSConfig, RowStatus=RowStatus, a3ComMipSmdsGroupTable=a3ComMipSmdsGroupTable, a3ComMipPortThreshold=a3ComMipPortThreshold, a3ComMipSmdsGroupEntry=a3ComMipSmdsGroupEntry, a3ComMipLocalGroupStatus=a3ComMipLocalGroupStatus, a3ComMipSmdsGroupMediaAddr=a3ComMipSmdsGroupMediaAddr, a3ComMipLocalGroupIpAddr=a3ComMipLocalGroupIpAddr, a3ComMipControl=a3ComMipControl, brouterMIB=brouterMIB, a3ComMipPortIndex=a3ComMipPortIndex, a3ComMipSmdsGroupIpAddr=a3ComMipSmdsGroupIpAddr, a3ComMipData=a3ComMipData, a3ComMipSmdsGroupStatus=a3ComMipSmdsGroupStatus)
+mibBuilder.exportSymbols("A3Com-Mip-r1-MIB", a3ComMipPortQueryInterval=a3ComMipPortQueryInterval, a3ComMipPortTable=a3ComMipPortTable, a3ComMipLocalGroupEntry=a3ComMipLocalGroupEntry, a3ComMipSmdsGroupEntry=a3ComMipSmdsGroupEntry, a3ComMipSmdsGroupStatus=a3ComMipSmdsGroupStatus, a3ComMipLocalGroupType=a3ComMipLocalGroupType, a3ComMipLocalGroupPort=a3ComMipLocalGroupPort, a3ComMipPortEntry=a3ComMipPortEntry, a3ComMipPortQuerier=a3ComMipPortQuerier, a3ComMipControl=a3ComMipControl, a3ComMipSmdsGroupTable=a3ComMipSmdsGroupTable, a3ComMipSmdsGroupIpAddr=a3ComMipSmdsGroupIpAddr, a3ComMipLocalGroupTable=a3ComMipLocalGroupTable, a3ComMipPortThreshold=a3ComMipPortThreshold, a3ComMIP=a3ComMIP, a3ComMipSmdsGroupMediaAddr=a3ComMipSmdsGroupMediaAddr, a3ComMipData=a3ComMipData, RowStatus=RowStatus, a3ComMipCConfig=a3ComMipCConfig, a3ComMipLocalGroupStatus=a3ComMipLocalGroupStatus, a3ComMipSConfig=a3ComMipSConfig, a3ComMipPortPaceMode=a3ComMipPortPaceMode, a3ComMipLocalGroupIpAddr=a3ComMipLocalGroupIpAddr, a3ComMipPortIndex=a3ComMipPortIndex, a3Com=a3Com, brouterMIB=brouterMIB)

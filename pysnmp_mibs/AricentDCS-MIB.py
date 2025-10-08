@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module AricentDCS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aricent/AricentDCS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:32:27 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/aricent/AricentDCS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:56:44 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 fsDcsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 29601, 2, 1))
 if mibBuilder.loadTexts: fsDcsMIB.setLastUpdated('201806180000Z')
 if mibBuilder.loadTexts: fsDcsMIB.setOrganization('ARICENT COMMUNICATIONS SOFTWARE')
@@ -48,4 +48,4 @@ fsDcsPortCtrlAgentCircuitID = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 1, 2, 
 if mibBuilder.loadTexts: fsDcsPortCtrlAgentCircuitID.setStatus('current')
 fsDcsPortCtrlVlanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 1, 2, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: fsDcsPortCtrlVlanRowStatus.setStatus('current')
-mibBuilder.exportSymbols("AricentDCS-MIB", fsDcsSystem=fsDcsSystem, fsDcsConfigControl=fsDcsConfigControl, fsDcsDefCircuitIDFormatConfig=fsDcsDefCircuitIDFormatConfig, fsDcsPortCtrlVlanId=fsDcsPortCtrlVlanId, fsDcsDefCircuitIDFormatOption=fsDcsDefCircuitIDFormatOption, fsDcsPortCtrlRemoteAgentIDStatus=fsDcsPortCtrlRemoteAgentIDStatus, fsDcsPortCtrlVlanRowStatus=fsDcsPortCtrlVlanRowStatus, EnabledStatus=EnabledStatus, fsDcsDefCircuitIDFormatDelimiter=fsDcsDefCircuitIDFormatDelimiter, fsDcsPortCtrlRemoteAgentIdentifier=fsDcsPortCtrlRemoteAgentIdentifier, fsDcsPortCtrlAgentCircuitID=fsDcsPortCtrlAgentCircuitID, fsDcsPortCtrlIndex=fsDcsPortCtrlIndex, fsDcsPortCtrlEntry=fsDcsPortCtrlEntry, fsDcsPortCtrlAccessLoopStatus=fsDcsPortCtrlAccessLoopStatus, fsDcsMIB=fsDcsMIB, fsDcsPortCtrlTable=fsDcsPortCtrlTable, PYSNMP_MODULE_ID=fsDcsMIB, fsDcsDefCircuitIDFormatString=fsDcsDefCircuitIDFormatString)
+mibBuilder.exportSymbols("AricentDCS-MIB", fsDcsSystem=fsDcsSystem, fsDcsPortCtrlAccessLoopStatus=fsDcsPortCtrlAccessLoopStatus, fsDcsPortCtrlTable=fsDcsPortCtrlTable, fsDcsDefCircuitIDFormatDelimiter=fsDcsDefCircuitIDFormatDelimiter, fsDcsPortCtrlRemoteAgentIdentifier=fsDcsPortCtrlRemoteAgentIdentifier, EnabledStatus=EnabledStatus, fsDcsPortCtrlAgentCircuitID=fsDcsPortCtrlAgentCircuitID, fsDcsMIB=fsDcsMIB, fsDcsDefCircuitIDFormatConfig=fsDcsDefCircuitIDFormatConfig, fsDcsConfigControl=fsDcsConfigControl, fsDcsPortCtrlIndex=fsDcsPortCtrlIndex, fsDcsPortCtrlVlanId=fsDcsPortCtrlVlanId, fsDcsPortCtrlRemoteAgentIDStatus=fsDcsPortCtrlRemoteAgentIDStatus, fsDcsDefCircuitIDFormatString=fsDcsDefCircuitIDFormatString, fsDcsDefCircuitIDFormatOption=fsDcsDefCircuitIDFormatOption, fsDcsPortCtrlVlanRowStatus=fsDcsPortCtrlVlanRowStatus, PYSNMP_MODULE_ID=fsDcsMIB, fsDcsPortCtrlEntry=fsDcsPortCtrlEntry)

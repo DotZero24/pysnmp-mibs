@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module OA-TRAP-MESSAGES-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mrv/OA-TRAP-MESSAGES-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:33 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mrv/OA-TRAP-MESSAGES-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:16:34 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 nbDeviceTrapMessages = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 27))
 nbDeviceTrapMessages.setRevisions(('2007-10-30 00:00',))
 if mibBuilder.loadTexts: nbDeviceTrapMessages.setLastUpdated('200710300000Z')
@@ -57,4 +57,4 @@ oaDevTrapsLinkDown = NotificationType((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 27, 
 if mibBuilder.loadTexts: oaDevTrapsLinkDown.setStatus('current')
 oaDevTrapsLinkUp = NotificationType((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 27, 0, 204)).setObjects(("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsSlotNumber"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsSlotPortNumber"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
 if mibBuilder.loadTexts: oaDevTrapsLinkUp.setStatus('current')
-mibBuilder.exportSymbols("OA-TRAP-MESSAGES-MIB", oaDevTrapsPortsSlotNumber=oaDevTrapsPortsSlotNumber, oaDevTrapsPortsGroup=oaDevTrapsPortsGroup, nbase=nbase, oaDevTrapsMIBGroups=oaDevTrapsMIBGroups, nbDeviceTrapMessages=nbDeviceTrapMessages, PYSNMP_MODULE_ID=nbDeviceTrapMessages, oaDevTrapsGenSupport=oaDevTrapsGenSupport, nbDevGen=nbDevGen, oaDevTrapsGenGroup=oaDevTrapsGenGroup, oaDevTrapsPortsTable=oaDevTrapsPortsTable, oaDevTrapsPorts=oaDevTrapsPorts, oaDevTrapsMIBCompliance=oaDevTrapsMIBCompliance, nbDeviceConfig=nbDeviceConfig, oaDevTrapsConformance=oaDevTrapsConformance, oaDevTrapsPortsNotificationGroup=oaDevTrapsPortsNotificationGroup, oaDevTrapsNotifications=oaDevTrapsNotifications, oaDevTrapsPortsIfAlias=oaDevTrapsPortsIfAlias, nbSwitchG1=nbSwitchG1, oaDevTrapsGen=oaDevTrapsGen, oaDevTrapsPortsSlotPortNumber=oaDevTrapsPortsSlotPortNumber, oaDevTrapsLinkDown=oaDevTrapsLinkDown, oaDevTrapsPortsEntry=oaDevTrapsPortsEntry, oaDevTrapsMIBCompliances=oaDevTrapsMIBCompliances, oaDevTrapsPortsIfIndex=oaDevTrapsPortsIfIndex, oaDevTrapsLinkUp=oaDevTrapsLinkUp, nbSwitchG1Il=nbSwitchG1Il)
+mibBuilder.exportSymbols("OA-TRAP-MESSAGES-MIB", oaDevTrapsGenSupport=oaDevTrapsGenSupport, oaDevTrapsLinkDown=oaDevTrapsLinkDown, oaDevTrapsPortsIfIndex=oaDevTrapsPortsIfIndex, oaDevTrapsLinkUp=oaDevTrapsLinkUp, oaDevTrapsNotifications=oaDevTrapsNotifications, oaDevTrapsPortsSlotPortNumber=oaDevTrapsPortsSlotPortNumber, oaDevTrapsPorts=oaDevTrapsPorts, nbDevGen=nbDevGen, oaDevTrapsPortsEntry=oaDevTrapsPortsEntry, oaDevTrapsPortsTable=oaDevTrapsPortsTable, PYSNMP_MODULE_ID=nbDeviceTrapMessages, oaDevTrapsPortsSlotNumber=oaDevTrapsPortsSlotNumber, oaDevTrapsMIBCompliances=oaDevTrapsMIBCompliances, oaDevTrapsMIBGroups=oaDevTrapsMIBGroups, oaDevTrapsPortsIfAlias=oaDevTrapsPortsIfAlias, nbDeviceConfig=nbDeviceConfig, nbase=nbase, oaDevTrapsMIBCompliance=oaDevTrapsMIBCompliance, nbSwitchG1=nbSwitchG1, nbDeviceTrapMessages=nbDeviceTrapMessages, nbSwitchG1Il=nbSwitchG1Il, oaDevTrapsGen=oaDevTrapsGen, oaDevTrapsPortsNotificationGroup=oaDevTrapsPortsNotificationGroup, oaDevTrapsConformance=oaDevTrapsConformance, oaDevTrapsGenGroup=oaDevTrapsGenGroup, oaDevTrapsPortsGroup=oaDevTrapsPortsGroup)

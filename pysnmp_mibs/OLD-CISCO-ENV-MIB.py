@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module OLD-CISCO-ENV-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/OLD-CISCO-ENV-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:13 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/OLD-CISCO-ENV-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:27:55 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 local, = mibBuilder.importSymbols("CISCO-SMI", "local")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 lenv = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 2, 1))
 envPresent = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 77), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: envPresent.setStatus('mandatory')
@@ -85,4 +85,4 @@ envBurnDate = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 111), DisplayString()).setMa
 if mibBuilder.loadTexts: envBurnDate.setStatus('mandatory')
 envSerialNumber = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 112), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: envSerialNumber.setStatus('mandatory')
-mibBuilder.exportSymbols("OLD-CISCO-ENV-MIB", envTestPt5Measure=envTestPt5Measure, envTestPt6Measure=envTestPt6Measure, envTestPt3MarginPercent=envTestPt3MarginPercent, envTestPt1Descr=envTestPt1Descr, envTestPt1Measure=envTestPt1Measure, envTestPt6MarginPercent=envTestPt6MarginPercent, lenv=lenv, envTestPt2Descr=envTestPt2Descr, envPresent=envPresent, envTestPt3Descr=envTestPt3Descr, envTestPt1last=envTestPt1last, envTestPt3warn=envTestPt3warn, envSerialNumber=envSerialNumber, envTestPt6last=envTestPt6last, envFirmVersion=envFirmVersion, envTestPt5last=envTestPt5last, envTestPt2Measure=envTestPt2Measure, envTestPt4warn=envTestPt4warn, envTestPt2last=envTestPt2last, envTestPt5Descr=envTestPt5Descr, envTestPt5warn=envTestPt5warn, envTestPt3Measure=envTestPt3Measure, envTechnicianID=envTechnicianID, envTestPt4last=envTestPt4last, envBurnDate=envBurnDate, envTestPt4MarginPercent=envTestPt4MarginPercent, envTestPt1MarginVal=envTestPt1MarginVal, envTestPt2MarginVal=envTestPt2MarginVal, envTestPt5MarginPercent=envTestPt5MarginPercent, envTestPt2warn=envTestPt2warn, envTestPt6warn=envTestPt6warn, envTestPt4Descr=envTestPt4Descr, envTestPt6Descr=envTestPt6Descr, envTestPt4Measure=envTestPt4Measure, envTestPt1warn=envTestPt1warn, envTestPt3last=envTestPt3last, envType=envType)
+mibBuilder.exportSymbols("OLD-CISCO-ENV-MIB", lenv=lenv, envType=envType, envSerialNumber=envSerialNumber, envTestPt6warn=envTestPt6warn, envPresent=envPresent, envTestPt3MarginPercent=envTestPt3MarginPercent, envTestPt4last=envTestPt4last, envTestPt4warn=envTestPt4warn, envTestPt1last=envTestPt1last, envTestPt6last=envTestPt6last, envTestPt2MarginVal=envTestPt2MarginVal, envTestPt4Measure=envTestPt4Measure, envTestPt3Descr=envTestPt3Descr, envTestPt3last=envTestPt3last, envTestPt5Descr=envTestPt5Descr, envTestPt5last=envTestPt5last, envBurnDate=envBurnDate, envTechnicianID=envTechnicianID, envTestPt5MarginPercent=envTestPt5MarginPercent, envTestPt1MarginVal=envTestPt1MarginVal, envTestPt5warn=envTestPt5warn, envTestPt6Measure=envTestPt6Measure, envTestPt2warn=envTestPt2warn, envFirmVersion=envFirmVersion, envTestPt1warn=envTestPt1warn, envTestPt2Descr=envTestPt2Descr, envTestPt3Measure=envTestPt3Measure, envTestPt5Measure=envTestPt5Measure, envTestPt3warn=envTestPt3warn, envTestPt1Descr=envTestPt1Descr, envTestPt2last=envTestPt2last, envTestPt6Descr=envTestPt6Descr, envTestPt4Descr=envTestPt4Descr, envTestPt4MarginPercent=envTestPt4MarginPercent, envTestPt2Measure=envTestPt2Measure, envTestPt1Measure=envTestPt1Measure, envTestPt6MarginPercent=envTestPt6MarginPercent)

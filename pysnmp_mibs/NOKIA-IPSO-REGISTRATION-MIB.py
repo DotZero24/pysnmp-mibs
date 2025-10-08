@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module NOKIA-IPSO-REGISTRATION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/checkpoint/NOKIA-IPSO-REGISTRATION-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:33 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/checkpoint/NOKIA-IPSO-REGISTRATION-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:03:17 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ipsoProducts = ModuleIdentity((1, 3, 6, 1, 4, 1, 94, 1, 21))
 ipsoProducts.setRevisions(('1998-12-02 00:00', '1900-01-14 00:00', '1901-07-17 00:00',))
 if mibBuilder.loadTexts: ipsoProducts.setLastUpdated('0001140000Z')
@@ -42,4 +42,4 @@ ipsoVPN210 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 133))
 ipsoVPN220 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 134))
 ipsoVPN230 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 135))
 ipsoVPN240 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 136))
-mibBuilder.exportSymbols("NOKIA-IPSO-REGISTRATION-MIB", ipsoVPN230=ipsoVPN230, ipsoIP410=ipsoIP410, ipsoIP110=ipsoIP110, ipsoIP4xx=ipsoIP4xx, ipsoVPN210=ipsoVPN210, ipsoIPUnknown=ipsoIPUnknown, ipsoIP3xx=ipsoIP3xx, ipsoVPN1RLU=ipsoVPN1RLU, nokiaProducts=nokiaProducts, PYSNMP_MODULE_ID=ipsoProducts, ipsoProductIds=ipsoProductIds, ipsoIP6xx=ipsoIP6xx, ipsoVPN1RL50=ipsoVPN1RL50, ipsoIP600=ipsoIP600, ipsoVPN1RL250=ipsoVPN1RL250, ipsoAgentID=ipsoAgentID, ipsoVPNUnknown=ipsoVPNUnknown, ipsoIP3400=ipsoIP3400, ipsoProducts=ipsoProducts, ipsoVPN220=ipsoVPN220, ipsoVPN240=ipsoVPN240, ipsoIP740=ipsoIP740, ipsoIP530=ipsoIP530, ipsoIP650=ipsoIP650, nokia=nokia, ipsoSosSystem=ipsoSosSystem, ipsoIP440=ipsoIP440, ipsoIP400=ipsoIP400, ipsoVPN1RL500=ipsoVPN1RL500)
+mibBuilder.exportSymbols("NOKIA-IPSO-REGISTRATION-MIB", ipsoIP440=ipsoIP440, ipsoIP600=ipsoIP600, ipsoVPN1RL500=ipsoVPN1RL500, ipsoIP650=ipsoIP650, ipsoIP3400=ipsoIP3400, ipsoIP400=ipsoIP400, ipsoProductIds=ipsoProductIds, ipsoIP740=ipsoIP740, ipsoIP530=ipsoIP530, ipsoIP6xx=ipsoIP6xx, ipsoVPN240=ipsoVPN240, ipsoVPN210=ipsoVPN210, ipsoVPN220=ipsoVPN220, ipsoIP110=ipsoIP110, nokiaProducts=nokiaProducts, ipsoVPN230=ipsoVPN230, ipsoIP3xx=ipsoIP3xx, ipsoVPN1RLU=ipsoVPN1RLU, ipsoVPN1RL50=ipsoVPN1RL50, ipsoAgentID=ipsoAgentID, PYSNMP_MODULE_ID=ipsoProducts, ipsoSosSystem=ipsoSosSystem, nokia=nokia, ipsoIP4xx=ipsoIP4xx, ipsoIP410=ipsoIP410, ipsoVPNUnknown=ipsoVPNUnknown, ipsoVPN1RL250=ipsoVPN1RL250, ipsoIPUnknown=ipsoIPUnknown, ipsoProducts=ipsoProducts)

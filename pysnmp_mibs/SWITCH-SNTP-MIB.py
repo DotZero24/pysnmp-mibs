@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SWITCH-SNTP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/SWITCH-SNTP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:50 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/raisecom/SWITCH-SNTP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:54:39 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 iscomSwitch, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "iscomSwitch")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 EnableVar, = mibBuilder.importSymbols("SWITCH-TC", "EnableVar")
 rcSntp = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 6, 1, 8))
 rcSntp.setRevisions(('1904-12-20 00:00',))
@@ -31,4 +31,4 @@ rcSntpClientGet = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 8, 2, 2), Integer32()
 if mibBuilder.loadTexts: rcSntpClientGet.setStatus('current')
 rcSntpClientListenEnable = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 8, 2, 3), EnableVar().clone('disable')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: rcSntpClientListenEnable.setStatus('current')
-mibBuilder.exportSymbols("SWITCH-SNTP-MIB", rcSntpServerEnable=rcSntpServerEnable, rcSntpServerSendInterval=rcSntpServerSendInterval, rcSntpClientGet=rcSntpClientGet, rcSntpServerBroadcastAddress=rcSntpServerBroadcastAddress, PYSNMP_MODULE_ID=rcSntp, rcSntpClient=rcSntpClient, rcSntpClientAddress=rcSntpClientAddress, rcSntp=rcSntp, rcSntpServer=rcSntpServer, rcSntpClientListenEnable=rcSntpClientListenEnable)
+mibBuilder.exportSymbols("SWITCH-SNTP-MIB", rcSntpServerBroadcastAddress=rcSntpServerBroadcastAddress, PYSNMP_MODULE_ID=rcSntp, rcSntpClient=rcSntpClient, rcSntp=rcSntp, rcSntpServerSendInterval=rcSntpServerSendInterval, rcSntpClientAddress=rcSntpClientAddress, rcSntpServer=rcSntpServer, rcSntpServerEnable=rcSntpServerEnable, rcSntpClientListenEnable=rcSntpClientListenEnable, rcSntpClientGet=rcSntpClientGet)

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ZYXEL-ANTI-ARPSCAN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-ANTI-ARPSCAN-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:02 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zyxel/ZYXEL-ANTI-ARPSCAN-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:03:54 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
 EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+MacAddress, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "RowStatus", "TextualConvention", "DisplayString")
 esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
 zyxelAntiArpscan = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106))
 if mibBuilder.loadTexts: zyxelAntiArpscan.setLastUpdated('201410280000Z')
@@ -61,4 +61,4 @@ zyAntiArpscanHostIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 10
 if mibBuilder.loadTexts: zyAntiArpscanHostIpAddress.setStatus('current')
 zyAntiArpscanHostStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 2, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2))).clone(namedValues=NamedValues(("errDisable", 2)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: zyAntiArpscanHostStatus.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-ANTI-ARPSCAN-MIB", zyAntiArpscanTrustHostName=zyAntiArpscanTrustHostName, zyxelAntiArpscanStatus=zyxelAntiArpscanStatus, zyAntiArpscanTrustHostMask=zyAntiArpscanTrustHostMask, zyxelAntiArpscanPortEntry=zyxelAntiArpscanPortEntry, zyAntiArpscanHostPort=zyAntiArpscanHostPort, PYSNMP_MODULE_ID=zyxelAntiArpscan, zyAntiArpscanPortThreshold=zyAntiArpscanPortThreshold, zyxelAntiArpscanHostEntry=zyxelAntiArpscanHostEntry, zyAntiArpscanHostStatus=zyAntiArpscanHostStatus, zyAntiArpscanMaxNumberOfTrustHosts=zyAntiArpscanMaxNumberOfTrustHosts, zyAntiArpscanHostVid=zyAntiArpscanHostVid, zyxelAntiArpscan=zyxelAntiArpscan, zyAntiArpscanHostClear=zyAntiArpscanHostClear, zyAntiArpscanPortTrustState=zyAntiArpscanPortTrustState, zyxelAntiArpscanTrustHostEntry=zyxelAntiArpscanTrustHostEntry, zyxelAntiArpscanPortTable=zyxelAntiArpscanPortTable, zyAntiArpscanHostIpAddress=zyAntiArpscanHostIpAddress, zyAntiArpscanTrustHostRowStatus=zyAntiArpscanTrustHostRowStatus, zyAntiArpscanState=zyAntiArpscanState, zyAntiArpscanTrustHostIpAddress=zyAntiArpscanTrustHostIpAddress, zyAntiArpscanHostMacAddress=zyAntiArpscanHostMacAddress, zyxelAntiArpscanHostTable=zyxelAntiArpscanHostTable, zyxelAntiArpscanTrustHostTable=zyxelAntiArpscanTrustHostTable, zyAntiArpscanHostThreshold=zyAntiArpscanHostThreshold, zyxelAntiArpscanSetup=zyxelAntiArpscanSetup)
+mibBuilder.exportSymbols("ZYXEL-ANTI-ARPSCAN-MIB", zyAntiArpscanPortThreshold=zyAntiArpscanPortThreshold, zyAntiArpscanTrustHostRowStatus=zyAntiArpscanTrustHostRowStatus, zyAntiArpscanHostStatus=zyAntiArpscanHostStatus, PYSNMP_MODULE_ID=zyxelAntiArpscan, zyAntiArpscanHostVid=zyAntiArpscanHostVid, zyxelAntiArpscanPortTable=zyxelAntiArpscanPortTable, zyAntiArpscanPortTrustState=zyAntiArpscanPortTrustState, zyxelAntiArpscanStatus=zyxelAntiArpscanStatus, zyAntiArpscanTrustHostMask=zyAntiArpscanTrustHostMask, zyAntiArpscanHostClear=zyAntiArpscanHostClear, zyxelAntiArpscanTrustHostTable=zyxelAntiArpscanTrustHostTable, zyAntiArpscanHostPort=zyAntiArpscanHostPort, zyxelAntiArpscan=zyxelAntiArpscan, zyAntiArpscanHostIpAddress=zyAntiArpscanHostIpAddress, zyxelAntiArpscanHostEntry=zyxelAntiArpscanHostEntry, zyxelAntiArpscanSetup=zyxelAntiArpscanSetup, zyAntiArpscanMaxNumberOfTrustHosts=zyAntiArpscanMaxNumberOfTrustHosts, zyxelAntiArpscanTrustHostEntry=zyxelAntiArpscanTrustHostEntry, zyAntiArpscanState=zyAntiArpscanState, zyAntiArpscanHostThreshold=zyAntiArpscanHostThreshold, zyxelAntiArpscanPortEntry=zyxelAntiArpscanPortEntry, zyAntiArpscanTrustHostIpAddress=zyAntiArpscanTrustHostIpAddress, zyxelAntiArpscanHostTable=zyxelAntiArpscanHostTable, zyAntiArpscanHostMacAddress=zyAntiArpscanHostMacAddress, zyAntiArpscanTrustHostName=zyAntiArpscanTrustHostName)

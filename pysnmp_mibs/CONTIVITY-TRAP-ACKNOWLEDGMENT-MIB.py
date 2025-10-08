@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CONTIVITY-TRAP-ACKNOWLEDGMENT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/CONTIVITY-TRAP-ACKNOWLEDGMENT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:28 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nortel/CONTIVITY-TRAP-ACKNOWLEDGMENT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:03:10 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 snmpAgentInfo_Utilities_ces, = mibBuilder.importSymbols("CONTIVITY-INFO-V1-MIB", "snmpAgentInfo-Utilities-ces")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 snmpAgentInfo_Utilities_TrapAck_ces = ModuleIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 15, 1, 2)).setLabel("snmpAgentInfo-Utilities-TrapAck-ces")
 if mibBuilder.loadTexts: snmpAgentInfo_Utilities_TrapAck_ces.setLastUpdated('0604062230Z')
 if mibBuilder.loadTexts: snmpAgentInfo_Utilities_TrapAck_ces.setOrganization('Nortel')
@@ -36,4 +36,4 @@ trapAckEntry_ces = MibTableRow((1, 3, 6, 1, 4, 1, 2505, 1, 15, 1, 2, 6, 1), ).se
 if mibBuilder.loadTexts: trapAckEntry_ces.setStatus('mandatory')
 trapAcknowledgement_ces = MibScalar((1, 3, 6, 1, 4, 1, 2505, 1, 15, 1, 2, 6, 1, 1), Integer32()).setLabel("trapAcknowledgement-ces").setMaxAccess("readonly")
 if mibBuilder.loadTexts: trapAcknowledgement_ces.setStatus('mandatory')
-mibBuilder.exportSymbols("CONTIVITY-TRAP-ACKNOWLEDGMENT-MIB", snmpAgentInfo_Utilities_TrapAck_ces=snmpAgentInfo_Utilities_TrapAck_ces, trapSysUpTime_ces=trapSysUpTime_ces, trapOID_ces=trapOID_ces, trapAck_Rev_ces=trapAck_Rev_ces, trapAckEntry_ces=trapAckEntry_ces, trapAck_RevDate_ces=trapAck_RevDate_ces, trapSeverity_ces=trapSeverity_ces, trapAck_ServerRev_ces=trapAck_ServerRev_ces, trapAckTable_ces=trapAckTable_ces, PYSNMP_MODULE_ID=snmpAgentInfo_Utilities_TrapAck_ces, trapAck_RevInfo_ces=trapAck_RevInfo_ces, trapDescription_ces=trapDescription_ces, trapAcknowledgement_ces=trapAcknowledgement_ces)
+mibBuilder.exportSymbols("CONTIVITY-TRAP-ACKNOWLEDGMENT-MIB", trapAckTable_ces=trapAckTable_ces, trapSysUpTime_ces=trapSysUpTime_ces, PYSNMP_MODULE_ID=snmpAgentInfo_Utilities_TrapAck_ces, trapAck_ServerRev_ces=trapAck_ServerRev_ces, trapSeverity_ces=trapSeverity_ces, trapAck_RevInfo_ces=trapAck_RevInfo_ces, snmpAgentInfo_Utilities_TrapAck_ces=snmpAgentInfo_Utilities_TrapAck_ces, trapAck_Rev_ces=trapAck_Rev_ces, trapAckEntry_ces=trapAckEntry_ces, trapOID_ces=trapOID_ces, trapDescription_ces=trapDescription_ces, trapAck_RevDate_ces=trapAck_RevDate_ces, trapAcknowledgement_ces=trapAcknowledgement_ces)

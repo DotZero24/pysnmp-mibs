@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SPIDCOM-ALARM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cdata/SPIDCOM-ALARM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:41 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cdata/SPIDCOM-ALARM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:14:53 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 neMibAlarm, = mibBuilder.importSymbols("NE-ALARM-MIB", "neMibAlarm")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
 neAlarm = ModuleIdentity((1, 3, 6, 1, 4, 1, 22764, 2, 1))
 if mibBuilder.loadTexts: neAlarm.setLastUpdated('200207151330Z')
 if mibBuilder.loadTexts: neAlarm.setOrganization('SPiDCOM')
@@ -78,4 +78,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 neAlarmActiveGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 22764, 2, 1, 13)).setObjects(("SPIDCOM-ALARM-MIB", "neAlarmActiveLastTrapIndex"), ("SPIDCOM-ALARM-MIB", "neAlarmActivePhoto"), ("SPIDCOM-ALARM-MIB", "neAlarmTrapFilter"), ("SPIDCOM-ALARM-MIB", "neAlarmTrapDestiIp"), ("SPIDCOM-ALARM-MIB", "neAlarmTrapDestiPort"), ("SPIDCOM-ALARM-MIB", "neAlarmTrapCounter"), ("SPIDCOM-ALARM-MIB", "neClearTerminatedAlarms"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     neAlarmActiveGroup = neAlarmActiveGroup.setStatus('current')
-mibBuilder.exportSymbols("SPIDCOM-ALARM-MIB", ItuAlarmProbableCause=ItuAlarmProbableCause, neAlarmTrapDestiIp=neAlarmTrapDestiIp, neAlarmType=neAlarmType, neAlarmGroup=neAlarmGroup, neAlarmTrap=neAlarmTrap, neAlarmDescription=neAlarmDescription, neAlarmActivePhoto=neAlarmActivePhoto, neAlarmTimeStamp=neAlarmTimeStamp, neAlarmAlreadyPresent=neAlarmAlreadyPresent, neAlarmActiveGroup=neAlarmActiveGroup, neAlarmStatus=neAlarmStatus, neAlarmTrapFilter=neAlarmTrapFilter, NeTrapFilter=NeTrapFilter, neAlarmActiveLastTrapIndex=neAlarmActiveLastTrapIndex, neAlarmProbableCause=neAlarmProbableCause, neAlarmTable=neAlarmTable, ItuAlarmType=ItuAlarmType, PYSNMP_MODULE_ID=neAlarm, neAlarmTrapDestiPort=neAlarmTrapDestiPort, neAlarmAdditionalText=neAlarmAdditionalText, neAlarmEntry=neAlarmEntry, neAlarm=neAlarm, neAlarmManagedObject=neAlarmManagedObject, neClearTerminatedAlarms=neClearTerminatedAlarms, neAlarmTrapCounter=neAlarmTrapCounter, NeAlarmPhoto=NeAlarmPhoto, neAlarmIndex=neAlarmIndex)
+mibBuilder.exportSymbols("SPIDCOM-ALARM-MIB", neClearTerminatedAlarms=neClearTerminatedAlarms, neAlarmAlreadyPresent=neAlarmAlreadyPresent, ItuAlarmType=ItuAlarmType, neAlarmGroup=neAlarmGroup, neAlarmTrapFilter=neAlarmTrapFilter, neAlarmActiveGroup=neAlarmActiveGroup, neAlarmActivePhoto=neAlarmActivePhoto, neAlarmAdditionalText=neAlarmAdditionalText, ItuAlarmProbableCause=ItuAlarmProbableCause, neAlarm=neAlarm, neAlarmProbableCause=neAlarmProbableCause, neAlarmManagedObject=neAlarmManagedObject, neAlarmEntry=neAlarmEntry, neAlarmDescription=neAlarmDescription, neAlarmIndex=neAlarmIndex, NeTrapFilter=NeTrapFilter, neAlarmType=neAlarmType, NeAlarmPhoto=NeAlarmPhoto, PYSNMP_MODULE_ID=neAlarm, neAlarmTrapCounter=neAlarmTrapCounter, neAlarmTrapDestiPort=neAlarmTrapDestiPort, neAlarmTrap=neAlarmTrap, neAlarmTimeStamp=neAlarmTimeStamp, neAlarmTrapDestiIp=neAlarmTrapDestiIp, neAlarmTable=neAlarmTable, neAlarmActiveLastTrapIndex=neAlarmActiveLastTrapIndex, neAlarmStatus=neAlarmStatus)

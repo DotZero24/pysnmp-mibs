@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module CPQNODE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/CPQNODE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:54 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/CPQNODE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:08:59 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-cpqHeThermalDegradedAction, cpqHeTemperatureChassis, cpqHeTemperatureLocale = mibBuilder.importSymbols("CPQHLTH-MIB", "cpqHeThermalDegradedAction", "cpqHeTemperatureChassis", "cpqHeTemperatureLocale")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+cpqHeTemperatureChassis, cpqHeThermalDegradedAction, cpqHeTemperatureLocale = mibBuilder.importSymbols("CPQHLTH-MIB", "cpqHeTemperatureChassis", "cpqHeThermalDegradedAction", "cpqHeTemperatureLocale")
 cpqHoTrapFlags, compaq = mibBuilder.importSymbols("CPQHOST-MIB", "cpqHoTrapFlags", "compaq")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
 sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
-ModuleIdentity, NotificationType, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 cpqNode = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 20))
 cpqNodeFix = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 20, 2))
 cpqNodeComponent = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 20, 2, 1))
@@ -43,4 +43,4 @@ cpqNodeTemperatureDegraded = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,23001
 cpqNodeTemperatureOk = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,23002)).setObjects(("SNMPv2-MIB", "sysName"), ("CPQHOST-MIB", "cpqHoTrapFlags"), ("CPQHLTH-MIB", "cpqHeTemperatureChassis"), ("CPQHLTH-MIB", "cpqHeTemperatureLocale"), ("CPQNODE-MIB", "cpqNodeCart"), ("CPQNODE-MIB", "cpqNodeNode"), ("CPQNODE-MIB", "cpqNodeType"), ("CPQNODE-MIB", "cpqNodeUUID"), ("CPQNODE-MIB", "cpqNodeSerial"), ("CPQNODE-MIB", "cpqNodeMac1"), ("CPQNODE-MIB", "cpqNodeMac2"), ("CPQNODE-MIB", "cpqNodeMac3"), ("CPQNODE-MIB", "cpqNodeMac4"))
 cpqNodeTemperatureFailed = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,23003)).setObjects(("SNMPv2-MIB", "sysName"), ("CPQHOST-MIB", "cpqHoTrapFlags"), ("CPQHLTH-MIB", "cpqHeThermalDegradedAction"), ("CPQHLTH-MIB", "cpqHeTemperatureChassis"), ("CPQHLTH-MIB", "cpqHeTemperatureLocale"), ("CPQNODE-MIB", "cpqNodeCart"), ("CPQNODE-MIB", "cpqNodeNode"), ("CPQNODE-MIB", "cpqNodeType"), ("CPQNODE-MIB", "cpqNodeUUID"), ("CPQNODE-MIB", "cpqNodeSerial"), ("CPQNODE-MIB", "cpqNodeMac1"), ("CPQNODE-MIB", "cpqNodeMac2"), ("CPQNODE-MIB", "cpqNodeMac3"), ("CPQNODE-MIB", "cpqNodeMac4"))
 cpqNodeErrorEvent = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,23004)).setObjects(("SNMPv2-MIB", "sysName"), ("CPQHOST-MIB", "cpqHoTrapFlags"), ("CPQNODE-MIB", "cpqNodeErrorMessage"), ("CPQNODE-MIB", "cpqNodeCart"), ("CPQNODE-MIB", "cpqNodeNode"), ("CPQNODE-MIB", "cpqNodeType"), ("CPQNODE-MIB", "cpqNodeUUID"), ("CPQNODE-MIB", "cpqNodeSerial"), ("CPQNODE-MIB", "cpqNodeMac1"), ("CPQNODE-MIB", "cpqNodeMac2"), ("CPQNODE-MIB", "cpqNodeMac3"), ("CPQNODE-MIB", "cpqNodeMac4"))
-mibBuilder.exportSymbols("CPQNODE-MIB", cpqNodeMac1=cpqNodeMac1, cpqNodeFix=cpqNodeFix, cpqNodeSerial=cpqNodeSerial, cpqNodeComponent=cpqNodeComponent, cpqNodeTemperatureFailed=cpqNodeTemperatureFailed, cpqNodePowerOff=cpqNodePowerOff, cpqNodeErrorMessage=cpqNodeErrorMessage, cpqNodeErrorEvent=cpqNodeErrorEvent, cpqNodeCart=cpqNodeCart, cpqNodeNode=cpqNodeNode, cpqNodeMac4=cpqNodeMac4, cpqNodeTemperatureDegraded=cpqNodeTemperatureDegraded, cpqNodeUUID=cpqNodeUUID, cpqNodeType=cpqNodeType, cpqNodeMac3=cpqNodeMac3, cpqNodePowerOn=cpqNodePowerOn, cpqNode=cpqNode, cpqNodeTemperatureOk=cpqNodeTemperatureOk, cpqNodeMac2=cpqNodeMac2)
+mibBuilder.exportSymbols("CPQNODE-MIB", cpqNode=cpqNode, cpqNodeMac1=cpqNodeMac1, cpqNodeCart=cpqNodeCart, cpqNodeTemperatureOk=cpqNodeTemperatureOk, cpqNodeMac3=cpqNodeMac3, cpqNodeErrorMessage=cpqNodeErrorMessage, cpqNodeErrorEvent=cpqNodeErrorEvent, cpqNodeFix=cpqNodeFix, cpqNodePowerOff=cpqNodePowerOff, cpqNodeNode=cpqNodeNode, cpqNodeMac4=cpqNodeMac4, cpqNodeSerial=cpqNodeSerial, cpqNodeComponent=cpqNodeComponent, cpqNodeUUID=cpqNodeUUID, cpqNodeTemperatureFailed=cpqNodeTemperatureFailed, cpqNodeTemperatureDegraded=cpqNodeTemperatureDegraded, cpqNodeType=cpqNodeType, cpqNodeMac2=cpqNodeMac2, cpqNodePowerOn=cpqNodePowerOn)

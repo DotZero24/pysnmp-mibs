@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module DC-MASTER-TC (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mrv/DC-MASTER-TC
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:30 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mrv/DC-MASTER-TC
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:18:29 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 dcMasterTc = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 10, 13))
 dcMasterTc.setRevisions(('2014-12-21 00:00',))
@@ -138,4 +138,4 @@ class InterfaceScope(TextualConvention, OctetString):
     status = 'current'
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 3)
 
-mibBuilder.exportSymbols("DC-MASTER-TC", PathType=PathType, AdminStatus=AdminStatus, BaseOperStatus=BaseOperStatus, InetSubAddressType=InetSubAddressType, nbase=nbase, dcMasterTc=dcMasterTc, NumericIndexOrZero=NumericIndexOrZero, ExtAccessListListIndex=ExtAccessListListIndex, StdAccessListListIndex=StdAccessListListIndex, AdminDistance=AdminDistance, SjStatus=SjStatus, EntityProcType=EntityProcType, NpgOperStatus=NpgOperStatus, EntityIndex=EntityIndex, EntityIndexOrZero=EntityIndexOrZero, StdAccessListRuleIndex=StdAccessListRuleIndex, ExtAccessListListIndexOrZero=ExtAccessListListIndexOrZero, MjStatus=MjStatus, OperStatus=OperStatus, PYSNMP_MODULE_ID=dcMasterTc, ExtAccessListRuleIndex=ExtAccessListRuleIndex, IgpShortcutMetricType=IgpShortcutMetricType, AuthUserDataString=AuthUserDataString, Unsigned32NonZero=Unsigned32NonZero, RouteAction=RouteAction, BfdSessionStatus=BfdSessionStatus, StdAccessListListIndexOrZero=StdAccessListListIndexOrZero, IfOperStatus=IfOperStatus, opx=opx, InterfaceScope=InterfaceScope, NumericIndex=NumericIndex)
+mibBuilder.exportSymbols("DC-MASTER-TC", PYSNMP_MODULE_ID=dcMasterTc, InterfaceScope=InterfaceScope, StdAccessListRuleIndex=StdAccessListRuleIndex, MjStatus=MjStatus, NumericIndex=NumericIndex, StdAccessListListIndex=StdAccessListListIndex, PathType=PathType, IgpShortcutMetricType=IgpShortcutMetricType, ExtAccessListListIndexOrZero=ExtAccessListListIndexOrZero, EntityIndex=EntityIndex, OperStatus=OperStatus, AdminDistance=AdminDistance, IfOperStatus=IfOperStatus, ExtAccessListListIndex=ExtAccessListListIndex, AuthUserDataString=AuthUserDataString, Unsigned32NonZero=Unsigned32NonZero, InetSubAddressType=InetSubAddressType, NpgOperStatus=NpgOperStatus, EntityIndexOrZero=EntityIndexOrZero, dcMasterTc=dcMasterTc, StdAccessListListIndexOrZero=StdAccessListListIndexOrZero, nbase=nbase, RouteAction=RouteAction, BfdSessionStatus=BfdSessionStatus, BaseOperStatus=BaseOperStatus, NumericIndexOrZero=NumericIndexOrZero, ExtAccessListRuleIndex=ExtAccessListRuleIndex, EntityProcType=EntityProcType, opx=opx, AdminStatus=AdminStatus, SjStatus=SjStatus)

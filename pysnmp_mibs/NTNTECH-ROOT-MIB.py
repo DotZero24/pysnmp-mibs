@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module NTNTECH-ROOT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zhone/NTNTECH-ROOT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:13 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zhone/NTNTECH-ROOT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:19:55 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ntntechRootMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 8059))
 ntntechRootMIB.setRevisions(('1902-08-28 11:57', '1902-10-22 02:00', '1904-10-11 01:01', '1904-11-17 10:09',))
 if mibBuilder.loadTexts: ntntechRootMIB.setLastUpdated('0411170200Z')
@@ -73,4 +73,4 @@ ntntechNMSTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 8059, 1, 3))
 ntntechNMSTrapsMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 8059, 1, 3, 1))
 ntntechSystemObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8059, 1, 4))
 ntntechSystemObjectsIdentifierMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 8059, 1, 4, 1))
-mibBuilder.exportSymbols("NTNTECH-ROOT-MIB", NtnCounter32=NtnCounter32, PYSNMP_MODULE_ID=ntntechRootMIB, ntntechInterfaceModuleStatusMIB=ntntechInterfaceModuleStatusMIB, ntntechRootMIB=ntntechRootMIB, ntntechNamingTree=ntntechNamingTree, NtnTimeTicks=NtnTimeTicks, NtnTruthValue=NtnTruthValue, NtnMacAddress=NtnMacAddress, ntntechQoSMIB=ntntechQoSMIB, ntntechChassisStatusMIB=ntntechChassisStatusMIB, ntntechNMSTrapsMIB=ntntechNMSTrapsMIB, ntntechInterfaceModuleConfigurationMIB=ntntechInterfaceModuleConfigurationMIB, NtnDisplayString=NtnDisplayString, NtnSubnetMask=NtnSubnetMask, ntntechChassisConfigurationMIB=ntntechChassisConfigurationMIB, NtnIpAddress=NtnIpAddress, NtnDefaultGateway=NtnDefaultGateway, ntntechChassis=ntntechChassis, NtnGauge32=NtnGauge32, ntntechSystemObjects=ntntechSystemObjects, ntntechInterfaceModule=ntntechInterfaceModule, ntntechSystemObjectsIdentifierMIB=ntntechSystemObjectsIdentifierMIB, ntntechNMSTraps=ntntechNMSTraps)
+mibBuilder.exportSymbols("NTNTECH-ROOT-MIB", ntntechRootMIB=ntntechRootMIB, NtnCounter32=NtnCounter32, NtnSubnetMask=NtnSubnetMask, ntntechQoSMIB=ntntechQoSMIB, ntntechNamingTree=ntntechNamingTree, NtnTimeTicks=NtnTimeTicks, ntntechNMSTraps=ntntechNMSTraps, ntntechNMSTrapsMIB=ntntechNMSTrapsMIB, ntntechChassisStatusMIB=ntntechChassisStatusMIB, ntntechSystemObjectsIdentifierMIB=ntntechSystemObjectsIdentifierMIB, ntntechSystemObjects=ntntechSystemObjects, NtnMacAddress=NtnMacAddress, ntntechInterfaceModuleConfigurationMIB=ntntechInterfaceModuleConfigurationMIB, ntntechInterfaceModuleStatusMIB=ntntechInterfaceModuleStatusMIB, ntntechChassisConfigurationMIB=ntntechChassisConfigurationMIB, NtnTruthValue=NtnTruthValue, NtnIpAddress=NtnIpAddress, NtnGauge32=NtnGauge32, NtnDefaultGateway=NtnDefaultGateway, ntntechInterfaceModule=ntntechInterfaceModule, ntntechChassis=ntntechChassis, NtnDisplayString=NtnDisplayString, PYSNMP_MODULE_ID=ntntechRootMIB)

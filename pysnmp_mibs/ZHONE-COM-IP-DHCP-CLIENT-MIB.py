@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module ZHONE-COM-IP-DHCP-CLIENT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zhone/ZHONE-COM-IP-DHCP-CLIENT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:00 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zhone/ZHONE-COM-IP-DHCP-CLIENT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:19:23 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ipInterfaceEntry, = mibBuilder.importSymbols("ZHONE-COM-IP-REC-MIB", "ipInterfaceEntry")
-zhoneIp, zhoneModules, zhoneShelfIndex, zhoneSlotIndex = mibBuilder.importSymbols("Zhone", "zhoneIp", "zhoneModules", "zhoneShelfIndex", "zhoneSlotIndex")
+zhoneSlotIndex, zhoneShelfIndex, zhoneModules, zhoneIp = mibBuilder.importSymbols("Zhone", "zhoneSlotIndex", "zhoneShelfIndex", "zhoneModules", "zhoneIp")
 ZhoneAdminString, = mibBuilder.importSymbols("Zhone-TC", "ZhoneAdminString")
 comIpDhcpClient = ModuleIdentity((1, 3, 6, 1, 4, 1, 5504, 6, 51))
 comIpDhcpClient.setRevisions(('2001-06-28 11:14', '2000-09-28 17:00', '2000-09-11 15:01',))
@@ -74,4 +74,4 @@ routersEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5504, 4, 1, 1, 4, 1), ).setIndexNa
 if mibBuilder.loadTexts: routersEntry.setStatus('current')
 routersIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 4, 1, 1, 4, 1, 1), IpAddress()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: routersIpAddress.setStatus('current')
-mibBuilder.exportSymbols("ZHONE-COM-IP-DHCP-CLIENT-MIB", dnsEntry=dnsEntry, routersTable=routersTable, dhcpInterfaceDhcpClientId=dhcpInterfaceDhcpClientId, dhcpClientErrors=dhcpClientErrors, routersEntry=routersEntry, dhcpClientResourceTable=dhcpClientResourceTable, dhcpInterfacesTable=dhcpInterfacesTable, dhcpAvgTimeForLease=dhcpAvgTimeForLease, dhcpInterfaceBootFile=dhcpInterfaceBootFile, dhcpMinLease=dhcpMinLease, dnsIpAddress=dnsIpAddress, routersIpAddress=routersIpAddress, comIpDhcpClient=comIpDhcpClient, dhcpInterfaceState=dhcpInterfaceState, dhcpInterfaceHostname=dhcpInterfaceHostname, dhcpClientResourceEntry=dhcpClientResourceEntry, dhcpInterfaceDomainName=dhcpInterfaceDomainName, PYSNMP_MODULE_ID=comIpDhcpClient, dhcpClient=dhcpClient, dhcpInterfaceRebind=dhcpInterfaceRebind, dnsTable=dnsTable, dhcpInterfaceVendorClassId=dhcpInterfaceVendorClassId, dhcpInterfaceRenew=dhcpInterfaceRenew, dhcpInterfacesEntry=dhcpInterfacesEntry, dhcpInterfaceTftp=dhcpInterfaceTftp, dhcpOfferTimeout=dhcpOfferTimeout, dhcpDefaultLease=dhcpDefaultLease, dhcpInterfaceServerName=dhcpInterfaceServerName)
+mibBuilder.exportSymbols("ZHONE-COM-IP-DHCP-CLIENT-MIB", dhcpInterfaceBootFile=dhcpInterfaceBootFile, dhcpMinLease=dhcpMinLease, dhcpInterfaceServerName=dhcpInterfaceServerName, dhcpInterfaceRenew=dhcpInterfaceRenew, dhcpClientErrors=dhcpClientErrors, dhcpAvgTimeForLease=dhcpAvgTimeForLease, dhcpInterfaceTftp=dhcpInterfaceTftp, dhcpClientResourceTable=dhcpClientResourceTable, dhcpInterfacesEntry=dhcpInterfacesEntry, routersTable=routersTable, dnsEntry=dnsEntry, dhcpInterfaceState=dhcpInterfaceState, dhcpClient=dhcpClient, dnsTable=dnsTable, comIpDhcpClient=comIpDhcpClient, dhcpClientResourceEntry=dhcpClientResourceEntry, dhcpInterfaceDhcpClientId=dhcpInterfaceDhcpClientId, dhcpDefaultLease=dhcpDefaultLease, dnsIpAddress=dnsIpAddress, dhcpInterfaceHostname=dhcpInterfaceHostname, PYSNMP_MODULE_ID=comIpDhcpClient, dhcpInterfaceDomainName=dhcpInterfaceDomainName, routersEntry=routersEntry, routersIpAddress=routersIpAddress, dhcpInterfaceRebind=dhcpInterfaceRebind, dhcpOfferTimeout=dhcpOfferTimeout, dhcpInterfacesTable=dhcpInterfacesTable, dhcpInterfaceVendorClassId=dhcpInterfaceVendorClassId)

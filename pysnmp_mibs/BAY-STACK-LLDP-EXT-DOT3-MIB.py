@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BAY-STACK-LLDP-EXT-DOT3-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/BAY-STACK-LLDP-EXT-DOT3-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:03 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nortel/BAY-STACK-LLDP-EXT-DOT3-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:02:18 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-lldpXdot3RemPowerEntry, lldpXdot3LocPowerEntry = mibBuilder.importSymbols("LLDP-EXT-DOT3-MIB", "lldpXdot3RemPowerEntry", "lldpXdot3LocPowerEntry")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+lldpXdot3LocPowerEntry, lldpXdot3RemPowerEntry = mibBuilder.importSymbols("LLDP-EXT-DOT3-MIB", "lldpXdot3LocPowerEntry", "lldpXdot3RemPowerEntry")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 bayStackMibs, = mibBuilder.importSymbols("SYNOPTICS-ROOT-MIB", "bayStackMibs")
 bayStackLldpXDot3Mib = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 5, 47))
 bayStackLldpXDot3Mib.setRevisions(('2014-10-22 00:00',))
@@ -54,4 +54,4 @@ bsLldpXdot3RemPDRequestedPowerValue = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 4
 if mibBuilder.loadTexts: bsLldpXdot3RemPDRequestedPowerValue.setStatus('current')
 bsLldpXdot3RemPSEAllocatedPowerValue = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 47, 1, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setUnits('tenth of watt').setMaxAccess("readonly")
 if mibBuilder.loadTexts: bsLldpXdot3RemPSEAllocatedPowerValue.setStatus('current')
-mibBuilder.exportSymbols("BAY-STACK-LLDP-EXT-DOT3-MIB", bsLldpXdot3LocPowerPriority=bsLldpXdot3LocPowerPriority, bsLldpXdot3Config=bsLldpXdot3Config, bsLldpXdot3RemPowerPriority=bsLldpXdot3RemPowerPriority, bsLldpXdot3RemPowerTable=bsLldpXdot3RemPowerTable, bsLldpXdot3RemPDRequestedPowerValue=bsLldpXdot3RemPDRequestedPowerValue, bsLldpXdot3LocPowerSource=bsLldpXdot3LocPowerSource, bsLldpXdot3RemoteData=bsLldpXdot3RemoteData, bsLldpXDot3Notifications=bsLldpXDot3Notifications, bsLldpXdot3LocPowerType=bsLldpXdot3LocPowerType, bsLldpXDot3Objects=bsLldpXDot3Objects, bsLldpXdot3LocPDRequestedPowerValue=bsLldpXdot3LocPDRequestedPowerValue, PYSNMP_MODULE_ID=bayStackLldpXDot3Mib, bsLldpXdot3LocPowerTable=bsLldpXdot3LocPowerTable, bsLldpXdot3LocalData=bsLldpXdot3LocalData, bsLldpXdot3LocPSEAllocatedPowerValue=bsLldpXdot3LocPSEAllocatedPowerValue, bayStackLldpXDot3Mib=bayStackLldpXDot3Mib, bsLldpXdot3LocPowerEntry=bsLldpXdot3LocPowerEntry, bsLldpXdot3RemPSEAllocatedPowerValue=bsLldpXdot3RemPSEAllocatedPowerValue, bsLldpXdot3RemPowerType=bsLldpXdot3RemPowerType, bsLldpXdot3RemPowerEntry=bsLldpXdot3RemPowerEntry, bsLldpXdot3RemPowerSource=bsLldpXdot3RemPowerSource)
+mibBuilder.exportSymbols("BAY-STACK-LLDP-EXT-DOT3-MIB", bsLldpXdot3RemPowerSource=bsLldpXdot3RemPowerSource, bsLldpXdot3LocPowerEntry=bsLldpXdot3LocPowerEntry, bsLldpXdot3LocPSEAllocatedPowerValue=bsLldpXdot3LocPSEAllocatedPowerValue, bsLldpXdot3RemPowerPriority=bsLldpXdot3RemPowerPriority, bsLldpXdot3Config=bsLldpXdot3Config, bayStackLldpXDot3Mib=bayStackLldpXDot3Mib, bsLldpXdot3LocalData=bsLldpXdot3LocalData, bsLldpXDot3Notifications=bsLldpXDot3Notifications, bsLldpXdot3RemPowerEntry=bsLldpXdot3RemPowerEntry, bsLldpXdot3LocPDRequestedPowerValue=bsLldpXdot3LocPDRequestedPowerValue, bsLldpXdot3RemoteData=bsLldpXdot3RemoteData, PYSNMP_MODULE_ID=bayStackLldpXDot3Mib, bsLldpXdot3LocPowerSource=bsLldpXdot3LocPowerSource, bsLldpXdot3LocPowerTable=bsLldpXdot3LocPowerTable, bsLldpXdot3RemPDRequestedPowerValue=bsLldpXdot3RemPDRequestedPowerValue, bsLldpXdot3RemPSEAllocatedPowerValue=bsLldpXdot3RemPSEAllocatedPowerValue, bsLldpXdot3RemPowerTable=bsLldpXdot3RemPowerTable, bsLldpXdot3RemPowerType=bsLldpXdot3RemPowerType, bsLldpXdot3LocPowerPriority=bsLldpXdot3LocPowerPriority, bsLldpXDot3Objects=bsLldpXDot3Objects, bsLldpXdot3LocPowerType=bsLldpXdot3LocPowerType)

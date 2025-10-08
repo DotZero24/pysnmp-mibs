@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module HP-SWITCH-PL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HP-SWITCH-PL-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:37 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HP-SWITCH-PL-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:10:10 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 BridgeId, = mibBuilder.importSymbols("BRIDGE-MIB", "BridgeId")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-sysName, sysContact, sysLocation = mibBuilder.importSymbols("SNMPv2-MIB", "sysName", "sysContact", "sysLocation")
-ModuleIdentity, Counter64, enterprises, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention", "PhysAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+sysContact, sysLocation, sysName = mibBuilder.importSymbols("SNMPv2-MIB", "sysContact", "sysLocation", "sysName")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+MacAddress, PhysAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "PhysAddress", "TextualConvention", "DisplayString")
 hp = MibIdentifier((1, 3, 6, 1, 4, 1, 11))
 nm = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2))
 hpSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3))
@@ -38,4 +38,4 @@ hpSwitchBladeType7_Mgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 
 hpSwitchModuleBladetype9 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 9))
 hpSwitchBladeType9_Products = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 9, 1)).setLabel("hpSwitchBladeType9-Products")
 hpSwitchBladeType9_Mgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 9, 2)).setLabel("hpSwitchBladeType9-Mgmt")
-mibBuilder.exportSymbols("HP-SWITCH-PL-MIB", hpSwitchBladeType6_Mgmt=hpSwitchBladeType6_Mgmt, hpSwitchModuleBladetype5=hpSwitchModuleBladetype5, hpSwitchBladeType5_Products=hpSwitchBladeType5_Products, hpSwitchModuleBladetype2=hpSwitchModuleBladetype2, hpSwitchModuleBladetype7=hpSwitchModuleBladetype7, hp=hp, nm=nm, hpSwitchModuleBladetype6=hpSwitchModuleBladetype6, hpSwitchBladeType7_Mgmt=hpSwitchBladeType7_Mgmt, hpSwitchBladeType7_Products=hpSwitchBladeType7_Products, hpSwitchBladeType2_Mgmt=hpSwitchBladeType2_Mgmt, hpSwitchBladeType4_Mgmt=hpSwitchBladeType4_Mgmt, hpSwitchBladeType9_Mgmt=hpSwitchBladeType9_Mgmt, hpSwitchModuleBladetype4=hpSwitchModuleBladetype4, hpSwitchModuleBladetype9=hpSwitchModuleBladetype9, hpSwitchProliant=hpSwitchProliant, netElement=netElement, hpSwitchBladeType2_Products=hpSwitchBladeType2_Products, hpSwitchBladeType5_Mgmt=hpSwitchBladeType5_Mgmt, hpSwitchBladeType6_Products=hpSwitchBladeType6_Products, hpSystem=hpSystem, hpSwitchBladeType9_Products=hpSwitchBladeType9_Products, hpEtherSwitch=hpEtherSwitch, hpSwitchBladeType4_Products=hpSwitchBladeType4_Products)
+mibBuilder.exportSymbols("HP-SWITCH-PL-MIB", hpSwitchBladeType2_Products=hpSwitchBladeType2_Products, hpSwitchModuleBladetype9=hpSwitchModuleBladetype9, hpSwitchBladeType4_Products=hpSwitchBladeType4_Products, hpSwitchModuleBladetype7=hpSwitchModuleBladetype7, hpSwitchBladeType6_Products=hpSwitchBladeType6_Products, netElement=netElement, hpSwitchBladeType9_Products=hpSwitchBladeType9_Products, hpSwitchModuleBladetype6=hpSwitchModuleBladetype6, hpSwitchBladeType5_Products=hpSwitchBladeType5_Products, hpSwitchBladeType6_Mgmt=hpSwitchBladeType6_Mgmt, hpSwitchModuleBladetype2=hpSwitchModuleBladetype2, hp=hp, hpSwitchBladeType9_Mgmt=hpSwitchBladeType9_Mgmt, hpSwitchModuleBladetype4=hpSwitchModuleBladetype4, hpSystem=hpSystem, hpSwitchModuleBladetype5=hpSwitchModuleBladetype5, hpEtherSwitch=hpEtherSwitch, hpSwitchBladeType5_Mgmt=hpSwitchBladeType5_Mgmt, hpSwitchBladeType7_Mgmt=hpSwitchBladeType7_Mgmt, hpSwitchBladeType7_Products=hpSwitchBladeType7_Products, hpSwitchProliant=hpSwitchProliant, hpSwitchBladeType4_Mgmt=hpSwitchBladeType4_Mgmt, hpSwitchBladeType2_Mgmt=hpSwitchBladeType2_Mgmt, nm=nm)

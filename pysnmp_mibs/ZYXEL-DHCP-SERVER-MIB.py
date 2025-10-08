@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ZYXEL-DHCP-SERVER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-DHCP-SERVER-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:37:56 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zyxel/ZYXEL-DHCP-SERVER-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:03:44 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
 zyxelDhcpServer = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 19))
 if mibBuilder.loadTexts: zyxelDhcpServer.setLastUpdated('201207010000Z')
@@ -40,4 +40,4 @@ zyDhcpServerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 19, 1, 
 if mibBuilder.loadTexts: zyDhcpServerRowStatus.setStatus('current')
 zyDhcpServerLeaseTime = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 19, 1, 2, 1, 9), Unsigned32()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: zyDhcpServerLeaseTime.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-DHCP-SERVER-MIB", PYSNMP_MODULE_ID=zyxelDhcpServer, zyDhcpServerVid=zyDhcpServerVid, zyDhcpServerLeaseTime=zyDhcpServerLeaseTime, zyDhcpServerPoolSize=zyDhcpServerPoolSize, zyDhcpServerStartIpAddress=zyDhcpServerStartIpAddress, zyxelDhcpServerTable=zyxelDhcpServerTable, zyxelDhcpServer=zyxelDhcpServer, zyxelDhcpServerSetup=zyxelDhcpServerSetup, zyDhcpServerPrimaryDNS=zyDhcpServerPrimaryDNS, zyDhcpServerMask=zyDhcpServerMask, zyxelDhcpServerEntry=zyxelDhcpServerEntry, zyDhcpServerSecondaryDNS=zyDhcpServerSecondaryDNS, zyDhcpServerRowStatus=zyDhcpServerRowStatus, zyDhcpServerGateway=zyDhcpServerGateway, zyDhcpServerMaxNumberOfServers=zyDhcpServerMaxNumberOfServers)
+mibBuilder.exportSymbols("ZYXEL-DHCP-SERVER-MIB", zyxelDhcpServerEntry=zyxelDhcpServerEntry, zyDhcpServerLeaseTime=zyDhcpServerLeaseTime, zyxelDhcpServerSetup=zyxelDhcpServerSetup, zyDhcpServerGateway=zyDhcpServerGateway, zyDhcpServerSecondaryDNS=zyDhcpServerSecondaryDNS, zyDhcpServerStartIpAddress=zyDhcpServerStartIpAddress, PYSNMP_MODULE_ID=zyxelDhcpServer, zyxelDhcpServer=zyxelDhcpServer, zyxelDhcpServerTable=zyxelDhcpServerTable, zyDhcpServerVid=zyDhcpServerVid, zyDhcpServerPoolSize=zyDhcpServerPoolSize, zyDhcpServerMask=zyDhcpServerMask, zyDhcpServerRowStatus=zyDhcpServerRowStatus, zyDhcpServerPrimaryDNS=zyDhcpServerPrimaryDNS, zyDhcpServerMaxNumberOfServers=zyDhcpServerMaxNumberOfServers)

@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module INFINERA-TP-EXPNSCGPTP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-EXPNSCGPTP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:51 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/INFINERA-TP-EXPNSCGPTP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:21:10 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
 FloatHundredths, InfnEnableDisable = mibBuilder.importSymbols("INFINERA-TC-MIB", "FloatHundredths", "InfnEnableDisable")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 expnScgPtpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47))
 expnScgPtpMIB.setRevisions(('2013-10-20 00:00',))
 if mibBuilder.loadTexts: expnScgPtpMIB.setLastUpdated('201310200000Z')
@@ -52,4 +52,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 expnScgPtpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47, 3, 2, 1)).setObjects(("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpScgNumber"), ("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpMPOAID"), ("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpPathLossCheckControlStatus"), ("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpLastSuccessfullPathLossCheckTS"), ("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpPathLoss"), ("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpPathLossCheckDetectedPort"), ("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpLastPathLossCheckAttemptTS"), ("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpLastPathLossCheckAttemptStatus"), ("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpLastPathLossCheckFailedReason"), ("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpPathLossHigh"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     expnScgPtpGroup = expnScgPtpGroup.setStatus('current')
-mibBuilder.exportSymbols("INFINERA-TP-EXPNSCGPTP-MIB", expnScgPtpMIB=expnScgPtpMIB, PYSNMP_MODULE_ID=expnScgPtpMIB, expnScgPtpPathLoss=expnScgPtpPathLoss, expnScgPtpEntry=expnScgPtpEntry, expnScgPtpCompliance=expnScgPtpCompliance, expnScgPtpLastPathLossCheckFailedReason=expnScgPtpLastPathLossCheckFailedReason, expnScgPtpTable=expnScgPtpTable, expnScgPtpLastPathLossCheckAttemptTS=expnScgPtpLastPathLossCheckAttemptTS, expnScgPtpCompliances=expnScgPtpCompliances, expnScgPtpPathLossHigh=expnScgPtpPathLossHigh, expnScgPtpPathLossCheckControlStatus=expnScgPtpPathLossCheckControlStatus, expnScgPtpPathLossCheckDetectedPort=expnScgPtpPathLossCheckDetectedPort, expnScgPtpLastSuccessfullPathLossCheckTS=expnScgPtpLastSuccessfullPathLossCheckTS, expnScgPtpScgNumber=expnScgPtpScgNumber, expnScgPtpGroups=expnScgPtpGroups, expnScgPtpMPOAID=expnScgPtpMPOAID, expnScgPtpLastPathLossCheckAttemptStatus=expnScgPtpLastPathLossCheckAttemptStatus, expnScgPtpConformance=expnScgPtpConformance, expnScgPtpGroup=expnScgPtpGroup)
+mibBuilder.exportSymbols("INFINERA-TP-EXPNSCGPTP-MIB", expnScgPtpPathLossCheckControlStatus=expnScgPtpPathLossCheckControlStatus, expnScgPtpPathLossHigh=expnScgPtpPathLossHigh, expnScgPtpPathLossCheckDetectedPort=expnScgPtpPathLossCheckDetectedPort, expnScgPtpLastPathLossCheckFailedReason=expnScgPtpLastPathLossCheckFailedReason, expnScgPtpScgNumber=expnScgPtpScgNumber, expnScgPtpGroups=expnScgPtpGroups, expnScgPtpPathLoss=expnScgPtpPathLoss, expnScgPtpLastPathLossCheckAttemptTS=expnScgPtpLastPathLossCheckAttemptTS, expnScgPtpConformance=expnScgPtpConformance, expnScgPtpMIB=expnScgPtpMIB, expnScgPtpGroup=expnScgPtpGroup, expnScgPtpTable=expnScgPtpTable, expnScgPtpLastSuccessfullPathLossCheckTS=expnScgPtpLastSuccessfullPathLossCheckTS, expnScgPtpLastPathLossCheckAttemptStatus=expnScgPtpLastPathLossCheckAttemptStatus, expnScgPtpCompliance=expnScgPtpCompliance, expnScgPtpCompliances=expnScgPtpCompliances, PYSNMP_MODULE_ID=expnScgPtpMIB, expnScgPtpMPOAID=expnScgPtpMPOAID, expnScgPtpEntry=expnScgPtpEntry)

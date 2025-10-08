@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module S5-ETH-REDUNDANT-LINKS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/S5-ETH-REDUNDANT-LINKS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:21 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nortel/S5-ETH-REDUNDANT-LINKS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:02:58 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 s5EnCfg, = mibBuilder.importSymbols("S5-ETHERNET-MIB", "s5EnCfg")
 TimeIntervalSec, = mibBuilder.importSymbols("S5-TCS-MIB", "TimeIntervalSec")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 s5EthRedundantLinksMib2 = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 1, 6, 6, 1, 99))
 s5EthRedundantLinksMib2.setRevisions(('2004-11-03 00:00', '2004-07-20 00:00',))
 if mibBuilder.loadTexts: s5EthRedundantLinksMib2.setLastUpdated('200411030000Z')
@@ -52,4 +52,4 @@ s5EnRedPortSwitchoverTime = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 1, 6, 6, 1, 2,
 if mibBuilder.loadTexts: s5EnRedPortSwitchoverTime.setStatus('current')
 s5EnRedLastChg = MibScalar((1, 3, 6, 1, 4, 1, 45, 1, 6, 6, 1, 2, 2), TimeTicks()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: s5EnRedLastChg.setStatus('current')
-mibBuilder.exportSymbols("S5-ETH-REDUNDANT-LINKS-MIB", s5EnRedPortRemoteOperStatus=s5EnRedPortRemoteOperStatus, s5EnRedPortPortIndx=s5EnRedPortPortIndx, s5EnRedPortFaults=s5EnRedPortFaults, s5EnRedun=s5EnRedun, s5EnRedPortOperStatus=s5EnRedPortOperStatus, s5EnRedPortSwitchoverStatus=s5EnRedPortSwitchoverStatus, s5EnRedLastChg=s5EnRedLastChg, s5EnRedPortBrdIndx=s5EnRedPortBrdIndx, s5EnRedPortRedundMode=s5EnRedPortRedundMode, s5EthRedundantLinksMib2=s5EthRedundantLinksMib2, s5EnRedPortRemFltSelectMode=s5EnRedPortRemFltSelectMode, s5EnRedPortTxMode=s5EnRedPortTxMode, s5EnRedPortCompanionPortNum=s5EnRedPortCompanionPortNum, s5EnRedPortSwitchoverTime=s5EnRedPortSwitchoverTime, s5EnRedPortCompanionBrdNum=s5EnRedPortCompanionBrdNum, s5EnRedPortModeChanges=s5EnRedPortModeChanges, s5EnRedPortCapability=s5EnRedPortCapability, s5EnRedPortEntry=s5EnRedPortEntry, s5EnRedPortTable=s5EnRedPortTable, PYSNMP_MODULE_ID=s5EthRedundantLinksMib2)
+mibBuilder.exportSymbols("S5-ETH-REDUNDANT-LINKS-MIB", PYSNMP_MODULE_ID=s5EthRedundantLinksMib2, s5EnRedPortFaults=s5EnRedPortFaults, s5EnRedPortSwitchoverStatus=s5EnRedPortSwitchoverStatus, s5EnRedPortSwitchoverTime=s5EnRedPortSwitchoverTime, s5EnRedPortEntry=s5EnRedPortEntry, s5EnRedPortRedundMode=s5EnRedPortRedundMode, s5EnRedun=s5EnRedun, s5EnRedPortRemoteOperStatus=s5EnRedPortRemoteOperStatus, s5EnRedPortTable=s5EnRedPortTable, s5EnRedPortModeChanges=s5EnRedPortModeChanges, s5EnRedPortCapability=s5EnRedPortCapability, s5EnRedPortBrdIndx=s5EnRedPortBrdIndx, s5EnRedPortCompanionBrdNum=s5EnRedPortCompanionBrdNum, s5EnRedPortCompanionPortNum=s5EnRedPortCompanionPortNum, s5EthRedundantLinksMib2=s5EthRedundantLinksMib2, s5EnRedPortRemFltSelectMode=s5EnRedPortRemFltSelectMode, s5EnRedLastChg=s5EnRedLastChg, s5EnRedPortPortIndx=s5EnRedPortPortIndx, s5EnRedPortTxMode=s5EnRedPortTxMode, s5EnRedPortOperStatus=s5EnRedPortOperStatus)

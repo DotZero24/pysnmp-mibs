@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module STORMSHIELD-QOS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/stormshield/STORMSHIELD-QOS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:17 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/stormshield/STORMSHIELD-QOS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:58:39 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
 snsQos = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 15))
 snsQos.setRevisions(('2017-02-20 00:00',))
@@ -40,4 +40,4 @@ snsQosEntryOutSpeedLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 15, 1, 1,
 if mibBuilder.loadTexts: snsQosEntryOutSpeedLimit.setStatus('current')
 snsQosEntryComment = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 15, 1, 1, 10), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snsQosEntryComment.setStatus('current')
-mibBuilder.exportSymbols("STORMSHIELD-QOS-MIB", snsQosEntryInMaxPeak=snsQosEntryInMaxPeak, snsQosEntryInSpeedLimit=snsQosEntryInSpeedLimit, snsQosEntryIndex=snsQosEntryIndex, snsQos=snsQos, snsQosEntryInCounter=snsQosEntryInCounter, snsQosEntryOutCounter=snsQosEntryOutCounter, snsQosEntryOutMaxPeak=snsQosEntryOutMaxPeak, snsQosEntryComment=snsQosEntryComment, snsQosEntryName=snsQosEntryName, snsQosStatsEntry=snsQosStatsEntry, PYSNMP_MODULE_ID=snsQos, snsQosEntryType=snsQosEntryType, snsQosEntryOutSpeedLimit=snsQosEntryOutSpeedLimit, snsQosStatsTable=snsQosStatsTable)
+mibBuilder.exportSymbols("STORMSHIELD-QOS-MIB", PYSNMP_MODULE_ID=snsQos, snsQosEntryIndex=snsQosEntryIndex, snsQosStatsEntry=snsQosStatsEntry, snsQosEntryInSpeedLimit=snsQosEntryInSpeedLimit, snsQosEntryOutMaxPeak=snsQosEntryOutMaxPeak, snsQosEntryInCounter=snsQosEntryInCounter, snsQosEntryOutCounter=snsQosEntryOutCounter, snsQosEntryOutSpeedLimit=snsQosEntryOutSpeedLimit, snsQosStatsTable=snsQosStatsTable, snsQos=snsQos, snsQosEntryInMaxPeak=snsQosEntryInMaxPeak, snsQosEntryType=snsQosEntryType, snsQosEntryName=snsQosEntryName, snsQosEntryComment=snsQosEntryComment)

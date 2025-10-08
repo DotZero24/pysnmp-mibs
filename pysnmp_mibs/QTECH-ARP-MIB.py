@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module QTECH-ARP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-ARP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:27 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/qtech/QTECH-ARP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:14:31 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 qtechMgmt, = mibBuilder.importSymbols("QTECH-SMI", "qtechMgmt")
 IfIndex, = mibBuilder.importSymbols("QTECH-TC", "IfIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention", "PhysAddress")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, PhysAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "PhysAddress", "TextualConvention", "DisplayString")
 qtechArpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 2))
 qtechArpMIB.setRevisions(('2002-03-20 00:00',))
 if mibBuilder.loadTexts: qtechArpMIB.setLastUpdated('200203200000Z')
@@ -58,4 +58,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 qtechArpMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 2, 2, 2, 1)).setObjects(("QTECH-ARP-MIB", "qtechArpIfIndex"), ("QTECH-ARP-MIB", "qtechArpPhysAddress"), ("QTECH-ARP-MIB", "qtechArpNetAddress"), ("QTECH-ARP-MIB", "qtechArpRemainAge"), ("QTECH-ARP-MIB", "qtechArpType"), ("QTECH-ARP-MIB", "qtechArpEntryType"), ("QTECH-ARP-MIB", "qtechArpStatus"), ("QTECH-ARP-MIB", "qtechArpIfIfIndex"), ("QTECH-ARP-MIB", "qtechArpIfCacheTimeOut"), ("QTECH-ARP-MIB", "qtechArpCurrentTotalNumber"), ("QTECH-ARP-MIB", "qtechArpCurrentUnresolveNumber"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     qtechArpMIBGroup = qtechArpMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("QTECH-ARP-MIB", qtechArpMIB=qtechArpMIB, qtechArpPhysAddress=qtechArpPhysAddress, qtechArpMIBObjects=qtechArpMIBObjects, qtechArpEntry=qtechArpEntry, qtechArpEntryType=qtechArpEntryType, qtechArpStatus=qtechArpStatus, qtechArpIfIfIndex=qtechArpIfIfIndex, qtechArpIfTable=qtechArpIfTable, qtechArpIfIndex=qtechArpIfIndex, qtechArpIfEntry=qtechArpIfEntry, PYSNMP_MODULE_ID=qtechArpMIB, qtechArpType=qtechArpType, qtechArpIfCacheTimeOut=qtechArpIfCacheTimeOut, qtechArpCurrentTotalNumber=qtechArpCurrentTotalNumber, qtechArpNetAddress=qtechArpNetAddress, qtechArpRemainAge=qtechArpRemainAge, qtechArpTable=qtechArpTable, qtechArpCurrentUnresolveNumber=qtechArpCurrentUnresolveNumber, qtechArpMIBGroup=qtechArpMIBGroup, qtechArpMIBCompliances=qtechArpMIBCompliances, qtechArpMIBCompliance=qtechArpMIBCompliance, qtechArpMIBGroups=qtechArpMIBGroups, qtechArpMIBConformance=qtechArpMIBConformance)
+mibBuilder.exportSymbols("QTECH-ARP-MIB", qtechArpMIBGroups=qtechArpMIBGroups, PYSNMP_MODULE_ID=qtechArpMIB, qtechArpEntry=qtechArpEntry, qtechArpType=qtechArpType, qtechArpMIBGroup=qtechArpMIBGroup, qtechArpMIB=qtechArpMIB, qtechArpIfIndex=qtechArpIfIndex, qtechArpCurrentUnresolveNumber=qtechArpCurrentUnresolveNumber, qtechArpMIBObjects=qtechArpMIBObjects, qtechArpTable=qtechArpTable, qtechArpIfCacheTimeOut=qtechArpIfCacheTimeOut, qtechArpCurrentTotalNumber=qtechArpCurrentTotalNumber, qtechArpMIBCompliance=qtechArpMIBCompliance, qtechArpRemainAge=qtechArpRemainAge, qtechArpMIBCompliances=qtechArpMIBCompliances, qtechArpEntryType=qtechArpEntryType, qtechArpNetAddress=qtechArpNetAddress, qtechArpIfTable=qtechArpIfTable, qtechArpIfIfIndex=qtechArpIfIfIndex, qtechArpMIBConformance=qtechArpMIBConformance, qtechArpPhysAddress=qtechArpPhysAddress, qtechArpIfEntry=qtechArpIfEntry, qtechArpStatus=qtechArpStatus)

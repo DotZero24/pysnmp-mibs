@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module LEFTHAND-NETWORKS-NSM-NTP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/LEFTHAND-NETWORKS-NSM-NTP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:11 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/LEFTHAND-NETWORKS-NSM-NTP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:07:50 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-lhnNsm, lhnModules = mibBuilder.importSymbols("LEFTHAND-NETWORKS-GLOBAL-REG-MIB", "lhnNsm", "lhnModules")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+lhnModules, lhnNsm = mibBuilder.importSymbols("LEFTHAND-NETWORKS-GLOBAL-REG-MIB", "lhnModules", "lhnNsm")
 lhnNsmNTP, = mibBuilder.importSymbols("LEFTHAND-NETWORKS-NSM-MIB", "lhnNsmNTP")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "DisplayString", "TextualConvention")
 lhnNsmNTPModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 9804, 2, 1, 6))
 lhnNsmNTPModule.setRevisions(('2013-11-19 00:00', '2013-06-25 00:00', '2012-09-04 00:00', '2011-06-21 00:00', '2010-09-07 00:00', '2010-07-19 00:00', '2009-11-20 00:00', '2009-03-10 00:00', '2008-01-24 00:00',))
 if mibBuilder.loadTexts: lhnNsmNTPModule.setLastUpdated('201311190000Z')
@@ -48,4 +48,4 @@ timeGMTTime = MibScalar((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 5, 7), DisplayStrin
 if mibBuilder.loadTexts: timeGMTTime.setStatus('current')
 timeTimeZone = MibScalar((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 5, 8), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: timeTimeZone.setStatus('current')
-mibBuilder.exportSymbols("LEFTHAND-NETWORKS-NSM-NTP-MIB", timeTimeZone=timeTimeZone, ntpTable=ntpTable, ntpServer=ntpServer, timeGMTTime=timeGMTTime, lhnNsmNTPModuleConformance=lhnNsmNTPModuleConformance, ntpRowStatus=ntpRowStatus, lhnNsmNTPModuleGroups=lhnNsmNTPModuleGroups, lhnNsmNTPModuleCompliances=lhnNsmNTPModuleCompliances, lefthandNetworksNsmNTPMibCompliance=lefthandNetworksNsmNTPMibCompliance, PYSNMP_MODULE_ID=lhnNsmNTPModule, ntpCount=ntpCount, lhnNsmNTPModule=lhnNsmNTPModule, ntpEntry=ntpEntry, ntpIndex=ntpIndex, lefthandNetworksNsmNtpGroupObsolete=lefthandNetworksNsmNtpGroupObsolete, lefthandNetworksNsmNtpGroup=lefthandNetworksNsmNtpGroup, ntpPreferred=ntpPreferred)
+mibBuilder.exportSymbols("LEFTHAND-NETWORKS-NSM-NTP-MIB", ntpEntry=ntpEntry, ntpTable=ntpTable, lhnNsmNTPModuleCompliances=lhnNsmNTPModuleCompliances, PYSNMP_MODULE_ID=lhnNsmNTPModule, lhnNsmNTPModuleGroups=lhnNsmNTPModuleGroups, timeGMTTime=timeGMTTime, lefthandNetworksNsmNtpGroup=lefthandNetworksNsmNtpGroup, ntpCount=ntpCount, lhnNsmNTPModuleConformance=lhnNsmNTPModuleConformance, lefthandNetworksNsmNTPMibCompliance=lefthandNetworksNsmNTPMibCompliance, ntpPreferred=ntpPreferred, lhnNsmNTPModule=lhnNsmNTPModule, ntpServer=ntpServer, ntpIndex=ntpIndex, lefthandNetworksNsmNtpGroupObsolete=lefthandNetworksNsmNtpGroupObsolete, ntpRowStatus=ntpRowStatus, timeTimeZone=timeTimeZone)

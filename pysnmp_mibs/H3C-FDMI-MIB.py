@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module H3C-FDMI-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-FDMI-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:43 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-FDMI-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:35 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-fcmInstanceIndex, FcNameIdOrZero = mibBuilder.importSymbols("FC-MGMT-MIB", "fcmInstanceIndex", "FcNameIdOrZero")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+FcNameIdOrZero, fcmInstanceIndex = mibBuilder.importSymbols("FC-MGMT-MIB", "FcNameIdOrZero", "fcmInstanceIndex")
 h3cSan, = mibBuilder.importSymbols("H3C-VSAN-MIB", "h3cSan")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 T11FabricIndex, = mibBuilder.importSymbols("T11-TC-MIB", "T11FabricIndex")
 h3cFdmi = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7))
 h3cFdmi.setRevisions(('2012-06-18 00:00',))
@@ -69,4 +69,4 @@ h3cFdmiHbaPortOsDevName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7,
 if mibBuilder.loadTexts: h3cFdmiHbaPortOsDevName.setStatus('current')
 h3cFdmiHbaPortHostName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 2, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: h3cFdmiHbaPortHostName.setStatus('current')
-mibBuilder.exportSymbols("H3C-FDMI-MIB", h3cFdmiHbaInfoNodeName=h3cFdmiHbaInfoNodeName, h3cFdmiHbaPortId=h3cFdmiHbaPortId, h3cFdmiObjects=h3cFdmiObjects, h3cFdmiHbaInfoMfg=h3cFdmiHbaInfoMfg, h3cFdmiHbaInfoTable=h3cFdmiHbaInfoTable, h3cFdmiHbaInfoOSInfo=h3cFdmiHbaInfoOSInfo, h3cFdmiInfo=h3cFdmiInfo, h3cFdmiHbaInfoSn=h3cFdmiHbaInfoSn, h3cFdmi=h3cFdmi, h3cFdmiHbaPortCurrentSpeed=h3cFdmiHbaPortCurrentSpeed, h3cFdmiHbaInfoFabricIndex=h3cFdmiHbaInfoFabricIndex, h3cFdmiHbaPortSupportedFC4Type=h3cFdmiHbaPortSupportedFC4Type, h3cFdmiHbaInfoMaxCTPayload=h3cFdmiHbaInfoMaxCTPayload, h3cFdmiHbaPortSupportedSpeed=h3cFdmiHbaPortSupportedSpeed, h3cFdmiHbaPortHostName=h3cFdmiHbaPortHostName, h3cFdmiHbaPortMaxFrameSize=h3cFdmiHbaPortMaxFrameSize, h3cFdmiHbaPortEntry=h3cFdmiHbaPortEntry, h3cFdmiHbaInfoHwVer=h3cFdmiHbaInfoHwVer, h3cFdmiHbaPortTable=h3cFdmiHbaPortTable, h3cFdmiHbaInfoEntry=h3cFdmiHbaInfoEntry, h3cFdmiHbaInfoModelDescr=h3cFdmiHbaInfoModelDescr, h3cFdmiHbaPortOsDevName=h3cFdmiHbaPortOsDevName, h3cFdmiHbaInfoId=h3cFdmiHbaInfoId, h3cFdmiHbaInfoFwVer=h3cFdmiHbaInfoFwVer, h3cFdmiHbaInfoOptROMVer=h3cFdmiHbaInfoOptROMVer, PYSNMP_MODULE_ID=h3cFdmi, h3cFdmiHbaInfoDriverVer=h3cFdmiHbaInfoDriverVer, h3cFdmiHbaInfoModel=h3cFdmiHbaInfoModel)
+mibBuilder.exportSymbols("H3C-FDMI-MIB", h3cFdmiHbaInfoId=h3cFdmiHbaInfoId, h3cFdmiHbaPortOsDevName=h3cFdmiHbaPortOsDevName, h3cFdmiHbaPortHostName=h3cFdmiHbaPortHostName, h3cFdmiHbaPortMaxFrameSize=h3cFdmiHbaPortMaxFrameSize, h3cFdmiHbaInfoNodeName=h3cFdmiHbaInfoNodeName, h3cFdmiHbaPortCurrentSpeed=h3cFdmiHbaPortCurrentSpeed, h3cFdmiObjects=h3cFdmiObjects, h3cFdmiHbaInfoOptROMVer=h3cFdmiHbaInfoOptROMVer, h3cFdmiHbaInfoModel=h3cFdmiHbaInfoModel, h3cFdmiHbaInfoHwVer=h3cFdmiHbaInfoHwVer, h3cFdmiHbaPortTable=h3cFdmiHbaPortTable, h3cFdmiHbaInfoEntry=h3cFdmiHbaInfoEntry, h3cFdmiHbaInfoFabricIndex=h3cFdmiHbaInfoFabricIndex, h3cFdmiHbaInfoMaxCTPayload=h3cFdmiHbaInfoMaxCTPayload, h3cFdmiHbaPortSupportedFC4Type=h3cFdmiHbaPortSupportedFC4Type, h3cFdmiHbaInfoTable=h3cFdmiHbaInfoTable, h3cFdmiHbaInfoMfg=h3cFdmiHbaInfoMfg, h3cFdmiHbaInfoDriverVer=h3cFdmiHbaInfoDriverVer, h3cFdmiHbaInfoModelDescr=h3cFdmiHbaInfoModelDescr, h3cFdmiHbaInfoSn=h3cFdmiHbaInfoSn, h3cFdmiHbaPortId=h3cFdmiHbaPortId, h3cFdmiHbaInfoOSInfo=h3cFdmiHbaInfoOSInfo, h3cFdmiHbaPortEntry=h3cFdmiHbaPortEntry, h3cFdmiHbaPortSupportedSpeed=h3cFdmiHbaPortSupportedSpeed, h3cFdmiInfo=h3cFdmiInfo, PYSNMP_MODULE_ID=h3cFdmi, h3cFdmiHbaInfoFwVer=h3cFdmiHbaInfoFwVer, h3cFdmi=h3cFdmi)

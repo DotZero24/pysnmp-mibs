@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module ZYXEL-IPV6-NDP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-IPV6-NDP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:37:54 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zyxel/ZYXEL-IPV6-NDP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:03:42 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
 EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention", "PhysAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, PhysAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "PhysAddress", "TextualConvention", "DisplayString")
 esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
 zyxelIpv6Ndp = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35))
 if mibBuilder.loadTexts: zyxelIpv6Ndp.setLastUpdated('201207010000Z')
@@ -72,4 +72,4 @@ zyNdpNSTrackingNetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35,
 if mibBuilder.loadTexts: zyNdpNSTrackingNetAddress.setStatus('current')
 zyNdpNSTrackingPhysAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 2, 1, 1, 4), PhysAddress().subtype(subtypeSpec=ValueSizeConstraint(0, 65535))).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: zyNdpNSTrackingPhysAddress.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-IPV6-NDP-MIB", zyNdpPrefixValidLifetime=zyNdpPrefixValidLifetime, zyNdpNSTrackingNetAddress=zyNdpNSTrackingNetAddress, zyNdpNSTrackingAgingTime=zyNdpNSTrackingAgingTime, zyxelNdpNSTrackingEntry=zyxelNdpNSTrackingEntry, zyNdpPrefixPrefixType=zyNdpPrefixPrefixType, zyxelNdpNSTrackingTable=zyxelNdpNSTrackingTable, zyNdpPrefixIfIndex=zyNdpPrefixIfIndex, zyNdpPrefixNoAdvertiseFlagState=zyNdpPrefixNoAdvertiseFlagState, zyNdpNSTrackingNetAddressType=zyNdpNSTrackingNetAddressType, zyNdpReachableTime=zyNdpReachableTime, zyNdpPrefixPrefixIpAddress=zyNdpPrefixPrefixIpAddress, zyNdpNSTrackingIfIndex=zyNdpNSTrackingIfIndex, zyxelNdpTable=zyxelNdpTable, zyNdpPrefixRowStatus=zyNdpPrefixRowStatus, zyNdpNsInterval=zyNdpNsInterval, zyNdpIfIndex=zyNdpIfIndex, zyNdpDadAttempts=zyNdpDadAttempts, zyNdpPrefixNoOnLinkFlagState=zyNdpPrefixNoOnLinkFlagState, zyNdpMaxNumberOfPrefixes=zyNdpMaxNumberOfPrefixes, zyNdpPrefixNoAutonomousFlagState=zyNdpPrefixNoAutonomousFlagState, zyNdpPrefixPreferredLifetime=zyNdpPrefixPreferredLifetime, zyxelNdpPrefixEntry=zyxelNdpPrefixEntry, zyxelNdpStatus=zyxelNdpStatus, zyxelNdpPrefixTable=zyxelNdpPrefixTable, PYSNMP_MODULE_ID=zyxelIpv6Ndp, zyNdpNSTrackingPhysAddress=zyNdpNSTrackingPhysAddress, zyxelNdpEntry=zyxelNdpEntry, zyxelIpv6Ndp=zyxelIpv6Ndp, zyxelNdpSetup=zyxelNdpSetup, zyNdpPrefixPrefixLength=zyNdpPrefixPrefixLength)
+mibBuilder.exportSymbols("ZYXEL-IPV6-NDP-MIB", zyNdpPrefixNoAutonomousFlagState=zyNdpPrefixNoAutonomousFlagState, zyxelNdpPrefixTable=zyxelNdpPrefixTable, zyNdpNSTrackingAgingTime=zyNdpNSTrackingAgingTime, zyxelNdpSetup=zyxelNdpSetup, zyNdpDadAttempts=zyNdpDadAttempts, zyxelNdpNSTrackingEntry=zyxelNdpNSTrackingEntry, zyxelIpv6Ndp=zyxelIpv6Ndp, zyNdpPrefixRowStatus=zyNdpPrefixRowStatus, zyNdpPrefixIfIndex=zyNdpPrefixIfIndex, zyNdpPrefixPreferredLifetime=zyNdpPrefixPreferredLifetime, zyNdpPrefixNoOnLinkFlagState=zyNdpPrefixNoOnLinkFlagState, zyNdpPrefixNoAdvertiseFlagState=zyNdpPrefixNoAdvertiseFlagState, zyxelNdpStatus=zyxelNdpStatus, zyxelNdpPrefixEntry=zyxelNdpPrefixEntry, zyNdpReachableTime=zyNdpReachableTime, zyNdpNSTrackingNetAddress=zyNdpNSTrackingNetAddress, zyNdpPrefixPrefixType=zyNdpPrefixPrefixType, zyNdpNSTrackingIfIndex=zyNdpNSTrackingIfIndex, zyNdpNSTrackingNetAddressType=zyNdpNSTrackingNetAddressType, zyNdpNsInterval=zyNdpNsInterval, PYSNMP_MODULE_ID=zyxelIpv6Ndp, zyNdpMaxNumberOfPrefixes=zyNdpMaxNumberOfPrefixes, zyxelNdpTable=zyxelNdpTable, zyxelNdpEntry=zyxelNdpEntry, zyNdpPrefixPrefixLength=zyNdpPrefixPrefixLength, zyNdpIfIndex=zyNdpIfIndex, zyNdpPrefixPrefixIpAddress=zyNdpPrefixPrefixIpAddress, zyxelNdpNSTrackingTable=zyxelNdpNSTrackingTable, zyNdpNSTrackingPhysAddress=zyNdpNSTrackingPhysAddress, zyNdpPrefixValidLifetime=zyNdpPrefixValidLifetime)

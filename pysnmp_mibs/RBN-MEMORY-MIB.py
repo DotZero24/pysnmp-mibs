@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module RBN-MEMORY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ericsson/RBN-MEMORY-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:52 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ericsson/RBN-MEMORY-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:47:23 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 rbnMgmt, = mibBuilder.importSymbols("RBN-SMI", "rbnMgmt")
 RbnKBytes, = mibBuilder.importSymbols("RBN-TC", "RbnKBytes")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 rbnMemoryMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 2352, 2, 16))
 rbnMemoryMib.setRevisions(('2004-03-05 17:00', '2002-06-26 00:00', '2002-01-03 17:00',))
 if mibBuilder.loadTexts: rbnMemoryMib.setLastUpdated('200403051700Z')
@@ -71,4 +71,4 @@ rbnSmsMemoryCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 2, 16, 2, 1, 
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     rbnSmsMemoryCompliance = rbnSmsMemoryCompliance.setStatus('obsolete')
-mibBuilder.exportSymbols("RBN-MEMORY-MIB", rbnMemoryMIBObjects=rbnMemoryMIBObjects, rbnSmsMemoryGroups=rbnSmsMemoryGroups, rbnSmsMemoryCumulBlocks=rbnSmsMemoryCumulBlocks, rbnMemoryKBytesInUse=rbnMemoryKBytesInUse, rbnSmsMemoryCompliance=rbnSmsMemoryCompliance, rbnSmsMemoryBytesInUse=rbnSmsMemoryBytesInUse, PYSNMP_MODULE_ID=rbnMemoryMib, rbnSmsMemoryIndex=rbnSmsMemoryIndex, rbnMemoryGroups=rbnMemoryGroups, rbnMemoryCompliance=rbnMemoryCompliance, rbnMemoryGroup=rbnMemoryGroup, rbnMemoryBlocksInUse=rbnMemoryBlocksInUse, rbnMemoryCumulBlocks=rbnMemoryCumulBlocks, rbnMemoryMIBConformance=rbnMemoryMIBConformance, rbnSmsMemoryBlocksInUse=rbnSmsMemoryBlocksInUse, rbnMemoryEntry=rbnMemoryEntry, rbnSmsMemoryEntry=rbnSmsMemoryEntry, rbnSmsMemoryFreeBytes=rbnSmsMemoryFreeBytes, rbnSmsMemoryTable=rbnSmsMemoryTable, rbnMemoryMib=rbnMemoryMib, rbnMemoryIndex=rbnMemoryIndex, rbnSmsMemoryCompliances=rbnSmsMemoryCompliances, rbnMemoryFreeKBytes=rbnMemoryFreeKBytes, rbnSmsMemoryGroup=rbnSmsMemoryGroup, rbnMemoryMIBNotifications=rbnMemoryMIBNotifications, rbnMemoryModule=rbnMemoryModule, rbnSmsMemoryModule=rbnSmsMemoryModule, rbnMemoryCompliances=rbnMemoryCompliances, rbnMemoryTable=rbnMemoryTable)
+mibBuilder.exportSymbols("RBN-MEMORY-MIB", rbnMemoryMib=rbnMemoryMib, rbnSmsMemoryCumulBlocks=rbnSmsMemoryCumulBlocks, rbnMemoryIndex=rbnMemoryIndex, rbnMemoryEntry=rbnMemoryEntry, rbnMemoryCompliance=rbnMemoryCompliance, rbnMemoryKBytesInUse=rbnMemoryKBytesInUse, rbnSmsMemoryFreeBytes=rbnSmsMemoryFreeBytes, rbnSmsMemoryGroup=rbnSmsMemoryGroup, rbnMemoryMIBNotifications=rbnMemoryMIBNotifications, rbnMemoryTable=rbnMemoryTable, PYSNMP_MODULE_ID=rbnMemoryMib, rbnMemoryBlocksInUse=rbnMemoryBlocksInUse, rbnMemoryModule=rbnMemoryModule, rbnMemoryGroup=rbnMemoryGroup, rbnSmsMemoryGroups=rbnSmsMemoryGroups, rbnSmsMemoryBlocksInUse=rbnSmsMemoryBlocksInUse, rbnSmsMemoryBytesInUse=rbnSmsMemoryBytesInUse, rbnMemoryMIBObjects=rbnMemoryMIBObjects, rbnMemoryCumulBlocks=rbnMemoryCumulBlocks, rbnMemoryCompliances=rbnMemoryCompliances, rbnMemoryMIBConformance=rbnMemoryMIBConformance, rbnMemoryFreeKBytes=rbnMemoryFreeKBytes, rbnSmsMemoryTable=rbnSmsMemoryTable, rbnSmsMemoryCompliances=rbnSmsMemoryCompliances, rbnSmsMemoryCompliance=rbnSmsMemoryCompliance, rbnSmsMemoryModule=rbnSmsMemoryModule, rbnSmsMemoryEntry=rbnSmsMemoryEntry, rbnSmsMemoryIndex=rbnSmsMemoryIndex, rbnMemoryGroups=rbnMemoryGroups)

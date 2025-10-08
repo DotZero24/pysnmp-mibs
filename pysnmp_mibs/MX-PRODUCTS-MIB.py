@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module MX-PRODUCTS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-PRODUCTS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:20 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/media5/MX-PRODUCTS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:05:51 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-mediatrixProducts, mediatrixModules = mibBuilder.importSymbols("MX-SMI", "mediatrixProducts", "mediatrixModules")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+mediatrixModules, mediatrixProducts = mibBuilder.importSymbols("MX-SMI", "mediatrixModules", "mediatrixProducts")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 mxProductsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 90, 2))
 mxProductsMIB.setRevisions(('2011-06-28 00:00', '2008-08-12 00:00', '2008-06-17 00:00', '2007-12-11 00:00', '2007-03-21 00:00', '2007-01-08 00:00', '2005-06-23 00:00', '2005-03-29 00:00', '2005-02-24 00:00', '2004-02-02 00:00', '2003-02-21 00:00', '2002-02-12 00:00', '2001-08-21 00:00',))
 if mibBuilder.loadTexts: mxProductsMIB.setLastUpdated('201106280000Z')
@@ -38,4 +38,4 @@ mediatrix4124 = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1, 35))
 cienaLE46VM = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1, 40))
 mediatrixLP16 = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1, 45))
 mediatrixLP24 = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1, 50))
-mibBuilder.exportSymbols("MX-PRODUCTS-MIB", mediatrix1104=mediatrix1104, mediatrixLP16=mediatrixLP16, mxProductsMIB=mxProductsMIB, mediatrix2102=mediatrix2102, mediatrixLiaison322=mediatrixLiaison322, mediatrix4102=mediatrix4102, mediatrix4108=mediatrix4108, mediatrix4104=mediatrix4104, mediatrix_III_4FXO=mediatrix_III_4FXO, PYSNMP_MODULE_ID=mxProductsMIB, mediatrixLiaison512=mediatrixLiaison512, mediatrix_III_4FXS=mediatrix_III_4FXS, mediatrix1124=mediatrix1124, mediatrixLiaison522=mediatrixLiaison522, mediatrixLP24=mediatrixLP24, cienaLE46VM=cienaLE46VM, mediatrix1204=mediatrix1204, mediatrix1102=mediatrix1102, mediatrix4116=mediatrix4116, mediatrix0102=mediatrix0102, mediatrix4104Plus=mediatrix4104Plus, mediatrixLiaison312=mediatrixLiaison312, mediatrix4124=mediatrix4124, mediatrix_III_4FXS_4M=mediatrix_III_4FXS_4M)
+mibBuilder.exportSymbols("MX-PRODUCTS-MIB", mediatrixLP16=mediatrixLP16, mediatrix_III_4FXS=mediatrix_III_4FXS, mediatrix2102=mediatrix2102, mediatrix_III_4FXO=mediatrix_III_4FXO, mediatrix1124=mediatrix1124, mediatrix4116=mediatrix4116, mediatrixLP24=mediatrixLP24, mediatrix1104=mediatrix1104, mediatrix1102=mediatrix1102, mediatrix4104Plus=mediatrix4104Plus, mediatrix_III_4FXS_4M=mediatrix_III_4FXS_4M, mediatrix4108=mediatrix4108, mediatrixLiaison312=mediatrixLiaison312, mediatrixLiaison522=mediatrixLiaison522, mediatrix0102=mediatrix0102, mediatrix4104=mediatrix4104, PYSNMP_MODULE_ID=mxProductsMIB, mediatrix4124=mediatrix4124, mediatrixLiaison512=mediatrixLiaison512, mxProductsMIB=mxProductsMIB, mediatrix4102=mediatrix4102, mediatrixLiaison322=mediatrixLiaison322, cienaLE46VM=cienaLE46VM, mediatrix1204=mediatrix1204)

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module A3COM-HUAWEI-DNS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-DNS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:58 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-DNS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:33:20 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 h3cCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCommon")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 h3cDns = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 97))
 h3cDns.setRevisions(('2009-02-12 00:00',))
 if mibBuilder.loadTexts: h3cDns.setLastUpdated('200902120000Z')
@@ -53,4 +53,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 h3cDnsDynamicSrvIpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 97, 2, 2, 2)).setObjects(("A3COM-HUAWEI-DNS-MIB", "h3cDnsDynamicSrvIpPriority"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     h3cDnsDynamicSrvIpGroup = h3cDnsDynamicSrvIpGroup.setStatus('current')
-mibBuilder.exportSymbols("A3COM-HUAWEI-DNS-MIB", h3cDnsMIBCompliances=h3cDnsMIBCompliances, h3cDnsDynamicSrvIpGroup=h3cDnsDynamicSrvIpGroup, h3cDnsStaticSrvIpEntry=h3cDnsStaticSrvIpEntry, h3cDnsObjects=h3cDnsObjects, h3cDnsStaticSrvIpType=h3cDnsStaticSrvIpType, h3cDnsDynamicSrvIpTable=h3cDnsDynamicSrvIpTable, h3cDnsDynamicSrvIpType=h3cDnsDynamicSrvIpType, h3cDnsStaticSrvIpAddr=h3cDnsStaticSrvIpAddr, PYSNMP_MODULE_ID=h3cDns, h3cDnsDynamicSrvIpEntry=h3cDnsDynamicSrvIpEntry, h3cDnsStaticSrvIpRowStatus=h3cDnsStaticSrvIpRowStatus, h3cDnsDynamicSrvIpAddr=h3cDnsDynamicSrvIpAddr, h3cDnsStaticSrvIpTable=h3cDnsStaticSrvIpTable, h3cDns=h3cDns, h3cDnsStaticSrvIpPriority=h3cDnsStaticSrvIpPriority, h3cDnsMIBConformance=h3cDnsMIBConformance, h3cDnsDynamicSrvIpPriority=h3cDnsDynamicSrvIpPriority, h3cDnsMIBCompliance=h3cDnsMIBCompliance, h3cDnsMIBGroups=h3cDnsMIBGroups, h3cDnsStaticSrvIpGroup=h3cDnsStaticSrvIpGroup)
+mibBuilder.exportSymbols("A3COM-HUAWEI-DNS-MIB", h3cDnsStaticSrvIpRowStatus=h3cDnsStaticSrvIpRowStatus, h3cDnsMIBCompliance=h3cDnsMIBCompliance, h3cDnsStaticSrvIpTable=h3cDnsStaticSrvIpTable, h3cDnsStaticSrvIpEntry=h3cDnsStaticSrvIpEntry, h3cDnsStaticSrvIpAddr=h3cDnsStaticSrvIpAddr, h3cDnsMIBGroups=h3cDnsMIBGroups, h3cDns=h3cDns, h3cDnsDynamicSrvIpEntry=h3cDnsDynamicSrvIpEntry, h3cDnsStaticSrvIpType=h3cDnsStaticSrvIpType, h3cDnsDynamicSrvIpType=h3cDnsDynamicSrvIpType, h3cDnsMIBCompliances=h3cDnsMIBCompliances, h3cDnsStaticSrvIpGroup=h3cDnsStaticSrvIpGroup, h3cDnsObjects=h3cDnsObjects, h3cDnsDynamicSrvIpTable=h3cDnsDynamicSrvIpTable, h3cDnsDynamicSrvIpAddr=h3cDnsDynamicSrvIpAddr, PYSNMP_MODULE_ID=h3cDns, h3cDnsDynamicSrvIpGroup=h3cDnsDynamicSrvIpGroup, h3cDnsStaticSrvIpPriority=h3cDnsStaticSrvIpPriority, h3cDnsMIBConformance=h3cDnsMIBConformance, h3cDnsDynamicSrvIpPriority=h3cDnsDynamicSrvIpPriority)

@@ -1,24 +1,24 @@
 #
 # PySNMP MIB module ELTEX-MES-VLAN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-MES-VLAN-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:25 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/eltex/ELTEX-MES-VLAN-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:11:34 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
 eltMes, = mibBuilder.importSymbols("ELTEX-MES", "eltMes")
-ifIndex, InterfaceIndexOrZero = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndexOrZero")
+InterfaceIndexOrZero, ifIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "ifIndex")
 InetAddressType, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType")
-PortList, VlanIndex, dot1qVlanIndex = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList", "VlanIndex", "dot1qVlanIndex")
+VlanIndex, PortList, dot1qVlanIndex = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanIndex", "PortList", "dot1qVlanIndex")
 rnd, = mibBuilder.importSymbols("RADLAN-MIB", "rnd")
 vlanMulticastTvEntry, = mibBuilder.importSymbols("RADLAN-vlan-MIB", "vlanMulticastTvEntry")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
 eltMesVlan = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 23, 5))
 eltMesVlan.setRevisions(('2018-08-07 00:00', '2017-06-05 00:00', '2013-11-18 00:00', '2013-11-18 00:00',))
 if mibBuilder.loadTexts: eltMesVlan.setLastUpdated('201808070000Z')
@@ -60,4 +60,4 @@ eltVlanTriplePlayMulticastTvVID = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23
 if mibBuilder.loadTexts: eltVlanTriplePlayMulticastTvVID.setStatus('current')
 eltVlanTriplePlayRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 5, 6, 1, 4), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: eltVlanTriplePlayRowStatus.setStatus('current')
-mibBuilder.exportSymbols("ELTEX-MES-VLAN-MIB", PYSNMP_MODULE_ID=eltMesVlan, eltVlanMulticastTvVIDIsTagged=eltVlanMulticastTvVIDIsTagged, eltMesVlan=eltMesVlan, eltVlanMulticastTvEntry=eltVlanMulticastTvEntry, eltDot1qVlanStaticEntry=eltDot1qVlanStaticEntry, eltDot1qVlanStaticCos=eltDot1qVlanStaticCos, eltVlanTriplePlayInnerVID=eltVlanTriplePlayInnerVID, eltDot1qVlanStaticTable=eltDot1qVlanStaticTable, eltVlanMode=eltVlanMode, eltVlanTriplePlayMulticastTvVID=eltVlanTriplePlayMulticastTvVID, eltVlanTriplePlayEntry=eltVlanTriplePlayEntry, eltVlanTriplePlayTable=eltVlanTriplePlayTable, eltVlanTriplePlayInputPort=eltVlanTriplePlayInputPort, eltVlanDefaultForbiddenPorts=eltVlanDefaultForbiddenPorts, eltVlanMulticastTvTable=eltVlanMulticastTvTable, eltVlanTriplePlayRowStatus=eltVlanTriplePlayRowStatus, EltVlanMode=EltVlanMode, eltMesVlanDefault=eltMesVlanDefault)
+mibBuilder.exportSymbols("ELTEX-MES-VLAN-MIB", eltVlanTriplePlayMulticastTvVID=eltVlanTriplePlayMulticastTvVID, eltVlanTriplePlayInputPort=eltVlanTriplePlayInputPort, EltVlanMode=EltVlanMode, eltDot1qVlanStaticCos=eltDot1qVlanStaticCos, eltMesVlan=eltMesVlan, eltVlanTriplePlayTable=eltVlanTriplePlayTable, eltVlanTriplePlayEntry=eltVlanTriplePlayEntry, eltVlanTriplePlayInnerVID=eltVlanTriplePlayInnerVID, eltVlanMulticastTvEntry=eltVlanMulticastTvEntry, eltDot1qVlanStaticEntry=eltDot1qVlanStaticEntry, eltVlanMulticastTvTable=eltVlanMulticastTvTable, eltMesVlanDefault=eltMesVlanDefault, eltVlanMode=eltVlanMode, eltVlanDefaultForbiddenPorts=eltVlanDefaultForbiddenPorts, eltVlanMulticastTvVIDIsTagged=eltVlanMulticastTvVIDIsTagged, eltVlanTriplePlayRowStatus=eltVlanTriplePlayRowStatus, eltDot1qVlanStaticTable=eltDot1qVlanStaticTable, PYSNMP_MODULE_ID=eltMesVlan)

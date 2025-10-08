@@ -1,22 +1,22 @@
 #
 # PySNMP MIB module RAD-LAG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rad/RAD-LAG-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:42:41 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/rad/RAD-LAG-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:09:54 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dot3adAggPortEntry, = mibBuilder.importSymbols("IEEE8023-LAG-MIB", "dot3adAggPortEntry")
-ifAlias, InterfaceIndexOrZero = mibBuilder.importSymbols("IF-MIB", "ifAlias", "InterfaceIndexOrZero")
+InterfaceIndexOrZero, ifAlias = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "ifAlias")
 PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
-alarmEventLogAlarmOrEventId, alarmEventLogDescription, alarmEventLogSeverity, alarmEventReason, alarmEventLogDateAndTime, alarmEventLogSourceName = mibBuilder.importSymbols("RAD-GEN-MIB", "alarmEventLogAlarmOrEventId", "alarmEventLogDescription", "alarmEventLogSeverity", "alarmEventReason", "alarmEventLogDateAndTime", "alarmEventLogSourceName")
+alarmEventLogDescription, alarmEventReason, alarmEventLogAlarmOrEventId, alarmEventLogSeverity, alarmEventLogSourceName, alarmEventLogDateAndTime = mibBuilder.importSymbols("RAD-GEN-MIB", "alarmEventLogDescription", "alarmEventReason", "alarmEventLogAlarmOrEventId", "alarmEventLogSeverity", "alarmEventLogSourceName", "alarmEventLogDateAndTime")
 agnt, = mibBuilder.importSymbols("RAD-SMI-MIB", "agnt")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 lag = ModuleIdentity((1, 3, 6, 1, 4, 1, 164, 6, 2, 54))
 if mibBuilder.loadTexts: lag.setLastUpdated('201502191802Z')
 if mibBuilder.loadTexts: lag.setOrganization('RAD Data Communications Ltd.')
@@ -77,4 +77,4 @@ lagFailure = NotificationType((1, 3, 6, 1, 4, 1, 164, 6, 2, 54, 0, 5)).setObject
 if mibBuilder.loadTexts: lagFailure.setStatus('deprecated')
 lagMinimumMembers = NotificationType((1, 3, 6, 1, 4, 1, 164, 6, 2, 54, 0, 6)).setObjects(("RAD-GEN-MIB", "alarmEventLogSourceName"), ("RAD-GEN-MIB", "alarmEventLogAlarmOrEventId"), ("RAD-GEN-MIB", "alarmEventLogDescription"), ("RAD-GEN-MIB", "alarmEventLogSeverity"), ("RAD-GEN-MIB", "alarmEventLogDateAndTime"), ("RAD-GEN-MIB", "alarmEventReason"), ("IF-MIB", "ifAlias"), ("RAD-LAG-MIB", "lagMinimumLinks"))
 if mibBuilder.loadTexts: lagMinimumMembers.setStatus('deprecated')
-mibBuilder.exportSymbols("RAD-LAG-MIB", PYSNMP_MODULE_ID=lag, lagMinimumLinks=lagMinimumLinks, lagCnfgIdx=lagCnfgIdx, lagLacpEnable=lagLacpEnable, lagStatEntry=lagStatEntry, lagStatActivePort=lagStatActivePort, lagRecoveryMode=lagRecoveryMode, lagFailure=lagFailure, lag=lag, dot3adAggPortXEntry=dot3adAggPortXEntry, lagLacpChurn=lagLacpChurn, lagLacpDown=lagLacpDown, lagStatForcePort=lagStatForcePort, lagRowStatus=lagRowStatus, lagLacpLoopDetection=lagLacpLoopDetection, lagSubGroupSwitchover=lagSubGroupSwitchover, lagWaitToRestore=lagWaitToRestore, lagAnchorPort=lagAnchorPort, lagTable=lagTable, lagDistributionMethod=lagDistributionMethod, lagStatTable=lagStatTable, lagEvents=lagEvents, lagMinimumMembers=lagMinimumMembers, lagEntry=lagEntry, lagIdx=lagIdx, lagShutDownDurationUponFlip=lagShutDownDurationUponFlip, lagRdnMethod=lagRdnMethod, dot3adAggPortXTable=dot3adAggPortXTable, lagPortMembers=lagPortMembers, dot3adAggPortXprotectionState=dot3adAggPortXprotectionState)
+mibBuilder.exportSymbols("RAD-LAG-MIB", lagLacpEnable=lagLacpEnable, lagIdx=lagIdx, lagSubGroupSwitchover=lagSubGroupSwitchover, lagDistributionMethod=lagDistributionMethod, lagWaitToRestore=lagWaitToRestore, lagPortMembers=lagPortMembers, lagStatActivePort=lagStatActivePort, lagFailure=lagFailure, lagCnfgIdx=lagCnfgIdx, lagLacpDown=lagLacpDown, lagRowStatus=lagRowStatus, lagStatForcePort=lagStatForcePort, lagShutDownDurationUponFlip=lagShutDownDurationUponFlip, lagEvents=lagEvents, lagRecoveryMode=lagRecoveryMode, dot3adAggPortXTable=dot3adAggPortXTable, lagStatEntry=lagStatEntry, lagLacpChurn=lagLacpChurn, lagEntry=lagEntry, lag=lag, lagStatTable=lagStatTable, lagMinimumMembers=lagMinimumMembers, lagLacpLoopDetection=lagLacpLoopDetection, dot3adAggPortXprotectionState=dot3adAggPortXprotectionState, dot3adAggPortXEntry=dot3adAggPortXEntry, lagRdnMethod=lagRdnMethod, PYSNMP_MODULE_ID=lag, lagMinimumLinks=lagMinimumLinks, lagAnchorPort=lagAnchorPort, lagTable=lagTable)

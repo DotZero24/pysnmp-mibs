@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module A3COM-HUAWEI-VOICE-CALL-ACTIVE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-VOICE-CALL-ACTIVE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:36 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-VOICE-CALL-ACTIVE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:32:46 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 h3cVoice, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cVoice")
 H3cCodecType, = mibBuilder.importSymbols("A3COM-HUAWEI-VOICE-DIAL-CONTROL-MIB", "H3cCodecType")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 callActiveSetupTime, callActiveIndex = mibBuilder.importSymbols("DIAL-CONTROL-MIB", "callActiveSetupTime", "callActiveIndex")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 h3cVoCallActive = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 39, 15))
 h3cVoCallActive.setRevisions(('2008-02-17 00:00',))
@@ -62,4 +62,4 @@ h3cVoVoIPCallActiveSessProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1
 if mibBuilder.loadTexts: h3cVoVoIPCallActiveSessProtocol.setStatus('current')
 h3cVoVoIPCallActiveCoderType = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 39, 15, 1, 2, 1, 9), H3cCodecType()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: h3cVoVoIPCallActiveCoderType.setStatus('current')
-mibBuilder.exportSymbols("A3COM-HUAWEI-VOICE-CALL-ACTIVE-MIB", h3cVoVoIPCallActiveRemSigIPAddr=h3cVoVoIPCallActiveRemSigIPAddr, h3cVoCallActiveFaxTxDuration=h3cVoCallActiveFaxTxDuration, h3cVoVoIPCallActiveConnectionId=h3cVoVoIPCallActiveConnectionId, h3cVoiceCallActiveEntry=h3cVoiceCallActiveEntry, h3cVoVoIPCallActiveRemSigIPType=h3cVoVoIPCallActiveRemSigIPType, h3cVoVoIPCallActiveRemMedPort=h3cVoVoIPCallActiveRemMedPort, h3cVoCallActiveTxDuration=h3cVoCallActiveTxDuration, h3cVoVoIPCallActiveSessProtocol=h3cVoVoIPCallActiveSessProtocol, PYSNMP_MODULE_ID=h3cVoCallActive, h3cVoCallActiveConnectionId=h3cVoCallActiveConnectionId, h3cVoCallActive=h3cVoCallActive, h3cVoVoIPCallActiveRemMedIPAddr=h3cVoVoIPCallActiveRemMedIPAddr, h3cVoiceCallActiveObjects=h3cVoiceCallActiveObjects, h3cVoCallActiveCoderType=h3cVoCallActiveCoderType, h3cVoCallActiveImgPageCount=h3cVoCallActiveImgPageCount, h3cVoVoIPCallActiveRemMedIPType=h3cVoVoIPCallActiveRemMedIPType, h3cVoiceVoIPCallActiveTable=h3cVoiceVoIPCallActiveTable, h3cVoiceCallActiveTable=h3cVoiceCallActiveTable, h3cVoiceVoIPCallActiveEntry=h3cVoiceVoIPCallActiveEntry, h3cVoVoIPCallActiveRemSigPort=h3cVoVoIPCallActiveRemSigPort, H3cGUid=H3cGUid, h3cVoVoIPCallActiveCoderType=h3cVoVoIPCallActiveCoderType, h3cVoCallActiveVoiceTxDuration=h3cVoCallActiveVoiceTxDuration)
+mibBuilder.exportSymbols("A3COM-HUAWEI-VOICE-CALL-ACTIVE-MIB", h3cVoVoIPCallActiveRemSigPort=h3cVoVoIPCallActiveRemSigPort, h3cVoCallActiveVoiceTxDuration=h3cVoCallActiveVoiceTxDuration, h3cVoVoIPCallActiveCoderType=h3cVoVoIPCallActiveCoderType, h3cVoiceCallActiveObjects=h3cVoiceCallActiveObjects, h3cVoiceVoIPCallActiveTable=h3cVoiceVoIPCallActiveTable, h3cVoCallActiveFaxTxDuration=h3cVoCallActiveFaxTxDuration, H3cGUid=H3cGUid, h3cVoiceCallActiveEntry=h3cVoiceCallActiveEntry, h3cVoVoIPCallActiveConnectionId=h3cVoVoIPCallActiveConnectionId, h3cVoiceVoIPCallActiveEntry=h3cVoiceVoIPCallActiveEntry, h3cVoCallActive=h3cVoCallActive, h3cVoVoIPCallActiveRemMedIPType=h3cVoVoIPCallActiveRemMedIPType, h3cVoVoIPCallActiveRemSigIPAddr=h3cVoVoIPCallActiveRemSigIPAddr, h3cVoVoIPCallActiveRemMedPort=h3cVoVoIPCallActiveRemMedPort, PYSNMP_MODULE_ID=h3cVoCallActive, h3cVoVoIPCallActiveSessProtocol=h3cVoVoIPCallActiveSessProtocol, h3cVoiceCallActiveTable=h3cVoiceCallActiveTable, h3cVoCallActiveTxDuration=h3cVoCallActiveTxDuration, h3cVoCallActiveCoderType=h3cVoCallActiveCoderType, h3cVoCallActiveImgPageCount=h3cVoCallActiveImgPageCount, h3cVoVoIPCallActiveRemSigIPType=h3cVoVoIPCallActiveRemSigIPType, h3cVoVoIPCallActiveRemMedIPAddr=h3cVoVoIPCallActiveRemMedIPAddr, h3cVoCallActiveConnectionId=h3cVoCallActiveConnectionId)

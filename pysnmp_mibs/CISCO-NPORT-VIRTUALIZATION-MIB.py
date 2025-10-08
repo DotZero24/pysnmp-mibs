@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module CISCO-NPORT-VIRTUALIZATION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-NPORT-VIRTUALIZATION-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:35 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-NPORT-VIRTUALIZATION-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:25:10 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndexList, = mibBuilder.importSymbols("CISCO-IF-EXTENSION-MIB", "InterfaceIndexList")
 ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TimeStamp, RowStatus, TextualConvention, TruthValue, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "RowStatus", "TextualConvention", "TruthValue", "StorageType")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, StorageType, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "StorageType", "TruthValue", "TimeStamp", "DisplayString")
 ciscoNportVirtualizationMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 660))
 ciscoNportVirtualizationMIB.setRevisions(('2008-06-13 00:00',))
 if mibBuilder.loadTexts: ciscoNportVirtualizationMIB.setLastUpdated('200806130000Z')
@@ -49,4 +49,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 cnpvTrafficMapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 660, 2, 2, 1)).setObjects(("CISCO-NPORT-VIRTUALIZATION-MIB", "cnpvTrafficAutoLoadbalance"), ("CISCO-NPORT-VIRTUALIZATION-MIB", "cnpvTrafficMapToIfIndexList"), ("CISCO-NPORT-VIRTUALIZATION-MIB", "cnpvTrafficMapStorageType"), ("CISCO-NPORT-VIRTUALIZATION-MIB", "cnpvTrafficMapRowStatus"), ("CISCO-NPORT-VIRTUALIZATION-MIB", "cnpvTrafficMapLastChange"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     cnpvTrafficMapGroup = cnpvTrafficMapGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-NPORT-VIRTUALIZATION-MIB", cnpvTrafficMapStorageType=cnpvTrafficMapStorageType, ciscoNportVirtualizationMIB=ciscoNportVirtualizationMIB, cnpvTrafficMapToIfIndexList=cnpvTrafficMapToIfIndexList, ciscoNportVirtualizationMIBGroups=ciscoNportVirtualizationMIBGroups, cnpvTrafficMapLastChange=cnpvTrafficMapLastChange, cnpvTrafficMap=cnpvTrafficMap, ciscoNportVirtualizationMIBNotifs=ciscoNportVirtualizationMIBNotifs, ciscoNportVirtualizationMIBCompliance=ciscoNportVirtualizationMIBCompliance, cnpvTrafficMapRowStatus=cnpvTrafficMapRowStatus, cnpvTrafficMapEntry=cnpvTrafficMapEntry, PYSNMP_MODULE_ID=ciscoNportVirtualizationMIB, cnpvTrafficMapFromIfIndex=cnpvTrafficMapFromIfIndex, ciscoNportVirtualizationMIBObjects=ciscoNportVirtualizationMIBObjects, ciscoNportVirtualizationMIBConform=ciscoNportVirtualizationMIBConform, cnpvGlobal=cnpvGlobal, cnpvTrafficMapGroup=cnpvTrafficMapGroup, cnpvTrafficMapTable=cnpvTrafficMapTable, ciscoNportVirtualizationMIBCompliances=ciscoNportVirtualizationMIBCompliances, cnpvConfiguration=cnpvConfiguration, cnpvTrafficAutoLoadbalance=cnpvTrafficAutoLoadbalance)
+mibBuilder.exportSymbols("CISCO-NPORT-VIRTUALIZATION-MIB", cnpvGlobal=cnpvGlobal, ciscoNportVirtualizationMIBConform=ciscoNportVirtualizationMIBConform, cnpvTrafficMapFromIfIndex=cnpvTrafficMapFromIfIndex, ciscoNportVirtualizationMIBCompliance=ciscoNportVirtualizationMIBCompliance, cnpvTrafficMapTable=cnpvTrafficMapTable, cnpvTrafficMapEntry=cnpvTrafficMapEntry, cnpvTrafficMapStorageType=cnpvTrafficMapStorageType, cnpvTrafficMapLastChange=cnpvTrafficMapLastChange, ciscoNportVirtualizationMIBNotifs=ciscoNportVirtualizationMIBNotifs, cnpvTrafficAutoLoadbalance=cnpvTrafficAutoLoadbalance, cnpvTrafficMapToIfIndexList=cnpvTrafficMapToIfIndexList, ciscoNportVirtualizationMIB=ciscoNportVirtualizationMIB, ciscoNportVirtualizationMIBCompliances=ciscoNportVirtualizationMIBCompliances, ciscoNportVirtualizationMIBObjects=ciscoNportVirtualizationMIBObjects, cnpvTrafficMap=cnpvTrafficMap, ciscoNportVirtualizationMIBGroups=ciscoNportVirtualizationMIBGroups, cnpvTrafficMapGroup=cnpvTrafficMapGroup, cnpvTrafficMapRowStatus=cnpvTrafficMapRowStatus, PYSNMP_MODULE_ID=ciscoNportVirtualizationMIB, cnpvConfiguration=cnpvConfiguration)

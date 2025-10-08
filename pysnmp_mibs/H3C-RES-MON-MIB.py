@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module H3C-RES-MON-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-RES-MON-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:49 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-RES-MON-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:43 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 h3cResMon = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169))
 h3cResMon.setRevisions(('2017-04-01 00:00',))
 if mibBuilder.loadTexts: h3cResMon.setLastUpdated('201704010000Z')
@@ -69,4 +69,4 @@ if mibBuilder.loadTexts: h3cResMonUsedUpRecoverNotification.setStatus('current')
 h3cResMonTrapInfor = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 3, 1))
 h3cResMonAdditionalInfo = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 3, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("accessiblefornotify")
 if mibBuilder.loadTexts: h3cResMonAdditionalInfo.setStatus('current')
-mibBuilder.exportSymbols("H3C-RES-MON-MIB", h3cResMonUsedUpNotification=h3cResMonUsedUpNotification, h3cResMonScalarObjects=h3cResMonScalarObjects, h3cResMonMinorThreshold=h3cResMonMinorThreshold, h3cResMonSevereRecoverNotification=h3cResMonSevereRecoverNotification, h3cResMonMinorResendEnable=h3cResMonMinorResendEnable, PYSNMP_MODULE_ID=h3cResMon, h3cResMonUsedUpRecoverNotification=h3cResMonUsedUpRecoverNotification, h3cResMonSlotIndex=h3cResMonSlotIndex, h3cResMonNotification=h3cResMonNotification, h3cResMonMinorRecoverNotification=h3cResMonMinorRecoverNotification, h3cResMonUnit=h3cResMonUnit, h3cResMonAdditionalInfo=h3cResMonAdditionalInfo, h3cResMonFree=h3cResMonFree, h3cResMonOutputEnable=h3cResMonOutputEnable, h3cResMonSevereNotification=h3cResMonSevereNotification, h3cResMonConfigEntry=h3cResMonConfigEntry, h3cResMonChassisIndex=h3cResMonChassisIndex, h3cResMonInfoEntry=h3cResMonInfoEntry, h3cResMonResourceName=h3cResMonResourceName, h3cResMonThresholdUnit=h3cResMonThresholdUnit, h3cResMon=h3cResMon, h3cResMonInfoTable=h3cResMonInfoTable, h3cResMonCurrent=h3cResMonCurrent, h3cResMonTables=h3cResMonTables, h3cResMonSevereThreshold=h3cResMonSevereThreshold, h3cResMonCpuIndex=h3cResMonCpuIndex, h3cResMonTotal=h3cResMonTotal, h3cResMonMinorNotification=h3cResMonMinorNotification, h3cResMonTrapInfor=h3cResMonTrapInfor, h3cResMonTrapPrefix=h3cResMonTrapPrefix, h3cResMonConfigTable=h3cResMonConfigTable)
+mibBuilder.exportSymbols("H3C-RES-MON-MIB", h3cResMonTrapPrefix=h3cResMonTrapPrefix, h3cResMonMinorThreshold=h3cResMonMinorThreshold, h3cResMonResourceName=h3cResMonResourceName, PYSNMP_MODULE_ID=h3cResMon, h3cResMonUnit=h3cResMonUnit, h3cResMonConfigEntry=h3cResMonConfigEntry, h3cResMonNotification=h3cResMonNotification, h3cResMonTotal=h3cResMonTotal, h3cResMonAdditionalInfo=h3cResMonAdditionalInfo, h3cResMonInfoEntry=h3cResMonInfoEntry, h3cResMonSevereNotification=h3cResMonSevereNotification, h3cResMon=h3cResMon, h3cResMonSlotIndex=h3cResMonSlotIndex, h3cResMonCurrent=h3cResMonCurrent, h3cResMonUsedUpNotification=h3cResMonUsedUpNotification, h3cResMonThresholdUnit=h3cResMonThresholdUnit, h3cResMonCpuIndex=h3cResMonCpuIndex, h3cResMonChassisIndex=h3cResMonChassisIndex, h3cResMonSevereThreshold=h3cResMonSevereThreshold, h3cResMonTrapInfor=h3cResMonTrapInfor, h3cResMonSevereRecoverNotification=h3cResMonSevereRecoverNotification, h3cResMonScalarObjects=h3cResMonScalarObjects, h3cResMonMinorNotification=h3cResMonMinorNotification, h3cResMonMinorRecoverNotification=h3cResMonMinorRecoverNotification, h3cResMonOutputEnable=h3cResMonOutputEnable, h3cResMonInfoTable=h3cResMonInfoTable, h3cResMonTables=h3cResMonTables, h3cResMonFree=h3cResMonFree, h3cResMonMinorResendEnable=h3cResMonMinorResendEnable, h3cResMonUsedUpRecoverNotification=h3cResMonUsedUpRecoverNotification, h3cResMonConfigTable=h3cResMonConfigTable)

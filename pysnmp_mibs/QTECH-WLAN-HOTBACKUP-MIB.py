@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module QTECH-WLAN-HOTBACKUP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-WLAN-HOTBACKUP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:13 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/qtech/QTECH-WLAN-HOTBACKUP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:14:09 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
 qtechMgmt, = mibBuilder.importSymbols("QTECH-SMI", "qtechMgmt")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 qtechWlanHotbackupMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 115))
 qtechWlanHotbackupMIB.setRevisions(('2012-07-31 00:00',))
 if mibBuilder.loadTexts: qtechWlanHotbackupMIB.setLastUpdated('201207310000Z')
@@ -53,4 +53,4 @@ qtechNotifyNewState = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 115, 2, 1
 if mibBuilder.loadTexts: qtechNotifyNewState.setStatus('current')
 qtechNotifyWlanHBChange = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 115, 2, 2, 1)).setObjects(("QTECH-WLAN-HOTBACKUP-MIB", "qtechNotifyPeerIpType"), ("QTECH-WLAN-HOTBACKUP-MIB", "qtechNotifyPeerIp"), ("QTECH-WLAN-HOTBACKUP-MIB", "qtechNotifyCtxId"), ("QTECH-WLAN-HOTBACKUP-MIB", "qtechNotifyOldState"), ("QTECH-WLAN-HOTBACKUP-MIB", "qtechNotifyNewState"))
 if mibBuilder.loadTexts: qtechNotifyWlanHBChange.setStatus('current')
-mibBuilder.exportSymbols("QTECH-WLAN-HOTBACKUP-MIB", qtechWlanHotbackupNotifications=qtechWlanHotbackupNotifications, qtechNotifyCtxId=qtechNotifyCtxId, qtechNotifyPeerIpType=qtechNotifyPeerIpType, qtechWlanHotbackupCtxIpAddress=qtechWlanHotbackupCtxIpAddress, qtechWlanHotbackupPeerTable=qtechWlanHotbackupPeerTable, qtechWlanHotbackupPeerEntry=qtechWlanHotbackupPeerEntry, qtechWlanHotbackupIsEnabled=qtechWlanHotbackupIsEnabled, qtechWlanHotbackupMIBObjects=qtechWlanHotbackupMIBObjects, qtechNotifyNewState=qtechNotifyNewState, qtechNotifyOldState=qtechNotifyOldState, qtechWlanHotbackupMIB=qtechWlanHotbackupMIB, qtechWlanHotbackupContextEntry=qtechWlanHotbackupContextEntry, qtechWlanHotbackupNtfObjects=qtechWlanHotbackupNtfObjects, qtechNotifyWlanHBChange=qtechNotifyWlanHBChange, qtechWlanHotbackupIpAddress=qtechWlanHotbackupIpAddress, qtechWlanHotbackupContextState=qtechWlanHotbackupContextState, qtechWlanHotbackupContextTable=qtechWlanHotbackupContextTable, PYSNMP_MODULE_ID=qtechWlanHotbackupMIB, qtechNotifyPeerIp=qtechNotifyPeerIp, qtechWlanHotbackupNotificationsMIBObjects=qtechWlanHotbackupNotificationsMIBObjects, qtechWlanHotbackupState=qtechWlanHotbackupState, qtechWlanHotbackupContextId=qtechWlanHotbackupContextId)
+mibBuilder.exportSymbols("QTECH-WLAN-HOTBACKUP-MIB", qtechNotifyNewState=qtechNotifyNewState, qtechWlanHotbackupContextEntry=qtechWlanHotbackupContextEntry, qtechNotifyPeerIpType=qtechNotifyPeerIpType, qtechNotifyPeerIp=qtechNotifyPeerIp, qtechWlanHotbackupNotifications=qtechWlanHotbackupNotifications, qtechWlanHotbackupNtfObjects=qtechWlanHotbackupNtfObjects, qtechWlanHotbackupCtxIpAddress=qtechWlanHotbackupCtxIpAddress, qtechWlanHotbackupContextState=qtechWlanHotbackupContextState, qtechWlanHotbackupContextId=qtechWlanHotbackupContextId, qtechWlanHotbackupIpAddress=qtechWlanHotbackupIpAddress, qtechWlanHotbackupMIB=qtechWlanHotbackupMIB, qtechWlanHotbackupIsEnabled=qtechWlanHotbackupIsEnabled, PYSNMP_MODULE_ID=qtechWlanHotbackupMIB, qtechWlanHotbackupPeerTable=qtechWlanHotbackupPeerTable, qtechWlanHotbackupPeerEntry=qtechWlanHotbackupPeerEntry, qtechNotifyOldState=qtechNotifyOldState, qtechWlanHotbackupContextTable=qtechWlanHotbackupContextTable, qtechNotifyWlanHBChange=qtechNotifyWlanHBChange, qtechWlanHotbackupMIBObjects=qtechWlanHotbackupMIBObjects, qtechNotifyCtxId=qtechNotifyCtxId, qtechWlanHotbackupState=qtechWlanHotbackupState, qtechWlanHotbackupNotificationsMIBObjects=qtechWlanHotbackupNotificationsMIBObjects)

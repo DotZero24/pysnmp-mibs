@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SENAO-WLAN-CB-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/senao/SENAO-WLAN-CB-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:31 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/senao/SENAO-WLAN-CB-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:06:06 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, NotificationType, Integer32, enterprises, Gauge32, Counter64, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, Unsigned32, MibIdentifier, TimeTicks, mgmt, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Integer32", "enterprises", "Gauge32", "Counter64", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "Unsigned32", "MibIdentifier", "TimeTicks", "mgmt", "Bits", "IpAddress")
-DisplayString, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "PhysAddress")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, mgmt, NotificationType, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "mgmt", "NotificationType", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+PhysAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "PhysAddress", "TextualConvention", "DisplayString")
 senaoMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 14125))
 senaoRFC1213Group = MibIdentifier((1, 3, 6, 1, 4, 1, 14125, 1))
 statusInformationGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 14125, 2))
@@ -86,4 +86,4 @@ udpInDatagrams = MibScalar((1, 3, 6, 1, 4, 1, 14125, 1, 4, 1), Counter32()).setM
 if mibBuilder.loadTexts: udpInDatagrams.setStatus('mandatory')
 udpOutDatagrams = MibScalar((1, 3, 6, 1, 4, 1, 14125, 1, 4, 2), Counter32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: udpOutDatagrams.setStatus('mandatory')
-mibBuilder.exportSymbols("SENAO-WLAN-CB-MIB", tcpOutSegs=tcpOutSegs, receivedPacketsGoodCount=receivedPacketsGoodCount, statusInformationGroup=statusInformationGroup, tcp=tcp, senaoRFC1213Group=senaoRFC1213Group, wepEnabled=wepEnabled, deviceName=deviceName, systemSettingsGroup=systemSettingsGroup, webAdministratorSettingsGroup=webAdministratorSettingsGroup, connectedToSSID=connectedToSSID, sendPacketsBadCount=sendPacketsBadCount, wepKeyLength=wepKeyLength, ipInReceives=ipInReceives, subnetMask=subnetMask, operationMode=operationMode, clientBridgeMACAddress=clientBridgeMACAddress, clientSignalStrength=clientSignalStrength, countersGroup=countersGroup, wepKeyNumber=wepKeyNumber, ipAddress=ipAddress, ipForwDatagrams=ipForwDatagrams, icmpInMsgs=icmpInMsgs, udp=udp, saveReboot=saveReboot, linkUpIndicator=linkUpIndicator, sendPacketsGoodCount=sendPacketsGoodCount, clientAssociationTime=clientAssociationTime, wepKey=wepKey, usingChannel=usingChannel, currentIPAddress=currentIPAddress, icmpOutMsgs=icmpOutMsgs, udpInDatagrams=udpInDatagrams, icmp=icmp, receivedPacketsBadCount=receivedPacketsBadCount, privacySettingsGroup=privacySettingsGroup, udpOutDatagrams=udpOutDatagrams, currentTXPower=currentTXPower, tcpInSegs=tcpInSegs, senaoMIB=senaoMIB, ip=ip, ipGateway=ipGateway, userName=userName, password=password)
+mibBuilder.exportSymbols("SENAO-WLAN-CB-MIB", connectedToSSID=connectedToSSID, sendPacketsBadCount=sendPacketsBadCount, wepKeyNumber=wepKeyNumber, receivedPacketsGoodCount=receivedPacketsGoodCount, tcp=tcp, icmpInMsgs=icmpInMsgs, tcpOutSegs=tcpOutSegs, clientAssociationTime=clientAssociationTime, ipInReceives=ipInReceives, systemSettingsGroup=systemSettingsGroup, clientBridgeMACAddress=clientBridgeMACAddress, udpInDatagrams=udpInDatagrams, senaoRFC1213Group=senaoRFC1213Group, ipAddress=ipAddress, countersGroup=countersGroup, icmp=icmp, udpOutDatagrams=udpOutDatagrams, linkUpIndicator=linkUpIndicator, privacySettingsGroup=privacySettingsGroup, clientSignalStrength=clientSignalStrength, wepKey=wepKey, deviceName=deviceName, ipForwDatagrams=ipForwDatagrams, udp=udp, senaoMIB=senaoMIB, wepEnabled=wepEnabled, saveReboot=saveReboot, currentTXPower=currentTXPower, subnetMask=subnetMask, ipGateway=ipGateway, userName=userName, wepKeyLength=wepKeyLength, icmpOutMsgs=icmpOutMsgs, tcpInSegs=tcpInSegs, password=password, webAdministratorSettingsGroup=webAdministratorSettingsGroup, currentIPAddress=currentIPAddress, sendPacketsGoodCount=sendPacketsGoodCount, usingChannel=usingChannel, statusInformationGroup=statusInformationGroup, ip=ip, receivedPacketsBadCount=receivedPacketsBadCount, operationMode=operationMode)

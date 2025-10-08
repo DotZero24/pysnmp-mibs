@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ARRIS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/arris/ARRIS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:54 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/arris/ARRIS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:19:07 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 arris = ModuleIdentity((1, 3, 6, 1, 4, 1, 4115))
 arris.setRevisions(('2011-01-14 00:00', '2011-01-13 00:00', '2010-02-23 00:00',))
 if mibBuilder.loadTexts: arris.setLastUpdated('201101140000Z')
@@ -49,4 +49,4 @@ cmtsCommon = MibIdentifier((1, 3, 6, 1, 4, 1, 4115, 1, 4, 5))
 mrcController = MibIdentifier((1, 3, 6, 1, 4, 1, 4115, 1, 5, 1))
 arrisGlobalAccessMib = MibIdentifier((1, 3, 6, 1, 4, 1, 4115, 1, 6, 1))
 arrisGlobalAccessProductUas = MibIdentifier((1, 3, 6, 1, 4, 1, 4115, 1, 6, 2))
-mibBuilder.exportSymbols("ARRIS-MIB", cmts1500=cmts1500, arrisSpeedTestMib=arrisSpeedTestMib, arrisNetPerfMonitorMib=arrisNetPerfMonitorMib, arrisProducts=arrisProducts, arrisProdIdGlobalAccess=arrisProdIdGlobalAccess, arrisTR69Mib=arrisTR69Mib, arrisMtaDoc30Mib=arrisMtaDoc30Mib, arrisGlobalAccessMib=arrisGlobalAccessMib, ttm=ttm, arrisProdIdVideo=arrisProdIdVideo, arrisQamDetectionMib=arrisQamDetectionMib, ttp=ttp, cmtsC3=cmtsC3, arrisProdIdMRC=arrisProdIdMRC, arrisTools=arrisTools, arrisCmDoc30Mib=arrisCmDoc30Mib, arrisSME=arrisSME, arrisGlobalAccessProductUas=arrisGlobalAccessProductUas, arrisProdIdCM=arrisProdIdCM, arris=arris, cm110=cm110, arrisProdIdAssurance=arrisProdIdAssurance, arrisMtaDevMib=arrisMtaDevMib, arrisKddiFeatMib=arrisKddiFeatMib, arrisProdIdRouter=arrisProdIdRouter, tcm=tcm, PYSNMP_MODULE_ID=arris, mrcController=mrcController, cmtsCommon=cmtsCommon, arrisHorizOvertempProtModeMib=arrisHorizOvertempProtModeMib, arrisProdIdCMTS=arrisProdIdCMTS, cmtsMSAS=cmtsMSAS, arrisProdIdMG=arrisProdIdMG, packetport=packetport, cmtsC4=cmtsC4, arrisDectMib=arrisDectMib)
+mibBuilder.exportSymbols("ARRIS-MIB", arrisHorizOvertempProtModeMib=arrisHorizOvertempProtModeMib, cmtsC4=cmtsC4, arrisSME=arrisSME, arrisGlobalAccessMib=arrisGlobalAccessMib, PYSNMP_MODULE_ID=arris, arrisProdIdCMTS=arrisProdIdCMTS, arrisProdIdMG=arrisProdIdMG, arrisProdIdRouter=arrisProdIdRouter, arrisDectMib=arrisDectMib, arris=arris, arrisProdIdGlobalAccess=arrisProdIdGlobalAccess, arrisCmDoc30Mib=arrisCmDoc30Mib, cmtsCommon=cmtsCommon, cmts1500=cmts1500, cm110=cm110, packetport=packetport, mrcController=mrcController, arrisMtaDevMib=arrisMtaDevMib, arrisProdIdMRC=arrisProdIdMRC, arrisQamDetectionMib=arrisQamDetectionMib, arrisProducts=arrisProducts, cmtsMSAS=cmtsMSAS, arrisNetPerfMonitorMib=arrisNetPerfMonitorMib, arrisTools=arrisTools, tcm=tcm, arrisProdIdVideo=arrisProdIdVideo, arrisProdIdCM=arrisProdIdCM, ttp=ttp, cmtsC3=cmtsC3, arrisGlobalAccessProductUas=arrisGlobalAccessProductUas, ttm=ttm, arrisKddiFeatMib=arrisKddiFeatMib, arrisSpeedTestMib=arrisSpeedTestMib, arrisProdIdAssurance=arrisProdIdAssurance, arrisTR69Mib=arrisTR69Mib, arrisMtaDoc30Mib=arrisMtaDoc30Mib)

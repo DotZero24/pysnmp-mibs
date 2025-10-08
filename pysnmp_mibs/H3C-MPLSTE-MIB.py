@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module H3C-MPLSTE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-MPLSTE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:15 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-MPLSTE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:21:55 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
 h3cMplsTe = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 143))
 h3cMplsTe.setRevisions(('2013-06-13 18:00',))
 if mibBuilder.loadTexts: h3cMplsTe.setLastUpdated('201306131800Z')
@@ -42,4 +42,4 @@ h3cMplsTeRsvpCapability = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 143, 1,
 if mibBuilder.loadTexts: h3cMplsTeRsvpCapability.setStatus('current')
 h3cMplsTeRsvpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 143, 1, 3, 1, 3), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: h3cMplsTeRsvpRowStatus.setStatus('current')
-mibBuilder.exportSymbols("H3C-MPLSTE-MIB", h3cMplsTeRsvpTable=h3cMplsTeRsvpTable, h3cMplsTeRsvpIndex=h3cMplsTeRsvpIndex, h3cMplsTeIndex=h3cMplsTeIndex, h3cMplsTeRsvpCapability=h3cMplsTeRsvpCapability, h3cMplsTeRsvpRowStatus=h3cMplsTeRsvpRowStatus, h3cMplsTeScalarGroup=h3cMplsTeScalarGroup, h3cMplsTeRsvpStatus=h3cMplsTeRsvpStatus, h3cMplsTe=h3cMplsTe, h3cMplsTeRsvpEntry=h3cMplsTeRsvpEntry, h3cMplsTeCapability=h3cMplsTeCapability, h3cMplsTeStatus=h3cMplsTeStatus, h3cMplsTeObjects=h3cMplsTeObjects, h3cMplsTeEntry=h3cMplsTeEntry, h3cMplsTeRowStatus=h3cMplsTeRowStatus, h3cMplsTeTable=h3cMplsTeTable, PYSNMP_MODULE_ID=h3cMplsTe)
+mibBuilder.exportSymbols("H3C-MPLSTE-MIB", h3cMplsTeRsvpRowStatus=h3cMplsTeRsvpRowStatus, h3cMplsTeObjects=h3cMplsTeObjects, h3cMplsTeRsvpTable=h3cMplsTeRsvpTable, h3cMplsTeIndex=h3cMplsTeIndex, h3cMplsTeCapability=h3cMplsTeCapability, h3cMplsTeRsvpIndex=h3cMplsTeRsvpIndex, h3cMplsTeEntry=h3cMplsTeEntry, h3cMplsTeTable=h3cMplsTeTable, h3cMplsTeRsvpStatus=h3cMplsTeRsvpStatus, h3cMplsTeRowStatus=h3cMplsTeRowStatus, h3cMplsTe=h3cMplsTe, h3cMplsTeStatus=h3cMplsTeStatus, h3cMplsTeRsvpCapability=h3cMplsTeRsvpCapability, PYSNMP_MODULE_ID=h3cMplsTe, h3cMplsTeScalarGroup=h3cMplsTeScalarGroup, h3cMplsTeRsvpEntry=h3cMplsTeRsvpEntry)

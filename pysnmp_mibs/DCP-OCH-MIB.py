@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module DCP-OCH-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/smartoptics/DCP-OCH-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:01:59 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/smartoptics/DCP-OCH-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:07:30 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dcpGeneric, = mibBuilder.importSymbols("DCP-MIB", "dcpGeneric")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-InterfaceStatus, OpticalPower1Decimal, ItuPerceivedSeverity, OchPortMode, DcpHundreds, DcpTenths = mibBuilder.importSymbols("SO-TC-MIB", "InterfaceStatus", "OpticalPower1Decimal", "ItuPerceivedSeverity", "OchPortMode", "DcpHundreds", "DcpTenths")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+DcpHundreds, ItuPerceivedSeverity, OchPortMode, OpticalPower1Decimal, InterfaceStatus, DcpTenths = mibBuilder.importSymbols("SO-TC-MIB", "DcpHundreds", "ItuPerceivedSeverity", "OchPortMode", "OpticalPower1Decimal", "InterfaceStatus", "DcpTenths")
 dcpOch = ModuleIdentity((1, 3, 6, 1, 4, 1, 30826, 2, 2, 4))
 dcpOch.setRevisions(('2021-03-18 14:49',))
 if mibBuilder.loadTexts: dcpOch.setLastUpdated('202103181449Z')
@@ -76,4 +76,4 @@ dcpOchBasicComplV1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 30826, 2, 2, 4, 3, 2, 1
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     dcpOchBasicComplV1 = dcpOchBasicComplV1.setStatus('current')
-mibBuilder.exportSymbols("DCP-OCH-MIB", dcpOchGeneralTableGroupV1=dcpOchGeneralTableGroupV1, dcpOchIndex=dcpOchIndex, dcpOchGeneralConfiguredChannels=dcpOchGeneralConfiguredChannels, dcpOchTxPower=dcpOchTxPower, dcpOchEntry=dcpOchEntry, dcpOchGeneralUtilization=dcpOchGeneralUtilization, dcpOchMIBCompliances=dcpOchMIBCompliances, PYSNMP_MODULE_ID=dcpOch, dcpOchDescription=dcpOchDescription, dcpOchGeneralPortName=dcpOchGeneralPortName, dcpOchBasicComplV1=dcpOchBasicComplV1, dcpOchChannelId=dcpOchChannelId, dcpOchRxPower=dcpOchRxPower, dcpOchWssAttenuation=dcpOchWssAttenuation, dcpOchStatus=dcpOchStatus, dcpOchWantedOutputPower=dcpOchWantedOutputPower, dcpOchGeneralIndex=dcpOchGeneralIndex, dcpOchMIBCompliance=dcpOchMIBCompliance, dcpOchTable=dcpOchTable, dcpOchAlarm=dcpOchAlarm, dcpOchTableGroupV1=dcpOchTableGroupV1, dcpOchMIBGroups=dcpOchMIBGroups, dcpOchGeneralSpacing=dcpOchGeneralSpacing, dcpOchPortMode=dcpOchPortMode, dcpOchGeneralTable=dcpOchGeneralTable, dcpOch=dcpOch, dcpOchWssInsertionLoss=dcpOchWssInsertionLoss, dcpOchGeneralActiveChannels=dcpOchGeneralActiveChannels, dcpOchGeneralMaxChannels=dcpOchGeneralMaxChannels, dcpOchGeneral=dcpOchGeneral, dcpOchGeneralEntry=dcpOchGeneralEntry, dcpOchObjects=dcpOchObjects)
+mibBuilder.exportSymbols("DCP-OCH-MIB", dcpOchDescription=dcpOchDescription, dcpOchTableGroupV1=dcpOchTableGroupV1, dcpOchTable=dcpOchTable, dcpOchEntry=dcpOchEntry, dcpOchMIBGroups=dcpOchMIBGroups, dcpOchAlarm=dcpOchAlarm, dcpOchGeneralSpacing=dcpOchGeneralSpacing, dcpOchGeneral=dcpOchGeneral, dcpOchStatus=dcpOchStatus, dcpOchWssAttenuation=dcpOchWssAttenuation, dcpOchGeneralEntry=dcpOchGeneralEntry, dcpOchGeneralPortName=dcpOchGeneralPortName, dcpOchGeneralActiveChannels=dcpOchGeneralActiveChannels, dcpOchGeneralUtilization=dcpOchGeneralUtilization, dcpOchGeneralTable=dcpOchGeneralTable, dcpOchMIBCompliance=dcpOchMIBCompliance, dcpOchWssInsertionLoss=dcpOchWssInsertionLoss, dcpOchObjects=dcpOchObjects, dcpOchGeneralConfiguredChannels=dcpOchGeneralConfiguredChannels, dcpOchMIBCompliances=dcpOchMIBCompliances, dcpOchChannelId=dcpOchChannelId, dcpOchGeneralMaxChannels=dcpOchGeneralMaxChannels, dcpOchGeneralTableGroupV1=dcpOchGeneralTableGroupV1, dcpOchRxPower=dcpOchRxPower, PYSNMP_MODULE_ID=dcpOch, dcpOchGeneralIndex=dcpOchGeneralIndex, dcpOchPortMode=dcpOchPortMode, dcpOchTxPower=dcpOchTxPower, dcpOchWantedOutputPower=dcpOchWantedOutputPower, dcpOch=dcpOch, dcpOchBasicComplV1=dcpOchBasicComplV1, dcpOchIndex=dcpOchIndex)

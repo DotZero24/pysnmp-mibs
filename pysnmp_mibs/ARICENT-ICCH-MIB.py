@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ARICENT-ICCH-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aricent/ARICENT-ICCH-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:32:30 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/aricent/ARICENT-ICCH-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:56:48 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 VlanId, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanId")
 ZeroBasedCounter32, = mibBuilder.importSymbols("RMON2-MIB", "ZeroBasedCounter32")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "DisplayString", "TextualConvention")
 fsIcchMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 29601, 2, 94))
 fsIcchMIB.setRevisions(('2014-12-11 00:00',))
 if mibBuilder.loadTexts: fsIcchMIB.setLastUpdated('201412110000Z')
@@ -73,4 +73,4 @@ fsIcchTrapNodeStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 29601, 2, 94, 3
 if mibBuilder.loadTexts: fsIcchTrapNodeStatusChange.setStatus('current')
 fsIcchTrapPeerNodeStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 29601, 2, 94, 3, 0, 2)).setObjects(("ARICENT-ICCH-MIB", "fsIcchPeerNodeIpAddress"), ("ARICENT-ICCH-MIB", "fsIcchPeerNodeState"))
 if mibBuilder.loadTexts: fsIcchTrapPeerNodeStatusChange.setStatus('current')
-mibBuilder.exportSymbols("ARICENT-ICCH-MIB", fsIcchTrcLevel=fsIcchTrcLevel, fsIcclSessionEntry=fsIcclSessionEntry, fsIcclSession=fsIcclSession, fsIcchMIB=fsIcchMIB, fsIcchPeerNodeState=fsIcchPeerNodeState, fsIcclSessionInstanceId=fsIcclSessionInstanceId, fsIcclSessionVlan=fsIcclSessionVlan, fsIcchTrap=fsIcchTrap, fsIcch=fsIcch, fsIcchStatsSyncMsgTxCount=fsIcchStatsSyncMsgTxCount, FsIcchState=FsIcchState, fsIcchStatsSyncMsgRxCount=fsIcchStatsSyncMsgRxCount, fsIcchStatsEnable=fsIcchStatsEnable, PYSNMP_MODULE_ID=fsIcchMIB, fsIcchFetchRemoteFdb=fsIcchFetchRemoteFdb, fsIcchStatsSyncMsgTxFailedCount=fsIcchStatsSyncMsgTxFailedCount, fsIcclSessionNodeState=fsIcclSessionNodeState, fsIcchStatsSyncMsgProcCount=fsIcchStatsSyncMsgProcCount, fsIcchEnableProtoSync=fsIcchEnableProtoSync, fsIcclSessionInterface=fsIcclSessionInterface, fsIcclSessionIpAddress=fsIcclSessionIpAddress, fsIcclSessionSubnetMask=fsIcclSessionSubnetMask, fsIcchStatistics=fsIcchStatistics, fsIcchPeerNodeIpAddress=fsIcchPeerNodeIpAddress, fsIcchTrapNodeStatusChange=fsIcchTrapNodeStatusChange, fsIcchStatsSyncMsgMissedCount=fsIcchStatsSyncMsgMissedCount, fsIcchNotification=fsIcchNotification, fsIcchClearStats=fsIcchClearStats, fsIcclSessionTable=fsIcclSessionTable, fsIcchTrapPeerNodeStatusChange=fsIcchTrapPeerNodeStatusChange, fsIcclSessionRowStatus=fsIcclSessionRowStatus)
+mibBuilder.exportSymbols("ARICENT-ICCH-MIB", fsIcclSessionInstanceId=fsIcclSessionInstanceId, fsIcchTrapNodeStatusChange=fsIcchTrapNodeStatusChange, fsIcclSessionSubnetMask=fsIcclSessionSubnetMask, fsIcclSessionNodeState=fsIcclSessionNodeState, fsIcclSession=fsIcclSession, fsIcchMIB=fsIcchMIB, PYSNMP_MODULE_ID=fsIcchMIB, fsIcchStatsEnable=fsIcchStatsEnable, fsIcchFetchRemoteFdb=fsIcchFetchRemoteFdb, fsIcchEnableProtoSync=fsIcchEnableProtoSync, fsIcchNotification=fsIcchNotification, fsIcchStatsSyncMsgRxCount=fsIcchStatsSyncMsgRxCount, fsIcchStatistics=fsIcchStatistics, fsIcchStatsSyncMsgProcCount=fsIcchStatsSyncMsgProcCount, fsIcclSessionTable=fsIcclSessionTable, fsIcclSessionIpAddress=fsIcclSessionIpAddress, fsIcclSessionVlan=fsIcclSessionVlan, fsIcclSessionRowStatus=fsIcclSessionRowStatus, fsIcchStatsSyncMsgTxCount=fsIcchStatsSyncMsgTxCount, fsIcchTrapPeerNodeStatusChange=fsIcchTrapPeerNodeStatusChange, fsIcchStatsSyncMsgMissedCount=fsIcchStatsSyncMsgMissedCount, FsIcchState=FsIcchState, fsIcchTrap=fsIcchTrap, fsIcchTrcLevel=fsIcchTrcLevel, fsIcclSessionEntry=fsIcclSessionEntry, fsIcchPeerNodeIpAddress=fsIcchPeerNodeIpAddress, fsIcchStatsSyncMsgTxFailedCount=fsIcchStatsSyncMsgTxFailedCount, fsIcchPeerNodeState=fsIcchPeerNodeState, fsIcclSessionInterface=fsIcclSessionInterface, fsIcchClearStats=fsIcchClearStats, fsIcch=fsIcch)

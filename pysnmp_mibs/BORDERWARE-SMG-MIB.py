@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BORDERWARE-SMG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/watchguard/BORDERWARE-SMG-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:57 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/watchguard/BORDERWARE-SMG-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:47:28 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 borderware, bwProductId, bwProducts = mibBuilder.importSymbols("BORDERWARE-MIB", "borderware", "bwProductId", "bwProducts")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 bwMailFirewall = ModuleIdentity((1, 3, 6, 1, 4, 1, 8673, 1, 11))
 bwMailFirewall.setRevisions(('2004-05-26 00:00',))
 if mibBuilder.loadTexts: bwMailFirewall.setLastUpdated('200405260000Z')
@@ -57,4 +57,4 @@ mailVirus = MibTableColumn((1, 3, 6, 1, 4, 1, 8673, 1, 11, 10, 1, 6), Counter32(
 if mibBuilder.loadTexts: mailVirus.setStatus('current')
 mailClean = MibTableColumn((1, 3, 6, 1, 4, 1, 8673, 1, 11, 10, 1, 7), Counter32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: mailClean.setStatus('current')
-mibBuilder.exportSymbols("BORDERWARE-SMG-MIB", PYSNMP_MODULE_ID=bwMailFirewall, mailReject=mailReject, mailVirus=mailVirus, bwMailStatsGroup=bwMailStatsGroup, bwMailFirewallConformance=bwMailFirewallConformance, bwMailFirewallCompliances=bwMailFirewallCompliances, bwMailFirewall4=bwMailFirewall4, bwMailFirewallCompliance=bwMailFirewallCompliance, mailSpam=mailSpam, mailTable=mailTable, mailClean=mailClean, bwMailFirewallGroups=bwMailFirewallGroups, totalMessages=totalMessages, mailStatus=mailStatus, deferredMessages=deferredMessages, mailInterval=mailInterval, mailEntry=mailEntry, queuedMessages=queuedMessages, bwMailFirewall=bwMailFirewall, mailRcvd=mailRcvd, mailSent=mailSent, bwMessagesGroup=bwMessagesGroup)
+mibBuilder.exportSymbols("BORDERWARE-SMG-MIB", mailVirus=mailVirus, bwMailFirewallCompliance=bwMailFirewallCompliance, bwMailStatsGroup=bwMailStatsGroup, mailRcvd=mailRcvd, mailSpam=mailSpam, totalMessages=totalMessages, mailInterval=mailInterval, bwMailFirewall=bwMailFirewall, mailStatus=mailStatus, mailEntry=mailEntry, bwMailFirewallGroups=bwMailFirewallGroups, bwMailFirewall4=bwMailFirewall4, bwMailFirewallConformance=bwMailFirewallConformance, bwMailFirewallCompliances=bwMailFirewallCompliances, mailTable=mailTable, queuedMessages=queuedMessages, deferredMessages=deferredMessages, mailSent=mailSent, bwMessagesGroup=bwMessagesGroup, PYSNMP_MODULE_ID=bwMailFirewall, mailReject=mailReject, mailClean=mailClean)

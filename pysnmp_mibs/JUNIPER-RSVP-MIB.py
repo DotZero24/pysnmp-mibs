@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module JUNIPER-RSVP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/juniper/JUNIPER-RSVP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:31:21 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/juniper/JUNIPER-RSVP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:55:18 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 jnxMibs, = mibBuilder.importSymbols("JUNIPER-SMI", "jnxMibs")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
-TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
+TextualConvention, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TimeStamp", "DisplayString")
 jnxRsvpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2636, 3, 30))
 jnxRsvpMIB.setRevisions(('2007-06-28 09:30',))
 if mibBuilder.loadTexts: jnxRsvpMIB.setLastUpdated('200402031905Z')
@@ -45,4 +45,4 @@ jnxRsvpSessionMplsOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 30, 1, 1, 
 if mibBuilder.loadTexts: jnxRsvpSessionMplsOctets.setStatus('current')
 jnxRsvpSessionMplsPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 30, 1, 1, 1, 12), Counter64()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: jnxRsvpSessionMplsPackets.setStatus('current')
-mibBuilder.exportSymbols("JUNIPER-RSVP-MIB", jnxRsvpSessionMplsOctets=jnxRsvpSessionMplsOctets, jnxRsvpSessionPathType=jnxRsvpSessionPathType, jnxRsvpSessionIndex=jnxRsvpSessionIndex, jnxRsvpSessionTo=jnxRsvpSessionTo, jnxRsvpMIB=jnxRsvpMIB, jnxRsvpSessionEntry=jnxRsvpSessionEntry, jnxRsvpSessionName=jnxRsvpSessionName, jnxRsvpSessionDiscontinuityTime=jnxRsvpSessionDiscontinuityTime, jnxRsvpSessionFrom=jnxRsvpSessionFrom, jnxRsvpSessionState=jnxRsvpSessionState, jnxRsvpSessionTunnelId=jnxRsvpSessionTunnelId, jnxRsvpSessionRole=jnxRsvpSessionRole, jnxRsvpOperation=jnxRsvpOperation, jnxRsvpSessionMplsPackets=jnxRsvpSessionMplsPackets, jnxRsvpSessionTable=jnxRsvpSessionTable, jnxRsvpSessionLspId=jnxRsvpSessionLspId, PYSNMP_MODULE_ID=jnxRsvpMIB)
+mibBuilder.exportSymbols("JUNIPER-RSVP-MIB", jnxRsvpSessionTo=jnxRsvpSessionTo, jnxRsvpSessionEntry=jnxRsvpSessionEntry, jnxRsvpSessionMplsPackets=jnxRsvpSessionMplsPackets, PYSNMP_MODULE_ID=jnxRsvpMIB, jnxRsvpSessionDiscontinuityTime=jnxRsvpSessionDiscontinuityTime, jnxRsvpSessionLspId=jnxRsvpSessionLspId, jnxRsvpOperation=jnxRsvpOperation, jnxRsvpSessionName=jnxRsvpSessionName, jnxRsvpSessionState=jnxRsvpSessionState, jnxRsvpSessionFrom=jnxRsvpSessionFrom, jnxRsvpSessionRole=jnxRsvpSessionRole, jnxRsvpSessionPathType=jnxRsvpSessionPathType, jnxRsvpSessionMplsOctets=jnxRsvpSessionMplsOctets, jnxRsvpSessionIndex=jnxRsvpSessionIndex, jnxRsvpSessionTunnelId=jnxRsvpSessionTunnelId, jnxRsvpMIB=jnxRsvpMIB, jnxRsvpSessionTable=jnxRsvpSessionTable)

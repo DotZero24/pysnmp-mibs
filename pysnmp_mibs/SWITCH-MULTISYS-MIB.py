@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SWITCH-MULTISYS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/SWITCH-MULTISYS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:31:05 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/raisecom/SWITCH-MULTISYS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:54:58 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 raisecomAgent, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "raisecomAgent")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 raisecomMultiSys = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 1, 22))
 raisecomMultiSys.setRevisions(('2011-01-07 00:00',))
 if mibBuilder.loadTexts: raisecomMultiSys.setLastUpdated('201101070000Z')
@@ -36,4 +36,4 @@ raisecomMultiSysVerName = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 22, 1, 2, 1
 if mibBuilder.loadTexts: raisecomMultiSysVerName.setStatus('current')
 raisecomMultiSysVerSize = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 22, 1, 2, 1, 3), Unsigned32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: raisecomMultiSysVerSize.setStatus('current')
-mibBuilder.exportSymbols("SWITCH-MULTISYS-MIB", PYSNMP_MODULE_ID=raisecomMultiSys, raisecomMultiSysVerTable=raisecomMultiSysVerTable, raisecomMultiSysVerName=raisecomMultiSysVerName, raisecomMultiSysVerIndex=raisecomMultiSysVerIndex, raisecomMultiSys=raisecomMultiSys, raisecomMultiSysVerNum=raisecomMultiSysVerNum, raisecomMultiSysVerEntry=raisecomMultiSysVerEntry, raisecomMultiSysGlobalGroup=raisecomMultiSysGlobalGroup, raisecomMultiSysMibObjects=raisecomMultiSysMibObjects, raisecomMultiSysOverWriteVer=raisecomMultiSysOverWriteVer, raisecomMultiSysNextBootVer=raisecomMultiSysNextBootVer, raisecomMultiSysVerSize=raisecomMultiSysVerSize, raisecomMultiSysUploadVer=raisecomMultiSysUploadVer)
+mibBuilder.exportSymbols("SWITCH-MULTISYS-MIB", raisecomMultiSysVerTable=raisecomMultiSysVerTable, raisecomMultiSysVerNum=raisecomMultiSysVerNum, raisecomMultiSysVerName=raisecomMultiSysVerName, raisecomMultiSysGlobalGroup=raisecomMultiSysGlobalGroup, raisecomMultiSysUploadVer=raisecomMultiSysUploadVer, raisecomMultiSysNextBootVer=raisecomMultiSysNextBootVer, PYSNMP_MODULE_ID=raisecomMultiSys, raisecomMultiSysVerEntry=raisecomMultiSysVerEntry, raisecomMultiSysVerIndex=raisecomMultiSysVerIndex, raisecomMultiSys=raisecomMultiSys, raisecomMultiSysVerSize=raisecomMultiSysVerSize, raisecomMultiSysMibObjects=raisecomMultiSysMibObjects, raisecomMultiSysOverWriteVer=raisecomMultiSysOverWriteVer)

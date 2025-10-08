@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BDCOM-MEMORY-POOL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/bdcom/BDCOM-MEMORY-POOL-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:22:46 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/bdcom/BDCOM-MEMORY-POOL-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:42:07 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 Percent, = mibBuilder.importSymbols("BDCOM-QOS-PIB-MIB", "Percent")
 bdMgmt, = mibBuilder.importSymbols("BDCOM-SMI", "bdMgmt")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
 bdcomMemoryPoolMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3320, 9, 48))
 bdcomMemoryPoolMIB.setRevisions(('2003-10-16 00:00',))
 if mibBuilder.loadTexts: bdcomMemoryPoolMIB.setLastUpdated('200310160000Z')
@@ -70,4 +70,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 bdcomMemoryPoolUtilizationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3320, 9, 48, 3, 2, 2)).setObjects(("BDCOM-MEMORY-POOL-MIB", "bdcomMemoryPoolUtilization1Min"), ("BDCOM-MEMORY-POOL-MIB", "bdcomMemoryPoolUtilization5Min"), ("BDCOM-MEMORY-POOL-MIB", "bdcomMemoryPoolUtilization10Min"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     bdcomMemoryPoolUtilizationGroup = bdcomMemoryPoolUtilizationGroup.setStatus('current')
-mibBuilder.exportSymbols("BDCOM-MEMORY-POOL-MIB", bdcomMemoryPoolGroups=bdcomMemoryPoolGroups, bdcomMemoryPoolTable=bdcomMemoryPoolTable, bdcomMemoryPoolUtilizationGroup=bdcomMemoryPoolUtilizationGroup, bdcomMemoryPoolValid=bdcomMemoryPoolValid, PYSNMP_MODULE_ID=bdcomMemoryPoolMIB, bdcomMemoryPoolMIB=bdcomMemoryPoolMIB, bdcomMemoryPoolEntry=bdcomMemoryPoolEntry, bdcomMemoryPoolUtilizationTable=bdcomMemoryPoolUtilizationTable, bdcomMemoryPoolUtilizationEntry=bdcomMemoryPoolUtilizationEntry, bdcomMemoryPoolObjects=bdcomMemoryPoolObjects, bdcomMemoryPoolFree=bdcomMemoryPoolFree, bdcomMemoryPoolType=bdcomMemoryPoolType, BDCOMMemoryPoolTypes=BDCOMMemoryPoolTypes, bdcomMemoryPoolNotifications=bdcomMemoryPoolNotifications, bdcomMemoryPoolComplianceRev1=bdcomMemoryPoolComplianceRev1, bdcomMemoryPoolUtilization5Min=bdcomMemoryPoolUtilization5Min, bdcomMemoryPoolUsed=bdcomMemoryPoolUsed, bdcomMemoryPoolName=bdcomMemoryPoolName, bdcomMemoryPoolCompliance=bdcomMemoryPoolCompliance, bdcomMemoryPoolConformance=bdcomMemoryPoolConformance, bdcomMemoryPoolUtilization1Min=bdcomMemoryPoolUtilization1Min, bdcomMemoryPoolAlternate=bdcomMemoryPoolAlternate, bdcomMemoryPoolGroup=bdcomMemoryPoolGroup, bdcomMemoryPoolLargestFree=bdcomMemoryPoolLargestFree, bdcomMemoryPoolUtilization10Min=bdcomMemoryPoolUtilization10Min, bdcomMemoryPoolCompliances=bdcomMemoryPoolCompliances)
+mibBuilder.exportSymbols("BDCOM-MEMORY-POOL-MIB", bdcomMemoryPoolObjects=bdcomMemoryPoolObjects, bdcomMemoryPoolUtilizationGroup=bdcomMemoryPoolUtilizationGroup, bdcomMemoryPoolUsed=bdcomMemoryPoolUsed, bdcomMemoryPoolUtilizationTable=bdcomMemoryPoolUtilizationTable, bdcomMemoryPoolUtilization5Min=bdcomMemoryPoolUtilization5Min, bdcomMemoryPoolGroups=bdcomMemoryPoolGroups, bdcomMemoryPoolFree=bdcomMemoryPoolFree, bdcomMemoryPoolNotifications=bdcomMemoryPoolNotifications, bdcomMemoryPoolUtilization10Min=bdcomMemoryPoolUtilization10Min, bdcomMemoryPoolUtilization1Min=bdcomMemoryPoolUtilization1Min, bdcomMemoryPoolValid=bdcomMemoryPoolValid, bdcomMemoryPoolGroup=bdcomMemoryPoolGroup, BDCOMMemoryPoolTypes=BDCOMMemoryPoolTypes, bdcomMemoryPoolEntry=bdcomMemoryPoolEntry, bdcomMemoryPoolType=bdcomMemoryPoolType, bdcomMemoryPoolAlternate=bdcomMemoryPoolAlternate, bdcomMemoryPoolName=bdcomMemoryPoolName, bdcomMemoryPoolConformance=bdcomMemoryPoolConformance, bdcomMemoryPoolTable=bdcomMemoryPoolTable, bdcomMemoryPoolComplianceRev1=bdcomMemoryPoolComplianceRev1, bdcomMemoryPoolMIB=bdcomMemoryPoolMIB, bdcomMemoryPoolLargestFree=bdcomMemoryPoolLargestFree, bdcomMemoryPoolCompliance=bdcomMemoryPoolCompliance, PYSNMP_MODULE_ID=bdcomMemoryPoolMIB, bdcomMemoryPoolUtilizationEntry=bdcomMemoryPoolUtilizationEntry, bdcomMemoryPoolCompliances=bdcomMemoryPoolCompliances)

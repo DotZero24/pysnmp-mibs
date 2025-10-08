@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module DC-OAMM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mrv/DC-OAMM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:38 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mrv/DC-OAMM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:16:45 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-OperStatus, AdminStatus, MjStatus, BaseOperStatus = mibBuilder.importSymbols("DC-MASTER-TC", "OperStatus", "AdminStatus", "MjStatus", "BaseOperStatus")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+AdminStatus, MjStatus, BaseOperStatus, OperStatus = mibBuilder.importSymbols("DC-MASTER-TC", "AdminStatus", "MjStatus", "BaseOperStatus", "OperStatus")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "DisplayString", "TextualConvention")
 oammMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 10, 14))
 oammMib.setRevisions(('2014-12-21 00:00',))
 if mibBuilder.loadTexts: oammMib.setLastUpdated('201412210000Z')
@@ -78,4 +78,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 oammGeneralGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 629, 10, 14, 2, 1, 1)).setObjects(("DC-OAMM-MIB", "oammEntRowStatus"), ("DC-OAMM-MIB", "oammEntAdminStatus"), ("DC-OAMM-MIB", "oammEntOperStatus"), ("DC-OAMM-MIB", "oammEntEnableTrapSupport"), ("DC-OAMM-MIB", "oammEntFriBufferPoolSize"), ("DC-OAMM-MIB", "oammEntRescheduleLimit"), ("DC-OAMM-MIB", "oammMjRowStatus"), ("DC-OAMM-MIB", "oammMjAdminStatus"), ("DC-OAMM-MIB", "oammMjOperStatus"), ("DC-OAMM-MIB", "oammMjJoinStatus"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     oammGeneralGroup = oammGeneralGroup.setStatus('current')
-mibBuilder.exportSymbols("DC-OAMM-MIB", oammEntApplIndex=oammEntApplIndex, oammObjects=oammObjects, oammMjTable=oammMjTable, oammMjApplIndex=oammMjApplIndex, oammGeneralGroup=oammGeneralGroup, nbase=nbase, oammCompliances=oammCompliances, oammModuleFullCompliance=oammModuleFullCompliance, oammConformance=oammConformance, oammEntOperStatus=oammEntOperStatus, oammMjJoinStatus=oammMjJoinStatus, oammMjAdminStatus=oammMjAdminStatus, oammModuleReadOnlyCompliance=oammModuleReadOnlyCompliance, oammMjPartnerIndex=oammMjPartnerIndex, oammGroups=oammGroups, oammEntTable=oammEntTable, oammEntAdminStatus=oammEntAdminStatus, oammMjPartnerType=oammMjPartnerType, oammEntRescheduleLimit=oammEntRescheduleLimit, OammMjIfId=OammMjIfId, oammEntRowStatus=oammEntRowStatus, oammEntEntry=oammEntEntry, oammEntEnableTrapSupport=oammEntEnableTrapSupport, oammEntFriBufferPoolSize=oammEntFriBufferPoolSize, oammMjInterfaceId=oammMjInterfaceId, oammMjRowStatus=oammMjRowStatus, oammMjEntry=oammMjEntry, oammMjSubIndex=oammMjSubIndex, PYSNMP_MODULE_ID=oammMib, oammMib=oammMib, oammMjOperStatus=oammMjOperStatus, opx=opx)
+mibBuilder.exportSymbols("DC-OAMM-MIB", oammMjOperStatus=oammMjOperStatus, OammMjIfId=OammMjIfId, oammEntEnableTrapSupport=oammEntEnableTrapSupport, oammMjInterfaceId=oammMjInterfaceId, oammMjJoinStatus=oammMjJoinStatus, oammMjPartnerIndex=oammMjPartnerIndex, oammMib=oammMib, oammCompliances=oammCompliances, PYSNMP_MODULE_ID=oammMib, opx=opx, oammEntRowStatus=oammEntRowStatus, oammMjEntry=oammMjEntry, oammMjPartnerType=oammMjPartnerType, oammGroups=oammGroups, oammEntAdminStatus=oammEntAdminStatus, oammModuleFullCompliance=oammModuleFullCompliance, oammMjApplIndex=oammMjApplIndex, oammGeneralGroup=oammGeneralGroup, oammModuleReadOnlyCompliance=oammModuleReadOnlyCompliance, oammEntRescheduleLimit=oammEntRescheduleLimit, oammEntEntry=oammEntEntry, oammConformance=oammConformance, oammObjects=oammObjects, oammMjSubIndex=oammMjSubIndex, oammEntFriBufferPoolSize=oammEntFriBufferPoolSize, nbase=nbase, oammMjTable=oammMjTable, oammEntApplIndex=oammEntApplIndex, oammMjAdminStatus=oammMjAdminStatus, oammEntOperStatus=oammEntOperStatus, oammEntTable=oammEntTable, oammMjRowStatus=oammMjRowStatus)

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTRON-SFPS-DIAGSTATS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/CTRON-SFPS-DIAGSTATS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:37 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cabletron/CTRON-SFPS-DIAGSTATS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:13:18 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-sfpsFloodCounters, sfpsIsolatedSwitch, sfpsFloodCountersReset, sfpsResetNVRAM = mibBuilder.importSymbols("CTRON-SFPS-INCLUDE-MIB", "sfpsFloodCounters", "sfpsIsolatedSwitch", "sfpsFloodCountersReset", "sfpsResetNVRAM")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+sfpsResetNVRAM, sfpsFloodCountersReset, sfpsIsolatedSwitch, sfpsFloodCounters = mibBuilder.importSymbols("CTRON-SFPS-INCLUDE-MIB", "sfpsResetNVRAM", "sfpsFloodCountersReset", "sfpsIsolatedSwitch", "sfpsFloodCounters")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 class SfpsAddress(OctetString):
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(6, 6)
     fixedLength = 6
@@ -60,4 +60,4 @@ sfpsResetNVRAMOnetoResetNvramAndRestoreIP = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 
 if mibBuilder.loadTexts: sfpsResetNVRAMOnetoResetNvramAndRestoreIP.setStatus('mandatory')
 sfpsResetNVRAMDelayTimer = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 4, 2, 2, 6, 3, 4), Integer32()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: sfpsResetNVRAMDelayTimer.setStatus('mandatory')
-mibBuilder.exportSymbols("CTRON-SFPS-DIAGSTATS-MIB", sfpsFloodCountersMaxDropsTime=sfpsFloodCountersMaxDropsTime, sfpsFloodCountersNonNetPort=sfpsFloodCountersNonNetPort, sfpsFloodCountersMaxDrops=sfpsFloodCountersMaxDrops, sfpsFloodCountersLastDropTime=sfpsFloodCountersLastDropTime, sfpsFloodCountersTotalRunts=sfpsFloodCountersTotalRunts, sfpsFloodCountersNumDrops=sfpsFloodCountersNumDrops, sfpsIsolatedSwitchIsolatedSwitch=sfpsIsolatedSwitchIsolatedSwitch, sfpsFloodCountersLastSeqNum=sfpsFloodCountersLastSeqNum, sfpsResetNVRAMPercentNvramAvailable=sfpsResetNVRAMPercentNvramAvailable, SfpsAddress=SfpsAddress, sfpsFloodCountersTotalDropped=sfpsFloodCountersTotalDropped, sfpsIsolatedSwitchINBNotSent=sfpsIsolatedSwitchINBNotSent, sfpsFloodCountersNumFloods=sfpsFloodCountersNumFloods, sfpsIsolatedSwitchINBDropped=sfpsIsolatedSwitchINBDropped, sfpsFloodCountersResetReset=sfpsFloodCountersResetReset, sfpsFloodCountersTable=sfpsFloodCountersTable, sfpsFloodCountersTotalSelfOrig=sfpsFloodCountersTotalSelfOrig, sfpsFloodCountersEntry=sfpsFloodCountersEntry, sfpsFloodCountersSource=sfpsFloodCountersSource, sfpsResetNVRAMOnetoResetNvramAndRestoreIP=sfpsResetNVRAMOnetoResetNvramAndRestoreIP, sfpsIsolatedSwitchResetCounters=sfpsIsolatedSwitchResetCounters, sfpsResetNVRAMDelayTimer=sfpsResetNVRAMDelayTimer, sfpsResetNVRAMTotalNVRAM=sfpsResetNVRAMTotalNVRAM)
+mibBuilder.exportSymbols("CTRON-SFPS-DIAGSTATS-MIB", sfpsFloodCountersNumDrops=sfpsFloodCountersNumDrops, sfpsFloodCountersMaxDropsTime=sfpsFloodCountersMaxDropsTime, sfpsFloodCountersResetReset=sfpsFloodCountersResetReset, sfpsFloodCountersLastDropTime=sfpsFloodCountersLastDropTime, sfpsIsolatedSwitchINBDropped=sfpsIsolatedSwitchINBDropped, sfpsResetNVRAMPercentNvramAvailable=sfpsResetNVRAMPercentNvramAvailable, sfpsFloodCountersNonNetPort=sfpsFloodCountersNonNetPort, SfpsAddress=SfpsAddress, sfpsFloodCountersMaxDrops=sfpsFloodCountersMaxDrops, sfpsFloodCountersLastSeqNum=sfpsFloodCountersLastSeqNum, sfpsFloodCountersTotalRunts=sfpsFloodCountersTotalRunts, sfpsFloodCountersSource=sfpsFloodCountersSource, sfpsFloodCountersTotalDropped=sfpsFloodCountersTotalDropped, sfpsFloodCountersTable=sfpsFloodCountersTable, sfpsIsolatedSwitchINBNotSent=sfpsIsolatedSwitchINBNotSent, sfpsIsolatedSwitchIsolatedSwitch=sfpsIsolatedSwitchIsolatedSwitch, sfpsFloodCountersEntry=sfpsFloodCountersEntry, sfpsResetNVRAMOnetoResetNvramAndRestoreIP=sfpsResetNVRAMOnetoResetNvramAndRestoreIP, sfpsFloodCountersNumFloods=sfpsFloodCountersNumFloods, sfpsResetNVRAMTotalNVRAM=sfpsResetNVRAMTotalNVRAM, sfpsResetNVRAMDelayTimer=sfpsResetNVRAMDelayTimer, sfpsFloodCountersTotalSelfOrig=sfpsFloodCountersTotalSelfOrig, sfpsIsolatedSwitchResetCounters=sfpsIsolatedSwitchResetCounters)

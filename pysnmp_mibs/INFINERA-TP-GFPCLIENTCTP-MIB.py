@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module INFINERA-TP-GFPCLIENTCTP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-GFPCLIENTCTP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:35 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/INFINERA-TP-GFPCLIENTCTP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:20:41 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
-InfnGFPPayloadFCS, InfnServiceType, InfnServiceMode, InfnGFPState, InfnSMQ, InfnGfpExtHdrTyp = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnGFPPayloadFCS", "InfnServiceType", "InfnServiceMode", "InfnGFPState", "InfnSMQ", "InfnGfpExtHdrTyp")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+InfnServiceMode, InfnGFPPayloadFCS, InfnGFPState, InfnGfpExtHdrTyp, InfnSMQ, InfnServiceType = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnServiceMode", "InfnGFPPayloadFCS", "InfnGFPState", "InfnGfpExtHdrTyp", "InfnSMQ", "InfnServiceType")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 gfpclientCtpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 32))
 gfpclientCtpMIB.setRevisions(('2011-04-20 00:00',))
 if mibBuilder.loadTexts: gfpclientCtpMIB.setLastUpdated('201104200000Z')
@@ -46,4 +46,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 gfpclientCtpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 32, 3, 2, 1)).setObjects(("INFINERA-TP-GFPCLIENTCTP-MIB", "gfpclientCtpServiceMode"), ("INFINERA-TP-GFPCLIENTCTP-MIB", "gfpclientCtpServiceModeQualifier"), ("INFINERA-TP-GFPCLIENTCTP-MIB", "gfpclientCtpConfigServiceType"), ("INFINERA-TP-GFPCLIENTCTP-MIB", "gfpclientCtpPayloadFCS"), ("INFINERA-TP-GFPCLIENTCTP-MIB", "gfpclientCtpGFPState"), ("INFINERA-TP-GFPCLIENTCTP-MIB", "gfpclientCtpExtHeaderType"), ("INFINERA-TP-GFPCLIENTCTP-MIB", "gfpclientCtpChannelId"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     gfpclientCtpGroup = gfpclientCtpGroup.setStatus('current')
-mibBuilder.exportSymbols("INFINERA-TP-GFPCLIENTCTP-MIB", gfpclientCtpChannelId=gfpclientCtpChannelId, gfpclientCtpCompliance=gfpclientCtpCompliance, gfpclientCtpMIB=gfpclientCtpMIB, PYSNMP_MODULE_ID=gfpclientCtpMIB, gfpclientCtpServiceModeQualifier=gfpclientCtpServiceModeQualifier, gfpclientCtpTable=gfpclientCtpTable, gfpclientCtpGroups=gfpclientCtpGroups, gfpclientCtpGFPState=gfpclientCtpGFPState, gfpclientCtpCompliances=gfpclientCtpCompliances, gfpclientCtpExtHeaderType=gfpclientCtpExtHeaderType, gfpclientCtpEntry=gfpclientCtpEntry, gfpclientCtpGroup=gfpclientCtpGroup, gfpclientCtpConformance=gfpclientCtpConformance, gfpclientCtpPayloadFCS=gfpclientCtpPayloadFCS, gfpclientCtpServiceMode=gfpclientCtpServiceMode, gfpclientCtpConfigServiceType=gfpclientCtpConfigServiceType)
+mibBuilder.exportSymbols("INFINERA-TP-GFPCLIENTCTP-MIB", gfpclientCtpExtHeaderType=gfpclientCtpExtHeaderType, gfpclientCtpTable=gfpclientCtpTable, gfpclientCtpServiceMode=gfpclientCtpServiceMode, gfpclientCtpMIB=gfpclientCtpMIB, gfpclientCtpServiceModeQualifier=gfpclientCtpServiceModeQualifier, gfpclientCtpCompliances=gfpclientCtpCompliances, gfpclientCtpCompliance=gfpclientCtpCompliance, gfpclientCtpGFPState=gfpclientCtpGFPState, gfpclientCtpChannelId=gfpclientCtpChannelId, gfpclientCtpPayloadFCS=gfpclientCtpPayloadFCS, PYSNMP_MODULE_ID=gfpclientCtpMIB, gfpclientCtpEntry=gfpclientCtpEntry, gfpclientCtpConformance=gfpclientCtpConformance, gfpclientCtpGroups=gfpclientCtpGroups, gfpclientCtpConfigServiceType=gfpclientCtpConfigServiceType, gfpclientCtpGroup=gfpclientCtpGroup)

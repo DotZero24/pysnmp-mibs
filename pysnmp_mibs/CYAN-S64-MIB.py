@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module CYAN-S64-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cyan/CYAN-S64-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:13 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cyan/CYAN-S64-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:15:57 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 cyanEntityModules, = mibBuilder.importSymbols("CYAN-MIB", "cyanEntityModules")
-CyanAdminStateTc, CyanOpStateQualTc, CyanSdhSnSignalLabelTc, CyanSecServiceStateTc, CyanNimTc, CyanOpStateTc = mibBuilder.importSymbols("CYAN-TC-MIB", "CyanAdminStateTc", "CyanOpStateQualTc", "CyanSdhSnSignalLabelTc", "CyanSecServiceStateTc", "CyanNimTc", "CyanOpStateTc")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+CyanOpStateTc, CyanSdhSnSignalLabelTc, CyanOpStateQualTc, CyanAdminStateTc, CyanNimTc, CyanSecServiceStateTc = mibBuilder.importSymbols("CYAN-TC-MIB", "CyanOpStateTc", "CyanSdhSnSignalLabelTc", "CyanOpStateQualTc", "CyanAdminStateTc", "CyanNimTc", "CyanSecServiceStateTc")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 cyanS64Module = ModuleIdentity((1, 3, 6, 1, 4, 1, 28533, 5, 30, 250))
 cyanS64Module.setRevisions(('2014-12-07 05:45',))
 if mibBuilder.loadTexts: cyanS64Module.setLastUpdated('201412070545Z')
@@ -55,4 +55,4 @@ cyanS64Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 28533, 5, 30, 250, 30)).
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     cyanS64Compliance = cyanS64Compliance.setStatus('current')
-mibBuilder.exportSymbols("CYAN-S64-MIB", cyanS64OperStateQual=cyanS64OperStateQual, cyanS64Compliance=cyanS64Compliance, cyanS64Description=cyanS64Description, cyanS64OperState=cyanS64OperState, cyanS64Inserted=cyanS64Inserted, cyanS64ObjectGroup=cyanS64ObjectGroup, cyanS64AutoinserviceSoakTimeSec=cyanS64AutoinserviceSoakTimeSec, cyanS64ModuleId=cyanS64ModuleId, cyanS64Entry=cyanS64Entry, cyanS64S64Id=cyanS64S64Id, cyanS64Table=cyanS64Table, cyanS64Monitorterminate=cyanS64Monitorterminate, cyanS64SecServState=cyanS64SecServState, cyanS64MibObjects=cyanS64MibObjects, cyanS64ShelfId=cyanS64ShelfId, cyanS64Module=cyanS64Module, cyanS64AdminState=cyanS64AdminState, cyanS64Expected=cyanS64Expected, cyanS64Accepted=cyanS64Accepted, PYSNMP_MODULE_ID=cyanS64Module)
+mibBuilder.exportSymbols("CYAN-S64-MIB", cyanS64ShelfId=cyanS64ShelfId, cyanS64Accepted=cyanS64Accepted, cyanS64SecServState=cyanS64SecServState, PYSNMP_MODULE_ID=cyanS64Module, cyanS64OperStateQual=cyanS64OperStateQual, cyanS64ObjectGroup=cyanS64ObjectGroup, cyanS64Table=cyanS64Table, cyanS64Entry=cyanS64Entry, cyanS64AdminState=cyanS64AdminState, cyanS64ModuleId=cyanS64ModuleId, cyanS64Module=cyanS64Module, cyanS64Description=cyanS64Description, cyanS64AutoinserviceSoakTimeSec=cyanS64AutoinserviceSoakTimeSec, cyanS64Expected=cyanS64Expected, cyanS64S64Id=cyanS64S64Id, cyanS64MibObjects=cyanS64MibObjects, cyanS64OperState=cyanS64OperState, cyanS64Inserted=cyanS64Inserted, cyanS64Monitorterminate=cyanS64Monitorterminate, cyanS64Compliance=cyanS64Compliance)

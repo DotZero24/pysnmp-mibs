@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module BUFFALO-ROOT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/buffalo/BUFFALO-ROOT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:28:55 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/buffalo/BUFFALO-ROOT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:51:55 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 buffalo = ModuleIdentity((1, 3, 6, 1, 4, 1, 5227))
 if mibBuilder.loadTexts: buffalo.setLastUpdated('202003090000Z')
 if mibBuilder.loadTexts: buffalo.setOrganization('Buffalo Inc.')
@@ -40,4 +40,4 @@ bs_g2008mr = MibIdentifier((1, 3, 6, 1, 4, 1, 5227, 24)).setLabel("bs-g2008mr")
 businessSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 5227, 25))
 lpv3_tx1 = MibIdentifier((1, 3, 6, 1, 4, 1, 5227, 26)).setLabel("lpv3-tx1")
 teraStation = MibIdentifier((1, 3, 6, 1, 4, 1, 5227, 27))
-mibBuilder.exportSymbols("BUFFALO-ROOT-MIB", lsm_10_100_24=lsm_10_100_24, lpv3_tx1=lpv3_tx1, lpv3_u2=lpv3_u2, lsm_10_100_16w=lsm_10_100_16w, bs_g3024mr=bs_g3024mr, vsm_p12tx2i=vsm_p12tx2i, teraStation=teraStation, bs_g2016mr=bs_g2016mr, bs_poe_2024gm=bs_poe_2024gm, wlm_series=wlm_series, lsm_10_100_24w=lsm_10_100_24w, bs_2108m=bs_2108m, businessSwitch=businessSwitch, bs_g2008mr=bs_g2008mr, bs_2016m=bs_2016m, buffalo=buffalo, lsm_l3_24=lsm_l3_24, lpv3_u2_g54=lpv3_u2_g54, lsm_10_100_8=lsm_10_100_8, airstationPro=airstationPro, lsm_10_100_8w=lsm_10_100_8w, lpv2_usb_tx1=lpv2_usb_tx1, bs_2024_gm=bs_2024_gm, bpv_pd_tx1=bpv_pd_tx1, bs_g2024mr=bs_g2024mr, PYSNMP_MODULE_ID=buffalo, lsm2_l3_24=lsm2_l3_24, bs_poe_2008m=bs_poe_2008m)
+mibBuilder.exportSymbols("BUFFALO-ROOT-MIB", lpv3_u2_g54=lpv3_u2_g54, vsm_p12tx2i=vsm_p12tx2i, lsm_10_100_8w=lsm_10_100_8w, lpv3_u2=lpv3_u2, lsm_10_100_16w=lsm_10_100_16w, bs_g2008mr=bs_g2008mr, bs_poe_2024gm=bs_poe_2024gm, teraStation=teraStation, airstationPro=airstationPro, bs_poe_2008m=bs_poe_2008m, lsm_10_100_24w=lsm_10_100_24w, bs_g3024mr=bs_g3024mr, buffalo=buffalo, lpv2_usb_tx1=lpv2_usb_tx1, bs_2016m=bs_2016m, PYSNMP_MODULE_ID=buffalo, businessSwitch=businessSwitch, bs_g2016mr=bs_g2016mr, lsm_l3_24=lsm_l3_24, lsm2_l3_24=lsm2_l3_24, bs_2108m=bs_2108m, lsm_10_100_8=lsm_10_100_8, wlm_series=wlm_series, bs_g2024mr=bs_g2024mr, lsm_10_100_24=lsm_10_100_24, bpv_pd_tx1=bpv_pd_tx1, bs_2024_gm=bs_2024_gm, lpv3_tx1=lpv3_tx1)

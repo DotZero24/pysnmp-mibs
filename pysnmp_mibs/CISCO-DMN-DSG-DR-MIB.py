@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CISCO-DMN-DSG-DR-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-DMN-DSG-DR-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:41 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-DMN-DSG-DR-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:25:20 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ciscoDSGUtilities, = mibBuilder.importSymbols("CISCO-DMN-DSG-ROOT-MIB", "ciscoDSGUtilities")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 ciscoDSGDR = ModuleIdentity((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 43))
 ciscoDSGDR.setRevisions(('2014-08-30 08:00',))
 if mibBuilder.loadTexts: ciscoDSGDR.setLastUpdated('201408300800Z')
@@ -73,4 +73,4 @@ backupSetBkpchDispText = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 43, 3,
 if mibBuilder.loadTexts: backupSetBkpchDispText.setStatus('current')
 backupSetRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 43, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: backupSetRowStatus.setStatus('current')
-mibBuilder.exportSymbols("CISCO-DMN-DSG-DR-MIB", backupTransportOrbitalPos=backupTransportOrbitalPos, drGlobalCfg=drGlobalCfg, backupTransportEntry=backupTransportEntry, backupSetTable=backupSetTable, enable=enable, backupSetRowStatus=backupSetRowStatus, backupSetBkpch=backupSetBkpch, backupTransportSymbRate=backupTransportSymbRate, backupTransportNetId=backupTransportNetId, sigLossTime=sigLossTime, backupTransportRFInput=backupTransportRFInput, backupTransportSetIdx=backupTransportSetIdx, backupTransportModSys=backupTransportModSys, backupSetCsiidx=backupSetCsiidx, backupTransportTable=backupTransportTable, backupSetRecid=backupSetRecid, backupTransportRowstatus=backupTransportRowstatus, verifyTimer=verifyTimer, ciscoDSGDR=ciscoDSGDR, backupTransportFrequency=backupTransportFrequency, backupTransportIndex=backupTransportIndex, sigLockTime=sigLockTime, PYSNMP_MODULE_ID=ciscoDSGDR, backupTransportRollOffFactor=backupTransportRollOffFactor, backupTransportOrbpolarization=backupTransportOrbpolarization, backupTransportEwFlag=backupTransportEwFlag, backupSetEntry=backupSetEntry, backupSetBkpchDispText=backupSetBkpchDispText, backupTransportDvbsFec=backupTransportDvbsFec, backupSetPeid=backupSetPeid, profile=profile)
+mibBuilder.exportSymbols("CISCO-DMN-DSG-DR-MIB", backupTransportFrequency=backupTransportFrequency, backupSetBkpch=backupSetBkpch, backupTransportSymbRate=backupTransportSymbRate, backupTransportSetIdx=backupTransportSetIdx, backupTransportEwFlag=backupTransportEwFlag, backupTransportOrbitalPos=backupTransportOrbitalPos, backupTransportDvbsFec=backupTransportDvbsFec, backupTransportModSys=backupTransportModSys, backupSetBkpchDispText=backupSetBkpchDispText, backupSetRowStatus=backupSetRowStatus, ciscoDSGDR=ciscoDSGDR, backupTransportRowstatus=backupTransportRowstatus, backupSetPeid=backupSetPeid, backupSetCsiidx=backupSetCsiidx, backupTransportRFInput=backupTransportRFInput, backupTransportTable=backupTransportTable, sigLockTime=sigLockTime, drGlobalCfg=drGlobalCfg, verifyTimer=verifyTimer, enable=enable, backupTransportOrbpolarization=backupTransportOrbpolarization, backupSetTable=backupSetTable, sigLossTime=sigLossTime, backupTransportIndex=backupTransportIndex, profile=profile, backupSetEntry=backupSetEntry, backupSetRecid=backupSetRecid, PYSNMP_MODULE_ID=ciscoDSGDR, backupTransportNetId=backupTransportNetId, backupTransportEntry=backupTransportEntry, backupTransportRollOffFactor=backupTransportRollOffFactor)

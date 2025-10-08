@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module LANCOM-LDAP-CLIENT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/lancom/LANCOM-LDAP-CLIENT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:43:30 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/lancom/LANCOM-LDAP-CLIENT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:11:17 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
 fastPath, = mibBuilder.importSymbols("LANCOM-REF-MIB", "fastPath")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
 agentLdapClientMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2356, 16, 1, 73))
 agentLdapClientMIB.setRevisions(('2017-12-15 12:00',))
 if mibBuilder.loadTexts: agentLdapClientMIB.setLastUpdated('201712151200Z')
@@ -60,4 +60,4 @@ agentLdapSearchMapFilter = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 73, 1,
 if mibBuilder.loadTexts: agentLdapSearchMapFilter.setStatus('current')
 agentLdapSearchMapBaseDN = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 73, 1, 3, 1, 6), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: agentLdapSearchMapBaseDN.setStatus('current')
-mibBuilder.exportSymbols("LANCOM-LDAP-CLIENT-MIB", agentLdapSearchMapFilter=agentLdapSearchMapFilter, agentLdapServerStatus=agentLdapServerStatus, agentLdapServerTable=agentLdapServerTable, PYSNMP_MODULE_ID=agentLdapClientMIB, agentLdapSearchMapAttribute=agentLdapSearchMapAttribute, agentLdapSearchMapStatus=agentLdapSearchMapStatus, agentLdapSearchMapName=agentLdapSearchMapName, agentLdapServerIpAddrType=agentLdapServerIpAddrType, agentLdapSearchMapMode=agentLdapSearchMapMode, agentLdapSearchMapTable=agentLdapSearchMapTable, agentLdapClientMIB=agentLdapClientMIB, agentLdapServerRootDN=agentLdapServerRootDN, agentLdapServerEntry=agentLdapServerEntry, agentLdapGlobalConfigGroup=agentLdapGlobalConfigGroup, agentLdapBindFirst=agentLdapBindFirst, agentLdapServerIpAddress=agentLdapServerIpAddress, agentLdapServerTimeOut=agentLdapServerTimeOut, agentLdapServerPort=agentLdapServerPort, agentLdapSearchMapBaseDN=agentLdapSearchMapBaseDN, agentLdapServerRootDNPassword=agentLdapServerRootDNPassword, agentLdapClientObjects=agentLdapClientObjects, agentLdapSearchMapEntry=agentLdapSearchMapEntry, agentLdapServerSSLMode=agentLdapServerSSLMode, agentLdapAppendWithBaseDN=agentLdapAppendWithBaseDN)
+mibBuilder.exportSymbols("LANCOM-LDAP-CLIENT-MIB", agentLdapSearchMapName=agentLdapSearchMapName, agentLdapServerIpAddrType=agentLdapServerIpAddrType, agentLdapClientObjects=agentLdapClientObjects, agentLdapServerEntry=agentLdapServerEntry, agentLdapServerStatus=agentLdapServerStatus, agentLdapSearchMapTable=agentLdapSearchMapTable, agentLdapSearchMapAttribute=agentLdapSearchMapAttribute, agentLdapBindFirst=agentLdapBindFirst, PYSNMP_MODULE_ID=agentLdapClientMIB, agentLdapSearchMapBaseDN=agentLdapSearchMapBaseDN, agentLdapGlobalConfigGroup=agentLdapGlobalConfigGroup, agentLdapClientMIB=agentLdapClientMIB, agentLdapServerRootDNPassword=agentLdapServerRootDNPassword, agentLdapSearchMapFilter=agentLdapSearchMapFilter, agentLdapServerTable=agentLdapServerTable, agentLdapServerIpAddress=agentLdapServerIpAddress, agentLdapServerSSLMode=agentLdapServerSSLMode, agentLdapServerRootDN=agentLdapServerRootDN, agentLdapServerTimeOut=agentLdapServerTimeOut, agentLdapSearchMapMode=agentLdapSearchMapMode, agentLdapServerPort=agentLdapServerPort, agentLdapAppendWithBaseDN=agentLdapAppendWithBaseDN, agentLdapSearchMapStatus=agentLdapSearchMapStatus, agentLdapSearchMapEntry=agentLdapSearchMapEntry)

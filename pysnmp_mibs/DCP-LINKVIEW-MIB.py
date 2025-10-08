@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module DCP-LINKVIEW-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/smartoptics/DCP-LINKVIEW-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:01 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/smartoptics/DCP-LINKVIEW-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:07:35 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dcpGeneric, = mibBuilder.importSymbols("DCP-MIB", "dcpGeneric")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 InterfaceStatus, OpticalPower1Decimal = mibBuilder.importSymbols("SO-TC-MIB", "InterfaceStatus", "OpticalPower1Decimal")
 dcpLinkview = ModuleIdentity((1, 3, 6, 1, 4, 1, 30826, 2, 2, 3))
 dcpLinkview.setRevisions(('2021-02-25 12:00', '2018-10-08 14:44',))
@@ -79,4 +79,4 @@ dcpLinkviewBasicComplV1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 30826, 2, 2, 3, 2,
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     dcpLinkviewBasicComplV1 = dcpLinkviewBasicComplV1.setStatus('current')
-mibBuilder.exportSymbols("DCP-LINKVIEW-MIB", dcpLinkviewMIBGroups=dcpLinkviewMIBGroups, DcpFiberLength=DcpFiberLength, dcpLinkviewFiberUtilization=dcpLinkviewFiberUtilization, PYSNMP_MODULE_ID=dcpLinkview, DcpFiberLoss=DcpFiberLoss, dcpLinkviewLocalPower=dcpLinkviewLocalPower, dcpLinkviewFiberLoss=dcpLinkviewFiberLoss, dcpLinkviewBasicComplV1=dcpLinkviewBasicComplV1, dcpLinkviewFiberType=dcpLinkviewFiberType, dcpLinkviewTableGroupV1=dcpLinkviewTableGroupV1, dcpLinkviewFiberAttenuation=dcpLinkviewFiberAttenuation, DcpFiberAttenuation=DcpFiberAttenuation, dcpLinkviewIndex=dcpLinkviewIndex, dcpLinkviewMIBCompliances=dcpLinkviewMIBCompliances, dcpLinkviewFiberLength=dcpLinkviewFiberLength, dcpLinkviewRemoteName=dcpLinkviewRemoteName, dcpLinkview=dcpLinkview, dcpLinkviewLocalHostname=dcpLinkviewLocalHostname, dcpLinkviewObjects=dcpLinkviewObjects, dcpLinkviewEntry=dcpLinkviewEntry, dcpLinkviewFiberDispComp=dcpLinkviewFiberDispComp, dcpLinkviewLocalName=dcpLinkviewLocalName, dcpLinkviewFiberDispersion=dcpLinkviewFiberDispersion, dcpLinkviewFiberDispFinal=dcpLinkviewFiberDispFinal, dcpLinkviewRemoteHostname=dcpLinkviewRemoteHostname, dcpLinkviewRemotePower=dcpLinkviewRemotePower, dcpLinkviewTable=dcpLinkviewTable, dcpLinkviewMIBCompliance=dcpLinkviewMIBCompliance, dcpLinkviewLocalStatus=dcpLinkviewLocalStatus)
+mibBuilder.exportSymbols("DCP-LINKVIEW-MIB", dcpLinkviewIndex=dcpLinkviewIndex, dcpLinkviewFiberDispFinal=dcpLinkviewFiberDispFinal, dcpLinkviewRemoteName=dcpLinkviewRemoteName, DcpFiberLength=DcpFiberLength, dcpLinkviewTable=dcpLinkviewTable, DcpFiberLoss=DcpFiberLoss, dcpLinkviewFiberAttenuation=dcpLinkviewFiberAttenuation, dcpLinkviewBasicComplV1=dcpLinkviewBasicComplV1, dcpLinkviewFiberType=dcpLinkviewFiberType, dcpLinkviewFiberLength=dcpLinkviewFiberLength, dcpLinkviewFiberDispersion=dcpLinkviewFiberDispersion, dcpLinkviewLocalStatus=dcpLinkviewLocalStatus, dcpLinkviewMIBGroups=dcpLinkviewMIBGroups, dcpLinkviewRemoteHostname=dcpLinkviewRemoteHostname, dcpLinkview=dcpLinkview, dcpLinkviewMIBCompliance=dcpLinkviewMIBCompliance, dcpLinkviewTableGroupV1=dcpLinkviewTableGroupV1, dcpLinkviewLocalName=dcpLinkviewLocalName, dcpLinkviewEntry=dcpLinkviewEntry, dcpLinkviewFiberUtilization=dcpLinkviewFiberUtilization, dcpLinkviewFiberDispComp=dcpLinkviewFiberDispComp, dcpLinkviewFiberLoss=dcpLinkviewFiberLoss, dcpLinkviewObjects=dcpLinkviewObjects, dcpLinkviewLocalHostname=dcpLinkviewLocalHostname, PYSNMP_MODULE_ID=dcpLinkview, dcpLinkviewMIBCompliances=dcpLinkviewMIBCompliances, dcpLinkviewLocalPower=dcpLinkviewLocalPower, dcpLinkviewRemotePower=dcpLinkviewRemotePower, DcpFiberAttenuation=DcpFiberAttenuation)

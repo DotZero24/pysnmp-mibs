@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module NEWTEC-MAIN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/newtec/NEWTEC-MAIN-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:34 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/newtec/NEWTEC-MAIN-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:04:48 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ntcMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5835))
 ntcMIB.setRevisions(('2015-11-20 12:00', '2013-09-02 12:00', '2012-06-28 12:00', '2004-05-04 11:00', '2000-03-27 14:00',))
 if mibBuilder.loadTexts: ntcMIB.setLastUpdated('201511201200Z')
@@ -37,4 +37,4 @@ ntcFunction = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2))
 if mibBuilder.loadTexts: ntcFunction.setStatus('current')
 ntcEvent = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 3))
 if mibBuilder.loadTexts: ntcEvent.setStatus('current')
-mibBuilder.exportSymbols("NEWTEC-MAIN-MIB", ntcMIB=ntcMIB, ntcPublic=ntcPublic, PYSNMP_MODULE_ID=ntcMIB, ntcExperimental=ntcExperimental, ntcDevices=ntcDevices, ntcFunction=ntcFunction, ntcSecurity=ntcSecurity, ntcEvent=ntcEvent, ntcLDAP=ntcLDAP, ntcSems=ntcSems, ntcPlex=ntcPlex, ntcSystems=ntcSystems, ntcGeneric=ntcGeneric)
+mibBuilder.exportSymbols("NEWTEC-MAIN-MIB", ntcSecurity=ntcSecurity, ntcPlex=ntcPlex, ntcGeneric=ntcGeneric, ntcSems=ntcSems, ntcPublic=ntcPublic, PYSNMP_MODULE_ID=ntcMIB, ntcEvent=ntcEvent, ntcMIB=ntcMIB, ntcFunction=ntcFunction, ntcLDAP=ntcLDAP, ntcDevices=ntcDevices, ntcSystems=ntcSystems, ntcExperimental=ntcExperimental)

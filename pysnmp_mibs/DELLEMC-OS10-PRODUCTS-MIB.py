@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module DELLEMC-OS10-PRODUCTS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/dell/DELLEMC-OS10-PRODUCTS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:23:45 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/dell/DELLEMC-OS10-PRODUCTS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:44:15 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 os10, = mibBuilder.importSymbols("DELLEMC-OS10-SMI-MIB", "os10")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 os10Products = ModuleIdentity((1, 3, 6, 1, 4, 1, 674, 11000, 5000, 100, 2))
 os10Products.setRevisions(('2019-07-09 12:00', '2019-03-07 12:00', '2018-05-15 12:00', '2018-01-26 12:00', '2017-10-27 12:00', '2017-10-11 12:00', '2017-09-19 12:00', '2017-06-21 12:00', '2017-01-25 12:00',))
 if mibBuilder.loadTexts: os10Products.setLastUpdated('201907091200Z')
@@ -82,4 +82,4 @@ mx9116Non = ObjectIdentity((1, 3, 6, 1, 4, 1, 674, 11000, 5000, 100, 2, 2, 2))
 if mibBuilder.loadTexts: mx9116Non.setStatus('current')
 n3248TEon = ObjectIdentity((1, 3, 6, 1, 4, 1, 674, 11000, 5000, 100, 2, 4, 1))
 if mibBuilder.loadTexts: n3248TEon.setStatus('current')
-mibBuilder.exportSymbols("DELLEMC-OS10-PRODUCTS-MIB", os10MSeriesProducts=os10MSeriesProducts, os10Products=os10Products, s4128Fon=s4128Fon, os10SSeriesProducts=os10SSeriesProducts, s4048Ton=s4048Ton, s4112Ton=s4112Ton, s4148Ton=s4148Ton, s5232Fon=s5232Fon, mx5108Non=mx5108Non, z9332Fon=z9332Fon, s4112Fon=s4112Fon, s5296Fon=s5296Fon, z9100on=z9100on, mx9116Non=mx9116Non, s6000on=s6000on, s5148Fon=s5148Fon, z9232Fon=z9232Fon, s5224Fon=s5224Fon, s4148FEon=s4148FEon, os10NSeriesProducts=os10NSeriesProducts, s4248FBon=s4248FBon, s4148Uon=s4148Uon, s4048on=s4048on, PYSNMP_MODULE_ID=os10Products, s4248FBLon=s4248FBLon, z9264Fon=z9264Fon, s4200on=s4200on, s6010on=s6010on, s4128Ton=s4128Ton, s5248Fon=s5248Fon, s5212Fon=s5212Fon, n3248TEon=n3248TEon, s4148Fon=s4148Fon, os10ZSeriesProducts=os10ZSeriesProducts, s3048on=s3048on)
+mibBuilder.exportSymbols("DELLEMC-OS10-PRODUCTS-MIB", s4248FBLon=s4248FBLon, s4148Uon=s4148Uon, s4112Ton=s4112Ton, os10NSeriesProducts=os10NSeriesProducts, s3048on=s3048on, z9264Fon=z9264Fon, s4048on=s4048on, z9100on=z9100on, mx9116Non=mx9116Non, s6000on=s6000on, os10Products=os10Products, s5224Fon=s5224Fon, z9332Fon=z9332Fon, s4248FBon=s4248FBon, s4128Ton=s4128Ton, z9232Fon=z9232Fon, s4148Ton=s4148Ton, PYSNMP_MODULE_ID=os10Products, s5212Fon=s5212Fon, s6010on=s6010on, os10MSeriesProducts=os10MSeriesProducts, s4200on=s4200on, s4148FEon=s4148FEon, s4148Fon=s4148Fon, mx5108Non=mx5108Non, s5232Fon=s5232Fon, s4128Fon=s4128Fon, os10SSeriesProducts=os10SSeriesProducts, s5148Fon=s5148Fon, s5248Fon=s5248Fon, s4048Ton=s4048Ton, n3248TEon=n3248TEon, os10ZSeriesProducts=os10ZSeriesProducts, s4112Fon=s4112Fon, s5296Fon=s5296Fon)

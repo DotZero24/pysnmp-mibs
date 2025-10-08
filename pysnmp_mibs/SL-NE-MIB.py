@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SL-NE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/smartoptics/SL-NE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:13 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/smartoptics/SL-NE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:44:59 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 smartoptics = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515))
 if mibBuilder.loadTexts: smartoptics.setLastUpdated('200009260000Z')
 if mibBuilder.loadTexts: smartoptics.setOrganization('Smartoptics')
@@ -40,4 +40,4 @@ T_ROADM_4ro1 = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 2200, 1)).setLabel
 T_ROADM_4ro2 = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 2200, 2)).setLabel("T-ROADM-4ro2")
 T_ROADM_4ro3 = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 2200, 3)).setLabel("T-ROADM-4ro3")
 slService = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1, 1))
-mibBuilder.exportSymbols("SL-NE-MIB", T_1608_CRY=T_1608_CRY, T_4904=T_4904, T_4906=T_4906, T_4408=T_4408, T_4920=T_4920, T_9900r=T_9900r, T_ROADM_4ro2=T_ROADM_4ro2, T_ROADM_4ro3=T_ROADM_4ro3, T_4910=T_4910, T_9910=T_9910, T_4920r=T_4920r, T_ROADM_4ro1=T_ROADM_4ro1, PYSNMP_MODULE_ID=smartoptics, sone=sone, T_4900r=T_4900r, T_1608=T_1608, T_4400r=T_4400r, T_ROADM_2=T_ROADM_2, T_4808=T_4808, sitelight=sitelight, T_ROADM_nro=T_ROADM_nro, slService=slService, T_9910_C=T_9910_C, T_4900_IL=T_4900_IL, soproduct=soproduct, smartoptics=smartoptics, T_9901=T_9901)
+mibBuilder.exportSymbols("SL-NE-MIB", T_4910=T_4910, PYSNMP_MODULE_ID=smartoptics, T_9901=T_9901, T_9910_C=T_9910_C, T_9910=T_9910, T_4906=T_4906, T_ROADM_2=T_ROADM_2, T_1608=T_1608, smartoptics=smartoptics, T_ROADM_4ro2=T_ROADM_4ro2, T_9900r=T_9900r, T_ROADM_4ro1=T_ROADM_4ro1, T_ROADM_nro=T_ROADM_nro, T_4808=T_4808, T_ROADM_4ro3=T_ROADM_4ro3, T_4900r=T_4900r, T_4400r=T_4400r, slService=slService, sone=sone, T_4904=T_4904, sitelight=sitelight, T_4920=T_4920, T_1608_CRY=T_1608_CRY, T_4920r=T_4920r, T_4900_IL=T_4900_IL, soproduct=soproduct, T_4408=T_4408)

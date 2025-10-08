@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module HP-MEMPROC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HP-MEMPROC-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:57 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HP-MEMPROC-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:09:03 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 hpProcurveCommon, = mibBuilder.importSymbols("HP-BASE-MIB", "hpProcurveCommon")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Opaque, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Opaque", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32, Opaque = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32", "Opaque")
+TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
 hpMemprocMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 17, 7, 1, 5))
 hpMemprocMIB.setRevisions(('2005-02-01 14:55',))
 if mibBuilder.loadTexts: hpMemprocMIB.setLastUpdated('200502011455Z')
@@ -67,4 +67,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 hpmpMemoryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 17, 7, 1, 5, 3, 2, 2)).setObjects(("HP-MEMPROC-MIB", "hpmpMemDescr"), ("HP-MEMPROC-MIB", "hpmpMemInUse"), ("HP-MEMPROC-MIB", "hpmpMemTotal"), ("HP-MEMPROC-MIB", "hpmpMemPctInUse"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     hpmpMemoryGroup = hpmpMemoryGroup.setStatus('current')
-mibBuilder.exportSymbols("HP-MEMPROC-MIB", PYSNMP_MODULE_ID=hpMemprocMIB, hpmpMemEntry=hpmpMemEntry, hpMemprocMIBCompliance1=hpMemprocMIBCompliance1, hpmpMemIndex=hpmpMemIndex, hpmpCPUIndex=hpmpCPUIndex, hpmpMemTable=hpmpMemTable, hpmpCPULoad15min=hpmpCPULoad15min, hpmpCPUTable=hpmpCPUTable, Float=Float, hpmpCPULoad1min=hpmpCPULoad1min, hpmpMemInUse=hpmpMemInUse, hpMemprocMIBObjects=hpMemprocMIBObjects, hpmpMemDescr=hpmpMemDescr, hpmpCPULoad5min=hpmpCPULoad5min, hpmpMemory=hpmpMemory, hpmpGroups=hpmpGroups, hpmpMemoryGroup=hpmpMemoryGroup, hpMemprocMIBConformance=hpMemprocMIBConformance, hpmpMemTotal=hpmpMemTotal, hpmpMemPctInUse=hpmpMemPctInUse, hpmpCPUGroup=hpmpCPUGroup, hpmpCompliances=hpmpCompliances, hpmpCPUEntry=hpmpCPUEntry, hpMemprocMIB=hpMemprocMIB, hpMemprocNotificationsPrefix=hpMemprocNotificationsPrefix, hpmpCPU=hpmpCPU, hpMemprocNotifications=hpMemprocNotifications, hpmpCPUPctBusy=hpmpCPUPctBusy)
+mibBuilder.exportSymbols("HP-MEMPROC-MIB", hpmpCompliances=hpmpCompliances, hpmpCPULoad5min=hpmpCPULoad5min, hpmpMemoryGroup=hpmpMemoryGroup, hpmpCPUTable=hpmpCPUTable, hpmpCPUEntry=hpmpCPUEntry, hpMemprocMIBObjects=hpMemprocMIBObjects, hpmpMemory=hpmpMemory, hpMemprocMIBConformance=hpMemprocMIBConformance, hpmpGroups=hpmpGroups, PYSNMP_MODULE_ID=hpMemprocMIB, hpmpCPUPctBusy=hpmpCPUPctBusy, hpmpMemEntry=hpmpMemEntry, hpmpMemInUse=hpmpMemInUse, hpMemprocNotificationsPrefix=hpMemprocNotificationsPrefix, hpmpMemPctInUse=hpmpMemPctInUse, hpmpMemTable=hpmpMemTable, hpmpCPULoad15min=hpmpCPULoad15min, hpmpMemDescr=hpmpMemDescr, hpMemprocMIB=hpMemprocMIB, hpmpCPU=hpmpCPU, hpmpMemIndex=hpmpMemIndex, hpmpCPULoad1min=hpmpCPULoad1min, hpmpCPUGroup=hpmpCPUGroup, hpmpCPUIndex=hpmpCPUIndex, hpmpMemTotal=hpmpMemTotal, hpMemprocNotifications=hpMemprocNotifications, Float=Float, hpMemprocMIBCompliance1=hpMemprocMIBCompliance1)

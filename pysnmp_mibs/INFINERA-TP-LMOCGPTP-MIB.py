@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module INFINERA-TP-LMOCGPTP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-LMOCGPTP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:15 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/INFINERA-TP-LMOCGPTP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:20:01 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
-InfnAutoDiscoveryState, FloatTenths, InfnModulation, InfnEncoding, InfnPowerControlLoop, InfnLineSystemMode = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnAutoDiscoveryState", "FloatTenths", "InfnModulation", "InfnEncoding", "InfnPowerControlLoop", "InfnLineSystemMode")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+InfnLineSystemMode, InfnModulation, InfnAutoDiscoveryState, InfnEncoding, InfnPowerControlLoop, FloatTenths = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnLineSystemMode", "InfnModulation", "InfnAutoDiscoveryState", "InfnEncoding", "InfnPowerControlLoop", "FloatTenths")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 lmOcgPtpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 34))
 lmOcgPtpMIB.setRevisions(('2008-10-20 00:00',))
 if mibBuilder.loadTexts: lmOcgPtpMIB.setLastUpdated('200810200000Z')
@@ -56,4 +56,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 lmOcgPtpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 34, 3, 2, 1)).setObjects(("INFINERA-TP-LMOCGPTP-MIB", "lmOcgPtpDiscoveredRemoteTP"), ("INFINERA-TP-LMOCGPTP-MIB", "lmOcgPtpAutoDiscoveryState"), ("INFINERA-TP-LMOCGPTP-MIB", "lmOcgPtpOcgPowerControlLoop"), ("INFINERA-TP-LMOCGPTP-MIB", "lmOcgPtpProvisionedOcgTP"), ("INFINERA-TP-LMOCGPTP-MIB", "lmOcgPtpDiscoveredOcgTP"), ("INFINERA-TP-LMOCGPTP-MIB", "lmOcgPtpAssocTeIntfList"), ("INFINERA-TP-LMOCGPTP-MIB", "lmOcgPtpChannelCount"), ("INFINERA-TP-LMOCGPTP-MIB", "lmOcgPtpLineSystemMode"), ("INFINERA-TP-LMOCGPTP-MIB", "lmOcgPtpProvPeerTP"), ("INFINERA-TP-LMOCGPTP-MIB", "lmOcgOpenwaveTargetTxOcgPower"), ("INFINERA-TP-LMOCGPTP-MIB", "lmOcgProvisionedEncodingMode"), ("INFINERA-TP-LMOCGPTP-MIB", "lmOcgInstalledEncodingMode"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     lmOcgPtpGroup = lmOcgPtpGroup.setStatus('current')
-mibBuilder.exportSymbols("INFINERA-TP-LMOCGPTP-MIB", lmOcgPtpConformance=lmOcgPtpConformance, lmOcgPtpLineSystemMode=lmOcgPtpLineSystemMode, lmOcgOpenwaveTargetTxOcgPower=lmOcgOpenwaveTargetTxOcgPower, lmOcgPtpMIB=lmOcgPtpMIB, lmOcgPtpDiscoveredOcgTP=lmOcgPtpDiscoveredOcgTP, lmOcgPtpChannelCount=lmOcgPtpChannelCount, lmOcgProvisionedEncodingMode=lmOcgProvisionedEncodingMode, lmOcgInstalledEncodingMode=lmOcgInstalledEncodingMode, lmOcgPtpOcgPowerControlLoop=lmOcgPtpOcgPowerControlLoop, lmOcgPtpAssocTeIntfList=lmOcgPtpAssocTeIntfList, lmOcgPtpCompliance=lmOcgPtpCompliance, lmOcgPtpProvisionedOcgTP=lmOcgPtpProvisionedOcgTP, lmOcgPtpGroups=lmOcgPtpGroups, lmOcgPtpTable=lmOcgPtpTable, lmOcgPtpAutoDiscoveryState=lmOcgPtpAutoDiscoveryState, lmOcgPtpEntry=lmOcgPtpEntry, PYSNMP_MODULE_ID=lmOcgPtpMIB, lmOcgPtpCompliances=lmOcgPtpCompliances, lmOcgPtpDiscoveredRemoteTP=lmOcgPtpDiscoveredRemoteTP, lmOcgPtpProvPeerTP=lmOcgPtpProvPeerTP, lmOcgPtpGroup=lmOcgPtpGroup)
+mibBuilder.exportSymbols("INFINERA-TP-LMOCGPTP-MIB", lmOcgPtpProvisionedOcgTP=lmOcgPtpProvisionedOcgTP, lmOcgInstalledEncodingMode=lmOcgInstalledEncodingMode, lmOcgPtpGroup=lmOcgPtpGroup, lmOcgPtpConformance=lmOcgPtpConformance, lmOcgPtpDiscoveredOcgTP=lmOcgPtpDiscoveredOcgTP, lmOcgPtpChannelCount=lmOcgPtpChannelCount, lmOcgPtpDiscoveredRemoteTP=lmOcgPtpDiscoveredRemoteTP, lmOcgOpenwaveTargetTxOcgPower=lmOcgOpenwaveTargetTxOcgPower, lmOcgPtpCompliance=lmOcgPtpCompliance, lmOcgPtpAssocTeIntfList=lmOcgPtpAssocTeIntfList, lmOcgPtpTable=lmOcgPtpTable, lmOcgPtpProvPeerTP=lmOcgPtpProvPeerTP, lmOcgPtpOcgPowerControlLoop=lmOcgPtpOcgPowerControlLoop, lmOcgProvisionedEncodingMode=lmOcgProvisionedEncodingMode, lmOcgPtpLineSystemMode=lmOcgPtpLineSystemMode, lmOcgPtpMIB=lmOcgPtpMIB, PYSNMP_MODULE_ID=lmOcgPtpMIB, lmOcgPtpAutoDiscoveryState=lmOcgPtpAutoDiscoveryState, lmOcgPtpGroups=lmOcgPtpGroups, lmOcgPtpEntry=lmOcgPtpEntry, lmOcgPtpCompliances=lmOcgPtpCompliances)

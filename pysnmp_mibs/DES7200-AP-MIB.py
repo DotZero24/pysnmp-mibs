@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module DES7200-AP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DES7200-AP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:34:00 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/DES7200-AP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:58:38 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 myMgmt, = mibBuilder.importSymbols("DES7200-SMI", "myMgmt")
 MemberMap, IfIndex, ConfigStatus = mibBuilder.importSymbols("DES7200-TC", "MemberMap", "IfIndex", "ConfigStatus")
 EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
 PortList, VlanId = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList", "VlanId")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
 myApMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 7))
 myApMIB.setRevisions(('2002-03-20 00:00',))
 if mibBuilder.loadTexts: myApMIB.setLastUpdated('200203200000Z')
@@ -82,4 +82,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 myApMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 7, 2, 2, 1)).setObjects(("DES7200-AP-MIB", "myApMaxNumber"), ("DES7200-AP-MIB", "myApCurrentNumber"), ("DES7200-AP-MIB", "myApPortConfigApIndex"), ("DES7200-AP-MIB", "myApIndex"), ("DES7200-AP-MIB", "myApMemberAction"), ("DES7200-AP-MIB", "myApMaxPtNumber"), ("DES7200-AP-MIB", "myApFlowBalance"), ("DES7200-AP-MIB", "myApConfigNumber"), ("DES7200-AP-MIB", "myApConfigIndex"), ("DES7200-AP-MIB", "myApConfigMaxPtNumber"), ("DES7200-AP-MIB", "myApConfigCurrentPtNumber"), ("DES7200-AP-MIB", "myApConfigPortMember"), ("DES7200-AP-MIB", "myApConfigAction"), ("DES7200-AP-MIB", "myApPortMemberPortIndex"), ("DES7200-AP-MIB", "myApPortMemberApNumber"), ("DES7200-AP-MIB", "myApPortMemberAction"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     myApMIBGroup = myApMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("DES7200-AP-MIB", myApPortMemberTable=myApPortMemberTable, myApMIBCompliance=myApMIBCompliance, myApPossibleMember=myApPossibleMember, myApConfigIndex=myApConfigIndex, myApConfigNumber=myApConfigNumber, myApConfigMaxPtNumber=myApConfigMaxPtNumber, myApMIB=myApMIB, myApFlowBalance=myApFlowBalance, myApPortMemberAction=myApPortMemberAction, myApConfigAction=myApConfigAction, myApEntry=myApEntry, myApPortMemberEntry=myApPortMemberEntry, myApMIBConformance=myApMIBConformance, myApTable=myApTable, myApPortConfigEntry=myApPortConfigEntry, myApPortConfigApIndex=myApPortConfigApIndex, myApMIBGroup=myApMIBGroup, myApConfigPortMember=myApConfigPortMember, PYSNMP_MODULE_ID=myApMIB, myApMaxPtNumber=myApMaxPtNumber, myApConfigCurrentPtNumber=myApConfigCurrentPtNumber, myApPortConfigTable=myApPortConfigTable, myApMIBGroups=myApMIBGroups, myApMIBObjects=myApMIBObjects, myApCurrentNumber=myApCurrentNumber, myApMaxNumber=myApMaxNumber, myApPortMemberApNumber=myApPortMemberApNumber, myApPortMemberPortIndex=myApPortMemberPortIndex, myApMIBCompliances=myApMIBCompliances, myApIndex=myApIndex, myApMemberAction=myApMemberAction, myApConfigTable=myApConfigTable, myApConfigEntry=myApConfigEntry, myApPortConfigPortIndex=myApPortConfigPortIndex)
+mibBuilder.exportSymbols("DES7200-AP-MIB", myApMemberAction=myApMemberAction, myApPossibleMember=myApPossibleMember, myApConfigCurrentPtNumber=myApConfigCurrentPtNumber, myApIndex=myApIndex, myApMIBCompliance=myApMIBCompliance, myApMIB=myApMIB, myApMaxNumber=myApMaxNumber, myApPortConfigApIndex=myApPortConfigApIndex, myApPortConfigPortIndex=myApPortConfigPortIndex, myApConfigMaxPtNumber=myApConfigMaxPtNumber, PYSNMP_MODULE_ID=myApMIB, myApConfigTable=myApConfigTable, myApPortMemberTable=myApPortMemberTable, myApMIBGroup=myApMIBGroup, myApConfigEntry=myApConfigEntry, myApConfigNumber=myApConfigNumber, myApConfigPortMember=myApConfigPortMember, myApPortConfigTable=myApPortConfigTable, myApConfigIndex=myApConfigIndex, myApMIBGroups=myApMIBGroups, myApPortMemberApNumber=myApPortMemberApNumber, myApMIBCompliances=myApMIBCompliances, myApCurrentNumber=myApCurrentNumber, myApFlowBalance=myApFlowBalance, myApPortMemberEntry=myApPortMemberEntry, myApPortConfigEntry=myApPortConfigEntry, myApConfigAction=myApConfigAction, myApEntry=myApEntry, myApTable=myApTable, myApMIBConformance=myApMIBConformance, myApMIBObjects=myApMIBObjects, myApPortMemberAction=myApPortMemberAction, myApPortMemberPortIndex=myApPortMemberPortIndex, myApMaxPtNumber=myApMaxPtNumber)

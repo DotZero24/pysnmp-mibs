@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SYNERGY100G-HPE-NLP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/SYNERGY100G-HPE-NLP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:39 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/SYNERGY100G-HPE-NLP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:10:12 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 hpVCSE_100Gb_F32_Module, = mibBuilder.importSymbols("HPSVRMGMT-OID", "hpVCSE-100Gb-F32-Module")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
 snmpTraps, = mibBuilder.importSymbols("SNMPv2-MIB", "snmpTraps")
-ModuleIdentity, Counter64, Integer32, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-TimeStamp, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TruthValue", "TextualConvention")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "TimeStamp", "DisplayString")
 syn100GhpeNLPMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 9, 1, 4060))
 syn100GhpeNLPMIB.setRevisions(('2019-03-05 00:00', '2015-07-07 18:31',))
 if mibBuilder.loadTexts: syn100GhpeNLPMIB.setLastUpdated('201903050000Z')
@@ -52,4 +52,4 @@ syn100Gtraps = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 9, 1, 4060, 7))
 syn100GtrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 9, 1, 4060, 7, 0))
 syn100GhpeNLPLoopDetect = NotificationType((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 9, 1, 4060, 7, 0, 1)).setObjects(("SYNERGY100G-HPE-NLP-MIB", "syn100GhpeNLPServerPortNumber"), ("SYNERGY100G-HPE-NLP-MIB", "syn100GhpeNLPLoopDetectedStatus"))
 if mibBuilder.loadTexts: syn100GhpeNLPLoopDetect.setStatus('current')
-mibBuilder.exportSymbols("SYNERGY100G-HPE-NLP-MIB", syn100GhpeNLPTransmitInterval=syn100GhpeNLPTransmitInterval, syn100GhpeNLPServerPortStatsEntry=syn100GhpeNLPServerPortStatsEntry, syn100GhpeNLPServerPortTable=syn100GhpeNLPServerPortTable, syn100GhpeNLPServerPortEnableTrap=syn100GhpeNLPServerPortEnableTrap, syn100GhpeNLPEnableTrap=syn100GhpeNLPEnableTrap, syn100GhpeNLPServerPortStatsTable=syn100GhpeNLPServerPortStatsTable, syn100GhpeNLPLastLoopDetectTimeStamp=syn100GhpeNLPLastLoopDetectTimeStamp, syn100GhpeNLPServerPortResetLoopDetection=syn100GhpeNLPServerPortResetLoopDetection, syn100GhpeNLPLoopDetectedCount=syn100GhpeNLPLoopDetectedCount, syn100GhpeNLPModuleConfig=syn100GhpeNLPModuleConfig, syn100GhpeNLPMIB=syn100GhpeNLPMIB, syn100Gtraps=syn100Gtraps, syn100GhpeNLPResetLoopDetection=syn100GhpeNLPResetLoopDetection, syn100GhpeSynergyVCMIBObjects=syn100GhpeSynergyVCMIBObjects, PYSNMP_MODULE_ID=syn100GhpeNLPMIB, syn100GhpeNLPLoopDetect=syn100GhpeNLPLoopDetect, syn100GhpeNLPLoopDetectedStatus=syn100GhpeNLPLoopDetectedStatus, syn100GhpeNLPStatsPortNumber=syn100GhpeNLPStatsPortNumber, syn100GtrapPrefix=syn100GtrapPrefix, syn100GhpeNLPServerPortEntry=syn100GhpeNLPServerPortEntry, syn100GhpeNLPServerPortNumber=syn100GhpeNLPServerPortNumber)
+mibBuilder.exportSymbols("SYNERGY100G-HPE-NLP-MIB", syn100GhpeSynergyVCMIBObjects=syn100GhpeSynergyVCMIBObjects, syn100GhpeNLPServerPortTable=syn100GhpeNLPServerPortTable, syn100GhpeNLPServerPortEnableTrap=syn100GhpeNLPServerPortEnableTrap, PYSNMP_MODULE_ID=syn100GhpeNLPMIB, syn100GhpeNLPResetLoopDetection=syn100GhpeNLPResetLoopDetection, syn100GhpeNLPStatsPortNumber=syn100GhpeNLPStatsPortNumber, syn100GhpeNLPServerPortEntry=syn100GhpeNLPServerPortEntry, syn100GhpeNLPServerPortResetLoopDetection=syn100GhpeNLPServerPortResetLoopDetection, syn100GhpeNLPMIB=syn100GhpeNLPMIB, syn100GhpeNLPLoopDetectedStatus=syn100GhpeNLPLoopDetectedStatus, syn100GhpeNLPLastLoopDetectTimeStamp=syn100GhpeNLPLastLoopDetectTimeStamp, syn100GhpeNLPServerPortStatsTable=syn100GhpeNLPServerPortStatsTable, syn100GhpeNLPServerPortStatsEntry=syn100GhpeNLPServerPortStatsEntry, syn100GhpeNLPServerPortNumber=syn100GhpeNLPServerPortNumber, syn100GhpeNLPLoopDetect=syn100GhpeNLPLoopDetect, syn100GtrapPrefix=syn100GtrapPrefix, syn100GhpeNLPEnableTrap=syn100GhpeNLPEnableTrap, syn100GhpeNLPTransmitInterval=syn100GhpeNLPTransmitInterval, syn100GhpeNLPModuleConfig=syn100GhpeNLPModuleConfig, syn100GhpeNLPLoopDetectedCount=syn100GhpeNLPLoopDetectedCount, syn100Gtraps=syn100Gtraps)

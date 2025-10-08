@@ -1,21 +1,21 @@
 #
 # PySNMP MIB module A3COM-HUAWEI-FCOE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-FCOE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:58 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-FCOE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:33:20 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 h3cCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCommon")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 fcmInstanceIndex, = mibBuilder.importSymbols("FC-MGMT-MIB", "fcmInstanceIndex")
 InterfaceIndexOrZero, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "InterfaceIndex")
 VlanIndex, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanIndex")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, TimeStamp, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeStamp", "RowStatus", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, MacAddress, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TruthValue", "TimeStamp", "DisplayString")
 T11FabricIndex, = mibBuilder.importSymbols("T11-TC-MIB", "T11FabricIndex")
 h3cFCoE = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 120))
 h3cFCoE.setRevisions(('2012-03-28 00:00',))
@@ -77,4 +77,4 @@ h3cFCoEStaticVfcFailureCause = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 
 if mibBuilder.loadTexts: h3cFCoEStaticVfcFailureCause.setStatus('current')
 h3cFCoEStaticVfcRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 120, 1, 1, 3, 1, 9), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: h3cFCoEStaticVfcRowStatus.setStatus('current')
-mibBuilder.exportSymbols("A3COM-HUAWEI-FCOE-MIB", h3cFCoEStaticVfcBindMACAddress=h3cFCoEStaticVfcBindMACAddress, H3cFCoEVfcBindType=H3cFCoEVfcBindType, h3cFCoEFIPSnoopingObjects=h3cFCoEFIPSnoopingObjects, h3cFCoECfgDynamicVfcCreation=h3cFCoECfgDynamicVfcCreation, h3cFCoE=h3cFCoE, h3cFCoECfgAddressingMode=h3cFCoECfgAddressingMode, h3cFCoEVLANOperState=h3cFCoEVLANOperState, h3cFCoEStaticVfcRowStatus=h3cFCoEStaticVfcRowStatus, h3cFCoEStaticVfcTable=h3cFCoEStaticVfcTable, h3cFCoEStaticVfcIfIndex=h3cFCoEStaticVfcIfIndex, h3cFCoEStaticVfcIndex=h3cFCoEStaticVfcIndex, h3cFCoECfgDefaultFCFPriority=h3cFCoECfgDefaultFCFPriority, h3cFCoEStaticVfcBindIfIndex=h3cFCoEStaticVfcBindIfIndex, h3cFCoECfgFcmap=h3cFCoECfgFcmap, PYSNMP_MODULE_ID=h3cFCoE, h3cFCoEFabricIndex=h3cFCoEFabricIndex, h3cFCoEStaticVfcFCFPriority=h3cFCoEStaticVfcFCFPriority, h3cFCoEVLANRowStatus=h3cFCoEVLANRowStatus, h3cFCoEVLANEntry=h3cFCoEVLANEntry, h3cFCoEConfig=h3cFCoEConfig, h3cFCoEObjects=h3cFCoEObjects, h3cFCoECfgTable=h3cFCoECfgTable, h3cFCoEStaticVfcEntry=h3cFCoEStaticVfcEntry, h3cFCoEVLANIndex=h3cFCoEVLANIndex, h3cFCoEStaticVfcFailureCause=h3cFCoEStaticVfcFailureCause, h3cFCoECfgDATov=h3cFCoECfgDATov, h3cFCoECfgEntry=h3cFCoECfgEntry, h3cFCoEStaticVfcCreationTime=h3cFCoEStaticVfcCreationTime, h3cFCoEStaticVfcBindType=h3cFCoEStaticVfcBindType, h3cFCoEVLANTable=h3cFCoEVLANTable)
+mibBuilder.exportSymbols("A3COM-HUAWEI-FCOE-MIB", h3cFCoECfgDynamicVfcCreation=h3cFCoECfgDynamicVfcCreation, h3cFCoECfgEntry=h3cFCoECfgEntry, h3cFCoEStaticVfcBindMACAddress=h3cFCoEStaticVfcBindMACAddress, h3cFCoEStaticVfcEntry=h3cFCoEStaticVfcEntry, H3cFCoEVfcBindType=H3cFCoEVfcBindType, h3cFCoECfgFcmap=h3cFCoECfgFcmap, h3cFCoEStaticVfcCreationTime=h3cFCoEStaticVfcCreationTime, h3cFCoECfgAddressingMode=h3cFCoECfgAddressingMode, h3cFCoEFabricIndex=h3cFCoEFabricIndex, h3cFCoEStaticVfcTable=h3cFCoEStaticVfcTable, h3cFCoEStaticVfcRowStatus=h3cFCoEStaticVfcRowStatus, h3cFCoECfgDefaultFCFPriority=h3cFCoECfgDefaultFCFPriority, h3cFCoEObjects=h3cFCoEObjects, h3cFCoEStaticVfcIndex=h3cFCoEStaticVfcIndex, h3cFCoEStaticVfcIfIndex=h3cFCoEStaticVfcIfIndex, h3cFCoE=h3cFCoE, h3cFCoEStaticVfcBindType=h3cFCoEStaticVfcBindType, h3cFCoEStaticVfcBindIfIndex=h3cFCoEStaticVfcBindIfIndex, PYSNMP_MODULE_ID=h3cFCoE, h3cFCoEVLANEntry=h3cFCoEVLANEntry, h3cFCoEStaticVfcFCFPriority=h3cFCoEStaticVfcFCFPriority, h3cFCoEStaticVfcFailureCause=h3cFCoEStaticVfcFailureCause, h3cFCoEVLANIndex=h3cFCoEVLANIndex, h3cFCoECfgDATov=h3cFCoECfgDATov, h3cFCoEVLANOperState=h3cFCoEVLANOperState, h3cFCoEConfig=h3cFCoEConfig, h3cFCoEFIPSnoopingObjects=h3cFCoEFIPSnoopingObjects, h3cFCoEVLANRowStatus=h3cFCoEVLANRowStatus, h3cFCoEVLANTable=h3cFCoEVLANTable, h3cFCoECfgTable=h3cFCoECfgTable)

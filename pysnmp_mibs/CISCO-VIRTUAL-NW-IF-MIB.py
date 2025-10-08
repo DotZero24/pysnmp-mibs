@@ -1,21 +1,21 @@
 #
 # PySNMP MIB module CISCO-VIRTUAL-NW-IF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-VIRTUAL-NW-IF-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:13:07 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-VIRTUAL-NW-IF-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:25:56 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
 FcAddressId, = mibBuilder.importSymbols("CISCO-ST-TC", "FcAddressId")
 entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
-InterfaceIndex, ifName = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex", "ifName")
+ifName, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifName", "InterfaceIndex")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 ciscoVirtualNwIfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 290))
 ciscoVirtualNwIfMIB.setRevisions(('2002-10-02 00:00',))
 if mibBuilder.loadTexts: ciscoVirtualNwIfMIB.setLastUpdated('200210020000Z')
@@ -60,4 +60,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 virtualNwIfNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 290, 2, 2, 2)).setObjects(("CISCO-VIRTUAL-NW-IF-MIB", "virtualNwIfCreateEntryNotify"), ("CISCO-VIRTUAL-NW-IF-MIB", "virtualNwIfDeleteEntryNotify"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     virtualNwIfNotificationGroup = virtualNwIfNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-VIRTUAL-NW-IF-MIB", virtualNwIfType=virtualNwIfType, virtualNwIfId=virtualNwIfId, virtualNwIfGroup=virtualNwIfGroup, virtualNwIfMIBConformance=virtualNwIfMIBConformance, virtualNwIfNotification=virtualNwIfNotification, ciscoVirtualNwIfObjects=ciscoVirtualNwIfObjects, PYSNMP_MODULE_ID=ciscoVirtualNwIfMIB, virtualNwIfNotificationGroup=virtualNwIfNotificationGroup, virtualNwIfStatistics=virtualNwIfStatistics, virtualNwIfMIBCompliance=virtualNwIfMIBCompliance, virtualNwIfTable=virtualNwIfTable, virtualNwIfRowStatus=virtualNwIfRowStatus, virtualNwIfIndex=virtualNwIfIndex, virtualNwIfNotifications=virtualNwIfNotifications, virtualNwIfEntry=virtualNwIfEntry, virtualNwIfFcId=virtualNwIfFcId, virtualNwIfDeleteEntryNotify=virtualNwIfDeleteEntryNotify, virtualNwIfOperStatusCauseDescr=virtualNwIfOperStatusCauseDescr, virtualNwIfConfig=virtualNwIfConfig, ciscoVirtualNwIfMIB=ciscoVirtualNwIfMIB, virtualNwIfOperStatusCause=virtualNwIfOperStatusCause, virtualNwIfMIBCompliances=virtualNwIfMIBCompliances, virtualNwIfMIBGroups=virtualNwIfMIBGroups, virtualNwIfCreateEntryNotify=virtualNwIfCreateEntryNotify)
+mibBuilder.exportSymbols("CISCO-VIRTUAL-NW-IF-MIB", virtualNwIfTable=virtualNwIfTable, virtualNwIfStatistics=virtualNwIfStatistics, virtualNwIfMIBCompliances=virtualNwIfMIBCompliances, virtualNwIfNotificationGroup=virtualNwIfNotificationGroup, virtualNwIfDeleteEntryNotify=virtualNwIfDeleteEntryNotify, virtualNwIfOperStatusCause=virtualNwIfOperStatusCause, virtualNwIfIndex=virtualNwIfIndex, virtualNwIfMIBConformance=virtualNwIfMIBConformance, virtualNwIfGroup=virtualNwIfGroup, virtualNwIfNotification=virtualNwIfNotification, virtualNwIfFcId=virtualNwIfFcId, virtualNwIfEntry=virtualNwIfEntry, ciscoVirtualNwIfObjects=ciscoVirtualNwIfObjects, virtualNwIfConfig=virtualNwIfConfig, virtualNwIfMIBCompliance=virtualNwIfMIBCompliance, virtualNwIfMIBGroups=virtualNwIfMIBGroups, PYSNMP_MODULE_ID=ciscoVirtualNwIfMIB, virtualNwIfRowStatus=virtualNwIfRowStatus, virtualNwIfType=virtualNwIfType, virtualNwIfId=virtualNwIfId, virtualNwIfOperStatusCauseDescr=virtualNwIfOperStatusCauseDescr, ciscoVirtualNwIfMIB=ciscoVirtualNwIfMIB, virtualNwIfNotifications=virtualNwIfNotifications, virtualNwIfCreateEntryNotify=virtualNwIfCreateEntryNotify)

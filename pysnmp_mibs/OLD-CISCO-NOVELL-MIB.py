@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module OLD-CISCO-NOVELL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/OLD-CISCO-NOVELL-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:13 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/OLD-CISCO-NOVELL-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:30:12 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 temporary, = mibBuilder.importSymbols("CISCO-SMI", "temporary")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 class IPXaddress(OctetString):
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(10, 10)
     fixedLength = 10
@@ -87,4 +87,4 @@ ipxCkactAge = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 4, 24), TimeTicks()).setMaxAcce
 if mibBuilder.loadTexts: ipxCkactAge.setStatus('mandatory')
 ipxActCheckPoint = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 4, 25), Integer32()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: ipxActCheckPoint.setStatus('mandatory')
-mibBuilder.exportSymbols("OLD-CISCO-NOVELL-MIB", novellLocal=novellLocal, novellInmult=novellInmult, novellSapresin=novellSapresin, novellForward=novellForward, ipxActPkts=ipxActPkts, ipxActLostByts=ipxActLostByts, lipxCkAccountingEntry=lipxCkAccountingEntry, lipxAccountingTable=lipxAccountingTable, novellInput=novellInput, tmpnovell=tmpnovell, ipxCkactDst=ipxCkactDst, ipxActAge=ipxActAge, novellOutput=novellOutput, ipxCkactSrc=ipxCkactSrc, novellChksum=novellChksum, IPXaddress=IPXaddress, novellUnknown=novellUnknown, lipxAccountingEntry=lipxAccountingEntry, ipxActByts=ipxActByts, ipxCkactByts=ipxCkactByts, lipxCkAccountingTable=lipxCkAccountingTable, ipxActSrc=ipxActSrc, novellNoencap=novellNoencap, novellSapout=novellSapout, ipxCkactPkts=ipxCkactPkts, ipxActCheckPoint=ipxActCheckPoint, novellHopcnt=novellHopcnt, novellBcastout=novellBcastout, novellSapreqin=novellSapreqin, novellSapreply=novellSapreply, ipxActLostPkts=ipxActLostPkts, ipxActDst=ipxActDst, ipxActThresh=ipxActThresh, novellFormerr=novellFormerr, novellNoroute=novellNoroute, novellBcastin=novellBcastin, ipxCkactAge=ipxCkactAge)
+mibBuilder.exportSymbols("OLD-CISCO-NOVELL-MIB", lipxCkAccountingEntry=lipxCkAccountingEntry, ipxActThresh=ipxActThresh, novellHopcnt=novellHopcnt, novellLocal=novellLocal, novellSapout=novellSapout, ipxActPkts=ipxActPkts, ipxActSrc=ipxActSrc, ipxCkactPkts=ipxCkactPkts, novellInmult=novellInmult, novellBcastin=novellBcastin, ipxCkactByts=ipxCkactByts, tmpnovell=tmpnovell, ipxCkactDst=ipxCkactDst, novellNoencap=novellNoencap, novellSapreply=novellSapreply, ipxActDst=ipxActDst, novellSapreqin=novellSapreqin, lipxAccountingEntry=lipxAccountingEntry, ipxActLostByts=ipxActLostByts, lipxCkAccountingTable=lipxCkAccountingTable, novellInput=novellInput, lipxAccountingTable=lipxAccountingTable, ipxActLostPkts=ipxActLostPkts, ipxActAge=ipxActAge, novellSapresin=novellSapresin, ipxActCheckPoint=ipxActCheckPoint, novellChksum=novellChksum, novellOutput=novellOutput, novellFormerr=novellFormerr, ipxCkactSrc=ipxCkactSrc, ipxActByts=ipxActByts, novellForward=novellForward, novellBcastout=novellBcastout, novellNoroute=novellNoroute, novellUnknown=novellUnknown, IPXaddress=IPXaddress, ipxCkactAge=ipxCkactAge)

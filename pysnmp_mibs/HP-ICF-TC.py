@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module HP-ICF-TC (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HP-ICF-TC
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:18 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HP-ICF-TC
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:46:29 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 hpicfAdmin, = mibBuilder.importSymbols("HP-ICF-OID", "hpicfAdmin")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 hpicfTextualConventions = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 10, 4))
 hpicfTextualConventions.setRevisions(('2017-03-22 08:00', '2016-12-07 08:00', '2015-01-30 08:00', '2014-12-09 08:00', '2014-09-06 08:00', '2014-02-04 08:00', '2012-02-22 08:00', '2012-02-17 00:00', '2010-10-12 08:00', '2009-02-10 18:00', '2008-08-19 09:05', '2008-02-04 15:36', '2004-02-18 23:05', '2000-11-03 07:17',))
@@ -57,4 +57,4 @@ class HpSwitchIfMauAutoNegCapReceivedBits(TextualConvention, Bits):
     status = 'current'
     namedValues = NamedValues(("b40GbaseSR4", 23), ("b40GbaseLR4", 24), ("b2500baseTFD", 25), ("b5000baseTFD", 26), ("b40GbaseeSR4", 27))
 
-mibBuilder.exportSymbols("HP-ICF-TC", HpInetCidrRouteState=HpInetCidrRouteState, VidList=VidList, HpSwitchIfMauAutoNegCapReceivedBits=HpSwitchIfMauAutoNegCapReceivedBits, HpSwitchIfMauAutoNegCapAdvertisedBits=HpSwitchIfMauAutoNegCapAdvertisedBits, StpPortRole=StpPortRole, HpSwitchIfMauTypeListBits=HpSwitchIfMauTypeListBits, hpicfTextualConventions=hpicfTextualConventions, HpSwitchPortType=HpSwitchPortType, ConfigStatus=ConfigStatus, HpSwitchIfMauAutoNegCapabilityBits=HpSwitchIfMauAutoNegCapabilityBits, PYSNMP_MODULE_ID=hpicfTextualConventions)
+mibBuilder.exportSymbols("HP-ICF-TC", HpSwitchIfMauTypeListBits=HpSwitchIfMauTypeListBits, HpSwitchIfMauAutoNegCapAdvertisedBits=HpSwitchIfMauAutoNegCapAdvertisedBits, StpPortRole=StpPortRole, ConfigStatus=ConfigStatus, VidList=VidList, HpSwitchIfMauAutoNegCapabilityBits=HpSwitchIfMauAutoNegCapabilityBits, HpSwitchPortType=HpSwitchPortType, hpicfTextualConventions=hpicfTextualConventions, HpSwitchIfMauAutoNegCapReceivedBits=HpSwitchIfMauAutoNegCapReceivedBits, PYSNMP_MODULE_ID=hpicfTextualConventions, HpInetCidrRouteState=HpInetCidrRouteState)

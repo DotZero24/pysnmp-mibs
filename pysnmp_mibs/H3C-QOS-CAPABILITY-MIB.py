@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module H3C-QOS-CAPABILITY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-QOS-CAPABILITY-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:37 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-QOS-CAPABILITY-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:26 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 h3cSNMPAgCpb, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cSNMPAgCpb")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 h3cQosCapability = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 7, 1))
 h3cQosCapability.setRevisions(('2016-10-25 00:00', '2014-10-28 00:00',))
@@ -60,4 +60,4 @@ h3cQoSIfCapCharacteristicsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 7,
 if mibBuilder.loadTexts: h3cQoSIfCapCharacteristicsIndex.setStatus('current')
 h3cQoSIfCapCharacteristicsValue = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 7, 1, 1, 1, 3, 1, 4), Unsigned32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: h3cQoSIfCapCharacteristicsValue.setStatus('current')
-mibBuilder.exportSymbols("H3C-QOS-CAPABILITY-MIB", h3cQoSSysCapModuleIndex=h3cQoSSysCapModuleIndex, h3cQoSSysCapCharacteristicsIndex=h3cQoSSysCapCharacteristicsIndex, h3cQoSCharacteristicsValue=h3cQoSCharacteristicsValue, h3cQoSSysCapabilityEntry=h3cQoSSysCapabilityEntry, h3cQoSSysCapCharacteristicsValue=h3cQoSSysCapCharacteristicsValue, h3cQoSCapabilityTable=h3cQoSCapabilityTable, h3cQoSCapabilityEntry=h3cQoSCapabilityEntry, h3cQoSCharacteristicsIndex=h3cQoSCharacteristicsIndex, h3cQoSSysCapabilityTable=h3cQoSSysCapabilityTable, h3cQoSIfCapIfIndex=h3cQoSIfCapIfIndex, h3cQoSCapabilityPhysicalIndex=h3cQoSCapabilityPhysicalIndex, h3cQoSIfCapModuleIndex=h3cQoSIfCapModuleIndex, h3cQoSCapabilityGroup=h3cQoSCapabilityGroup, h3cQoSIfCapCharacteristicsIndex=h3cQoSIfCapCharacteristicsIndex, h3cQoSIfCapCharacteristicsValue=h3cQoSIfCapCharacteristicsValue, h3cQoSIfCapabilityEntry=h3cQoSIfCapabilityEntry, h3cQosCapability=h3cQosCapability, CapabilityPhysicalType=CapabilityPhysicalType, h3cQoSIfCapabilityTable=h3cQoSIfCapabilityTable, h3cQoSCapabilityMibObjects=h3cQoSCapabilityMibObjects, h3cQoSCapabilityPhysicalType=h3cQoSCapabilityPhysicalType, PYSNMP_MODULE_ID=h3cQosCapability, h3cQoSModuleIndex=h3cQoSModuleIndex)
+mibBuilder.exportSymbols("H3C-QOS-CAPABILITY-MIB", h3cQoSIfCapabilityTable=h3cQoSIfCapabilityTable, CapabilityPhysicalType=CapabilityPhysicalType, h3cQoSCapabilityTable=h3cQoSCapabilityTable, h3cQoSModuleIndex=h3cQoSModuleIndex, h3cQoSCharacteristicsIndex=h3cQoSCharacteristicsIndex, h3cQoSCharacteristicsValue=h3cQoSCharacteristicsValue, h3cQoSIfCapModuleIndex=h3cQoSIfCapModuleIndex, h3cQoSCapabilityPhysicalType=h3cQoSCapabilityPhysicalType, h3cQosCapability=h3cQosCapability, h3cQoSCapabilityGroup=h3cQoSCapabilityGroup, h3cQoSCapabilityEntry=h3cQoSCapabilityEntry, h3cQoSSysCapabilityTable=h3cQoSSysCapabilityTable, h3cQoSIfCapCharacteristicsValue=h3cQoSIfCapCharacteristicsValue, h3cQoSSysCapModuleIndex=h3cQoSSysCapModuleIndex, h3cQoSSysCapCharacteristicsValue=h3cQoSSysCapCharacteristicsValue, h3cQoSSysCapabilityEntry=h3cQoSSysCapabilityEntry, h3cQoSCapabilityPhysicalIndex=h3cQoSCapabilityPhysicalIndex, h3cQoSCapabilityMibObjects=h3cQoSCapabilityMibObjects, h3cQoSIfCapCharacteristicsIndex=h3cQoSIfCapCharacteristicsIndex, h3cQoSIfCapabilityEntry=h3cQoSIfCapabilityEntry, h3cQoSSysCapCharacteristicsIndex=h3cQoSSysCapCharacteristicsIndex, PYSNMP_MODULE_ID=h3cQosCapability, h3cQoSIfCapIfIndex=h3cQoSIfCapIfIndex)

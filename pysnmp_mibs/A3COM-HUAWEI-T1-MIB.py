@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module A3COM-HUAWEI-T1-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-T1-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:01 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-T1-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:33:24 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 h3cCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCommon")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 h3cT1 = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 29))
 h3cT1.setRevisions(('2009-06-08 17:41', '2004-12-01 14:36',))
@@ -78,4 +78,4 @@ h3ct1InterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 29, 3, 1)
 if mibBuilder.loadTexts: h3ct1InterfaceEntry.setStatus('current')
 h3ct1ControllerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 29, 3, 1, 1), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: h3ct1ControllerIndex.setStatus('current')
-mibBuilder.exportSymbols("A3COM-HUAWEI-T1-MIB", h3ct1DChannelIndex=h3ct1DChannelIndex, h3ct1SubScribLineChannelIndex=h3ct1SubScribLineChannelIndex, t1InterfaceInDribblesErrs=t1InterfaceInDribblesErrs, t1InterfaceInAbortedSeqErrs=t1InterfaceInAbortedSeqErrs, t1InterfaceOutputErrs=t1InterfaceOutputErrs, t1InterfaceInCrcErrs=t1InterfaceInCrcErrs, t1InterfaceInErrs=t1InterfaceInErrs, h3ct1Table=h3ct1Table, t1InterfaceStatusEntry=t1InterfaceStatusEntry, h3ct1InterfaceEntry=h3ct1InterfaceEntry, t1InterfaceInFramingErrs=t1InterfaceInFramingErrs, h3ct1Clock=h3ct1Clock, h3ct1LineCode=h3ct1LineCode, h3ct1FrameFormat=h3ct1FrameFormat, t1InterfaceInAlignErrs=t1InterfaceInAlignErrs, h3ct1ControllerIndex=h3ct1ControllerIndex, t1InterfaceOutDeferedErrs=t1InterfaceOutDeferedErrs, t1InterfaceInGiantsErrs=t1InterfaceInGiantsErrs, h3ct1Entry=h3ct1Entry, H3cT1TimeSlot=H3cT1TimeSlot, h3ct1PriSetTimeSlot=h3ct1PriSetTimeSlot, t1InterfaceOutCollisonsErrs=t1InterfaceOutCollisonsErrs, t1InterfaceInRuntsErrs=t1InterfaceInRuntsErrs, h3ct1InterfaceTable=h3ct1InterfaceTable, h3cT1=h3cT1, t1InterfaceOutUnderRunErrs=t1InterfaceOutUnderRunErrs, t1InterfaceInOverRunsErrs=t1InterfaceInOverRunsErrs, t1InterfaceInNoBufferErrs=t1InterfaceInNoBufferErrs, PYSNMP_MODULE_ID=h3cT1, h3ct1Type=h3ct1Type, t1InterfaceStatusTable=t1InterfaceStatusTable)
+mibBuilder.exportSymbols("A3COM-HUAWEI-T1-MIB", h3ct1FrameFormat=h3ct1FrameFormat, h3ct1SubScribLineChannelIndex=h3ct1SubScribLineChannelIndex, PYSNMP_MODULE_ID=h3cT1, h3ct1LineCode=h3ct1LineCode, t1InterfaceInErrs=t1InterfaceInErrs, t1InterfaceOutCollisonsErrs=t1InterfaceOutCollisonsErrs, t1InterfaceInGiantsErrs=t1InterfaceInGiantsErrs, t1InterfaceInOverRunsErrs=t1InterfaceInOverRunsErrs, h3ct1Table=h3ct1Table, h3ct1InterfaceEntry=h3ct1InterfaceEntry, h3ct1ControllerIndex=h3ct1ControllerIndex, t1InterfaceInNoBufferErrs=t1InterfaceInNoBufferErrs, H3cT1TimeSlot=H3cT1TimeSlot, t1InterfaceOutDeferedErrs=t1InterfaceOutDeferedErrs, h3cT1=h3cT1, h3ct1InterfaceTable=h3ct1InterfaceTable, t1InterfaceInCrcErrs=t1InterfaceInCrcErrs, t1InterfaceInFramingErrs=t1InterfaceInFramingErrs, t1InterfaceOutUnderRunErrs=t1InterfaceOutUnderRunErrs, t1InterfaceInRuntsErrs=t1InterfaceInRuntsErrs, t1InterfaceInAlignErrs=t1InterfaceInAlignErrs, t1InterfaceInDribblesErrs=t1InterfaceInDribblesErrs, t1InterfaceOutputErrs=t1InterfaceOutputErrs, h3ct1Type=h3ct1Type, t1InterfaceStatusEntry=t1InterfaceStatusEntry, h3ct1DChannelIndex=h3ct1DChannelIndex, t1InterfaceStatusTable=t1InterfaceStatusTable, h3ct1PriSetTimeSlot=h3ct1PriSetTimeSlot, h3ct1Entry=h3ct1Entry, t1InterfaceInAbortedSeqErrs=t1InterfaceInAbortedSeqErrs, h3ct1Clock=h3ct1Clock)

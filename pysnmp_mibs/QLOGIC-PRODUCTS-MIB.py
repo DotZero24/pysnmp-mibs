@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module QLOGIC-PRODUCTS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/marvell/QLOGIC-PRODUCTS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:15 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/marvell/QLOGIC-PRODUCTS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:11:18 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-qlogicProducts, qlogicModules = mibBuilder.importSymbols("QLOGIC-SMI", "qlogicProducts", "qlogicModules")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+qlogicModules, qlogicProducts = mibBuilder.importSymbols("QLOGIC-SMI", "qlogicModules", "qlogicProducts")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 qlogicProductsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3873, 2, 1))
 qlogicProductsMIB.setRevisions(('2013-03-29 00:00', '2009-09-29 00:00', '2009-03-03 00:00', '2009-02-17 00:00', '2006-10-11 00:00', '2006-10-06 00:00', '2005-08-23 00:00',))
 if mibBuilder.loadTexts: qlogicProductsMIB.setLastUpdated('201303290000Z')
@@ -75,4 +75,4 @@ reserved40 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 40))
 reserved41 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 41))
 reserved42 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 42))
 reserved43 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 43))
-mibBuilder.exportSymbols("QLOGIC-PRODUCTS-MIB", reserved21=reserved21, sanBox5802=sanBox5802, PYSNMP_MODULE_ID=qlogicProductsMIB, reserved33=reserved33, reserved16=reserved16, sns2120=sns2120, iSR6200=iSR6200, mpx100=mpx100, hpStorageWorksSN6000DualFcSwitch=hpStorageWorksSN6000DualFcSwitch, hpStorageWorksSN6000SingleFcSwitch=hpStorageWorksSN6000SingleFcSwitch, evaISCSI=evaISCSI, reserved30=reserved30, reserved31=reserved31, mez50=mez50, reserved32=reserved32, reserved29=reserved29, reserved37=reserved37, reserved15=reserved15, reserved39=reserved39, reserved41=reserved41, hpStorageWorks820FcSwitch=hpStorageWorks820FcSwitch, iSR6140=iSR6140, mpx200=mpx200, reserved42=reserved42, reserved22=reserved22, reserved35=reserved35, sanBox5800=sanBox5800, reserved8=reserved8, reserved3=reserved3, reserved36=reserved36, reserved38=reserved38, mpx110=mpx110, sanBox3810=sanBox3810, reserved26=reserved26, iSR6142=iSR6142, reserved23=reserved23, reserved27=reserved27, reserved12=reserved12, sanBox6140=sanBox6140, reserved40=reserved40, reserved13=reserved13, reserved43=reserved43, reserved28=reserved28, reserved10=reserved10, qlogicProductsMIB=qlogicProductsMIB)
+mibBuilder.exportSymbols("QLOGIC-PRODUCTS-MIB", sanBox5800=sanBox5800, iSR6140=iSR6140, iSR6200=iSR6200, hpStorageWorksSN6000SingleFcSwitch=hpStorageWorksSN6000SingleFcSwitch, PYSNMP_MODULE_ID=qlogicProductsMIB, reserved8=reserved8, reserved36=reserved36, reserved21=reserved21, reserved39=reserved39, mez50=mez50, sns2120=sns2120, reserved13=reserved13, reserved30=reserved30, reserved28=reserved28, reserved37=reserved37, sanBox6140=sanBox6140, reserved29=reserved29, hpStorageWorksSN6000DualFcSwitch=hpStorageWorksSN6000DualFcSwitch, mpx110=mpx110, reserved38=reserved38, reserved31=reserved31, reserved12=reserved12, qlogicProductsMIB=qlogicProductsMIB, reserved22=reserved22, reserved42=reserved42, reserved15=reserved15, reserved16=reserved16, reserved43=reserved43, reserved33=reserved33, mpx100=mpx100, sanBox5802=sanBox5802, reserved41=reserved41, reserved26=reserved26, mpx200=mpx200, reserved32=reserved32, reserved23=reserved23, reserved40=reserved40, reserved3=reserved3, reserved35=reserved35, sanBox3810=sanBox3810, hpStorageWorks820FcSwitch=hpStorageWorks820FcSwitch, iSR6142=iSR6142, reserved27=reserved27, evaISCSI=evaISCSI, reserved10=reserved10)

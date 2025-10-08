@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CT-DAWANCONN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/CT-DAWANCONN-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:47 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cabletron/CT-DAWANCONN-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:13:33 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TimeStamp", "DisplayString")
 ctSSA = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4497))
 daWanConnection = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4497, 17))
 class DisplayString(OctetString):
@@ -59,4 +59,4 @@ daWanConnectionDisconnectCause = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 17,
 if mibBuilder.loadTexts: daWanConnectionDisconnectCause.setStatus('mandatory')
 daWanConnectionDisconnectText = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 17, 2, 1, 18), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: daWanConnectionDisconnectText.setStatus('mandatory')
-mibBuilder.exportSymbols("CT-DAWANCONN-MIB", daWanConnectionState=daWanConnectionState, daWanConnectionTable=daWanConnectionTable, daWanConnectionConnectType=daWanConnectionConnectType, ctSSA=ctSSA, daWanConnectionConnectTime=daWanConnectionConnectTime, daWanConnectionDisconnectCause=daWanConnectionDisconnectCause, daWanConnectionDisconnectDirection=daWanConnectionDisconnectDirection, daWanConnectionDisconnectText=daWanConnectionDisconnectText, daWanConnectionInfoType=daWanConnectionInfoType, daWanConnectionPeerAddress=daWanConnectionPeerAddress, daWanConnectionDeviceIndex=daWanConnectionDeviceIndex, daWanConnectionConnectSpeed=daWanConnectionConnectSpeed, daWanConnectionChargedUnits=daWanConnectionChargedUnits, daWanConnectionIndex=daWanConnectionIndex, daWanConnectionConnectDirection=daWanConnectionConnectDirection, daWanConnectionSubAddress=daWanConnectionSubAddress, daWanConnection=daWanConnection, daWanConnectionIfIndex=daWanConnectionIfIndex, daWanNumConnections=daWanNumConnections, daWanConnectionConnectControl=daWanConnectionConnectControl, daWanConnectionEntry=daWanConnectionEntry, daWanConnectionDisconnectTime=daWanConnectionDisconnectTime, DisplayString=DisplayString, daWanConnectionLocalAddress=daWanConnectionLocalAddress)
+mibBuilder.exportSymbols("CT-DAWANCONN-MIB", daWanConnectionConnectDirection=daWanConnectionConnectDirection, daWanConnectionConnectControl=daWanConnectionConnectControl, DisplayString=DisplayString, daWanConnectionIndex=daWanConnectionIndex, daWanConnectionPeerAddress=daWanConnectionPeerAddress, ctSSA=ctSSA, daWanConnectionEntry=daWanConnectionEntry, daWanConnectionLocalAddress=daWanConnectionLocalAddress, daWanConnectionTable=daWanConnectionTable, daWanConnectionConnectTime=daWanConnectionConnectTime, daWanConnectionState=daWanConnectionState, daWanConnectionDisconnectCause=daWanConnectionDisconnectCause, daWanNumConnections=daWanNumConnections, daWanConnectionDisconnectDirection=daWanConnectionDisconnectDirection, daWanConnectionInfoType=daWanConnectionInfoType, daWanConnectionConnectSpeed=daWanConnectionConnectSpeed, daWanConnectionDeviceIndex=daWanConnectionDeviceIndex, daWanConnection=daWanConnection, daWanConnectionDisconnectTime=daWanConnectionDisconnectTime, daWanConnectionSubAddress=daWanConnectionSubAddress, daWanConnectionConnectType=daWanConnectionConnectType, daWanConnectionChargedUnits=daWanConnectionChargedUnits, daWanConnectionDisconnectText=daWanConnectionDisconnectText, daWanConnectionIfIndex=daWanConnectionIfIndex)

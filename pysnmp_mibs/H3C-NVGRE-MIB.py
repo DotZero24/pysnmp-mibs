@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module H3C-NVGRE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-NVGRE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:20 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-NVGRE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:02 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
+MacAddress, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "RowStatus", "TextualConvention", "DisplayString")
 h3cNvgre = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156))
 h3cNvgre.setRevisions(('2014-03-11 09:00',))
 if mibBuilder.loadTexts: h3cNvgre.setLastUpdated('201403110900Z')
@@ -72,4 +72,4 @@ h3cNvgreStaticMacTunnelID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 
 if mibBuilder.loadTexts: h3cNvgreStaticMacTunnelID.setStatus('current')
 h3cNvgreStaticMacRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 6, 1, 3), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: h3cNvgreStaticMacRowStatus.setStatus('current')
-mibBuilder.exportSymbols("H3C-NVGRE-MIB", h3cNvgreMacEntry=h3cNvgreMacEntry, h3cNvgreStaticMacEntry=h3cNvgreStaticMacEntry, h3cNvgreTunnelBoundTable=h3cNvgreTunnelBoundTable, h3cNvgreNextNvgreID=h3cNvgreNextNvgreID, h3cNvgreTunnelOctets=h3cNvgreTunnelOctets, PYSNMP_MODULE_ID=h3cNvgre, h3cNvgreTunnelID=h3cNvgreTunnelID, h3cNvgreStaticMacAddr=h3cNvgreStaticMacAddr, h3cNvgreStaticMacRowStatus=h3cNvgreStaticMacRowStatus, h3cNvgreMacTable=h3cNvgreMacTable, h3cNvgreRowStatus=h3cNvgreRowStatus, h3cNvgreMacType=h3cNvgreMacType, h3cNvgreMacAddr=h3cNvgreMacAddr, h3cNvgreObjects=h3cNvgreObjects, h3cNvgreTunnelBoundNvgreNum=h3cNvgreTunnelBoundNvgreNum, h3cNvgreVsiIndex=h3cNvgreVsiIndex, h3cNvgreTunnelTable=h3cNvgreTunnelTable, h3cNvgreStaticMacTable=h3cNvgreStaticMacTable, h3cNvgreTunnelRowStatus=h3cNvgreTunnelRowStatus, h3cNvgreConfigured=h3cNvgreConfigured, h3cNvgreScalarGroup=h3cNvgreScalarGroup, h3cNvgreStaticMacTunnelID=h3cNvgreStaticMacTunnelID, h3cNvgre=h3cNvgre, h3cNvgreTable=h3cNvgreTable, h3cNvgreTunnelEntry=h3cNvgreTunnelEntry, h3cNvgreTunnelPackets=h3cNvgreTunnelPackets, h3cNvgreMacTunnelID=h3cNvgreMacTunnelID, h3cNvgreRemoteMacCount=h3cNvgreRemoteMacCount, h3cNvgreID=h3cNvgreID, h3cNvgreEntry=h3cNvgreEntry, h3cNvgreTunnelBoundEntry=h3cNvgreTunnelBoundEntry)
+mibBuilder.exportSymbols("H3C-NVGRE-MIB", h3cNvgreTunnelEntry=h3cNvgreTunnelEntry, h3cNvgreStaticMacEntry=h3cNvgreStaticMacEntry, h3cNvgreMacType=h3cNvgreMacType, PYSNMP_MODULE_ID=h3cNvgre, h3cNvgreConfigured=h3cNvgreConfigured, h3cNvgreTunnelBoundNvgreNum=h3cNvgreTunnelBoundNvgreNum, h3cNvgreTunnelRowStatus=h3cNvgreTunnelRowStatus, h3cNvgreTunnelOctets=h3cNvgreTunnelOctets, h3cNvgre=h3cNvgre, h3cNvgreMacTunnelID=h3cNvgreMacTunnelID, h3cNvgreTunnelTable=h3cNvgreTunnelTable, h3cNvgreTunnelID=h3cNvgreTunnelID, h3cNvgreMacTable=h3cNvgreMacTable, h3cNvgreNextNvgreID=h3cNvgreNextNvgreID, h3cNvgreVsiIndex=h3cNvgreVsiIndex, h3cNvgreTunnelBoundTable=h3cNvgreTunnelBoundTable, h3cNvgreStaticMacRowStatus=h3cNvgreStaticMacRowStatus, h3cNvgreStaticMacTunnelID=h3cNvgreStaticMacTunnelID, h3cNvgreObjects=h3cNvgreObjects, h3cNvgreRowStatus=h3cNvgreRowStatus, h3cNvgreScalarGroup=h3cNvgreScalarGroup, h3cNvgreEntry=h3cNvgreEntry, h3cNvgreMacEntry=h3cNvgreMacEntry, h3cNvgreStaticMacTable=h3cNvgreStaticMacTable, h3cNvgreRemoteMacCount=h3cNvgreRemoteMacCount, h3cNvgreStaticMacAddr=h3cNvgreStaticMacAddr, h3cNvgreID=h3cNvgreID, h3cNvgreTunnelPackets=h3cNvgreTunnelPackets, h3cNvgreTable=h3cNvgreTable, h3cNvgreTunnelBoundEntry=h3cNvgreTunnelBoundEntry, h3cNvgreMacAddr=h3cNvgreMacAddr)

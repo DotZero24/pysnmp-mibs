@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ZXR10-VSWITCH-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZXR10-VSWITCH-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:43 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zte/ZXR10-VSWITCH-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:10:19 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 EntryStatus, = mibBuilder.importSymbols("RMON-MIB", "EntryStatus")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 zte = MibIdentifier((1, 3, 6, 1, 4, 1, 3902))
 zxr10 = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 3))
 zxr10protocol = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 3, 101))
@@ -73,4 +73,4 @@ zxr10vswitchVlanDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 
 if mibBuilder.loadTexts: zxr10vswitchVlanDesc.setStatus('current')
 zxr10vswitchVlanTableLastchange = MibScalar((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 4), TimeTicks()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: zxr10vswitchVlanTableLastchange.setStatus('current')
-mibBuilder.exportSymbols("ZXR10-VSWITCH-MIB", zte=zte, zxr10vswitchIfTransType=zxr10vswitchIfTransType, zxr10protocol=zxr10protocol, zxr10vswitchVlandDirection=zxr10vswitchVlandDirection, zxr10vswitchIfDesc=zxr10vswitchIfDesc, zxr10vswitchVlanVlanidRange=zxr10vswitchVlanVlanidRange, zxr10vswitchVlanDesc=zxr10vswitchVlanDesc, zxr10vswitchVlanEgressIfIndex=zxr10vswitchVlanEgressIfIndex, zxr10vswitchIfEntry=zxr10vswitchIfEntry, zxr10vswitch=zxr10vswitch, zxr10vswitchIfTableLastchange=zxr10vswitchIfTableLastchange, VsiwtchVlanDirection=VsiwtchVlanDirection, VsiwtchTransMode=VsiwtchTransMode, zxr10vswitchVlanIngressExtVlanid=zxr10vswitchVlanIngressExtVlanid, zxr10vswitchVlanTable=zxr10vswitchVlanTable, zxr10vsiwtchIfIndex=zxr10vsiwtchIfIndex, zxr10vswitchIfAddr=zxr10vswitchIfAddr, zxr10vswitchVlanEgressIntVlanid=zxr10vswitchVlanEgressIntVlanid, zxr10vswitchVlanRowStatus=zxr10vswitchVlanRowStatus, zxr10vswitchIfType=zxr10vswitchIfType, zxr10vsiwtchVlanEntry=zxr10vsiwtchVlanEntry, zxr10=zxr10, PYSNMP_MODULE_ID=zxr10vswitch, zxr10vswitchIfStatus=zxr10vswitchIfStatus, zxr10vswitchIfTable=zxr10vswitchIfTable, zxr10vswitchVlanEgressExtVlanid=zxr10vswitchVlanEgressExtVlanid, zxr10vswitchVlanIngressIfIndex=zxr10vswitchVlanIngressIfIndex, zxr10vswitchVlanIngressIntVlanid=zxr10vswitchVlanIngressIntVlanid, zxr10vswitchVlanTableLastchange=zxr10vswitchVlanTableLastchange, DisplayString=DisplayString)
+mibBuilder.exportSymbols("ZXR10-VSWITCH-MIB", zxr10vswitchVlanIngressIntVlanid=zxr10vswitchVlanIngressIntVlanid, zxr10vswitchIfTableLastchange=zxr10vswitchIfTableLastchange, DisplayString=DisplayString, zxr10vswitchVlanEgressExtVlanid=zxr10vswitchVlanEgressExtVlanid, PYSNMP_MODULE_ID=zxr10vswitch, zxr10vswitchVlanIngressIfIndex=zxr10vswitchVlanIngressIfIndex, zxr10vsiwtchIfIndex=zxr10vsiwtchIfIndex, zxr10protocol=zxr10protocol, zxr10vswitchIfAddr=zxr10vswitchIfAddr, zxr10vswitchIfDesc=zxr10vswitchIfDesc, zxr10vswitchVlanIngressExtVlanid=zxr10vswitchVlanIngressExtVlanid, zxr10vswitchIfEntry=zxr10vswitchIfEntry, zxr10vswitchIfTable=zxr10vswitchIfTable, VsiwtchVlanDirection=VsiwtchVlanDirection, zxr10=zxr10, zxr10vswitchVlandDirection=zxr10vswitchVlandDirection, zxr10vswitchIfStatus=zxr10vswitchIfStatus, zxr10vswitchVlanTableLastchange=zxr10vswitchVlanTableLastchange, zxr10vswitch=zxr10vswitch, zte=zte, zxr10vswitchVlanEgressIfIndex=zxr10vswitchVlanEgressIfIndex, zxr10vswitchIfType=zxr10vswitchIfType, zxr10vswitchVlanRowStatus=zxr10vswitchVlanRowStatus, zxr10vswitchIfTransType=zxr10vswitchIfTransType, zxr10vswitchVlanDesc=zxr10vswitchVlanDesc, zxr10vswitchVlanVlanidRange=zxr10vswitchVlanVlanidRange, VsiwtchTransMode=VsiwtchTransMode, zxr10vsiwtchVlanEntry=zxr10vsiwtchVlanEntry, zxr10vswitchVlanTable=zxr10vswitchVlanTable, zxr10vswitchVlanEgressIntVlanid=zxr10vswitchVlanEgressIntVlanid)

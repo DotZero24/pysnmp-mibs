@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module EXTREME-CFM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/extreme/EXTREME-CFM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:48 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/extreme/EXTREME-CFM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:01:48 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 extremeAgent, = mibBuilder.importSymbols("EXTREME-BASE-MIB", "extremeAgent")
-Dot1afCfmIndexIntegerNextFree, dot1agCfmMdIndex, Dot1agCfmMepId, dot1agCfmMaIndex, dot1agCfmMepIdentifier = mibBuilder.importSymbols("IEEE8021-CFM-MIB", "Dot1afCfmIndexIntegerNextFree", "dot1agCfmMdIndex", "Dot1agCfmMepId", "dot1agCfmMaIndex", "dot1agCfmMepIdentifier")
+Dot1agCfmMepId, Dot1afCfmIndexIntegerNextFree, dot1agCfmMaIndex, dot1agCfmMepIdentifier, dot1agCfmMdIndex = mibBuilder.importSymbols("IEEE8021-CFM-MIB", "Dot1agCfmMepId", "Dot1afCfmIndexIntegerNextFree", "dot1agCfmMaIndex", "dot1agCfmMepIdentifier", "dot1agCfmMdIndex")
 InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
 extremeCfm = ModuleIdentity((1, 3, 6, 1, 4, 1, 1916, 1, 47))
 extremeCfm.setRevisions(('2015-05-18 00:00',))
 if mibBuilder.loadTexts: extremeCfm.setLastUpdated('201505180000Z')
@@ -76,4 +76,4 @@ extremeCfmCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 1916, 1, 47, 2, 1, 1)
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     extremeCfmCompliance = extremeCfmCompliance.setStatus('current')
-mibBuilder.exportSymbols("EXTREME-CFM-MIB", extremeCfmGroupIndex=extremeCfmGroupIndex, extremeCfmMibGroups=extremeCfmMibGroups, extremeCfmNotifications=extremeCfmNotifications, extremeCfmGroupNextIndexEntry=extremeCfmGroupNextIndexEntry, extremeCfmGroupStatusDownUpAlarm=extremeCfmGroupStatusDownUpAlarm, ExtremeCfmGroupOperStatus=ExtremeCfmGroupOperStatus, extremeCfmCompliance=extremeCfmCompliance, extremeCfmGroupMepDbTable=extremeCfmGroupMepDbTable, PYSNMP_MODULE_ID=extremeCfm, extremeCfmGroupTable=extremeCfmGroupTable, extremeCfmGroupClients=extremeCfmGroupClients, extremeCfmGroupRowStatus=extremeCfmGroupRowStatus, extremeCfmGroup=extremeCfmGroup, extremeCfmGroupMepDbRMepId=extremeCfmGroupMepDbRMepId, extremeCfmMepDbGroup=extremeCfmMepDbGroup, extremeCfmMepIfIndex=extremeCfmMepIfIndex, extremeCfmGroupMepDbRowStatus=extremeCfmGroupMepDbRowStatus, extremeCfmGroupMepDbEntry=extremeCfmGroupMepDbEntry, extremeCfmGroupNextIndex=extremeCfmGroupNextIndex, extremeCfm=extremeCfm, extremeCfmMibObjects=extremeCfmMibObjects, extremeCfmGroupEntry=extremeCfmGroupEntry, extremeCfmGroupRemoteMEPs=extremeCfmGroupRemoteMEPs, extremeCfmMepGroup=extremeCfmMepGroup, extremeCfmGroupStatus=extremeCfmGroupStatus, extremeCfmMibConformance=extremeCfmMibConformance, extremeCfmGroupName=extremeCfmGroupName, extremeCfmMibCompliances=extremeCfmMibCompliances, extremeCfmGroupNextIndexTable=extremeCfmGroupNextIndexTable, extremeCfmNotificationsGroup=extremeCfmNotificationsGroup)
+mibBuilder.exportSymbols("EXTREME-CFM-MIB", extremeCfmGroupStatus=extremeCfmGroupStatus, extremeCfm=extremeCfm, extremeCfmGroupRemoteMEPs=extremeCfmGroupRemoteMEPs, extremeCfmGroupMepDbRMepId=extremeCfmGroupMepDbRMepId, extremeCfmGroupTable=extremeCfmGroupTable, extremeCfmMibCompliances=extremeCfmMibCompliances, extremeCfmGroupStatusDownUpAlarm=extremeCfmGroupStatusDownUpAlarm, extremeCfmMepGroup=extremeCfmMepGroup, extremeCfmMibObjects=extremeCfmMibObjects, PYSNMP_MODULE_ID=extremeCfm, extremeCfmGroupNextIndexEntry=extremeCfmGroupNextIndexEntry, extremeCfmGroupClients=extremeCfmGroupClients, extremeCfmNotifications=extremeCfmNotifications, extremeCfmGroupNextIndexTable=extremeCfmGroupNextIndexTable, extremeCfmGroupMepDbTable=extremeCfmGroupMepDbTable, extremeCfmGroupEntry=extremeCfmGroupEntry, extremeCfmCompliance=extremeCfmCompliance, ExtremeCfmGroupOperStatus=ExtremeCfmGroupOperStatus, extremeCfmGroupName=extremeCfmGroupName, extremeCfmMepDbGroup=extremeCfmMepDbGroup, extremeCfmGroupNextIndex=extremeCfmGroupNextIndex, extremeCfmNotificationsGroup=extremeCfmNotificationsGroup, extremeCfmMibGroups=extremeCfmMibGroups, extremeCfmGroupRowStatus=extremeCfmGroupRowStatus, extremeCfmGroupIndex=extremeCfmGroupIndex, extremeCfmMibConformance=extremeCfmMibConformance, extremeCfmGroupMepDbRowStatus=extremeCfmGroupMepDbRowStatus, extremeCfmGroupMepDbEntry=extremeCfmGroupMepDbEntry, extremeCfmGroup=extremeCfmGroup, extremeCfmMepIfIndex=extremeCfmMepIfIndex)

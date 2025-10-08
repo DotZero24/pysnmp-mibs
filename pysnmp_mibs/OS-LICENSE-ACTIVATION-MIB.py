@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module OS-LICENSE-ACTIVATION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mrv/OS-LICENSE-ACTIVATION-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:38 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mrv/OS-LICENSE-ACTIVATION-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:16:43 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 oaOptiSwitch, = mibBuilder.importSymbols("OS-COMMON-TC-MIB", "oaOptiSwitch")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 osLicenseActivation = ModuleIdentity((1, 3, 6, 1, 4, 1, 6926, 2, 27))
 osLicenseActivation.setRevisions(('2014-02-04 00:00',))
@@ -59,4 +59,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 osLicenseActivationMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6926, 2, 27, 100, 2, 1)).setObjects(("OS-LICENSE-ACTIVATION-MIB", "osRoutingProtocolsActivationLicense"), ("OS-LICENSE-ACTIVATION-MIB", "osRoutingProtocolsActivationSatus"), ("OS-LICENSE-ACTIVATION-MIB", "osMplsActivationLicense"), ("OS-LICENSE-ACTIVATION-MIB", "osMplsActivationSatus"), ("OS-LICENSE-ACTIVATION-MIB", "osActvFeatMgmtStatus"), ("OS-LICENSE-ACTIVATION-MIB", "osActvFeatMgmtParam"), ("OS-LICENSE-ACTIVATION-MIB", "osActvFeatMgmtKey"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     osLicenseActivationMIBGroup = osLicenseActivationMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("OS-LICENSE-ACTIVATION-MIB", osActvFeatMgmtParam=osActvFeatMgmtParam, osActvFeatMgmtId=osActvFeatMgmtId, OsActivationLicense=OsActivationLicense, osActvFeatMgmtKey=osActvFeatMgmtKey, osRoutingProtocolsActivationLicense=osRoutingProtocolsActivationLicense, osMplsActivationSatus=osMplsActivationSatus, osMplsActivation=osMplsActivation, OsActivationStatus=OsActivationStatus, PYSNMP_MODULE_ID=osLicenseActivation, osLicenseActivation=osLicenseActivation, osLicenseActivationConformance=osLicenseActivationConformance, osActvFeatMgmtEntry=osActvFeatMgmtEntry, osLicenseActivationMIBCompliance=osLicenseActivationMIBCompliance, osLicenseActivationMIBGroups=osLicenseActivationMIBGroups, osActvFeatMgmtStatus=osActvFeatMgmtStatus, osLicenseActivationMIBGroup=osLicenseActivationMIBGroup, osRoutingProtocolsActivationSatus=osRoutingProtocolsActivationSatus, osLicenseActivationMIBCompliances=osLicenseActivationMIBCompliances, osMplsActivationLicense=osMplsActivationLicense, osRoutingProtocolsActivation=osRoutingProtocolsActivation, osActvFeatMgmtTable=osActvFeatMgmtTable)
+mibBuilder.exportSymbols("OS-LICENSE-ACTIVATION-MIB", osActvFeatMgmtEntry=osActvFeatMgmtEntry, osActvFeatMgmtKey=osActvFeatMgmtKey, osMplsActivationSatus=osMplsActivationSatus, osLicenseActivationMIBCompliances=osLicenseActivationMIBCompliances, osActvFeatMgmtParam=osActvFeatMgmtParam, osRoutingProtocolsActivationLicense=osRoutingProtocolsActivationLicense, PYSNMP_MODULE_ID=osLicenseActivation, osMplsActivation=osMplsActivation, osLicenseActivationMIBGroups=osLicenseActivationMIBGroups, OsActivationStatus=OsActivationStatus, osLicenseActivationMIBCompliance=osLicenseActivationMIBCompliance, osActvFeatMgmtId=osActvFeatMgmtId, osLicenseActivationMIBGroup=osLicenseActivationMIBGroup, osMplsActivationLicense=osMplsActivationLicense, osLicenseActivation=osLicenseActivation, osLicenseActivationConformance=osLicenseActivationConformance, osActvFeatMgmtTable=osActvFeatMgmtTable, osRoutingProtocolsActivation=osRoutingProtocolsActivation, osActvFeatMgmtStatus=osActvFeatMgmtStatus, OsActivationLicense=OsActivationLicense, osRoutingProtocolsActivationSatus=osRoutingProtocolsActivationSatus)

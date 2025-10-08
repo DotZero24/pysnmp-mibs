@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module QTECH-NMS-TC (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-NMS-TC
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:22 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/qtech/QTECH-NMS-TC
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:14:23 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 nmsModules, = mibBuilder.importSymbols("QTECH-NMS-SMI", "nmsModules")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 nmsTextualConventions = ModuleIdentity((1, 3, 6, 1, 4, 1, 34751, 12, 1))
 nmsTextualConventions.setRevisions(('2003-10-16 00:00',))
@@ -128,4 +128,4 @@ class NMSMilliSeconds(TextualConvention, Unsigned32):
 class MicroSeconds(TextualConvention, Unsigned32):
     status = 'current'
 
-mibBuilder.exportSymbols("QTECH-NMS-TC", NMSPort=NMSPort, MicroSeconds=MicroSeconds, NMSAlarmSeverity=NMSAlarmSeverity, CountryCode=CountryCode, SAPType=SAPType, NMSAbsZeroBasedCounter32=NMSAbsZeroBasedCounter32, NMSNetworkProtocol=NMSNetworkProtocol, NMSLocationClass=NMSLocationClass, TimeIntervalMin=TimeIntervalMin, NMSIpProtocol=NMSIpProtocol, InterfaceIndexOrZero=InterfaceIndexOrZero, NMSRowOperStatus=NMSRowOperStatus, ListIndex=ListIndex, CountryCodeITU=CountryCodeITU, NMSMilliSeconds=NMSMilliSeconds, ConfigIterator=ConfigIterator, nmsTextualConventions=nmsTextualConventions, Unsigned64=Unsigned64, BulkConfigResult=BulkConfigResult, ListIndexOrZero=ListIndexOrZero, PYSNMP_MODULE_ID=nmsTextualConventions, EntPhysicalIndexOrZero=EntPhysicalIndexOrZero, NMSNetworkAddress=NMSNetworkAddress, NMSSnapShotAbsCounter32=NMSSnapShotAbsCounter32, NMSLocationSpecifier=NMSLocationSpecifier, TimeIntervalSec=TimeIntervalSec, PerfHighIntervalCount=PerfHighIntervalCount, NMSInetAddressMask=NMSInetAddressMask)
+mibBuilder.exportSymbols("QTECH-NMS-TC", PYSNMP_MODULE_ID=nmsTextualConventions, NMSPort=NMSPort, NMSMilliSeconds=NMSMilliSeconds, NMSLocationClass=NMSLocationClass, NMSIpProtocol=NMSIpProtocol, ListIndexOrZero=ListIndexOrZero, NMSSnapShotAbsCounter32=NMSSnapShotAbsCounter32, PerfHighIntervalCount=PerfHighIntervalCount, NMSAlarmSeverity=NMSAlarmSeverity, ListIndex=ListIndex, NMSAbsZeroBasedCounter32=NMSAbsZeroBasedCounter32, TimeIntervalMin=TimeIntervalMin, NMSNetworkAddress=NMSNetworkAddress, EntPhysicalIndexOrZero=EntPhysicalIndexOrZero, NMSLocationSpecifier=NMSLocationSpecifier, nmsTextualConventions=nmsTextualConventions, SAPType=SAPType, ConfigIterator=ConfigIterator, BulkConfigResult=BulkConfigResult, NMSInetAddressMask=NMSInetAddressMask, Unsigned64=Unsigned64, TimeIntervalSec=TimeIntervalSec, NMSNetworkProtocol=NMSNetworkProtocol, MicroSeconds=MicroSeconds, InterfaceIndexOrZero=InterfaceIndexOrZero, CountryCode=CountryCode, NMSRowOperStatus=NMSRowOperStatus, CountryCodeITU=CountryCodeITU)

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BIANCA-BRICK-UPNP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/bintec/BIANCA-BRICK-UPNP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:20 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/bintec/BIANCA-BRICK-UPNP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:58:44 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 DisplayString, = mibBuilder.importSymbols("RFC1158-MIB", "DisplayString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 bintec = MibIdentifier((1, 3, 6, 1, 4, 1, 272))
 bibo = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4))
 biboip = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4, 5))
@@ -55,4 +55,4 @@ upnpIfClientRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 5, 45, 30, 10, 
 if mibBuilder.loadTexts: upnpIfClientRequests.setStatus('mandatory')
 upnpIfUPnPControlled = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 5, 45, 30, 10, 30), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(10, 20))).clone(namedValues=NamedValues(("enabled", 10), ("disabled", 20))).clone('disabled')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: upnpIfUPnPControlled.setStatus('mandatory')
-mibBuilder.exportSymbols("BIANCA-BRICK-UPNP-MIB", upnpIfTable=upnpIfTable, upnpGlobals=upnpGlobals, upnpIfClientRequests=upnpIfClientRequests, ipNatUPnPIntAddr=ipNatUPnPIntAddr, upnpGlobTcpPort=upnpGlobTcpPort, ipNatUPnPExtPort=ipNatUPnPExtPort, ipNatUPnPIfIndex=ipNatUPnPIfIndex, ipNatUPnPEntry=ipNatUPnPEntry, upnpIfIndex=upnpIfIndex, ipNatUPnPRemoteAddr=ipNatUPnPRemoteAddr, ipNatUPnPLeaseDuration=ipNatUPnPLeaseDuration, biboip=biboip, ipNatUPnPStatus=ipNatUPnPStatus, upnpIfEntry=upnpIfEntry, ipNatUPnPIntPort=ipNatUPnPIntPort, upnp=upnp, upnpIfUPnPControlled=upnpIfUPnPControlled, bintec=bintec, ipNatUPnPTable=ipNatUPnPTable, ipNatUPnPDescription=ipNatUPnPDescription, upnpGlobSsdpTtl=upnpGlobSsdpTtl, bibo=bibo, ipNatUPnPProtocol=ipNatUPnPProtocol, upnpGlobStatus=upnpGlobStatus)
+mibBuilder.exportSymbols("BIANCA-BRICK-UPNP-MIB", ipNatUPnPDescription=ipNatUPnPDescription, ipNatUPnPLeaseDuration=ipNatUPnPLeaseDuration, ipNatUPnPIfIndex=ipNatUPnPIfIndex, ipNatUPnPExtPort=ipNatUPnPExtPort, ipNatUPnPProtocol=ipNatUPnPProtocol, upnpIfIndex=upnpIfIndex, ipNatUPnPStatus=ipNatUPnPStatus, ipNatUPnPIntAddr=ipNatUPnPIntAddr, ipNatUPnPIntPort=ipNatUPnPIntPort, ipNatUPnPEntry=ipNatUPnPEntry, bibo=bibo, upnpGlobStatus=upnpGlobStatus, bintec=bintec, upnpGlobTcpPort=upnpGlobTcpPort, upnpIfClientRequests=upnpIfClientRequests, ipNatUPnPTable=ipNatUPnPTable, upnpGlobals=upnpGlobals, upnpIfEntry=upnpIfEntry, ipNatUPnPRemoteAddr=ipNatUPnPRemoteAddr, upnpIfUPnPControlled=upnpIfUPnPControlled, upnpGlobSsdpTtl=upnpGlobSsdpTtl, upnpIfTable=upnpIfTable, upnp=upnp, biboip=biboip)

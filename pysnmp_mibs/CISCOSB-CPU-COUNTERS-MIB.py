@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CISCOSB-CPU-COUNTERS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciscosb/CISCOSB-CPU-COUNTERS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:31:49 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ciscosb/CISCOSB-CPU-COUNTERS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:55:55 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 switch001, = mibBuilder.importSymbols("CISCOSB-MIB", "switch001")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 rlCpuCounters = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 124))
 rlCpuCounters.setRevisions(('2007-05-15 00:00',))
 if mibBuilder.loadTexts: rlCpuCounters.setLastUpdated('2007010600Z')
@@ -42,4 +42,4 @@ rlCpuCountersReset = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 124, 2), TruthVa
 if mibBuilder.loadTexts: rlCpuCountersReset.setStatus('current')
 rlCpuCountersEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 124, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: rlCpuCountersEnabled.setStatus('current')
-mibBuilder.exportSymbols("CISCOSB-CPU-COUNTERS-MIB", PYSNMP_MODULE_ID=rlCpuCounters, rlCpuCountersTxUC=rlCpuCountersTxUC, rlCpuCountersRxOctets=rlCpuCountersRxOctets, rlCpuCounters=rlCpuCounters, rlCpuCountersRxUC=rlCpuCountersRxUC, rlCpuCountersTable=rlCpuCountersTable, rlCpuCountersTxMC=rlCpuCountersTxMC, rlCpuCountersEnabled=rlCpuCountersEnabled, rlCpuCountersRxMC=rlCpuCountersRxMC, rlCpuCountersRxBC=rlCpuCountersRxBC, rlCpuCountersReset=rlCpuCountersReset, rlCpuCountersEntry=rlCpuCountersEntry, rlCpuCountersTxBC=rlCpuCountersTxBC, rlCpuCountersTxOctets=rlCpuCountersTxOctets, rlCpuCountersTarget=rlCpuCountersTarget)
+mibBuilder.exportSymbols("CISCOSB-CPU-COUNTERS-MIB", rlCpuCounters=rlCpuCounters, rlCpuCountersRxUC=rlCpuCountersRxUC, rlCpuCountersEntry=rlCpuCountersEntry, PYSNMP_MODULE_ID=rlCpuCounters, rlCpuCountersReset=rlCpuCountersReset, rlCpuCountersTarget=rlCpuCountersTarget, rlCpuCountersRxMC=rlCpuCountersRxMC, rlCpuCountersTable=rlCpuCountersTable, rlCpuCountersEnabled=rlCpuCountersEnabled, rlCpuCountersRxBC=rlCpuCountersRxBC, rlCpuCountersTxBC=rlCpuCountersTxBC, rlCpuCountersTxUC=rlCpuCountersTxUC, rlCpuCountersTxMC=rlCpuCountersTxMC, rlCpuCountersTxOctets=rlCpuCountersTxOctets, rlCpuCountersRxOctets=rlCpuCountersRxOctets)

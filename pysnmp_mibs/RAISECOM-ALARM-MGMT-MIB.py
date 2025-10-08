@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module RAISECOM-ALARM-MGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/RAISECOM-ALARM-MGMT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:49 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/raisecom/RAISECOM-ALARM-MGMT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:54:38 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
 raisecomAgent, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "raisecomAgent")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, zeroDotZero, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, Opaque, iso, ObjectIdentity, MibIdentifier, mib_2, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "zeroDotZero", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "Opaque", "iso", "ObjectIdentity", "MibIdentifier", "mib-2", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, zeroDotZero, NotificationType, Integer32, Bits, Unsigned32, mib_2, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32, Opaque = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "zeroDotZero", "NotificationType", "Integer32", "Bits", "Unsigned32", "mib-2", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32", "Opaque")
+TruthValue, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "DisplayString", "TextualConvention")
 raisecomAlarmMgmt = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 1, 34))
 if mibBuilder.loadTexts: raisecomAlarmMgmt.setLastUpdated('201103120000Z')
 if mibBuilder.loadTexts: raisecomAlarmMgmt.setOrganization('Raisecom Technology Co., Ltd.')
@@ -58,4 +58,4 @@ raisecomAlarmMgmtModuleName = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 34, 1, 
 if mibBuilder.loadTexts: raisecomAlarmMgmtModuleName.setStatus('current')
 raisecomAlarmMgmtGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 34, 1, 7, 1, 7), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: raisecomAlarmMgmtGroupName.setStatus('current')
-mibBuilder.exportSymbols("RAISECOM-ALARM-MGMT-MIB", raisecomAlarmMgmtClearDelay=raisecomAlarmMgmtClearDelay, AlarmStorageMode=AlarmStorageMode, raisecomAlarmMgmtConfigEntry=raisecomAlarmMgmtConfigEntry, raisecomAlarmMgmtModuleName=raisecomAlarmMgmtModuleName, raisecomAlarmMgmtObejcts=raisecomAlarmMgmtObejcts, raisecomAlarmMgmtId=raisecomAlarmMgmtId, AlarmInverseMode=AlarmInverseMode, raisecomAlarmMgmtConfigTable=raisecomAlarmMgmtConfigTable, raisecomAlarmMgmtActiveStoreMode=raisecomAlarmMgmtActiveStoreMode, raisecomAlarmMgmtMonitorEnable=raisecomAlarmMgmtMonitorEnable, raisecomAlarmMgmtActiveClear=raisecomAlarmMgmtActiveClear, raisecomAlarmMgmtInverseMode=raisecomAlarmMgmtInverseMode, raisecomAlarmMgmtClear=raisecomAlarmMgmtClear, raisecomAlarmMgmtSyslogEnable=raisecomAlarmMgmtSyslogEnable, raisecomAlarmMgmtRaiseDelay=raisecomAlarmMgmtRaiseDelay, PYSNMP_MODULE_ID=raisecomAlarmMgmt, raisecomAlarmMgmt=raisecomAlarmMgmt, raisecomAlarmMgmtGroupName=raisecomAlarmMgmtGroupName, raisecomAlarmMgmtInhibitEnable=raisecomAlarmMgmtInhibitEnable, raisecomAlarmMgmtReportEnable=raisecomAlarmMgmtReportEnable)
+mibBuilder.exportSymbols("RAISECOM-ALARM-MGMT-MIB", raisecomAlarmMgmtObejcts=raisecomAlarmMgmtObejcts, raisecomAlarmMgmtActiveClear=raisecomAlarmMgmtActiveClear, raisecomAlarmMgmtInhibitEnable=raisecomAlarmMgmtInhibitEnable, raisecomAlarmMgmtConfigTable=raisecomAlarmMgmtConfigTable, raisecomAlarmMgmtMonitorEnable=raisecomAlarmMgmtMonitorEnable, raisecomAlarmMgmtActiveStoreMode=raisecomAlarmMgmtActiveStoreMode, raisecomAlarmMgmtSyslogEnable=raisecomAlarmMgmtSyslogEnable, raisecomAlarmMgmtReportEnable=raisecomAlarmMgmtReportEnable, AlarmStorageMode=AlarmStorageMode, raisecomAlarmMgmtClear=raisecomAlarmMgmtClear, raisecomAlarmMgmtModuleName=raisecomAlarmMgmtModuleName, raisecomAlarmMgmtInverseMode=raisecomAlarmMgmtInverseMode, raisecomAlarmMgmtGroupName=raisecomAlarmMgmtGroupName, raisecomAlarmMgmt=raisecomAlarmMgmt, raisecomAlarmMgmtId=raisecomAlarmMgmtId, raisecomAlarmMgmtRaiseDelay=raisecomAlarmMgmtRaiseDelay, raisecomAlarmMgmtConfigEntry=raisecomAlarmMgmtConfigEntry, AlarmInverseMode=AlarmInverseMode, raisecomAlarmMgmtClearDelay=raisecomAlarmMgmtClearDelay, PYSNMP_MODULE_ID=raisecomAlarmMgmt)

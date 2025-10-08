@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SUPERMICRO-MI-DHCP-SNOOPING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-MI-DHCP-SNOOPING-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:00 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-MI-DHCP-SNOOPING-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:59 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 fsMIDhcpSnp = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876, 101, 2, 49))
 fsMIDhcpSnp.setRevisions(('2012-09-05 00:00',))
 if mibBuilder.loadTexts: fsMIDhcpSnp.setLastUpdated('201209050000Z')
@@ -61,4 +61,4 @@ fsMIDhcpSnpOptionDiscards = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 49,
 if mibBuilder.loadTexts: fsMIDhcpSnpOptionDiscards.setStatus('current')
 fsMIDhcpSnpInterfaceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 49, 2, 1, 1, 16), RowStatus()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: fsMIDhcpSnpInterfaceStatus.setStatus('current')
-mibBuilder.exportSymbols("SUPERMICRO-MI-DHCP-SNOOPING-MIB", fsMIDhcpSnpContextId=fsMIDhcpSnpContextId, PYSNMP_MODULE_ID=fsMIDhcpSnp, fsMIDhcpSnpMacDiscards=fsMIDhcpSnpMacDiscards, fsMIDhcpSnpTxOffers=fsMIDhcpSnpTxOffers, fsMIDhcpSnpOptionDiscards=fsMIDhcpSnpOptionDiscards, fsMIDhcpSnpInterfaceStatus=fsMIDhcpSnpInterfaceStatus, fsMIDhcpSnpTxNaks=fsMIDhcpSnpTxNaks, fsMIDhcpSnpRxInforms=fsMIDhcpSnpRxInforms, fsMIDhcpSnpRxReleases=fsMIDhcpSnpRxReleases, fsMIDhcpSnpRxRequests=fsMIDhcpSnpRxRequests, fsMIDhcpSnpGlobalConfigTable=fsMIDhcpSnpGlobalConfigTable, fsMIDhcpSnp=fsMIDhcpSnp, fsMIDhcpSnpGlobalConfigEntry=fsMIDhcpSnpGlobalConfigEntry, fsMIDhcpSnpGlobalConfig=fsMIDhcpSnpGlobalConfig, fsMIDhcpSnpTxAcks=fsMIDhcpSnpTxAcks, fsMIDhcpSnpNoOfDiscards=fsMIDhcpSnpNoOfDiscards, fsMIDhcpSnpServerDiscards=fsMIDhcpSnpServerDiscards, fsMIDhcpSnpVlanId=fsMIDhcpSnpVlanId, fsMIDhcpSnpSnoopingAdminStatus=fsMIDhcpSnpSnoopingAdminStatus, fsMIDhcpSnpRxDiscovers=fsMIDhcpSnpRxDiscovers, fsMIDhcpSnpInterface=fsMIDhcpSnpInterface, fsMIDhcpSnpVlanSnpStatus=fsMIDhcpSnpVlanSnpStatus, fsMIDhcpSnpRxDeclines=fsMIDhcpSnpRxDeclines, fsMIDhcpSnpInterfaceEntry=fsMIDhcpSnpInterfaceEntry, fsMIDhcpSnpInterfaceTable=fsMIDhcpSnpInterfaceTable, fsMIDhcpSnpMacVerifyStatus=fsMIDhcpSnpMacVerifyStatus)
+mibBuilder.exportSymbols("SUPERMICRO-MI-DHCP-SNOOPING-MIB", fsMIDhcpSnpVlanSnpStatus=fsMIDhcpSnpVlanSnpStatus, fsMIDhcpSnpNoOfDiscards=fsMIDhcpSnpNoOfDiscards, fsMIDhcpSnpGlobalConfigTable=fsMIDhcpSnpGlobalConfigTable, fsMIDhcpSnpRxInforms=fsMIDhcpSnpRxInforms, fsMIDhcpSnp=fsMIDhcpSnp, fsMIDhcpSnpRxRequests=fsMIDhcpSnpRxRequests, fsMIDhcpSnpRxDeclines=fsMIDhcpSnpRxDeclines, fsMIDhcpSnpServerDiscards=fsMIDhcpSnpServerDiscards, fsMIDhcpSnpTxOffers=fsMIDhcpSnpTxOffers, fsMIDhcpSnpInterfaceStatus=fsMIDhcpSnpInterfaceStatus, PYSNMP_MODULE_ID=fsMIDhcpSnp, fsMIDhcpSnpVlanId=fsMIDhcpSnpVlanId, fsMIDhcpSnpContextId=fsMIDhcpSnpContextId, fsMIDhcpSnpInterfaceEntry=fsMIDhcpSnpInterfaceEntry, fsMIDhcpSnpMacDiscards=fsMIDhcpSnpMacDiscards, fsMIDhcpSnpInterface=fsMIDhcpSnpInterface, fsMIDhcpSnpTxAcks=fsMIDhcpSnpTxAcks, fsMIDhcpSnpGlobalConfigEntry=fsMIDhcpSnpGlobalConfigEntry, fsMIDhcpSnpOptionDiscards=fsMIDhcpSnpOptionDiscards, fsMIDhcpSnpGlobalConfig=fsMIDhcpSnpGlobalConfig, fsMIDhcpSnpRxReleases=fsMIDhcpSnpRxReleases, fsMIDhcpSnpTxNaks=fsMIDhcpSnpTxNaks, fsMIDhcpSnpMacVerifyStatus=fsMIDhcpSnpMacVerifyStatus, fsMIDhcpSnpInterfaceTable=fsMIDhcpSnpInterfaceTable, fsMIDhcpSnpSnoopingAdminStatus=fsMIDhcpSnpSnoopingAdminStatus, fsMIDhcpSnpRxDiscovers=fsMIDhcpSnpRxDiscovers)

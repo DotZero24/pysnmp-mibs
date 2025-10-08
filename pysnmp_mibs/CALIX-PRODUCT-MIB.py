@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CALIX-PRODUCT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/calix/CALIX-PRODUCT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:43 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/calix/CALIX-PRODUCT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:59:30 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-calixProducts, calixRegistrations, calixManagement, calixModules = mibBuilder.importSymbols("CALIX-SMI", "calixProducts", "calixRegistrations", "calixManagement", "calixModules")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+calixModules, calixRegistrations, calixManagement, calixProducts = mibBuilder.importSymbols("CALIX-SMI", "calixModules", "calixRegistrations", "calixManagement", "calixProducts")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 calixProduct = ModuleIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 1, 1))
 calixProduct.setRevisions(('2009-12-10 00:00', '2007-06-28 00:00', '2000-08-31 00:26',))
 if mibBuilder.loadTexts: calixProduct.setLastUpdated('200706280000Z')
@@ -90,4 +90,4 @@ oc12 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 5, 6))
 if mibBuilder.loadTexts: oc12.setStatus('current')
 oc48 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 5, 7))
 if mibBuilder.loadTexts: oc48.setStatus('current')
-mibBuilder.exportSymbols("CALIX-PRODUCT-MIB", PYSNMP_MODULE_ID=calixProduct, e7Modules=e7Modules, c7ShelfAssembly=c7ShelfAssembly, amp=amp, rpots24=rpots24, c7Backplane=c7Backplane, c7Port=c7Port, c7=c7, adsl24=adsl24, oc48=oc48, e7=e7, e7Devices=e7Devices, fta=fta, c7Ds3=c7Ds3, adsl=adsl, oc12x4ir=oc12x4ir, e5x100=e5x100, e7x2=e7x2, mspa=mspa, e5x312=e5x312, ds3x12s=ds3x12s, e7x20=e7x20, ds3x12p=ds3x12p, mta=mta, oc3x4ir=oc3x4ir, dfta=dfta, c7Slot=c7Slot, oc48x1lr=oc48x1lr, oc3=oc3, ds1x12=ds1x12, ds0=ds0, calixProduct=calixProduct, c7Ds1=c7Ds1, rapOc=rapOc, c7Card=c7Card, mspb=mspb, e5x400=e5x400, rapDs3=rapDs3, oc12=oc12)
+mibBuilder.exportSymbols("CALIX-PRODUCT-MIB", ds3x12s=ds3x12s, oc12x4ir=oc12x4ir, adsl=adsl, c7Card=c7Card, e7x20=e7x20, oc48x1lr=oc48x1lr, oc12=oc12, mspa=mspa, e5x100=e5x100, ds1x12=ds1x12, mspb=mspb, adsl24=adsl24, rapOc=rapOc, amp=amp, c7ShelfAssembly=c7ShelfAssembly, e5x312=e5x312, c7Port=c7Port, PYSNMP_MODULE_ID=calixProduct, dfta=dfta, e7x2=e7x2, c7Slot=c7Slot, mta=mta, rpots24=rpots24, ds0=ds0, e5x400=e5x400, e7=e7, e7Modules=e7Modules, c7=c7, c7Ds3=c7Ds3, fta=fta, c7Backplane=c7Backplane, ds3x12p=ds3x12p, calixProduct=calixProduct, rapDs3=rapDs3, oc48=oc48, c7Ds1=c7Ds1, oc3=oc3, oc3x4ir=oc3x4ir, e7Devices=e7Devices)

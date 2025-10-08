@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module Juniper-HDLC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/junose/Juniper-HDLC-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:22:59 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/junose/Juniper-HDLC-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:42:39 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndexOrZero, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "InterfaceIndex")
 juniMibs, = mibBuilder.importSymbols("Juniper-MIBs", "juniMibs")
 JuniNextIfIndex, = mibBuilder.importSymbols("Juniper-TC", "JuniNextIfIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 juniHdlcMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 2, 2, 9))
 juniHdlcMIB.setRevisions(('2003-10-03 19:25', '2002-09-16 21:44', '2001-11-28 13:43', '2001-03-22 14:30', '2000-01-26 00:00', '1999-07-28 00:00', '1998-11-13 00:00',))
 if mibBuilder.loadTexts: juniHdlcMIB.setLastUpdated('200310031925Z')
@@ -78,4 +78,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 juniHdlcGroup4 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 9, 4, 2, 4)).setObjects(("Juniper-HDLC-MIB", "juniHdlcNextIfIndex"), ("Juniper-HDLC-MIB", "juniHdlcIfRowStatus"), ("Juniper-HDLC-MIB", "juniHdlcIfLowerIfIndex"), ("Juniper-HDLC-MIB", "juniHdlcIfMtu"), ("Juniper-HDLC-MIB", "juniHdlcIfMru"), ("Juniper-HDLC-MIB", "juniHdlcIfCrcSize"), ("Juniper-HDLC-MIB", "juniHdlcIfDataPolarity"), ("Juniper-HDLC-MIB", "juniHdlcIfClockMode"), ("Juniper-HDLC-MIB", "juniHdlcIfClockRate"), ("Juniper-HDLC-MIB", "juniHdlcIfForceDteAck"), ("Juniper-HDLC-MIB", "juniHdlcIfIdleCharacter"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     juniHdlcGroup4 = juniHdlcGroup4.setStatus('current')
-mibBuilder.exportSymbols("Juniper-HDLC-MIB", juniHdlcConformance=juniHdlcConformance, juniHdlcIfIndex=juniHdlcIfIndex, juniHdlcIfIdleCharacter=juniHdlcIfIdleCharacter, juniHdlcIfEntry=juniHdlcIfEntry, juniHdlcGroup=juniHdlcGroup, juniHdlcIfTable=juniHdlcIfTable, juniHdlcGroups=juniHdlcGroups, juniHdlcGroup4=juniHdlcGroup4, juniHdlcIfRowStatus=juniHdlcIfRowStatus, juniHdlcMIB=juniHdlcMIB, juniHdlcCompliance4=juniHdlcCompliance4, juniHdlcIfDataPolarity=juniHdlcIfDataPolarity, juniHdlcCompliance3=juniHdlcCompliance3, juniHdlcGroup2=juniHdlcGroup2, juniHdlcObjects=juniHdlcObjects, juniHdlcCompliance2=juniHdlcCompliance2, juniHdlcIfMru=juniHdlcIfMru, juniHdlcIfMtu=juniHdlcIfMtu, juniHdlcIfCrcSize=juniHdlcIfCrcSize, juniHdlcNextIfIndex=juniHdlcNextIfIndex, juniHdlcIfClockRate=juniHdlcIfClockRate, juniHdlcIfForceDteAck=juniHdlcIfForceDteAck, juniHdlcGroup3=juniHdlcGroup3, juniHdlcIfLowerIfIndex=juniHdlcIfLowerIfIndex, PYSNMP_MODULE_ID=juniHdlcMIB, juniHdlcIfClockMode=juniHdlcIfClockMode, juniHdlcCompliances=juniHdlcCompliances, juniHdlcCompliance=juniHdlcCompliance)
+mibBuilder.exportSymbols("Juniper-HDLC-MIB", juniHdlcIfIdleCharacter=juniHdlcIfIdleCharacter, juniHdlcIfClockRate=juniHdlcIfClockRate, PYSNMP_MODULE_ID=juniHdlcMIB, juniHdlcIfForceDteAck=juniHdlcIfForceDteAck, juniHdlcGroup2=juniHdlcGroup2, juniHdlcIfMru=juniHdlcIfMru, juniHdlcCompliance=juniHdlcCompliance, juniHdlcIfEntry=juniHdlcIfEntry, juniHdlcNextIfIndex=juniHdlcNextIfIndex, juniHdlcIfDataPolarity=juniHdlcIfDataPolarity, juniHdlcCompliance2=juniHdlcCompliance2, juniHdlcIfCrcSize=juniHdlcIfCrcSize, juniHdlcIfClockMode=juniHdlcIfClockMode, juniHdlcCompliance3=juniHdlcCompliance3, juniHdlcMIB=juniHdlcMIB, juniHdlcIfMtu=juniHdlcIfMtu, juniHdlcIfLowerIfIndex=juniHdlcIfLowerIfIndex, juniHdlcIfIndex=juniHdlcIfIndex, juniHdlcIfRowStatus=juniHdlcIfRowStatus, juniHdlcGroups=juniHdlcGroups, juniHdlcGroup=juniHdlcGroup, juniHdlcCompliances=juniHdlcCompliances, juniHdlcIfTable=juniHdlcIfTable, juniHdlcObjects=juniHdlcObjects, juniHdlcCompliance4=juniHdlcCompliance4, juniHdlcConformance=juniHdlcConformance, juniHdlcGroup4=juniHdlcGroup4, juniHdlcGroup3=juniHdlcGroup3)

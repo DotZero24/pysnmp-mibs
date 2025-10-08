@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module H3C-VOAAACLIENT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-VOAAACLIENT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:26 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-VOAAACLIENT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:11 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 h3cVoice, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cVoice")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
 h3cVoiceAAAClient = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 9))
 h3cVoiceAAAClient.setRevisions(('2006-03-27 00:00',))
 if mibBuilder.loadTexts: h3cVoiceAAAClient.setLastUpdated('200603270000Z')
@@ -48,4 +48,4 @@ h3cVoAAAGwRedialTimes = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 9, 1,
 if mibBuilder.loadTexts: h3cVoAAAGwRedialTimes.setStatus('current')
 h3cVoAAAGwRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 9, 1, 2, 1, 9), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: h3cVoAAAGwRowStatus.setStatus('current')
-mibBuilder.exportSymbols("H3C-VOAAACLIENT-MIB", h3cVoAAAGwAccessNumberTable=h3cVoAAAGwAccessNumberTable, h3cVoAAAGwAccessNumberEntry=h3cVoAAAGwAccessNumberEntry, h3cVoAAAGwAccounting=h3cVoAAAGwAccounting, h3cVoAAAGwAccessNumber=h3cVoAAAGwAccessNumber, h3cVoAAAGwProcessConfig=h3cVoAAAGwProcessConfig, h3cVoAAAGwAuthentication=h3cVoAAAGwAuthentication, h3cVoiceAAAClient=h3cVoiceAAAClient, h3cVoAAAGwRedialTimes=h3cVoAAAGwRedialTimes, h3cVoAAAGwAccountingDid=h3cVoAAAGwAccountingDid, h3cVoAAAGwCardDigit=h3cVoAAAGwCardDigit, h3cVoAAAGwAuthorization=h3cVoAAAGwAuthorization, h3cVoAAAGwRowStatus=h3cVoAAAGwRowStatus, h3cVoAAAGwAuthorDid=h3cVoAAAGwAuthorDid, PYSNMP_MODULE_ID=h3cVoiceAAAClient, h3cVoAAAGwAuthenDid=h3cVoAAAGwAuthenDid, h3cVoAAAGwAccountMethod=h3cVoAAAGwAccountMethod, h3cVoAAAClientObjects=h3cVoAAAClientObjects, h3cVoAAAGwPasswordDigit=h3cVoAAAGwPasswordDigit, h3cVoAAAClientCfgObjects=h3cVoAAAClientCfgObjects)
+mibBuilder.exportSymbols("H3C-VOAAACLIENT-MIB", PYSNMP_MODULE_ID=h3cVoiceAAAClient, h3cVoAAAGwAccessNumber=h3cVoAAAGwAccessNumber, h3cVoAAAGwAuthenDid=h3cVoAAAGwAuthenDid, h3cVoAAAClientCfgObjects=h3cVoAAAClientCfgObjects, h3cVoAAAGwAccessNumberEntry=h3cVoAAAGwAccessNumberEntry, h3cVoAAAGwRowStatus=h3cVoAAAGwRowStatus, h3cVoAAAClientObjects=h3cVoAAAClientObjects, h3cVoAAAGwAccountingDid=h3cVoAAAGwAccountingDid, h3cVoAAAGwRedialTimes=h3cVoAAAGwRedialTimes, h3cVoAAAGwPasswordDigit=h3cVoAAAGwPasswordDigit, h3cVoAAAGwCardDigit=h3cVoAAAGwCardDigit, h3cVoAAAGwAccessNumberTable=h3cVoAAAGwAccessNumberTable, h3cVoAAAGwAccountMethod=h3cVoAAAGwAccountMethod, h3cVoAAAGwAuthorization=h3cVoAAAGwAuthorization, h3cVoiceAAAClient=h3cVoiceAAAClient, h3cVoAAAGwProcessConfig=h3cVoAAAGwProcessConfig, h3cVoAAAGwAuthorDid=h3cVoAAAGwAuthorDid, h3cVoAAAGwAccounting=h3cVoAAAGwAccounting, h3cVoAAAGwAuthentication=h3cVoAAAGwAuthentication)

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module CPQAPPLIANCE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/CPQAPPLIANCE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:34 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/CPQAPPLIANCE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:10:05 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 cpqHoTrapFlags, compaq = mibBuilder.importSymbols("CPQHOST-MIB", "cpqHoTrapFlags", "compaq")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
 sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
-ModuleIdentity, NotificationType, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 cpqApplianceMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 21))
 cpqApMibRev = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 21, 1))
 cpqApComponent = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 21, 2))
@@ -31,4 +31,4 @@ cpqApApplianceId = MibScalar((1, 3, 6, 1, 4, 1, 232, 21, 2, 2, 1), Integer32()).
 if mibBuilder.loadTexts: cpqApApplianceId.setStatus('mandatory')
 cpqApApplianceDescription = MibScalar((1, 3, 6, 1, 4, 1, 232, 21, 2, 2, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: cpqApApplianceDescription.setStatus('mandatory')
-mibBuilder.exportSymbols("CPQAPPLIANCE-MIB", cpqApInterface=cpqApInterface, cpqApOsCommon=cpqApOsCommon, cpqApMibRevMajor=cpqApMibRevMajor, cpqApMibCondition=cpqApMibCondition, cpqApOsCommonPollFreq=cpqApOsCommonPollFreq, cpqApApplianceId=cpqApApplianceId, cpqApplianceMgmt=cpqApplianceMgmt, cpqApComponent=cpqApComponent, cpqApMibRevMinor=cpqApMibRevMinor, cpqApApplianceDescription=cpqApApplianceDescription, cpqApConfig=cpqApConfig, cpqApMibRev=cpqApMibRev)
+mibBuilder.exportSymbols("CPQAPPLIANCE-MIB", cpqApMibCondition=cpqApMibCondition, cpqApOsCommon=cpqApOsCommon, cpqApComponent=cpqApComponent, cpqApMibRevMajor=cpqApMibRevMajor, cpqApplianceMgmt=cpqApplianceMgmt, cpqApInterface=cpqApInterface, cpqApApplianceDescription=cpqApApplianceDescription, cpqApApplianceId=cpqApApplianceId, cpqApOsCommonPollFreq=cpqApOsCommonPollFreq, cpqApConfig=cpqApConfig, cpqApMibRevMinor=cpqApMibRevMinor, cpqApMibRev=cpqApMibRev)

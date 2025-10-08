@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BRCM-80211-FACTORY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/broadcom/BRCM-80211-FACTORY-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:16 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/broadcom/BRCM-80211-FACTORY-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:18:04 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 cableDataFactory, = mibBuilder.importSymbols("BRCM-CABLEDATA-FACTORY-MIB", "cableDataFactory")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ieee802dot11Factory = ModuleIdentity((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5))
 ieee802dot11Factory.setRevisions(('2008-07-01 00:00', '2007-02-05 00:00', '2003-08-22 00:00', '2003-04-28 00:00', '2002-09-19 00:00',))
 if mibBuilder.loadTexts: ieee802dot11Factory.setLastUpdated('200807010000Z')
@@ -66,4 +66,4 @@ dot11WPSModelNum = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 3, 6), 
 if mibBuilder.loadTexts: dot11WPSModelNum.setStatus('current')
 dot11WPSUUID = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 3, 7), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: dot11WPSUUID.setStatus('current')
-mibBuilder.exportSymbols("BRCM-80211-FACTORY-MIB", dot11PAParameters=dot11PAParameters, dot11AntennaGain=dot11AntennaGain, dot11BoardRev=dot11BoardRev, dot11WPSUUID=dot11WPSUUID, dot11DiagWirelessLanOutput=dot11DiagWirelessLanOutput, dot11WPSMfgName=dot11WPSMfgName, dot11SromWrite=dot11SromWrite, PYSNMP_MODULE_ID=ieee802dot11Factory, dot11FactoryDiagnostics=dot11FactoryDiagnostics, dot11DiagAntennaDiversity=dot11DiagAntennaDiversity, dot11WPSBoardNum=dot11WPSBoardNum, dot11DiagTxPowerLevel=dot11DiagTxPowerLevel, ieee802dot11Factory=ieee802dot11Factory, dot11IdleTSSI=dot11IdleTSSI, dot11DiagTxMode=dot11DiagTxMode, dot11RegDomain=dot11RegDomain, dot11Country=dot11Country, dot11WPSDeviceName=dot11WPSDeviceName, dot11MaxPower=dot11MaxPower, dot11WPSDevicePin=dot11WPSDevicePin, dot11DiagWirelessLanCmd=dot11DiagWirelessLanCmd, dot11SromRead=dot11SromRead, dot11FactoryCfg=dot11FactoryCfg, dot11FactoryWPSSettings=dot11FactoryWPSSettings, dot11IsoCountry=dot11IsoCountry, dot11WPSModelName=dot11WPSModelName, dot11DiagChannel=dot11DiagChannel, dot11WPSModelNum=dot11WPSModelNum)
+mibBuilder.exportSymbols("BRCM-80211-FACTORY-MIB", dot11DiagTxPowerLevel=dot11DiagTxPowerLevel, dot11BoardRev=dot11BoardRev, dot11FactoryWPSSettings=dot11FactoryWPSSettings, dot11DiagWirelessLanCmd=dot11DiagWirelessLanCmd, dot11WPSModelNum=dot11WPSModelNum, dot11WPSMfgName=dot11WPSMfgName, dot11DiagChannel=dot11DiagChannel, dot11SromRead=dot11SromRead, dot11RegDomain=dot11RegDomain, dot11WPSDeviceName=dot11WPSDeviceName, dot11AntennaGain=dot11AntennaGain, dot11IsoCountry=dot11IsoCountry, dot11MaxPower=dot11MaxPower, dot11FactoryDiagnostics=dot11FactoryDiagnostics, PYSNMP_MODULE_ID=ieee802dot11Factory, dot11IdleTSSI=dot11IdleTSSI, dot11SromWrite=dot11SromWrite, dot11WPSBoardNum=dot11WPSBoardNum, dot11DiagWirelessLanOutput=dot11DiagWirelessLanOutput, dot11PAParameters=dot11PAParameters, dot11WPSModelName=dot11WPSModelName, dot11Country=dot11Country, dot11WPSUUID=dot11WPSUUID, dot11WPSDevicePin=dot11WPSDevicePin, dot11FactoryCfg=dot11FactoryCfg, dot11DiagAntennaDiversity=dot11DiagAntennaDiversity, ieee802dot11Factory=ieee802dot11Factory, dot11DiagTxMode=dot11DiagTxMode)

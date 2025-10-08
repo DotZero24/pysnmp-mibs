@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module TN-RMD-EFM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TN-RMD-EFM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:18:51 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nokia/TN-RMD-EFM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:36:17 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
+TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
 tnRmdIfIndex, = mibBuilder.importSymbols("TN-RMD-IF-MIB", "tnRmdIfIndex")
 tnRmdSystemId, = mibBuilder.importSymbols("TN-RMD-SYSTEM-MIB", "tnRmdSystemId")
-tnRmdMIBModules, tnRmdObjs = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnRmdMIBModules", "tnRmdObjs")
+tnRmdObjs, tnRmdMIBModules = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnRmdObjs", "tnRmdMIBModules")
 tnSysSwitchId, = mibBuilder.importSymbols("TROPIC-SYSTEM-MIB", "tnSysSwitchId")
 tnRmdEfmMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 7483, 5, 1, 4, 2))
 tnRmdEfmMibModule.setRevisions(('2018-02-23 12:00', '2016-11-16 00:00', '2012-11-28 00:00',))
@@ -42,4 +42,4 @@ tnRmdEfmCountersRxNrNearEndErroredSymbols = MibTableColumn((1, 3, 6, 1, 4, 1, 74
 if mibBuilder.loadTexts: tnRmdEfmCountersRxNrNearEndErroredSymbols.setStatus('current')
 tnRmdEfmCountersReset = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 4, 1, 2, 3, 1, 2), TruthValue()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: tnRmdEfmCountersReset.setStatus('current')
-mibBuilder.exportSymbols("TN-RMD-EFM-MIB", tnRmdEfmCountersReset=tnRmdEfmCountersReset, tnRmdEfmObjects=tnRmdEfmObjects, tnRmdSystemEfmTable=tnRmdSystemEfmTable, TnRmdSystemEfmDefect=TnRmdSystemEfmDefect, tnRmdEfmAttributeTotal=tnRmdEfmAttributeTotal, tnRmdSystemEfmEnabled=tnRmdSystemEfmEnabled, tnRmdEfmCountersEntry=tnRmdEfmCountersEntry, tnRmdSystemEfmDefect=tnRmdSystemEfmDefect, PYSNMP_MODULE_ID=tnRmdEfmMibModule, tnRmdEfmCountersTable=tnRmdEfmCountersTable, tnRmdEfmMibModule=tnRmdEfmMibModule, tnRmdSystemEfmEntry=tnRmdSystemEfmEntry, tnRmdEfmCountersRxNrNearEndErroredSymbols=tnRmdEfmCountersRxNrNearEndErroredSymbols)
+mibBuilder.exportSymbols("TN-RMD-EFM-MIB", tnRmdSystemEfmTable=tnRmdSystemEfmTable, tnRmdSystemEfmDefect=tnRmdSystemEfmDefect, PYSNMP_MODULE_ID=tnRmdEfmMibModule, tnRmdEfmCountersTable=tnRmdEfmCountersTable, tnRmdEfmAttributeTotal=tnRmdEfmAttributeTotal, tnRmdEfmCountersEntry=tnRmdEfmCountersEntry, tnRmdEfmCountersRxNrNearEndErroredSymbols=tnRmdEfmCountersRxNrNearEndErroredSymbols, tnRmdEfmCountersReset=tnRmdEfmCountersReset, TnRmdSystemEfmDefect=TnRmdSystemEfmDefect, tnRmdSystemEfmEnabled=tnRmdSystemEfmEnabled, tnRmdEfmMibModule=tnRmdEfmMibModule, tnRmdEfmObjects=tnRmdEfmObjects, tnRmdSystemEfmEntry=tnRmdSystemEfmEntry)

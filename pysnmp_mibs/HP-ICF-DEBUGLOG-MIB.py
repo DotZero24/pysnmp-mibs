@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module HP-ICF-DEBUGLOG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HP-ICF-DEBUGLOG-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:10 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HP-ICF-DEBUGLOG-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:09:23 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 hpicfDebugLog, = mibBuilder.importSymbols("HP-ICF-OID", "hpicfDebugLog")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
 hpicfDebugLogMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 64, 1))
 hpicfDebugLogMib.setRevisions(('2017-07-04 00:00', '2016-03-18 00:00', '2016-02-17 00:00', '2009-09-22 00:00',))
 if mibBuilder.loadTexts: hpicfDebugLogMib.setLastUpdated('201707040000Z')
@@ -77,4 +77,4 @@ hpicfDebugLogCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5,
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     hpicfDebugLogCompliance1 = hpicfDebugLogCompliance1.setStatus('current')
-mibBuilder.exportSymbols("HP-ICF-DEBUGLOG-MIB", hpicfDebugTimeStamp=hpicfDebugTimeStamp, hpicfDebugDestGroup=hpicfDebugDestGroup, hpicfDebugLogControlEntry=hpicfDebugLogControlEntry, hpicfDebugLogCompliance1=hpicfDebugLogCompliance1, HpicfDebugLogLevels=HpicfDebugLogLevels, hpicfDebugLogPersistent=hpicfDebugLogPersistent, hpicfDebugLogLevel=hpicfDebugLogLevel, HpicfDebugDestType=HpicfDebugDestType, hpicfDebugTimeStampGroups=hpicfDebugTimeStampGroups, hpicfDebugLogGroup=hpicfDebugLogGroup, hpicfDebugDestControlTable=hpicfDebugDestControlTable, hpicfDebugDestControlEntry=hpicfDebugDestControlEntry, hpicfDebugLogStatus=hpicfDebugLogStatus, hpicfDebugLogGroups=hpicfDebugLogGroups, hpicfDebugLogConformance=hpicfDebugLogConformance, hpicfDebugLogControlTable=hpicfDebugLogControlTable, hpicfDebugLogCompliances=hpicfDebugLogCompliances, hpicfDebugLogIndex=hpicfDebugLogIndex, hpicfDebugLogCompliance=hpicfDebugLogCompliance, hpicfDebugLogDescr=hpicfDebugLogDescr, hpicfDebugDestGroups=hpicfDebugDestGroups, hpicfDebugDestPersistent=hpicfDebugDestPersistent, hpicfDebugLogContainedIn=hpicfDebugLogContainedIn, hpicfDebugTimeStampGroup=hpicfDebugTimeStampGroup, hpicfDebugDestStatus=hpicfDebugDestStatus, PYSNMP_MODULE_ID=hpicfDebugLogMib, hpicfDebugLogObjects=hpicfDebugLogObjects, hpicfDebugDestIndex=hpicfDebugDestIndex, hpicfDebugLogMib=hpicfDebugLogMib)
+mibBuilder.exportSymbols("HP-ICF-DEBUGLOG-MIB", hpicfDebugTimeStamp=hpicfDebugTimeStamp, hpicfDebugTimeStampGroups=hpicfDebugTimeStampGroups, hpicfDebugLogControlEntry=hpicfDebugLogControlEntry, hpicfDebugDestIndex=hpicfDebugDestIndex, HpicfDebugDestType=HpicfDebugDestType, hpicfDebugLogPersistent=hpicfDebugLogPersistent, hpicfDebugLogCompliances=hpicfDebugLogCompliances, hpicfDebugDestControlTable=hpicfDebugDestControlTable, hpicfDebugLogCompliance=hpicfDebugLogCompliance, hpicfDebugLogContainedIn=hpicfDebugLogContainedIn, hpicfDebugDestControlEntry=hpicfDebugDestControlEntry, hpicfDebugLogGroup=hpicfDebugLogGroup, hpicfDebugLogObjects=hpicfDebugLogObjects, hpicfDebugLogCompliance1=hpicfDebugLogCompliance1, hpicfDebugLogDescr=hpicfDebugLogDescr, hpicfDebugDestGroup=hpicfDebugDestGroup, hpicfDebugLogMib=hpicfDebugLogMib, hpicfDebugDestGroups=hpicfDebugDestGroups, hpicfDebugTimeStampGroup=hpicfDebugTimeStampGroup, hpicfDebugLogIndex=hpicfDebugLogIndex, PYSNMP_MODULE_ID=hpicfDebugLogMib, hpicfDebugLogControlTable=hpicfDebugLogControlTable, HpicfDebugLogLevels=HpicfDebugLogLevels, hpicfDebugLogLevel=hpicfDebugLogLevel, hpicfDebugLogStatus=hpicfDebugLogStatus, hpicfDebugLogGroups=hpicfDebugLogGroups, hpicfDebugDestPersistent=hpicfDebugDestPersistent, hpicfDebugDestStatus=hpicfDebugDestStatus, hpicfDebugLogConformance=hpicfDebugLogConformance)

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PACKETLOGIC-TRAP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/procera/PACKETLOGIC-TRAP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:26 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/procera/PACKETLOGIC-TRAP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:38 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
 packetlogic2, = mibBuilder.importSymbols("PACKETLOGIC-MIB", "packetlogic2")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
-DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
+DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
 pl2Trap = ModuleIdentity((1, 3, 6, 1, 4, 1, 15397, 2, 8))
 pl2Trap.setRevisions(('2012-12-13 13:22',))
 if mibBuilder.loadTexts: pl2Trap.setLastUpdated('201212131322Z')
@@ -55,4 +55,4 @@ pl2TrapSystemStatsAlertClear = NotificationType((1, 3, 6, 1, 4, 1, 15397, 2, 8, 
 if mibBuilder.loadTexts: pl2TrapSystemStatsAlertClear.setStatus('current')
 pl2ChannelStateChanged = NotificationType((1, 3, 6, 1, 4, 1, 15397, 2, 8, 2, 1)).setObjects(("PACKETLOGIC-TRAP-MIB", "channelIndex"), ("PACKETLOGIC-TRAP-MIB", "channelDescr"), ("PACKETLOGIC-TRAP-MIB", "channelPort"), ("PACKETLOGIC-TRAP-MIB", "newState"), ("PACKETLOGIC-TRAP-MIB", "prevState"))
 if mibBuilder.loadTexts: pl2ChannelStateChanged.setStatus('current')
-mibBuilder.exportSymbols("PACKETLOGIC-TRAP-MIB", pl2TrapSystemStatsAlert64=pl2TrapSystemStatsAlert64, pl2TrapGenericMsg=pl2TrapGenericMsg, channelIndex=channelIndex, pl2TrapThreshold64=pl2TrapThreshold64, newState=newState, pl2Traps=pl2Traps, pl2TrapSystemStatsAlert=pl2TrapSystemStatsAlert, pl2Trap=pl2Trap, pl2TrapValue=pl2TrapValue, pl2TrapOid=pl2TrapOid, pl2TrapMessage=pl2TrapMessage, pl2TrapValue64=pl2TrapValue64, PYSNMP_MODULE_ID=pl2Trap, channelPort=channelPort, pl2ChannelStateChanged=pl2ChannelStateChanged, channelDescr=channelDescr, pl2TrapThreshold=pl2TrapThreshold, pl2TrapVals=pl2TrapVals, pl2ChannelTrapVals=pl2ChannelTrapVals, pl2TrapGeneric=pl2TrapGeneric, prevState=prevState, pl2ChannelTraps=pl2ChannelTraps, pl2TrapSystemStatsAlertClear=pl2TrapSystemStatsAlertClear)
+mibBuilder.exportSymbols("PACKETLOGIC-TRAP-MIB", pl2TrapValue=pl2TrapValue, pl2TrapSystemStatsAlertClear=pl2TrapSystemStatsAlertClear, pl2TrapThreshold=pl2TrapThreshold, channelDescr=channelDescr, pl2Trap=pl2Trap, pl2TrapThreshold64=pl2TrapThreshold64, pl2ChannelTrapVals=pl2ChannelTrapVals, PYSNMP_MODULE_ID=pl2Trap, pl2Traps=pl2Traps, pl2TrapOid=pl2TrapOid, channelPort=channelPort, pl2ChannelStateChanged=pl2ChannelStateChanged, pl2TrapMessage=pl2TrapMessage, pl2ChannelTraps=pl2ChannelTraps, pl2TrapSystemStatsAlert64=pl2TrapSystemStatsAlert64, prevState=prevState, pl2TrapValue64=pl2TrapValue64, newState=newState, pl2TrapGeneric=pl2TrapGeneric, channelIndex=channelIndex, pl2TrapGenericMsg=pl2TrapGenericMsg, pl2TrapVals=pl2TrapVals, pl2TrapSystemStatsAlert=pl2TrapSystemStatsAlert)

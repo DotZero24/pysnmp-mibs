@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SW-PROJECTX-SRPRIMGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/SW-PROJECTX-SRPRIMGMT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:34:51 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/SW-PROJECTX-SRPRIMGMT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:59:47 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dlink_mgmt, dlink_products = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-mgmt", "dlink-products")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 dlink_ProjectXSeriesProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 59)).setLabel("dlink-ProjectXSeriesProd")
 dlink_Dgs3224SRi = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 59, 1)).setLabel("dlink-Dgs3224SRi")
 dlink_Dgs3224SR = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 59, 2)).setLabel("dlink-Dgs3224SR")
@@ -34,4 +34,4 @@ dlink_Des6500SeriesProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 61)).setLabe
 dlink_Des6500 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 61, 1)).setLabel("dlink-Des6500")
 des6500SeriesProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 61))
 des6500 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 61, 1))
-mibBuilder.exportSymbols("SW-PROJECTX-SRPRIMGMT-MIB", dlink_Des3252SR=dlink_Des3252SR, dgsProjectXSeriesProd=dgsProjectXSeriesProd, des3252SR=des3252SR, dlink_Dgs3224SR=dlink_Dgs3224SR, dgs3224SRi=dgs3224SRi, des6500=des6500, dgs3224SR=dgs3224SR, dlink_Dgs3324SRi=dlink_Dgs3324SRi, dlink_ProjectXSeriesProd=dlink_ProjectXSeriesProd, dlink_Dgs3324SR=dlink_Dgs3324SR, des3352SR=des3352SR, dlink_Dgs3224SRi=dlink_Dgs3224SRi, dxs3326GSR=dxs3326GSR, dlink_Des6500SeriesProd=dlink_Des6500SeriesProd, dlink_Dxs3326GSR=dlink_Dxs3326GSR, dlink_Dxs3350SR=dlink_Dxs3350SR, dxs3350SR=dxs3350SR, dlink_Des3352SR=dlink_Des3352SR, dgs3324SRi=dgs3324SRi, dlink_Des6500=dlink_Des6500, des6500SeriesProd=des6500SeriesProd, dgs3324SR=dgs3324SR)
+mibBuilder.exportSymbols("SW-PROJECTX-SRPRIMGMT-MIB", des3352SR=des3352SR, dlink_Des3352SR=dlink_Des3352SR, dlink_Des6500SeriesProd=dlink_Des6500SeriesProd, dxs3350SR=dxs3350SR, dgs3224SRi=dgs3224SRi, des6500=des6500, dlink_Dgs3324SR=dlink_Dgs3324SR, dlink_Dgs3224SRi=dlink_Dgs3224SRi, dlink_Dgs3224SR=dlink_Dgs3224SR, dgs3324SRi=dgs3324SRi, dlink_Des3252SR=dlink_Des3252SR, dlink_Dxs3350SR=dlink_Dxs3350SR, dgs3324SR=dgs3324SR, des6500SeriesProd=des6500SeriesProd, dlink_Dxs3326GSR=dlink_Dxs3326GSR, dgs3224SR=dgs3224SR, des3252SR=des3252SR, dlink_Dgs3324SRi=dlink_Dgs3324SRi, dgsProjectXSeriesProd=dgsProjectXSeriesProd, dlink_ProjectXSeriesProd=dlink_ProjectXSeriesProd, dlink_Des6500=dlink_Des6500, dxs3326GSR=dxs3326GSR)

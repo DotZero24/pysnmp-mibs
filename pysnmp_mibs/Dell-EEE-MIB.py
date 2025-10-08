@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module Dell-EEE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/dell/Dell-EEE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:23:47 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/dell/Dell-EEE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:44:17 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 rnd, = mibBuilder.importSymbols("Dell-MIB", "rnd")
-ifIndex, ifOperStatus = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifOperStatus")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ifOperStatus, ifIndex = mibBuilder.importSymbols("IF-MIB", "ifOperStatus", "ifIndex")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
 rlEee = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 149))
 rlEee.setRevisions(('2010-05-15 00:00',))
 if mibBuilder.loadTexts: rlEee.setLastUpdated('201003150000Z')
@@ -67,4 +67,4 @@ rlEeePortLldpRemoteTxEcho = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 149, 5, 1, 3),
 if mibBuilder.loadTexts: rlEeePortLldpRemoteTxEcho.setStatus('current')
 rlEeePortLldpRemoteRxEcho = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 149, 5, 1, 4), Unsigned32()).setUnits('uSec').setMaxAccess("readonly")
 if mibBuilder.loadTexts: rlEeePortLldpRemoteRxEcho.setStatus('current')
-mibBuilder.exportSymbols("Dell-EEE-MIB", rlEeePortLldpEntry=rlEeePortLldpEntry, rlEeePortOperStatus=rlEeePortOperStatus, rlEeePortLldpLocalTxEcho=rlEeePortLldpLocalTxEcho, rlEeePortLldpLocalResolvedRx=rlEeePortLldpLocalResolvedRx, rlEeePortLldpLocalTx=rlEeePortLldpLocalTx, rlEeePortLldpAdminStatus=rlEeePortLldpAdminStatus, rlEeePortLldpTable=rlEeePortLldpTable, rlEeePortEntry=rlEeePortEntry, rlEeePortLldpLocalRx=rlEeePortLldpLocalRx, rlEeePortAdminStatus=rlEeePortAdminStatus, rlEeePortLldpLocalRxEcho=rlEeePortLldpLocalRxEcho, rlEeePortLldpLocalResolvedTx=rlEeePortLldpLocalResolvedTx, rlEeePortLldpRemoteRx=rlEeePortLldpRemoteRx, rlEeePortLldpLocalEntry=rlEeePortLldpLocalEntry, rlEeePortLldpRemoteRxEcho=rlEeePortLldpRemoteRxEcho, rlEeePortLldpRemoteTx=rlEeePortLldpRemoteTx, rlEeePortTable=rlEeePortTable, rlEeePortLldpRemoteTxEcho=rlEeePortLldpRemoteTxEcho, rlEeePortLldpOperStatus=rlEeePortLldpOperStatus, rlEeePortRemoteStatus=rlEeePortRemoteStatus, PYSNMP_MODULE_ID=rlEee, rlEeeEnable=rlEeeEnable, rlEeePortSupported=rlEeePortSupported, rlEee=rlEee, rlEeePortLldpLocalTable=rlEeePortLldpLocalTable, rlEeePortLldpRemoteTable=rlEeePortLldpRemoteTable, rlEeePortLldpRemoteEntry=rlEeePortLldpRemoteEntry)
+mibBuilder.exportSymbols("Dell-EEE-MIB", rlEeePortRemoteStatus=rlEeePortRemoteStatus, rlEeePortLldpOperStatus=rlEeePortLldpOperStatus, rlEeePortSupported=rlEeePortSupported, rlEeePortLldpLocalTable=rlEeePortLldpLocalTable, rlEeePortTable=rlEeePortTable, rlEeePortLldpRemoteRxEcho=rlEeePortLldpRemoteRxEcho, rlEeePortLldpTable=rlEeePortLldpTable, rlEeePortLldpEntry=rlEeePortLldpEntry, rlEeePortLldpRemoteTable=rlEeePortLldpRemoteTable, rlEeePortLldpLocalRxEcho=rlEeePortLldpLocalRxEcho, rlEeePortLldpLocalTx=rlEeePortLldpLocalTx, rlEeePortOperStatus=rlEeePortOperStatus, rlEeePortLldpLocalResolvedTx=rlEeePortLldpLocalResolvedTx, PYSNMP_MODULE_ID=rlEee, rlEeePortAdminStatus=rlEeePortAdminStatus, rlEee=rlEee, rlEeePortLldpLocalRx=rlEeePortLldpLocalRx, rlEeePortLldpAdminStatus=rlEeePortLldpAdminStatus, rlEeePortEntry=rlEeePortEntry, rlEeePortLldpRemoteTx=rlEeePortLldpRemoteTx, rlEeePortLldpLocalResolvedRx=rlEeePortLldpLocalResolvedRx, rlEeePortLldpRemoteEntry=rlEeePortLldpRemoteEntry, rlEeeEnable=rlEeeEnable, rlEeePortLldpRemoteRx=rlEeePortLldpRemoteRx, rlEeePortLldpLocalEntry=rlEeePortLldpLocalEntry, rlEeePortLldpRemoteTxEcho=rlEeePortLldpRemoteTxEcho, rlEeePortLldpLocalTxEcho=rlEeePortLldpLocalTxEcho)

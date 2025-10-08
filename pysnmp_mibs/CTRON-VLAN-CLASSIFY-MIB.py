@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module CTRON-VLAN-CLASSIFY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/CTRON-VLAN-CLASSIFY-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:42 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cabletron/CTRON-VLAN-CLASSIFY-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:13:26 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ctVlanExt, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctVlanExt")
 PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 ctVlanClassify = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 16, 6))
 ctVlanClassify.setRevisions(('2002-12-19 16:31', '2002-03-27 20:55',))
 if mibBuilder.loadTexts: ctVlanClassify.setLastUpdated('200301292215Z')
@@ -70,4 +70,4 @@ ctVlanClassifyCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 16, 
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ctVlanClassifyCompliance = ctVlanClassifyCompliance.setStatus('current')
-mibBuilder.exportSymbols("CTRON-VLAN-CLASSIFY-MIB", ctVlanClassifyVlanIndex=ctVlanClassifyVlanIndex, ctVlanClassifyTable=ctVlanClassifyTable, ctVlanClassifyRowStatus=ctVlanClassifyRowStatus, ctVlanClassifyAbilityEntry=ctVlanClassifyAbilityEntry, ctVlanClassifyStatus=ctVlanClassifyStatus, ctVlanClassifyDataVal=ctVlanClassifyDataVal, ctVlanClassifyEntry=ctVlanClassifyEntry, ctVlanClassifyAbilityTable=ctVlanClassifyAbilityTable, ctVlanClassifyObjects=ctVlanClassifyObjects, ctVlanClassifyConformance=ctVlanClassifyConformance, ctVlanClassifyCompliances=ctVlanClassifyCompliances, ctVlanClassifyIngressList=ctVlanClassifyIngressList, ctVlanClassifyActionStatus=ctVlanClassifyActionStatus, ctVlanClassifyGroups=ctVlanClassifyGroups, ctVlanClassify=ctVlanClassify, ctVlanClassifyCompliance=ctVlanClassifyCompliance, VlanIndex=VlanIndex, PYSNMP_MODULE_ID=ctVlanClassify, ctVlanClassifyDataMask=ctVlanClassifyDataMask, ctVlanClassifyRowInfo=ctVlanClassifyRowInfo, ctVlanClassifyBaseGroup=ctVlanClassifyBaseGroup, ctVlanClassifyPorts=ctVlanClassifyPorts, ctVlanClassifyMaxEntries=ctVlanClassifyMaxEntries, CtVlanClassifyType=CtVlanClassifyType, ctVlanClassifyAbility=ctVlanClassifyAbility, ctVlanClassifyNumEntries=ctVlanClassifyNumEntries, ctVlanClassifyDataMeaning=ctVlanClassifyDataMeaning)
+mibBuilder.exportSymbols("CTRON-VLAN-CLASSIFY-MIB", CtVlanClassifyType=CtVlanClassifyType, ctVlanClassifyEntry=ctVlanClassifyEntry, ctVlanClassifyActionStatus=ctVlanClassifyActionStatus, ctVlanClassify=ctVlanClassify, ctVlanClassifyBaseGroup=ctVlanClassifyBaseGroup, ctVlanClassifyCompliances=ctVlanClassifyCompliances, ctVlanClassifyConformance=ctVlanClassifyConformance, ctVlanClassifyMaxEntries=ctVlanClassifyMaxEntries, ctVlanClassifyIngressList=ctVlanClassifyIngressList, ctVlanClassifyStatus=ctVlanClassifyStatus, ctVlanClassifyTable=ctVlanClassifyTable, ctVlanClassifyAbilityEntry=ctVlanClassifyAbilityEntry, ctVlanClassifyGroups=ctVlanClassifyGroups, ctVlanClassifyDataMask=ctVlanClassifyDataMask, ctVlanClassifyPorts=ctVlanClassifyPorts, ctVlanClassifyNumEntries=ctVlanClassifyNumEntries, ctVlanClassifyVlanIndex=ctVlanClassifyVlanIndex, ctVlanClassifyDataMeaning=ctVlanClassifyDataMeaning, ctVlanClassifyRowStatus=ctVlanClassifyRowStatus, ctVlanClassifyAbilityTable=ctVlanClassifyAbilityTable, ctVlanClassifyObjects=ctVlanClassifyObjects, ctVlanClassifyCompliance=ctVlanClassifyCompliance, ctVlanClassifyRowInfo=ctVlanClassifyRowInfo, PYSNMP_MODULE_ID=ctVlanClassify, VlanIndex=VlanIndex, ctVlanClassifyAbility=ctVlanClassifyAbility, ctVlanClassifyDataVal=ctVlanClassifyDataVal)

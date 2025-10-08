@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module ZYXEL-PORT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-PORT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:37:47 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zyxel/ZYXEL-PORT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:03:30 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
 zyxelPort = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61))
 if mibBuilder.loadTexts: zyxelPort.setLastUpdated('201207010000Z')
@@ -61,4 +61,4 @@ zyPortIntrusionLock = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 3, 
 if mibBuilder.loadTexts: zyPortIntrusionLock.setStatus('current')
 zyPortAutonegotiationFailedRecovered = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 3, 3)).setObjects(("IF-MIB", "ifIndex"))
 if mibBuilder.loadTexts: zyPortAutonegotiationFailedRecovered.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-PORT-MIB", zyPortFlowControlState=zyPortFlowControlState, zyxelPort=zyxelPort, zyPortSpeedDuplex=zyPortSpeedDuplex, zyPortLinkUpType=zyPortLinkUpType, zyPortName=zyPortName, zyPortModuleType=zyPortModuleType, zyxelPortEntry=zyxelPortEntry, zyPortIntrusionLock=zyPortIntrusionLock, zyxelPortSetup=zyxelPortSetup, zyPortIntrusionLockState=zyPortIntrusionLockState, zyPortTestStatus=zyPortTestStatus, zyxelPortNotifications=zyxelPortNotifications, zyPortUtilizationTx=zyPortUtilizationTx, zyxelPortInfoTable=zyxelPortInfoTable, zyxelPortStatus=zyxelPortStatus, zyxelPortInfoEntry=zyxelPortInfoEntry, zyPortUtilizationRx=zyPortUtilizationRx, zyPortAutonegotiationFailed=zyPortAutonegotiationFailed, zyxelPortTable=zyxelPortTable, zyPortCX4CableLength=zyPortCX4CableLength, PYSNMP_MODULE_ID=zyxelPort, zyPortAutonegotiationFailedRecovered=zyPortAutonegotiationFailedRecovered, zyPort10GMediaType=zyPort10GMediaType, zyPortCounterReset=zyPortCounterReset, zyPortExtendRangeState=zyPortExtendRangeState)
+mibBuilder.exportSymbols("ZYXEL-PORT-MIB", zyxelPortSetup=zyxelPortSetup, zyPortAutonegotiationFailed=zyPortAutonegotiationFailed, zyPortTestStatus=zyPortTestStatus, zyxelPortNotifications=zyxelPortNotifications, zyPortUtilizationTx=zyPortUtilizationTx, zyPortExtendRangeState=zyPortExtendRangeState, zyPortIntrusionLock=zyPortIntrusionLock, zyPortModuleType=zyPortModuleType, zyxelPortTable=zyxelPortTable, zyPortFlowControlState=zyPortFlowControlState, zyPortLinkUpType=zyPortLinkUpType, zyPortUtilizationRx=zyPortUtilizationRx, zyxelPortStatus=zyxelPortStatus, zyPortAutonegotiationFailedRecovered=zyPortAutonegotiationFailedRecovered, zyPortIntrusionLockState=zyPortIntrusionLockState, zyPortSpeedDuplex=zyPortSpeedDuplex, zyxelPortInfoTable=zyxelPortInfoTable, PYSNMP_MODULE_ID=zyxelPort, zyPortName=zyPortName, zyxelPortInfoEntry=zyxelPortInfoEntry, zyPort10GMediaType=zyPort10GMediaType, zyPortCX4CableLength=zyPortCX4CableLength, zyxelPortEntry=zyxelPortEntry, zyxelPort=zyxelPort, zyPortCounterReset=zyPortCounterReset)

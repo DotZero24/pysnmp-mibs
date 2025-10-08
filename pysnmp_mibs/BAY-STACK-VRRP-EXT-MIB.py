@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module BAY-STACK-VRRP-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/BAY-STACK-VRRP-EXT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:03 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nortel/BAY-STACK-VRRP-EXT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:02:20 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 ipAdEntAddr, = mibBuilder.importSymbols("IP-MIB", "ipAdEntAddr")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
 bayStackMibs, = mibBuilder.importSymbols("SYNOPTICS-ROOT-MIB", "bayStackMibs")
-vrrpOperVrId, vrrpOperPrimaryIpAddr = mibBuilder.importSymbols("VRRP-MIB", "vrrpOperVrId", "vrrpOperPrimaryIpAddr")
+vrrpOperPrimaryIpAddr, vrrpOperVrId = mibBuilder.importSymbols("VRRP-MIB", "vrrpOperPrimaryIpAddr", "vrrpOperVrId")
 bayStackVrrpExtMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 5, 11))
 bayStackVrrpExtMib.setRevisions(('2005-07-01 00:00', '2012-10-18 00:00',))
 if mibBuilder.loadTexts: bayStackVrrpExtMib.setLastUpdated('201210180000Z')
@@ -57,4 +57,4 @@ bsveVrrpTrapStateTransitionCause = MibScalar((1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 4,
 if mibBuilder.loadTexts: bsveVrrpTrapStateTransitionCause.setStatus('current')
 bsveVrrpTrapStateTransition = NotificationType((1, 3, 6, 1, 4, 1, 45, 5, 11, 0, 1)).setObjects(("BAY-STACK-VRRP-EXT-MIB", "bsveVrrpTrapStateTransitionType"), ("BAY-STACK-VRRP-EXT-MIB", "bsveVrrpTrapStateTransitionCause"), ("VRRP-MIB", "vrrpOperPrimaryIpAddr"), ("IP-MIB", "ipAdEntAddr"))
 if mibBuilder.loadTexts: bsveVrrpTrapStateTransition.setStatus('current')
-mibBuilder.exportSymbols("BAY-STACK-VRRP-EXT-MIB", bsveVrrpTrapStateTransitionType=bsveVrrpTrapStateTransitionType, bsveVrrpOperExtHoldDownTimer=bsveVrrpOperExtHoldDownTimer, bsveVrrpOperExtHoldDownTimeRemaining=bsveVrrpOperExtHoldDownTimeRemaining, PYSNMP_MODULE_ID=bayStackVrrpExtMib, bsveNotificationObjects=bsveNotificationObjects, bsveVrrpOperExtFasterAdvIntervalEnabled=bsveVrrpOperExtFasterAdvIntervalEnabled, bsveVrrpTrapStateTransition=bsveVrrpTrapStateTransition, bsveVrrpOperExtCriticalIpAddr=bsveVrrpOperExtCriticalIpAddr, bsveObjects=bsveObjects, bsveVrrpPingVirtualAddrEnabled=bsveVrrpPingVirtualAddrEnabled, bsveVrrpOperExtEntry=bsveVrrpOperExtEntry, bsveVrrpOperExtCriticalIpAddrEnabled=bsveVrrpOperExtCriticalIpAddrEnabled, bsveVrrpOperExtTable=bsveVrrpOperExtTable, bsveScalars=bsveScalars, bsveVrrpTrapStateTransitionCause=bsveVrrpTrapStateTransitionCause, bsveVrrpEnabled=bsveVrrpEnabled, bsveVrrpOperExtFasterAdvInterval=bsveVrrpOperExtFasterAdvInterval, bsveVrrpOperExtBackUpMasterEnabled=bsveVrrpOperExtBackUpMasterEnabled, bsveVrrpOperExtBackUpMasterState=bsveVrrpOperExtBackUpMasterState, bsveVrrpOperExtHoldDownState=bsveVrrpOperExtHoldDownState, bsveNotifications=bsveNotifications, bsveVrrpOperExtAction=bsveVrrpOperExtAction, bayStackVrrpExtMib=bayStackVrrpExtMib)
+mibBuilder.exportSymbols("BAY-STACK-VRRP-EXT-MIB", bsveVrrpOperExtFasterAdvIntervalEnabled=bsveVrrpOperExtFasterAdvIntervalEnabled, bsveVrrpOperExtTable=bsveVrrpOperExtTable, bsveObjects=bsveObjects, bsveVrrpTrapStateTransition=bsveVrrpTrapStateTransition, bsveNotifications=bsveNotifications, bayStackVrrpExtMib=bayStackVrrpExtMib, bsveVrrpOperExtFasterAdvInterval=bsveVrrpOperExtFasterAdvInterval, bsveVrrpTrapStateTransitionType=bsveVrrpTrapStateTransitionType, PYSNMP_MODULE_ID=bayStackVrrpExtMib, bsveVrrpOperExtBackUpMasterState=bsveVrrpOperExtBackUpMasterState, bsveNotificationObjects=bsveNotificationObjects, bsveVrrpEnabled=bsveVrrpEnabled, bsveVrrpOperExtBackUpMasterEnabled=bsveVrrpOperExtBackUpMasterEnabled, bsveVrrpOperExtHoldDownTimeRemaining=bsveVrrpOperExtHoldDownTimeRemaining, bsveScalars=bsveScalars, bsveVrrpPingVirtualAddrEnabled=bsveVrrpPingVirtualAddrEnabled, bsveVrrpTrapStateTransitionCause=bsveVrrpTrapStateTransitionCause, bsveVrrpOperExtCriticalIpAddr=bsveVrrpOperExtCriticalIpAddr, bsveVrrpOperExtHoldDownState=bsveVrrpOperExtHoldDownState, bsveVrrpOperExtHoldDownTimer=bsveVrrpOperExtHoldDownTimer, bsveVrrpOperExtCriticalIpAddrEnabled=bsveVrrpOperExtCriticalIpAddrEnabled, bsveVrrpOperExtAction=bsveVrrpOperExtAction, bsveVrrpOperExtEntry=bsveVrrpOperExtEntry)

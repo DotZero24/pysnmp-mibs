@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module HPN-ICF-DOT11-WLANEXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-DOT11-WLANEXT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:10 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HPN-ICF-DOT11-WLANEXT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:07:49 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-hpnicfDot11, HpnicfDot11ObjectIDType, HpnicfDot11QosAcType, HpnicfDot11RadioScopeType = mibBuilder.importSymbols("HPN-ICF-DOT11-REF-MIB", "hpnicfDot11", "HpnicfDot11ObjectIDType", "HpnicfDot11QosAcType", "HpnicfDot11RadioScopeType")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+HpnicfDot11QosAcType, hpnicfDot11, HpnicfDot11ObjectIDType, HpnicfDot11RadioScopeType = mibBuilder.importSymbols("HPN-ICF-DOT11-REF-MIB", "HpnicfDot11QosAcType", "hpnicfDot11", "HpnicfDot11ObjectIDType", "HpnicfDot11RadioScopeType")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 hpnicfDot11WLANEXT = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 75, 7))
 hpnicfDot11WLANEXT.setRevisions(('2007-06-08 20:00',))
 if mibBuilder.loadTexts: hpnicfDot11WLANEXT.setLastUpdated('200706082000Z')
@@ -56,4 +56,4 @@ hpnicfDot11QosAcType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 7
 if mibBuilder.loadTexts: hpnicfDot11QosAcType.setStatus('current')
 hpnicfDot11AcDropFrameCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 75, 7, 2, 2, 1, 2), Counter32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: hpnicfDot11AcDropFrameCnt.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-DOT11-WLANEXT-MIB", hpnicfDot11RFGroup=hpnicfDot11RFGroup, hpnicfDot11QosRadioID=hpnicfDot11QosRadioID, hpnicfDot11RFSignalStatisInterv=hpnicfDot11RFSignalStatisInterv, hpnicfDot11RFMaxSignalStrength=hpnicfDot11RFMaxSignalStrength, hpnicfDot11RFMinSignalStrength=hpnicfDot11RFMinSignalStrength, hpnicfDot11WLANEXT=hpnicfDot11WLANEXT, hpnicfDot11QosStatisEntry=hpnicfDot11QosStatisEntry, hpnicfDot11QosAcType=hpnicfDot11QosAcType, hpnicfDot11QosAcStatisTable=hpnicfDot11QosAcStatisTable, hpnicfDot11QosStatisTable=hpnicfDot11QosStatisTable, hpnicfDot11RFAverageSignalStrength=hpnicfDot11RFAverageSignalStrength, PYSNMP_MODULE_ID=hpnicfDot11WLANEXT, hpnicfDot11QosAPID=hpnicfDot11QosAPID, hpnicfDot11RFAPID=hpnicfDot11RFAPID, hpnicfDot11RFSignalStatisTable=hpnicfDot11RFSignalStatisTable, hpnicfDot11QosAverageQueLen=hpnicfDot11QosAverageQueLen, hpnicfDot11AcDropFrameCnt=hpnicfDot11AcDropFrameCnt, hpnicfDot11QosAcStatisEntry=hpnicfDot11QosAcStatisEntry, hpnicfDot11RFSignalStatisEntry=hpnicfDot11RFSignalStatisEntry, hpnicfDot11QosGroup=hpnicfDot11QosGroup, hpnicfDot11QosDropFrameRatio=hpnicfDot11QosDropFrameRatio, hpnicfDot11QosAverageDataRate=hpnicfDot11QosAverageDataRate, hpnicfDot11RFRadioID=hpnicfDot11RFRadioID)
+mibBuilder.exportSymbols("HPN-ICF-DOT11-WLANEXT-MIB", hpnicfDot11RFSignalStatisInterv=hpnicfDot11RFSignalStatisInterv, hpnicfDot11QosAcType=hpnicfDot11QosAcType, hpnicfDot11QosAPID=hpnicfDot11QosAPID, hpnicfDot11QosAcStatisTable=hpnicfDot11QosAcStatisTable, hpnicfDot11QosStatisTable=hpnicfDot11QosStatisTable, hpnicfDot11RFMaxSignalStrength=hpnicfDot11RFMaxSignalStrength, PYSNMP_MODULE_ID=hpnicfDot11WLANEXT, hpnicfDot11QosAverageQueLen=hpnicfDot11QosAverageQueLen, hpnicfDot11RFSignalStatisEntry=hpnicfDot11RFSignalStatisEntry, hpnicfDot11RFAPID=hpnicfDot11RFAPID, hpnicfDot11RFSignalStatisTable=hpnicfDot11RFSignalStatisTable, hpnicfDot11QosRadioID=hpnicfDot11QosRadioID, hpnicfDot11RFMinSignalStrength=hpnicfDot11RFMinSignalStrength, hpnicfDot11QosAcStatisEntry=hpnicfDot11QosAcStatisEntry, hpnicfDot11QosAverageDataRate=hpnicfDot11QosAverageDataRate, hpnicfDot11QosGroup=hpnicfDot11QosGroup, hpnicfDot11QosDropFrameRatio=hpnicfDot11QosDropFrameRatio, hpnicfDot11AcDropFrameCnt=hpnicfDot11AcDropFrameCnt, hpnicfDot11RFGroup=hpnicfDot11RFGroup, hpnicfDot11RFAverageSignalStrength=hpnicfDot11RFAverageSignalStrength, hpnicfDot11QosStatisEntry=hpnicfDot11QosStatisEntry, hpnicfDot11WLANEXT=hpnicfDot11WLANEXT, hpnicfDot11RFRadioID=hpnicfDot11RFRadioID)

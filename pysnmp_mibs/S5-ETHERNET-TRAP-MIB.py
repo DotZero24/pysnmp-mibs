@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module S5-ETHERNET-TRAP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/S5-ETHERNET-TRAP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:10 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nortel/S5-ETHERNET-TRAP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:02:34 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-s5EnRedPortCompanionPortNum, s5EnRedPortCompanionBrdNum, s5EnRedPortRedundMode, s5EnRedPortRemoteOperStatus, s5EnRedPortOperStatus = mibBuilder.importSymbols("S5-ETH-REDUNDANT-LINKS-MIB", "s5EnRedPortCompanionPortNum", "s5EnRedPortCompanionBrdNum", "s5EnRedPortRedundMode", "s5EnRedPortRemoteOperStatus", "s5EnRedPortOperStatus")
-s5EnPortJabberStatus, s5EnPortPartStatus, s5EnPortLinkStatus = mibBuilder.importSymbols("S5-ETHERNET-COMMON-MIB", "s5EnPortJabberStatus", "s5EnPortPartStatus", "s5EnPortLinkStatus")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+s5EnRedPortCompanionPortNum, s5EnRedPortRedundMode, s5EnRedPortRemoteOperStatus, s5EnRedPortCompanionBrdNum, s5EnRedPortOperStatus = mibBuilder.importSymbols("S5-ETH-REDUNDANT-LINKS-MIB", "s5EnRedPortCompanionPortNum", "s5EnRedPortRedundMode", "s5EnRedPortRemoteOperStatus", "s5EnRedPortCompanionBrdNum", "s5EnRedPortOperStatus")
+s5EnPortPartStatus, s5EnPortJabberStatus, s5EnPortLinkStatus = mibBuilder.importSymbols("S5-ETHERNET-COMMON-MIB", "s5EnPortPartStatus", "s5EnPortJabberStatus", "s5EnPortLinkStatus")
 s5EthTrap, = mibBuilder.importSymbols("S5-ROOT-MIB", "s5EthTrap")
-s5SbsViolationStatusPortIndx, s5SbsMgmViolationIpAddress, s5SbsViolationStatusMACAddress, s5SbsViolationStatusBrdIndx, s5SbsMgmViolationType = mibBuilder.importSymbols("S5-SWITCH-BAYSECURE-MIB", "s5SbsViolationStatusPortIndx", "s5SbsMgmViolationIpAddress", "s5SbsViolationStatusMACAddress", "s5SbsViolationStatusBrdIndx", "s5SbsMgmViolationType")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+s5SbsViolationStatusPortIndx, s5SbsViolationStatusBrdIndx, s5SbsMgmViolationIpAddress, s5SbsViolationStatusMACAddress, s5SbsMgmViolationType = mibBuilder.importSymbols("S5-SWITCH-BAYSECURE-MIB", "s5SbsViolationStatusPortIndx", "s5SbsViolationStatusBrdIndx", "s5SbsMgmViolationIpAddress", "s5SbsViolationStatusMACAddress", "s5SbsMgmViolationType")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 s5EthernetTrapMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 1, 0))
 s5EthernetTrapMib.setRevisions(('2012-02-28 00:00', '2009-07-29 00:00', '2009-02-25 00:00', '2004-07-20 00:00',))
 if mibBuilder.loadTexts: s5EthernetTrapMib.setLastUpdated('201202280000Z')
@@ -57,4 +57,4 @@ s5EtrNewRedBadRemCfgDetected = NotificationType((1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 
 if mibBuilder.loadTexts: s5EtrNewRedBadRemCfgDetected.setStatus('current')
 s5EtrMacAddressTablesThresholdReached = NotificationType((1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 1, 0, 12))
 if mibBuilder.loadTexts: s5EtrMacAddressTablesThresholdReached.setStatus('current')
-mibBuilder.exportSymbols("S5-ETHERNET-TRAP-MIB", s5EtrPortDteJabbering=s5EtrPortDteJabbering, s5EtrNewSbsMacAccessViolation=s5EtrNewSbsMacAccessViolation, s5EtrMacAddressTablesThresholdReached=s5EtrMacAddressTablesThresholdReached, s5EtrNewPortDteJabbering=s5EtrNewPortDteJabbering, s5EtrSbsMacAccessViolation=s5EtrSbsMacAccessViolation, s5EtrNewPortManualPart=s5EtrNewPortManualPart, s5EtrNewRedBadRemCfgDetected=s5EtrNewRedBadRemCfgDetected, s5EtrRedBadRemCfgDetected=s5EtrRedBadRemCfgDetected, s5EthernetTrapMib=s5EthernetTrapMib, s5EtrPortAutoPart=s5EtrPortAutoPart, s5EtrSbsMacTableCleared=s5EtrSbsMacTableCleared, s5EtrSbsMacTableFull=s5EtrSbsMacTableFull, s5EtrNewPortAutoPart=s5EtrNewPortAutoPart, s5EtrMgmAccessViolation=s5EtrMgmAccessViolation, s5EtrSbsMacTableClearedForPort=s5EtrSbsMacTableClearedForPort, s5EtrPortManualPart=s5EtrPortManualPart, s5EtrSbsMacRemoved=s5EtrSbsMacRemoved, s5EtrNewMgmAccessViolation=s5EtrNewMgmAccessViolation, PYSNMP_MODULE_ID=s5EthernetTrapMib, s5EtrRedPortFailure=s5EtrRedPortFailure, s5EtrNewRedPortFailure=s5EtrNewRedPortFailure)
+mibBuilder.exportSymbols("S5-ETHERNET-TRAP-MIB", s5EthernetTrapMib=s5EthernetTrapMib, s5EtrPortDteJabbering=s5EtrPortDteJabbering, s5EtrRedBadRemCfgDetected=s5EtrRedBadRemCfgDetected, s5EtrNewPortManualPart=s5EtrNewPortManualPart, s5EtrNewRedBadRemCfgDetected=s5EtrNewRedBadRemCfgDetected, s5EtrPortAutoPart=s5EtrPortAutoPart, s5EtrSbsMacTableCleared=s5EtrSbsMacTableCleared, s5EtrSbsMacAccessViolation=s5EtrSbsMacAccessViolation, s5EtrRedPortFailure=s5EtrRedPortFailure, s5EtrNewSbsMacAccessViolation=s5EtrNewSbsMacAccessViolation, s5EtrNewPortAutoPart=s5EtrNewPortAutoPart, s5EtrNewPortDteJabbering=s5EtrNewPortDteJabbering, s5EtrNewRedPortFailure=s5EtrNewRedPortFailure, s5EtrMgmAccessViolation=s5EtrMgmAccessViolation, s5EtrSbsMacTableFull=s5EtrSbsMacTableFull, s5EtrPortManualPart=s5EtrPortManualPart, s5EtrSbsMacTableClearedForPort=s5EtrSbsMacTableClearedForPort, s5EtrMacAddressTablesThresholdReached=s5EtrMacAddressTablesThresholdReached, PYSNMP_MODULE_ID=s5EthernetTrapMib, s5EtrSbsMacRemoved=s5EtrSbsMacRemoved, s5EtrNewMgmAccessViolation=s5EtrNewMgmAccessViolation)

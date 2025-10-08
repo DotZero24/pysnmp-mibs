@@ -1,21 +1,21 @@
 #
 # PySNMP MIB module CISCO-UNIFIED-COMPUTING-DHCP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-UNIFIED-COMPUTING-DHCP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:27 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-UNIFIED-COMPUTING-DHCP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:30:44 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-Unsigned64, CiscoAlarmSeverity, CiscoInetAddressMask, TimeIntervalSec, CiscoNetworkAddress = mibBuilder.importSymbols("CISCO-TC", "Unsigned64", "CiscoAlarmSeverity", "CiscoInetAddressMask", "TimeIntervalSec", "CiscoNetworkAddress")
-CucsManagedObjectId, ciscoUnifiedComputingMIBObjects, CucsManagedObjectDn = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-MIB", "CucsManagedObjectId", "ciscoUnifiedComputingMIBObjects", "CucsManagedObjectDn")
-InetAddressIPv6, InetAddressIPv4 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv6", "InetAddressIPv4")
+CiscoInetAddressMask, CiscoNetworkAddress, CiscoAlarmSeverity, TimeIntervalSec, Unsigned64 = mibBuilder.importSymbols("CISCO-TC", "CiscoInetAddressMask", "CiscoNetworkAddress", "CiscoAlarmSeverity", "TimeIntervalSec", "Unsigned64")
+CucsManagedObjectDn, ciscoUnifiedComputingMIBObjects, CucsManagedObjectId = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-MIB", "CucsManagedObjectDn", "ciscoUnifiedComputingMIBObjects", "CucsManagedObjectId")
+InetAddressIPv4, InetAddressIPv6 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv4", "InetAddressIPv6")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-DisplayString, MacAddress, TimeInterval, TimeStamp, TruthValue, DateAndTime, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "TimeStamp", "TruthValue", "DateAndTime", "RowPointer", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+DateAndTime, TextualConvention, TimeInterval, MacAddress, RowPointer, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "TimeInterval", "MacAddress", "RowPointer", "TruthValue", "TimeStamp", "DisplayString")
 cucsDhcpObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11))
 if mibBuilder.loadTexts: cucsDhcpObjects.setLastUpdated('201807260000Z')
 if mibBuilder.loadTexts: cucsDhcpObjects.setOrganization('Cisco Systems Inc.')
@@ -77,4 +77,4 @@ cucsDhcpLeaseMac = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 3, 1, 10)
 if mibBuilder.loadTexts: cucsDhcpLeaseMac.setStatus('current')
 cucsDhcpLeaseStarts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 3, 1, 11), DateAndTime()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: cucsDhcpLeaseStarts.setStatus('current')
-mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-DHCP-MIB", cucsDhcpAcquiredCookie=cucsDhcpAcquiredCookie, cucsDhcpAcquiredIp=cucsDhcpAcquiredIp, cucsDhcpLeaseCliId=cucsDhcpLeaseCliId, cucsDhcpLeaseIntf=cucsDhcpLeaseIntf, cucsDhcpAcquiredTable=cucsDhcpAcquiredTable, cucsDhcpAcquiredMac=cucsDhcpAcquiredMac, cucsDhcpObjects=cucsDhcpObjects, cucsDhcpInstInstanceId=cucsDhcpInstInstanceId, cucsDhcpLeaseEnds=cucsDhcpLeaseEnds, cucsDhcpLeaseRn=cucsDhcpLeaseRn, cucsDhcpInstEntry=cucsDhcpInstEntry, cucsDhcpLeaseCookie=cucsDhcpLeaseCookie, cucsDhcpLeaseIp=cucsDhcpLeaseIp, cucsDhcpInstTable=cucsDhcpInstTable, cucsDhcpInstRn=cucsDhcpInstRn, cucsDhcpAcquiredEnds=cucsDhcpAcquiredEnds, cucsDhcpLeaseStarts=cucsDhcpLeaseStarts, cucsDhcpAcquiredRn=cucsDhcpAcquiredRn, cucsDhcpLeaseEntry=cucsDhcpLeaseEntry, cucsDhcpLeaseInstanceId=cucsDhcpLeaseInstanceId, cucsDhcpLeaseDn=cucsDhcpLeaseDn, cucsDhcpLeaseTable=cucsDhcpLeaseTable, PYSNMP_MODULE_ID=cucsDhcpObjects, cucsDhcpLeaseMac=cucsDhcpLeaseMac, cucsDhcpInstDn=cucsDhcpInstDn, cucsDhcpAcquiredAcqts=cucsDhcpAcquiredAcqts, cucsDhcpAcquiredSysId=cucsDhcpAcquiredSysId, cucsDhcpLeaseHostname=cucsDhcpLeaseHostname, cucsDhcpAcquiredEntry=cucsDhcpAcquiredEntry, cucsDhcpAcquiredInstanceId=cucsDhcpAcquiredInstanceId, cucsDhcpAcquiredDn=cucsDhcpAcquiredDn)
+mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-DHCP-MIB", cucsDhcpInstRn=cucsDhcpInstRn, cucsDhcpAcquiredDn=cucsDhcpAcquiredDn, cucsDhcpLeaseIntf=cucsDhcpLeaseIntf, cucsDhcpInstDn=cucsDhcpInstDn, cucsDhcpLeaseDn=cucsDhcpLeaseDn, cucsDhcpLeaseEntry=cucsDhcpLeaseEntry, PYSNMP_MODULE_ID=cucsDhcpObjects, cucsDhcpLeaseCookie=cucsDhcpLeaseCookie, cucsDhcpAcquiredSysId=cucsDhcpAcquiredSysId, cucsDhcpLeaseStarts=cucsDhcpLeaseStarts, cucsDhcpLeaseIp=cucsDhcpLeaseIp, cucsDhcpLeaseInstanceId=cucsDhcpLeaseInstanceId, cucsDhcpAcquiredTable=cucsDhcpAcquiredTable, cucsDhcpInstEntry=cucsDhcpInstEntry, cucsDhcpLeaseTable=cucsDhcpLeaseTable, cucsDhcpAcquiredInstanceId=cucsDhcpAcquiredInstanceId, cucsDhcpAcquiredIp=cucsDhcpAcquiredIp, cucsDhcpLeaseRn=cucsDhcpLeaseRn, cucsDhcpAcquiredEntry=cucsDhcpAcquiredEntry, cucsDhcpAcquiredEnds=cucsDhcpAcquiredEnds, cucsDhcpLeaseMac=cucsDhcpLeaseMac, cucsDhcpInstInstanceId=cucsDhcpInstInstanceId, cucsDhcpLeaseHostname=cucsDhcpLeaseHostname, cucsDhcpAcquiredRn=cucsDhcpAcquiredRn, cucsDhcpAcquiredCookie=cucsDhcpAcquiredCookie, cucsDhcpLeaseCliId=cucsDhcpLeaseCliId, cucsDhcpLeaseEnds=cucsDhcpLeaseEnds, cucsDhcpInstTable=cucsDhcpInstTable, cucsDhcpAcquiredAcqts=cucsDhcpAcquiredAcqts, cucsDhcpObjects=cucsDhcpObjects, cucsDhcpAcquiredMac=cucsDhcpAcquiredMac)

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SOURCE-ROUTING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/SOURCE-ROUTING-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:26:14 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/rfc/SOURCE-ROUTING-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:47:56 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-dot1dBridge, dot1dSr = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBridge", "dot1dSr")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+dot1dSr, dot1dBridge = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dSr", "dot1dBridge")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 dot1dPortPair = MibIdentifier((1, 3, 6, 1, 2, 1, 17, 10))
 dot1dSrPortTable = MibTable((1, 3, 6, 1, 2, 1, 17, 3, 1), )
 if mibBuilder.loadTexts: dot1dSrPortTable.setStatus('mandatory')
@@ -69,4 +69,4 @@ dot1dPortPairBridgeNum = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 10, 2, 1, 3), Int
 if mibBuilder.loadTexts: dot1dPortPairBridgeNum.setStatus('mandatory')
 dot1dPortPairBridgeState = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 10, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2), ("invalid", 3)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: dot1dPortPairBridgeState.setStatus('mandatory')
-mibBuilder.exportSymbols("SOURCE-ROUTING-MIB", dot1dSrPortSteOutFrames=dot1dSrPortSteOutFrames, dot1dSrPortBridgeNum=dot1dSrPortBridgeNum, dot1dPortPairTableSize=dot1dPortPairTableSize, dot1dSrPortHopCount=dot1dSrPortHopCount, dot1dSrPortSegmentMismatchDiscards=dot1dSrPortSegmentMismatchDiscards, dot1dSrBridgeLfMode=dot1dSrBridgeLfMode, dot1dSrPortDuplicateSegmentDiscards=dot1dSrPortDuplicateSegmentDiscards, dot1dSrPortDupLanIdOrTreeErrors=dot1dSrPortDupLanIdOrTreeErrors, dot1dSrPortTable=dot1dSrPortTable, dot1dSrPortTargetSegment=dot1dSrPortTargetSegment, dot1dPortPairTable=dot1dPortPairTable, dot1dSrPortApeInFrames=dot1dSrPortApeInFrames, dot1dSrPortEntry=dot1dSrPortEntry, dot1dSrPortLanIdMismatches=dot1dSrPortLanIdMismatches, dot1dPortPairLowPort=dot1dPortPairLowPort, dot1dSrPortLargestFrame=dot1dSrPortLargestFrame, dot1dSrPortApeOutFrames=dot1dSrPortApeOutFrames, dot1dSrPortSteInFrames=dot1dSrPortSteInFrames, dot1dPortPairEntry=dot1dPortPairEntry, dot1dSrPort=dot1dSrPort, dot1dSrPortSpecOutFrames=dot1dSrPortSpecOutFrames, dot1dSrPortHopCountExceededDiscards=dot1dSrPortHopCountExceededDiscards, dot1dPortPair=dot1dPortPair, dot1dPortPairHighPort=dot1dPortPairHighPort, dot1dSrPortSTESpanMode=dot1dSrPortSTESpanMode, dot1dSrPortLocalSegment=dot1dSrPortLocalSegment, dot1dSrPortSpecInFrames=dot1dSrPortSpecInFrames, dot1dPortPairBridgeState=dot1dPortPairBridgeState, dot1dPortPairBridgeNum=dot1dPortPairBridgeNum)
+mibBuilder.exportSymbols("SOURCE-ROUTING-MIB", dot1dPortPairTable=dot1dPortPairTable, dot1dSrPort=dot1dSrPort, dot1dSrPortLanIdMismatches=dot1dSrPortLanIdMismatches, dot1dSrPortBridgeNum=dot1dSrPortBridgeNum, dot1dSrPortSpecOutFrames=dot1dSrPortSpecOutFrames, dot1dPortPairBridgeState=dot1dPortPairBridgeState, dot1dPortPairEntry=dot1dPortPairEntry, dot1dSrPortSteOutFrames=dot1dSrPortSteOutFrames, dot1dPortPairBridgeNum=dot1dPortPairBridgeNum, dot1dSrPortSpecInFrames=dot1dSrPortSpecInFrames, dot1dSrPortHopCount=dot1dSrPortHopCount, dot1dSrPortApeInFrames=dot1dSrPortApeInFrames, dot1dSrPortLocalSegment=dot1dSrPortLocalSegment, dot1dSrPortDuplicateSegmentDiscards=dot1dSrPortDuplicateSegmentDiscards, dot1dSrPortSTESpanMode=dot1dSrPortSTESpanMode, dot1dPortPair=dot1dPortPair, dot1dSrPortDupLanIdOrTreeErrors=dot1dSrPortDupLanIdOrTreeErrors, dot1dSrPortApeOutFrames=dot1dSrPortApeOutFrames, dot1dSrPortSegmentMismatchDiscards=dot1dSrPortSegmentMismatchDiscards, dot1dSrPortLargestFrame=dot1dSrPortLargestFrame, dot1dSrPortTable=dot1dSrPortTable, dot1dSrPortTargetSegment=dot1dSrPortTargetSegment, dot1dSrBridgeLfMode=dot1dSrBridgeLfMode, dot1dSrPortHopCountExceededDiscards=dot1dSrPortHopCountExceededDiscards, dot1dPortPairTableSize=dot1dPortPairTableSize, dot1dSrPortSteInFrames=dot1dSrPortSteInFrames, dot1dPortPairLowPort=dot1dPortPairLowPort, dot1dPortPairHighPort=dot1dPortPairHighPort, dot1dSrPortEntry=dot1dSrPortEntry)

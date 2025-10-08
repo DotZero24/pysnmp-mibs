@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module WESTERMO-FRNT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/westermo/WESTERMO-FRNT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:56 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/westermo/WESTERMO-FRNT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:13 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 IfaceRefIndex, = mibBuilder.importSymbols("WESTERMO-INTERFACE-MIB", "IfaceRefIndex")
 common, = mibBuilder.importSymbols("WESTERMO-OID-MIB", "common")
 frnt = ModuleIdentity((1, 3, 6, 1, 4, 1, 16177, 2, 5))
@@ -82,4 +82,4 @@ frntCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 16177, 2, 5, 2, 2, 1)).setO
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     frntCompliance = frntCompliance.setStatus('current')
-mibBuilder.exportSymbols("WESTERMO-FRNT-MIB", frntCompliance=frntCompliance, frntStatusBlockingPort=frntStatusBlockingPort, frntNotificationsGroup=frntNotificationsGroup, frntGroups=frntGroups, frntNotificationPrefix=frntNotificationPrefix, PYSNMP_MODULE_ID=frnt, frntStatusVid1=frntStatusVid1, frntPortStatusRefIndex=frntPortStatusRefIndex, frntStatusRingId=frntStatusRingId, frntCompliances=frntCompliances, frntStatusRingStatus=frntStatusRingStatus, frntStatusTopologyChangeCount=frntStatusTopologyChangeCount, frntPortStatusGroup=frntPortStatusGroup, frntNotifications=frntNotifications, frntStatusGroup=frntStatusGroup, frntPortStatusLinkState=frntPortStatusLinkState, frntRingOK=frntRingOK, frnt=frnt, frntStatusInstance=frntStatusInstance, frntRingBroken=frntRingBroken, frntStatusPort1=frntStatusPort1, frntStatusPort2=frntStatusPort2, frntStatusDeviceMode=frntStatusDeviceMode, frntStatusTimeSinceLastChange=frntStatusTimeSinceLastChange, frntStatusEntry=frntStatusEntry, frntStatusVid2=frntStatusVid2, frntPortStatusTable=frntPortStatusTable, frntStatusTable=frntStatusTable, frntStatusVersion=frntStatusVersion, frntPortStatusEntry=frntPortStatusEntry, frntPortStatusOperState=frntPortStatusOperState, frntObjects=frntObjects, frntConformance=frntConformance, frntPortStatusFrntRingId=frntPortStatusFrntRingId, frntPortStatusAdminState=frntPortStatusAdminState)
+mibBuilder.exportSymbols("WESTERMO-FRNT-MIB", frntPortStatusLinkState=frntPortStatusLinkState, frnt=frnt, frntConformance=frntConformance, frntPortStatusRefIndex=frntPortStatusRefIndex, frntStatusTopologyChangeCount=frntStatusTopologyChangeCount, frntPortStatusOperState=frntPortStatusOperState, frntNotifications=frntNotifications, frntPortStatusEntry=frntPortStatusEntry, frntStatusVid2=frntStatusVid2, frntCompliance=frntCompliance, frntRingOK=frntRingOK, frntGroups=frntGroups, frntPortStatusTable=frntPortStatusTable, frntStatusRingId=frntStatusRingId, frntNotificationsGroup=frntNotificationsGroup, frntStatusTable=frntStatusTable, frntStatusGroup=frntStatusGroup, frntStatusTimeSinceLastChange=frntStatusTimeSinceLastChange, frntStatusVersion=frntStatusVersion, frntStatusDeviceMode=frntStatusDeviceMode, PYSNMP_MODULE_ID=frnt, frntPortStatusFrntRingId=frntPortStatusFrntRingId, frntStatusRingStatus=frntStatusRingStatus, frntStatusPort1=frntStatusPort1, frntRingBroken=frntRingBroken, frntNotificationPrefix=frntNotificationPrefix, frntObjects=frntObjects, frntCompliances=frntCompliances, frntStatusInstance=frntStatusInstance, frntStatusVid1=frntStatusVid1, frntPortStatusAdminState=frntPortStatusAdminState, frntStatusEntry=frntStatusEntry, frntStatusPort2=frntStatusPort2, frntStatusBlockingPort=frntStatusBlockingPort, frntPortStatusGroup=frntPortStatusGroup)

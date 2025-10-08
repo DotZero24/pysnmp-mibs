@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module QLOGIC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/marvell/QLOGIC-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:16 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/marvell/QLOGIC-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:11:18 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 connUnitId, = mibBuilder.importSymbols("FCMGMT-MIB", "connUnitId")
 ancorOidTree, = mibBuilder.importSymbols("QLOGIC-SMI", "ancorOidTree")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ancorPortModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 1663, 1, 3))
 ancorPortModule.setRevisions(('2009-09-29 00:00', '2006-10-11 00:00',))
@@ -61,4 +61,4 @@ qlSB2PortLinkUp = NotificationType((1, 3, 6, 1, 4, 1, 1663, 1, 3, 0, 11)).setObj
 if mibBuilder.loadTexts: qlSB2PortLinkUp.setStatus('current')
 qlconnUnitAddedTrap = NotificationType((1, 3, 6, 1, 4, 1, 1663, 1, 3, 0, 12)).setObjects(("FCMGMT-MIB", "connUnitId"))
 if mibBuilder.loadTexts: qlconnUnitAddedTrap.setStatus('current')
-mibBuilder.exportSymbols("QLOGIC-MIB", fcQxQuailPortPhysReasonCode=fcQxQuailPortPhysReasonCode, fcQxPortPhysOperStatus=fcQxPortPhysOperStatus, fcQxQuailPortPhysAdminStatus=fcQxQuailPortPhysAdminStatus, ancorPortModule=ancorPortModule, fcQxPortPhysModule=fcQxPortPhysModule, fcQxPortPhysTable=fcQxPortPhysTable, FcQlModuleIndex=FcQlModuleIndex, qlSB2PortStatus=qlSB2PortStatus, fcQxPortStatusIndex=fcQxPortStatusIndex, PYSNMP_MODULE_ID=ancorPortModule, qlSB2PortLinkDown=qlSB2PortLinkDown, qlSB2PortControl=qlSB2PortControl, fcQxQuailPortAdminMode=fcQxQuailPortAdminMode, fcQxQuailPortOperMode=fcQxQuailPortOperMode, FcQxPortIndex=FcQxPortIndex, fcQxQuailPortPhysOperStatus=fcQxQuailPortPhysOperStatus, fcQxPortStatusModule=fcQxPortStatusModule, qlconnUnitAddedTrap=qlconnUnitAddedTrap, fcQxPortPhysEntry=fcQxPortPhysEntry, fcQxPortPhysIndex=fcQxPortPhysIndex, fcQxPortPhysAdminStatus=fcQxPortPhysAdminStatus, fcQxPortStatusEntry=fcQxPortStatusEntry, qlSB2PortLinkUp=qlSB2PortLinkUp, fcQxPortStatusTable=fcQxPortStatusTable)
+mibBuilder.exportSymbols("QLOGIC-MIB", PYSNMP_MODULE_ID=ancorPortModule, fcQxQuailPortPhysOperStatus=fcQxQuailPortPhysOperStatus, fcQxQuailPortPhysReasonCode=fcQxQuailPortPhysReasonCode, fcQxQuailPortOperMode=fcQxQuailPortOperMode, FcQlModuleIndex=FcQlModuleIndex, qlconnUnitAddedTrap=qlconnUnitAddedTrap, fcQxPortPhysTable=fcQxPortPhysTable, qlSB2PortLinkUp=qlSB2PortLinkUp, fcQxPortStatusModule=fcQxPortStatusModule, fcQxQuailPortPhysAdminStatus=fcQxQuailPortPhysAdminStatus, FcQxPortIndex=FcQxPortIndex, fcQxPortStatusTable=fcQxPortStatusTable, fcQxPortStatusIndex=fcQxPortStatusIndex, fcQxPortPhysAdminStatus=fcQxPortPhysAdminStatus, fcQxPortPhysEntry=fcQxPortPhysEntry, qlSB2PortControl=qlSB2PortControl, fcQxPortStatusEntry=fcQxPortStatusEntry, fcQxPortPhysIndex=fcQxPortPhysIndex, qlSB2PortLinkDown=qlSB2PortLinkDown, fcQxPortPhysOperStatus=fcQxPortPhysOperStatus, qlSB2PortStatus=qlSB2PortStatus, ancorPortModule=ancorPortModule, fcQxQuailPortAdminMode=fcQxQuailPortAdminMode, fcQxPortPhysModule=fcQxPortPhysModule)

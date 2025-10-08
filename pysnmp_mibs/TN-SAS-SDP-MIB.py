@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module TN-SAS-SDP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TN-SAS-SDP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:21:56 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nokia/TN-SAS-SDP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:40:50 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
-sdpBindEntry, sdpBindBaseStatsEntry = mibBuilder.importSymbols("TN-SDP-MIB", "sdpBindEntry", "sdpBindBaseStatsEntry")
-tnSASModules, tnSASObjs = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnSASModules", "tnSASObjs")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
+sdpBindBaseStatsEntry, sdpBindEntry = mibBuilder.importSymbols("TN-SDP-MIB", "sdpBindBaseStatsEntry", "sdpBindEntry")
+tnSASObjs, tnSASModules = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnSASObjs", "tnSASModules")
 tnSASServicesSdpMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 7483, 7, 2, 1, 1, 12))
 tnSASServicesSdpMIBModule.setRevisions(('2015-07-30 00:00', '2007-10-01 00:00',))
 if mibBuilder.loadTexts: tnSASServicesSdpMIBModule.setLastUpdated('201507300000Z')
@@ -36,4 +36,4 @@ sdpBindIngressExtraVlanTagDroppedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 748
 if mibBuilder.loadTexts: sdpBindIngressExtraVlanTagDroppedPackets.setStatus('current')
 sdpBindIngressExtraVlanTagDroppedOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 7, 2, 2, 2, 12, 5, 1, 2), Counter64()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: sdpBindIngressExtraVlanTagDroppedOctets.setStatus('current')
-mibBuilder.exportSymbols("TN-SAS-SDP-MIB", sdpBindIngressExtraVlanTagDroppedPackets=sdpBindIngressExtraVlanTagDroppedPackets, sdpBindBaseStatsExtnTable=sdpBindBaseStatsExtnTable, PYSNMP_MODULE_ID=tnSASServicesSdpMIBModule, sdpBindIngressExtraVlanTagDroppedOctets=sdpBindIngressExtraVlanTagDroppedOctets, sdpBindBaseStatsExtnEntry=sdpBindBaseStatsExtnEntry, tnSASSdpObjs=tnSASSdpObjs, sdpBindExtnEntry=sdpBindExtnEntry, tnSASServicesSdpMIBModule=tnSASServicesSdpMIBModule, sdpBindExtnTable=sdpBindExtnTable, sdpBindIngressExtraVlanTagDropCount=sdpBindIngressExtraVlanTagDropCount)
+mibBuilder.exportSymbols("TN-SAS-SDP-MIB", sdpBindExtnTable=sdpBindExtnTable, PYSNMP_MODULE_ID=tnSASServicesSdpMIBModule, sdpBindExtnEntry=sdpBindExtnEntry, sdpBindIngressExtraVlanTagDropCount=sdpBindIngressExtraVlanTagDropCount, sdpBindBaseStatsExtnTable=sdpBindBaseStatsExtnTable, sdpBindIngressExtraVlanTagDroppedPackets=sdpBindIngressExtraVlanTagDroppedPackets, sdpBindBaseStatsExtnEntry=sdpBindBaseStatsExtnEntry, sdpBindIngressExtraVlanTagDroppedOctets=sdpBindIngressExtraVlanTagDroppedOctets, tnSASSdpObjs=tnSASSdpObjs, tnSASServicesSdpMIBModule=tnSASServicesSdpMIBModule)

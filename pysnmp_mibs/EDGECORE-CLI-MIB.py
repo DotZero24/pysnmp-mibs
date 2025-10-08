@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module EDGECORE-CLI-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/edgecore/EDGECORE-CLI-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:10 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/edgecore/EDGECORE-CLI-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:12:43 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 rnd, = mibBuilder.importSymbols("EDGECORE-MIB", "rnd")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
 rlCli = ModuleIdentity((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 52))
 rlCli.setRevisions(('2010-05-25 00:00', '2007-01-02 00:00',))
 if mibBuilder.loadTexts: rlCli.setLastUpdated('201005250000Z')
@@ -59,4 +59,4 @@ rlCLIremoteCLIoutputRowPart = MibTableColumn((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 
 if mibBuilder.loadTexts: rlCLIremoteCLIoutputRowPart.setStatus('current')
 rlCLIremoteCLIoutputRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 52, 6, 6, 1, 4), RowStatus()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: rlCLIremoteCLIoutputRowStatus.setStatus('current')
-mibBuilder.exportSymbols("EDGECORE-CLI-MIB", rlCliTimer=rlCliTimer, rlCLIremoteCLIexecutionState=rlCLIremoteCLIexecutionState, rlCLIremoteCLIoutputsEntry=rlCLIremoteCLIoutputsEntry, rlCliPassword=rlCliPassword, rlCLIremoteCLIcommandPartNumber=rlCLIremoteCLIcommandPartNumber, rlCLIremoteCLIoutputRowPartNumber=rlCLIremoteCLIoutputRowPartNumber, rlCLIremoteCLIoutputsTable=rlCLIremoteCLIoutputsTable, rlCLIremoteCLIsupport=rlCLIremoteCLIsupport, rlCLIremoteCLIcommand=rlCLIremoteCLIcommand, rlCLIremoteCLIcommandStatus=rlCLIremoteCLIcommandStatus, rlCLIremoteCLIoutputRowPart=rlCLIremoteCLIoutputRowPart, rlCLIremoteCLIoutputRowStatus=rlCLIremoteCLIoutputRowStatus, PYSNMP_MODULE_ID=rlCli, rlCliFileEnable=rlCliFileEnable, rlCLIremoteCLImode=rlCLIremoteCLImode, rlCliMibVersion=rlCliMibVersion, rlCLIremoteCLIexecutionCommandIndex=rlCLIremoteCLIexecutionCommandIndex, rlCLIremoteCLIcommandsTable=rlCLIremoteCLIcommandsTable, rlCli=rlCli, rlCLIremoteCLIcommandsEntry=rlCLIremoteCLIcommandsEntry, rlCLIremoteCLIcommandPart=rlCLIremoteCLIcommandPart, rlCLIremoteCLIcommandIndex=rlCLIremoteCLIcommandIndex, rlCLIremoteCLIoutputRowIndex=rlCLIremoteCLIoutputRowIndex, rlCliFileEnableAfterReset=rlCliFileEnableAfterReset)
+mibBuilder.exportSymbols("EDGECORE-CLI-MIB", rlCLIremoteCLIcommand=rlCLIremoteCLIcommand, rlCLIremoteCLIoutputsTable=rlCLIremoteCLIoutputsTable, rlCLIremoteCLIcommandIndex=rlCLIremoteCLIcommandIndex, rlCLIremoteCLIcommandPart=rlCLIremoteCLIcommandPart, rlCliFileEnable=rlCliFileEnable, PYSNMP_MODULE_ID=rlCli, rlCliFileEnableAfterReset=rlCliFileEnableAfterReset, rlCLIremoteCLIexecutionState=rlCLIremoteCLIexecutionState, rlCLIremoteCLIoutputsEntry=rlCLIremoteCLIoutputsEntry, rlCliTimer=rlCliTimer, rlCLIremoteCLIoutputRowPartNumber=rlCLIremoteCLIoutputRowPartNumber, rlCli=rlCli, rlCLIremoteCLIcommandsEntry=rlCLIremoteCLIcommandsEntry, rlCLIremoteCLIoutputRowIndex=rlCLIremoteCLIoutputRowIndex, rlCLIremoteCLIsupport=rlCLIremoteCLIsupport, rlCLIremoteCLImode=rlCLIremoteCLImode, rlCliPassword=rlCliPassword, rlCLIremoteCLIcommandPartNumber=rlCLIremoteCLIcommandPartNumber, rlCLIremoteCLIexecutionCommandIndex=rlCLIremoteCLIexecutionCommandIndex, rlCliMibVersion=rlCliMibVersion, rlCLIremoteCLIoutputRowPart=rlCLIremoteCLIoutputRowPart, rlCLIremoteCLIcommandStatus=rlCLIremoteCLIcommandStatus, rlCLIremoteCLIcommandsTable=rlCLIremoteCLIcommandsTable, rlCLIremoteCLIoutputRowStatus=rlCLIremoteCLIoutputRowStatus)

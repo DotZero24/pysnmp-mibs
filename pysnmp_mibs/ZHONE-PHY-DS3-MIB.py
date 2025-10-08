@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ZHONE-PHY-DS3-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zhone/ZHONE-PHY-DS3-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:10 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zhone/ZHONE-PHY-DS3-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:19:49 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dsx3ConfigEntry, = mibBuilder.importSymbols("DS3-MIB", "dsx3ConfigEntry")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 zhoneModules, zhoneDs3Ext = mibBuilder.importSymbols("Zhone", "zhoneModules", "zhoneDs3Ext")
 phyDs3 = ModuleIdentity((1, 3, 6, 1, 4, 1, 5504, 6, 17))
 phyDs3.setRevisions(('2001-05-14 14:35', '2001-04-25 14:25', '2001-03-15 08:34',))
@@ -32,4 +32,4 @@ dsx3ConfigExtE3Framing = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 5, 10, 2, 1, 2)
 if mibBuilder.loadTexts: dsx3ConfigExtE3Framing.setStatus('current')
 dsx3ConfigExtAtmFraming = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 5, 10, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("dsx3AtmFramingOther", 1), ("dsx3AtmFramingPLCP", 2), ("dsx3AtmFramingDirectCellMapped", 3))).clone('dsx3AtmFramingDirectCellMapped')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: dsx3ConfigExtAtmFraming.setStatus('current')
-mibBuilder.exportSymbols("ZHONE-PHY-DS3-MIB", dsx3ConfigExtAtmFraming=dsx3ConfigExtAtmFraming, dsx3ConfigExtScrambleEnabled=dsx3ConfigExtScrambleEnabled, dsx3ConfigExtEntry=dsx3ConfigExtEntry, dsx3ConfigExtTable=dsx3ConfigExtTable, PYSNMP_MODULE_ID=phyDs3, phyDs3=phyDs3, dsx3ConfigExtGroup=dsx3ConfigExtGroup, dsx3ConfigExtE3Framing=dsx3ConfigExtE3Framing)
+mibBuilder.exportSymbols("ZHONE-PHY-DS3-MIB", dsx3ConfigExtScrambleEnabled=dsx3ConfigExtScrambleEnabled, dsx3ConfigExtGroup=dsx3ConfigExtGroup, PYSNMP_MODULE_ID=phyDs3, dsx3ConfigExtTable=dsx3ConfigExtTable, dsx3ConfigExtEntry=dsx3ConfigExtEntry, phyDs3=phyDs3, dsx3ConfigExtE3Framing=dsx3ConfigExtE3Framing, dsx3ConfigExtAtmFraming=dsx3ConfigExtAtmFraming)

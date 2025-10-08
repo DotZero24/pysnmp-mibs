@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module HM2-L2FORWARDING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hirschmann/HM2-L2FORWARDING-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:20 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hirschmann/HM2-L2FORWARDING-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:27 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-HmEnabledStatus, hm2ConfigurationMibs = mibBuilder.importSymbols("HM2-TC-MIB", "HmEnabledStatus", "hm2ConfigurationMibs")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+hm2ConfigurationMibs, HmEnabledStatus = mibBuilder.importSymbols("HM2-TC-MIB", "hm2ConfigurationMibs", "HmEnabledStatus")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 hm2L2ForwardingMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 11, 30))
 hm2L2ForwardingMib.setRevisions(('2011-03-16 00:00',))
 if mibBuilder.loadTexts: hm2L2ForwardingMib.setLastUpdated('201103160000Z')
@@ -40,4 +40,4 @@ hm2CosMapIpDscpValue = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 30, 1, 2, 2, 1
 if mibBuilder.loadTexts: hm2CosMapIpDscpValue.setStatus('current')
 hm2CosMapIpDscpTrafficClass = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 30, 1, 2, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: hm2CosMapIpDscpTrafficClass.setStatus('current')
-mibBuilder.exportSymbols("HM2-L2FORWARDING-MIB", hm2L2ForwardingMib=hm2L2ForwardingMib, hm2CosMapIpDscpValue=hm2CosMapIpDscpValue, hm2CosMapIpDscpEntry=hm2CosMapIpDscpEntry, hm2TrafficClassPriority=hm2TrafficClassPriority, hm2CosMapIpDscpTable=hm2CosMapIpDscpTable, hm2TrafficClassTable=hm2TrafficClassTable, hm2CosMapIpDscpTrafficClass=hm2CosMapIpDscpTrafficClass, hm2L2VlanUnawareModeOperStatus=hm2L2VlanUnawareModeOperStatus, hm2L2ForwardingMibNotifications=hm2L2ForwardingMibNotifications, hm2L2ForwClassOfServiceGroup=hm2L2ForwClassOfServiceGroup, hm2L2VlanUnawareModeAdminStatus=hm2L2VlanUnawareModeAdminStatus, PYSNMP_MODULE_ID=hm2L2ForwardingMib, hm2L2ForwGeneralGroup=hm2L2ForwGeneralGroup, hm2TrafficClassEntry=hm2TrafficClassEntry, hm2L2ForwardingMibObjects=hm2L2ForwardingMibObjects, hm2TrafficClass=hm2TrafficClass)
+mibBuilder.exportSymbols("HM2-L2FORWARDING-MIB", hm2L2VlanUnawareModeAdminStatus=hm2L2VlanUnawareModeAdminStatus, hm2TrafficClassTable=hm2TrafficClassTable, hm2L2ForwGeneralGroup=hm2L2ForwGeneralGroup, hm2TrafficClassEntry=hm2TrafficClassEntry, hm2CosMapIpDscpEntry=hm2CosMapIpDscpEntry, hm2L2VlanUnawareModeOperStatus=hm2L2VlanUnawareModeOperStatus, hm2TrafficClass=hm2TrafficClass, PYSNMP_MODULE_ID=hm2L2ForwardingMib, hm2CosMapIpDscpValue=hm2CosMapIpDscpValue, hm2L2ForwardingMibObjects=hm2L2ForwardingMibObjects, hm2TrafficClassPriority=hm2TrafficClassPriority, hm2L2ForwardingMibNotifications=hm2L2ForwardingMibNotifications, hm2CosMapIpDscpTrafficClass=hm2CosMapIpDscpTrafficClass, hm2L2ForwClassOfServiceGroup=hm2L2ForwClassOfServiceGroup, hm2CosMapIpDscpTable=hm2CosMapIpDscpTable, hm2L2ForwardingMib=hm2L2ForwardingMib)

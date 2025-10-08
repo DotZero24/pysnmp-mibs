@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module DLINKPRIME-SYSLOG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DLINKPRIME-SYSLOG-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:33:22 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/DLINKPRIME-SYSLOG-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:57:50 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dlinkPrimeCommon, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlinkPrimeCommon")
-ifIndex, InterfaceIndexOrZero = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndexOrZero")
+InterfaceIndexOrZero, ifIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "ifIndex")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, DateAndTime, TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "TruthValue", "DisplayString")
 SyslogFacility, SyslogSeverity = mibBuilder.importSymbols("SYSLOG-TC-MIB", "SyslogFacility", "SyslogSeverity")
 dlinkPrimeSyslogMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 15, 21))
 dlinkPrimeSyslogMIB.setRevisions(('2014-04-26 00:00',))
@@ -64,4 +64,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 dpSyslogLogServerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 15, 21, 2, 1, 2, 2)).setObjects(("DLINKPRIME-SYSLOG-MIB", "dpSyslogServerPort"), ("DLINKPRIME-SYSLOG-MIB", "dpSyslogServerSeverity"), ("DLINKPRIME-SYSLOG-MIB", "dpSyslogServerFacility"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     dpSyslogLogServerGroup = dpSyslogLogServerGroup.setStatus('current')
-mibBuilder.exportSymbols("DLINKPRIME-SYSLOG-MIB", dpSyslogServerPort=dpSyslogServerPort, dpSyslogBufferTableNum=dpSyslogBufferTableNum, dpSyslogGeneralGroup=dpSyslogGeneralGroup, dpSyslogMIBNotifications=dpSyslogMIBNotifications, dpSyslogLogOnEnabled=dpSyslogLogOnEnabled, dpSyslogMIBConformance=dpSyslogMIBConformance, dpSyslogServerFacility=dpSyslogServerFacility, dlinkPrimeSyslogMIB=dlinkPrimeSyslogMIB, dpSyslogLogBufferEnabled=dpSyslogLogBufferEnabled, dpSyslogBufferDescription=dpSyslogBufferDescription, dpSyslogGeneral=dpSyslogGeneral, dpSyslogBufferDateAndTime=dpSyslogBufferDateAndTime, dpSyslogMIBCompliances=dpSyslogMIBCompliances, dpSyslogClearLogBuffer=dpSyslogClearLogBuffer, dpSyslogMIBGroups=dpSyslogMIBGroups, dpSyslogLogbuffer=dpSyslogLogbuffer, dpSyslogMIBObjects=dpSyslogMIBObjects, dpSyslogServerSeverity=dpSyslogServerSeverity, PYSNMP_MODULE_ID=dlinkPrimeSyslogMIB, dpSyslogBufferLevel=dpSyslogBufferLevel, dpSyslogMIBCompliance=dpSyslogMIBCompliance, dpSyslogBufferTable=dpSyslogBufferTable, dpSyslogLogServerGroup=dpSyslogLogServerGroup, dpSyslogBufferEntry=dpSyslogBufferEntry, dpSyslogServerAddress=dpSyslogServerAddress, dpSyslogServer=dpSyslogServer)
+mibBuilder.exportSymbols("DLINKPRIME-SYSLOG-MIB", dpSyslogServerFacility=dpSyslogServerFacility, dpSyslogBufferEntry=dpSyslogBufferEntry, dpSyslogLogServerGroup=dpSyslogLogServerGroup, dpSyslogLogOnEnabled=dpSyslogLogOnEnabled, dpSyslogGeneralGroup=dpSyslogGeneralGroup, dpSyslogMIBNotifications=dpSyslogMIBNotifications, dpSyslogMIBConformance=dpSyslogMIBConformance, dpSyslogServerSeverity=dpSyslogServerSeverity, dpSyslogBufferDateAndTime=dpSyslogBufferDateAndTime, dpSyslogMIBCompliances=dpSyslogMIBCompliances, dpSyslogBufferTable=dpSyslogBufferTable, dpSyslogBufferDescription=dpSyslogBufferDescription, dpSyslogServerPort=dpSyslogServerPort, dpSyslogMIBGroups=dpSyslogMIBGroups, dpSyslogLogbuffer=dpSyslogLogbuffer, dpSyslogLogBufferEnabled=dpSyslogLogBufferEnabled, dpSyslogBufferTableNum=dpSyslogBufferTableNum, PYSNMP_MODULE_ID=dlinkPrimeSyslogMIB, dpSyslogServerAddress=dpSyslogServerAddress, dlinkPrimeSyslogMIB=dlinkPrimeSyslogMIB, dpSyslogMIBCompliance=dpSyslogMIBCompliance, dpSyslogClearLogBuffer=dpSyslogClearLogBuffer, dpSyslogGeneral=dpSyslogGeneral, dpSyslogServer=dpSyslogServer, dpSyslogBufferLevel=dpSyslogBufferLevel, dpSyslogMIBObjects=dpSyslogMIBObjects)

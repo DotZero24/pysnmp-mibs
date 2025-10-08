@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SIAE-ACM-STATISTICS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/siaemic/SIAE-ACM-STATISTICS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:43 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/siaemic/SIAE-ACM-STATISTICS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:45:43 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-AlarmStatus, AlarmSeverityCode = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmStatus", "AlarmSeverityCode")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+AlarmSeverityCode, AlarmStatus = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmSeverityCode", "AlarmStatus")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
 acmStats = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 75))
 acmStats.setRevisions(('2016-09-13 00:00', '2014-11-05 00:00', '2014-02-11 00:00',))
 if mibBuilder.loadTexts: acmStats.setLastUpdated('201609130000Z')
@@ -84,4 +84,4 @@ acmsTpProfile15mAlarmSeverityCode = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 75,
 if mibBuilder.loadTexts: acmsTpProfile15mAlarmSeverityCode.setStatus('current')
 acmsTpProfile24hAlarmSeverityCode = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 75, 8), AlarmSeverityCode().clone('majorTrapEnable')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: acmsTpProfile24hAlarmSeverityCode.setStatus('current')
-mibBuilder.exportSymbols("SIAE-ACM-STATISTICS-MIB", acmsTpLinkRowStatus=acmsTpLinkRowStatus, acmsTpProfile15mAlarm=acmsTpProfile15mAlarm, acmStats=acmStats, acmsTpProfile15mAlarmSeverityCode=acmsTpProfile15mAlarmSeverityCode, acmsIntervalType=acmsIntervalType, acmsTpLinkStartStop=acmsTpLinkStartStop, acmsTpMaintCounterClear=acmsTpMaintCounterClear, AcmProfile=AcmProfile, acmsProfileCounterValue=acmsProfileCounterValue, acmsTpMaintRecord=acmsTpMaintRecord, acmsTpProfile24hAlarm=acmsTpProfile24hAlarm, acmsTpLinkPolId=acmsTpLinkPolId, acmsIntervalId=acmsIntervalId, acmsMibVersion=acmsMibVersion, acmsIntervalTable=acmsIntervalTable, acmsProfileCounterTable=acmsProfileCounterTable, acmsTpProfile24hAlarmSeverityCode=acmsTpProfile24hAlarmSeverityCode, PYSNMP_MODULE_ID=acmStats, acmsTpProfile15mThreshold=acmsTpProfile15mThreshold, acmsTpProfile24hThreshold=acmsTpProfile24hThreshold, acmsTpMaintAlarmClear=acmsTpMaintAlarmClear, acmsTpProfileRecord=acmsTpProfileRecord, acmsIntervalTimeStamp=acmsIntervalTimeStamp, acmsProfileCounterRecord=acmsProfileCounterRecord, acmsTpLinkRecord=acmsTpLinkRecord, acmsIntervalRecord=acmsIntervalRecord, acmsTpLinkLabel=acmsTpLinkLabel, acmsTpProfileId=acmsTpProfileId, acmsTpMaintTable=acmsTpMaintTable, acmsTpProfileTable=acmsTpProfileTable, acmsTpLinkId=acmsTpLinkId, acmsIntervalStatus=acmsIntervalStatus, acmsTpLinkTable=acmsTpLinkTable, acmsTpProfileRowStatus=acmsTpProfileRowStatus)
+mibBuilder.exportSymbols("SIAE-ACM-STATISTICS-MIB", acmsTpProfileTable=acmsTpProfileTable, acmsTpMaintTable=acmsTpMaintTable, acmsIntervalTimeStamp=acmsIntervalTimeStamp, acmsMibVersion=acmsMibVersion, acmsTpMaintCounterClear=acmsTpMaintCounterClear, acmsProfileCounterRecord=acmsProfileCounterRecord, acmsTpLinkTable=acmsTpLinkTable, acmsTpLinkPolId=acmsTpLinkPolId, acmsTpProfileId=acmsTpProfileId, acmsTpProfileRecord=acmsTpProfileRecord, acmsTpProfileRowStatus=acmsTpProfileRowStatus, acmsTpMaintAlarmClear=acmsTpMaintAlarmClear, acmsProfileCounterValue=acmsProfileCounterValue, acmsIntervalId=acmsIntervalId, acmsTpProfile15mAlarmSeverityCode=acmsTpProfile15mAlarmSeverityCode, acmsIntervalRecord=acmsIntervalRecord, acmsIntervalType=acmsIntervalType, acmsTpLinkId=acmsTpLinkId, acmsIntervalTable=acmsIntervalTable, acmsTpLinkStartStop=acmsTpLinkStartStop, acmsTpProfile24hThreshold=acmsTpProfile24hThreshold, acmsIntervalStatus=acmsIntervalStatus, AcmProfile=AcmProfile, acmStats=acmStats, acmsTpLinkLabel=acmsTpLinkLabel, acmsTpProfile15mThreshold=acmsTpProfile15mThreshold, acmsTpProfile24hAlarm=acmsTpProfile24hAlarm, PYSNMP_MODULE_ID=acmStats, acmsTpMaintRecord=acmsTpMaintRecord, acmsTpProfile24hAlarmSeverityCode=acmsTpProfile24hAlarmSeverityCode, acmsTpProfile15mAlarm=acmsTpProfile15mAlarm, acmsTpLinkRecord=acmsTpLinkRecord, acmsTpLinkRowStatus=acmsTpLinkRowStatus, acmsProfileCounterTable=acmsProfileCounterTable)

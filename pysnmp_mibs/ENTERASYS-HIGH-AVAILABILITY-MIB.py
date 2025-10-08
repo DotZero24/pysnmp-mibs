@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module ENTERASYS-HIGH-AVAILABILITY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/enterasys/ENTERASYS-HIGH-AVAILABILITY-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:14 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/enterasys/ENTERASYS-HIGH-AVAILABILITY-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:33:44 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 etsysModules, = mibBuilder.importSymbols("ENTERASYS-MIB-NAMES", "etsysModules")
 PhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "PhysicalIndex")
 EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, DateAndTime, TextualConvention, TimeInterval = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention", "TimeInterval")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TimeInterval, DateAndTime, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeInterval", "DateAndTime", "DisplayString", "TextualConvention")
 etsysHighAvailabilityUpgradeMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 84))
 etsysHighAvailabilityUpgradeMIB.setRevisions(('2011-12-12 15:14',))
 if mibBuilder.loadTexts: etsysHighAvailabilityUpgradeMIB.setLastUpdated('201112121514Z')
@@ -85,4 +85,4 @@ etsysHauCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 84, 2, 2, 1
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     etsysHauCompliance = etsysHauCompliance.setStatus('current')
-mibBuilder.exportSymbols("ENTERASYS-HIGH-AVAILABILITY-MIB", etsysHauSystemHauMode=etsysHauSystemHauMode, etsysHauStatsStatus=etsysHauStatsStatus, etsysHauModuleGroupId=etsysHauModuleGroupId, etsysHauObjects=etsysHauObjects, etsysHauStatsStartTime=etsysHauStatsStartTime, etsysHauStatsUpgradedSlotList=etsysHauStatsUpgradedSlotList, etsysHauModuleEntRef=etsysHauModuleEntRef, etsysHauStats=etsysHauStats, etsysHauStatsOriginalImage=etsysHauStatsOriginalImage, etsysHauConformance=etsysHauConformance, PYSNMP_MODULE_ID=etsysHighAvailabilityUpgradeMIB, etsysHauStatsDuration=etsysHauStatsDuration, HauSlot=HauSlot, etsysHauModule=etsysHauModule, etsysHauModuleEntry=etsysHauModuleEntry, etsysHauGroups=etsysHauGroups, etsysHauModuleGroup=etsysHauModuleGroup, etsysHauModuleSlot=etsysHauModuleSlot, etsysHauSystem=etsysHauSystem, etsysHauSystemInterGroupDelay=etsysHauSystemInterGroupDelay, etsysHauCompliance=etsysHauCompliance, HauSlotList=HauSlotList, etsysHauCompliances=etsysHauCompliances, etsysHauStatsPendingSlotList=etsysHauStatsPendingSlotList, etsysHauStatsErrorSlotList=etsysHauStatsErrorSlotList, etsysHauStatsTargetImage=etsysHauStatsTargetImage, EtsysHauMode=EtsysHauMode, etsysHauModuleTable=etsysHauModuleTable, etsysHighAvailabilityUpgradeMIB=etsysHighAvailabilityUpgradeMIB, etsysHauSystemGroup=etsysHauSystemGroup, etsysHauStatsInProgressSlotList=etsysHauStatsInProgressSlotList, EtsysHauSystemStatus=EtsysHauSystemStatus)
+mibBuilder.exportSymbols("ENTERASYS-HIGH-AVAILABILITY-MIB", PYSNMP_MODULE_ID=etsysHighAvailabilityUpgradeMIB, etsysHauSystem=etsysHauSystem, etsysHauStatsErrorSlotList=etsysHauStatsErrorSlotList, etsysHauStatsOriginalImage=etsysHauStatsOriginalImage, etsysHauModuleGroupId=etsysHauModuleGroupId, HauSlot=HauSlot, etsysHauObjects=etsysHauObjects, etsysHauSystemInterGroupDelay=etsysHauSystemInterGroupDelay, etsysHauCompliances=etsysHauCompliances, EtsysHauSystemStatus=EtsysHauSystemStatus, etsysHauStatsTargetImage=etsysHauStatsTargetImage, etsysHauModuleEntry=etsysHauModuleEntry, etsysHauModuleSlot=etsysHauModuleSlot, etsysHauModule=etsysHauModule, etsysHauGroups=etsysHauGroups, etsysHauModuleEntRef=etsysHauModuleEntRef, etsysHauStatsPendingSlotList=etsysHauStatsPendingSlotList, etsysHauStatsInProgressSlotList=etsysHauStatsInProgressSlotList, etsysHauSystemGroup=etsysHauSystemGroup, etsysHauCompliance=etsysHauCompliance, etsysHauStatsUpgradedSlotList=etsysHauStatsUpgradedSlotList, etsysHauStatsStatus=etsysHauStatsStatus, HauSlotList=HauSlotList, etsysHauSystemHauMode=etsysHauSystemHauMode, etsysHauStatsStartTime=etsysHauStatsStartTime, EtsysHauMode=EtsysHauMode, etsysHauModuleTable=etsysHauModuleTable, etsysHauModuleGroup=etsysHauModuleGroup, etsysHauConformance=etsysHauConformance, etsysHauStatsDuration=etsysHauStatsDuration, etsysHighAvailabilityUpgradeMIB=etsysHighAvailabilityUpgradeMIB, etsysHauStats=etsysHauStats)

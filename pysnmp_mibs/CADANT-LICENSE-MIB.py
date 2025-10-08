@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CADANT-LICENSE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/arris/CADANT-LICENSE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:45 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/arris/CADANT-LICENSE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:18:52 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 cadLicense, = mibBuilder.importSymbols("CADANT-PRODUCTS-MIB", "cadLicense")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "DisplayString", "TextualConvention")
 cadLicenseMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4998, 1, 1, 135, 1))
 cadLicenseMib.setRevisions(('2015-06-17 00:00', '2015-06-09 00:00', '2014-08-20 00:00', '2014-08-14 00:00', '2014-07-17 00:00', '2014-07-10 00:00', '2014-06-25 00:00',))
 if mibBuilder.loadTexts: cadLicenseMib.setLastUpdated('201506170000Z')
@@ -61,4 +61,4 @@ cerCardDataLicensesUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 4998, 1, 1, 135, 1, 
 if mibBuilder.loadTexts: cerCardDataLicensesUsed.setStatus('current')
 cerCardDataLicensesRequested = MibTableColumn((1, 3, 6, 1, 4, 1, 4998, 1, 1, 135, 1, 3, 1, 4), Unsigned32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: cerCardDataLicensesRequested.setStatus('current')
-mibBuilder.exportSymbols("CADANT-LICENSE-MIB", cerCardDataLicenseSlot=cerCardDataLicenseSlot, cadChassisLicenseEntry=cadChassisLicenseEntry, cadLicenseSpareChannelCount=cadLicenseSpareChannelCount, cadChassisLicenseStatusTable=cadChassisLicenseStatusTable, cadLicenseMib=cadLicenseMib, cerCardDataLicenseStatusTable=cerCardDataLicenseStatusTable, CadChassisLicenseIndexType=CadChassisLicenseIndexType, cadLicenseChannelCount=cadLicenseChannelCount, cadChassisLicenseStatusType=cadChassisLicenseStatusType, cadChassisLicensesRequested=cadChassisLicensesRequested, PYSNMP_MODULE_ID=cadLicenseMib, cerCardDataLicenseStatusEntry=cerCardDataLicenseStatusEntry, cadLicenseKey=cadLicenseKey, cadChassisLicenseStatusEntry=cadChassisLicenseStatusEntry, cadLicenseRowStatus=cadLicenseRowStatus, cerCardDataLicensesRequested=cerCardDataLicensesRequested, cerCardDataLicensesUsed=cerCardDataLicensesUsed, cadLicenseIndex=cadLicenseIndex, cadChassisLicensesValid=cadChassisLicensesValid, cerCardDataLicenseType=cerCardDataLicenseType, cadChassisLicensesUsed=cadChassisLicensesUsed, cadChassisLicensesApplied=cadChassisLicensesApplied, cadChassisLicenseTable=cadChassisLicenseTable)
+mibBuilder.exportSymbols("CADANT-LICENSE-MIB", cadChassisLicensesRequested=cadChassisLicensesRequested, cerCardDataLicensesUsed=cerCardDataLicensesUsed, cerCardDataLicenseType=cerCardDataLicenseType, cadChassisLicenseStatusTable=cadChassisLicenseStatusTable, cadChassisLicenseTable=cadChassisLicenseTable, cadLicenseKey=cadLicenseKey, cadLicenseRowStatus=cadLicenseRowStatus, cerCardDataLicenseSlot=cerCardDataLicenseSlot, cadChassisLicenseStatusEntry=cadChassisLicenseStatusEntry, cadChassisLicenseStatusType=cadChassisLicenseStatusType, cadLicenseMib=cadLicenseMib, cadChassisLicenseEntry=cadChassisLicenseEntry, cadChassisLicensesUsed=cadChassisLicensesUsed, PYSNMP_MODULE_ID=cadLicenseMib, cadLicenseChannelCount=cadLicenseChannelCount, CadChassisLicenseIndexType=CadChassisLicenseIndexType, cadChassisLicensesApplied=cadChassisLicensesApplied, cadChassisLicensesValid=cadChassisLicensesValid, cerCardDataLicensesRequested=cerCardDataLicensesRequested, cadLicenseSpareChannelCount=cadLicenseSpareChannelCount, cadLicenseIndex=cadLicenseIndex, cerCardDataLicenseStatusEntry=cerCardDataLicenseStatusEntry, cerCardDataLicenseStatusTable=cerCardDataLicenseStatusTable)

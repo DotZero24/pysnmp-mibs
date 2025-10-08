@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SYNOLOGY-FLASHCACHE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/synology/SYNOLOGY-FLASHCACHE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:30 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/synology/SYNOLOGY-FLASHCACHE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:53 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Integer32, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 flashCache = ModuleIdentity((1, 3, 6, 1, 4, 1, 6574, 103))
 flashCache.setRevisions(('2014-07-17 00:00',))
 if mibBuilder.loadTexts: flashCache.setLastUpdated('201407170000Z')
@@ -60,4 +60,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 flashCacheGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6574, 103, 2, 2, 1)).setObjects(("SYNOLOGY-FLASHCACHE-MIB", "flashCacheSSDDev"), ("SYNOLOGY-FLASHCACHE-MIB", "flashCacheSpaceDev"), ("SYNOLOGY-FLASHCACHE-MIB", "flashCacheReadHits"), ("SYNOLOGY-FLASHCACHE-MIB", "flashCacheWriteHits"), ("SYNOLOGY-FLASHCACHE-MIB", "flashCacheDiskRead"), ("SYNOLOGY-FLASHCACHE-MIB", "flashCacheDiskWrite"), ("SYNOLOGY-FLASHCACHE-MIB", "flashCacheTotalRead"), ("SYNOLOGY-FLASHCACHE-MIB", "flashCacheTotalWrite"), ("SYNOLOGY-FLASHCACHE-MIB", "flashCacheReadHitRate"), ("SYNOLOGY-FLASHCACHE-MIB", "flashCacheWriteHitRate"), ("SYNOLOGY-FLASHCACHE-MIB", "flashCacheReadSeqSkip"), ("SYNOLOGY-FLASHCACHE-MIB", "flashCacheWriteSeqSkip"), ("SYNOLOGY-FLASHCACHE-MIB", "flashCacheWriteMissSsd"), ("SYNOLOGY-FLASHCACHE-MIB", "flashCacheSsdUuid"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     flashCacheGroup = flashCacheGroup.setStatus('current')
-mibBuilder.exportSymbols("SYNOLOGY-FLASHCACHE-MIB", flashCacheDiskRead=flashCacheDiskRead, flashCacheWriteHitRate=flashCacheWriteHitRate, flashCacheTotalRead=flashCacheTotalRead, flashCacheIndex=flashCacheIndex, flashCacheWriteSeqSkip=flashCacheWriteSeqSkip, flashCacheEntry=flashCacheEntry, flashCacheTotalWrite=flashCacheTotalWrite, flashCacheReadHitRate=flashCacheReadHitRate, flashCache=flashCache, flashCacheCompliance=flashCacheCompliance, flashCacheSsdUuid=flashCacheSsdUuid, flashCacheReadSeqSkip=flashCacheReadSeqSkip, synology=synology, flashCacheDiskWrite=flashCacheDiskWrite, flashCacheWriteHits=flashCacheWriteHits, flashCacheConformance=flashCacheConformance, flashCacheSSDDev=flashCacheSSDDev, PYSNMP_MODULE_ID=flashCache, flashCacheWriteMissSsd=flashCacheWriteMissSsd, flashCacheGroups=flashCacheGroups, flashCacheSpaceDev=flashCacheSpaceDev, flashCacheGroup=flashCacheGroup, flashCacheCompliances=flashCacheCompliances, flashCacheTable=flashCacheTable, flashCacheReadHits=flashCacheReadHits)
+mibBuilder.exportSymbols("SYNOLOGY-FLASHCACHE-MIB", flashCacheGroups=flashCacheGroups, flashCacheCompliances=flashCacheCompliances, flashCacheCompliance=flashCacheCompliance, flashCacheEntry=flashCacheEntry, flashCacheGroup=flashCacheGroup, flashCacheDiskRead=flashCacheDiskRead, flashCacheWriteHitRate=flashCacheWriteHitRate, flashCacheReadHitRate=flashCacheReadHitRate, flashCacheConformance=flashCacheConformance, synology=synology, flashCacheSSDDev=flashCacheSSDDev, flashCacheWriteHits=flashCacheWriteHits, flashCacheReadSeqSkip=flashCacheReadSeqSkip, flashCacheTable=flashCacheTable, flashCacheSpaceDev=flashCacheSpaceDev, flashCacheWriteSeqSkip=flashCacheWriteSeqSkip, flashCacheReadHits=flashCacheReadHits, flashCacheIndex=flashCacheIndex, flashCacheDiskWrite=flashCacheDiskWrite, flashCacheWriteMissSsd=flashCacheWriteMissSsd, flashCacheTotalRead=flashCacheTotalRead, flashCacheTotalWrite=flashCacheTotalWrite, flashCacheSsdUuid=flashCacheSsdUuid, flashCache=flashCache, PYSNMP_MODULE_ID=flashCache)

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module FS-POE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fscom/FS-POE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:24 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/fscom/FS-POE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:00:57 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 fsMgmt, = mibBuilder.importSymbols("FS-SMI", "fsMgmt")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 fsPoeMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 110))
 fsPoeMIB.setRevisions(('2012-02-14 00:00', '2012-02-14 00:00',))
 if mibBuilder.loadTexts: fsPoeMIB.setLastUpdated('201202140000Z')
@@ -44,4 +44,4 @@ ifPoePowerOnTrap = NotificationType((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 110, 
 if mibBuilder.loadTexts: ifPoePowerOnTrap.setStatus('current')
 ifPoePboxAbnormalTrap = NotificationType((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 110, 2, 3)).setObjects(("FS-POE-MIB", "ifPoeIndex"))
 if mibBuilder.loadTexts: ifPoePboxAbnormalTrap.setStatus('current')
-mibBuilder.exportSymbols("FS-POE-MIB", fsPoeMIB=fsPoeMIB, ifPoeMaxPwrSet=ifPoeMaxPwrSet, PYSNMP_MODULE_ID=fsPoeMIB, ifPoeIndex=ifPoeIndex, ifIsPoe=ifIsPoe, fsPoeTraps=fsPoeTraps, ifPoePowerOnTrap=ifPoePowerOnTrap, ifPoeEnable=ifPoeEnable, fsPoeConfigMIBObjects=fsPoeConfigMIBObjects, ifPoePwrStatus=ifPoePwrStatus, ifPoeConsumingPwr=ifPoeConsumingPwr, ifIsHPoe=ifIsHPoe, ifPoePboxAbnormalTrap=ifPoePboxAbnormalTrap, ifPoePriority=ifPoePriority, fsIfPoeEntry=fsIfPoeEntry, fsIfPoeTable=fsIfPoeTable, ifPoePowerOffTrap=ifPoePowerOffTrap)
+mibBuilder.exportSymbols("FS-POE-MIB", fsPoeConfigMIBObjects=fsPoeConfigMIBObjects, ifPoePboxAbnormalTrap=ifPoePboxAbnormalTrap, fsPoeTraps=fsPoeTraps, PYSNMP_MODULE_ID=fsPoeMIB, fsPoeMIB=fsPoeMIB, ifPoeIndex=ifPoeIndex, ifIsPoe=ifIsPoe, ifPoePwrStatus=ifPoePwrStatus, ifPoePriority=ifPoePriority, ifPoeConsumingPwr=ifPoeConsumingPwr, ifPoeEnable=ifPoeEnable, fsIfPoeEntry=fsIfPoeEntry, fsIfPoeTable=fsIfPoeTable, ifIsHPoe=ifIsHPoe, ifPoePowerOffTrap=ifPoePowerOffTrap, ifPoeMaxPwrSet=ifPoeMaxPwrSet, ifPoePowerOnTrap=ifPoePowerOnTrap)

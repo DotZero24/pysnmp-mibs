@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module ELTEX-TUNNEL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-TUNNEL-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:54 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/eltex/ELTEX-TUNNEL-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:12:20 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 eltexLtd, = mibBuilder.importSymbols("ELTEX-SMI-ACTUAL", "eltexLtd")
 IANAtunnelType, = mibBuilder.importSymbols("IANAifType-MIB", "IANAtunnelType")
-ifIndex, InterfaceIndexOrZero = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndexOrZero")
+InterfaceIndexOrZero, ifIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "ifIndex")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, transmission, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "transmission", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+transmission, MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "transmission", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
 eltexTunnelMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 21))
 eltexTunnelMIB.setRevisions(('2015-12-29 00:00',))
 if mibBuilder.loadTexts: eltexTunnelMIB.setLastUpdated('201512290000Z')
@@ -43,4 +43,4 @@ tunnelWiFiConfigMode = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 21, 1, 1, 9), In
 if mibBuilder.loadTexts: tunnelWiFiConfigMode.setStatus('current')
 tunnelWiFiConfigDefaultProfile = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 21, 1, 1, 10), TruthValue()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: tunnelWiFiConfigDefaultProfile.setStatus('current')
-mibBuilder.exportSymbols("ELTEX-TUNNEL-MIB", tunnelWiFiConfigMode=tunnelWiFiConfigMode, tunnelWiFiConfigLocalAddressType=tunnelWiFiConfigLocalAddressType, PYSNMP_MODULE_ID=eltexTunnelMIB, tunnelWiFiConfigID=tunnelWiFiConfigID, tunnelWiFiConfigTable=tunnelWiFiConfigTable, tunnelWiFiConfigEntry=tunnelWiFiConfigEntry, tunnelWiFiConfigRemoteAddress=tunnelWiFiConfigRemoteAddress, eltexTunnelMIB=eltexTunnelMIB, tunnelWiFiConfigDefaultProfile=tunnelWiFiConfigDefaultProfile, tunnelWiFiConfigEncapsMethod=tunnelWiFiConfigEncapsMethod, tunnelWiFiConfigStatus=tunnelWiFiConfigStatus, tunnelWiFiConfigIfIndex=tunnelWiFiConfigIfIndex, tunnelWiFiConfigRemoteAddressType=tunnelWiFiConfigRemoteAddressType, tunnelWiFiConfigLocalAddress=tunnelWiFiConfigLocalAddress)
+mibBuilder.exportSymbols("ELTEX-TUNNEL-MIB", tunnelWiFiConfigIfIndex=tunnelWiFiConfigIfIndex, tunnelWiFiConfigEncapsMethod=tunnelWiFiConfigEncapsMethod, tunnelWiFiConfigLocalAddress=tunnelWiFiConfigLocalAddress, tunnelWiFiConfigMode=tunnelWiFiConfigMode, tunnelWiFiConfigID=tunnelWiFiConfigID, eltexTunnelMIB=eltexTunnelMIB, PYSNMP_MODULE_ID=eltexTunnelMIB, tunnelWiFiConfigEntry=tunnelWiFiConfigEntry, tunnelWiFiConfigTable=tunnelWiFiConfigTable, tunnelWiFiConfigRemoteAddress=tunnelWiFiConfigRemoteAddress, tunnelWiFiConfigDefaultProfile=tunnelWiFiConfigDefaultProfile, tunnelWiFiConfigLocalAddressType=tunnelWiFiConfigLocalAddressType, tunnelWiFiConfigStatus=tunnelWiFiConfigStatus, tunnelWiFiConfigRemoteAddressType=tunnelWiFiConfigRemoteAddressType)

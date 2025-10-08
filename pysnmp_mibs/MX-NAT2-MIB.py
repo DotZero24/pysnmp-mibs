@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module MX-NAT2-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-NAT2-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:17 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/media5/MX-NAT2-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:05:47 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 mediatrixConfig, = mibBuilder.importSymbols("MX-SMI", "mediatrixConfig")
-MxIpAddress, MxEnableState, MxAdvancedIpPort, MxIpPort = mibBuilder.importSymbols("MX-TC", "MxIpAddress", "MxEnableState", "MxAdvancedIpPort", "MxIpPort")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+MxAdvancedIpPort, MxIpAddress, MxIpPort, MxEnableState = mibBuilder.importSymbols("MX-TC", "MxAdvancedIpPort", "MxIpAddress", "MxIpPort", "MxEnableState")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 natMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 15, 500))
 natMIB.setRevisions(('2006-03-06 00:00', '2005-04-19 00:00',))
 if mibBuilder.loadTexts: natMIB.setLastUpdated('200603060000Z')
@@ -55,4 +55,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 natSyslogGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 15, 500, 2, 2, 2)).setObjects(("MX-NAT2-MIB", "natSyslogEnable"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     natSyslogGroupVer1 = natSyslogGroupVer1.setStatus('current')
-mibBuilder.exportSymbols("MX-NAT2-MIB", natPortForwardingProtocol=natPortForwardingProtocol, natSyslog=natSyslog, natPortForwardingRuleEnable=natPortForwardingRuleEnable, natPortForwardingIndex=natPortForwardingIndex, natMIBObjects=natMIBObjects, natMIB=natMIB, natPortForwardingEntry=natPortForwardingEntry, natComplVer1=natComplVer1, natPortForwardingWanStartPort=natPortForwardingWanStartPort, natSyslogGroupVer1=natSyslogGroupVer1, natPortForwardingWanFinishPort=natPortForwardingWanFinishPort, natCompliances=natCompliances, natPortForwardingLanAddr=natPortForwardingLanAddr, natSyslogEnable=natSyslogEnable, natConformance=natConformance, natGroups=natGroups, natPortForwardingTable=natPortForwardingTable, PYSNMP_MODULE_ID=natMIB, natPortForwarding=natPortForwarding, natPortForwardingLanPort=natPortForwardingLanPort, natPortForwardingRuleLabel=natPortForwardingRuleLabel, natPortForwardingGroupVer1=natPortForwardingGroupVer1)
+mibBuilder.exportSymbols("MX-NAT2-MIB", natPortForwardingIndex=natPortForwardingIndex, natMIBObjects=natMIBObjects, natPortForwardingEntry=natPortForwardingEntry, natSyslog=natSyslog, natPortForwardingProtocol=natPortForwardingProtocol, natPortForwardingRuleEnable=natPortForwardingRuleEnable, natPortForwardingWanStartPort=natPortForwardingWanStartPort, natGroups=natGroups, natPortForwardingTable=natPortForwardingTable, natConformance=natConformance, natPortForwardingLanAddr=natPortForwardingLanAddr, natCompliances=natCompliances, natPortForwardingWanFinishPort=natPortForwardingWanFinishPort, natPortForwarding=natPortForwarding, natPortForwardingRuleLabel=natPortForwardingRuleLabel, natPortForwardingGroupVer1=natPortForwardingGroupVer1, natMIB=natMIB, natSyslogGroupVer1=natSyslogGroupVer1, natPortForwardingLanPort=natPortForwardingLanPort, natComplVer1=natComplVer1, PYSNMP_MODULE_ID=natMIB, natSyslogEnable=natSyslogEnable)

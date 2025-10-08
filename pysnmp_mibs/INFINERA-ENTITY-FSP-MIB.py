@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module INFINERA-ENTITY-FSP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-ENTITY-FSP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:45 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/INFINERA-ENTITY-FSP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:20:57 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 entLPPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entLPPhysicalIndex")
 equipment, = mibBuilder.importSymbols("INFINERA-REG-MIB", "equipment")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 fspMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 35))
 if mibBuilder.loadTexts: fspMIB.setLastUpdated('201310200000Z')
 if mibBuilder.loadTexts: fspMIB.setOrganization('INFINERA')
@@ -38,4 +38,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 fspGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 35, 3, 2, 1)).setObjects(("INFINERA-ENTITY-FSP-MIB", "fspType"), ("INFINERA-ENTITY-FSP-MIB", "fspProvSerialNumber"), ("INFINERA-ENTITY-FSP-MIB", "fspLabel"), ("INFINERA-ENTITY-FSP-MIB", "fspAid"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     fspGroup = fspGroup.setStatus('current')
-mibBuilder.exportSymbols("INFINERA-ENTITY-FSP-MIB", fspEntry=fspEntry, fspGroups=fspGroups, fspMIB=fspMIB, fspLabel=fspLabel, fspConformance=fspConformance, fspAid=fspAid, fspCompliances=fspCompliances, fspCompliance=fspCompliance, fspProvSerialNumber=fspProvSerialNumber, fspType=fspType, fspGroup=fspGroup, PYSNMP_MODULE_ID=fspMIB, fspTable=fspTable)
+mibBuilder.exportSymbols("INFINERA-ENTITY-FSP-MIB", fspLabel=fspLabel, fspGroups=fspGroups, fspMIB=fspMIB, fspEntry=fspEntry, PYSNMP_MODULE_ID=fspMIB, fspCompliances=fspCompliances, fspAid=fspAid, fspCompliance=fspCompliance, fspType=fspType, fspTable=fspTable, fspProvSerialNumber=fspProvSerialNumber, fspGroup=fspGroup, fspConformance=fspConformance)

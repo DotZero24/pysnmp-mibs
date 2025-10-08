@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module CISCO-ISNS-CLIENT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-ISNS-CLIENT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:55 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-ISNS-CLIENT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:24:09 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
 CiscoPort, = mibBuilder.importSymbols("CISCO-TC", "CiscoPort")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 ciscoIsnsClientMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 372))
 ciscoIsnsClientMIB.setRevisions(('2003-11-10 00:00',))
 if mibBuilder.loadTexts: ciscoIsnsClientMIB.setLastUpdated('200311100000Z')
@@ -48,4 +48,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 cIsnsServerConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 372, 2, 2, 1)).setObjects(("CISCO-ISNS-CLIENT-MIB", "cIsnsClntServerProfileAddrType"), ("CISCO-ISNS-CLIENT-MIB", "cIsnsClntServerProfileAddr"), ("CISCO-ISNS-CLIENT-MIB", "cIsnsClntServerProfilePort"), ("CISCO-ISNS-CLIENT-MIB", "cIsnsClntServerProfileStatus"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     cIsnsServerConfigGroup = cIsnsServerConfigGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-ISNS-CLIENT-MIB", PYSNMP_MODULE_ID=ciscoIsnsClientMIB, cIsnsServerConfigGroup=cIsnsServerConfigGroup, ciscoIsnsClientMIBNotifications=ciscoIsnsClientMIBNotifications, ciscoIsnsClientMIB=ciscoIsnsClientMIB, cIsnsClntServerProfileAddr=cIsnsClntServerProfileAddr, ciscoIsnsClientMIBCompliance=ciscoIsnsClientMIBCompliance, cIsnsClntServerProfileStatus=cIsnsClntServerProfileStatus, cIsnsClntServerProfilePort=cIsnsClntServerProfilePort, cIsnsClntServerIndex=cIsnsClntServerIndex, cIsnsClntServerProfileEntry=cIsnsClntServerProfileEntry, cIsnsClntServerProfileAddrType=cIsnsClntServerProfileAddrType, cIsnsClientConfig=cIsnsClientConfig, cIsnsClntServerProfileTable=cIsnsClntServerProfileTable, ciscoIsnsClientMIBMIBObjects=ciscoIsnsClientMIBMIBObjects, ciscoiIsnsClientMIBCompliances=ciscoiIsnsClientMIBCompliances, cIsnsClntServerProfileName=cIsnsClntServerProfileName, ciscoIsnsClientMIBGroups=ciscoIsnsClientMIBGroups, ciscoIsnsClientMIBConformance=ciscoIsnsClientMIBConformance)
+mibBuilder.exportSymbols("CISCO-ISNS-CLIENT-MIB", ciscoiIsnsClientMIBCompliances=ciscoiIsnsClientMIBCompliances, ciscoIsnsClientMIBCompliance=ciscoIsnsClientMIBCompliance, ciscoIsnsClientMIBMIBObjects=ciscoIsnsClientMIBMIBObjects, cIsnsClntServerProfileAddrType=cIsnsClntServerProfileAddrType, cIsnsClntServerProfileName=cIsnsClntServerProfileName, cIsnsClntServerIndex=cIsnsClntServerIndex, cIsnsClntServerProfileStatus=cIsnsClntServerProfileStatus, cIsnsClientConfig=cIsnsClientConfig, ciscoIsnsClientMIB=ciscoIsnsClientMIB, ciscoIsnsClientMIBGroups=ciscoIsnsClientMIBGroups, cIsnsServerConfigGroup=cIsnsServerConfigGroup, PYSNMP_MODULE_ID=ciscoIsnsClientMIB, cIsnsClntServerProfileTable=cIsnsClntServerProfileTable, cIsnsClntServerProfilePort=cIsnsClntServerProfilePort, ciscoIsnsClientMIBNotifications=ciscoIsnsClientMIBNotifications, cIsnsClntServerProfileEntry=cIsnsClntServerProfileEntry, ciscoIsnsClientMIBConformance=ciscoIsnsClientMIBConformance, cIsnsClntServerProfileAddr=cIsnsClntServerProfileAddr)

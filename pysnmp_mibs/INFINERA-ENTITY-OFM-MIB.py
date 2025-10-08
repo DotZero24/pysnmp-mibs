@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module INFINERA-ENTITY-OFM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-ENTITY-OFM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:04 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/INFINERA-ENTITY-OFM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:21:35 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 entLPPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entLPPhysicalIndex")
 equipment, = mibBuilder.importSymbols("INFINERA-REG-MIB", "equipment")
 InfnEqptType, FloatTenths = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnEqptType", "FloatTenths")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ofmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 40))
 if mibBuilder.loadTexts: ofmMIB.setLastUpdated('201110200000Z')
 if mibBuilder.loadTexts: ofmMIB.setOrganization('INFINERA')
@@ -71,4 +71,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 ofmGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 40, 3, 2, 1)).setObjects(("INFINERA-ENTITY-OFM-MIB", "ofmMoId"), ("INFINERA-ENTITY-OFM-MIB", "ofmProvEqptType"), ("INFINERA-ENTITY-OFM-MIB", "ofmActvTimingSource"), ("INFINERA-ENTITY-OFM-MIB", "ofmPicDspVer"), ("INFINERA-ENTITY-OFM-MIB", "ofmMaxFruGain"), ("INFINERA-ENTITY-OFM-MIB", "ofmRxEdfaOutputPowerTarget"), ("INFINERA-ENTITY-OFM-MIB", "ofmRxEdfaGain"), ("INFINERA-ENTITY-OFM-MIB", "ofmOTNContainerRepresentation"), ("INFINERA-ENTITY-OFM-MIB", "ofmRecommendedGain"), ("INFINERA-ENTITY-OFM-MIB", "ofmBwQmax"), ("INFINERA-ENTITY-OFM-MIB", "ofmBwQused"), ("INFINERA-ENTITY-OFM-MIB", "ofmBwQlicensed"), ("INFINERA-ENTITY-OFM-MIB", "ofmBwBmax"), ("INFINERA-ENTITY-OFM-MIB", "ofmBwBused"), ("INFINERA-ENTITY-OFM-MIB", "ofmBwBlicensed"), ("INFINERA-ENTITY-OFM-MIB", "ofmLicensedServicesDisabled"), ("INFINERA-ENTITY-OFM-MIB", "ofmLicenseEnforced"), ("INFINERA-ENTITY-OFM-MIB", "ofmDefFlexLicModFormat"), ("INFINERA-ENTITY-OFM-MIB", "ofmBwUsgWaterMarkGranularity"), ("INFINERA-ENTITY-OFM-MIB", "ofmAvailableTunableSuperChNumbers"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ofmGroup = ofmGroup.setStatus('current')
-mibBuilder.exportSymbols("INFINERA-ENTITY-OFM-MIB", ofmGroups=ofmGroups, PYSNMP_MODULE_ID=ofmMIB, ofmCompliances=ofmCompliances, ofmLicenseEnforced=ofmLicenseEnforced, ofmDefFlexLicModFormat=ofmDefFlexLicModFormat, ofmTable=ofmTable, ofmBwBused=ofmBwBused, ofmBwQused=ofmBwQused, ofmMaxFruGain=ofmMaxFruGain, ofmLicensedServicesDisabled=ofmLicensedServicesDisabled, ofmCompliance=ofmCompliance, ofmBwBmax=ofmBwBmax, ofmRecommendedGain=ofmRecommendedGain, ofmAvailableTunableSuperChNumbers=ofmAvailableTunableSuperChNumbers, ofmPicDspVer=ofmPicDspVer, ofmEntry=ofmEntry, ofmRxEdfaGain=ofmRxEdfaGain, ofmConformance=ofmConformance, ofmMoId=ofmMoId, ofmGroup=ofmGroup, ofmBwQmax=ofmBwQmax, ofmBwBlicensed=ofmBwBlicensed, ofmRxEdfaOutputPowerTarget=ofmRxEdfaOutputPowerTarget, ofmMIB=ofmMIB, ofmBwQlicensed=ofmBwQlicensed, ofmOTNContainerRepresentation=ofmOTNContainerRepresentation, ofmBwUsgWaterMarkGranularity=ofmBwUsgWaterMarkGranularity, ofmProvEqptType=ofmProvEqptType, ofmActvTimingSource=ofmActvTimingSource)
+mibBuilder.exportSymbols("INFINERA-ENTITY-OFM-MIB", ofmLicenseEnforced=ofmLicenseEnforced, ofmMaxFruGain=ofmMaxFruGain, ofmBwUsgWaterMarkGranularity=ofmBwUsgWaterMarkGranularity, ofmRxEdfaOutputPowerTarget=ofmRxEdfaOutputPowerTarget, ofmBwBlicensed=ofmBwBlicensed, ofmCompliance=ofmCompliance, ofmPicDspVer=ofmPicDspVer, ofmBwBmax=ofmBwBmax, ofmEntry=ofmEntry, ofmOTNContainerRepresentation=ofmOTNContainerRepresentation, ofmGroups=ofmGroups, ofmRxEdfaGain=ofmRxEdfaGain, ofmDefFlexLicModFormat=ofmDefFlexLicModFormat, ofmRecommendedGain=ofmRecommendedGain, ofmProvEqptType=ofmProvEqptType, PYSNMP_MODULE_ID=ofmMIB, ofmConformance=ofmConformance, ofmMIB=ofmMIB, ofmBwQused=ofmBwQused, ofmBwQmax=ofmBwQmax, ofmAvailableTunableSuperChNumbers=ofmAvailableTunableSuperChNumbers, ofmLicensedServicesDisabled=ofmLicensedServicesDisabled, ofmBwBused=ofmBwBused, ofmCompliances=ofmCompliances, ofmBwQlicensed=ofmBwQlicensed, ofmMoId=ofmMoId, ofmActvTimingSource=ofmActvTimingSource, ofmGroup=ofmGroup, ofmTable=ofmTable)

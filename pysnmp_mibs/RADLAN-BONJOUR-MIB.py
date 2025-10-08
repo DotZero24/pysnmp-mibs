@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module RADLAN-BONJOUR-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/radlan/RADLAN-BONJOUR-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:00 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/radlan/RADLAN-BONJOUR-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:07:59 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
 rnd, = mibBuilder.importSymbols("RADLAN-MIB", "rnd")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
 rlBonjour = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 114))
 rlBonjour.setRevisions(('2009-04-23 00:00', '2015-05-12 00:00',))
 if mibBuilder.loadTexts: rlBonjour.setLastUpdated('201505120000Z')
@@ -77,4 +77,4 @@ rlBonjourInstanceName = MibScalar((1, 3, 6, 1, 4, 1, 89, 114, 6), Integer32()).s
 if mibBuilder.loadTexts: rlBonjourInstanceName.setStatus('current')
 rlBonjourHostName = MibScalar((1, 3, 6, 1, 4, 1, 89, 114, 7), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: rlBonjourHostName.setStatus('current')
-mibBuilder.exportSymbols("RADLAN-BONJOUR-MIB", rlBonjourStateOperationMode=rlBonjourStateOperationMode, rlBonjourL2RowStatus=rlBonjourL2RowStatus, PYSNMP_MODULE_ID=rlBonjour, rlBonjour=rlBonjour, rlBonjourStatusTable=rlBonjourStatusTable, RlBonjourServiceState=RlBonjourServiceState, rlBonjourStateIPv6OperationReason=rlBonjourStateIPv6OperationReason, rlBonjourStateL2Interface=rlBonjourStateL2Interface, rlBonjourL2Mode=rlBonjourL2Mode, rlBonjourL2Ifindex=rlBonjourL2Ifindex, rlBonjourL2Table=rlBonjourL2Table, rlBonjourL2Entry=rlBonjourL2Entry, rlBonjourStateOperationReason=rlBonjourStateOperationReason, rlBonjourStatusIPInterfaceAddr=rlBonjourStatusIPInterfaceAddr, rlBonjourStateIPv6OperationMode=rlBonjourStateIPv6OperationMode, RlBonjourOperationReason=RlBonjourOperationReason, rlBonjourHostName=rlBonjourHostName, rlBonjourStateServiceName=rlBonjourStateServiceName, rlBonjourInstanceName=rlBonjourInstanceName, rlBonjourStateEntry=rlBonjourStateEntry, rlBonjourStatusIPInterfaceType=rlBonjourStatusIPInterfaceType, rlBonjourStatusState=rlBonjourStatusState, rlBonjourPublish=rlBonjourPublish, rlBonjourStatusServiceName=rlBonjourStatusServiceName, RlBonjourOperationState=RlBonjourOperationState, rlBonjourStateTable=rlBonjourStateTable, rlBonjourStatusEntry=rlBonjourStatusEntry)
+mibBuilder.exportSymbols("RADLAN-BONJOUR-MIB", rlBonjourStateIPv6OperationMode=rlBonjourStateIPv6OperationMode, rlBonjourStateOperationMode=rlBonjourStateOperationMode, rlBonjourL2Entry=rlBonjourL2Entry, rlBonjour=rlBonjour, rlBonjourStateOperationReason=rlBonjourStateOperationReason, RlBonjourOperationState=RlBonjourOperationState, rlBonjourHostName=rlBonjourHostName, rlBonjourStateServiceName=rlBonjourStateServiceName, rlBonjourL2RowStatus=rlBonjourL2RowStatus, rlBonjourStatusTable=rlBonjourStatusTable, rlBonjourStateTable=rlBonjourStateTable, RlBonjourServiceState=RlBonjourServiceState, rlBonjourL2Mode=rlBonjourL2Mode, rlBonjourL2Table=rlBonjourL2Table, rlBonjourPublish=rlBonjourPublish, rlBonjourStateEntry=rlBonjourStateEntry, rlBonjourL2Ifindex=rlBonjourL2Ifindex, rlBonjourStatusIPInterfaceType=rlBonjourStatusIPInterfaceType, rlBonjourStatusIPInterfaceAddr=rlBonjourStatusIPInterfaceAddr, rlBonjourStatusServiceName=rlBonjourStatusServiceName, rlBonjourInstanceName=rlBonjourInstanceName, rlBonjourStatusEntry=rlBonjourStatusEntry, rlBonjourStateL2Interface=rlBonjourStateL2Interface, RlBonjourOperationReason=RlBonjourOperationReason, rlBonjourStateIPv6OperationReason=rlBonjourStateIPv6OperationReason, rlBonjourStatusState=rlBonjourStatusState, PYSNMP_MODULE_ID=rlBonjour)

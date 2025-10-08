@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module Juniper-V35-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/junose/Juniper-V35-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:23:08 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/junose/Juniper-V35-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:42:59 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 juniMibs, = mibBuilder.importSymbols("Juniper-MIBs", "juniMibs")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 juniV35MIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 2, 2, 59))
 juniV35MIB.setRevisions(('2002-09-16 21:44', '2002-02-08 16:25',))
 if mibBuilder.loadTexts: juniV35MIB.setLastUpdated('200209162144Z')
@@ -48,4 +48,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 juniV35Group = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 59, 4, 2, 1)).setObjects(("Juniper-V35-MIB", "juniV35IfType"), ("Juniper-V35-MIB", "juniV35IfMode"), ("Juniper-V35-MIB", "juniV35IfClockRate"), ("Juniper-V35-MIB", "juniV35IfNrzEncoding"), ("Juniper-V35-MIB", "juniV35IfTxClock"), ("Juniper-V35-MIB", "juniV35IfIgnoreDcd"), ("Juniper-V35-MIB", "juniV35IfLoopback"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     juniV35Group = juniV35Group.setStatus('current')
-mibBuilder.exportSymbols("Juniper-V35-MIB", juniV35Compliance=juniV35Compliance, juniV35IfType=juniV35IfType, juniV35Groups=juniV35Groups, juniV35Compliances=juniV35Compliances, juniV35IfTable=juniV35IfTable, juniV35Objects=juniV35Objects, juniV35IfTxClock=juniV35IfTxClock, juniV35Group=juniV35Group, juniV35IfMode=juniV35IfMode, juniV35IfIgnoreDcd=juniV35IfIgnoreDcd, juniV35IfNrzEncoding=juniV35IfNrzEncoding, juniV35IfLoopback=juniV35IfLoopback, juniV35Conformance=juniV35Conformance, PYSNMP_MODULE_ID=juniV35MIB, juniV35MIB=juniV35MIB, juniV35IfClockRate=juniV35IfClockRate, juniV35IfEntry=juniV35IfEntry, juniV35IfIndex=juniV35IfIndex)
+mibBuilder.exportSymbols("Juniper-V35-MIB", juniV35Compliance=juniV35Compliance, juniV35IfMode=juniV35IfMode, juniV35MIB=juniV35MIB, juniV35Objects=juniV35Objects, juniV35IfEntry=juniV35IfEntry, juniV35IfType=juniV35IfType, juniV35IfClockRate=juniV35IfClockRate, juniV35IfNrzEncoding=juniV35IfNrzEncoding, juniV35IfLoopback=juniV35IfLoopback, juniV35Conformance=juniV35Conformance, juniV35IfTxClock=juniV35IfTxClock, juniV35Compliances=juniV35Compliances, juniV35IfIndex=juniV35IfIndex, juniV35IfTable=juniV35IfTable, juniV35Groups=juniV35Groups, juniV35Group=juniV35Group, juniV35IfIgnoreDcd=juniV35IfIgnoreDcd, PYSNMP_MODULE_ID=juniV35MIB)

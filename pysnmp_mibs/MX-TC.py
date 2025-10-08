@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module MX-TC (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-TC
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:31 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/media5/MX-TC
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:06:06 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 mediatrixModules, = mibBuilder.importSymbols("MX-SMI", "mediatrixModules")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 mxTextualConventions = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 90, 1))
 mxTextualConventions.setRevisions(('1903-03-11 00:00',))
@@ -71,4 +71,4 @@ class MxDigitMap(TextualConvention, OctetString):
     status = 'current'
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 127)
 
-mibBuilder.exportSymbols("MX-TC", MxAdvancedIpPort=MxAdvancedIpPort, PYSNMP_MODULE_ID=mxTextualConventions, MxFloatingPoint=MxFloatingPoint, MxIpPort=MxIpPort, MxIpSelectConfigSource=MxIpSelectConfigSource, MxIpConfigSource=MxIpConfigSource, MxSignalingAddress=MxSignalingAddress, MxIpSubnetMask=MxIpSubnetMask, MxIpAddress=MxIpAddress, MxEnableState=MxEnableState, MxDigitMap=MxDigitMap, MxIpDhcpSiteSpecificCode=MxIpDhcpSiteSpecificCode, MxActivationState=MxActivationState, mxTextualConventions=mxTextualConventions, MxIpHostName=MxIpHostName)
+mibBuilder.exportSymbols("MX-TC", MxDigitMap=MxDigitMap, mxTextualConventions=mxTextualConventions, MxIpSelectConfigSource=MxIpSelectConfigSource, MxIpDhcpSiteSpecificCode=MxIpDhcpSiteSpecificCode, MxSignalingAddress=MxSignalingAddress, PYSNMP_MODULE_ID=mxTextualConventions, MxAdvancedIpPort=MxAdvancedIpPort, MxEnableState=MxEnableState, MxIpAddress=MxIpAddress, MxIpConfigSource=MxIpConfigSource, MxIpHostName=MxIpHostName, MxActivationState=MxActivationState, MxIpPort=MxIpPort, MxIpSubnetMask=MxIpSubnetMask, MxFloatingPoint=MxFloatingPoint)

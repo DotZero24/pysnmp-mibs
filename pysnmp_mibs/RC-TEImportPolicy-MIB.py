@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module RC-TEImportPolicy-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/huawei/RC-TEImportPolicy-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:00:18 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/huawei/RC-TEImportPolicy-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:04:41 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 rc, = mibBuilder.importSymbols("RC-SMI", "rc")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+MacAddress, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "RowStatus", "TextualConvention", "DisplayString")
 rcTEImportPolicy = ModuleIdentity((1, 3, 6, 1, 4, 1, 65000, 2))
 rcTEImportPolicy.setRevisions(('2012-12-11 00:00',))
 if mibBuilder.loadTexts: rcTEImportPolicy.setLastUpdated('201212110000Z')
@@ -74,4 +74,4 @@ rcIPv4ACLDSCP = MibTableColumn((1, 3, 6, 1, 4, 1, 65000, 2, 3, 1, 12), Unsigned3
 if mibBuilder.loadTexts: rcIPv4ACLDSCP.setStatus('current')
 rcIPV4ACLRowsta = MibTableColumn((1, 3, 6, 1, 4, 1, 65000, 2, 3, 1, 13), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: rcIPV4ACLRowsta.setStatus('current')
-mibBuilder.exportSymbols("RC-TEImportPolicy-MIB", rcInterfacename=rcInterfacename, rcIPv4ACLDestPortEnd=rcIPv4ACLDestPortEnd, rcIPv4ACLProtocol=rcIPv4ACLProtocol, rcRouteMapMatchAcl=rcRouteMapMatchAcl, rcRouteMapSetIntfTunnelID=rcRouteMapSetIntfTunnelID, PYSNMP_MODULE_ID=rcTEImportPolicy, rcIPv4ACLDestPortBegin=rcIPv4ACLDestPortBegin, rcPolicyRouteEntry=rcPolicyRouteEntry, rcPolicyRouteTable=rcPolicyRouteTable, rcRefRouteMapIndex=rcRefRouteMapIndex, rcRouteMapIntanceIndex=rcRouteMapIntanceIndex, rcIPv4ACLDestWildcard=rcIPv4ACLDestWildcard, rcTEImportPolicy=rcTEImportPolicy, rcIPv4ACLSrcPortBegin=rcIPv4ACLSrcPortBegin, rcIPV4ACLRowsta=rcIPV4ACLRowsta, rcIPv4ACLSrcWildcard=rcIPv4ACLSrcWildcard, rcRouteMapRowSta=rcRouteMapRowSta, rcACLTable=rcACLTable, rcIPv4ACLName=rcIPv4ACLName, rcIPv4ACLSrcAddr=rcIPv4ACLSrcAddr, rcIPv4ACLDestAddr=rcIPv4ACLDestAddr, rcRouteMapname=rcRouteMapname, rcRouteMapTable=rcRouteMapTable, rcIPv4ACLDSCP=rcIPv4ACLDSCP, rcRefRouteMapname=rcRefRouteMapname, rcIPv4ACLRuleID=rcIPv4ACLRuleID, rcRouteMapEntry=rcRouteMapEntry, rcRouteMapIndex=rcRouteMapIndex, rcACLEntry=rcACLEntry, rcPolicyRouteRowSta=rcPolicyRouteRowSta, rcIPv4ACLSrcPortEnd=rcIPv4ACLSrcPortEnd)
+mibBuilder.exportSymbols("RC-TEImportPolicy-MIB", rcRouteMapname=rcRouteMapname, rcPolicyRouteTable=rcPolicyRouteTable, rcIPv4ACLDestPortBegin=rcIPv4ACLDestPortBegin, rcPolicyRouteRowSta=rcPolicyRouteRowSta, rcIPv4ACLRuleID=rcIPv4ACLRuleID, rcACLTable=rcACLTable, rcACLEntry=rcACLEntry, rcRouteMapIndex=rcRouteMapIndex, rcInterfacename=rcInterfacename, rcIPv4ACLDestAddr=rcIPv4ACLDestAddr, rcRouteMapSetIntfTunnelID=rcRouteMapSetIntfTunnelID, rcIPv4ACLDSCP=rcIPv4ACLDSCP, rcIPv4ACLName=rcIPv4ACLName, rcIPv4ACLProtocol=rcIPv4ACLProtocol, rcPolicyRouteEntry=rcPolicyRouteEntry, rcIPv4ACLSrcPortEnd=rcIPv4ACLSrcPortEnd, rcIPv4ACLDestPortEnd=rcIPv4ACLDestPortEnd, rcRefRouteMapIndex=rcRefRouteMapIndex, rcRouteMapTable=rcRouteMapTable, PYSNMP_MODULE_ID=rcTEImportPolicy, rcIPv4ACLSrcPortBegin=rcIPv4ACLSrcPortBegin, rcRouteMapRowSta=rcRouteMapRowSta, rcIPv4ACLSrcAddr=rcIPv4ACLSrcAddr, rcIPV4ACLRowsta=rcIPV4ACLRowsta, rcRouteMapEntry=rcRouteMapEntry, rcTEImportPolicy=rcTEImportPolicy, rcIPv4ACLDestWildcard=rcIPv4ACLDestWildcard, rcRouteMapIntanceIndex=rcRouteMapIntanceIndex, rcRouteMapMatchAcl=rcRouteMapMatchAcl, rcIPv4ACLSrcWildcard=rcIPv4ACLSrcWildcard, rcRefRouteMapname=rcRefRouteMapname)

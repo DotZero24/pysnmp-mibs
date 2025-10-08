@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module TRAPEZE-NETWORKS-REGISTRATION-DEVICES-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/trapeze/TRAPEZE-NETWORKS-REGISTRATION-DEVICES-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:52 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/trapeze/TRAPEZE-NETWORKS-REGISTRATION-DEVICES-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:05:16 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 trpzRegistration, = mibBuilder.importSymbols("TRAPEZE-NETWORKS-ROOT-MIB", "trpzRegistration")
 trpzRegistrationDevicesMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 14525, 3, 6))
 trpzRegistrationDevicesMib.setRevisions(('2011-08-09 00:32', '2011-03-08 00:22', '2010-12-02 00:11', '2009-12-18 00:10', '2007-11-30 00:01', '2007-08-22 00:00',))
@@ -36,4 +36,4 @@ wirelessLANController8 = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 3, 3, 2))
 wirelessLANController2 = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 3, 3, 3))
 wirelessLANController800r = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 3, 3, 4))
 wirelessLANController2800 = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 3, 3, 5))
-mibBuilder.exportSymbols("TRAPEZE-NETWORKS-REGISTRATION-DEVICES-MIB", wirelessLANController880R=wirelessLANController880R, mobilityPoint241=mobilityPoint241, mobilityExchange200=mobilityExchange200, mobilityExchange400=mobilityExchange400, mobilityExchange20=mobilityExchange20, mobilityExchange=mobilityExchange, mobilityPoint122=mobilityPoint122, mobilityPoint101=mobilityPoint101, wirelessLANController=wirelessLANController, mobilityPoint252=mobilityPoint252, mobilityExchange216=mobilityExchange216, mobilityPoint=mobilityPoint, mobilityExchange2800=mobilityExchange2800, mobilityExchange8=mobilityExchange8, trpzRegistrationDevicesMib=trpzRegistrationDevicesMib, wirelessLANController8=wirelessLANController8, wirelessLANController2=wirelessLANController2, mobilityExchange800=mobilityExchange800, mobilityExchangeR2=mobilityExchangeR2, wirelessLANController2800=wirelessLANController2800, wirelessLANController800r=wirelessLANController800r, PYSNMP_MODULE_ID=trpzRegistrationDevicesMib)
+mibBuilder.exportSymbols("TRAPEZE-NETWORKS-REGISTRATION-DEVICES-MIB", mobilityPoint=mobilityPoint, mobilityExchange20=mobilityExchange20, mobilityPoint122=mobilityPoint122, mobilityExchange=mobilityExchange, mobilityPoint241=mobilityPoint241, mobilityExchange400=mobilityExchange400, mobilityExchange216=mobilityExchange216, wirelessLANController2=wirelessLANController2, wirelessLANController800r=wirelessLANController800r, mobilityExchange200=mobilityExchange200, mobilityPoint101=mobilityPoint101, wirelessLANController=wirelessLANController, wirelessLANController2800=wirelessLANController2800, PYSNMP_MODULE_ID=trpzRegistrationDevicesMib, mobilityExchange2800=mobilityExchange2800, mobilityExchange800=mobilityExchange800, mobilityPoint252=mobilityPoint252, mobilityExchangeR2=mobilityExchangeR2, mobilityExchange8=mobilityExchange8, trpzRegistrationDevicesMib=trpzRegistrationDevicesMib, wirelessLANController880R=wirelessLANController880R, wirelessLANController8=wirelessLANController8)

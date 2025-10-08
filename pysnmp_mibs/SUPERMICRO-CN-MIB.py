@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SUPERMICRO-CN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-CN-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:52 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-CN-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:41 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ieee8021CnPortPriEntry, ieee8021CnGlobalEntry, ieee8021CnCpIdentifier, Ieee8021CnDefenseMode = mibBuilder.importSymbols("IEEE8021-CN-MIB", "ieee8021CnPortPriEntry", "ieee8021CnGlobalEntry", "ieee8021CnCpIdentifier", "Ieee8021CnDefenseMode")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ieee8021CnCpIdentifier, Ieee8021CnDefenseMode, ieee8021CnGlobalEntry, ieee8021CnPortPriEntry = mibBuilder.importSymbols("IEEE8021-CN-MIB", "ieee8021CnCpIdentifier", "Ieee8021CnDefenseMode", "ieee8021CnGlobalEntry", "ieee8021CnPortPriEntry")
 IEEE8021PriorityValue, = mibBuilder.importSymbols("IEEE8021-TC-MIB", "IEEE8021PriorityValue")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-TimeStamp, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "TimeStamp", "DisplayString")
 fscn = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876, 101, 2, 47))
 fscn.setRevisions(('2012-09-05 00:00',))
 if mibBuilder.loadTexts: fscn.setLastUpdated('201209050000Z')
@@ -68,4 +68,4 @@ fsCnEpEntryTrap = NotificationType((1, 3, 6, 1, 4, 1, 10876, 101, 2, 47, 4, 0, 1
 if mibBuilder.loadTexts: fsCnEpEntryTrap.setStatus('current')
 fsCnCNMTrap = NotificationType((1, 3, 6, 1, 4, 1, 10876, 101, 2, 47, 4, 0, 2)).setObjects(("IEEE8021-CN-MIB", "ieee8021CnCpIdentifier"), ("SUPERMICRO-CN-MIB", "fsCnCnmQOffset"), ("SUPERMICRO-CN-MIB", "fsCnCnmQDelta"))
 if mibBuilder.loadTexts: fsCnCNMTrap.setStatus('current')
-mibBuilder.exportSymbols("SUPERMICRO-CN-MIB", fsCnMaster=fsCnMaster, fsCnXGlobalTable=fsCnXGlobalTable, fsCnXPortPriLastSentEventTime=fsCnXPortPriLastSentEventTime, fsCnXPortPriClearCpCounters=fsCnXPortPriClearCpCounters, fsCnTraps=fsCnTraps, fscn=fscn, fsCnPortPriority=fsCnPortPriority, fsCnXPortPriLastRcvdEvent=fsCnXPortPriLastRcvdEvent, fsCnXPortPriOperAltPri=fsCnXPortPriOperAltPri, fsCnXGlobalEntry=fsCnXGlobalEntry, fsCnNotifications=fsCnNotifications, fsCnXPortPriOperDefMode=fsCnXPortPriOperDefMode, fsCnComponent=fsCnComponent, fsCnXPortPriLastRcvdEventTime=fsCnXPortPriLastRcvdEventTime, PYSNMP_MODULE_ID=fscn, fsCnXPortPriTable=fsCnXPortPriTable, fsCnEpEntryTrap=fsCnEpEntryTrap, fsCnXPortPriEntry=fsCnXPortPriEntry, fsCnGlobalEnableTrap=fsCnGlobalEnableTrap, fsCnXGlobalTraceLevel=fsCnXGlobalTraceLevel, fsCnXPortPriLastSentEvent=fsCnXPortPriLastSentEvent, fsCnXPortPriErrorEntry=fsCnXPortPriErrorEntry, fsCnCnmQOffset=fsCnCnmQOffset, fsCnCNMTrap=fsCnCNMTrap, fsCnXGlobalClearCounters=fsCnXGlobalClearCounters, fsCnSystemControl=fsCnSystemControl, fsCnXGlobalTLVErrors=fsCnXGlobalTLVErrors, fsCnCnmQDelta=fsCnCnmQDelta)
+mibBuilder.exportSymbols("SUPERMICRO-CN-MIB", fsCnXPortPriEntry=fsCnXPortPriEntry, fsCnXGlobalClearCounters=fsCnXGlobalClearCounters, fsCnCnmQOffset=fsCnCnmQOffset, fsCnXPortPriLastRcvdEvent=fsCnXPortPriLastRcvdEvent, fsCnXPortPriClearCpCounters=fsCnXPortPriClearCpCounters, fsCnCnmQDelta=fsCnCnmQDelta, fsCnXGlobalEntry=fsCnXGlobalEntry, fsCnXPortPriOperDefMode=fsCnXPortPriOperDefMode, fsCnXPortPriOperAltPri=fsCnXPortPriOperAltPri, fsCnCNMTrap=fsCnCNMTrap, fscn=fscn, fsCnXPortPriLastSentEventTime=fsCnXPortPriLastSentEventTime, fsCnXPortPriLastRcvdEventTime=fsCnXPortPriLastRcvdEventTime, fsCnXGlobalTLVErrors=fsCnXGlobalTLVErrors, fsCnTraps=fsCnTraps, fsCnXPortPriTable=fsCnXPortPriTable, fsCnXPortPriLastSentEvent=fsCnXPortPriLastSentEvent, fsCnXGlobalTraceLevel=fsCnXGlobalTraceLevel, fsCnNotifications=fsCnNotifications, fsCnMaster=fsCnMaster, fsCnPortPriority=fsCnPortPriority, fsCnXPortPriErrorEntry=fsCnXPortPriErrorEntry, fsCnComponent=fsCnComponent, fsCnXGlobalTable=fsCnXGlobalTable, fsCnSystemControl=fsCnSystemControl, fsCnEpEntryTrap=fsCnEpEntryTrap, fsCnGlobalEnableTrap=fsCnGlobalEnableTrap, PYSNMP_MODULE_ID=fscn)

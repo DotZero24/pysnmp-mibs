@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module PW-TC-STD-R-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rad/PW-TC-STD-R-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:42:50 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/rad/PW-TC-STD-R-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:10:07 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, transmission, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "transmission", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+transmission, MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "transmission", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 pwTcStdMIBR = ModuleIdentity((1, 3, 6, 1, 4, 1, 164, 20, 11))
 pwTcStdMIBR.setRevisions(('2007-02-04 12:00',))
@@ -63,4 +63,4 @@ class PwCfgIndexOrzero(TextualConvention, Unsigned32):
     status = 'current'
     subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 4294967295)
 
-mibBuilder.exportSymbols("PW-TC-STD-R-MIB", PwCfgIndexOrzero=PwCfgIndexOrzero, PwCwStatusTC=PwCwStatusTC, PwVlanCfg=PwVlanCfg, radExperimental=radExperimental, PwIndexType=PwIndexType, PwAttachmentIdentifierType=PwAttachmentIdentifierType, PwGroupID=PwGroupID, pwTcStdMIBR=pwTcStdMIBR, PwIndexOrZeroType=PwIndexOrZeroType, PwOperStatusTC=PwOperStatusTC, PwStatus=PwStatus, PYSNMP_MODULE_ID=pwTcStdMIBR, PwFragStatus=PwFragStatus, PwIDType=PwIDType, PwFragSize=PwFragSize)
+mibBuilder.exportSymbols("PW-TC-STD-R-MIB", PwIndexOrZeroType=PwIndexOrZeroType, PwFragStatus=PwFragStatus, PYSNMP_MODULE_ID=pwTcStdMIBR, PwIDType=PwIDType, PwStatus=PwStatus, PwGroupID=PwGroupID, PwAttachmentIdentifierType=PwAttachmentIdentifierType, PwVlanCfg=PwVlanCfg, pwTcStdMIBR=pwTcStdMIBR, PwIndexType=PwIndexType, radExperimental=radExperimental, PwOperStatusTC=PwOperStatusTC, PwFragSize=PwFragSize, PwCwStatusTC=PwCwStatusTC, PwCfgIndexOrzero=PwCfgIndexOrzero)

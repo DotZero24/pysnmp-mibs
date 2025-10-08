@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ADTRAN-GEMINAX-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-GEMINAX-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:27 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/adtran/ADTRAN-GEMINAX-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:52:41 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 adGenSlotInfoIndex, = mibBuilder.importSymbols("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex")
-adGenGeminaxID, adGenGeminax = mibBuilder.importSymbols("ADTRAN-SHARED-XDSL-MIB", "adGenGeminaxID", "adGenGeminax")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+adGenGeminax, adGenGeminaxID = mibBuilder.importSymbols("ADTRAN-SHARED-XDSL-MIB", "adGenGeminax", "adGenGeminaxID")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 adGenGeminaxMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 73, 2, 1))
 if mibBuilder.loadTexts: adGenGeminaxMIB.setLastUpdated('201006040000Z')
 if mibBuilder.loadTexts: adGenGeminaxMIB.setOrganization('ADTRAN, Inc.')
@@ -33,4 +33,4 @@ adGenGeminaxErrorClassD = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 73, 2, 1, 1,
 if mibBuilder.loadTexts: adGenGeminaxErrorClassD.setStatus('current')
 adGenGeminaxErrorClassE = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 73, 2, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("disabled", 1), ("logOnly", 2), ("softReset", 3), ("hardReset", 4)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: adGenGeminaxErrorClassE.setStatus('current')
-mibBuilder.exportSymbols("ADTRAN-GEMINAX-MIB", adGenGeminaxDiagTable=adGenGeminaxDiagTable, PYSNMP_MODULE_ID=adGenGeminaxMIB, adGenGeminaxErrorClassD=adGenGeminaxErrorClassD, adGenGeminaxMIB=adGenGeminaxMIB, adGenGeminaxErrorClassA=adGenGeminaxErrorClassA, adGenGeminaxErrorClassC=adGenGeminaxErrorClassC, adGenGeminaxErrorClassB=adGenGeminaxErrorClassB, adGenGeminaxErrorClassECF=adGenGeminaxErrorClassECF, adGenGeminaxErrorClassE=adGenGeminaxErrorClassE, adGenGeminaxMax=adGenGeminaxMax, adGenGeminaxDiagEntry=adGenGeminaxDiagEntry)
+mibBuilder.exportSymbols("ADTRAN-GEMINAX-MIB", adGenGeminaxErrorClassB=adGenGeminaxErrorClassB, adGenGeminaxErrorClassE=adGenGeminaxErrorClassE, adGenGeminaxErrorClassECF=adGenGeminaxErrorClassECF, adGenGeminaxDiagTable=adGenGeminaxDiagTable, adGenGeminaxErrorClassD=adGenGeminaxErrorClassD, PYSNMP_MODULE_ID=adGenGeminaxMIB, adGenGeminaxMIB=adGenGeminaxMIB, adGenGeminaxDiagEntry=adGenGeminaxDiagEntry, adGenGeminaxErrorClassA=adGenGeminaxErrorClassA, adGenGeminaxErrorClassC=adGenGeminaxErrorClassC, adGenGeminaxMax=adGenGeminaxMax)

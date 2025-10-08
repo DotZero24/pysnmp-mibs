@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module S5-COMMON-STATS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/S5-COMMON-STATS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:06 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nortel/S5-COMMON-STATS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:02:26 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 s5Com, = mibBuilder.importSymbols("S5-ROOT-MIB", "s5Com")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
 s5CmStat = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 1, 6, 5, 1))
 s5CmSNodeTable = MibTable((1, 3, 6, 1, 4, 1, 45, 1, 6, 5, 1, 1), )
 if mibBuilder.loadTexts: s5CmSNodeTable.setStatus('mandatory')
@@ -59,4 +59,4 @@ s5CmNetAddrAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 1, 6, 5, 1, 3, 1, 7), Oc
 if mibBuilder.loadTexts: s5CmNetAddrAddr.setStatus('mandatory')
 s5CmNetAddrLastSeen = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 1, 6, 5, 1, 3, 1, 8), TimeTicks()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: s5CmNetAddrLastSeen.setStatus('mandatory')
-mibBuilder.exportSymbols("S5-COMMON-STATS-MIB", s5CmNetAddrEntry=s5CmNetAddrEntry, s5CmFNodeMacAddr=s5CmFNodeMacAddr, s5CmNetAddrMacAddr=s5CmNetAddrMacAddr, s5CmNetAddrNetIndx=s5CmNetAddrNetIndx, s5CmNetAddrAddr=s5CmNetAddrAddr, s5CmSNodeIfIndx=s5CmSNodeIfIndx, s5CmFNodeEntry=s5CmFNodeEntry, s5CmFNodeTable=s5CmFNodeTable, s5CmNetAddrBrdIndx=s5CmNetAddrBrdIndx, s5CmNetAddrType=s5CmNetAddrType, s5CmSNodeTable=s5CmSNodeTable, s5CmNetAddrPortIndx=s5CmNetAddrPortIndx, s5CmFNodePortIndx=s5CmFNodePortIndx, s5CmNetAddrIfIndex=s5CmNetAddrIfIndex, s5CmSNodeMacAddr=s5CmSNodeMacAddr, s5CmSNodeStatus=s5CmSNodeStatus, s5CmNetAddrLastSeen=s5CmNetAddrLastSeen, s5CmSNodeEntry=s5CmSNodeEntry, s5CmSNodeBrdIndx=s5CmSNodeBrdIndx, s5CmSNodePortIndx=s5CmSNodePortIndx, s5CmFNodeBrdIndx=s5CmFNodeBrdIndx, s5CmStat=s5CmStat, s5CmFNodeIfIndx=s5CmFNodeIfIndx, s5CmNetAddrTable=s5CmNetAddrTable)
+mibBuilder.exportSymbols("S5-COMMON-STATS-MIB", s5CmSNodeMacAddr=s5CmSNodeMacAddr, s5CmFNodeBrdIndx=s5CmFNodeBrdIndx, s5CmNetAddrType=s5CmNetAddrType, s5CmFNodePortIndx=s5CmFNodePortIndx, s5CmNetAddrEntry=s5CmNetAddrEntry, s5CmStat=s5CmStat, s5CmNetAddrMacAddr=s5CmNetAddrMacAddr, s5CmNetAddrAddr=s5CmNetAddrAddr, s5CmSNodeTable=s5CmSNodeTable, s5CmNetAddrNetIndx=s5CmNetAddrNetIndx, s5CmSNodeIfIndx=s5CmSNodeIfIndx, s5CmFNodeTable=s5CmFNodeTable, s5CmNetAddrPortIndx=s5CmNetAddrPortIndx, s5CmNetAddrBrdIndx=s5CmNetAddrBrdIndx, s5CmNetAddrLastSeen=s5CmNetAddrLastSeen, s5CmFNodeMacAddr=s5CmFNodeMacAddr, s5CmSNodeBrdIndx=s5CmSNodeBrdIndx, s5CmSNodePortIndx=s5CmSNodePortIndx, s5CmSNodeEntry=s5CmSNodeEntry, s5CmSNodeStatus=s5CmSNodeStatus, s5CmNetAddrIfIndex=s5CmNetAddrIfIndex, s5CmFNodeIfIndx=s5CmFNodeIfIndx, s5CmFNodeEntry=s5CmFNodeEntry, s5CmNetAddrTable=s5CmNetAddrTable)

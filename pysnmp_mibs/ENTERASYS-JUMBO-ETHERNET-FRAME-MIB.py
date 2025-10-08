@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module ENTERASYS-JUMBO-ETHERNET-FRAME-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/enterasys/ENTERASYS-JUMBO-ETHERNET-FRAME-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:20 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/enterasys/ENTERASYS-JUMBO-ETHERNET-FRAME-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:33:53 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 etsysModules, = mibBuilder.importSymbols("ENTERASYS-MIB-NAMES", "etsysModules")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 etsysJumboEthernetFrameMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 34))
 etsysJumboEthernetFrameMIB.setRevisions(('2003-01-24 21:26', '2002-12-20 21:56',))
 if mibBuilder.loadTexts: etsysJumboEthernetFrameMIB.setLastUpdated('200301242126Z')
@@ -49,4 +49,4 @@ etsysJumboEnetFrameCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2,
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     etsysJumboEnetFrameCompliance2 = etsysJumboEnetFrameCompliance2.setStatus('current')
-mibBuilder.exportSymbols("ENTERASYS-JUMBO-ETHERNET-FRAME-MIB", etsysJumboEnetFrameConformance=etsysJumboEnetFrameConformance, etsysJumboEthernetFrame=etsysJumboEthernetFrame, etsysJumboEnetFrameMtu=etsysJumboEnetFrameMtu, etsysJumboEnetFrameAdminStatus=etsysJumboEnetFrameAdminStatus, etsysJumboEnetFrameEnable=etsysJumboEnetFrameEnable, PYSNMP_MODULE_ID=etsysJumboEthernetFrameMIB, etsysJumboEnetFrameGroups=etsysJumboEnetFrameGroups, etsysJumboEnetFrameOperStatus=etsysJumboEnetFrameOperStatus, etsysJumboEnetFrameCompliance=etsysJumboEnetFrameCompliance, etsysJumboEnetFrameControl=etsysJumboEnetFrameControl, etsysJumboEnetFrameControlGroup=etsysJumboEnetFrameControlGroup, etsysJumboEnetFrameControlGroup2=etsysJumboEnetFrameControlGroup2, etsysJumboEnetFrameTable=etsysJumboEnetFrameTable, etsysJumboEthernetFrameMIB=etsysJumboEthernetFrameMIB, etsysJumboEnetFrameCompliance2=etsysJumboEnetFrameCompliance2, etsysJumboEnetFrameCompliances=etsysJumboEnetFrameCompliances, etsysJumboEnetFrameEntry=etsysJumboEnetFrameEntry)
+mibBuilder.exportSymbols("ENTERASYS-JUMBO-ETHERNET-FRAME-MIB", etsysJumboEnetFrameOperStatus=etsysJumboEnetFrameOperStatus, etsysJumboEnetFrameGroups=etsysJumboEnetFrameGroups, etsysJumboEnetFrameAdminStatus=etsysJumboEnetFrameAdminStatus, PYSNMP_MODULE_ID=etsysJumboEthernetFrameMIB, etsysJumboEnetFrameTable=etsysJumboEnetFrameTable, etsysJumboEnetFrameConformance=etsysJumboEnetFrameConformance, etsysJumboEnetFrameControlGroup=etsysJumboEnetFrameControlGroup, etsysJumboEnetFrameCompliances=etsysJumboEnetFrameCompliances, etsysJumboEnetFrameControl=etsysJumboEnetFrameControl, etsysJumboEthernetFrameMIB=etsysJumboEthernetFrameMIB, etsysJumboEnetFrameEnable=etsysJumboEnetFrameEnable, etsysJumboEnetFrameMtu=etsysJumboEnetFrameMtu, etsysJumboEnetFrameCompliance2=etsysJumboEnetFrameCompliance2, etsysJumboEnetFrameCompliance=etsysJumboEnetFrameCompliance, etsysJumboEnetFrameEntry=etsysJumboEnetFrameEntry, etsysJumboEnetFrameControlGroup2=etsysJumboEnetFrameControlGroup2, etsysJumboEthernetFrame=etsysJumboEthernetFrame)

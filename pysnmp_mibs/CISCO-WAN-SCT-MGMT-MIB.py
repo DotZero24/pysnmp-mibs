@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module CISCO-WAN-SCT-MGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-WAN-SCT-MGMT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:10 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-WAN-SCT-MGMT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:31:58 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 ciscoWanSctMgmtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 236))
 ciscoWanSctMgmtMIB.setRevisions(('2002-05-21 00:00', '2001-11-18 00:00', '2001-09-17 00:00',))
 if mibBuilder.loadTexts: ciscoWanSctMgmtMIB.setLastUpdated('200205210000Z')
@@ -52,4 +52,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 cwSctFileMgmtObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 236, 3, 2, 1)).setObjects(("CISCO-WAN-SCT-MGMT-MIB", "cwSctFileName"), ("CISCO-WAN-SCT-MGMT-MIB", "cwSctFileMinorVersion"), ("CISCO-WAN-SCT-MGMT-MIB", "cwSctFileChecksum"), ("CISCO-WAN-SCT-MGMT-MIB", "cwSctFileDescription"), ("CISCO-WAN-SCT-MGMT-MIB", "cwSctFileOperStatus"), ("CISCO-WAN-SCT-MGMT-MIB", "cwSctFileRowStatus"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     cwSctFileMgmtObjectGroup = cwSctFileMgmtObjectGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-WAN-SCT-MGMT-MIB", ciscoWanSctMgmtMIBConformance=ciscoWanSctMgmtMIBConformance, ciscoWanSctMgmtMIBObjects=ciscoWanSctMgmtMIBObjects, cwSctFileMgmtMIBCompliance=cwSctFileMgmtMIBCompliance, PYSNMP_MODULE_ID=ciscoWanSctMgmtMIB, ciscoWanSctMgmtMIB=ciscoWanSctMgmtMIB, ciscoWanSctMgmtMIBGroups=ciscoWanSctMgmtMIBGroups, cwSctFileMgmtTable=cwSctFileMgmtTable, cwSctFileChecksum=cwSctFileChecksum, cwSctFileName=cwSctFileName, cwSctFileMgmtObjectGroup=cwSctFileMgmtObjectGroup, cwSctFileDescription=cwSctFileDescription, cwSctMajorVersion=cwSctMajorVersion, cwSctFileMgmtEntry=cwSctFileMgmtEntry, cwSctFileOperStatus=cwSctFileOperStatus, cwSctType=cwSctType, ciscoWanSctMgmtMIBCompliances=ciscoWanSctMgmtMIBCompliances, cwSctCardType=cwSctCardType, cwSctFileMinorVersion=cwSctFileMinorVersion, cwSctId=cwSctId, cwSctFileRowStatus=cwSctFileRowStatus)
+mibBuilder.exportSymbols("CISCO-WAN-SCT-MGMT-MIB", cwSctType=cwSctType, cwSctFileMinorVersion=cwSctFileMinorVersion, ciscoWanSctMgmtMIBConformance=ciscoWanSctMgmtMIBConformance, ciscoWanSctMgmtMIB=ciscoWanSctMgmtMIB, PYSNMP_MODULE_ID=ciscoWanSctMgmtMIB, cwSctFileRowStatus=cwSctFileRowStatus, cwSctFileName=cwSctFileName, ciscoWanSctMgmtMIBCompliances=ciscoWanSctMgmtMIBCompliances, ciscoWanSctMgmtMIBObjects=ciscoWanSctMgmtMIBObjects, cwSctFileOperStatus=cwSctFileOperStatus, cwSctFileMgmtMIBCompliance=cwSctFileMgmtMIBCompliance, cwSctFileDescription=cwSctFileDescription, cwSctFileChecksum=cwSctFileChecksum, cwSctFileMgmtObjectGroup=cwSctFileMgmtObjectGroup, cwSctFileMgmtTable=cwSctFileMgmtTable, cwSctFileMgmtEntry=cwSctFileMgmtEntry, cwSctMajorVersion=cwSctMajorVersion, ciscoWanSctMgmtMIBGroups=ciscoWanSctMgmtMIBGroups, cwSctCardType=cwSctCardType, cwSctId=cwSctId)

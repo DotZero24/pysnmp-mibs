@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module MX-DATAIF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-DATAIF-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:08 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/media5/MX-DATAIF-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:05:35 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 mediatrixConfig, = mibBuilder.importSymbols("MX-SMI", "mediatrixConfig")
 MxEnableState, = mibBuilder.importSymbols("MX-TC", "MxEnableState")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 dataIfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 15, 35))
 dataIfMIB.setRevisions(('2010-02-16 00:00', '2009-09-10 00:00', '2009-06-12 00:00', '2005-05-10 00:00', '2005-04-29 00:00', '2005-04-28 00:00', '2005-04-19 00:00', '2005-03-17 00:00', '2005-03-16 00:00', '2005-03-15 00:00', '2005-02-18 00:00', '2004-02-18 00:00', '2003-10-27 00:00', '2003-10-22 00:00', '2003-10-02 00:00', '2003-09-15 00:00', '2003-02-20 00:00', '2003-12-18 00:00', '2002-09-30 00:00', '2002-07-24 00:00', '2002-04-26 00:00', '2001-08-22 00:00',))
 if mibBuilder.loadTexts: dataIfMIB.setLastUpdated('201002160000Z')
@@ -59,4 +59,4 @@ dataIfGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 35, 2, 2))
 dataIfGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 15, 35, 2, 2, 1)).setObjects(("MX-DATAIF-MIB", "dataIfCngToneDetectionEnable"), ("MX-DATAIF-MIB", "dataIfCedFaxToneEnable"), ("MX-DATAIF-MIB", "dataIfAnalogCedDetectionBehavior"), ("MX-DATAIF-MIB", "dataIfCodecT38Enable"), ("MX-DATAIF-MIB", "dataIfCodecMediaTypeImageEnable"), ("MX-DATAIF-MIB", "dataIfClearChannelCodecPreferred"), ("MX-DATAIF-MIB", "dataIfCodecT38ProtectionLevel"), ("MX-DATAIF-MIB", "dataIfT38FinalFramesRedundancy"), ("MX-DATAIF-MIB", "dataIfT38NoSignalEnable"), ("MX-DATAIF-MIB", "dataIfT38NoSignalTimeout"), ("MX-DATAIF-MIB", "dataIfT38BasePort"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     dataIfGroupVer1 = dataIfGroupVer1.setStatus('current')
-mibBuilder.exportSymbols("MX-DATAIF-MIB", dataIfCompliances=dataIfCompliances, dataIfMIBObjects=dataIfMIBObjects, dataIfAnalogCedDetectionBehavior=dataIfAnalogCedDetectionBehavior, dataIfCodecMediaTypeImageEnable=dataIfCodecMediaTypeImageEnable, PYSNMP_MODULE_ID=dataIfMIB, dataIfCodecEntry=dataIfCodecEntry, dataIfCngToneDetectionEnable=dataIfCngToneDetectionEnable, dataIfConformance=dataIfConformance, dataIfCodecT38ProtectionLevel=dataIfCodecT38ProtectionLevel, dataIfMIB=dataIfMIB, dataIfTable=dataIfTable, dataIfT38FinalFramesRedundancy=dataIfT38FinalFramesRedundancy, dataIfCodecTable=dataIfCodecTable, dataIfClearChannelCodecPreferred=dataIfClearChannelCodecPreferred, dataIfEntry=dataIfEntry, dataIfComplVer1=dataIfComplVer1, dataIfCodecT38Enable=dataIfCodecT38Enable, dataIfT38NoSignalTimeout=dataIfT38NoSignalTimeout, dataIfT38BasePort=dataIfT38BasePort, dataIfCedFaxToneEnable=dataIfCedFaxToneEnable, dataIfT38NoSignalEnable=dataIfT38NoSignalEnable, dataIfGroupVer1=dataIfGroupVer1, dataIfGroups=dataIfGroups)
+mibBuilder.exportSymbols("MX-DATAIF-MIB", dataIfCodecT38Enable=dataIfCodecT38Enable, dataIfCompliances=dataIfCompliances, dataIfCedFaxToneEnable=dataIfCedFaxToneEnable, dataIfCodecMediaTypeImageEnable=dataIfCodecMediaTypeImageEnable, dataIfT38BasePort=dataIfT38BasePort, dataIfAnalogCedDetectionBehavior=dataIfAnalogCedDetectionBehavior, dataIfClearChannelCodecPreferred=dataIfClearChannelCodecPreferred, dataIfEntry=dataIfEntry, dataIfCodecEntry=dataIfCodecEntry, dataIfMIB=dataIfMIB, dataIfT38FinalFramesRedundancy=dataIfT38FinalFramesRedundancy, dataIfMIBObjects=dataIfMIBObjects, dataIfGroupVer1=dataIfGroupVer1, dataIfTable=dataIfTable, dataIfCodecT38ProtectionLevel=dataIfCodecT38ProtectionLevel, dataIfGroups=dataIfGroups, PYSNMP_MODULE_ID=dataIfMIB, dataIfCngToneDetectionEnable=dataIfCngToneDetectionEnable, dataIfConformance=dataIfConformance, dataIfComplVer1=dataIfComplVer1, dataIfT38NoSignalEnable=dataIfT38NoSignalEnable, dataIfCodecTable=dataIfCodecTable, dataIfT38NoSignalTimeout=dataIfT38NoSignalTimeout)

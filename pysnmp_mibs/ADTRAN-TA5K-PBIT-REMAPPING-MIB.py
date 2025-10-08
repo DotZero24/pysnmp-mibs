@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ADTRAN-TA5K-PBIT-REMAPPING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-TA5K-PBIT-REMAPPING-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:59 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/adtran/ADTRAN-TA5K-PBIT-REMAPPING-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:53:29 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 adTa5kPbitRemappingID, adTa5kPbitRemapping = mibBuilder.importSymbols("ADTRAN-GENTA5K-MIB", "adTa5kPbitRemappingID", "adTa5kPbitRemapping")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 adTa5kPbitRemappingModuleIdentity = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 38, 1))
 adTa5kPbitRemappingModuleIdentity.setRevisions(('2013-02-18 20:30',))
 if mibBuilder.loadTexts: adTa5kPbitRemappingModuleIdentity.setLastUpdated('201302182030Z')
@@ -35,4 +35,4 @@ adTa5kPbitRemappingMaxSupported = MibScalar((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 38
 if mibBuilder.loadTexts: adTa5kPbitRemappingMaxSupported.setStatus('current')
 adTa5kPbitRemappingLastError = MibScalar((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 38, 2, 2), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: adTa5kPbitRemappingLastError.setStatus('current')
-mibBuilder.exportSymbols("ADTRAN-TA5K-PBIT-REMAPPING-MIB", PYSNMP_MODULE_ID=adTa5kPbitRemappingModuleIdentity, adTa5kPbitRemappingMaxSupported=adTa5kPbitRemappingMaxSupported, adTa5kPbitRemappingModuleIdentity=adTa5kPbitRemappingModuleIdentity, adTa5kPbitRemappingIngressPriority=adTa5kPbitRemappingIngressPriority, adTa5kPbitRemappingStatus=adTa5kPbitRemappingStatus, adTa5kPbitRemappingRowStatus=adTa5kPbitRemappingRowStatus, adTa5kPbitRemappingLastError=adTa5kPbitRemappingLastError, adTa5kPbitRemappingProvisioning=adTa5kPbitRemappingProvisioning, adTa5kPbitRemappingIngressVlanID=adTa5kPbitRemappingIngressVlanID, adTa5kPbitRemappingNewPriority=adTa5kPbitRemappingNewPriority, adTa5kPbitRemappingEntry=adTa5kPbitRemappingEntry, adTa5kPbitRemappingTable=adTa5kPbitRemappingTable)
+mibBuilder.exportSymbols("ADTRAN-TA5K-PBIT-REMAPPING-MIB", adTa5kPbitRemappingRowStatus=adTa5kPbitRemappingRowStatus, adTa5kPbitRemappingTable=adTa5kPbitRemappingTable, adTa5kPbitRemappingLastError=adTa5kPbitRemappingLastError, adTa5kPbitRemappingNewPriority=adTa5kPbitRemappingNewPriority, adTa5kPbitRemappingIngressVlanID=adTa5kPbitRemappingIngressVlanID, PYSNMP_MODULE_ID=adTa5kPbitRemappingModuleIdentity, adTa5kPbitRemappingProvisioning=adTa5kPbitRemappingProvisioning, adTa5kPbitRemappingModuleIdentity=adTa5kPbitRemappingModuleIdentity, adTa5kPbitRemappingIngressPriority=adTa5kPbitRemappingIngressPriority, adTa5kPbitRemappingMaxSupported=adTa5kPbitRemappingMaxSupported, adTa5kPbitRemappingEntry=adTa5kPbitRemappingEntry, adTa5kPbitRemappingStatus=adTa5kPbitRemappingStatus)

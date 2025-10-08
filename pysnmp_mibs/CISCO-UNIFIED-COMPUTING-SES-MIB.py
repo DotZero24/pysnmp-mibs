@@ -1,22 +1,22 @@
 #
 # PySNMP MIB module CISCO-UNIFIED-COMPUTING-SES-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-UNIFIED-COMPUTING-SES-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:47 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-UNIFIED-COMPUTING-SES-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:29:18 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-Unsigned64, CiscoAlarmSeverity, CiscoInetAddressMask, TimeIntervalSec, CiscoNetworkAddress = mibBuilder.importSymbols("CISCO-TC", "Unsigned64", "CiscoAlarmSeverity", "CiscoInetAddressMask", "TimeIntervalSec", "CiscoNetworkAddress")
-CucsManagedObjectId, ciscoUnifiedComputingMIBObjects, CucsManagedObjectDn = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-MIB", "CucsManagedObjectId", "ciscoUnifiedComputingMIBObjects", "CucsManagedObjectDn")
+CiscoInetAddressMask, CiscoNetworkAddress, CiscoAlarmSeverity, TimeIntervalSec, Unsigned64 = mibBuilder.importSymbols("CISCO-TC", "CiscoInetAddressMask", "CiscoNetworkAddress", "CiscoAlarmSeverity", "TimeIntervalSec", "Unsigned64")
+CucsManagedObjectDn, ciscoUnifiedComputingMIBObjects, CucsManagedObjectId = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-MIB", "CucsManagedObjectDn", "ciscoUnifiedComputingMIBObjects", "CucsManagedObjectId")
 CucsFsmLifecycle, CucsSesScsiDriveStatus = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-TC-MIB", "CucsFsmLifecycle", "CucsSesScsiDriveStatus")
-InetAddressIPv6, InetAddressIPv4 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv6", "InetAddressIPv4")
+InetAddressIPv4, InetAddressIPv6 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv4", "InetAddressIPv6")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-DisplayString, MacAddress, TimeInterval, TimeStamp, TruthValue, DateAndTime, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "TimeStamp", "TruthValue", "DateAndTime", "RowPointer", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+DateAndTime, TextualConvention, TimeInterval, MacAddress, RowPointer, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "TimeInterval", "MacAddress", "RowPointer", "TruthValue", "TimeStamp", "DisplayString")
 cucsSesObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80))
 if mibBuilder.loadTexts: cucsSesObjects.setLastUpdated('201807260000Z')
 if mibBuilder.loadTexts: cucsSesObjects.setOrganization('Cisco Systems Inc.')
@@ -70,4 +70,4 @@ cucsSesEnclosureId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2, 1, 6
 if mibBuilder.loadTexts: cucsSesEnclosureId.setStatus('current')
 cucsSesEnclosureLc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2, 1, 7), CucsFsmLifecycle()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: cucsSesEnclosureLc.setStatus('current')
-mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-SES-MIB", cucsSesEnclosureDn=cucsSesEnclosureDn, cucsSesDiskSlotEpDiskPresent=cucsSesDiskSlotEpDiskPresent, cucsSesDiskSlotEpId=cucsSesDiskSlotEpId, cucsSesEnclosureTable=cucsSesEnclosureTable, cucsSesDiskSlotEpInstanceId=cucsSesDiskSlotEpInstanceId, cucsSesDiskSlotEpSerial=cucsSesDiskSlotEpSerial, cucsSesEnclosureLc=cucsSesEnclosureLc, cucsSesDiskSlotEpDn=cucsSesDiskSlotEpDn, cucsSesObjects=cucsSesObjects, cucsSesDiskSlotEpEncId=cucsSesDiskSlotEpEncId, cucsSesEnclosureInstanceId=cucsSesEnclosureInstanceId, cucsSesEnclosureElid=cucsSesEnclosureElid, cucsSesEnclosureEntry=cucsSesEnclosureEntry, cucsSesDiskSlotEpModel=cucsSesDiskSlotEpModel, cucsSesDiskSlotEpSlotDn=cucsSesDiskSlotEpSlotDn, cucsSesEnclosureDescr=cucsSesEnclosureDescr, cucsSesDiskSlotEpScsiDiskState=cucsSesDiskSlotEpScsiDiskState, PYSNMP_MODULE_ID=cucsSesObjects, cucsSesDiskSlotEpVendor=cucsSesDiskSlotEpVendor, cucsSesDiskSlotEpEntry=cucsSesDiskSlotEpEntry, cucsSesDiskSlotEpDiskDn=cucsSesDiskSlotEpDiskDn, cucsSesDiskSlotEpRevision=cucsSesDiskSlotEpRevision, cucsSesEnclosureId=cucsSesEnclosureId, cucsSesDiskSlotEpRn=cucsSesDiskSlotEpRn, cucsSesDiskSlotEpTable=cucsSesDiskSlotEpTable, cucsSesDiskSlotEpLc=cucsSesDiskSlotEpLc, cucsSesEnclosureRn=cucsSesEnclosureRn)
+mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-SES-MIB", cucsSesEnclosureId=cucsSesEnclosureId, cucsSesEnclosureDescr=cucsSesEnclosureDescr, cucsSesDiskSlotEpDiskPresent=cucsSesDiskSlotEpDiskPresent, cucsSesDiskSlotEpEntry=cucsSesDiskSlotEpEntry, cucsSesEnclosureElid=cucsSesEnclosureElid, cucsSesDiskSlotEpLc=cucsSesDiskSlotEpLc, PYSNMP_MODULE_ID=cucsSesObjects, cucsSesDiskSlotEpScsiDiskState=cucsSesDiskSlotEpScsiDiskState, cucsSesDiskSlotEpModel=cucsSesDiskSlotEpModel, cucsSesObjects=cucsSesObjects, cucsSesEnclosureTable=cucsSesEnclosureTable, cucsSesDiskSlotEpTable=cucsSesDiskSlotEpTable, cucsSesDiskSlotEpEncId=cucsSesDiskSlotEpEncId, cucsSesEnclosureEntry=cucsSesEnclosureEntry, cucsSesDiskSlotEpVendor=cucsSesDiskSlotEpVendor, cucsSesDiskSlotEpSerial=cucsSesDiskSlotEpSerial, cucsSesDiskSlotEpId=cucsSesDiskSlotEpId, cucsSesEnclosureInstanceId=cucsSesEnclosureInstanceId, cucsSesEnclosureRn=cucsSesEnclosureRn, cucsSesDiskSlotEpRn=cucsSesDiskSlotEpRn, cucsSesDiskSlotEpRevision=cucsSesDiskSlotEpRevision, cucsSesEnclosureLc=cucsSesEnclosureLc, cucsSesEnclosureDn=cucsSesEnclosureDn, cucsSesDiskSlotEpDiskDn=cucsSesDiskSlotEpDiskDn, cucsSesDiskSlotEpInstanceId=cucsSesDiskSlotEpInstanceId, cucsSesDiskSlotEpDn=cucsSesDiskSlotEpDn, cucsSesDiskSlotEpSlotDn=cucsSesDiskSlotEpSlotDn)

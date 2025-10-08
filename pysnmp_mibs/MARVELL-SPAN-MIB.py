@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module MARVELL-SPAN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/radlan/MARVELL-SPAN-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:40:54 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/radlan/MARVELL-SPAN-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:07:52 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-rndNotifications, rnd = mibBuilder.importSymbols("RADLAN-MIB", "rndNotifications", "rnd")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+rnd, rndNotifications = mibBuilder.importSymbols("RADLAN-MIB", "rnd", "rndNotifications")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "DisplayString", "TextualConvention")
 class SpanDestinationPortType(TextualConvention, Integer32):
     status = 'current'
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
@@ -62,4 +62,4 @@ rlSpanSourceDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 219, 3, 1, 4), Spa
 if mibBuilder.loadTexts: rlSpanSourceDirection.setStatus('current')
 rlSpanSourceRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 219, 3, 1, 5), RowStatus()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: rlSpanSourceRowStatus.setStatus('current')
-mibBuilder.exportSymbols("MARVELL-SPAN-MIB", rlSpanDestinationEntry=rlSpanDestinationEntry, PYSNMP_MODULE_ID=rlSpan, SpanDestinationPortType=SpanDestinationPortType, SpanSourceType=SpanSourceType, rlSpanDestinationTable=rlSpanDestinationTable, rlSpanSourceDirection=rlSpanSourceDirection, rlSpanSourceType=rlSpanSourceType, rlSpanDestinationSessionId=rlSpanDestinationSessionId, rlSpanDestinationRowStatus=rlSpanDestinationRowStatus, rlSpanDestinationIfIndex=rlSpanDestinationIfIndex, rlSpan=rlSpan, rlSpanSourceIndex=rlSpanSourceIndex, rlSpanDestinationIsReflector=rlSpanDestinationIsReflector, SpanSourceDirection=SpanSourceDirection, rlSpanSourceRowStatus=rlSpanSourceRowStatus, rlSpanSourceSessionId=rlSpanSourceSessionId, rlSpanSourceEntry=rlSpanSourceEntry, rlSpanDestinationPortType=rlSpanDestinationPortType, rlSpanMibVersion=rlSpanMibVersion, rlSpanSourceTable=rlSpanSourceTable)
+mibBuilder.exportSymbols("MARVELL-SPAN-MIB", rlSpanDestinationIsReflector=rlSpanDestinationIsReflector, SpanDestinationPortType=SpanDestinationPortType, rlSpanDestinationIfIndex=rlSpanDestinationIfIndex, rlSpanDestinationEntry=rlSpanDestinationEntry, rlSpanSourceType=rlSpanSourceType, SpanSourceDirection=SpanSourceDirection, rlSpanDestinationSessionId=rlSpanDestinationSessionId, rlSpanSourceSessionId=rlSpanSourceSessionId, rlSpanSourceRowStatus=rlSpanSourceRowStatus, rlSpanDestinationTable=rlSpanDestinationTable, rlSpanSourceIndex=rlSpanSourceIndex, rlSpanMibVersion=rlSpanMibVersion, rlSpan=rlSpan, rlSpanDestinationRowStatus=rlSpanDestinationRowStatus, rlSpanDestinationPortType=rlSpanDestinationPortType, PYSNMP_MODULE_ID=rlSpan, rlSpanSourceEntry=rlSpanSourceEntry, SpanSourceType=SpanSourceType, rlSpanSourceTable=rlSpanSourceTable, rlSpanSourceDirection=rlSpanSourceDirection)

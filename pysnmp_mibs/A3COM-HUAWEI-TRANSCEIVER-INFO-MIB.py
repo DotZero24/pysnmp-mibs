@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module A3COM-HUAWEI-TRANSCEIVER-INFO-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-TRANSCEIVER-INFO-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:49 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-TRANSCEIVER-INFO-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:33:05 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 h3cCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCommon")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, ifEntry = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifEntry")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 h3cTransceiver = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 70))
 h3cTransceiver.setRevisions(('2009-12-29 16:50',))
 if mibBuilder.loadTexts: h3cTransceiver.setLastUpdated('200912291650Z')
@@ -56,4 +56,4 @@ h3cTransceiverVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 70, 
 if mibBuilder.loadTexts: h3cTransceiverVoltage.setStatus('current')
 h3cTransceiverBiasCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 70, 1, 1, 1, 17), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: h3cTransceiverBiasCurrent.setStatus('current')
-mibBuilder.exportSymbols("A3COM-HUAWEI-TRANSCEIVER-INFO-MIB", h3cTransceiverSerialNumber=h3cTransceiverSerialNumber, h3cTransceiverInfoEntry=h3cTransceiverInfoEntry, h3cTransceiverVoltage=h3cTransceiverVoltage, h3cTransceiverHardwareType=h3cTransceiverHardwareType, h3cTransceiverMaxRXPower=h3cTransceiverMaxRXPower, h3cTransceiverType=h3cTransceiverType, h3cTransceiverFiberDiameterType=h3cTransceiverFiberDiameterType, h3cTransceiverInfoAdm=h3cTransceiverInfoAdm, h3cTransceiverVendorName=h3cTransceiverVendorName, h3cTransceiverMinTXPower=h3cTransceiverMinTXPower, h3cTransceiverCurTXPower=h3cTransceiverCurTXPower, h3cTransceiverBiasCurrent=h3cTransceiverBiasCurrent, PYSNMP_MODULE_ID=h3cTransceiver, h3cTransceiverMaxTXPower=h3cTransceiverMaxTXPower, h3cTransceiver=h3cTransceiver, h3cTransceiverCurRXPower=h3cTransceiverCurRXPower, h3cTransceiverMinRXPower=h3cTransceiverMinRXPower, h3cTransceiverWaveLength=h3cTransceiverWaveLength, h3cTransceiverTransferDistance=h3cTransceiverTransferDistance, h3cTransceiverInfoTable=h3cTransceiverInfoTable, h3cTransceiverDiagnostic=h3cTransceiverDiagnostic, h3cTransceiverTemperature=h3cTransceiverTemperature)
+mibBuilder.exportSymbols("A3COM-HUAWEI-TRANSCEIVER-INFO-MIB", h3cTransceiverInfoTable=h3cTransceiverInfoTable, h3cTransceiverFiberDiameterType=h3cTransceiverFiberDiameterType, h3cTransceiverBiasCurrent=h3cTransceiverBiasCurrent, h3cTransceiverWaveLength=h3cTransceiverWaveLength, h3cTransceiverInfoAdm=h3cTransceiverInfoAdm, h3cTransceiverCurTXPower=h3cTransceiverCurTXPower, h3cTransceiver=h3cTransceiver, h3cTransceiverVoltage=h3cTransceiverVoltage, h3cTransceiverDiagnostic=h3cTransceiverDiagnostic, h3cTransceiverHardwareType=h3cTransceiverHardwareType, h3cTransceiverMaxTXPower=h3cTransceiverMaxTXPower, h3cTransceiverMaxRXPower=h3cTransceiverMaxRXPower, h3cTransceiverCurRXPower=h3cTransceiverCurRXPower, h3cTransceiverMinTXPower=h3cTransceiverMinTXPower, h3cTransceiverTemperature=h3cTransceiverTemperature, PYSNMP_MODULE_ID=h3cTransceiver, h3cTransceiverType=h3cTransceiverType, h3cTransceiverMinRXPower=h3cTransceiverMinRXPower, h3cTransceiverTransferDistance=h3cTransceiverTransferDistance, h3cTransceiverInfoEntry=h3cTransceiverInfoEntry, h3cTransceiverSerialNumber=h3cTransceiverSerialNumber, h3cTransceiverVendorName=h3cTransceiverVendorName)

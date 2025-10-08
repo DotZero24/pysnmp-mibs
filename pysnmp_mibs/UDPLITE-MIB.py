@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module UDPLITE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/UDPLITE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:26:13 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/rfc/UDPLITE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:47:54 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressType", "InetAddress")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, TimeTicks, MibIdentifier, Counter64, Bits, mib_2, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "TimeTicks", "MibIdentifier", "Counter64", "Bits", "mib-2", "IpAddress")
-TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+Gauge32, MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, mib_2 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "mib-2")
+TextualConvention, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TimeStamp", "DisplayString")
 udpliteMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 170))
 udpliteMIB.setRevisions(('2007-12-18 00:00',))
 if mibBuilder.loadTexts: udpliteMIB.setLastUpdated('200712180000Z')
@@ -75,4 +75,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 udpliteAppGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 170, 2, 2, 4)).setObjects(("UDPLITE-MIB", "udpliteEndpointViolCoverage"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     udpliteAppGroup = udpliteAppGroup.setStatus('current')
-mibBuilder.exportSymbols("UDPLITE-MIB", udpliteMIB=udpliteMIB, udpliteInPartialCov=udpliteInPartialCov, udpliteEndpointEntry=udpliteEndpointEntry, udpliteAppGroup=udpliteAppGroup, udpliteEndpointInstance=udpliteEndpointInstance, udpliteEndpointProcess=udpliteEndpointProcess, udpliteEndpointMinCoverage=udpliteEndpointMinCoverage, udpliteEndpointRemoteAddressType=udpliteEndpointRemoteAddressType, udpliteEndpointLocalPort=udpliteEndpointLocalPort, udpliteOutDatagrams=udpliteOutDatagrams, udpliteEndpointLocalAddressType=udpliteEndpointLocalAddressType, udpliteEndpointRemotePort=udpliteEndpointRemotePort, udpliteEndpointViolCoverage=udpliteEndpointViolCoverage, PYSNMP_MODULE_ID=udpliteMIB, udpliteInDatagrams=udpliteInDatagrams, udpliteMIBCompliance=udpliteMIBCompliance, udpliteEndpointGroup=udpliteEndpointGroup, udpliteEndpointLocalAddress=udpliteEndpointLocalAddress, udpliteMIBGroups=udpliteMIBGroups, udpliteInBadChecksum=udpliteInBadChecksum, udpliteEndpointRemoteAddress=udpliteEndpointRemoteAddress, udpliteBaseGroup=udpliteBaseGroup, udpliteStatsDiscontinuityTime=udpliteStatsDiscontinuityTime, udpliteInErrors=udpliteInErrors, udpliteMIBConformance=udpliteMIBConformance, udplitePartialCsumGroup=udplitePartialCsumGroup, udpliteEndpointTable=udpliteEndpointTable, udpliteNoPorts=udpliteNoPorts, udpliteOutPartialCov=udpliteOutPartialCov, udplite=udplite)
+mibBuilder.exportSymbols("UDPLITE-MIB", PYSNMP_MODULE_ID=udpliteMIB, udpliteEndpointRemoteAddressType=udpliteEndpointRemoteAddressType, udplitePartialCsumGroup=udplitePartialCsumGroup, udpliteEndpointRemotePort=udpliteEndpointRemotePort, udpliteEndpointViolCoverage=udpliteEndpointViolCoverage, udpliteInDatagrams=udpliteInDatagrams, udpliteMIBGroups=udpliteMIBGroups, udpliteEndpointProcess=udpliteEndpointProcess, udpliteAppGroup=udpliteAppGroup, udpliteMIB=udpliteMIB, udpliteMIBCompliance=udpliteMIBCompliance, udpliteOutPartialCov=udpliteOutPartialCov, udpliteOutDatagrams=udpliteOutDatagrams, udpliteEndpointLocalPort=udpliteEndpointLocalPort, udpliteEndpointEntry=udpliteEndpointEntry, udpliteEndpointMinCoverage=udpliteEndpointMinCoverage, udpliteEndpointTable=udpliteEndpointTable, udpliteMIBConformance=udpliteMIBConformance, udpliteBaseGroup=udpliteBaseGroup, udpliteEndpointLocalAddressType=udpliteEndpointLocalAddressType, udpliteEndpointGroup=udpliteEndpointGroup, udpliteEndpointInstance=udpliteEndpointInstance, udplite=udplite, udpliteInBadChecksum=udpliteInBadChecksum, udpliteNoPorts=udpliteNoPorts, udpliteInPartialCov=udpliteInPartialCov, udpliteEndpointLocalAddress=udpliteEndpointLocalAddress, udpliteStatsDiscontinuityTime=udpliteStatsDiscontinuityTime, udpliteInErrors=udpliteInErrors, udpliteEndpointRemoteAddress=udpliteEndpointRemoteAddress)

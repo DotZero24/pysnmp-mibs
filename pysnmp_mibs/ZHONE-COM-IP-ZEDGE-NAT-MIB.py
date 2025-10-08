@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ZHONE-COM-IP-ZEDGE-NAT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zhone/ZHONE-COM-IP-ZEDGE-NAT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:08 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zhone/ZHONE-COM-IP-ZEDGE-NAT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:19:44 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
-zhoneIp, zhoneModules = mibBuilder.importSymbols("Zhone", "zhoneIp", "zhoneModules")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
+zhoneModules, zhoneIp = mibBuilder.importSymbols("Zhone", "zhoneModules", "zhoneIp")
 ZhoneRowStatus, = mibBuilder.importSymbols("Zhone-TC", "ZhoneRowStatus")
 comIpZEdgeNat = ModuleIdentity((1, 3, 6, 1, 4, 1, 5504, 6, 66))
 comIpZEdgeNat.setRevisions(('2010-10-20 05:52', '2008-07-22 07:28', '2003-12-11 02:58', '2003-03-19 09:02', '2000-10-04 15:30',))
@@ -88,4 +88,4 @@ ipStartAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 4, 1, 16, 5, 2, 1, 3), IpA
 if mibBuilder.loadTexts: ipStartAddr.setStatus('current')
 ipEndAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 4, 1, 16, 5, 2, 1, 4), IpAddress()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: ipEndAddr.setStatus('current')
-mibBuilder.exportSymbols("ZHONE-COM-IP-ZEDGE-NAT-MIB", natStatsGroup=natStatsGroup, natUdpTimeout=natUdpTimeout, natBindingLocalAddr=natBindingLocalAddr, natBindingPublicPort=natBindingPublicPort, zedgeNat=zedgeNat, patEntry=patEntry, natExcludeTable=natExcludeTable, zhoneNATExcludeIndex=zhoneNATExcludeIndex, natTotalPkts=natTotalPkts, comIpZEdgeNat=comIpZEdgeNat, portType=portType, natClearBindings=natClearBindings, ipStartAddr=ipStartAddr, natTcpTimeout=natTcpTimeout, natDroppedPkts=natDroppedPkts, natExcludeEntry=natExcludeEntry, publicPort=publicPort, zhonePATBindRowStatus=zhonePATBindRowStatus, localAddr=localAddr, localPort=localPort, patTable=patTable, natBindingPublicAddr=natBindingPublicAddr, natNumCurrentBindings=natNumCurrentBindings, natExcludeNextIndex=natExcludeNextIndex, natNumExpiredBindings=natNumExpiredBindings, zhoneNATExcludeRowStatus=zhoneNATExcludeRowStatus, ipEndAddr=ipEndAddr, natBindingsEntry=natBindingsEntry, natBindingsTable=natBindingsTable, natBindingsIfIndex=natBindingsIfIndex, natBindingLocalPort=natBindingLocalPort, zhonePATBindIndex=zhonePATBindIndex, patBindNextIndex=patBindNextIndex, zhoneNATExclusion=zhoneNATExclusion, publicAddr=publicAddr, zhonePATBindings=zhonePATBindings, natConfigGroup=natConfigGroup, PYSNMP_MODULE_ID=comIpZEdgeNat)
+mibBuilder.exportSymbols("ZHONE-COM-IP-ZEDGE-NAT-MIB", ipStartAddr=ipStartAddr, natBindingsIfIndex=natBindingsIfIndex, natBindingPublicAddr=natBindingPublicAddr, natBindingLocalPort=natBindingLocalPort, zhonePATBindRowStatus=zhonePATBindRowStatus, zhonePATBindIndex=zhonePATBindIndex, localPort=localPort, natNumCurrentBindings=natNumCurrentBindings, natTotalPkts=natTotalPkts, patEntry=patEntry, natClearBindings=natClearBindings, comIpZEdgeNat=comIpZEdgeNat, natBindingsTable=natBindingsTable, natExcludeEntry=natExcludeEntry, portType=portType, natConfigGroup=natConfigGroup, natTcpTimeout=natTcpTimeout, natExcludeTable=natExcludeTable, zhoneNATExcludeIndex=zhoneNATExcludeIndex, natBindingLocalAddr=natBindingLocalAddr, zedgeNat=zedgeNat, PYSNMP_MODULE_ID=comIpZEdgeNat, zhoneNATExcludeRowStatus=zhoneNATExcludeRowStatus, localAddr=localAddr, natNumExpiredBindings=natNumExpiredBindings, natStatsGroup=natStatsGroup, zhonePATBindings=zhonePATBindings, publicAddr=publicAddr, natUdpTimeout=natUdpTimeout, natDroppedPkts=natDroppedPkts, publicPort=publicPort, natBindingsEntry=natBindingsEntry, natBindingPublicPort=natBindingPublicPort, patTable=patTable, zhoneNATExclusion=zhoneNATExclusion, patBindNextIndex=patBindNextIndex, ipEndAddr=ipEndAddr, natExcludeNextIndex=natExcludeNextIndex)

@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module INFINERA-TP-PXMMA-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-PXMMA-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:10 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/INFINERA-TP-PXMMA-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:21:48 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
-InfnSenderIDTLV, InfnMANameFormat, InfnCcmInterval = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnSenderIDTLV", "InfnMANameFormat", "InfnCcmInterval")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+InfnCcmInterval, InfnSenderIDTLV, InfnMANameFormat = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnCcmInterval", "InfnSenderIDTLV", "InfnMANameFormat")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 pxmMaMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 79))
 pxmMaMIB.setRevisions(('2016-05-30 00:00',))
 if mibBuilder.loadTexts: pxmMaMIB.setLastUpdated('201605300000Z')
@@ -48,4 +48,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 pxmMaGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 79, 3, 2, 1)).setObjects(("INFINERA-TP-PXMMA-MIB", "pxmMaMAName"), ("INFINERA-TP-PXMMA-MIB", "pxmMaRMepAgeOutInterval"), ("INFINERA-TP-PXMMA-MIB", "pxmMaMDAid"), ("INFINERA-TP-PXMMA-MIB", "pxmMaCcmInterval"), ("INFINERA-TP-PXMMA-MIB", "pxmMaMANameFormat"), ("INFINERA-TP-PXMMA-MIB", "pxmMaSenderIDTLV"), ("INFINERA-TP-PXMMA-MIB", "pxmMaMDName"), ("INFINERA-TP-PXMMA-MIB", "pxmMaMDLevel"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     pxmMaGroup = pxmMaGroup.setStatus('current')
-mibBuilder.exportSymbols("INFINERA-TP-PXMMA-MIB", pxmMaCompliance=pxmMaCompliance, pxmMaSenderIDTLV=pxmMaSenderIDTLV, pxmMaMIB=pxmMaMIB, pxmMaCcmInterval=pxmMaCcmInterval, pxmMaConformance=pxmMaConformance, pxmMaTable=pxmMaTable, pxmMaGroups=pxmMaGroups, PYSNMP_MODULE_ID=pxmMaMIB, pxmMaMAName=pxmMaMAName, pxmMaMDAid=pxmMaMDAid, pxmMaMANameFormat=pxmMaMANameFormat, pxmMaGroup=pxmMaGroup, pxmMaEntry=pxmMaEntry, pxmMaRMepAgeOutInterval=pxmMaRMepAgeOutInterval, pxmMaMDLevel=pxmMaMDLevel, pxmMaCompliances=pxmMaCompliances, pxmMaMDName=pxmMaMDName)
+mibBuilder.exportSymbols("INFINERA-TP-PXMMA-MIB", pxmMaMANameFormat=pxmMaMANameFormat, pxmMaConformance=pxmMaConformance, pxmMaEntry=pxmMaEntry, pxmMaMIB=pxmMaMIB, PYSNMP_MODULE_ID=pxmMaMIB, pxmMaMDName=pxmMaMDName, pxmMaSenderIDTLV=pxmMaSenderIDTLV, pxmMaTable=pxmMaTable, pxmMaGroups=pxmMaGroups, pxmMaCompliance=pxmMaCompliance, pxmMaGroup=pxmMaGroup, pxmMaCompliances=pxmMaCompliances, pxmMaCcmInterval=pxmMaCcmInterval, pxmMaRMepAgeOutInterval=pxmMaRMepAgeOutInterval, pxmMaMDAid=pxmMaMDAid, pxmMaMDLevel=pxmMaMDLevel, pxmMaMAName=pxmMaMAName)

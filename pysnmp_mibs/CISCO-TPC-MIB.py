@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module CISCO-TPC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-TPC-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:18 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-TPC-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:28:08 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
 FcNameIdOrZero, = mibBuilder.importSymbols("CISCO-ST-TC", "FcNameIdOrZero")
 vsanIndex, = mibBuilder.importSymbols("CISCO-VSAN-MIB", "vsanIndex")
 PhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "PhysicalIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
 ciscoTpcMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 460))
 ciscoTpcMIB.setRevisions(('2005-01-24 00:00',))
 if mibBuilder.loadTexts: ciscoTpcMIB.setLastUpdated('200501240000Z')
@@ -69,4 +69,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 ctpcVsanTargetGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 460, 2, 2, 1)).setObjects(("CISCO-TPC-MIB", "ctpcModuleId"), ("CISCO-TPC-MIB", "ctpcVsanRowStatus"), ("CISCO-TPC-MIB", "ctpcTargetNodeName"), ("CISCO-TPC-MIB", "ctpcTargetPortName"), ("CISCO-TPC-MIB", "ctpcTargetState"), ("CISCO-TPC-MIB", "ctpcTargetNumXcopies"), ("CISCO-TPC-MIB", "ctpcTargetMinXcopy"), ("CISCO-TPC-MIB", "ctpcTargetMaxXcopy"), ("CISCO-TPC-MIB", "ctpcTargetAvgKbPerSec"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ctpcVsanTargetGroup = ctpcVsanTargetGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-TPC-MIB", ctpcVsanTable=ctpcVsanTable, ctpcTargetEntry=ctpcTargetEntry, ctpcTargetNodeName=ctpcTargetNodeName, ctpcModuleEntry=ctpcModuleEntry, ctpcTargetNumXcopies=ctpcTargetNumXcopies, TpcTargetState=TpcTargetState, ctpcTargetMinXcopy=ctpcTargetMinXcopy, ctpcModuleTable=ctpcModuleTable, ctpcTargetMaxXcopy=ctpcTargetMaxXcopy, ctpcTargetState=ctpcTargetState, ciscoTpcObjects=ciscoTpcObjects, ctpcVsanTargetGroup=ctpcVsanTargetGroup, ctpcTargetPortName=ctpcTargetPortName, ciscoTpcNotification=ciscoTpcNotification, ctpcVsanRowStatus=ctpcVsanRowStatus, PYSNMP_MODULE_ID=ciscoTpcMIB, ctpcMIBCompliances=ctpcMIBCompliances, ctpcVsanEntry=ctpcVsanEntry, ctpcMIBCompliance=ctpcMIBCompliance, ctpcMIBGroups=ctpcMIBGroups, ciscoTpcConfig=ciscoTpcConfig, ctpcTargetAvgKbPerSec=ctpcTargetAvgKbPerSec, ciscoTpcMIBConformance=ciscoTpcMIBConformance, ciscoTpcMIB=ciscoTpcMIB, ctpcModuleId=ctpcModuleId, ctpcTargetTable=ctpcTargetTable, ctpcTargetIndex=ctpcTargetIndex)
+mibBuilder.exportSymbols("CISCO-TPC-MIB", ciscoTpcNotification=ciscoTpcNotification, ctpcVsanEntry=ctpcVsanEntry, PYSNMP_MODULE_ID=ciscoTpcMIB, ctpcTargetEntry=ctpcTargetEntry, ctpcModuleId=ctpcModuleId, TpcTargetState=TpcTargetState, ctpcMIBCompliances=ctpcMIBCompliances, ctpcModuleTable=ctpcModuleTable, ctpcVsanTable=ctpcVsanTable, ctpcTargetIndex=ctpcTargetIndex, ctpcMIBCompliance=ctpcMIBCompliance, ciscoTpcMIB=ciscoTpcMIB, ciscoTpcConfig=ciscoTpcConfig, ctpcTargetPortName=ctpcTargetPortName, ctpcTargetState=ctpcTargetState, ciscoTpcObjects=ciscoTpcObjects, ctpcMIBGroups=ctpcMIBGroups, ctpcVsanTargetGroup=ctpcVsanTargetGroup, ctpcTargetNodeName=ctpcTargetNodeName, ctpcTargetMinXcopy=ctpcTargetMinXcopy, ciscoTpcMIBConformance=ciscoTpcMIBConformance, ctpcTargetNumXcopies=ctpcTargetNumXcopies, ctpcTargetAvgKbPerSec=ctpcTargetAvgKbPerSec, ctpcTargetTable=ctpcTargetTable, ctpcTargetMaxXcopy=ctpcTargetMaxXcopy, ctpcModuleEntry=ctpcModuleEntry, ctpcVsanRowStatus=ctpcVsanRowStatus)

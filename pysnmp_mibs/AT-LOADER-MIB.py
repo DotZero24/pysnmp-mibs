@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module AT-LOADER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/allied-old/AT-LOADER-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:07 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/allied-old/AT-LOADER-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:08:09 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 DisplayStringUnsized, modules = mibBuilder.importSymbols("AT-SMI-MIB", "DisplayStringUnsized", "modules")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 loader = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 48))
 loader.setRevisions(('2007-02-07 10:10', '2006-06-28 12:22',))
 if mibBuilder.loadTexts: loader.setLastUpdated('200702071010Z')
@@ -33,4 +33,4 @@ loadDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 48, 1, 1, 5), Int
 if mibBuilder.loadTexts: loadDelay.setStatus('current')
 loadStatus = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 48, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("idle", 1), ("wait", 2), ("loading", 3), ("complete", 4), ("reset", 5), ("actionload", 6), ("actionstop", 7), ("actionupload", 8)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: loadStatus.setStatus('current')
-mibBuilder.exportSymbols("AT-LOADER-MIB", loadTable=loadTable, loadIndex=loadIndex, loadServer=loadServer, loadFilename=loadFilename, PYSNMP_MODULE_ID=loader, loadDelay=loadDelay, loadEntry=loadEntry, loadDestination=loadDestination, loadStatus=loadStatus, loader=loader)
+mibBuilder.exportSymbols("AT-LOADER-MIB", loadServer=loadServer, loadDelay=loadDelay, loadStatus=loadStatus, loadTable=loadTable, loader=loader, loadEntry=loadEntry, loadFilename=loadFilename, loadIndex=loadIndex, PYSNMP_MODULE_ID=loader, loadDestination=loadDestination)

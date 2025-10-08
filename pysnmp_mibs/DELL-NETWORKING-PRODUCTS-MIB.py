@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module DELL-NETWORKING-PRODUCTS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/dell/DELL-NETWORKING-PRODUCTS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:23:57 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/dell/DELL-NETWORKING-PRODUCTS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:44:33 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-dellNetProducts, dellNetModules = mibBuilder.importSymbols("DELL-NETWORKING-SMI", "dellNetProducts", "dellNetModules")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+dellNetModules, dellNetProducts = mibBuilder.importSymbols("DELL-NETWORKING-SMI", "dellNetModules", "dellNetProducts")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 dellNetFamilyMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6027, 4, 1))
 dellNetFamilyMIB.setRevisions(('2013-10-22 12:00', '2011-12-15 12:00', '2007-06-15 12:00', '2002-01-31 00:00',))
 if mibBuilder.loadTexts: dellNetFamilyMIB.setLastUpdated('201310221200Z')
@@ -114,4 +114,4 @@ z9500 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6027, 1, 5, 1))
 if mibBuilder.loadTexts: z9500.setStatus('current')
 z9100 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6027, 1, 5, 2))
 if mibBuilder.loadTexts: z9100.setStatus('current')
-mibBuilder.exportSymbols("DELL-NETWORKING-PRODUCTS-MIB", s2410cp=s2410cp, dellNetCSeriesProducts=dellNetCSeriesProducts, z9000=z9000, e1200i=e1200i, s6010=s6010, e610=e610, m_MXL=m_MXL, s3148p=s3148p, s50e=s50e, e300=e300, s25v=s25v, s25n=s25n, e1200=e1200, dellNetMSeriesProducts=dellNetMSeriesProducts, s3148=s3148, s25pdc=s25pdc, s6000on=s6000on, dellNetZSeriesProducts=dellNetZSeriesProducts, z9100=z9100, s5048f=s5048f, z9500=z9500, dellNetESeriesProducts=dellNetESeriesProducts, s3124p=s3124p, s4820=s4820, m_IOA=m_IOA, s4048on=s4048on, e600=e600, s50nac=s50nac, s25pac=s25pac, s3124f=s3124f, s6100=s6100, s4048t=s4048t, s50v=s50v, c9010=c9010, s50ndc=s50ndc, s50=s50, s4810on=s4810on, c150=c150, s5000=s5000, dellNetSSeriesProducts=dellNetSSeriesProducts, s60=s60, s55=s55, s_IOA=s_IOA, PYSNMP_MODULE_ID=dellNetFamilyMIB, s2410p=s2410p, s3124=s3124, dellNetFamilyMIB=dellNetFamilyMIB, s6000=s6000, s4810=s4810, s3048on=s3048on, c300=c300)
+mibBuilder.exportSymbols("DELL-NETWORKING-PRODUCTS-MIB", m_IOA=m_IOA, z9000=z9000, s5048f=s5048f, c150=c150, s4810on=s4810on, s3048on=s3048on, s3148p=s3148p, s3124f=s3124f, s4048on=s4048on, s60=s60, z9500=z9500, PYSNMP_MODULE_ID=dellNetFamilyMIB, s6000on=s6000on, s3124p=s3124p, c9010=c9010, s3124=s3124, s50v=s50v, dellNetMSeriesProducts=dellNetMSeriesProducts, s50nac=s50nac, s25v=s25v, z9100=z9100, s6010=s6010, e1200i=e1200i, s3148=s3148, dellNetZSeriesProducts=dellNetZSeriesProducts, s2410p=s2410p, s6100=s6100, s_IOA=s_IOA, s4820=s4820, s25n=s25n, s2410cp=s2410cp, dellNetSSeriesProducts=dellNetSSeriesProducts, e1200=e1200, s55=s55, s50e=s50e, e610=e610, e600=e600, dellNetFamilyMIB=dellNetFamilyMIB, s4048t=s4048t, s50ndc=s50ndc, s6000=s6000, s4810=s4810, c300=c300, s25pdc=s25pdc, s5000=s5000, s25pac=s25pac, e300=e300, dellNetESeriesProducts=dellNetESeriesProducts, dellNetCSeriesProducts=dellNetCSeriesProducts, s50=s50, m_MXL=m_MXL)

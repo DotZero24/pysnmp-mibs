@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module HUAWEI-LswMAM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/HUAWEI-LswMAM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:32 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/HUAWEI-LswMAM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:19 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 lswCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "lswCommon")
 hwdot1qVlanIndex, = mibBuilder.importSymbols("HUAWEI-LswVLAN-MIB", "hwdot1qVlanIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TextualConvention")
 hwLswMacPort = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 3))
 hwLswMacPort.setRevisions(('2001-06-29 00:00',))
 if mibBuilder.loadTexts: hwLswMacPort.setLastUpdated('200106290000Z')
@@ -58,4 +58,4 @@ hwdot1qTpFdbGroupSetPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 3, 
 if mibBuilder.loadTexts: hwdot1qTpFdbGroupSetPort.setStatus('current')
 hwdot1qTpFdbGroupSetOperate = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 3, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("add", 1), ("delete", 2)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: hwdot1qTpFdbGroupSetOperate.setStatus('current')
-mibBuilder.exportSymbols("HUAWEI-LswMAM-MIB", PYSNMP_MODULE_ID=hwLswMacPort, hwdot1qMacSearchAddress=hwdot1qMacSearchAddress, hwLswMacPort=hwLswMacPort, hwdot1qTpFdbGroupSetPort=hwdot1qTpFdbGroupSetPort, hwdot1qTpFdbGroupSetAddress=hwdot1qTpFdbGroupSetAddress, InterfaceIndex=InterfaceIndex, hwdot1qTpFdbSetAddress=hwdot1qTpFdbSetAddress, hwdot1qMacSearchAgeTime=hwdot1qMacSearchAgeTime, hwdot1qTpFdbGroupSetEntry=hwdot1qTpFdbGroupSetEntry, hwdot1qMacSearchTable=hwdot1qMacSearchTable, hwdot1qTpFdbGroupSetOperate=hwdot1qTpFdbGroupSetOperate, hwdot1qMacSearchPort=hwdot1qMacSearchPort, hwdot1qTpFdbSetTable=hwdot1qTpFdbSetTable, hwdot1qTpFdbSetEntry=hwdot1qTpFdbSetEntry, hwdot1qTpFdbSetStatus=hwdot1qTpFdbSetStatus, hwdot1qTpFdbSetOperate=hwdot1qTpFdbSetOperate, hwdot1qTpFdbGroupSetTable=hwdot1qTpFdbGroupSetTable, hwdot1qTpFdbSetPort=hwdot1qTpFdbSetPort, PortList=PortList, hwdot1qMacSearchEntry=hwdot1qMacSearchEntry, hwdot1qMacSearchVlanID=hwdot1qMacSearchVlanID)
+mibBuilder.exportSymbols("HUAWEI-LswMAM-MIB", hwdot1qTpFdbSetOperate=hwdot1qTpFdbSetOperate, InterfaceIndex=InterfaceIndex, hwdot1qMacSearchAddress=hwdot1qMacSearchAddress, hwdot1qTpFdbSetTable=hwdot1qTpFdbSetTable, hwdot1qTpFdbGroupSetTable=hwdot1qTpFdbGroupSetTable, hwLswMacPort=hwLswMacPort, hwdot1qTpFdbGroupSetOperate=hwdot1qTpFdbGroupSetOperate, hwdot1qTpFdbSetAddress=hwdot1qTpFdbSetAddress, hwdot1qMacSearchTable=hwdot1qMacSearchTable, hwdot1qTpFdbGroupSetEntry=hwdot1qTpFdbGroupSetEntry, PYSNMP_MODULE_ID=hwLswMacPort, hwdot1qMacSearchAgeTime=hwdot1qMacSearchAgeTime, hwdot1qTpFdbSetPort=hwdot1qTpFdbSetPort, hwdot1qTpFdbSetEntry=hwdot1qTpFdbSetEntry, hwdot1qTpFdbGroupSetPort=hwdot1qTpFdbGroupSetPort, hwdot1qMacSearchPort=hwdot1qMacSearchPort, hwdot1qMacSearchEntry=hwdot1qMacSearchEntry, hwdot1qTpFdbGroupSetAddress=hwdot1qTpFdbGroupSetAddress, hwdot1qMacSearchVlanID=hwdot1qMacSearchVlanID, PortList=PortList, hwdot1qTpFdbSetStatus=hwdot1qTpFdbSetStatus)

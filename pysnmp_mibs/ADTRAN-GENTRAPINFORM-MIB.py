@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module ADTRAN-GENTRAPINFORM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-GENTRAPINFORM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:09 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/adtran/ADTRAN-GENTRAPINFORM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:53:42 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 adShared, adIdentityShared = mibBuilder.importSymbols("ADTRAN-MIB", "adShared", "adIdentityShared")
 EntryStatus, = mibBuilder.importSymbols("ADTRAN-TC", "EntryStatus")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 adTrapInformID = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 101601))
 adTrapInformID.setRevisions(('2015-11-04 00:00',))
 if mibBuilder.loadTexts: adTrapInformID.setLastUpdated('201511040000Z')
@@ -77,4 +77,4 @@ adTrapHostVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 16, 2, 2, 1, 10), 
 if mibBuilder.loadTexts: adTrapHostVersion.setStatus('current')
 adTrapHostRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 16, 2, 2, 1, 11), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: adTrapHostRowStatus.setStatus('current')
-mibBuilder.exportSymbols("ADTRAN-GENTRAPINFORM-MIB", adTrapInformRetryLimit=adTrapInformRetryLimit, adTrapHostTable=adTrapHostTable, adTrapHostCache=adTrapHostCache, adTrapInformConfirmation=adTrapInformConfirmation, adTrapInformID=adTrapInformID, adTrapHostAddressSize=adTrapHostAddressSize, adTrapInformHostTable=adTrapInformHostTable, adTrapHostVersion=adTrapHostVersion, adTrapInformScalars=adTrapInformScalars, adTrapHostConfirmation=adTrapHostConfirmation, adTrapInformTables=adTrapInformTables, adTrapHostEntry=adTrapHostEntry, adTrapInformSeqNumRequested=adTrapInformSeqNumRequested, adTrapHostAddress=adTrapHostAddress, adTrapHostAddressType=adTrapHostAddressType, adTrapInformHostStatus=adTrapInformHostStatus, adTrapInformSeqNumConfirmed=adTrapInformSeqNumConfirmed, adTrapHostSeqNumConfirmed=adTrapHostSeqNumConfirmed, adTrapHostRowStatus=adTrapHostRowStatus, adTrapInformSeqNum=adTrapInformSeqNum, adTrapInformHostEntry=adTrapInformHostEntry, adTrapInform=adTrapInform, adTrapHostEntryCapacity=adTrapHostEntryCapacity, adTrapHostSeqNumRequested=adTrapHostSeqNumRequested, adTrapHostEntriesUsed=adTrapHostEntriesUsed, adTrapInformCache=adTrapInformCache, adTrapInformInitialTimeout=adTrapInformInitialTimeout, adTrapHostRetryLimit=adTrapHostRetryLimit, adTrapInformHostIP=adTrapInformHostIP, PYSNMP_MODULE_ID=adTrapInformID, adTrapInformVersion=adTrapInformVersion, adTrapHostInitialTimeout=adTrapHostInitialTimeout, adTrapEnable=adTrapEnable)
+mibBuilder.exportSymbols("ADTRAN-GENTRAPINFORM-MIB", adTrapHostConfirmation=adTrapHostConfirmation, adTrapInformHostIP=adTrapInformHostIP, adTrapInformConfirmation=adTrapInformConfirmation, adTrapInformCache=adTrapInformCache, adTrapInformHostTable=adTrapInformHostTable, adTrapHostEntry=adTrapHostEntry, adTrapHostEntriesUsed=adTrapHostEntriesUsed, adTrapInformRetryLimit=adTrapInformRetryLimit, adTrapHostAddress=adTrapHostAddress, adTrapInformHostStatus=adTrapInformHostStatus, adTrapHostVersion=adTrapHostVersion, adTrapInformVersion=adTrapInformVersion, adTrapInformTables=adTrapInformTables, adTrapHostAddressType=adTrapHostAddressType, adTrapInformSeqNum=adTrapInformSeqNum, adTrapInform=adTrapInform, adTrapHostSeqNumConfirmed=adTrapHostSeqNumConfirmed, adTrapHostTable=adTrapHostTable, adTrapHostRetryLimit=adTrapHostRetryLimit, adTrapHostSeqNumRequested=adTrapHostSeqNumRequested, adTrapInformID=adTrapInformID, adTrapHostInitialTimeout=adTrapHostInitialTimeout, adTrapHostAddressSize=adTrapHostAddressSize, adTrapInformSeqNumRequested=adTrapInformSeqNumRequested, adTrapInformInitialTimeout=adTrapInformInitialTimeout, adTrapInformScalars=adTrapInformScalars, adTrapHostEntryCapacity=adTrapHostEntryCapacity, adTrapHostCache=adTrapHostCache, adTrapEnable=adTrapEnable, PYSNMP_MODULE_ID=adTrapInformID, adTrapHostRowStatus=adTrapHostRowStatus, adTrapInformHostEntry=adTrapInformHostEntry, adTrapInformSeqNumConfirmed=adTrapInformSeqNumConfirmed)

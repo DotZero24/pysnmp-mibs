@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module TELESYN-ATI-TC (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/allied-old/TELESYN-ATI-TC
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:11 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/allied-old/TELESYN-ATI-TC
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:08:13 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 alliedtelesyn = MibIdentifier((1, 3, 6, 1, 4, 1, 207))
 mibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8))
 products = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 1))
@@ -32,4 +32,4 @@ switchAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 9, 100, 2))
 atiAgentCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 9, 1000))
 atiConventions = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 9, 200))
 switchVendor = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 9, 300))
-mibBuilder.exportSymbols("TELESYN-ATI-TC", switchAgent=switchAgent, uplinkSwitchAgent=uplinkSwitchAgent, mibObjects=mibObjects, alliedtelesyn=alliedtelesyn, switchProduct=switchProduct, bridgeModule=bridgeModule, atmModule=atmModule, vLanModule=vLanModule, atiConventions=atiConventions, switchingHubs=switchingHubs, at_8200Switch=at_8200Switch, switchMibModules=switchMibModules, atiProducts=atiProducts, atiAgentCapabilities=atiAgentCapabilities, at8200SwitchMib=at8200SwitchMib, switchChassis=switchChassis, fddiModule=fddiModule, switchVendor=switchVendor, products=products, isdnModule=isdnModule, atiAgents=atiAgents)
+mibBuilder.exportSymbols("TELESYN-ATI-TC", atiAgents=atiAgents, atiConventions=atiConventions, atmModule=atmModule, switchProduct=switchProduct, mibObjects=mibObjects, isdnModule=isdnModule, atiProducts=atiProducts, at8200SwitchMib=at8200SwitchMib, switchingHubs=switchingHubs, at_8200Switch=at_8200Switch, atiAgentCapabilities=atiAgentCapabilities, switchMibModules=switchMibModules, switchAgent=switchAgent, uplinkSwitchAgent=uplinkSwitchAgent, switchChassis=switchChassis, switchVendor=switchVendor, products=products, fddiModule=fddiModule, vLanModule=vLanModule, bridgeModule=bridgeModule, alliedtelesyn=alliedtelesyn)

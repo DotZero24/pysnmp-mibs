@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module HP-ICF-LAYER3VLAN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HP-ICF-LAYER3VLAN-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:12 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HP-ICF-LAYER3VLAN-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:09:27 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 hpSwitch, = mibBuilder.importSymbols("HP-ICF-OID", "hpSwitch")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 hpicfLayer3VlanConfigMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 70))
 hpicfLayer3VlanConfigMIB.setRevisions(('2010-03-23 00:00',))
 if mibBuilder.loadTexts: hpicfLayer3VlanConfigMIB.setLastUpdated('201003230000Z')
@@ -34,4 +34,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 hpicfLayer3VlanConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 70, 2, 2, 1)).setObjects(("HP-ICF-LAYER3VLAN-MIB", "hpicfLayer3VlanStatus"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     hpicfLayer3VlanConfigGroup = hpicfLayer3VlanConfigGroup.setStatus('current')
-mibBuilder.exportSymbols("HP-ICF-LAYER3VLAN-MIB", hpicfLayer3VlanConfigTable=hpicfLayer3VlanConfigTable, hpicfL3VlanConfigMIBCompliance=hpicfL3VlanConfigMIBCompliance, hpicfLayer3VlanConfigConformance=hpicfLayer3VlanConfigConformance, hpicfLayer3VlanConfig=hpicfLayer3VlanConfig, PYSNMP_MODULE_ID=hpicfLayer3VlanConfigMIB, hpicfLayer3VlanConfigMIB=hpicfLayer3VlanConfigMIB, hpicfL3VlanConfigMIBCompliances=hpicfL3VlanConfigMIBCompliances, hpicfLayer3VlanConfigGroup=hpicfLayer3VlanConfigGroup, hpicfLayer3VlanConfigEntry=hpicfLayer3VlanConfigEntry, hpicfLayer3VlanStatus=hpicfLayer3VlanStatus, hpicfLayer3VlanConfigMIBGroups=hpicfLayer3VlanConfigMIBGroups)
+mibBuilder.exportSymbols("HP-ICF-LAYER3VLAN-MIB", hpicfL3VlanConfigMIBCompliances=hpicfL3VlanConfigMIBCompliances, PYSNMP_MODULE_ID=hpicfLayer3VlanConfigMIB, hpicfLayer3VlanConfigConformance=hpicfLayer3VlanConfigConformance, hpicfLayer3VlanConfig=hpicfLayer3VlanConfig, hpicfLayer3VlanConfigMIBGroups=hpicfLayer3VlanConfigMIBGroups, hpicfLayer3VlanStatus=hpicfLayer3VlanStatus, hpicfLayer3VlanConfigEntry=hpicfLayer3VlanConfigEntry, hpicfLayer3VlanConfigTable=hpicfLayer3VlanConfigTable, hpicfL3VlanConfigMIBCompliance=hpicfL3VlanConfigMIBCompliance, hpicfLayer3VlanConfigGroup=hpicfLayer3VlanConfigGroup, hpicfLayer3VlanConfigMIB=hpicfLayer3VlanConfigMIB)

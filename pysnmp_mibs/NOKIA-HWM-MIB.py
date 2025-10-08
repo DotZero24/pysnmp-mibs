@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module NOKIA-HWM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/checkpoint/NOKIA-HWM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:33 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/checkpoint/NOKIA-HWM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:03:18 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
-ntcCommonModules, ntcHWReqs, ntcHWMibs = mibBuilder.importSymbols("NOKIA-COMMON-MIB-OID-REGISTRATION-MIB", "ntcCommonModules", "ntcHWReqs", "ntcHWMibs")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-TimeStamp, DisplayString, TextualConvention, AutonomousType = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention", "AutonomousType")
+ntcCommonModules, ntcHWMibs, ntcHWReqs = mibBuilder.importSymbols("NOKIA-COMMON-MIB-OID-REGISTRATION-MIB", "ntcCommonModules", "ntcHWMibs", "ntcHWReqs")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+AutonomousType, TextualConvention, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "AutonomousType", "TextualConvention", "TimeStamp", "DisplayString")
 ntcHWModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 94, 1, 16, 5, 1))
 ntcHWModule.setRevisions(('1998-08-24 00:00', '1998-09-03 00:00', '1998-09-24 00:00', '1998-10-04 00:00', '1999-01-08 00:00', '1999-08-05 00:00', '1999-10-25 00:00',))
 if mibBuilder.loadTexts: ntcHWModule.setLastUpdated('9901080000Z')
@@ -58,4 +58,4 @@ ntcHWCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 94, 1, 16, 8, 1, 2, 1)).se
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ntcHWCompliance = ntcHWCompliance.setStatus('current')
-mibBuilder.exportSymbols("NOKIA-HWM-MIB", ntcHWProductionDate=ntcHWProductionDate, ntcHWGroups=ntcHWGroups, ntcHWOperState=ntcHWOperState, ntcHWAdminState=ntcHWAdminState, PYSNMP_MODULE_ID=ntcHWModule, ntcHWSerialNumber=ntcHWSerialNumber, ntcHWUnits=ntcHWUnits, ntcHWLedState=ntcHWLedState, ntcHWEvents=ntcHWEvents, ntcHWDesiredUnitType=ntcHWDesiredUnitType, ntcHWModule=ntcHWModule, ntcHWSlotEntry=ntcHWSlotEntry, ntcHWCompliances=ntcHWCompliances, ntcHWLastChangedTime=ntcHWLastChangedTime, ntcHWUnitTable=ntcHWUnitTable, ntcHWLoadInventoryContainer=ntcHWLoadInventoryContainer, ntcHWUnitEntryChanged=ntcHWUnitEntryChanged, ntcHWCompliance=ntcHWCompliance, ntcHWAvailabilityStatus=ntcHWAvailabilityStatus, ntcHWUnitEntry=ntcHWUnitEntry, ntcHWRestart=ntcHWRestart, ntcHWObjs=ntcHWObjs, ntcHWSlotTable=ntcHWSlotTable)
+mibBuilder.exportSymbols("NOKIA-HWM-MIB", ntcHWSerialNumber=ntcHWSerialNumber, ntcHWUnits=ntcHWUnits, ntcHWEvents=ntcHWEvents, ntcHWRestart=ntcHWRestart, ntcHWSlotTable=ntcHWSlotTable, ntcHWLastChangedTime=ntcHWLastChangedTime, ntcHWOperState=ntcHWOperState, ntcHWDesiredUnitType=ntcHWDesiredUnitType, ntcHWUnitEntry=ntcHWUnitEntry, ntcHWProductionDate=ntcHWProductionDate, ntcHWAdminState=ntcHWAdminState, ntcHWObjs=ntcHWObjs, ntcHWUnitEntryChanged=ntcHWUnitEntryChanged, ntcHWCompliances=ntcHWCompliances, ntcHWLoadInventoryContainer=ntcHWLoadInventoryContainer, ntcHWGroups=ntcHWGroups, ntcHWUnitTable=ntcHWUnitTable, ntcHWLedState=ntcHWLedState, ntcHWSlotEntry=ntcHWSlotEntry, ntcHWCompliance=ntcHWCompliance, PYSNMP_MODULE_ID=ntcHWModule, ntcHWModule=ntcHWModule, ntcHWAvailabilityStatus=ntcHWAvailabilityStatus)

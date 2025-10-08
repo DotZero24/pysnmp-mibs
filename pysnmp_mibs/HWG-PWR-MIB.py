@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module HWG-PWR-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hwgroup/HWG-PWR-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:00 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hwgroup/HWG-PWR-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:58 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
 sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
-ModuleIdentity, NotificationType, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 class PositiveInteger(Integer32):
     subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 2147483647)
 
@@ -103,4 +103,4 @@ pwrStateToAlarm = NotificationType((1, 3, 6, 1, 4, 1, 21796, 4, 6) + (0,1)).setO
 pwrStateToNormal = NotificationType((1, 3, 6, 1, 4, 1, 21796, 4, 6) + (0,2)).setObjects(("HWG-PWR-MIB", "mtvalIndex"), ("HWG-PWR-MIB", "mtvalName"), ("HWG-PWR-MIB", "mtvalUnit"), ("HWG-PWR-MIB", "mtvalTarif"), ("HWG-PWR-MIB", "mtvalExp"), ("HWG-PWR-MIB", "mtvalMbusValue"), ("HWG-PWR-MIB", "mtvalTxtValue"), ("HWG-PWR-MIB", "mtvalAlarmState"))
 inContactStateToAlarm = NotificationType((1, 3, 6, 1, 4, 1, 21796, 4, 6) + (0,3)).setObjects(("SNMPv2-MIB", "sysName"), ("HWG-PWR-MIB", "infoAddressMAC"), ("HWG-PWR-MIB", "inpIndex"), ("HWG-PWR-MIB", "inpName"), ("HWG-PWR-MIB", "inpValue"), ("HWG-PWR-MIB", "inpValueName"), ("HWG-PWR-MIB", "inpAlarmState"))
 inContactStateToNormal = NotificationType((1, 3, 6, 1, 4, 1, 21796, 4, 6) + (0,4)).setObjects(("SNMPv2-MIB", "sysName"), ("HWG-PWR-MIB", "infoAddressMAC"), ("HWG-PWR-MIB", "inpIndex"), ("HWG-PWR-MIB", "inpName"), ("HWG-PWR-MIB", "inpValue"), ("HWG-PWR-MIB", "inpValueName"), ("HWG-PWR-MIB", "inpAlarmState"))
-mibBuilder.exportSymbols("HWG-PWR-MIB", info=info, mtvalTarif=mtvalTarif, mtvalEntry=mtvalEntry, Txt8=Txt8, pwrStateToNormal=pwrStateToNormal, inContactStateToNormal=inContactStateToNormal, mtvalUnit=mtvalUnit, inpIndex=inpIndex, infoAddressMAC=infoAddressMAC, mtvalTxtValue=mtvalTxtValue, SensorValue=SensorValue, mtvalTableValues=mtvalTableValues, AlarmState=AlarmState, x390=x390, mtNumber=mtNumber, inpName=inpName, input=input, inpTable=inpTable, mtSecAddrTxt=mtSecAddrTxt, mtValNumber=mtValNumber, mtvalExp=mtvalExp, mtvalAlarmState=mtvalAlarmState, inpValue=inpValue, mtEntry=mtEntry, inpAlarmState=inpAlarmState, inpEntry=inpEntry, mtvalIndex=mtvalIndex, inpNumber=inpNumber, meters=meters, mtvalZeroOffset=mtvalZeroOffset, SensorID=SensorID, hwgpwr=hwgpwr, mtvalName=mtvalName, Txt16=Txt16, pwrStateToAlarm=pwrStateToAlarm, mtName=mtName, PositiveInteger=PositiveInteger, inpValueName=inpValueName, mtAddr=mtAddr, mtSecAddr=mtSecAddr, mtvalMbusValue=mtvalMbusValue, hwgroup=hwgroup, mtIndex=mtIndex, inContactStateToAlarm=inContactStateToAlarm, OpenClose=OpenClose, mtTableMeters=mtTableMeters)
+mibBuilder.exportSymbols("HWG-PWR-MIB", AlarmState=AlarmState, Txt16=Txt16, inpEntry=inpEntry, hwgpwr=hwgpwr, SensorID=SensorID, mtName=mtName, pwrStateToNormal=pwrStateToNormal, PositiveInteger=PositiveInteger, OpenClose=OpenClose, mtvalTxtValue=mtvalTxtValue, mtvalIndex=mtvalIndex, Txt8=Txt8, x390=x390, inContactStateToAlarm=inContactStateToAlarm, mtvalMbusValue=mtvalMbusValue, inpAlarmState=inpAlarmState, infoAddressMAC=infoAddressMAC, mtvalEntry=mtvalEntry, mtvalZeroOffset=mtvalZeroOffset, mtvalUnit=mtvalUnit, mtvalAlarmState=mtvalAlarmState, mtValNumber=mtValNumber, mtSecAddr=mtSecAddr, inpValueName=inpValueName, mtvalTarif=mtvalTarif, mtAddr=mtAddr, mtEntry=mtEntry, inpValue=inpValue, mtvalExp=mtvalExp, inContactStateToNormal=inContactStateToNormal, input=input, inpTable=inpTable, inpNumber=inpNumber, mtvalTableValues=mtvalTableValues, inpName=inpName, pwrStateToAlarm=pwrStateToAlarm, mtTableMeters=mtTableMeters, inpIndex=inpIndex, meters=meters, SensorValue=SensorValue, info=info, mtvalName=mtvalName, mtSecAddrTxt=mtSecAddrTxt, mtIndex=mtIndex, hwgroup=hwgroup, mtNumber=mtNumber)

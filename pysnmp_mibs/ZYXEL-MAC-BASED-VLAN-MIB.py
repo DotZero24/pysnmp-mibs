@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ZYXEL-MAC-BASED-VLAN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-MAC-BASED-VLAN-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:19 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zyxel/ZYXEL-MAC-BASED-VLAN-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:04:23 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+MacAddress, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "RowStatus", "TextualConvention", "DisplayString")
 esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
 zyxelMacBasedVlan = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 99))
 if mibBuilder.loadTexts: zyxelMacBasedVlan.setLastUpdated('201402250000Z')
@@ -33,4 +33,4 @@ zyMacBasedVlanBindingPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3,
 if mibBuilder.loadTexts: zyMacBasedVlanBindingPriority.setStatus('current')
 zyMacBasedVlanBindingRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 99, 1, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: zyMacBasedVlanBindingRowStatus.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-MAC-BASED-VLAN-MIB", PYSNMP_MODULE_ID=zyxelMacBasedVlan, zyMacBasedVlanBindingRowStatus=zyMacBasedVlanBindingRowStatus, zyxelMacBasedVlanStatus=zyxelMacBasedVlanStatus, zyxelMacBasedVlan=zyxelMacBasedVlan, zyMacBasedVlanBindingPriority=zyMacBasedVlanBindingPriority, zyMacBasedVlanMaxNumberOfVlans=zyMacBasedVlanMaxNumberOfVlans, zyMacBasedVlanBindingName=zyMacBasedVlanBindingName, zyxelMacBasedVlanBindingEntry=zyxelMacBasedVlanBindingEntry, zyxelMacBasedVlanSetup=zyxelMacBasedVlanSetup, zyxelMacBasedVlanBindingTable=zyxelMacBasedVlanBindingTable, zyMacBasedVlanBindingSourceMac=zyMacBasedVlanBindingSourceMac, zyMacBasedVlanBindingVlan=zyMacBasedVlanBindingVlan)
+mibBuilder.exportSymbols("ZYXEL-MAC-BASED-VLAN-MIB", zyMacBasedVlanMaxNumberOfVlans=zyMacBasedVlanMaxNumberOfVlans, PYSNMP_MODULE_ID=zyxelMacBasedVlan, zyMacBasedVlanBindingPriority=zyMacBasedVlanBindingPriority, zyMacBasedVlanBindingVlan=zyMacBasedVlanBindingVlan, zyMacBasedVlanBindingSourceMac=zyMacBasedVlanBindingSourceMac, zyxelMacBasedVlanBindingTable=zyxelMacBasedVlanBindingTable, zyxelMacBasedVlanStatus=zyxelMacBasedVlanStatus, zyxelMacBasedVlan=zyxelMacBasedVlan, zyMacBasedVlanBindingRowStatus=zyMacBasedVlanBindingRowStatus, zyxelMacBasedVlanBindingEntry=zyxelMacBasedVlanBindingEntry, zyMacBasedVlanBindingName=zyMacBasedVlanBindingName, zyxelMacBasedVlanSetup=zyxelMacBasedVlanSetup)

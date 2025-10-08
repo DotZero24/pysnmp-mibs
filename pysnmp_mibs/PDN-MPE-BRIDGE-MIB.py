@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module PDN-MPE-BRIDGE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/paradyne/PDN-MPE-BRIDGE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:40 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/paradyne/PDN-MPE-BRIDGE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:18 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 mpe_bridge, = mibBuilder.importSymbols("PDN-HEADER-MIB", "mpe-bridge")
 VnidRange, = mibBuilder.importSymbols("PDN-TC", "VnidRange")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
 mpePdnBridgeGenericMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 21, 1))
 mpePdnBridgeMIBTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 21, 2))
 mpePdnDot1dGenericBridge = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 21, 1, 1))
@@ -51,4 +51,4 @@ mpePdnDot1dTpFdbAgeTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 21,
 if mibBuilder.loadTexts: mpePdnDot1dTpFdbAgeTime.setStatus('mandatory')
 mpePdnDot1dTpFdbFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 21, 1, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("permanentDHCP", 2), ("permanentCONFIGURED", 3), ("dynamic", 4)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: mpePdnDot1dTpFdbFlags.setStatus('mandatory')
-mibBuilder.exportSymbols("PDN-MPE-BRIDGE-MIB", mpePdnDot1dTpFdbTable=mpePdnDot1dTpFdbTable, mpePdnDot1dTpLearnedEntryDiscards=mpePdnDot1dTpLearnedEntryDiscards, mpePdnDot1dBridgeTable=mpePdnDot1dBridgeTable, mpePdnDot1dTpFdb=mpePdnDot1dTpFdb, mpePdnDot1dBaseNumPorts=mpePdnDot1dBaseNumPorts, mpePdnDot1dTpAgeingCleanupTime=mpePdnDot1dTpAgeingCleanupTime, mpePdnDot1dTpFdbFlags=mpePdnDot1dTpFdbFlags, mpePdnDot1dTpAgeingTime=mpePdnDot1dTpAgeingTime, mpePdnDot1dTpFdbStatus=mpePdnDot1dTpFdbStatus, mpePdnDot1dTpFdbAddress=mpePdnDot1dTpFdbAddress, mpePdnDot1dBaseType=mpePdnDot1dBaseType, mpePdnDot1dTpFdbVnidId=mpePdnDot1dTpFdbVnidId, mpePdnDot1dBaseBridgeAddress=mpePdnDot1dBaseBridgeAddress, mpePdnDot1dTpFdbEntry=mpePdnDot1dTpFdbEntry, mpePdnBridgeGenericMIBObjects=mpePdnBridgeGenericMIBObjects, mpePdnDot1dTpFdbAgeTime=mpePdnDot1dTpFdbAgeTime, mpePdnBridgeMIBTraps=mpePdnBridgeMIBTraps, mpePdnDot1dBridgeEntry=mpePdnDot1dBridgeEntry, mpePdnDot1dGenericBridge=mpePdnDot1dGenericBridge, mpePdnDot1dTpFdbIfIndex=mpePdnDot1dTpFdbIfIndex)
+mibBuilder.exportSymbols("PDN-MPE-BRIDGE-MIB", mpePdnDot1dBaseBridgeAddress=mpePdnDot1dBaseBridgeAddress, mpePdnDot1dTpFdb=mpePdnDot1dTpFdb, mpePdnDot1dTpFdbEntry=mpePdnDot1dTpFdbEntry, mpePdnBridgeMIBTraps=mpePdnBridgeMIBTraps, mpePdnDot1dTpFdbVnidId=mpePdnDot1dTpFdbVnidId, mpePdnDot1dBridgeTable=mpePdnDot1dBridgeTable, mpePdnDot1dTpFdbTable=mpePdnDot1dTpFdbTable, mpePdnDot1dTpAgeingTime=mpePdnDot1dTpAgeingTime, mpePdnDot1dBridgeEntry=mpePdnDot1dBridgeEntry, mpePdnDot1dTpFdbStatus=mpePdnDot1dTpFdbStatus, mpePdnDot1dTpLearnedEntryDiscards=mpePdnDot1dTpLearnedEntryDiscards, mpePdnDot1dTpAgeingCleanupTime=mpePdnDot1dTpAgeingCleanupTime, mpePdnDot1dGenericBridge=mpePdnDot1dGenericBridge, mpePdnBridgeGenericMIBObjects=mpePdnBridgeGenericMIBObjects, mpePdnDot1dTpFdbAddress=mpePdnDot1dTpFdbAddress, mpePdnDot1dTpFdbFlags=mpePdnDot1dTpFdbFlags, mpePdnDot1dBaseNumPorts=mpePdnDot1dBaseNumPorts, mpePdnDot1dTpFdbAgeTime=mpePdnDot1dTpFdbAgeTime, mpePdnDot1dBaseType=mpePdnDot1dBaseType, mpePdnDot1dTpFdbIfIndex=mpePdnDot1dTpFdbIfIndex)

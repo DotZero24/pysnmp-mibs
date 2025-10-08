@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ALCATEL-NGOAW-DEVICES-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alcatel/ALCATEL-NGOAW-DEVICES-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:51 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alcatel/ALCATEL-NGOAW-DEVICES-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:06:34 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 hardwareNGOAWDevices, = mibBuilder.importSymbols("ALCATEL-NGOAW-BASE-MIB", "hardwareNGOAWDevices")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 alcatelNGOAWDevicesMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 802, 1, 1, 2, 1))
 alcatelNGOAWDevicesMIB.setRevisions(('2016-09-01 00:00', '2019-05-15 00:00', '2019-08-26 00:00', '2021-03-18 00:00', '2022-03-10 00:00',))
 if mibBuilder.loadTexts: alcatelNGOAWDevicesMIB.setLastUpdated('201905150000Z')
@@ -78,4 +78,4 @@ deviceNGOAWAp1431 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 802, 1, 1, 2, 1, 2, 
 if mibBuilder.loadTexts: deviceNGOAWAp1431.setStatus('current')
 deviceNGOAWAp1362T = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 802, 1, 1, 2, 1, 2, 29))
 if mibBuilder.loadTexts: deviceNGOAWAp1362T.setStatus('current')
-mibBuilder.exportSymbols("ALCATEL-NGOAW-DEVICES-MIB", deviceNGOAWAp1261=deviceNGOAWAp1261, deviceNGOAWAp1341E=deviceNGOAWAp1341E, deviceNGOAWAp1222=deviceNGOAWAp1222, deviceNGOAWAp1201L=deviceNGOAWAp1201L, familyNGOAWWirelessAP=familyNGOAWWirelessAP, deviceNGOAWAp1301=deviceNGOAWAp1301, deviceNGOAWAp1361D=deviceNGOAWAp1361D, deviceNGOAWAp1201H=deviceNGOAWAp1201H, deviceNGOAWAp1221=deviceNGOAWAp1221, deviceNGOAWAp1361=deviceNGOAWAp1361, deviceNGOAWAp1251RWB=deviceNGOAWAp1251RWB, deviceNGOAWAp1331=deviceNGOAWAp1331, deviceNGOAWAp1232=deviceNGOAWAp1232, deviceNGOAWAp1322=deviceNGOAWAp1322, deviceNGOAWAp1321=deviceNGOAWAp1321, deviceNGOAWAp1362=deviceNGOAWAp1362, deviceNGOAWAp1261RWB=deviceNGOAWAp1261RWB, deviceNGOAWAp1431=deviceNGOAWAp1431, familyNGOAWWirelessSwitch=familyNGOAWWirelessSwitch, deviceNGOAWAp1101=deviceNGOAWAp1101, deviceNGOAWAp1201HL=deviceNGOAWAp1201HL, deviceNGOAWAp1201=deviceNGOAWAp1201, deviceNGOAWAp1362T=deviceNGOAWAp1362T, deviceNGOAWAp1251D=deviceNGOAWAp1251D, deviceNGOAWAp1251=deviceNGOAWAp1251, deviceNGOAWAp1301H=deviceNGOAWAp1301H, deviceNGOAWAp1231=deviceNGOAWAp1231, PYSNMP_MODULE_ID=alcatelNGOAWDevicesMIB, deviceNGOAWAp1201BG=deviceNGOAWAp1201BG, deviceNGOAWAp1311=deviceNGOAWAp1311, deviceNGOAWAp1451=deviceNGOAWAp1451, deviceNGOAWAp1351=deviceNGOAWAp1351, alcatelNGOAWDevicesMIB=alcatelNGOAWDevicesMIB)
+mibBuilder.exportSymbols("ALCATEL-NGOAW-DEVICES-MIB", deviceNGOAWAp1221=deviceNGOAWAp1221, deviceNGOAWAp1362T=deviceNGOAWAp1362T, deviceNGOAWAp1251D=deviceNGOAWAp1251D, familyNGOAWWirelessAP=familyNGOAWWirelessAP, deviceNGOAWAp1201L=deviceNGOAWAp1201L, deviceNGOAWAp1351=deviceNGOAWAp1351, deviceNGOAWAp1362=deviceNGOAWAp1362, deviceNGOAWAp1232=deviceNGOAWAp1232, deviceNGOAWAp1451=deviceNGOAWAp1451, deviceNGOAWAp1201H=deviceNGOAWAp1201H, deviceNGOAWAp1311=deviceNGOAWAp1311, deviceNGOAWAp1431=deviceNGOAWAp1431, deviceNGOAWAp1201BG=deviceNGOAWAp1201BG, deviceNGOAWAp1361D=deviceNGOAWAp1361D, deviceNGOAWAp1341E=deviceNGOAWAp1341E, familyNGOAWWirelessSwitch=familyNGOAWWirelessSwitch, deviceNGOAWAp1201=deviceNGOAWAp1201, deviceNGOAWAp1301=deviceNGOAWAp1301, deviceNGOAWAp1361=deviceNGOAWAp1361, deviceNGOAWAp1331=deviceNGOAWAp1331, deviceNGOAWAp1251=deviceNGOAWAp1251, alcatelNGOAWDevicesMIB=alcatelNGOAWDevicesMIB, deviceNGOAWAp1222=deviceNGOAWAp1222, deviceNGOAWAp1321=deviceNGOAWAp1321, deviceNGOAWAp1231=deviceNGOAWAp1231, PYSNMP_MODULE_ID=alcatelNGOAWDevicesMIB, deviceNGOAWAp1322=deviceNGOAWAp1322, deviceNGOAWAp1201HL=deviceNGOAWAp1201HL, deviceNGOAWAp1251RWB=deviceNGOAWAp1251RWB, deviceNGOAWAp1301H=deviceNGOAWAp1301H, deviceNGOAWAp1261RWB=deviceNGOAWAp1261RWB, deviceNGOAWAp1101=deviceNGOAWAp1101, deviceNGOAWAp1261=deviceNGOAWAp1261)

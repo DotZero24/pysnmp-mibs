@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module HM2-ETB-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hirschmann/HM2-ETB-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:19 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hirschmann/HM2-ETB-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:25 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-HmEnabledStatus, hm2ConfigurationMibs = mibBuilder.importSymbols("HM2-TC-MIB", "HmEnabledStatus", "hm2ConfigurationMibs")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+hm2ConfigurationMibs, HmEnabledStatus = mibBuilder.importSymbols("HM2-TC-MIB", "hm2ConfigurationMibs", "HmEnabledStatus")
 InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "DisplayString", "TextualConvention")
 hm2EtbMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 11, 130))
 hm2EtbMib.setRevisions(('2015-08-13 00:00',))
 if mibBuilder.loadTexts: hm2EtbMib.setLastUpdated('201508130000Z')
@@ -66,4 +66,4 @@ hm2TttdpEnableTtdpButLagsNotCreatedError = ObjectIdentity((1, 3, 6, 1, 4, 1, 248
 if mibBuilder.loadTexts: hm2TttdpEnableTtdpButLagsNotCreatedError.setStatus('current')
 hm2TttdpAddConsistNetworkToSwitchError = ObjectIdentity((1, 3, 6, 1, 4, 1, 248, 11, 130, 3, 4))
 if mibBuilder.loadTexts: hm2TttdpAddConsistNetworkToSwitchError.setStatus('current')
-mibBuilder.exportSymbols("HM2-ETB-MIB", hm2TtdpCnToEtbnTableIdx=hm2TtdpCnToEtbnTableIdx, hm2TtdpETBNRole=hm2TtdpETBNRole, hm2TtdpCnToEtbnTable=hm2TtdpCnToEtbnTable, hm2TtdpCnToEtbnCnTableIdx=hm2TtdpCnToEtbnCnTableIdx, hm2TtdpOperState=hm2TtdpOperState, hm2TtdpGroup=hm2TtdpGroup, hm2TttdpWrongEtbnIdWhenSettingPortError=hm2TttdpWrongEtbnIdWhenSettingPortError, hm2TtdpBackboneId=hm2TtdpBackboneId, hm2TttdpEnableTtdpButLagsNotCreatedError=hm2TttdpEnableTtdpButLagsNotCreatedError, hm2TtdpCnToEtbnUseDHCPServer=hm2TtdpCnToEtbnUseDHCPServer, hm2TtdpCnToEtbnRowStatus=hm2TtdpCnToEtbnRowStatus, hm2TtdpCstEtbnCnt=hm2TtdpCstEtbnCnt, hm2TtdpLocalEtbnInhibit=hm2TtdpLocalEtbnInhibit, hm2TttdpAddConsistNetworkToSwitchError=hm2TttdpAddConsistNetworkToSwitchError, hm2TtdpCstCurrentEtbnNumber=hm2TtdpCstCurrentEtbnNumber, hm2TtdpCnToEtbnEntry=hm2TtdpCnToEtbnEntry, hm2TttdpChangeSettingWhileTttdpEnabledError=hm2TttdpChangeSettingWhileTttdpEnabledError, hm2EtbMibSNMPExtensionGroup=hm2EtbMibSNMPExtensionGroup, hm2TtdpCstUuid=hm2TtdpCstUuid, hm2EtbMibObjects=hm2EtbMibObjects, hm2TtdpCnToEtbnIntf=hm2TtdpCnToEtbnIntf, hm2TtdpAdminState=hm2TtdpAdminState, Hm2CstUuid=Hm2CstUuid, PYSNMP_MODULE_ID=hm2EtbMib, hm2EtbMib=hm2EtbMib, hm2TtdpCstCnCnt=hm2TtdpCstCnCnt)
+mibBuilder.exportSymbols("HM2-ETB-MIB", hm2TtdpGroup=hm2TtdpGroup, Hm2CstUuid=Hm2CstUuid, hm2TtdpCnToEtbnTable=hm2TtdpCnToEtbnTable, hm2TtdpBackboneId=hm2TtdpBackboneId, hm2EtbMib=hm2EtbMib, hm2TtdpAdminState=hm2TtdpAdminState, hm2TtdpCnToEtbnTableIdx=hm2TtdpCnToEtbnTableIdx, hm2TttdpEnableTtdpButLagsNotCreatedError=hm2TttdpEnableTtdpButLagsNotCreatedError, hm2TttdpWrongEtbnIdWhenSettingPortError=hm2TttdpWrongEtbnIdWhenSettingPortError, hm2TttdpChangeSettingWhileTttdpEnabledError=hm2TttdpChangeSettingWhileTttdpEnabledError, hm2TtdpCnToEtbnIntf=hm2TtdpCnToEtbnIntf, hm2TtdpLocalEtbnInhibit=hm2TtdpLocalEtbnInhibit, hm2TtdpCstUuid=hm2TtdpCstUuid, hm2TtdpCnToEtbnUseDHCPServer=hm2TtdpCnToEtbnUseDHCPServer, hm2TtdpCstEtbnCnt=hm2TtdpCstEtbnCnt, hm2TtdpCstCnCnt=hm2TtdpCstCnCnt, hm2TttdpAddConsistNetworkToSwitchError=hm2TttdpAddConsistNetworkToSwitchError, hm2EtbMibObjects=hm2EtbMibObjects, hm2TtdpCnToEtbnCnTableIdx=hm2TtdpCnToEtbnCnTableIdx, hm2TtdpOperState=hm2TtdpOperState, hm2EtbMibSNMPExtensionGroup=hm2EtbMibSNMPExtensionGroup, hm2TtdpCstCurrentEtbnNumber=hm2TtdpCstCurrentEtbnNumber, PYSNMP_MODULE_ID=hm2EtbMib, hm2TtdpETBNRole=hm2TtdpETBNRole, hm2TtdpCnToEtbnRowStatus=hm2TtdpCnToEtbnRowStatus, hm2TtdpCnToEtbnEntry=hm2TtdpCnToEtbnEntry)

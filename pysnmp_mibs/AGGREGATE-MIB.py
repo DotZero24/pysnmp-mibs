@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module AGGREGATE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/AGGREGATE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:26:10 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/rfc/AGGREGATE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:47:48 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 OwnerString, = mibBuilder.importSymbols("RMON-MIB", "OwnerString")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, Opaque, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter32, NotificationType, MibIdentifier, experimental, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "Opaque", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter32", "NotificationType", "MibIdentifier", "experimental", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention, RowStatus, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus", "StorageType")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, experimental, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32, Opaque = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "experimental", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32", "Opaque")
+StorageType, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "StorageType", "RowStatus", "DisplayString", "TextualConvention")
 aggrMIB = ModuleIdentity((1, 3, 6, 1, 3, 123))
 aggrMIB.setRevisions(('2006-04-27 00:00',))
 if mibBuilder.loadTexts: aggrMIB.setLastUpdated('200604270000Z')
@@ -83,4 +83,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 aggrMibBasicGroup = ObjectGroup((1, 3, 6, 1, 3, 123, 4, 1, 1)).setObjects(("AGGREGATE-MIB", "aggrCtlMOIndex"), ("AGGREGATE-MIB", "aggrCtlMODescr"), ("AGGREGATE-MIB", "aggrCtlCompressionAlgorithm"), ("AGGREGATE-MIB", "aggrCtlEntryOwner"), ("AGGREGATE-MIB", "aggrCtlEntryStorageType"), ("AGGREGATE-MIB", "aggrCtlEntryStatus"), ("AGGREGATE-MIB", "aggrMOInstance"), ("AGGREGATE-MIB", "aggrMODescr"), ("AGGREGATE-MIB", "aggrMOEntryStorageType"), ("AGGREGATE-MIB", "aggrMOEntryStatus"), ("AGGREGATE-MIB", "aggrDataRecord"), ("AGGREGATE-MIB", "aggrDataRecordCompressed"), ("AGGREGATE-MIB", "aggrDataErrorRecord"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     aggrMibBasicGroup = aggrMibBasicGroup.setStatus('current')
-mibBuilder.exportSymbols("AGGREGATE-MIB", aggrDataEntry=aggrDataEntry, aggrCtlMODescr=aggrCtlMODescr, aggrCtlMOIndex=aggrCtlMOIndex, aggrMOInstance=aggrMOInstance, aggrCtlEntryStatus=aggrCtlEntryStatus, aggrMIB=aggrMIB, aggrCtlEntryOwner=aggrCtlEntryOwner, aggrCompliances=aggrCompliances, aggrMibBasicGroup=aggrMibBasicGroup, aggrDataRecord=aggrDataRecord, aggrMODescr=aggrMODescr, aggrCtlTable=aggrCtlTable, aggrConformance=aggrConformance, PYSNMP_MODULE_ID=aggrMIB, aggrGroups=aggrGroups, aggrMibCompliance=aggrMibCompliance, aggrMOEntryStatus=aggrMOEntryStatus, aggrMOEntryMOID=aggrMOEntryMOID, AggrMOCompressedValue=AggrMOCompressedValue, aggrDataErrorRecord=aggrDataErrorRecord, aggrCtlEntryStorageType=aggrCtlEntryStorageType, aggrMOEntryID=aggrMOEntryID, aggrMOEntry=aggrMOEntry, aggrCtlCompressionAlgorithm=aggrCtlCompressionAlgorithm, AggrMOValue=AggrMOValue, aggrMOTable=aggrMOTable, aggrDataTable=aggrDataTable, aggrCtlEntry=aggrCtlEntry, aggrDataRecordCompressed=aggrDataRecordCompressed, AggrMOErrorStatus=AggrMOErrorStatus, aggrMOEntryStorageType=aggrMOEntryStorageType, aggrCtlEntryID=aggrCtlEntryID)
+mibBuilder.exportSymbols("AGGREGATE-MIB", aggrMIB=aggrMIB, aggrGroups=aggrGroups, AggrMOValue=AggrMOValue, aggrDataRecord=aggrDataRecord, aggrMOInstance=aggrMOInstance, aggrDataTable=aggrDataTable, aggrMOEntry=aggrMOEntry, aggrCtlEntryStorageType=aggrCtlEntryStorageType, aggrMOEntryStatus=aggrMOEntryStatus, aggrDataErrorRecord=aggrDataErrorRecord, aggrCtlEntryID=aggrCtlEntryID, aggrCtlMOIndex=aggrCtlMOIndex, aggrDataRecordCompressed=aggrDataRecordCompressed, PYSNMP_MODULE_ID=aggrMIB, aggrCompliances=aggrCompliances, aggrMibCompliance=aggrMibCompliance, aggrCtlTable=aggrCtlTable, AggrMOErrorStatus=AggrMOErrorStatus, aggrMODescr=aggrMODescr, aggrConformance=aggrConformance, aggrCtlEntryStatus=aggrCtlEntryStatus, aggrMOEntryID=aggrMOEntryID, aggrMOEntryStorageType=aggrMOEntryStorageType, aggrMOEntryMOID=aggrMOEntryMOID, aggrDataEntry=aggrDataEntry, AggrMOCompressedValue=AggrMOCompressedValue, aggrCtlEntryOwner=aggrCtlEntryOwner, aggrMOTable=aggrMOTable, aggrCtlMODescr=aggrCtlMODescr, aggrCtlEntry=aggrCtlEntry, aggrCtlCompressionAlgorithm=aggrCtlCompressionAlgorithm, aggrMibBasicGroup=aggrMibBasicGroup)

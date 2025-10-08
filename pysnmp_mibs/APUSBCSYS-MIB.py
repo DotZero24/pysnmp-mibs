@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module APUSBCSYS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/acme/APUSBCSYS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:56 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/acme/APUSBCSYS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:12:24 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 acmepacketMgmt, = mibBuilder.importSymbols("ACMEPACKET-SMI", "acmepacketMgmt")
-ApPhyPortType, ApHardwareModuleFamily, ApRedundancyState, ApServerStatus, ApPresence = mibBuilder.importSymbols("ACMEPACKET-TC", "ApPhyPortType", "ApHardwareModuleFamily", "ApRedundancyState", "ApServerStatus", "ApPresence")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ApHardwareModuleFamily, ApPresence, ApServerStatus, ApPhyPortType, ApRedundancyState = mibBuilder.importSymbols("ACMEPACKET-TC", "ApHardwareModuleFamily", "ApPresence", "ApServerStatus", "ApPhyPortType", "ApRedundancyState")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
 apUsbcSysModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 9148, 3, 17))
 apUsbcSysModule.setRevisions(('2012-03-07 00:00',))
 if mibBuilder.loadTexts: apUsbcSysModule.setLastUpdated('201203070000Z')
@@ -64,4 +64,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 apUsbcSysCpuTblGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9148, 3, 17, 3, 1, 2)).setObjects(("APUSBCSYS-MIB", "apUsbcSysCpuNum"), ("APUSBCSYS-MIB", "apUsbcSysCpuUtil"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     apUsbcSysCpuTblGroup = apUsbcSysCpuTblGroup.setStatus('current')
-mibBuilder.exportSymbols("APUSBCSYS-MIB", apUsbcSysCpuUtil=apUsbcSysCpuUtil, apUsbcSysNotificationObjects=apUsbcSysNotificationObjects, PYSNMP_MODULE_ID=apUsbcSysModule, apUsbcSysMemSzMB=apUsbcSysMemSzMB, apUsbcSysCpuSpeedMHz=apUsbcSysCpuSpeedMHz, apUsbcSysAppMemUtil=apUsbcSysAppMemUtil, apUsbcSysMemSzGB=apUsbcSysMemSzGB, apUsbcSysGroup=apUsbcSysGroup, UsbcSysPercent=UsbcSysPercent, apUsbcSysCpuNotifications=apUsbcSysCpuNotifications, apUsbcSysObjects=apUsbcSysObjects, apUsbcSysCpuCount=apUsbcSysCpuCount, apUsbcSysNotifObjects=apUsbcSysNotifObjects, apUsbcSysKernelMemUtil=apUsbcSysKernelMemUtil, apUsbcSysConformance=apUsbcSysConformance, apUsbcSysCpuNum=apUsbcSysCpuNum, apUsbcSysCpuUtilAll=apUsbcSysCpuUtilAll, apUsbcSysCpuEntry=apUsbcSysCpuEntry, apUsbcSysNotificationGroups=apUsbcSysNotificationGroups, apUsbcSysNotifPrefix=apUsbcSysNotifPrefix, apUsbcSysMIBObjects=apUsbcSysMIBObjects, apUsbcSysMyBogoMips=apUsbcSysMyBogoMips, apUsbcSysCpuTable=apUsbcSysCpuTable, apUsbcSysModule=apUsbcSysModule, apUsbcSysAllBogoMips=apUsbcSysAllBogoMips, apUsbcSysObjectGroups=apUsbcSysObjectGroups, apUsbcSysCpuTblGroup=apUsbcSysCpuTblGroup, apUsbcSysCpuTblObjects=apUsbcSysCpuTblObjects)
+mibBuilder.exportSymbols("APUSBCSYS-MIB", apUsbcSysGroup=apUsbcSysGroup, apUsbcSysCpuNum=apUsbcSysCpuNum, apUsbcSysMyBogoMips=apUsbcSysMyBogoMips, apUsbcSysNotifPrefix=apUsbcSysNotifPrefix, apUsbcSysCpuSpeedMHz=apUsbcSysCpuSpeedMHz, apUsbcSysCpuEntry=apUsbcSysCpuEntry, apUsbcSysCpuTblGroup=apUsbcSysCpuTblGroup, apUsbcSysNotifObjects=apUsbcSysNotifObjects, apUsbcSysNotificationObjects=apUsbcSysNotificationObjects, apUsbcSysConformance=apUsbcSysConformance, apUsbcSysMemSzMB=apUsbcSysMemSzMB, UsbcSysPercent=UsbcSysPercent, apUsbcSysModule=apUsbcSysModule, apUsbcSysMemSzGB=apUsbcSysMemSzGB, apUsbcSysAllBogoMips=apUsbcSysAllBogoMips, apUsbcSysObjects=apUsbcSysObjects, apUsbcSysCpuUtil=apUsbcSysCpuUtil, apUsbcSysCpuTblObjects=apUsbcSysCpuTblObjects, apUsbcSysNotificationGroups=apUsbcSysNotificationGroups, apUsbcSysCpuCount=apUsbcSysCpuCount, apUsbcSysCpuUtilAll=apUsbcSysCpuUtilAll, apUsbcSysObjectGroups=apUsbcSysObjectGroups, apUsbcSysMIBObjects=apUsbcSysMIBObjects, apUsbcSysKernelMemUtil=apUsbcSysKernelMemUtil, PYSNMP_MODULE_ID=apUsbcSysModule, apUsbcSysCpuNotifications=apUsbcSysCpuNotifications, apUsbcSysAppMemUtil=apUsbcSysAppMemUtil, apUsbcSysCpuTable=apUsbcSysCpuTable)

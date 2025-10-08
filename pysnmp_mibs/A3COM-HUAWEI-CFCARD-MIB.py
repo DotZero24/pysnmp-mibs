@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module A3COM-HUAWEI-CFCARD-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-CFCARD-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:09 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-CFCARD-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:33:35 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 h3cCfCard, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCfCard")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 h3cCfCardMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 41, 1))
 if mibBuilder.loadTexts: h3cCfCardMIB.setLastUpdated('200412240000Z')
 if mibBuilder.loadTexts: h3cCfCardMIB.setOrganization('Huawei-3com Technologies Co., Ltd.')
@@ -72,4 +72,4 @@ basicCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 41, 1, 4
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     basicCompliance = basicCompliance.setStatus('current')
-mibBuilder.exportSymbols("A3COM-HUAWEI-CFCARD-MIB", currentObjectGroup=currentObjectGroup, h3cCfCardIsPresent=h3cCfCardIsPresent, h3cCfCardSize=h3cCfCardSize, h3cCfCardUsedSize=h3cCfCardUsedSize, h3cCfCardDescription=h3cCfCardDescription, h3cCfCardFreeSize=h3cCfCardFreeSize, basicCompliance=basicCompliance, h3cCfCardInfoObjects=h3cCfCardInfoObjects, h3cCfCardIndex=h3cCfCardIndex, h3cCfCardSerialNumber=h3cCfCardSerialNumber, h3cCfCardContainedIn=h3cCfCardContainedIn, h3cCfCardMIBConformance=h3cCfCardMIBConformance, h3cCfCardMIBGroups=h3cCfCardMIBGroups, h3cCfCardMIB=h3cCfCardMIB, h3cCfCardInfoTable=h3cCfCardInfoTable, currentNotificationGroup=currentNotificationGroup, h3cCfCardModelNumber=h3cCfCardModelNumber, h3CfCardInfoEntry=h3CfCardInfoEntry, h3cCfCardFirewareVersion=h3cCfCardFirewareVersion, h3cCfCardScalarObjects=h3cCfCardScalarObjects, h3cCfCardHotSwapOn=h3cCfCardHotSwapOn, h3cCfCardMIBObjects=h3cCfCardMIBObjects, h3cCfCardParentRelPos=h3cCfCardParentRelPos, h3cCfCardNotifications=h3cCfCardNotifications, h3cCfCardNumber=h3cCfCardNumber, h3cCfCardMIBCompliances=h3cCfCardMIBCompliances, h3cCfCardHotSwapOff=h3cCfCardHotSwapOff, PYSNMP_MODULE_ID=h3cCfCardMIB, h3cCfCardState=h3cCfCardState, h3cCfCardNotificationsV2=h3cCfCardNotificationsV2)
+mibBuilder.exportSymbols("A3COM-HUAWEI-CFCARD-MIB", h3cCfCardInfoTable=h3cCfCardInfoTable, h3cCfCardSize=h3cCfCardSize, h3cCfCardNumber=h3cCfCardNumber, h3cCfCardInfoObjects=h3cCfCardInfoObjects, h3cCfCardState=h3cCfCardState, h3cCfCardMIBConformance=h3cCfCardMIBConformance, h3cCfCardNotifications=h3cCfCardNotifications, basicCompliance=basicCompliance, h3cCfCardIndex=h3cCfCardIndex, h3cCfCardSerialNumber=h3cCfCardSerialNumber, h3cCfCardModelNumber=h3cCfCardModelNumber, h3cCfCardMIBCompliances=h3cCfCardMIBCompliances, PYSNMP_MODULE_ID=h3cCfCardMIB, h3cCfCardIsPresent=h3cCfCardIsPresent, h3cCfCardMIB=h3cCfCardMIB, h3cCfCardDescription=h3cCfCardDescription, h3cCfCardContainedIn=h3cCfCardContainedIn, h3cCfCardHotSwapOn=h3cCfCardHotSwapOn, h3cCfCardNotificationsV2=h3cCfCardNotificationsV2, h3cCfCardHotSwapOff=h3cCfCardHotSwapOff, h3cCfCardFreeSize=h3cCfCardFreeSize, h3CfCardInfoEntry=h3CfCardInfoEntry, currentNotificationGroup=currentNotificationGroup, currentObjectGroup=currentObjectGroup, h3cCfCardMIBObjects=h3cCfCardMIBObjects, h3cCfCardFirewareVersion=h3cCfCardFirewareVersion, h3cCfCardUsedSize=h3cCfCardUsedSize, h3cCfCardScalarObjects=h3cCfCardScalarObjects, h3cCfCardParentRelPos=h3cCfCardParentRelPos, h3cCfCardMIBGroups=h3cCfCardMIBGroups)

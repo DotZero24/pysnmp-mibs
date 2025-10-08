@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module HPN-ICF-FTM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-FTM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:59 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HPN-ICF-FTM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:09:06 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 hpnicfFtmManMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1))
 if mibBuilder.loadTexts: hpnicfFtmManMIB.setLastUpdated('200401131055Z')
 if mibBuilder.loadTexts: hpnicfFtmManMIB.setOrganization('')
@@ -57,4 +57,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 hpnicfFtmNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 2, 2, 2)).setObjects(("HPN-ICF-FTM-MIB", "hpnicfFtmUnitIDChange"), ("HPN-ICF-FTM-MIB", "hpnicfFtmUnitNameChange"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     hpnicfFtmNotificationGroup = hpnicfFtmNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-FTM-MIB", hpnicfFtmFabricType=hpnicfFtmFabricType, hpnicfFtmAuthValue=hpnicfFtmAuthValue, hpnicfFtmUnitName=hpnicfFtmUnitName, hpnicfFtmNumberMode=hpnicfFtmNumberMode, hpnicfFtmUnitTable=hpnicfFtmUnitTable, hpnicfFtmUnitIDChange=hpnicfFtmUnitIDChange, hpnicfFtmFabricVlanID=hpnicfFtmFabricVlanID, hpnicfFtmMIBCompliance=hpnicfFtmMIBCompliance, hpnicfFtmMIBGroups=hpnicfFtmMIBGroups, hpnicfFtmAuthMode=hpnicfFtmAuthMode, hpnicfFtmManMIBObjects=hpnicfFtmManMIBObjects, hpnicfFtmUnitNameChange=hpnicfFtmUnitNameChange, hpnicfFtmMIBCompliances=hpnicfFtmMIBCompliances, hpnicfFtmUnitEntry=hpnicfFtmUnitEntry, hpnicfFtmManMIBComformance=hpnicfFtmManMIBComformance, hpnicfFtmIndex=hpnicfFtmIndex, hpnicfFtm=hpnicfFtm, hpnicfFtmUnitID=hpnicfFtmUnitID, PYSNMP_MODULE_ID=hpnicfFtmManMIB, hpnicfFtmManMIBNotification=hpnicfFtmManMIBNotification, hpnicfFtmManMIB=hpnicfFtmManMIB, hpnicfFtmUnitRole=hpnicfFtmUnitRole, hpnicfFtmConfigGroup=hpnicfFtmConfigGroup, hpnicfFtmNotificationGroup=hpnicfFtmNotificationGroup)
+mibBuilder.exportSymbols("HPN-ICF-FTM-MIB", hpnicfFtmManMIBNotification=hpnicfFtmManMIBNotification, hpnicfFtmMIBGroups=hpnicfFtmMIBGroups, hpnicfFtmManMIBObjects=hpnicfFtmManMIBObjects, hpnicfFtmMIBCompliances=hpnicfFtmMIBCompliances, hpnicfFtmFabricVlanID=hpnicfFtmFabricVlanID, hpnicfFtmAuthValue=hpnicfFtmAuthValue, hpnicfFtmUnitID=hpnicfFtmUnitID, hpnicfFtmUnitEntry=hpnicfFtmUnitEntry, hpnicfFtmUnitIDChange=hpnicfFtmUnitIDChange, hpnicfFtmConfigGroup=hpnicfFtmConfigGroup, hpnicfFtmUnitRole=hpnicfFtmUnitRole, hpnicfFtmMIBCompliance=hpnicfFtmMIBCompliance, hpnicfFtmNotificationGroup=hpnicfFtmNotificationGroup, hpnicfFtmManMIB=hpnicfFtmManMIB, hpnicfFtmUnitName=hpnicfFtmUnitName, hpnicfFtmAuthMode=hpnicfFtmAuthMode, PYSNMP_MODULE_ID=hpnicfFtmManMIB, hpnicfFtmUnitNameChange=hpnicfFtmUnitNameChange, hpnicfFtmUnitTable=hpnicfFtmUnitTable, hpnicfFtmNumberMode=hpnicfFtmNumberMode, hpnicfFtmManMIBComformance=hpnicfFtmManMIBComformance, hpnicfFtmIndex=hpnicfFtmIndex, hpnicfFtm=hpnicfFtm, hpnicfFtmFabricType=hpnicfFtmFabricType)

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module NTWS-AP-TC (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/NTWS-AP-TC
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:17 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nortel/NTWS-AP-TC
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:02:49 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ntwsMibs, = mibBuilder.importSymbols("NTWS-ROOT-MIB", "ntwsMibs")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ntwsApTc = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 3))
 ntwsApTc.setRevisions(('2009-07-21 01:03', '2008-12-02 01:01', '2008-11-27 01:00', '2008-11-26 00:51', '2008-10-06 00:50', '2008-05-07 00:41', '2008-02-14 00:32', '2007-12-03 00:30', '2007-09-25 00:24', '2007-07-06 00:23', '2007-07-05 00:22', '2006-07-10 00:15', '2006-03-30 00:14',))
@@ -177,4 +177,4 @@ class NtwsCryptoType(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
     namedValues = NamedValues(("other", 1), ("clear", 2), ("wep", 3), ("wep40", 4), ("wep104", 5), ("tkip", 6), ("aesCcmp", 7))
 
-mibBuilder.exportSymbols("NTWS-AP-TC", NtwsAccessType=NtwsAccessType, NtwsRadioMimoState=NtwsRadioMimoState, ntwsApTc=ntwsApTc, NtwsChannelNum=NtwsChannelNum, NtwsRadioRateEx=NtwsRadioRateEx, NtwsApPowerMode=NtwsApPowerMode, NtwsApRadioIndexOrZero=NtwsApRadioIndexOrZero, NtwsApRadioIndex=NtwsApRadioIndex, NtwsPowerLevel=NtwsPowerLevel, NtwsRadioMode=NtwsRadioMode, NtwsApBias=NtwsApBias, NtwsRadioPowerChangeType=NtwsRadioPowerChangeType, NtwsApSerialNum=NtwsApSerialNum, NtwsApAttachType=NtwsApAttachType, NtwsApWasOperational=NtwsApWasOperational, NtwsRadioConfigState=NtwsRadioConfigState, NtwsRadioNum=NtwsRadioNum, NtwsChannelChangeType=NtwsChannelChangeType, NtwsRadioEnable=NtwsRadioEnable, NtwsApConnectSecurityType=NtwsApConnectSecurityType, NtwsRadioChannelWidth=NtwsRadioChannelWidth, NtwsRadioAntennaLocation=NtwsRadioAntennaLocation, NtwsApPortOrDapNum=NtwsApPortOrDapNum, NtwsRssi=NtwsRssi, NtwsApServiceAvailability=NtwsApServiceAvailability, NtwsRadioType=NtwsRadioType, NtwsApTransition=NtwsApTransition, NtwsApFailDetail=NtwsApFailDetail, NtwsApLedMode=NtwsApLedMode, NtwsApNum=NtwsApNum, NtwsApFingerprint=NtwsApFingerprint, PYSNMP_MODULE_ID=ntwsApTc, NtwsCryptoType=NtwsCryptoType, NtwsRadioRate=NtwsRadioRate, NtwsApState=NtwsApState)
+mibBuilder.exportSymbols("NTWS-AP-TC", NtwsApRadioIndexOrZero=NtwsApRadioIndexOrZero, NtwsRadioConfigState=NtwsRadioConfigState, NtwsApSerialNum=NtwsApSerialNum, NtwsApWasOperational=NtwsApWasOperational, NtwsApBias=NtwsApBias, NtwsRadioAntennaLocation=NtwsRadioAntennaLocation, NtwsApLedMode=NtwsApLedMode, ntwsApTc=ntwsApTc, NtwsChannelChangeType=NtwsChannelChangeType, NtwsPowerLevel=NtwsPowerLevel, NtwsApServiceAvailability=NtwsApServiceAvailability, NtwsApTransition=NtwsApTransition, NtwsApPowerMode=NtwsApPowerMode, NtwsApNum=NtwsApNum, NtwsApAttachType=NtwsApAttachType, NtwsApPortOrDapNum=NtwsApPortOrDapNum, NtwsRadioNum=NtwsRadioNum, NtwsRadioMimoState=NtwsRadioMimoState, NtwsRadioPowerChangeType=NtwsRadioPowerChangeType, NtwsRadioEnable=NtwsRadioEnable, NtwsRadioChannelWidth=NtwsRadioChannelWidth, NtwsRadioMode=NtwsRadioMode, NtwsRssi=NtwsRssi, NtwsRadioType=NtwsRadioType, NtwsAccessType=NtwsAccessType, NtwsCryptoType=NtwsCryptoType, NtwsChannelNum=NtwsChannelNum, NtwsApState=NtwsApState, NtwsApRadioIndex=NtwsApRadioIndex, NtwsRadioRateEx=NtwsRadioRateEx, NtwsApFailDetail=NtwsApFailDetail, NtwsApConnectSecurityType=NtwsApConnectSecurityType, NtwsApFingerprint=NtwsApFingerprint, NtwsRadioRate=NtwsRadioRate, PYSNMP_MODULE_ID=ntwsApTc)

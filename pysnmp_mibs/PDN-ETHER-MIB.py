@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module PDN-ETHER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/paradyne/PDN-ETHER-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:39 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/paradyne/PDN-ETHER-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:15 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ifJackIndex, ifMauEntry, ifMauIndex, ifMauIfIndex = mibBuilder.importSymbols("MAU-MIB", "ifJackIndex", "ifMauEntry", "ifMauIndex", "ifMauIfIndex")
+ifMauEntry, ifMauIndex, ifMauIfIndex, ifJackIndex = mibBuilder.importSymbols("MAU-MIB", "ifMauEntry", "ifMauIndex", "ifMauIfIndex", "ifJackIndex")
 pdn_common, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdn-common")
-ResetStates, SwitchState, ManagementType = mibBuilder.importSymbols("PDN-TC", "ResetStates", "SwitchState", "ManagementType")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ResetStates, ManagementType, SwitchState = mibBuilder.importSymbols("PDN-TC", "ResetStates", "ManagementType", "SwitchState")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 pdn_ether = ModuleIdentity((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 18)).setLabel("pdn-ether")
 pdn_ether.setRevisions(('1902-05-10 00:00', '1902-01-09 00:00', '2001-08-24 00:00', '2000-05-02 00:00',))
 if mibBuilder.loadTexts: pdn_ether.setLastUpdated('0205100000Z')
@@ -62,4 +62,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 pdnPortConfigExtIfJackGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 18, 1, 2, 3)).setObjects(("PDN-ETHER-MIB", "pdnActiveJack"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     pdnPortConfigExtIfJackGroup = pdnPortConfigExtIfJackGroup.setStatus('current')
-mibBuilder.exportSymbols("PDN-ETHER-MIB", pdnPortConfigMIBTraps=pdnPortConfigMIBTraps, pdnPortConfigMauExtTable=pdnPortConfigMauExtTable, pdnPortConfigMauExtEntry=pdnPortConfigMauExtEntry, pdnPortConfigXover=pdnPortConfigXover, pdnPortConfigEthernetSpeed=pdnPortConfigEthernetSpeed, pdnPortConfigMIBObjects=pdnPortConfigMIBObjects, pdnPortConfigEthernetDuplexMode=pdnPortConfigEthernetDuplexMode, pdnIfJackTable=pdnIfJackTable, pdnPortConfigExtMauGroup=pdnPortConfigExtMauGroup, pdnPortConfigMauExtMIBObject=pdnPortConfigMauExtMIBObject, pdn_ether=pdn_ether, pdnIfJackEntry=pdnIfJackEntry, pdnPortConfigEthernetAutoNegotiate=pdnPortConfigEthernetAutoNegotiate, pdnPortConfigEthernetResetState=pdnPortConfigEthernetResetState, pdnPortConfigEthernetEntry=pdnPortConfigEthernetEntry, pdnPortConfigEthernet=pdnPortConfigEthernet, PYSNMP_MODULE_ID=pdn_ether, pdnActiveJack=pdnActiveJack, pdnPortConfigEthernetGroup=pdnPortConfigEthernetGroup, pdnPortConfigExtIfJackGroup=pdnPortConfigExtIfJackGroup, pdnPortConfigIfJackMIBObject=pdnPortConfigIfJackMIBObject, pdnPortConfigEthernetManageType=pdnPortConfigEthernetManageType, pdnPortConfigEthernetTable=pdnPortConfigEthernetTable, pdnPortConfigGroups=pdnPortConfigGroups)
+mibBuilder.exportSymbols("PDN-ETHER-MIB", pdnPortConfigEthernetManageType=pdnPortConfigEthernetManageType, pdnPortConfigEthernetGroup=pdnPortConfigEthernetGroup, pdnPortConfigEthernetAutoNegotiate=pdnPortConfigEthernetAutoNegotiate, pdnPortConfigEthernetDuplexMode=pdnPortConfigEthernetDuplexMode, pdnPortConfigMauExtMIBObject=pdnPortConfigMauExtMIBObject, pdnIfJackTable=pdnIfJackTable, pdn_ether=pdn_ether, pdnActiveJack=pdnActiveJack, PYSNMP_MODULE_ID=pdn_ether, pdnPortConfigIfJackMIBObject=pdnPortConfigIfJackMIBObject, pdnPortConfigGroups=pdnPortConfigGroups, pdnPortConfigEthernet=pdnPortConfigEthernet, pdnPortConfigMauExtTable=pdnPortConfigMauExtTable, pdnPortConfigExtIfJackGroup=pdnPortConfigExtIfJackGroup, pdnPortConfigMauExtEntry=pdnPortConfigMauExtEntry, pdnIfJackEntry=pdnIfJackEntry, pdnPortConfigMIBTraps=pdnPortConfigMIBTraps, pdnPortConfigMIBObjects=pdnPortConfigMIBObjects, pdnPortConfigEthernetTable=pdnPortConfigEthernetTable, pdnPortConfigExtMauGroup=pdnPortConfigExtMauGroup, pdnPortConfigEthernetResetState=pdnPortConfigEthernetResetState, pdnPortConfigEthernetSpeed=pdnPortConfigEthernetSpeed, pdnPortConfigXover=pdnPortConfigXover, pdnPortConfigEthernetEntry=pdnPortConfigEthernetEntry)

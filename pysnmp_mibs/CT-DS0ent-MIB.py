@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CT-DS0ent-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/CT-DS0ent-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:52 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cabletron/CT-DS0ent-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:13:40 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-DisplayString, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "PhysAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+PhysAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "PhysAddress", "TextualConvention", "DisplayString")
 ctSSA = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4497))
 ctDs0Mib = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4497, 20))
 ctDsx0Mib = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4497, 21))
@@ -82,4 +82,4 @@ ctDsx0ConfigAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 1, 
 if mibBuilder.loadTexts: ctDsx0ConfigAdminStatus.setStatus('mandatory')
 ctDsx0ConfigOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 21, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("testing", 3), ("unknown", 4), ("dormant", 5), ("notPresent", 6), ("lowerLayerDown", 7)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ctDsx0ConfigOperStatus.setStatus('mandatory')
-mibBuilder.exportSymbols("CT-DS0ent-MIB", ctDs0ifInDiscards=ctDs0ifInDiscards, ctDs0ifOutQLen=ctDs0ifOutQLen, IANActDs0ifType=IANActDs0ifType, ctDs0ifEntry=ctDs0ifEntry, ctDs0ifInErrors=ctDs0ifInErrors, ctSSA=ctSSA, ctDs0ifMtu=ctDs0ifMtu, ctDsx0ConfigEntry=ctDsx0ConfigEntry, ctDs0ifOutUcastPkts=ctDs0ifOutUcastPkts, ctDs0ifType=ctDs0ifType, ctDs0ifLastChange=ctDs0ifLastChange, ctDs0ifOutOctets=ctDs0ifOutOctets, ctDs0ifOutErrors=ctDs0ifOutErrors, ctDs0ifSpecific=ctDs0ifSpecific, ctDs0ifOperStatus=ctDs0ifOperStatus, ctDsx0ConfigLineId=ctDsx0ConfigLineId, ctDsx0ConfigAdminStatus=ctDsx0ConfigAdminStatus, ctDs0ifTable=ctDs0ifTable, ctDs0ifOutNUcastPkts=ctDs0ifOutNUcastPkts, InterfaceIndex=InterfaceIndex, ctDs0ifDescr=ctDs0ifDescr, ctDsx0ConfigOperStatus=ctDsx0ConfigOperStatus, ctDs0ifPhysAddress=ctDs0ifPhysAddress, ctDsx0ConfigTable=ctDsx0ConfigTable, ctDs0ifOutDiscards=ctDs0ifOutDiscards, ctDs0ifInUcastPkts=ctDs0ifInUcastPkts, ctDs0Mib=ctDs0Mib, ctDs0ifIndex=ctDs0ifIndex, ctDsx0Mib=ctDsx0Mib, ctDs0ifNumber=ctDs0ifNumber, ctDs0ifInOctets=ctDs0ifInOctets, ctDs0ifAdminStatus=ctDs0ifAdminStatus, ctDs0ifInNUcastPkts=ctDs0ifInNUcastPkts, ctDs0ifSpeed=ctDs0ifSpeed, ctDs0ifInUnknownProtos=ctDs0ifInUnknownProtos)
+mibBuilder.exportSymbols("CT-DS0ent-MIB", ctDsx0ConfigAdminStatus=ctDsx0ConfigAdminStatus, InterfaceIndex=InterfaceIndex, ctDs0ifSpecific=ctDs0ifSpecific, ctDs0ifOperStatus=ctDs0ifOperStatus, ctDs0ifMtu=ctDs0ifMtu, ctDs0ifType=ctDs0ifType, ctDsx0ConfigTable=ctDsx0ConfigTable, ctDs0ifOutQLen=ctDs0ifOutQLen, ctDs0ifInErrors=ctDs0ifInErrors, ctDs0ifLastChange=ctDs0ifLastChange, ctDs0ifSpeed=ctDs0ifSpeed, ctSSA=ctSSA, ctDs0ifInNUcastPkts=ctDs0ifInNUcastPkts, ctDs0ifDescr=ctDs0ifDescr, ctDs0ifInUcastPkts=ctDs0ifInUcastPkts, ctDsx0ConfigOperStatus=ctDsx0ConfigOperStatus, ctDs0ifIndex=ctDs0ifIndex, IANActDs0ifType=IANActDs0ifType, ctDs0ifInOctets=ctDs0ifInOctets, ctDs0ifAdminStatus=ctDs0ifAdminStatus, ctDsx0ConfigLineId=ctDsx0ConfigLineId, ctDs0ifEntry=ctDs0ifEntry, ctDs0ifPhysAddress=ctDs0ifPhysAddress, ctDs0ifOutOctets=ctDs0ifOutOctets, ctDs0ifOutDiscards=ctDs0ifOutDiscards, ctDsx0ConfigEntry=ctDsx0ConfigEntry, ctDs0ifOutErrors=ctDs0ifOutErrors, ctDs0ifInDiscards=ctDs0ifInDiscards, ctDs0ifNumber=ctDs0ifNumber, ctDs0ifInUnknownProtos=ctDs0ifInUnknownProtos, ctDs0ifOutNUcastPkts=ctDs0ifOutNUcastPkts, ctDs0Mib=ctDs0Mib, ctDs0ifOutUcastPkts=ctDs0ifOutUcastPkts, ctDsx0Mib=ctDsx0Mib, ctDs0ifTable=ctDs0ifTable)

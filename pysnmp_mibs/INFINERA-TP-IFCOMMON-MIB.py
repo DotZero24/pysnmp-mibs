@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module INFINERA-TP-IFCOMMON-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-IFCOMMON-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:14 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/INFINERA-TP-IFCOMMON-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:21:53 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 commonTerminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "commonTerminationPoint")
 InfnOpsQualifierList, InfnAvailabilityState = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnOpsQualifierList", "InfnAvailabilityState")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ifCommonMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 10, 1))
 ifCommonMIB.setRevisions(('2008-10-20 00:00',))
 if mibBuilder.loadTexts: ifCommonMIB.setLastUpdated('200810200000Z')
@@ -42,4 +42,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 ifCommonGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 10, 1, 3, 2, 1)).setObjects(("INFINERA-TP-IFCOMMON-MIB", "ifCommonMoId"), ("INFINERA-TP-IFCOMMON-MIB", "ifCommonAvailabilityState"), ("INFINERA-TP-IFCOMMON-MIB", "ifCommonAlarmReportControl"), ("INFINERA-TP-IFCOMMON-MIB", "ifCommonOpStateQualifierList"), ("INFINERA-TP-IFCOMMON-MIB", "ifCommonAlarmInhibitState"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ifCommonGroup = ifCommonGroup.setStatus('current')
-mibBuilder.exportSymbols("INFINERA-TP-IFCOMMON-MIB", ifCommonAlarmReportControl=ifCommonAlarmReportControl, ifCommonConformance=ifCommonConformance, ifCommonGroup=ifCommonGroup, ifCommonTable=ifCommonTable, ifCommonGroups=ifCommonGroups, ifCommonAvailabilityState=ifCommonAvailabilityState, ifCommonEntry=ifCommonEntry, ifCommonMIB=ifCommonMIB, PYSNMP_MODULE_ID=ifCommonMIB, ifCommonOpStateQualifierList=ifCommonOpStateQualifierList, ifCommonAlarmInhibitState=ifCommonAlarmInhibitState, ifCommonCompliances=ifCommonCompliances, ifCommonCompliance=ifCommonCompliance, ifCommonMoId=ifCommonMoId)
+mibBuilder.exportSymbols("INFINERA-TP-IFCOMMON-MIB", ifCommonGroups=ifCommonGroups, ifCommonGroup=ifCommonGroup, ifCommonAvailabilityState=ifCommonAvailabilityState, ifCommonConformance=ifCommonConformance, ifCommonCompliances=ifCommonCompliances, ifCommonOpStateQualifierList=ifCommonOpStateQualifierList, ifCommonAlarmReportControl=ifCommonAlarmReportControl, ifCommonCompliance=ifCommonCompliance, ifCommonMIB=ifCommonMIB, PYSNMP_MODULE_ID=ifCommonMIB, ifCommonAlarmInhibitState=ifCommonAlarmInhibitState, ifCommonTable=ifCommonTable, ifCommonEntry=ifCommonEntry, ifCommonMoId=ifCommonMoId)

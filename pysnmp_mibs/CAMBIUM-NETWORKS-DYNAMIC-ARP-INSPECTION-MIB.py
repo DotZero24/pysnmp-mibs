@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CAMBIUM-NETWORKS-DYNAMIC-ARP-INSPECTION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cambium/CAMBIUM-NETWORKS-DYNAMIC-ARP-INSPECTION-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:45 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cambium/CAMBIUM-NETWORKS-DYNAMIC-ARP-INSPECTION-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:06:25 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-dot1qTpFdbPort, dot1qStaticUnicastEntry, dot1qTpFdbEntry, PortList, VlanIdOrNone, dot1qVlanStaticEntry = mibBuilder.importSymbols("Q-BRIDGE-MIB", "dot1qTpFdbPort", "dot1qStaticUnicastEntry", "dot1qTpFdbEntry", "PortList", "VlanIdOrNone", "dot1qVlanStaticEntry")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+PortList, dot1qVlanStaticEntry, dot1qTpFdbPort, VlanIdOrNone, dot1qTpFdbEntry, dot1qStaticUnicastEntry = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList", "dot1qVlanStaticEntry", "dot1qTpFdbPort", "VlanIdOrNone", "dot1qTpFdbEntry", "dot1qStaticUnicastEntry")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
 cnDaiMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 2076, 110))
 cnDaiMib.setRevisions(('2022-02-17 00:00', '2019-03-07 00:00',))
 if mibBuilder.loadTexts: cnDaiMib.setLastUpdated('202202170000Z')
@@ -71,4 +71,4 @@ cnDaiIfCfgIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 110, 3, 1, 1, 1), In
 if mibBuilder.loadTexts: cnDaiIfCfgIfIndex.setStatus('current')
 cnDaiIfCfgTrustState = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 110, 3, 1, 1, 2), TrustState().clone('untrusted')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: cnDaiIfCfgTrustState.setStatus('current')
-mibBuilder.exportSymbols("CAMBIUM-NETWORKS-DYNAMIC-ARP-INSPECTION-MIB", cnDaiVlanCfgTable=cnDaiVlanCfgTable, AdminStatus=AdminStatus, cnDaiVlanIpValidationFailures=cnDaiVlanIpValidationFailures, cnDaiDebugFlag=cnDaiDebugFlag, cnDaiIfCfgTable=cnDaiIfCfgTable, cnDaiVlanSrcMacValidationFailures=cnDaiVlanSrcMacValidationFailures, TrustState=TrustState, cnDaiVlanCfg=cnDaiVlanCfg, cnDaiMib=cnDaiMib, cnDaiVlanCfgEntry=cnDaiVlanCfgEntry, cnDaiVlanDhcpBindingsDenied=cnDaiVlanDhcpBindingsDenied, cnDaiVlanCfgRowStatus=cnDaiVlanCfgRowStatus, cnDaiVlanCfgVlanId=cnDaiVlanCfgVlanId, cnDaiIfCfgIfIndex=cnDaiIfCfgIfIndex, cnDaiVlanInvalidProtocolData=cnDaiVlanInvalidProtocolData, PYSNMP_MODULE_ID=cnDaiMib, cnDaiVlanForwarded=cnDaiVlanForwarded, cnDaiVlanStaticBindingsPermitted=cnDaiVlanStaticBindingsPermitted, cnDaiVlanDropped=cnDaiVlanDropped, cnDaiVlanStaticBindingsDenied=cnDaiVlanStaticBindingsDenied, cnDaiIfCfgEntry=cnDaiIfCfgEntry, cnDaiGlobal=cnDaiGlobal, VlanId=VlanId, cnDaiIfCfgTrustState=cnDaiIfCfgTrustState, cnDaiVlanDhcpBindingsPermitted=cnDaiVlanDhcpBindingsPermitted, cnDaiVlanCfgDaiAdminStatus=cnDaiVlanCfgDaiAdminStatus, cnDaiIfCfg=cnDaiIfCfg)
+mibBuilder.exportSymbols("CAMBIUM-NETWORKS-DYNAMIC-ARP-INSPECTION-MIB", cnDaiVlanStaticBindingsDenied=cnDaiVlanStaticBindingsDenied, cnDaiVlanForwarded=cnDaiVlanForwarded, cnDaiDebugFlag=cnDaiDebugFlag, cnDaiVlanInvalidProtocolData=cnDaiVlanInvalidProtocolData, cnDaiIfCfgIfIndex=cnDaiIfCfgIfIndex, cnDaiGlobal=cnDaiGlobal, VlanId=VlanId, cnDaiVlanCfgVlanId=cnDaiVlanCfgVlanId, cnDaiVlanDhcpBindingsPermitted=cnDaiVlanDhcpBindingsPermitted, cnDaiVlanCfgTable=cnDaiVlanCfgTable, cnDaiVlanSrcMacValidationFailures=cnDaiVlanSrcMacValidationFailures, cnDaiVlanDropped=cnDaiVlanDropped, cnDaiIfCfgTrustState=cnDaiIfCfgTrustState, cnDaiIfCfgEntry=cnDaiIfCfgEntry, cnDaiVlanCfgEntry=cnDaiVlanCfgEntry, cnDaiVlanCfgRowStatus=cnDaiVlanCfgRowStatus, cnDaiIfCfgTable=cnDaiIfCfgTable, cnDaiVlanIpValidationFailures=cnDaiVlanIpValidationFailures, TrustState=TrustState, cnDaiMib=cnDaiMib, PYSNMP_MODULE_ID=cnDaiMib, cnDaiVlanCfg=cnDaiVlanCfg, cnDaiIfCfg=cnDaiIfCfg, cnDaiVlanStaticBindingsPermitted=cnDaiVlanStaticBindingsPermitted, cnDaiVlanDhcpBindingsDenied=cnDaiVlanDhcpBindingsDenied, cnDaiVlanCfgDaiAdminStatus=cnDaiVlanCfgDaiAdminStatus, AdminStatus=AdminStatus)

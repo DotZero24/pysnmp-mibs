@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module MIMOSA-NETWORKS-COMMON-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mimosa/MIMOSA-MIB-COMMON
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:31:07 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mimosa/MIMOSA-MIB-COMMON
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:55:01 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-DecimalTwo, DecimalOne, DecimalFive = mibBuilder.importSymbols("MIMOSA-MIB-TC", "DecimalTwo", "DecimalOne", "DecimalFive")
-mimosaConformanceGroup, mimosaWireless = mibBuilder.importSymbols("MIMOSA-NETWORKS-BASE-MIB", "mimosaConformanceGroup", "mimosaWireless")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+DecimalTwo, DecimalFive, DecimalOne = mibBuilder.importSymbols("MIMOSA-MIB-TC", "DecimalTwo", "DecimalFive", "DecimalOne")
+mimosaWireless, mimosaConformanceGroup = mibBuilder.importSymbols("MIMOSA-NETWORKS-BASE-MIB", "mimosaWireless", "mimosaConformanceGroup")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 mimosaCommonModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 43356, 2, 4, 3))
 mimosaCommonModule.setRevisions(('2017-02-15 00:00',))
 if mibBuilder.loadTexts: mimosaCommonModule.setLastUpdated('201702150000Z')
@@ -68,4 +68,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 mimosaLocationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 43356, 2, 4, 1, 2, 2)).setObjects(("MIMOSA-NETWORKS-COMMON-MIB", "mimosaLongitude"), ("MIMOSA-NETWORKS-COMMON-MIB", "mimosaLatitude"), ("MIMOSA-NETWORKS-COMMON-MIB", "mimosaAltitude"), ("MIMOSA-NETWORKS-COMMON-MIB", "mimosaSatelliteSNR"), ("MIMOSA-NETWORKS-COMMON-MIB", "mimosaSatelliteStrength"), ("MIMOSA-NETWORKS-COMMON-MIB", "mimosaGPSSatellites"), ("MIMOSA-NETWORKS-COMMON-MIB", "mimosaGlonassSatellites"), ("MIMOSA-NETWORKS-COMMON-MIB", "mimosaClockAccuracy"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     mimosaLocationGroup = mimosaLocationGroup.setStatus('current')
-mibBuilder.exportSymbols("MIMOSA-NETWORKS-COMMON-MIB", mimosaGPSSatellites=mimosaGPSSatellites, mimosaRebootReason=mimosaRebootReason, mimosaLastRebootTime=mimosaLastRebootTime, PYSNMP_MODULE_ID=mimosaCommonModule, mimosaSatelliteSNR=mimosaSatelliteSNR, mimosaCommonCompliances=mimosaCommonCompliances, mimosaFirmwareBuildDate=mimosaFirmwareBuildDate, mimosaUnlockCode=mimosaUnlockCode, mimosaSerialNumber=mimosaSerialNumber, mimosaGeneral=mimosaGeneral, mimosaCommonGroups=mimosaCommonGroups, mimosaRegulatoryDomain=mimosaRegulatoryDomain, mimosaGlonassSatellites=mimosaGlonassSatellites, mimosaLocationGroup=mimosaLocationGroup, mimosaCommonCompliance=mimosaCommonCompliance, mimosaSatelliteStrength=mimosaSatelliteStrength, mimosaCommonConformance=mimosaCommonConformance, mimosaFirmwareVersion=mimosaFirmwareVersion, mimosaDeviceName=mimosaDeviceName, mimosaAltitude=mimosaAltitude, mimosaLEDBrightness=mimosaLEDBrightness, mimosaGeneralGroup=mimosaGeneralGroup, mimosaClockAccuracy=mimosaClockAccuracy, mimosaLongitude=mimosaLongitude, mimosaLocInfo=mimosaLocInfo, mimosaLatitude=mimosaLatitude, mimosaCommonModule=mimosaCommonModule, mimosaInternalTemp=mimosaInternalTemp)
+mibBuilder.exportSymbols("MIMOSA-NETWORKS-COMMON-MIB", mimosaGlonassSatellites=mimosaGlonassSatellites, mimosaAltitude=mimosaAltitude, mimosaCommonCompliance=mimosaCommonCompliance, mimosaFirmwareVersion=mimosaFirmwareVersion, mimosaFirmwareBuildDate=mimosaFirmwareBuildDate, mimosaInternalTemp=mimosaInternalTemp, mimosaClockAccuracy=mimosaClockAccuracy, mimosaSerialNumber=mimosaSerialNumber, mimosaGeneralGroup=mimosaGeneralGroup, mimosaCommonConformance=mimosaCommonConformance, PYSNMP_MODULE_ID=mimosaCommonModule, mimosaGeneral=mimosaGeneral, mimosaUnlockCode=mimosaUnlockCode, mimosaCommonCompliances=mimosaCommonCompliances, mimosaLocationGroup=mimosaLocationGroup, mimosaLocInfo=mimosaLocInfo, mimosaLastRebootTime=mimosaLastRebootTime, mimosaRebootReason=mimosaRebootReason, mimosaRegulatoryDomain=mimosaRegulatoryDomain, mimosaLatitude=mimosaLatitude, mimosaLEDBrightness=mimosaLEDBrightness, mimosaDeviceName=mimosaDeviceName, mimosaSatelliteStrength=mimosaSatelliteStrength, mimosaLongitude=mimosaLongitude, mimosaCommonGroups=mimosaCommonGroups, mimosaSatelliteSNR=mimosaSatelliteSNR, mimosaGPSSatellites=mimosaGPSSatellites, mimosaCommonModule=mimosaCommonModule)

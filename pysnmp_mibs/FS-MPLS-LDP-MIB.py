@@ -1,23 +1,23 @@
 #
 # PySNMP MIB module FS-MPLS-LDP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fscom/FS-MPLS-LDP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:31 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/fscom/FS-MPLS-LDP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:01:12 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 fsMgmt, = mibBuilder.importSymbols("FS-SMI", "fsMgmt")
 ConfigStatus, = mibBuilder.importSymbols("FS-TC", "ConfigStatus")
-InetAddressPrefixLength, InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressPrefixLength", "InetPortNumber", "InetAddressType", "InetAddress")
+InetPortNumber, InetAddressPrefixLength, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressPrefixLength", "InetAddressType", "InetAddress")
 MplsLdpIdentifier, = mibBuilder.importSymbols("MPLS-TC-STD-MIB", "MplsLdpIdentifier")
-RouterID, PositiveInteger, DesignatedRouterPriority, HelloRange, Status, AreaID = mibBuilder.importSymbols("OSPF-MIB", "RouterID", "PositiveInteger", "DesignatedRouterPriority", "HelloRange", "Status", "AreaID")
+HelloRange, RouterID, AreaID, PositiveInteger, DesignatedRouterPriority, Status = mibBuilder.importSymbols("OSPF-MIB", "HelloRange", "RouterID", "AreaID", "PositiveInteger", "DesignatedRouterPriority", "Status")
 EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
 fsMplsLdpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 99))
 fsMplsLdpMIB.setRevisions(('2011-05-15 00:00',))
 if mibBuilder.loadTexts: fsMplsLdpMIB.setLastUpdated('201105150000Z')
@@ -71,4 +71,4 @@ mplsFecTransmitBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 99,
 if mibBuilder.loadTexts: mplsFecTransmitBytes.setStatus('current')
 mplsFecTransmitPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 99, 1, 1, 1, 6, 1, 15), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: mplsFecTransmitPackets.setStatus('current')
-mibBuilder.exportSymbols("FS-MPLS-LDP-MIB", mplsFecType=mplsFecType, fsMplsLdpFecTable=fsMplsLdpFecTable, mplsFecLspDisconnect=mplsFecLspDisconnect, mplsLdpSessionCloseType=mplsLdpSessionCloseType, mplsFecAddrType=mplsFecAddrType, mplsFecLspDisconnectType=mplsFecLspDisconnectType, mplsLdpThreadName=mplsLdpThreadName, PYSNMP_MODULE_ID=fsMplsLdpMIB, mplsFecIndex=mplsFecIndex, mplsFecSession=mplsFecSession, fsMplsLdpFecEntry=fsMplsLdpFecEntry, fsMplsLdpObjects=fsMplsLdpObjects, mplsFecIngressPackets=mplsFecIngressPackets, mplsFecLspActivity=mplsFecLspActivity, mplsFecTransmitPackets=mplsFecTransmitPackets, mplsFecAddr=mplsFecAddr, mplsFecTransmitBytes=mplsFecTransmitBytes, mplsLdpSessionCreatCount=mplsLdpSessionCreatCount, fsMplsLdpMIBObjects=fsMplsLdpMIBObjects, mplsLdpSessionUpCount=mplsLdpSessionUpCount, mplsFecAddrPrefixLength=mplsFecAddrPrefixLength, mplsFecIngressBytes=mplsFecIngressBytes, fsMplsLdpConformance=fsMplsLdpConformance, mplsFecStatus=mplsFecStatus, mplsLdpSessionDownCauseByInf=mplsLdpSessionDownCauseByInf, mplsLdpSessionDownCount=mplsLdpSessionDownCount, fsMplsLdpMplsGernalMibObjects=fsMplsLdpMplsGernalMibObjects, fsMplsLdpConfigMibObjects=fsMplsLdpConfigMibObjects, fsMplsLdpMIB=fsMplsLdpMIB)
+mibBuilder.exportSymbols("FS-MPLS-LDP-MIB", fsMplsLdpConfigMibObjects=fsMplsLdpConfigMibObjects, mplsFecLspDisconnectType=mplsFecLspDisconnectType, mplsLdpSessionCreatCount=mplsLdpSessionCreatCount, mplsLdpThreadName=mplsLdpThreadName, mplsFecIndex=mplsFecIndex, mplsFecAddrType=mplsFecAddrType, mplsFecSession=mplsFecSession, mplsFecAddr=mplsFecAddr, PYSNMP_MODULE_ID=fsMplsLdpMIB, fsMplsLdpFecEntry=fsMplsLdpFecEntry, mplsFecType=mplsFecType, mplsLdpSessionCloseType=mplsLdpSessionCloseType, mplsLdpSessionDownCauseByInf=mplsLdpSessionDownCauseByInf, mplsFecLspActivity=mplsFecLspActivity, fsMplsLdpObjects=fsMplsLdpObjects, fsMplsLdpMplsGernalMibObjects=fsMplsLdpMplsGernalMibObjects, fsMplsLdpConformance=fsMplsLdpConformance, mplsFecAddrPrefixLength=mplsFecAddrPrefixLength, mplsFecLspDisconnect=mplsFecLspDisconnect, mplsFecTransmitBytes=mplsFecTransmitBytes, fsMplsLdpMIBObjects=fsMplsLdpMIBObjects, fsMplsLdpMIB=fsMplsLdpMIB, mplsFecIngressBytes=mplsFecIngressBytes, mplsLdpSessionUpCount=mplsLdpSessionUpCount, mplsLdpSessionDownCount=mplsLdpSessionDownCount, mplsFecIngressPackets=mplsFecIngressPackets, fsMplsLdpFecTable=fsMplsLdpFecTable, mplsFecTransmitPackets=mplsFecTransmitPackets, mplsFecStatus=mplsFecStatus)

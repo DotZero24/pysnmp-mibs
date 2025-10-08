@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module H3C-FC-TC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-FC-TC-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:54 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-FC-TC-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:50 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 class H3cFcAddressType(TextualConvention, Integer32):
     status = 'current'
@@ -83,4 +83,4 @@ class H3cFcDomainIdList(TextualConvention, OctetString):
     status = 'current'
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 32)
 
-mibBuilder.exportSymbols("H3C-FC-TC-MIB", H3cFcNameIdOrZero=H3cFcNameIdOrZero, H3cFcAddressId=H3cFcAddressId, H3cFcDomainIdList=H3cFcDomainIdList, H3cFcDomainPriority=H3cFcDomainPriority, H3cFcAddressIdOrZero=H3cFcAddressIdOrZero, H3cFcDomainId=H3cFcDomainId, H3cFcRxMTU=H3cFcRxMTU, H3cFcNameId=H3cFcNameId, H3cFcVsanIndex=H3cFcVsanIndex, H3cFcStartOper=H3cFcStartOper, H3cFcDmState=H3cFcDmState, H3cFcAddressType=H3cFcAddressType, H3cFcBbCredit=H3cFcBbCredit, H3cFcDomainIdOrZero=H3cFcDomainIdOrZero, H3cFcClassOfServices=H3cFcClassOfServices, H3cFcAddress=H3cFcAddress)
+mibBuilder.exportSymbols("H3C-FC-TC-MIB", H3cFcStartOper=H3cFcStartOper, H3cFcClassOfServices=H3cFcClassOfServices, H3cFcDmState=H3cFcDmState, H3cFcAddressIdOrZero=H3cFcAddressIdOrZero, H3cFcAddressType=H3cFcAddressType, H3cFcRxMTU=H3cFcRxMTU, H3cFcDomainPriority=H3cFcDomainPriority, H3cFcNameId=H3cFcNameId, H3cFcDomainId=H3cFcDomainId, H3cFcDomainIdList=H3cFcDomainIdList, H3cFcVsanIndex=H3cFcVsanIndex, H3cFcDomainIdOrZero=H3cFcDomainIdOrZero, H3cFcAddress=H3cFcAddress, H3cFcBbCredit=H3cFcBbCredit, H3cFcAddressId=H3cFcAddressId, H3cFcNameIdOrZero=H3cFcNameIdOrZero)

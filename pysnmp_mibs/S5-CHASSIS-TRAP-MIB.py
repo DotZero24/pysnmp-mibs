@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module S5-CHASSIS-TRAP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/S5-CHASSIS-TRAP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:16 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nortel/S5-CHASSIS-TRAP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:02:48 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-s5ChasComType, s5ChasComOperState, s5ChasNotifyFanDirection = mibBuilder.importSymbols("S5-CHASSIS-MIB", "s5ChasComType", "s5ChasComOperState", "s5ChasNotifyFanDirection")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+s5ChasComType, s5ChasNotifyFanDirection, s5ChasComOperState = mibBuilder.importSymbols("S5-CHASSIS-MIB", "s5ChasComType", "s5ChasNotifyFanDirection", "s5ChasComOperState")
 s5ChaTrap, = mibBuilder.importSymbols("S5-ROOT-MIB", "s5ChaTrap")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 s5ChassisTrapMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 0))
 s5ChassisTrapMib.setRevisions(('2011-04-15 00:00', '2011-03-29 00:00', '2009-07-29 00:00', '2004-07-20 00:00',))
 if mibBuilder.loadTexts: s5ChassisTrapMib.setLastUpdated('201104150000Z')
@@ -39,4 +39,4 @@ s5CtrFanDirectionError = NotificationType((1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 0, 
 if mibBuilder.loadTexts: s5CtrFanDirectionError.setStatus('current')
 s5CtrHighTemperatureError = NotificationType((1, 3, 6, 1, 4, 1, 45, 1, 6, 2, 4, 0, 7)).setObjects(("S5-CHASSIS-MIB", "s5ChasComType"), ("S5-CHASSIS-MIB", "s5ChasComOperState"))
 if mibBuilder.loadTexts: s5CtrHighTemperatureError.setStatus('current')
-mibBuilder.exportSymbols("S5-CHASSIS-TRAP-MIB", s5ChassisTrapMib=s5ChassisTrapMib, s5CtrNewProblem=s5CtrNewProblem, s5CtrNewHotSwap=s5CtrNewHotSwap, s5CtrNewUnitUp=s5CtrNewUnitUp, s5CtrFanRotationError=s5CtrFanRotationError, s5CtrProblem=s5CtrProblem, PYSNMP_MODULE_ID=s5ChassisTrapMib, s5CtrFanDirectionError=s5CtrFanDirectionError, s5CtrUnitDown=s5CtrUnitDown, s5CtrHighTemperatureError=s5CtrHighTemperatureError, s5CtrUnitUp=s5CtrUnitUp, s5CtrHotSwap=s5CtrHotSwap, s5CtrNewUnitDown=s5CtrNewUnitDown)
+mibBuilder.exportSymbols("S5-CHASSIS-TRAP-MIB", s5CtrHotSwap=s5CtrHotSwap, s5CtrNewHotSwap=s5CtrNewHotSwap, s5CtrHighTemperatureError=s5CtrHighTemperatureError, s5CtrNewProblem=s5CtrNewProblem, PYSNMP_MODULE_ID=s5ChassisTrapMib, s5ChassisTrapMib=s5ChassisTrapMib, s5CtrNewUnitDown=s5CtrNewUnitDown, s5CtrProblem=s5CtrProblem, s5CtrNewUnitUp=s5CtrNewUnitUp, s5CtrFanRotationError=s5CtrFanRotationError, s5CtrUnitUp=s5CtrUnitUp, s5CtrUnitDown=s5CtrUnitDown, s5CtrFanDirectionError=s5CtrFanDirectionError)

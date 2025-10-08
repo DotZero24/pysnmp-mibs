@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ALVARION-SYSLOG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alvarion/ALVARION-SYSLOG-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:04 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alvarion/ALVARION-SYSLOG-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:36 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 alvarionMgmtV2, = mibBuilder.importSymbols("ALVARION-SMI", "alvarionMgmtV2")
 AlvarionNotificationEnable, = mibBuilder.importSymbols("ALVARION-TC", "AlvarionNotificationEnable")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 alvarionSyslogMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 3))
 if mibBuilder.loadTexts: alvarionSyslogMIB.setLastUpdated('200710310000Z')
@@ -61,4 +61,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 alvarionSyslogNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 3, 3, 2, 2)).setObjects(("ALVARION-SYSLOG-MIB", "syslogSeverityNotification"), ("ALVARION-SYSLOG-MIB", "syslogRegExMatchNotification"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     alvarionSyslogNotificationGroup = alvarionSyslogNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("ALVARION-SYSLOG-MIB", SyslogSeverity=SyslogSeverity, syslogSeverityNotificationEnabled=syslogSeverityNotificationEnabled, alvarionSyslogMIBNotifications=alvarionSyslogMIBNotifications, syslogMsgNumber=syslogMsgNumber, syslogMsgText=syslogMsgText, alvarionSyslogMIBNotificationPrefix=alvarionSyslogMIBNotificationPrefix, PYSNMP_MODULE_ID=alvarionSyslogMIB, syslogRegExMatchNotification=syslogRegExMatchNotification, alvarionSyslogMIBGroup=alvarionSyslogMIBGroup, alvarionSyslogMIBObjects=alvarionSyslogMIBObjects, syslogMsgFacility=syslogMsgFacility, syslogSeverityNotification=syslogSeverityNotification, syslogMessageRegEx=syslogMessageRegEx, syslogTrapSeverityLevel=syslogTrapSeverityLevel, alvarionSyslogMIBGroups=alvarionSyslogMIBGroups, alvarionSyslogMIB=alvarionSyslogMIB, syslogMessage=syslogMessage, syslogRegExMatchNotificationEnabled=syslogRegExMatchNotificationEnabled, syslogConfig=syslogConfig, syslogMsgSeverity=syslogMsgSeverity, alvarionSyslogMIBConformance=alvarionSyslogMIBConformance, alvarionSyslogMIBCompliances=alvarionSyslogMIBCompliances, alvarionSyslogNotificationGroup=alvarionSyslogNotificationGroup, syslogSeverityLevel=syslogSeverityLevel, alvarionSyslogMIBCompliance=alvarionSyslogMIBCompliance)
+mibBuilder.exportSymbols("ALVARION-SYSLOG-MIB", syslogMsgSeverity=syslogMsgSeverity, alvarionSyslogMIBConformance=alvarionSyslogMIBConformance, syslogMessage=syslogMessage, syslogSeverityNotificationEnabled=syslogSeverityNotificationEnabled, alvarionSyslogMIBCompliance=alvarionSyslogMIBCompliance, syslogMsgNumber=syslogMsgNumber, PYSNMP_MODULE_ID=alvarionSyslogMIB, alvarionSyslogMIBNotifications=alvarionSyslogMIBNotifications, alvarionSyslogMIBGroup=alvarionSyslogMIBGroup, alvarionSyslogMIBNotificationPrefix=alvarionSyslogMIBNotificationPrefix, alvarionSyslogNotificationGroup=alvarionSyslogNotificationGroup, alvarionSyslogMIBObjects=alvarionSyslogMIBObjects, syslogRegExMatchNotification=syslogRegExMatchNotification, syslogConfig=syslogConfig, syslogSeverityNotification=syslogSeverityNotification, alvarionSyslogMIBGroups=alvarionSyslogMIBGroups, syslogMsgText=syslogMsgText, SyslogSeverity=SyslogSeverity, syslogMessageRegEx=syslogMessageRegEx, syslogTrapSeverityLevel=syslogTrapSeverityLevel, alvarionSyslogMIB=alvarionSyslogMIB, syslogRegExMatchNotificationEnabled=syslogRegExMatchNotificationEnabled, syslogMsgFacility=syslogMsgFacility, alvarionSyslogMIBCompliances=alvarionSyslogMIBCompliances, syslogSeverityLevel=syslogSeverityLevel)

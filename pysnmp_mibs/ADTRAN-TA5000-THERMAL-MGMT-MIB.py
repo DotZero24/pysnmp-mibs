@@ -1,22 +1,22 @@
 #
 # PySNMP MIB module ADTRAN-TA5000-THERMAL-MGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-TA5000-THERMAL-MGMT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:08 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/adtran/ADTRAN-TA5000-THERMAL-MGMT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:52:13 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 adGenSlotInfoIndex, = mibBuilder.importSymbols("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex")
 adTa5kThermalManagementID, adTa5kThermalManagement = mibBuilder.importSymbols("ADTRAN-GENTA5K-MIB", "adTa5kThermalManagementID", "adTa5kThermalManagement")
 adTrapInformSeqNum, = mibBuilder.importSymbols("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum")
-adMgmt, adProducts, adIdentity = mibBuilder.importSymbols("ADTRAN-MIB", "adMgmt", "adProducts", "adIdentity")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+adProducts, adMgmt, adIdentity = mibBuilder.importSymbols("ADTRAN-MIB", "adProducts", "adMgmt", "adIdentity")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
 sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 adTa5kThermalMgmtModuleIdentity = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 39, 1))
 adTa5kThermalMgmtModuleIdentity.setRevisions(('2013-11-25 00:00', '2013-08-01 21:00',))
 if mibBuilder.loadTexts: adTa5kThermalMgmtModuleIdentity.setLastUpdated('201311250000Z')
@@ -49,4 +49,4 @@ adTa5kRemoteDeviceCriticalTempActive = NotificationType((1, 3, 6, 1, 4, 1, 664, 
 if mibBuilder.loadTexts: adTa5kRemoteDeviceCriticalTempActive.setStatus('current')
 adTa5kRemoteDeviceCriticalTempClear = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 39, 2, 0, 4)).setObjects(("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum"), ("SNMPv2-MIB", "sysName"), ("IF-MIB", "ifIndex"))
 if mibBuilder.loadTexts: adTa5kRemoteDeviceCriticalTempClear.setStatus('current')
-mibBuilder.exportSymbols("ADTRAN-TA5000-THERMAL-MGMT-MIB", adTA5kThermalEventsFix=adTA5kThermalEventsFix, adTA5kThermalManagementTable=adTA5kThermalManagementTable, PYSNMP_MODULE_ID=adTa5kThermalMgmtModuleIdentity, adTa5kRemoteDeviceCriticalTempClear=adTa5kRemoteDeviceCriticalTempClear, adTa5kThermalEvents=adTa5kThermalEvents, adTA5kThermalSlotTable=adTA5kThermalSlotTable, adTA5kThermalSlotNumSensors=adTA5kThermalSlotNumSensors, adTA5kThermalMgmtmg=adTA5kThermalMgmtmg, adTA5kThermalSlotEntry=adTA5kThermalSlotEntry, adTA5kThermal=adTA5kThermal, adTA5kThermalManagementSensorId=adTA5kThermalManagementSensorId, adTA5kThermalManagementSensorName=adTA5kThermalManagementSensorName, adTA5kThermalManagementSensorCurrTemp=adTA5kThermalManagementSensorCurrTemp, adTA5kSlotCriticalTempActive=adTA5kSlotCriticalTempActive, adTA5kSlotCriticalTempClear=adTA5kSlotCriticalTempClear, adTA5kThermalManagementEntry=adTA5kThermalManagementEntry, adTa5kRemoteDeviceCriticalTempActive=adTa5kRemoteDeviceCriticalTempActive, adTa5kThermalMgmtModuleIdentity=adTa5kThermalMgmtModuleIdentity)
+mibBuilder.exportSymbols("ADTRAN-TA5000-THERMAL-MGMT-MIB", adTa5kThermalMgmtModuleIdentity=adTa5kThermalMgmtModuleIdentity, adTA5kThermalMgmtmg=adTA5kThermalMgmtmg, adTA5kThermalSlotTable=adTA5kThermalSlotTable, adTA5kThermalEventsFix=adTA5kThermalEventsFix, adTA5kThermalManagementSensorId=adTA5kThermalManagementSensorId, adTa5kRemoteDeviceCriticalTempActive=adTa5kRemoteDeviceCriticalTempActive, adTA5kThermal=adTA5kThermal, adTA5kThermalSlotNumSensors=adTA5kThermalSlotNumSensors, adTa5kRemoteDeviceCriticalTempClear=adTa5kRemoteDeviceCriticalTempClear, adTA5kThermalManagementSensorCurrTemp=adTA5kThermalManagementSensorCurrTemp, adTA5kThermalSlotEntry=adTA5kThermalSlotEntry, adTa5kThermalEvents=adTa5kThermalEvents, adTA5kThermalManagementEntry=adTA5kThermalManagementEntry, PYSNMP_MODULE_ID=adTa5kThermalMgmtModuleIdentity, adTA5kSlotCriticalTempActive=adTA5kSlotCriticalTempActive, adTA5kSlotCriticalTempClear=adTA5kSlotCriticalTempClear, adTA5kThermalManagementTable=adTA5kThermalManagementTable, adTA5kThermalManagementSensorName=adTA5kThermalManagementSensorName)

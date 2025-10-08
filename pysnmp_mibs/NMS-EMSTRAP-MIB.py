@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module NMS-EMSTRAP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/bdcom/NMS-EMSTRAP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:22:45 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/bdcom/NMS-EMSTRAP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:42:05 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 nmsWorkGroup, = mibBuilder.importSymbols("NMS-SMI", "nmsWorkGroup")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 eMSMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 3320, 20, 1))
 if mibBuilder.loadTexts: eMSMibModule.setLastUpdated('201507220950Z')
 if mibBuilder.loadTexts: eMSMibModule.setOrganization('Organization.')
@@ -60,4 +60,4 @@ eMSLicense = MibScalar((1, 3, 6, 1, 4, 1, 3320, 20, 1, 1, 3, 14), Integer32()).s
 if mibBuilder.loadTexts: eMSLicense.setStatus('current')
 eMSLicenseLimit = MibScalar((1, 3, 6, 1, 4, 1, 3320, 20, 1, 1, 3, 15), Integer32()).setMaxAccess("accessiblefornotify")
 if mibBuilder.loadTexts: eMSLicenseLimit.setStatus('current')
-mibBuilder.exportSymbols("NMS-EMSTRAP-MIB", eMSCPURatioLimit=eMSCPURatioLimit, eMSDiskUsed=eMSDiskUsed, eMSDataUsed=eMSDataUsed, eMSTrapInfo=eMSTrapInfo, eMSMemoryRatioLimit=eMSMemoryRatioLimit, eMSLicenseTrap=eMSLicenseTrap, eMSMemoryTrap=eMSMemoryTrap, eMSDiskTrap=eMSDiskTrap, eMSCPUTrap=eMSCPUTrap, eMSProcess=eMSProcess, eMSDiskRatioLimit=eMSDiskRatioLimit, eMSTrapObject=eMSTrapObject, eMSMibModule=eMSMibModule, eMSLicense=eMSLicense, PYSNMP_MODULE_ID=eMSMibModule, eMSTrap=eMSTrap, eMSMemoryUsed=eMSMemoryUsed, eMSCPURatio=eMSCPURatio, eMSDataSize=eMSDataSize, eMSDataTrap=eMSDataTrap, eMSProcessTrap=eMSProcessTrap, eMSMemorySize=eMSMemorySize, eMSDiskSize=eMSDiskSize, eMSProcessLimit=eMSProcessLimit, eMSDataRatioLimit=eMSDataRatioLimit, eMSLicenseLimit=eMSLicenseLimit)
+mibBuilder.exportSymbols("NMS-EMSTRAP-MIB", eMSCPURatioLimit=eMSCPURatioLimit, eMSDataRatioLimit=eMSDataRatioLimit, eMSDataTrap=eMSDataTrap, eMSCPURatio=eMSCPURatio, eMSTrap=eMSTrap, eMSDiskRatioLimit=eMSDiskRatioLimit, eMSTrapInfo=eMSTrapInfo, eMSLicense=eMSLicense, eMSLicenseLimit=eMSLicenseLimit, PYSNMP_MODULE_ID=eMSMibModule, eMSDataSize=eMSDataSize, eMSDiskSize=eMSDiskSize, eMSDiskTrap=eMSDiskTrap, eMSMemoryTrap=eMSMemoryTrap, eMSMibModule=eMSMibModule, eMSMemorySize=eMSMemorySize, eMSMemoryRatioLimit=eMSMemoryRatioLimit, eMSTrapObject=eMSTrapObject, eMSCPUTrap=eMSCPUTrap, eMSLicenseTrap=eMSLicenseTrap, eMSDiskUsed=eMSDiskUsed, eMSMemoryUsed=eMSMemoryUsed, eMSProcess=eMSProcess, eMSDataUsed=eMSDataUsed, eMSProcessLimit=eMSProcessLimit, eMSProcessTrap=eMSProcessTrap)

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module LUM-LINKLOSS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/LUM-LINKLOSS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:52 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/LUM-LINKLOSS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:21:12 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 lumLinkLossMIB, lumModules = mibBuilder.importSymbols("LUM-REG", "lumLinkLossMIB", "lumModules")
 FaultStatus, = mibBuilder.importSymbols("LUM-TC", "FaultStatus")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
 lumLinkLossMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 8708, 1, 1, 45))
 lumLinkLossMIBModule.setRevisions(('2017-06-15 00:00', '2012-03-09 00:00',))
 if mibBuilder.loadTexts: lumLinkLossMIBModule.setLastUpdated('201706150000Z')
@@ -53,4 +53,4 @@ lumLinkLossBasicComplV1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 8708, 2, 45, 1, 2,
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     lumLinkLossBasicComplV1 = lumLinkLossBasicComplV1.setStatus('current')
-mibBuilder.exportSymbols("LUM-LINKLOSS-MIB", linkLossGeneralStatusTableSize=linkLossGeneralStatusTableSize, linkLossStatusMeasurementFailedOneDb=linkLossStatusMeasurementFailedOneDb, linkLossStatusMeasurementFailedFiveSec=linkLossStatusMeasurementFailedFiveSec, lumLinkLossBasicComplV1=lumLinkLossBasicComplV1, lumLinkLossMIBObjects=lumLinkLossMIBObjects, linkLossGeneralStateLastChangeTime=linkLossGeneralStateLastChangeTime, linkLossStatusThresholdExceeded=linkLossStatusThresholdExceeded, linkLossGeneralGroup=linkLossGeneralGroup, linkLossStatusTable=linkLossStatusTable, linkLossStatusList=linkLossStatusList, lumLinkLossGroups=lumLinkLossGroups, PYSNMP_MODULE_ID=lumLinkLossMIBModule, linkLossStatusMeasurementFailed=linkLossStatusMeasurementFailed, lumLinkLossCompl=lumLinkLossCompl, linkLossGeneralConfigLastChangeTime=linkLossGeneralConfigLastChangeTime, lumLinkLossConfs=lumLinkLossConfs, linkLossGeneral=linkLossGeneral, linkLossStatusEntry=linkLossStatusEntry, linkLossStatusIndex=linkLossStatusIndex, lumLinkLossMIBModule=lumLinkLossMIBModule, linkLossStatusGroup=linkLossStatusGroup)
+mibBuilder.exportSymbols("LUM-LINKLOSS-MIB", linkLossStatusMeasurementFailedOneDb=linkLossStatusMeasurementFailedOneDb, lumLinkLossMIBObjects=lumLinkLossMIBObjects, linkLossStatusGroup=linkLossStatusGroup, linkLossStatusMeasurementFailedFiveSec=linkLossStatusMeasurementFailedFiveSec, linkLossStatusList=linkLossStatusList, PYSNMP_MODULE_ID=lumLinkLossMIBModule, linkLossStatusMeasurementFailed=linkLossStatusMeasurementFailed, linkLossStatusEntry=linkLossStatusEntry, lumLinkLossBasicComplV1=lumLinkLossBasicComplV1, lumLinkLossMIBModule=lumLinkLossMIBModule, linkLossGeneral=linkLossGeneral, linkLossStatusTable=linkLossStatusTable, linkLossStatusIndex=linkLossStatusIndex, lumLinkLossGroups=lumLinkLossGroups, lumLinkLossCompl=lumLinkLossCompl, linkLossGeneralStateLastChangeTime=linkLossGeneralStateLastChangeTime, linkLossStatusThresholdExceeded=linkLossStatusThresholdExceeded, linkLossGeneralConfigLastChangeTime=linkLossGeneralConfigLastChangeTime, linkLossGeneralGroup=linkLossGeneralGroup, linkLossGeneralStatusTableSize=linkLossGeneralStatusTableSize, lumLinkLossConfs=lumLinkLossConfs)

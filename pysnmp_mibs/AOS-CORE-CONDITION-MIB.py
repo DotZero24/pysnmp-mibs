@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module AOS-CORE-CONDITION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adva/AOS-CORE-CONDITION-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:46 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/adva/AOS-CORE-CONDITION-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:02:15 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 aosCommon, = mibBuilder.importSymbols("ADVA-MIB", "aosCommon")
-ConditionType, ConditionEntityTranslation, ConditionDescr = mibBuilder.importSymbols("AOS-CORE-ALARM-MIB", "ConditionType", "ConditionEntityTranslation", "ConditionDescr")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ConditionEntityTranslation, ConditionDescr, ConditionType = mibBuilder.importSymbols("AOS-CORE-ALARM-MIB", "ConditionEntityTranslation", "ConditionDescr", "ConditionType")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TimeStamp, TruthValue, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "TruthValue", "RowPointer", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, RowPointer, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowPointer", "TruthValue", "TimeStamp", "DisplayString")
 aosCoreConditionMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2544, 1, 20, 1, 2))
 aosCoreConditionMIB.setRevisions(('2015-10-23 00:00',))
 if mibBuilder.loadTexts: aosCoreConditionMIB.setLastUpdated('201510230000Z')
@@ -44,4 +44,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 aosCoreConditionObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 20, 1, 2, 2, 2, 1)).setObjects(("AOS-CORE-CONDITION-MIB", "aosCoreConditionIndex"), ("AOS-CORE-CONDITION-MIB", "aosCoreConditionType"), ("AOS-CORE-CONDITION-MIB", "aosCoreConditionEntityTranslation"), ("AOS-CORE-CONDITION-MIB", "aosCoreConditionEntity"), ("AOS-CORE-CONDITION-MIB", "aosCoreConditionDescr"), ("AOS-CORE-CONDITION-MIB", "aosCoreConditionTimestamp"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     aosCoreConditionObjectGroup = aosCoreConditionObjectGroup.setStatus('current')
-mibBuilder.exportSymbols("AOS-CORE-CONDITION-MIB", aosCoreConditionGroups=aosCoreConditionGroups, aosCoreConditionObjectGroup=aosCoreConditionObjectGroup, aosCoreConditionEntry=aosCoreConditionEntry, aosCoreConditionEntityTranslation=aosCoreConditionEntityTranslation, aosCoreConditionDescr=aosCoreConditionDescr, conditionObjects=conditionObjects, aosCoreConditionMIB=aosCoreConditionMIB, aosCoreConditionTable=aosCoreConditionTable, PYSNMP_MODULE_ID=aosCoreConditionMIB, aosCoreConditionIndex=aosCoreConditionIndex, aosCoreConditionCompliance=aosCoreConditionCompliance, aosCoreConditionType=aosCoreConditionType, aosCoreConditionEntity=aosCoreConditionEntity, aosCoreConditionTimestamp=aosCoreConditionTimestamp, aosCoreConditionCompliances=aosCoreConditionCompliances, conditionConformance=conditionConformance)
+mibBuilder.exportSymbols("AOS-CORE-CONDITION-MIB", PYSNMP_MODULE_ID=aosCoreConditionMIB, aosCoreConditionEntry=aosCoreConditionEntry, aosCoreConditionDescr=aosCoreConditionDescr, aosCoreConditionType=aosCoreConditionType, aosCoreConditionCompliances=aosCoreConditionCompliances, aosCoreConditionMIB=aosCoreConditionMIB, aosCoreConditionTimestamp=aosCoreConditionTimestamp, aosCoreConditionGroups=aosCoreConditionGroups, aosCoreConditionObjectGroup=aosCoreConditionObjectGroup, aosCoreConditionEntityTranslation=aosCoreConditionEntityTranslation, aosCoreConditionIndex=aosCoreConditionIndex, aosCoreConditionTable=aosCoreConditionTable, aosCoreConditionCompliance=aosCoreConditionCompliance, aosCoreConditionEntity=aosCoreConditionEntity, conditionObjects=conditionObjects, conditionConformance=conditionConformance)

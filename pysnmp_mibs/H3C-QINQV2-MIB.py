@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module H3C-QINQV2-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-QINQV2-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:35 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-QINQV2-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:23 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 h3cQinQv2 = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 137))
 h3cQinQv2.setRevisions(('2013-03-08 00:00',))
 if mibBuilder.loadTexts: h3cQinQv2.setLastUpdated('201303080000Z')
@@ -35,4 +35,4 @@ h3cQinQv2IfCustomerTPID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 137, 1,
 if mibBuilder.loadTexts: h3cQinQv2IfCustomerTPID.setStatus('current')
 h3cQinQv2IfTransVlanList = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 137, 1, 2, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(512, 512)).setFixedLength(512)).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: h3cQinQv2IfTransVlanList.setStatus('current')
-mibBuilder.exportSymbols("H3C-QINQV2-MIB", h3cQinQv2IfCfgEntry=h3cQinQv2IfCfgEntry, h3cQinQv2=h3cQinQv2, h3cQinQv2CustomerTPID=h3cQinQv2CustomerTPID, h3cQinQv2IfTransVlanList=h3cQinQv2IfTransVlanList, h3cQinQv2MibObject=h3cQinQv2MibObject, h3cQinQv2IfState=h3cQinQv2IfState, h3cQinQv2IfServiceTPID=h3cQinQv2IfServiceTPID, h3cQinQv2IfCfgTable=h3cQinQv2IfCfgTable, h3cQinQv2ScalarObjects=h3cQinQv2ScalarObjects, h3cQinQv2ServiceTPID=h3cQinQv2ServiceTPID, h3cQinQv2IfCustomerTPID=h3cQinQv2IfCustomerTPID, PYSNMP_MODULE_ID=h3cQinQv2)
+mibBuilder.exportSymbols("H3C-QINQV2-MIB", h3cQinQv2ServiceTPID=h3cQinQv2ServiceTPID, h3cQinQv2CustomerTPID=h3cQinQv2CustomerTPID, h3cQinQv2ScalarObjects=h3cQinQv2ScalarObjects, h3cQinQv2IfCfgTable=h3cQinQv2IfCfgTable, h3cQinQv2IfTransVlanList=h3cQinQv2IfTransVlanList, h3cQinQv2IfState=h3cQinQv2IfState, h3cQinQv2IfCustomerTPID=h3cQinQv2IfCustomerTPID, PYSNMP_MODULE_ID=h3cQinQv2, h3cQinQv2IfServiceTPID=h3cQinQv2IfServiceTPID, h3cQinQv2=h3cQinQv2, h3cQinQv2IfCfgEntry=h3cQinQv2IfCfgEntry, h3cQinQv2MibObject=h3cQinQv2MibObject)

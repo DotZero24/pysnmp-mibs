@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module H3C-SMLK-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-SMLK-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:50 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-SMLK-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:44 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "DateAndTime", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
+RowStatus, DateAndTime, TextualConvention, MacAddress, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "MacAddress", "DisplayString")
 h3cSmlk = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147))
 h3cSmlk.setRevisions(('2014-07-23 15:03',))
 if mibBuilder.loadTexts: h3cSmlk.setLastUpdated('201407231503Z')
@@ -70,4 +70,4 @@ h3cSmlkTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 2))
 h3cSmlkTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 2, 0))
 h3cSmlkGroupLinkActive = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 2, 0, 1)).setObjects(("H3C-SMLK-MIB", "h3cSmlkGroupID"), ("H3C-SMLK-MIB", "h3cSmlkPortIfIndex"))
 if mibBuilder.loadTexts: h3cSmlkGroupLinkActive.setStatus('current')
-mibBuilder.exportSymbols("H3C-SMLK-MIB", h3cSmlkPreemptionMode=h3cSmlkPreemptionMode, h3cSmlkPortRole=h3cSmlkPortRole, h3cSmlkIfIndex=h3cSmlkIfIndex, h3cSmlkPortIfIndex=h3cSmlkPortIfIndex, h3cSmlkFlushEnableTable=h3cSmlkFlushEnableTable, h3cSmlkFlushCount=h3cSmlkFlushCount, h3cSmlkPreemptionDelay=h3cSmlkPreemptionDelay, h3cSmlkPortStatus=h3cSmlkPortStatus, PYSNMP_MODULE_ID=h3cSmlk, h3cSmlkObject=h3cSmlkObject, h3cSmlkGroupID=h3cSmlkGroupID, h3cSmlkInstanceListLow=h3cSmlkInstanceListLow, h3cSmlkGroupTable=h3cSmlkGroupTable, h3cSmlkFlushEnableEntry=h3cSmlkFlushEnableEntry, h3cSmlkInstanceListHigh=h3cSmlkInstanceListHigh, h3cSmlkPortEntry=h3cSmlkPortEntry, h3cSmlkDeviceID=h3cSmlkDeviceID, h3cSmlkControlVlanID=h3cSmlkControlVlanID, h3cSmlkTrapPrefix=h3cSmlkTrapPrefix, h3cSmlkPortTable=h3cSmlkPortTable, h3cSmlkSpeedThreshold=h3cSmlkSpeedThreshold, h3cSmlkControlVlanListHigh=h3cSmlkControlVlanListHigh, h3cSmlkGroupRowStatus=h3cSmlkGroupRowStatus, h3cSmlkControlVlanListLow=h3cSmlkControlVlanListLow, h3cSmlkTrap=h3cSmlkTrap, h3cSmlkLastFlushTime=h3cSmlkLastFlushTime, h3cSmlkPortRowStatus=h3cSmlkPortRowStatus, h3cSmlkGroupEntry=h3cSmlkGroupEntry, h3cSmlk=h3cSmlk, h3cSmlkGroupLinkActive=h3cSmlkGroupLinkActive)
+mibBuilder.exportSymbols("H3C-SMLK-MIB", h3cSmlkObject=h3cSmlkObject, h3cSmlkPreemptionMode=h3cSmlkPreemptionMode, h3cSmlkLastFlushTime=h3cSmlkLastFlushTime, h3cSmlkSpeedThreshold=h3cSmlkSpeedThreshold, h3cSmlkPreemptionDelay=h3cSmlkPreemptionDelay, h3cSmlkIfIndex=h3cSmlkIfIndex, h3cSmlkGroupID=h3cSmlkGroupID, h3cSmlkDeviceID=h3cSmlkDeviceID, h3cSmlk=h3cSmlk, h3cSmlkPortStatus=h3cSmlkPortStatus, h3cSmlkFlushEnableTable=h3cSmlkFlushEnableTable, h3cSmlkPortIfIndex=h3cSmlkPortIfIndex, h3cSmlkPortTable=h3cSmlkPortTable, h3cSmlkTrapPrefix=h3cSmlkTrapPrefix, h3cSmlkInstanceListHigh=h3cSmlkInstanceListHigh, h3cSmlkInstanceListLow=h3cSmlkInstanceListLow, h3cSmlkFlushEnableEntry=h3cSmlkFlushEnableEntry, h3cSmlkPortRowStatus=h3cSmlkPortRowStatus, h3cSmlkGroupTable=h3cSmlkGroupTable, PYSNMP_MODULE_ID=h3cSmlk, h3cSmlkPortRole=h3cSmlkPortRole, h3cSmlkTrap=h3cSmlkTrap, h3cSmlkGroupRowStatus=h3cSmlkGroupRowStatus, h3cSmlkFlushCount=h3cSmlkFlushCount, h3cSmlkPortEntry=h3cSmlkPortEntry, h3cSmlkControlVlanListLow=h3cSmlkControlVlanListLow, h3cSmlkGroupLinkActive=h3cSmlkGroupLinkActive, h3cSmlkControlVlanListHigh=h3cSmlkControlVlanListHigh, h3cSmlkGroupEntry=h3cSmlkGroupEntry, h3cSmlkControlVlanID=h3cSmlkControlVlanID)

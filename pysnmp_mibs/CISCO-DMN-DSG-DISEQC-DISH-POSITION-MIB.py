@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CISCO-DMN-DSG-DISEQC-DISH-POSITION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-DMN-DSG-DISEQC-DISH-POSITION-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:30 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-DMN-DSG-DISEQC-DISH-POSITION-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:25:02 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ciscoDSGUtilities, = mibBuilder.importSymbols("CISCO-DMN-DSG-ROOT-MIB", "ciscoDSGUtilities")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ciscoDSGDiSEqC = ModuleIdentity((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 19))
 ciscoDSGDiSEqC.setRevisions(('2010-08-30 11:00', '2010-03-22 05:00', '2010-02-12 12:00', '2009-12-07 12:00',))
 if mibBuilder.loadTexts: ciscoDSGDiSEqC.setLastUpdated('201008301100Z')
@@ -50,4 +50,4 @@ diSEqCStatusLastAction = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 19, 1,
 if mibBuilder.loadTexts: diSEqCStatusLastAction.setStatus('current')
 diSEqCStatusEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 19, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: diSEqCStatusEnable.setStatus('current')
-mibBuilder.exportSymbols("CISCO-DMN-DSG-DISEQC-DISH-POSITION-MIB", diSEqCAction=diSEqCAction, PYSNMP_MODULE_ID=ciscoDSGDiSEqC, diSEqCPositionJog=diSEqCPositionJog, diSEqCTable=diSEqCTable, ciscoDSGDiSEqC=ciscoDSGDiSEqC, diSEqCStatusDishPosition=diSEqCStatusDishPosition, diSEqCInstance=diSEqCInstance, diSEqCUserAction=diSEqCUserAction, diSEqCEWFlag=diSEqCEWFlag, diSEqCDishPosition=diSEqCDishPosition, diSEqCEntry=diSEqCEntry, diSEqCStatusLastAction=diSEqCStatusLastAction, diSEqCStatusEastWestFlag=diSEqCStatusEastWestFlag, diSEqCMode=diSEqCMode, diSEqCStatusMode=diSEqCStatusMode, diSEqCEnable=diSEqCEnable, diSEqCInstallerAction=diSEqCInstallerAction, diSEqCStatusEnable=diSEqCStatusEnable, diSEqCSatSelect=diSEqCSatSelect)
+mibBuilder.exportSymbols("CISCO-DMN-DSG-DISEQC-DISH-POSITION-MIB", diSEqCInstance=diSEqCInstance, diSEqCEntry=diSEqCEntry, diSEqCAction=diSEqCAction, diSEqCEWFlag=diSEqCEWFlag, diSEqCUserAction=diSEqCUserAction, diSEqCStatusLastAction=diSEqCStatusLastAction, diSEqCStatusDishPosition=diSEqCStatusDishPosition, diSEqCPositionJog=diSEqCPositionJog, diSEqCStatusMode=diSEqCStatusMode, diSEqCStatusEnable=diSEqCStatusEnable, diSEqCTable=diSEqCTable, diSEqCStatusEastWestFlag=diSEqCStatusEastWestFlag, diSEqCInstallerAction=diSEqCInstallerAction, PYSNMP_MODULE_ID=ciscoDSGDiSEqC, diSEqCDishPosition=diSEqCDishPosition, diSEqCSatSelect=diSEqCSatSelect, diSEqCMode=diSEqCMode, ciscoDSGDiSEqC=ciscoDSGDiSEqC, diSEqCEnable=diSEqCEnable)

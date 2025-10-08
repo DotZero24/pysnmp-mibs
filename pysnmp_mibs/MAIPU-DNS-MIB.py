@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module MAIPU-DNS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/maipu/MAIPU-DNS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:00 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/maipu/MAIPU-DNS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:19:21 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 mpMgmt, = mibBuilder.importSymbols("MAIPU-SMI", "mpMgmt")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, ObjectSyntax, iso, MibIdentifier, ObjectName, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "ObjectSyntax", "iso", "MibIdentifier", "ObjectName", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectSyntax, Counter32, ModuleIdentity, TimeTicks, Counter64, ObjectIdentity, Gauge32, ObjectName = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectSyntax", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "ObjectIdentity", "Gauge32", "ObjectName")
+RowStatus, DateAndTime, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
 dnsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 5651, 3, 109))
 if mibBuilder.loadTexts: dnsMib.setLastUpdated('0803260920Z')
 if mibBuilder.loadTexts: dnsMib.setOrganization('ĴͨŹɷ\u07b9˾, Maipu (Sichuan) Communication Technology Co. LTD.')
@@ -72,4 +72,4 @@ dnsHostXAlias = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 109, 6, 1, 4), TruthV
 if mibBuilder.loadTexts: dnsHostXAlias.setStatus('current')
 dnsHostXRawStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 109, 6, 1, 5), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: dnsHostXRawStatus.setStatus('current')
-mibBuilder.exportSymbols("MAIPU-DNS-MIB", dnsDomainTblNameVrf=dnsDomainTblNameVrf, dnsNameServerEntry=dnsNameServerEntry, dnsNameServerXVrf=dnsNameServerXVrf, dnsNameServerXTable=dnsNameServerXTable, dnsNameServerTable=dnsNameServerTable, dnsHostNameTable=dnsHostNameTable, dnsDomainTblName=dnsDomainTblName, dnsGlobal=dnsGlobal, dnsHostXName=dnsHostXName, dnsHostIPAddress=dnsHostIPAddress, dnsDomainNameTable=dnsDomainNameTable, dnsDomainName=dnsDomainName, dnsHostName=dnsHostName, dnsHostNameXTable=dnsHostNameXTable, dnsHostXAlias=dnsHostXAlias, dnsMib=dnsMib, dnsNameServerIPAddress=dnsNameServerIPAddress, dnsHostRawStatus=dnsHostRawStatus, dnsNameServerXEntry=dnsNameServerXEntry, dnsHostXVrf=dnsHostXVrf, dnsDomainNameEntry=dnsDomainNameEntry, dnsNameServerRowStatus=dnsNameServerRowStatus, dnsNameServerXRowStatus=dnsNameServerXRowStatus, dnsHostAlias=dnsHostAlias, PYSNMP_MODULE_ID=dnsMib, dnsHostNameXEntry=dnsHostNameXEntry, dnsNameServerXIPAddress=dnsNameServerXIPAddress, dnsHostNameEntry=dnsHostNameEntry, dnsHostXIPAddress=dnsHostXIPAddress, dnsHostXRawStatus=dnsHostXRawStatus, dnsDomainOrder=dnsDomainOrder)
+mibBuilder.exportSymbols("MAIPU-DNS-MIB", dnsDomainTblNameVrf=dnsDomainTblNameVrf, dnsNameServerXEntry=dnsNameServerXEntry, dnsNameServerXRowStatus=dnsNameServerXRowStatus, dnsNameServerXIPAddress=dnsNameServerXIPAddress, dnsHostXRawStatus=dnsHostXRawStatus, dnsHostNameXEntry=dnsHostNameXEntry, dnsHostXAlias=dnsHostXAlias, dnsHostXIPAddress=dnsHostXIPAddress, dnsDomainName=dnsDomainName, dnsHostNameEntry=dnsHostNameEntry, dnsMib=dnsMib, dnsNameServerXTable=dnsNameServerXTable, dnsDomainTblName=dnsDomainTblName, dnsGlobal=dnsGlobal, dnsHostXName=dnsHostXName, dnsDomainNameTable=dnsDomainNameTable, dnsHostNameXTable=dnsHostNameXTable, dnsNameServerTable=dnsNameServerTable, PYSNMP_MODULE_ID=dnsMib, dnsNameServerXVrf=dnsNameServerXVrf, dnsHostRawStatus=dnsHostRawStatus, dnsHostAlias=dnsHostAlias, dnsDomainOrder=dnsDomainOrder, dnsNameServerRowStatus=dnsNameServerRowStatus, dnsHostName=dnsHostName, dnsHostXVrf=dnsHostXVrf, dnsNameServerEntry=dnsNameServerEntry, dnsHostIPAddress=dnsHostIPAddress, dnsHostNameTable=dnsHostNameTable, dnsNameServerIPAddress=dnsNameServerIPAddress, dnsDomainNameEntry=dnsDomainNameEntry)

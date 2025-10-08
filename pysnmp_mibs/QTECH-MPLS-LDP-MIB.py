@@ -1,23 +1,23 @@
 #
 # PySNMP MIB module QTECH-MPLS-LDP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-MPLS-LDP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:05 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/qtech/QTECH-MPLS-LDP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:13:58 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-InetAddressPrefixLength, InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressPrefixLength", "InetPortNumber", "InetAddressType", "InetAddress")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+InetPortNumber, InetAddressPrefixLength, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressPrefixLength", "InetAddressType", "InetAddress")
 MplsLdpIdentifier, = mibBuilder.importSymbols("MPLS-TC-STD-MIB", "MplsLdpIdentifier")
-RouterID, PositiveInteger, DesignatedRouterPriority, HelloRange, Status, AreaID = mibBuilder.importSymbols("OSPF-MIB", "RouterID", "PositiveInteger", "DesignatedRouterPriority", "HelloRange", "Status", "AreaID")
+HelloRange, RouterID, AreaID, PositiveInteger, DesignatedRouterPriority, Status = mibBuilder.importSymbols("OSPF-MIB", "HelloRange", "RouterID", "AreaID", "PositiveInteger", "DesignatedRouterPriority", "Status")
 EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
 qtechMgmt, = mibBuilder.importSymbols("QTECH-SMI", "qtechMgmt")
 ConfigStatus, = mibBuilder.importSymbols("QTECH-TC", "ConfigStatus")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
 qtechMplsLdpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 99))
 qtechMplsLdpMIB.setRevisions(('2011-05-15 00:00',))
 if mibBuilder.loadTexts: qtechMplsLdpMIB.setLastUpdated('201105150000Z')
@@ -71,4 +71,4 @@ mplsFecTransmitBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 99,
 if mibBuilder.loadTexts: mplsFecTransmitBytes.setStatus('current')
 mplsFecTransmitPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 99, 1, 1, 1, 6, 1, 15), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: mplsFecTransmitPackets.setStatus('current')
-mibBuilder.exportSymbols("QTECH-MPLS-LDP-MIB", qtechMplsLdpFecEntry=qtechMplsLdpFecEntry, PYSNMP_MODULE_ID=qtechMplsLdpMIB, mplsFecType=mplsFecType, qtechMplsLdpMIB=qtechMplsLdpMIB, qtechMplsLdpMplsGernalMibObjects=qtechMplsLdpMplsGernalMibObjects, mplsFecLspDisconnect=mplsFecLspDisconnect, mplsLdpSessionCloseType=mplsLdpSessionCloseType, mplsFecAddrType=mplsFecAddrType, mplsFecLspDisconnectType=mplsFecLspDisconnectType, mplsLdpThreadName=mplsLdpThreadName, mplsFecIndex=mplsFecIndex, mplsFecSession=mplsFecSession, mplsFecIngressPackets=mplsFecIngressPackets, mplsFecLspActivity=mplsFecLspActivity, mplsFecTransmitPackets=mplsFecTransmitPackets, mplsFecAddr=mplsFecAddr, mplsFecTransmitBytes=mplsFecTransmitBytes, mplsLdpSessionCreatCount=mplsLdpSessionCreatCount, mplsLdpSessionUpCount=mplsLdpSessionUpCount, mplsFecAddrPrefixLength=mplsFecAddrPrefixLength, mplsFecIngressBytes=mplsFecIngressBytes, mplsLdpSessionDownCauseByInf=mplsLdpSessionDownCauseByInf, mplsLdpSessionDownCount=mplsLdpSessionDownCount, qtechMplsLdpConfigMibObjects=qtechMplsLdpConfigMibObjects, qtechMplsLdpConformance=qtechMplsLdpConformance, qtechMplsLdpObjects=qtechMplsLdpObjects, qtechMplsLdpFecTable=qtechMplsLdpFecTable, qtechMplsLdpMIBObjects=qtechMplsLdpMIBObjects, mplsFecStatus=mplsFecStatus)
+mibBuilder.exportSymbols("QTECH-MPLS-LDP-MIB", mplsFecLspDisconnectType=mplsFecLspDisconnectType, mplsLdpSessionCreatCount=mplsLdpSessionCreatCount, mplsLdpThreadName=mplsLdpThreadName, mplsFecIndex=mplsFecIndex, mplsFecAddrType=mplsFecAddrType, qtechMplsLdpConformance=qtechMplsLdpConformance, mplsFecSession=mplsFecSession, mplsFecAddr=mplsFecAddr, qtechMplsLdpFecEntry=qtechMplsLdpFecEntry, mplsFecType=mplsFecType, mplsLdpSessionCloseType=mplsLdpSessionCloseType, mplsLdpSessionDownCauseByInf=mplsLdpSessionDownCauseByInf, mplsFecLspActivity=mplsFecLspActivity, qtechMplsLdpConfigMibObjects=qtechMplsLdpConfigMibObjects, mplsFecAddrPrefixLength=mplsFecAddrPrefixLength, mplsFecStatus=mplsFecStatus, mplsFecLspDisconnect=mplsFecLspDisconnect, mplsFecTransmitBytes=mplsFecTransmitBytes, PYSNMP_MODULE_ID=qtechMplsLdpMIB, mplsFecIngressBytes=mplsFecIngressBytes, qtechMplsLdpMplsGernalMibObjects=qtechMplsLdpMplsGernalMibObjects, qtechMplsLdpObjects=qtechMplsLdpObjects, qtechMplsLdpMIB=qtechMplsLdpMIB, mplsLdpSessionUpCount=mplsLdpSessionUpCount, mplsLdpSessionDownCount=mplsLdpSessionDownCount, mplsFecIngressPackets=mplsFecIngressPackets, mplsFecTransmitPackets=mplsFecTransmitPackets, qtechMplsLdpFecTable=qtechMplsLdpFecTable, qtechMplsLdpMIBObjects=qtechMplsLdpMIBObjects)

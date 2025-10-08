@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ZYXEL-IPV6-SNOOPING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-IPV6-SNOOPING-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:37:48 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zyxel/ZYXEL-IPV6-SNOOPING-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:03:31 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
 zyxelIpv6Snooping = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 109))
 if mibBuilder.loadTexts: zyxelIpv6Snooping.setLastUpdated('201412310000Z')
@@ -41,4 +41,4 @@ zyIpv6SnoopingPolicyIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 1
 if mibBuilder.loadTexts: zyIpv6SnoopingPolicyIfIndex.setStatus('current')
 zyIpv6SnoopingPolicyIfAttachPolicy = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 109, 1, 3, 1, 2), DisplayString()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: zyIpv6SnoopingPolicyIfAttachPolicy.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-IPV6-SNOOPING-MIB", zyIpv6SnoopingPolicyIfIndex=zyIpv6SnoopingPolicyIfIndex, zyxelIpv6SnoopingPolicyTable=zyxelIpv6SnoopingPolicyTable, zyIpv6SnoopingPolicyRowStatus=zyIpv6SnoopingPolicyRowStatus, zyIpv6SnoopingPolicyMaxNumberOfPolicies=zyIpv6SnoopingPolicyMaxNumberOfPolicies, zyxelIpv6SnoopingPolicyIfEntry=zyxelIpv6SnoopingPolicyIfEntry, zyxelIpv6SnoopingSetup=zyxelIpv6SnoopingSetup, zyxelIpv6SnoopingPolicyIfTable=zyxelIpv6SnoopingPolicyIfTable, zyIpv6SnoopingPolicyLimitAddressCount=zyIpv6SnoopingPolicyLimitAddressCount, zyxelIpv6Snooping=zyxelIpv6Snooping, zyIpv6SnoopingPolicyIfAttachPolicy=zyIpv6SnoopingPolicyIfAttachPolicy, PYSNMP_MODULE_ID=zyxelIpv6Snooping, zyIpv6SnoopingPolicyName=zyIpv6SnoopingPolicyName, zyIpv6SnoopingPolicyPrefixGleanState=zyIpv6SnoopingPolicyPrefixGleanState, zyIpv6SnoopingPolicyProtocol=zyIpv6SnoopingPolicyProtocol, zyxelIpv6SnoopingPolicyEntry=zyxelIpv6SnoopingPolicyEntry)
+mibBuilder.exportSymbols("ZYXEL-IPV6-SNOOPING-MIB", zyIpv6SnoopingPolicyLimitAddressCount=zyIpv6SnoopingPolicyLimitAddressCount, zyIpv6SnoopingPolicyPrefixGleanState=zyIpv6SnoopingPolicyPrefixGleanState, zyxelIpv6SnoopingSetup=zyxelIpv6SnoopingSetup, zyIpv6SnoopingPolicyIfIndex=zyIpv6SnoopingPolicyIfIndex, zyIpv6SnoopingPolicyProtocol=zyIpv6SnoopingPolicyProtocol, zyxelIpv6SnoopingPolicyEntry=zyxelIpv6SnoopingPolicyEntry, zyIpv6SnoopingPolicyRowStatus=zyIpv6SnoopingPolicyRowStatus, zyIpv6SnoopingPolicyIfAttachPolicy=zyIpv6SnoopingPolicyIfAttachPolicy, zyxelIpv6Snooping=zyxelIpv6Snooping, zyIpv6SnoopingPolicyMaxNumberOfPolicies=zyIpv6SnoopingPolicyMaxNumberOfPolicies, zyxelIpv6SnoopingPolicyIfTable=zyxelIpv6SnoopingPolicyIfTable, zyxelIpv6SnoopingPolicyIfEntry=zyxelIpv6SnoopingPolicyIfEntry, zyxelIpv6SnoopingPolicyTable=zyxelIpv6SnoopingPolicyTable, PYSNMP_MODULE_ID=zyxelIpv6Snooping, zyIpv6SnoopingPolicyName=zyIpv6SnoopingPolicyName)

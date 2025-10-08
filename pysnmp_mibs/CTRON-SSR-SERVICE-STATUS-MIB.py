@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CTRON-SSR-SERVICE-STATUS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/CTRON-SSR-SERVICE-STATUS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:38 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cabletron/CTRON-SSR-SERVICE-STATUS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:13:19 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ssrMibs, = mibBuilder.importSymbols("CTRON-SSR-SMI-MIB", "ssrMibs")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 serviceStatusMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 2501, 1, 700))
 serviceStatusMIB.setRevisions(('2000-07-15 00:00', '1998-08-04 00:00', '1998-04-08 12:00',))
@@ -62,4 +62,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 ssConfGroupV11 = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 2501, 1, 700, 2, 2, 2)).setObjects(("CTRON-SSR-SERVICE-STATUS-MIB", "serviceStatusRip"), ("CTRON-SSR-SERVICE-STATUS-MIB", "serviceStatusOspf"), ("CTRON-SSR-SERVICE-STATUS-MIB", "serviceStatusBgp"), ("CTRON-SSR-SERVICE-STATUS-MIB", "serviceStatusDvmrp"), ("CTRON-SSR-SERVICE-STATUS-MIB", "serviceStatusIgmp"), ("CTRON-SSR-SERVICE-STATUS-MIB", "serviceStatusPim"), ("CTRON-SSR-SERVICE-STATUS-MIB", "serviceStatusStp"), ("CTRON-SSR-SERVICE-STATUS-MIB", "serviceStatusIpxRip"), ("CTRON-SSR-SERVICE-STATUS-MIB", "serviceStatusIpxSap"), ("CTRON-SSR-SERVICE-STATUS-MIB", "serviceStatusLfap"), ("CTRON-SSR-SERVICE-STATUS-MIB", "serviceStatusRmon"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ssConfGroupV11 = ssConfGroupV11.setStatus('current')
-mibBuilder.exportSymbols("CTRON-SSR-SERVICE-STATUS-MIB", ssGroups=ssGroups, ssConformance=ssConformance, serviceStatusStp=serviceStatusStp, serviceStatusGroup=serviceStatusGroup, ssCompliances=ssCompliances, serviceStatusRip=serviceStatusRip, serviceStatusPim=serviceStatusPim, ssConfGroupV11=ssConfGroupV11, serviceStatusIpxSap=serviceStatusIpxSap, serviceStatusDvmrp=serviceStatusDvmrp, ssComplianceV11=ssComplianceV11, ssComplianceV10=ssComplianceV10, serviceStatusMIB=serviceStatusMIB, serviceStatusIpxRip=serviceStatusIpxRip, ssConfGroupV10=ssConfGroupV10, serviceStatusBgp=serviceStatusBgp, serviceStatusLfap=serviceStatusLfap, serviceStatusIgmp=serviceStatusIgmp, ServiceStatus=ServiceStatus, serviceStatusRmon=serviceStatusRmon, serviceStatusOspf=serviceStatusOspf, PYSNMP_MODULE_ID=serviceStatusMIB)
+mibBuilder.exportSymbols("CTRON-SSR-SERVICE-STATUS-MIB", serviceStatusDvmrp=serviceStatusDvmrp, ssConfGroupV10=ssConfGroupV10, serviceStatusGroup=serviceStatusGroup, serviceStatusIpxSap=serviceStatusIpxSap, PYSNMP_MODULE_ID=serviceStatusMIB, ssComplianceV10=ssComplianceV10, serviceStatusIgmp=serviceStatusIgmp, serviceStatusMIB=serviceStatusMIB, serviceStatusPim=serviceStatusPim, ssComplianceV11=ssComplianceV11, ServiceStatus=ServiceStatus, ssConformance=ssConformance, serviceStatusLfap=serviceStatusLfap, serviceStatusStp=serviceStatusStp, ssCompliances=ssCompliances, serviceStatusRmon=serviceStatusRmon, serviceStatusBgp=serviceStatusBgp, serviceStatusIpxRip=serviceStatusIpxRip, ssGroups=ssGroups, ssConfGroupV11=ssConfGroupV11, serviceStatusRip=serviceStatusRip, serviceStatusOspf=serviceStatusOspf)

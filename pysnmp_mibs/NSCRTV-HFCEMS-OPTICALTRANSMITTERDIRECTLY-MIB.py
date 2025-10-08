@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module NSCRTV-HFCEMS-OPTICALTRANSMITTERDIRECTLY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nscrtv/NSCRTV-HFCEMS-OPTICALTRANSMITTERDIRECTLY-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:43:52 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nscrtv/NSCRTV-HFCEMS-OPTICALTRANSMITTERDIRECTLY-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:11:54 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 otdIdent, = mibBuilder.importSymbols("NSCRTV-ROOT", "otdIdent")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 otdVendorOID = MibScalar((1, 3, 6, 1, 4, 1, 17409, 1, 6, 1), ObjectIdentifier()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: otdVendorOID.setStatus('optional')
 otdSlotNumber = MibScalar((1, 3, 6, 1, 4, 1, 17409, 1, 6, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32767))).setMaxAccess("readonly")
@@ -82,4 +82,4 @@ otdDCPowerCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 17409, 1, 6, 8, 1, 3), Int
 if mibBuilder.loadTexts: otdDCPowerCurrent.setStatus('optional')
 otdDCPowerName = MibTableColumn((1, 3, 6, 1, 4, 1, 17409, 1, 6, 8, 1, 4), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: otdDCPowerName.setStatus('mandatory')
-mibBuilder.exportSymbols("NSCRTV-HFCEMS-OPTICALTRANSMITTERDIRECTLY-MIB", otdNumberDCPowerSupply=otdNumberDCPowerSupply, otdFansEntry=otdFansEntry, otdLaserCurrent=otdLaserCurrent, otdDCPowerTable=otdDCPowerTable, otdDCPowerSupplyMode=otdDCPowerSupplyMode, otdTecCurrent=otdTecCurrent, otdFansNumber=otdFansNumber, otdLaserWavelength=otdLaserWavelength, otdOptDeviceEntry=otdOptDeviceEntry, otdSlotNumber=otdSlotNumber, otdLaserType=otdLaserType, otdOpicalOutputPower=otdOpicalOutputPower, otdFansIndex=otdFansIndex, otdInputRFAttenuation=otdInputRFAttenuation, otdDriveLevel=otdDriveLevel, otdInputRFLevel=otdInputRFLevel, otdFansTable=otdFansTable, otdConfigurationRFChannels=otdConfigurationRFChannels, otdDCPowerCurrent=otdDCPowerCurrent, otdDCPowerIndex=otdDCPowerIndex, otdDCPowerEntry=otdDCPowerEntry, otdConfigurationRFAttenuation=otdConfigurationRFAttenuation, otdVendorOID=otdVendorOID, otdInputRFAttenuationRange=otdInputRFAttenuationRange, otdOptDeviceTable=otdOptDeviceTable, otdConfigurationDriveLevel=otdConfigurationDriveLevel, otdLaserTemp=otdLaserTemp, otdFansName=otdFansName, otdAGCControl=otdAGCControl, otdDCPowerVoltage=otdDCPowerVoltage, otdFansControl=otdFansControl, otdDCPowerName=otdDCPowerName, otdFansSpeed=otdFansSpeed, otdFansState=otdFansState, otdIndex=otdIndex)
+mibBuilder.exportSymbols("NSCRTV-HFCEMS-OPTICALTRANSMITTERDIRECTLY-MIB", otdDCPowerTable=otdDCPowerTable, otdLaserType=otdLaserType, otdInputRFAttenuationRange=otdInputRFAttenuationRange, otdLaserCurrent=otdLaserCurrent, otdNumberDCPowerSupply=otdNumberDCPowerSupply, otdAGCControl=otdAGCControl, otdFansState=otdFansState, otdTecCurrent=otdTecCurrent, otdVendorOID=otdVendorOID, otdOptDeviceEntry=otdOptDeviceEntry, otdConfigurationRFAttenuation=otdConfigurationRFAttenuation, otdLaserWavelength=otdLaserWavelength, otdSlotNumber=otdSlotNumber, otdConfigurationDriveLevel=otdConfigurationDriveLevel, otdDCPowerIndex=otdDCPowerIndex, otdDCPowerSupplyMode=otdDCPowerSupplyMode, otdOptDeviceTable=otdOptDeviceTable, otdFansIndex=otdFansIndex, otdFansNumber=otdFansNumber, otdFansEntry=otdFansEntry, otdDriveLevel=otdDriveLevel, otdIndex=otdIndex, otdInputRFLevel=otdInputRFLevel, otdFansControl=otdFansControl, otdFansTable=otdFansTable, otdFansName=otdFansName, otdDCPowerVoltage=otdDCPowerVoltage, otdDCPowerCurrent=otdDCPowerCurrent, otdOpicalOutputPower=otdOpicalOutputPower, otdConfigurationRFChannels=otdConfigurationRFChannels, otdInputRFAttenuation=otdInputRFAttenuation, otdFansSpeed=otdFansSpeed, otdDCPowerName=otdDCPowerName, otdDCPowerEntry=otdDCPowerEntry, otdLaserTemp=otdLaserTemp)

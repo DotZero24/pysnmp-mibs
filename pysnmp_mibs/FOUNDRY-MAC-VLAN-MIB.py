@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module FOUNDRY-MAC-VLAN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/brocade/FOUNDRY-MAC-VLAN-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:56 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/brocade/FOUNDRY-MAC-VLAN-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:15:23 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+MacAddress, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "RowStatus", "TextualConvention", "DisplayString")
 fdryMacVlanMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 32))
 fdryMacVlanMIB.setRevisions(('2010-06-02 00:00', '2008-12-17 00:00',))
 if mibBuilder.loadTexts: fdryMacVlanMIB.setLastUpdated('201006020000Z')
@@ -58,4 +58,4 @@ fdryMacBasedVlanPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 32, 
 if mibBuilder.loadTexts: fdryMacBasedVlanPriority.setStatus('current')
 fdryMacBasedVlanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 32, 2, 3, 1, 4), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: fdryMacBasedVlanRowStatus.setStatus('current')
-mibBuilder.exportSymbols("FOUNDRY-MAC-VLAN-MIB", fdryMacVlanIfTable=fdryMacVlanIfTable, fdryMacVlanIfIndex=fdryMacVlanIfIndex, fdryMacVlanPortMemberVLanId=fdryMacVlanPortMemberVLanId, fdryMacVlanIfMaxEntry=fdryMacVlanIfMaxEntry, fdryMacBasedVlanPriority=fdryMacBasedVlanPriority, fdryMacVlanTableObjects=fdryMacVlanTableObjects, fdryMacVlanPortMemberPortId=fdryMacVlanPortMemberPortId, fdryMacVlanGlobalClearOper=fdryMacVlanGlobalClearOper, fdryMacVlanPortMemberEntry=fdryMacVlanPortMemberEntry, fdryMacBasedVlanRowStatus=fdryMacBasedVlanRowStatus, fdryMacVlanPortMemberRowStatus=fdryMacVlanPortMemberRowStatus, fdryMacVlanIfEntry=fdryMacVlanIfEntry, fdryMacVlanMIB=fdryMacVlanMIB, fdryMacVlanIfEnable=fdryMacVlanIfEnable, fdryMacBasedVlanId=fdryMacBasedVlanId, fdryMacVlanIfClearConfig=fdryMacVlanIfClearConfig, fdryMacVlanPortMemberTable=fdryMacVlanPortMemberTable, fdryMacVlanIfClearOper=fdryMacVlanIfClearOper, fdryMacBasedVlanMac=fdryMacBasedVlanMac, fdryMacVlanGlobalDynConfigState=fdryMacVlanGlobalDynConfigState, PYSNMP_MODULE_ID=fdryMacVlanMIB, fdryMacBasedVlanTable=fdryMacBasedVlanTable, fdryMacVlanGlobalObjects=fdryMacVlanGlobalObjects, fdryMacBasedVlanEntry=fdryMacBasedVlanEntry)
+mibBuilder.exportSymbols("FOUNDRY-MAC-VLAN-MIB", fdryMacVlanIfTable=fdryMacVlanIfTable, fdryMacBasedVlanTable=fdryMacBasedVlanTable, fdryMacVlanPortMemberVLanId=fdryMacVlanPortMemberVLanId, fdryMacVlanIfMaxEntry=fdryMacVlanIfMaxEntry, fdryMacVlanPortMemberEntry=fdryMacVlanPortMemberEntry, fdryMacVlanPortMemberPortId=fdryMacVlanPortMemberPortId, fdryMacVlanIfIndex=fdryMacVlanIfIndex, fdryMacVlanIfClearOper=fdryMacVlanIfClearOper, fdryMacVlanIfClearConfig=fdryMacVlanIfClearConfig, fdryMacBasedVlanEntry=fdryMacBasedVlanEntry, fdryMacBasedVlanId=fdryMacBasedVlanId, fdryMacBasedVlanMac=fdryMacBasedVlanMac, fdryMacVlanPortMemberRowStatus=fdryMacVlanPortMemberRowStatus, fdryMacBasedVlanPriority=fdryMacBasedVlanPriority, fdryMacVlanGlobalObjects=fdryMacVlanGlobalObjects, fdryMacVlanPortMemberTable=fdryMacVlanPortMemberTable, fdryMacVlanMIB=fdryMacVlanMIB, fdryMacVlanIfEnable=fdryMacVlanIfEnable, fdryMacVlanGlobalDynConfigState=fdryMacVlanGlobalDynConfigState, fdryMacVlanIfEntry=fdryMacVlanIfEntry, PYSNMP_MODULE_ID=fdryMacVlanMIB, fdryMacVlanGlobalClearOper=fdryMacVlanGlobalClearOper, fdryMacVlanTableObjects=fdryMacVlanTableObjects, fdryMacBasedVlanRowStatus=fdryMacBasedVlanRowStatus)

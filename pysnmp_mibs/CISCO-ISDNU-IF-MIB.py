@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module CISCO-ISDNU-IF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-ISDNU-IF-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:31 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-ISDNU-IF-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:30:51 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 ciscoIsdnuIfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 18))
 if mibBuilder.loadTexts: ciscoIsdnuIfMIB.setLastUpdated('9603180000Z')
 if mibBuilder.loadTexts: ciscoIsdnuIfMIB.setOrganization('Cisco Systems, Inc.')
@@ -66,4 +66,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 ciuIfMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 18, 3, 2, 1)).setObjects(("CISCO-ISDNU-IF-MIB", "ciuIfType"), ("CISCO-ISDNU-IF-MIB", "ciuIfStatus"), ("CISCO-ISDNU-IF-MIB", "ciuIfEocCommand"), ("CISCO-ISDNU-IF-MIB", "ciuIfOverHeadBits"), ("CISCO-ISDNU-IF-MIB", "ciuIfFebeErrors"), ("CISCO-ISDNU-IF-MIB", "ciuIfNebeErrors"), ("CISCO-ISDNU-IF-MIB", "ciuIfLoopStatus"), ("CISCO-ISDNU-IF-MIB", "ciuIfExternalSTPortStatus"), ("CISCO-ISDNU-IF-MIB", "ciuIfEnableULoopStatusNotification"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ciuIfMIBGroup = ciuIfMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-ISDNU-IF-MIB", ciuIfStatusTable=ciuIfStatusTable, ciuIfMIBConformance=ciuIfMIBConformance, ciuIfExternalSTPortStatus=ciuIfExternalSTPortStatus, ciuIfEocCommand=ciuIfEocCommand, ciuIfLoopStatusNotification=ciuIfLoopStatusNotification, ciuIfMIBCompliance=ciuIfMIBCompliance, ciuIfMIBCompliances=ciuIfMIBCompliances, ciuIfFebeErrors=ciuIfFebeErrors, ciuIfExternalSTPortStatusEntry=ciuIfExternalSTPortStatusEntry, ciuIfMIBNotifications=ciuIfMIBNotifications, ciuIfNebeErrors=ciuIfNebeErrors, ciuIfMIBNotificationPrefix=ciuIfMIBNotificationPrefix, ciuIfExternalSTPort=ciuIfExternalSTPort, ciuIfMIBGroups=ciuIfMIBGroups, ciuIfExternalSTPortStatusTable=ciuIfExternalSTPortStatusTable, ciuIfEnableULoopStatusNotification=ciuIfEnableULoopStatusNotification, ciuIfObjects=ciuIfObjects, ciuIfType=ciuIfType, ciscoIsdnuIfMIB=ciscoIsdnuIfMIB, ciuInterface=ciuInterface, ciuIfLoopStatus=ciuIfLoopStatus, ciuIfStatusEntry=ciuIfStatusEntry, ciuIfExternalSTPortNumber=ciuIfExternalSTPortNumber, ciuIfMIBNotificationEnables=ciuIfMIBNotificationEnables, ciuIfMIBGroup=ciuIfMIBGroup, ciuIfStaticConfigTable=ciuIfStaticConfigTable, ciuIfStaticConfigEntry=ciuIfStaticConfigEntry, PYSNMP_MODULE_ID=ciscoIsdnuIfMIB, ciuIfStatus=ciuIfStatus, ciuIfOverHeadBits=ciuIfOverHeadBits)
+mibBuilder.exportSymbols("CISCO-ISDNU-IF-MIB", ciuIfMIBNotificationEnables=ciuIfMIBNotificationEnables, ciuInterface=ciuInterface, ciuIfStatus=ciuIfStatus, ciuIfMIBNotificationPrefix=ciuIfMIBNotificationPrefix, ciuIfLoopStatusNotification=ciuIfLoopStatusNotification, ciuIfType=ciuIfType, ciuIfMIBCompliances=ciuIfMIBCompliances, ciuIfMIBCompliance=ciuIfMIBCompliance, PYSNMP_MODULE_ID=ciscoIsdnuIfMIB, ciuIfExternalSTPortStatusTable=ciuIfExternalSTPortStatusTable, ciuIfObjects=ciuIfObjects, ciuIfMIBNotifications=ciuIfMIBNotifications, ciuIfStaticConfigEntry=ciuIfStaticConfigEntry, ciuIfMIBConformance=ciuIfMIBConformance, ciuIfMIBGroup=ciuIfMIBGroup, ciuIfFebeErrors=ciuIfFebeErrors, ciuIfLoopStatus=ciuIfLoopStatus, ciuIfNebeErrors=ciuIfNebeErrors, ciuIfMIBGroups=ciuIfMIBGroups, ciuIfExternalSTPortNumber=ciuIfExternalSTPortNumber, ciuIfExternalSTPort=ciuIfExternalSTPort, ciuIfEnableULoopStatusNotification=ciuIfEnableULoopStatusNotification, ciscoIsdnuIfMIB=ciscoIsdnuIfMIB, ciuIfEocCommand=ciuIfEocCommand, ciuIfExternalSTPortStatus=ciuIfExternalSTPortStatus, ciuIfStatusEntry=ciuIfStatusEntry, ciuIfStaticConfigTable=ciuIfStaticConfigTable, ciuIfOverHeadBits=ciuIfOverHeadBits, ciuIfExternalSTPortStatusEntry=ciuIfExternalSTPortStatusEntry, ciuIfStatusTable=ciuIfStatusTable)

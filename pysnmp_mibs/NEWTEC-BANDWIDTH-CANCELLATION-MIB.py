@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module NEWTEC-BANDWIDTH-CANCELLATION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/newtec/NEWTEC-BANDWIDTH-CANCELLATION-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:32 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/newtec/NEWTEC-BANDWIDTH-CANCELLATION-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:04:46 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 Float32TC, = mibBuilder.importSymbols("FLOAT-TC-MIB", "Float32TC")
 ntcFunction, = mibBuilder.importSymbols("NEWTEC-MAIN-MIB", "ntcFunction")
 NtcAlarmState, NtcEnable = mibBuilder.importSymbols("NEWTEC-TC-MIB", "NtcAlarmState", "NtcEnable")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ntcBandwidthCancellation = ModuleIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9100))
 ntcBandwidthCancellation.setRevisions(('2016-02-01 11:00',))
 if mibBuilder.loadTexts: ntcBandwidthCancellation.setLastUpdated('201602011100Z')
@@ -87,4 +87,4 @@ ntcBwCConfCompV1Standard = ModuleCompliance((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9100,
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ntcBwCConfCompV1Standard = ntcBwCConfCompV1Standard.setStatus('current')
-mibBuilder.exportSymbols("NEWTEC-BANDWIDTH-CANCELLATION-MIB", ntcBwCCfgEnable=ntcBwCCfgEnable, ntcBwCMonLocalToTotalPowerRatio=ntcBwCMonLocalToTotalPowerRatio, ntcBwCMonLocalSpectralInversion=ntcBwCMonLocalSpectralInversion, ntcBwCAlarmStateEntry=ntcBwCAlarmStateEntry, PYSNMP_MODULE_ID=ntcBandwidthCancellation, ntcBwCMonRoundTripDelay=ntcBwCMonRoundTripDelay, ntcBwCAlarmNoLock=ntcBwCAlarmNoLock, ntcBwCCfgLocalCenterFreqUncert=ntcBwCCfgLocalCenterFreqUncert, ntcBwCMonEntry=ntcBwCMonEntry, ntcBwCMonLocalFreqOffset=ntcBwCMonLocalFreqOffset, ntcBwCCfgEntry=ntcBwCCfgEntry, ntcBwCASNoLock=ntcBwCASNoLock, ntcBwCCfgBandwidthMode=ntcBwCCfgBandwidthMode, ntcBwCAlarmStateTable=ntcBwCAlarmStateTable, ntcBwCMonLocalToRemotePowerRatio=ntcBwCMonLocalToRemotePowerRatio, ntcBwCConfGrpV1Standard=ntcBwCConfGrpV1Standard, ntcBwCConfGroup=ntcBwCConfGroup, ntcBwCCfgLocalSpectralInversion=ntcBwCCfgLocalSpectralInversion, ntcBwCCfgTable=ntcBwCCfgTable, ntcBwCConformance=ntcBwCConformance, ntcBwCMonLocalLevel=ntcBwCMonLocalLevel, ntcBwCMonState=ntcBwCMonState, ntcBwCConfCompliance=ntcBwCConfCompliance, ntcBwCCfgRoundTripDelayUncert=ntcBwCCfgRoundTripDelayUncert, ntcBwCObjects=ntcBwCObjects, ntcBwCCfgLocalCenterFreqOffset=ntcBwCCfgLocalCenterFreqOffset, ntcBwCAlarm=ntcBwCAlarm, ntcBwCMonLocalSymbolRate=ntcBwCMonLocalSymbolRate, ntcBandwidthCancellation=ntcBandwidthCancellation, ntcBwCCfgExpRoundTripDelay=ntcBwCCfgExpRoundTripDelay, ntcBwCConfCompV1Standard=ntcBwCConfCompV1Standard, ntcBwCCfgName=ntcBwCCfgName, ntcBwCMonTable=ntcBwCMonTable)
+mibBuilder.exportSymbols("NEWTEC-BANDWIDTH-CANCELLATION-MIB", ntcBwCMonEntry=ntcBwCMonEntry, ntcBwCConfCompV1Standard=ntcBwCConfCompV1Standard, ntcBwCAlarmStateEntry=ntcBwCAlarmStateEntry, ntcBwCCfgExpRoundTripDelay=ntcBwCCfgExpRoundTripDelay, ntcBwCCfgBandwidthMode=ntcBwCCfgBandwidthMode, ntcBwCCfgRoundTripDelayUncert=ntcBwCCfgRoundTripDelayUncert, ntcBwCMonLocalToTotalPowerRatio=ntcBwCMonLocalToTotalPowerRatio, PYSNMP_MODULE_ID=ntcBandwidthCancellation, ntcBwCMonState=ntcBwCMonState, ntcBwCCfgLocalCenterFreqUncert=ntcBwCCfgLocalCenterFreqUncert, ntcBwCObjects=ntcBwCObjects, ntcBwCMonLocalLevel=ntcBwCMonLocalLevel, ntcBwCMonTable=ntcBwCMonTable, ntcBwCConfCompliance=ntcBwCConfCompliance, ntcBwCMonLocalSymbolRate=ntcBwCMonLocalSymbolRate, ntcBwCConfGrpV1Standard=ntcBwCConfGrpV1Standard, ntcBwCASNoLock=ntcBwCASNoLock, ntcBwCCfgName=ntcBwCCfgName, ntcBwCMonLocalFreqOffset=ntcBwCMonLocalFreqOffset, ntcBwCCfgLocalSpectralInversion=ntcBwCCfgLocalSpectralInversion, ntcBwCCfgTable=ntcBwCCfgTable, ntcBwCCfgEntry=ntcBwCCfgEntry, ntcBwCCfgLocalCenterFreqOffset=ntcBwCCfgLocalCenterFreqOffset, ntcBandwidthCancellation=ntcBandwidthCancellation, ntcBwCMonLocalToRemotePowerRatio=ntcBwCMonLocalToRemotePowerRatio, ntcBwCMonLocalSpectralInversion=ntcBwCMonLocalSpectralInversion, ntcBwCAlarmNoLock=ntcBwCAlarmNoLock, ntcBwCConformance=ntcBwCConformance, ntcBwCConfGroup=ntcBwCConfGroup, ntcBwCCfgEnable=ntcBwCCfgEnable, ntcBwCMonRoundTripDelay=ntcBwCMonRoundTripDelay, ntcBwCAlarmStateTable=ntcBwCAlarmStateTable, ntcBwCAlarm=ntcBwCAlarm)

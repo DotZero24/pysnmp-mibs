@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SLE-PPPOE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/dasan/SLE-PPPOE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:04 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/dasan/SLE-PPPOE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:00:16 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 sleMgmt, = mibBuilder.importSymbols("DASAN-SMI", "sleMgmt")
-SleControlStatusType, SleControlRequestResultType = mibBuilder.importSymbols("SLE-TC-MIB", "SleControlStatusType", "SleControlRequestResultType")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+SleControlRequestResultType, SleControlStatusType = mibBuilder.importSymbols("SLE-TC-MIB", "SleControlRequestResultType", "SleControlStatusType")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 slePppoe = ModuleIdentity((1, 3, 6, 1, 4, 1, 6296, 101, 24))
 if mibBuilder.loadTexts: slePppoe.setLastUpdated('201104081633Z')
 if mibBuilder.loadTexts: slePppoe.setOrganization('Dasan Co., Ltd.')
@@ -61,4 +61,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 slePppoeNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6296, 101, 24, 4)).setObjects(("SLE-PPPOE-MIB", "slePpppoeIAEnableStatuschanged"), ("SLE-PPPOE-MIB", "slePpppoeIAAccessnodeIdChanged"), ("SLE-PPPOE-MIB", "slePpppoeIACircuitIdChanged"), ("SLE-PPPOE-MIB", "slePpppoeIARemoteIdChanged"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     slePppoeNotificationGroup = slePppoeNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("SLE-PPPOE-MIB", slePpppoeIAControlReqResult=slePpppoeIAControlReqResult, slePpppoeIAControlTimeStamp=slePpppoeIAControlTimeStamp, slePppoeGroup=slePppoeGroup, slePpppoeIACircuitId=slePpppoeIACircuitId, slePppoeNotificationGroup=slePppoeNotificationGroup, slePpppoeIAControlStatus=slePpppoeIAControlStatus, slePpppoeIAControlRequest=slePpppoeIAControlRequest, slePpppoeIAControl=slePpppoeIAControl, slePpppoeIARemoteIdChanged=slePpppoeIARemoteIdChanged, PYSNMP_MODULE_ID=slePppoe, slePpppoeIAControlCircuitId=slePpppoeIAControlCircuitId, slePpppoeIANotification=slePpppoeIANotification, slePpppoeIACircuitIdChanged=slePpppoeIACircuitIdChanged, slePpppoeIAControlAccessNode=slePpppoeIAControlAccessNode, slePppoeIntermediateAgent=slePppoeIntermediateAgent, slePppoe=slePppoe, slePpppoeIAControlEnableStatus=slePpppoeIAControlEnableStatus, slePpppoeIAEnableStatuschanged=slePpppoeIAEnableStatuschanged, slePpppoeIAEnableStatus=slePpppoeIAEnableStatus, slePppoeBase=slePppoeBase, slePpppoeIAControlRemoteId=slePpppoeIAControlRemoteId, slePpppoeIAAccessNode=slePpppoeIAAccessNode, slePpppoeIAAccessnodeIdChanged=slePpppoeIAAccessnodeIdChanged, slePpppoeIABaseInfo=slePpppoeIABaseInfo, slePpppoeIARemoteId=slePpppoeIARemoteId, slePpppoeIAControlTimer=slePpppoeIAControlTimer)
+mibBuilder.exportSymbols("SLE-PPPOE-MIB", slePpppoeIARemoteIdChanged=slePpppoeIARemoteIdChanged, slePpppoeIACircuitId=slePpppoeIACircuitId, slePpppoeIAControlRequest=slePpppoeIAControlRequest, slePppoeNotificationGroup=slePppoeNotificationGroup, slePpppoeIAControlStatus=slePpppoeIAControlStatus, slePpppoeIAControlReqResult=slePpppoeIAControlReqResult, slePpppoeIARemoteId=slePpppoeIARemoteId, slePpppoeIAControlTimeStamp=slePpppoeIAControlTimeStamp, slePpppoeIAControlCircuitId=slePpppoeIAControlCircuitId, slePpppoeIANotification=slePpppoeIANotification, slePppoe=slePppoe, slePppoeGroup=slePppoeGroup, slePppoeIntermediateAgent=slePppoeIntermediateAgent, slePpppoeIAControlAccessNode=slePpppoeIAControlAccessNode, slePpppoeIAControlTimer=slePpppoeIAControlTimer, PYSNMP_MODULE_ID=slePppoe, slePpppoeIAEnableStatus=slePpppoeIAEnableStatus, slePpppoeIAEnableStatuschanged=slePpppoeIAEnableStatuschanged, slePpppoeIACircuitIdChanged=slePpppoeIACircuitIdChanged, slePpppoeIAControlEnableStatus=slePpppoeIAControlEnableStatus, slePppoeBase=slePppoeBase, slePpppoeIAAccessNode=slePpppoeIAAccessNode, slePpppoeIABaseInfo=slePpppoeIABaseInfo, slePpppoeIAAccessnodeIdChanged=slePpppoeIAAccessnodeIdChanged, slePpppoeIAControlRemoteId=slePpppoeIAControlRemoteId, slePpppoeIAControl=slePpppoeIAControl)

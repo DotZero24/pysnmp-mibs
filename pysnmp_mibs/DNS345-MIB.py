@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module DNS345-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DNS345-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:34:35 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/DNS345-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:59:24 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 d_link = MibIdentifier((1, 3, 6, 1, 4, 1, 171)).setLabel("d-link")
 productID = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 50))
 projectID = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 50, 1))
@@ -72,4 +72,4 @@ notifyNetworkChanged = NotificationType((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 
 if mibBuilder.loadTexts: notifyNetworkChanged.setStatus('current')
 notifyTemperatureExceeded = NotificationType((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 200, 4))
 if mibBuilder.loadTexts: notifyTemperatureExceeded.setStatus('current')
-mibBuilder.exportSymbols("DNS345-MIB", dns345SoftwareVersion=dns345SoftwareVersion, dns345DiskEntry=dns345DiskEntry, nasAgent=nasAgent, dns345VolumeTable=dns345VolumeTable, notifyNetworkChanged=notifyNetworkChanged, dns345NetType=dns345NetType, dns345VolumeRaidLevel=dns345VolumeRaidLevel, dns345VolumeFsType=dns345VolumeFsType, dns345FanStatus=dns345FanStatus, dns345VolumeNum=dns345VolumeNum, dns345HostName=dns345HostName, notifyTemperatureExceeded=notifyTemperatureExceeded, dns345DiskNum=dns345DiskNum, dns345DiskTemperature=dns345DiskTemperature, projectID=projectID, notifyFirmwareUpgraded=notifyFirmwareUpgraded, d_link=d_link, dns345VolumeName=dns345VolumeName, dns345DiskTable=dns345DiskTable, notifyPasswdChanged=notifyPasswdChanged, dns345DiskCapacity=dns345DiskCapacity, dns345VolumeEntry=dns345VolumeEntry, dns345DiskVendor=dns345DiskVendor, dns345VolumeSize=dns345VolumeSize, productID=productID, dns345DiskSerialNumber=dns345DiskSerialNumber, modelID=modelID, submodelID=submodelID, dns345FTPServer=dns345FTPServer, notifyEvts=notifyEvts, dns345Temperature=dns345Temperature, dns345AgentVer=dns345AgentVer, dns345VolumeFreeSpace=dns345VolumeFreeSpace, dns345DiskModel=dns345DiskModel)
+mibBuilder.exportSymbols("DNS345-MIB", notifyFirmwareUpgraded=notifyFirmwareUpgraded, dns345SoftwareVersion=dns345SoftwareVersion, dns345FTPServer=dns345FTPServer, dns345VolumeSize=dns345VolumeSize, dns345DiskModel=dns345DiskModel, dns345Temperature=dns345Temperature, dns345DiskSerialNumber=dns345DiskSerialNumber, projectID=projectID, dns345VolumeRaidLevel=dns345VolumeRaidLevel, dns345HostName=dns345HostName, dns345VolumeFreeSpace=dns345VolumeFreeSpace, dns345DiskTable=dns345DiskTable, dns345DiskVendor=dns345DiskVendor, dns345VolumeFsType=dns345VolumeFsType, dns345DiskEntry=dns345DiskEntry, dns345FanStatus=dns345FanStatus, dns345DiskNum=dns345DiskNum, productID=productID, modelID=modelID, d_link=d_link, submodelID=submodelID, dns345VolumeTable=dns345VolumeTable, dns345NetType=dns345NetType, dns345AgentVer=dns345AgentVer, dns345VolumeName=dns345VolumeName, notifyNetworkChanged=notifyNetworkChanged, notifyTemperatureExceeded=notifyTemperatureExceeded, dns345DiskCapacity=dns345DiskCapacity, nasAgent=nasAgent, dns345DiskTemperature=dns345DiskTemperature, notifyEvts=notifyEvts, dns345VolumeEntry=dns345VolumeEntry, notifyPasswdChanged=notifyPasswdChanged, dns345VolumeNum=dns345VolumeNum)

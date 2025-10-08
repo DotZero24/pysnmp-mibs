@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module RBN-LAG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ericsson/RBN-LAG-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:54 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ericsson/RBN-LAG-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:47:25 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
 rbnMgmt, = mibBuilder.importSymbols("RBN-SMI", "rbnMgmt")
-RbnPort, RbnSlot = mibBuilder.importSymbols("RBN-TC", "RbnPort", "RbnSlot")
+RbnSlot, RbnPort = mibBuilder.importSymbols("RBN-TC", "RbnSlot", "RbnPort")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "DateAndTime", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+DateAndTime, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
 rbnMcLagMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2352, 2, 102))
 rbnMcLagMIB.setRevisions(('2012-06-01 18:00',))
 if mibBuilder.loadTexts: rbnMcLagMIB.setLastUpdated('201206011800Z')
@@ -80,4 +80,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 rbnMcLagNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 2352, 2, 102, 2, 1, 2)).setObjects(("RBN-LAG-MIB", "rbnMcLagSwitchOverEvent"), ("RBN-LAG-MIB", "rbnMcLagOperFailed"), ("RBN-LAG-MIB", "rbnMcLagOperFailureCleared"), ("RBN-LAG-MIB", "rbnMcLagConstituentPortUp"), ("RBN-LAG-MIB", "rbnMcLagConstituentPortDown"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     rbnMcLagNotificationGroup = rbnMcLagNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("RBN-LAG-MIB", rbnMcLagOperFailed=rbnMcLagOperFailed, rbnMcLagNotifications=rbnMcLagNotifications, rbnMcLagOperState=rbnMcLagOperState, PYSNMP_MODULE_ID=rbnMcLagMIB, rbnMcLagTable=rbnMcLagTable, rbnMcLagCompliances=rbnMcLagCompliances, rbnMcLagConstituentPortIfIndex=rbnMcLagConstituentPortIfIndex, rbnMcLagName=rbnMcLagName, rbnMcLagModuleCompliance=rbnMcLagModuleCompliance, rbnMcLagMIB=rbnMcLagMIB, rbnMcLagConstituentTable=rbnMcLagConstituentTable, rbnMcLagConstituentPortPriority=rbnMcLagConstituentPortPriority, rbnMcLagRevertiveHoldTimer=rbnMcLagRevertiveHoldTimer, rbnMcLagId=rbnMcLagId, rbnMcLagOperErrorCode=rbnMcLagOperErrorCode, rbnMcLagGroups=rbnMcLagGroups, rbnMcLagConstituentEntry=rbnMcLagConstituentEntry, rbnMcLagSwitchOverEvent=rbnMcLagSwitchOverEvent, rbnMcLagConstituentPortUp=rbnMcLagConstituentPortUp, rbnMcLagSystemMacAddress=rbnMcLagSystemMacAddress, rbnMcLagConstituentPortDown=rbnMcLagConstituentPortDown, rbnMcLagObjectGroup=rbnMcLagObjectGroup, rbnMcLagSwitchOverTime=rbnMcLagSwitchOverTime, rbnMcLagOperFailureCleared=rbnMcLagOperFailureCleared, rbnMcLagConstituentPort=rbnMcLagConstituentPort, rbnMcLagConstituentSlot=rbnMcLagConstituentSlot, rbnMcLagSystemPriority=rbnMcLagSystemPriority, rbnMcLagRevertiveMode=rbnMcLagRevertiveMode, rbnMcLagSwitchOverReason=rbnMcLagSwitchOverReason, rbnMcLagObjects=rbnMcLagObjects, rbnMcLagEntry=rbnMcLagEntry, rbnMcLagNotificationGroup=rbnMcLagNotificationGroup, rbnMcLagConformance=rbnMcLagConformance)
+mibBuilder.exportSymbols("RBN-LAG-MIB", rbnMcLagSwitchOverReason=rbnMcLagSwitchOverReason, rbnMcLagSystemPriority=rbnMcLagSystemPriority, rbnMcLagObjects=rbnMcLagObjects, rbnMcLagOperErrorCode=rbnMcLagOperErrorCode, rbnMcLagModuleCompliance=rbnMcLagModuleCompliance, rbnMcLagObjectGroup=rbnMcLagObjectGroup, rbnMcLagOperFailed=rbnMcLagOperFailed, rbnMcLagEntry=rbnMcLagEntry, rbnMcLagSystemMacAddress=rbnMcLagSystemMacAddress, rbnMcLagNotificationGroup=rbnMcLagNotificationGroup, rbnMcLagConstituentPortPriority=rbnMcLagConstituentPortPriority, rbnMcLagRevertiveHoldTimer=rbnMcLagRevertiveHoldTimer, rbnMcLagConformance=rbnMcLagConformance, rbnMcLagConstituentEntry=rbnMcLagConstituentEntry, rbnMcLagConstituentPortDown=rbnMcLagConstituentPortDown, rbnMcLagRevertiveMode=rbnMcLagRevertiveMode, rbnMcLagNotifications=rbnMcLagNotifications, rbnMcLagConstituentPortIfIndex=rbnMcLagConstituentPortIfIndex, rbnMcLagOperState=rbnMcLagOperState, rbnMcLagConstituentSlot=rbnMcLagConstituentSlot, rbnMcLagName=rbnMcLagName, rbnMcLagOperFailureCleared=rbnMcLagOperFailureCleared, rbnMcLagGroups=rbnMcLagGroups, rbnMcLagMIB=rbnMcLagMIB, rbnMcLagConstituentTable=rbnMcLagConstituentTable, rbnMcLagId=rbnMcLagId, rbnMcLagConstituentPort=rbnMcLagConstituentPort, rbnMcLagSwitchOverEvent=rbnMcLagSwitchOverEvent, rbnMcLagCompliances=rbnMcLagCompliances, PYSNMP_MODULE_ID=rbnMcLagMIB, rbnMcLagTable=rbnMcLagTable, rbnMcLagSwitchOverTime=rbnMcLagSwitchOverTime, rbnMcLagConstituentPortUp=rbnMcLagConstituentPortUp)

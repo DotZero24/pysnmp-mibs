@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module CADANT-CMTS-PROCESS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/arris/CADANT-CMTS-PROCESS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:29 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/arris/CADANT-CMTS-PROCESS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:18:28 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-trapSeverity, cardNumber, trapCounter = mibBuilder.importSymbols("CADANT-CMTS-EQUIPMENT-MIB", "trapSeverity", "cardNumber", "trapCounter")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+trapCounter, cardNumber, trapSeverity = mibBuilder.importSymbols("CADANT-CMTS-EQUIPMENT-MIB", "trapCounter", "cardNumber", "trapSeverity")
 cadSystem, = mibBuilder.importSymbols("CADANT-PRODUCTS-MIB", "cadSystem")
 OverloadStatus, CardId = mibBuilder.importSymbols("CADANT-TC", "OverloadStatus", "CardId")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TimeInterval, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeInterval", "RowStatus", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
+RowStatus, TextualConvention, TimeInterval, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "TimeInterval", "TruthValue", "DisplayString")
 cadProcessMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 3))
 cadProcessMib.setRevisions(('2013-07-02 00:00', '2011-05-22 00:00', '2010-12-20 00:00', '2005-10-20 00:00', '2003-03-29 00:00', '2003-03-20 00:00', '2002-04-23 00:00',))
 if mibBuilder.loadTexts: cadProcessMib.setLastUpdated('201307020000Z')
@@ -80,4 +80,4 @@ cadProcessCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 3, 5, 
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     cadProcessCompliance = cadProcessCompliance.setStatus('current')
-mibBuilder.exportSymbols("CADANT-CMTS-PROCESS-MIB", PYSNMP_MODULE_ID=cadProcessMib, sysOverloadNotification=sysOverloadNotification, cadProcessMib=cadProcessMib, cadProcessTrapInfo=cadProcessTrapInfo, cadOverload=cadOverload, cadProcessGroups=cadProcessGroups, cadOvSysMemStatus=cadOvSysMemStatus, cadOvCpuStatus=cadOvCpuStatus, cadProcessMibConformance=cadProcessMibConformance, cadIdleCpuRecentTime=cadIdleCpuRecentTime, cadCpu=cadCpu, cadOverloadGroup=cadOverloadGroup, cadProcessOverloadStatus=cadProcessOverloadStatus, cadCpuRecentTime=cadCpuRecentTime, cadCpuTotalTime=cadCpuTotalTime, cadIdleCpuTotalTime=cadIdleCpuTotalTime, cadMeCardId=cadMeCardId, cadOvMemStatus=cadOvMemStatus, cadProcessTraps=cadProcessTraps, cadProcessGroup=cadProcessGroup, cadSwitchRecentCount=cadSwitchRecentCount, cadIdleCpuRecentPercent=cadIdleCpuRecentPercent, cadMemory=cadMemory, cadMemoryGroup=cadMemoryGroup, cadProcessCompliance=cadProcessCompliance, cadOverloadEntry=cadOverloadEntry, cadCpuCardId=cadCpuCardId, cadProcessCompliances=cadProcessCompliances, cadMemoryEntry=cadMemoryEntry, cadCpuEntry=cadCpuEntry, cadOvCardId=cadOvCardId, cardOverloadNotification=cardOverloadNotification, cadMeHeapSize=cadMeHeapSize, cadOvSysCpuStatus=cadOvSysCpuStatus, cadSwitchTotalCount=cadSwitchTotalCount, cadMeHeapRemaining=cadMeHeapRemaining)
+mibBuilder.exportSymbols("CADANT-CMTS-PROCESS-MIB", cadMemory=cadMemory, cadProcessCompliances=cadProcessCompliances, cadOvSysCpuStatus=cadOvSysCpuStatus, cadOverloadGroup=cadOverloadGroup, cadProcessOverloadStatus=cadProcessOverloadStatus, cadSwitchTotalCount=cadSwitchTotalCount, cadCpu=cadCpu, sysOverloadNotification=sysOverloadNotification, cadMeHeapRemaining=cadMeHeapRemaining, cadProcessGroups=cadProcessGroups, cadIdleCpuRecentPercent=cadIdleCpuRecentPercent, cadOvCpuStatus=cadOvCpuStatus, cadProcessTraps=cadProcessTraps, cadProcessGroup=cadProcessGroup, cadOvMemStatus=cadOvMemStatus, cadProcessTrapInfo=cadProcessTrapInfo, cadCpuEntry=cadCpuEntry, cadOvCardId=cadOvCardId, cadIdleCpuTotalTime=cadIdleCpuTotalTime, cadCpuCardId=cadCpuCardId, cadMemoryGroup=cadMemoryGroup, cadOverloadEntry=cadOverloadEntry, cadMemoryEntry=cadMemoryEntry, PYSNMP_MODULE_ID=cadProcessMib, cadIdleCpuRecentTime=cadIdleCpuRecentTime, cadProcessMibConformance=cadProcessMibConformance, cadOverload=cadOverload, cadProcessMib=cadProcessMib, cardOverloadNotification=cardOverloadNotification, cadMeCardId=cadMeCardId, cadMeHeapSize=cadMeHeapSize, cadProcessCompliance=cadProcessCompliance, cadCpuTotalTime=cadCpuTotalTime, cadCpuRecentTime=cadCpuRecentTime, cadSwitchRecentCount=cadSwitchRecentCount, cadOvSysMemStatus=cadOvSysMemStatus)

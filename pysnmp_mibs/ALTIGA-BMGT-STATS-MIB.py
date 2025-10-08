@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ALTIGA-BMGT-STATS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/ALTIGA-BMGT-STATS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:41 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/ALTIGA-BMGT-STATS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:47:03 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 alBwMgmtMibModule, = mibBuilder.importSymbols("ALTIGA-GLOBAL-REG", "alBwMgmtMibModule")
 alBwMgmtGroup, alStatsBwMgmt = mibBuilder.importSymbols("ALTIGA-MIB", "alBwMgmtGroup", "alStatsBwMgmt")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 altigaBwMgmMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 3076, 1, 1, 52, 2))
 altigaBwMgmMibModule.setRevisions(('2002-09-05 13:00', '2002-07-10 00:00',))
 if mibBuilder.loadTexts: altigaBwMgmMibModule.setLastUpdated('200209051300Z')
@@ -53,4 +53,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 alBwMgmtStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3076, 2, 1, 1, 1, 47, 2)).setObjects(("ALTIGA-BMGT-STATS-MIB", "alBwMgmtStatRowStatus"), ("ALTIGA-BMGT-STATS-MIB", "alBwMgmtStatIntfId"), ("ALTIGA-BMGT-STATS-MIB", "alBwMgmtStatGrpId"), ("ALTIGA-BMGT-STATS-MIB", "alBwMgmtStatInConformedRate"), ("ALTIGA-BMGT-STATS-MIB", "alBwMgmtStatInDroppedRate"), ("ALTIGA-BMGT-STATS-MIB", "alBwMgmtStatInConformedBytes"), ("ALTIGA-BMGT-STATS-MIB", "alBwMgmtStatInDroppedBytes"), ("ALTIGA-BMGT-STATS-MIB", "alBwMgmtStatOutConformedRate"), ("ALTIGA-BMGT-STATS-MIB", "alBwMgmtStatOutDroppedRate"), ("ALTIGA-BMGT-STATS-MIB", "alBwMgmtStatOutConformedBytes"), ("ALTIGA-BMGT-STATS-MIB", "alBwMgmtStatOutDroppedBytes"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     alBwMgmtStatsGroup = alBwMgmtStatsGroup.setStatus('current')
-mibBuilder.exportSymbols("ALTIGA-BMGT-STATS-MIB", alBwMgmtStatTable=alBwMgmtStatTable, alBwMgmtStatOutConformedBytes=alBwMgmtStatOutConformedBytes, alBwMgmtStatInDroppedRate=alBwMgmtStatInDroppedRate, alBwMgmtStatInDroppedBytes=alBwMgmtStatInDroppedBytes, alBwMgmtStatGrpId=alBwMgmtStatGrpId, altigaBwMgmMibModule=altigaBwMgmMibModule, alBwMgmtStatInConformedBytes=alBwMgmtStatInConformedBytes, alBwMgmtStatsGroup=alBwMgmtStatsGroup, alBwMgmtStatIntfId=alBwMgmtStatIntfId, altigaBwMgmMibCompliance=altigaBwMgmMibCompliance, alBwMgmtStatsGlobal=alBwMgmtStatsGlobal, alBwMgmtStatInConformedRate=alBwMgmtStatInConformedRate, alBwMgmtStatOutDroppedRate=alBwMgmtStatOutDroppedRate, altigaBwMgmMibConformance=altigaBwMgmMibConformance, alBwMgmtStatOutDroppedBytes=alBwMgmtStatOutDroppedBytes, alBwMgmtStatOutConformedRate=alBwMgmtStatOutConformedRate, altigaBwMgmMibCompliances=altigaBwMgmMibCompliances, PYSNMP_MODULE_ID=altigaBwMgmMibModule, alBwMgmtStatEntry=alBwMgmtStatEntry, alBwMgmtStatRowStatus=alBwMgmtStatRowStatus)
+mibBuilder.exportSymbols("ALTIGA-BMGT-STATS-MIB", altigaBwMgmMibCompliances=altigaBwMgmMibCompliances, alBwMgmtStatsGlobal=alBwMgmtStatsGlobal, PYSNMP_MODULE_ID=altigaBwMgmMibModule, alBwMgmtStatEntry=alBwMgmtStatEntry, alBwMgmtStatRowStatus=alBwMgmtStatRowStatus, altigaBwMgmMibCompliance=altigaBwMgmMibCompliance, altigaBwMgmMibConformance=altigaBwMgmMibConformance, alBwMgmtStatTable=alBwMgmtStatTable, altigaBwMgmMibModule=altigaBwMgmMibModule, alBwMgmtStatOutDroppedBytes=alBwMgmtStatOutDroppedBytes, alBwMgmtStatOutDroppedRate=alBwMgmtStatOutDroppedRate, alBwMgmtStatIntfId=alBwMgmtStatIntfId, alBwMgmtStatInDroppedRate=alBwMgmtStatInDroppedRate, alBwMgmtStatInDroppedBytes=alBwMgmtStatInDroppedBytes, alBwMgmtStatInConformedRate=alBwMgmtStatInConformedRate, alBwMgmtStatsGroup=alBwMgmtStatsGroup, alBwMgmtStatGrpId=alBwMgmtStatGrpId, alBwMgmtStatInConformedBytes=alBwMgmtStatInConformedBytes, alBwMgmtStatOutConformedBytes=alBwMgmtStatOutConformedBytes, alBwMgmtStatOutConformedRate=alBwMgmtStatOutConformedRate)

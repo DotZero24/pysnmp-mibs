@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ZYXEL-DHCP-CLIENT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-DHCP-CLIENT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:09 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zyxel/ZYXEL-DHCP-CLIENT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:04:08 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
 zyxelDhcpClient = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 103))
 if mibBuilder.loadTexts: zyxelDhcpClient.setLastUpdated('201207010000Z')
@@ -64,4 +64,4 @@ zyDhcpClientInfoRelease = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 103, 
 if mibBuilder.loadTexts: zyDhcpClientInfoRelease.setStatus('current')
 zyDhcpClientInfoRenew = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 103, 2, 1, 1, 14), EnabledStatus()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: zyDhcpClientInfoRenew.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-DHCP-CLIENT-MIB", zyDhcpClientInfoLeaseTo=zyDhcpClientInfoLeaseTo, zyxelDhcpClientTable=zyxelDhcpClientTable, zyDhcpClientRowStatus=zyDhcpClientRowStatus, zyDhcpClientInfoRebindTime=zyDhcpClientInfoRebindTime, zyDhcpClientInfoDhcpServer=zyDhcpClientInfoDhcpServer, zyDhcpClientInfoRenewTime=zyDhcpClientInfoRenewTime, zyxelDhcpClientStatus=zyxelDhcpClientStatus, zyDhcpClientInfoDnsServer2=zyDhcpClientInfoDnsServer2, zyxelDhcpClientInfoEntry=zyxelDhcpClientInfoEntry, zyDhcpClientInfoLeaseFrom=zyDhcpClientInfoLeaseFrom, zyDhcpClientInfoIpAddress=zyDhcpClientInfoIpAddress, zyxelDhcpClientInfoTable=zyxelDhcpClientInfoTable, zyDhcpClientInfoID=zyDhcpClientInfoID, PYSNMP_MODULE_ID=zyxelDhcpClient, zyDhcpClientInfoRenew=zyDhcpClientInfoRenew, zyxelDhcpClientSetup=zyxelDhcpClientSetup, zyDhcpClientInfoMask=zyDhcpClientInfoMask, zyDhcpClientInfoDefaultGateway=zyDhcpClientInfoDefaultGateway, zyDhcpClientOption60State=zyDhcpClientOption60State, zyDhcpClientOption60ClassId=zyDhcpClientOption60ClassId, zyDhcpClientID=zyDhcpClientID, zyxelDhcpClientMaxNumberOfClient=zyxelDhcpClientMaxNumberOfClient, zyxelDhcpClientEntry=zyxelDhcpClientEntry, zyDhcpClientInfoDnsServer1=zyDhcpClientInfoDnsServer1, zyxelDhcpClient=zyxelDhcpClient, zyDhcpClientInfoRelease=zyDhcpClientInfoRelease, zyDhcpClientInfoLeaseTime=zyDhcpClientInfoLeaseTime)
+mibBuilder.exportSymbols("ZYXEL-DHCP-CLIENT-MIB", zyDhcpClientID=zyDhcpClientID, zyDhcpClientOption60State=zyDhcpClientOption60State, PYSNMP_MODULE_ID=zyxelDhcpClient, zyDhcpClientInfoIpAddress=zyDhcpClientInfoIpAddress, zyxelDhcpClientTable=zyxelDhcpClientTable, zyxelDhcpClientMaxNumberOfClient=zyxelDhcpClientMaxNumberOfClient, zyDhcpClientRowStatus=zyDhcpClientRowStatus, zyDhcpClientInfoRelease=zyDhcpClientInfoRelease, zyDhcpClientInfoRenewTime=zyDhcpClientInfoRenewTime, zyxelDhcpClientStatus=zyxelDhcpClientStatus, zyxelDhcpClient=zyxelDhcpClient, zyxelDhcpClientEntry=zyxelDhcpClientEntry, zyxelDhcpClientSetup=zyxelDhcpClientSetup, zyDhcpClientInfoID=zyDhcpClientInfoID, zyxelDhcpClientInfoEntry=zyxelDhcpClientInfoEntry, zyDhcpClientInfoDnsServer2=zyDhcpClientInfoDnsServer2, zyDhcpClientInfoLeaseFrom=zyDhcpClientInfoLeaseFrom, zyDhcpClientInfoRenew=zyDhcpClientInfoRenew, zyDhcpClientInfoDhcpServer=zyDhcpClientInfoDhcpServer, zyDhcpClientInfoDefaultGateway=zyDhcpClientInfoDefaultGateway, zyDhcpClientInfoLeaseTime=zyDhcpClientInfoLeaseTime, zyDhcpClientInfoDnsServer1=zyDhcpClientInfoDnsServer1, zyDhcpClientInfoRebindTime=zyDhcpClientInfoRebindTime, zyDhcpClientInfoMask=zyDhcpClientInfoMask, zyDhcpClientInfoLeaseTo=zyDhcpClientInfoLeaseTo, zyxelDhcpClientInfoTable=zyxelDhcpClientInfoTable, zyDhcpClientOption60ClassId=zyDhcpClientOption60ClassId)

@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module TPT-SEGMENT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/trendmicro/TPT-SEGMENT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:14 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/trendmicro/TPT-SEGMENT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:58:28 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 tpt_tpa_objs, = mibBuilder.importSymbols("TPT-TPAMIBS-MIB", "tpt-tpa-objs")
 tpt_segment_objs = ModuleIdentity((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 19)).setLabel("tpt-segment-objs")
@@ -33,4 +33,4 @@ segmentSflowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 19, 1, 1,
 if mibBuilder.loadTexts: segmentSflowStatus.setStatus('current')
 sFlowDivisor = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 19, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: sFlowDivisor.setStatus('current')
-mibBuilder.exportSymbols("TPT-SEGMENT-MIB", SegmentSflowStatus=SegmentSflowStatus, slotIndex=slotIndex, segmentTable=segmentTable, tpt_segment_objs=tpt_segment_objs, segmentSflowStatus=segmentSflowStatus, segmentIndex=segmentIndex, PYSNMP_MODULE_ID=tpt_segment_objs, sFlowDivisor=sFlowDivisor, segmentEntry=segmentEntry)
+mibBuilder.exportSymbols("TPT-SEGMENT-MIB", segmentSflowStatus=segmentSflowStatus, tpt_segment_objs=tpt_segment_objs, segmentIndex=segmentIndex, segmentTable=segmentTable, PYSNMP_MODULE_ID=tpt_segment_objs, sFlowDivisor=sFlowDivisor, segmentEntry=segmentEntry, slotIndex=slotIndex, SegmentSflowStatus=SegmentSflowStatus)

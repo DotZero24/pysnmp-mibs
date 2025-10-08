@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module H3C-RS485-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-RS485-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:34 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-RS485-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:22 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 h3cRS485 = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 109))
 if mibBuilder.loadTexts: h3cRS485.setLastUpdated('200910210000Z')
 if mibBuilder.loadTexts: h3cRS485.setOrganization('Hangzhou H3C Technologies Co., Ltd.')
@@ -72,4 +72,4 @@ h3cRS485RawSessionErrInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 109
 if mibBuilder.loadTexts: h3cRS485RawSessionErrInfoEntry.setStatus('current')
 h3cRS485RawSessionErrInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 109, 2, 3, 1, 1), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: h3cRS485RawSessionErrInfo.setStatus('current')
-mibBuilder.exportSymbols("H3C-RS485-MIB", h3cRS485SessionRemoteIP=h3cRS485SessionRemoteIP, h3cRS485TXCharacters=h3cRS485TXCharacters, h3cRS485RawSessionErrInfo=h3cRS485RawSessionErrInfo, h3cRS485SessionIndex=h3cRS485SessionIndex, h3cRS485RawSessionNextIndex=h3cRS485RawSessionNextIndex, h3cRS485BaudRate=h3cRS485BaudRate, h3cRS485RawSessionEntry=h3cRS485RawSessionEntry, PYSNMP_MODULE_ID=h3cRS485, h3cRS485Parity=h3cRS485Parity, h3cRS485Properties=h3cRS485Properties, h3cRS485PropertiesEntry=h3cRS485PropertiesEntry, h3cRS485SessionLocalPort=h3cRS485SessionLocalPort, h3cRS485RawSessions=h3cRS485RawSessions, h3cRS485SessionRemotePort=h3cRS485SessionRemotePort, h3cRS485=h3cRS485, h3cRS485SessionType=h3cRS485SessionType, h3cRS485SessionAddType=h3cRS485SessionAddType, h3cRS485FlowControl=h3cRS485FlowControl, h3cRS485RawSessionErrInfoEntry=h3cRS485RawSessionErrInfoEntry, h3cRS485DataBits=h3cRS485DataBits, h3cRS485RawSessionSummary=h3cRS485RawSessionSummary, h3cRS485PropertiesTable=h3cRS485PropertiesTable, h3cRS485RXCharacters=h3cRS485RXCharacters, h3cRS485RXErrCharacters=h3cRS485RXErrCharacters, h3cRS485ResetCharacters=h3cRS485ResetCharacters, h3cRS485RawSessionErrInfoTable=h3cRS485RawSessionErrInfoTable, h3cRS485RawSessionTable=h3cRS485RawSessionTable, h3cRS485StopBits=h3cRS485StopBits, h3cRS485TXErrCharacters=h3cRS485TXErrCharacters, h3cRS485SessionStatus=h3cRS485SessionStatus, h3cRS485RawSessionMaxNum=h3cRS485RawSessionMaxNum)
+mibBuilder.exportSymbols("H3C-RS485-MIB", h3cRS485=h3cRS485, h3cRS485RawSessionEntry=h3cRS485RawSessionEntry, h3cRS485SessionRemoteIP=h3cRS485SessionRemoteIP, h3cRS485TXCharacters=h3cRS485TXCharacters, h3cRS485SessionRemotePort=h3cRS485SessionRemotePort, h3cRS485PropertiesTable=h3cRS485PropertiesTable, h3cRS485FlowControl=h3cRS485FlowControl, h3cRS485Properties=h3cRS485Properties, PYSNMP_MODULE_ID=h3cRS485, h3cRS485PropertiesEntry=h3cRS485PropertiesEntry, h3cRS485RawSessionTable=h3cRS485RawSessionTable, h3cRS485StopBits=h3cRS485StopBits, h3cRS485RawSessionNextIndex=h3cRS485RawSessionNextIndex, h3cRS485ResetCharacters=h3cRS485ResetCharacters, h3cRS485SessionIndex=h3cRS485SessionIndex, h3cRS485RXErrCharacters=h3cRS485RXErrCharacters, h3cRS485BaudRate=h3cRS485BaudRate, h3cRS485DataBits=h3cRS485DataBits, h3cRS485TXErrCharacters=h3cRS485TXErrCharacters, h3cRS485RawSessionSummary=h3cRS485RawSessionSummary, h3cRS485RXCharacters=h3cRS485RXCharacters, h3cRS485SessionAddType=h3cRS485SessionAddType, h3cRS485Parity=h3cRS485Parity, h3cRS485SessionLocalPort=h3cRS485SessionLocalPort, h3cRS485RawSessionMaxNum=h3cRS485RawSessionMaxNum, h3cRS485RawSessions=h3cRS485RawSessions, h3cRS485RawSessionErrInfoTable=h3cRS485RawSessionErrInfoTable, h3cRS485RawSessionErrInfo=h3cRS485RawSessionErrInfo, h3cRS485RawSessionErrInfoEntry=h3cRS485RawSessionErrInfoEntry, h3cRS485SessionStatus=h3cRS485SessionStatus, h3cRS485SessionType=h3cRS485SessionType)

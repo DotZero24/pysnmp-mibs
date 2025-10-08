@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module RAISECOM-PONSERIES-BASE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/RAISECOM-PONSERIES-BASE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:48 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/raisecom/RAISECOM-PONSERIES-BASE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:54:37 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ponSeries, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "ponSeries")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 raisecomPonCommon = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 18, 1))
 raisecomEponMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 18, 2))
 raisecomGponMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 18, 3))
@@ -54,4 +54,4 @@ iscom5304D = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 18, 4, 120))
 iscom5208 = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 18, 4, 121))
 iscom5216 = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 18, 4, 122))
 iscom5224 = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 18, 4, 123))
-mibBuilder.exportSymbols("RAISECOM-PONSERIES-BASE-MIB", iscom6800_18=iscom6800_18, iscom5104Q=iscom5104Q, iscom5101_FE=iscom5101_FE, raisecomPonCommon=raisecomPonCommon, iscom5504PI=iscom5504PI, iscom5104_NP=iscom5104_NP, iscom5124=iscom5124, iscom5104=iscom5104, iscom5104_AC60=iscom5104_AC60, rcvs3100=rcvs3100, iscom5208=iscom5208, iscom5504B=iscom5504B, iscom5116_4E1T1=iscom5116_4E1T1, iscom5800_15=iscom5800_15, raisecomPonDev=raisecomPonDev, iscom5508GP=iscom5508GP, iscom5224=iscom5224, raisecomSwitchMgt=raisecomSwitchMgt, iscom5104_4E1T1=iscom5104_4E1T1, iscom5304D=iscom5304D, iscom5304=iscom5304, iscom5216=iscom5216, iscom5108_PSE=iscom5108_PSE, iscom5800eb_15=iscom5800eb_15, iscom5104P=iscom5104P, iscom5104_LM=iscom5104_LM, raisecomGponMgt=raisecomGponMgt, iscom5101=iscom5101, iscom5108=iscom5108, iscom5800e_15=iscom5800e_15, raisecomVideoMgt=raisecomVideoMgt, iscom5508=iscom5508, iscom5108_PE=iscom5108_PE, iscom5116_PE=iscom5116_PE, raisecomCwdmMgt=raisecomCwdmMgt, iscom5116=iscom5116, raisecomEponMgt=raisecomEponMgt, iscom5204=iscom5204, iscom5124S=iscom5124S, rcvs3200_15=rcvs3200_15, iscom5600_12=iscom5600_12, iscom5508B=iscom5508B)
+mibBuilder.exportSymbols("RAISECOM-PONSERIES-BASE-MIB", iscom5104_4E1T1=iscom5104_4E1T1, raisecomPonCommon=raisecomPonCommon, raisecomEponMgt=raisecomEponMgt, iscom5108_PSE=iscom5108_PSE, rcvs3200_15=rcvs3200_15, iscom5116_4E1T1=iscom5116_4E1T1, rcvs3100=rcvs3100, raisecomPonDev=raisecomPonDev, iscom5304D=iscom5304D, iscom5104_NP=iscom5104_NP, iscom5101_FE=iscom5101_FE, iscom5124S=iscom5124S, iscom5224=iscom5224, iscom5504B=iscom5504B, raisecomVideoMgt=raisecomVideoMgt, raisecomSwitchMgt=raisecomSwitchMgt, iscom5508=iscom5508, iscom5208=iscom5208, iscom5116_PE=iscom5116_PE, iscom5504PI=iscom5504PI, iscom5216=iscom5216, iscom5108=iscom5108, iscom6800_18=iscom6800_18, iscom5108_PE=iscom5108_PE, iscom5304=iscom5304, iscom5800eb_15=iscom5800eb_15, iscom5104_LM=iscom5104_LM, iscom5104=iscom5104, raisecomGponMgt=raisecomGponMgt, raisecomCwdmMgt=raisecomCwdmMgt, iscom5104_AC60=iscom5104_AC60, iscom5204=iscom5204, iscom5508GP=iscom5508GP, iscom5508B=iscom5508B, iscom5800e_15=iscom5800e_15, iscom5600_12=iscom5600_12, iscom5116=iscom5116, iscom5124=iscom5124, iscom5101=iscom5101, iscom5104Q=iscom5104Q, iscom5800_15=iscom5800_15, iscom5104P=iscom5104P)

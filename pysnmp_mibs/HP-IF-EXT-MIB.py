@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module HP-IF-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HP-IF-EXT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:32 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HP-IF-EXT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:10:00 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 hpProcurveCommon, = mibBuilder.importSymbols("HP-BASE-MIB", "hpProcurveCommon")
 ifIndex, ifEntry = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifEntry")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
 hpIfExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 17, 7, 1, 2))
 hpIfExtMIB.setRevisions(('2005-02-01 14:55',))
 if mibBuilder.loadTexts: hpIfExtMIB.setLastUpdated('200502011455Z')
@@ -54,4 +54,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 hpifStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 17, 7, 1, 2, 3, 2, 1)).setObjects(("HP-IF-EXT-MIB", "hpifStatsSlot"), ("HP-IF-EXT-MIB", "hpifStatsPort"), ("HP-IF-EXT-MIB", "hpifStatsNumClients"), ("HP-IF-EXT-MIB", "hpifStatsExtRoamsTo"), ("HP-IF-EXT-MIB", "hpifStatsExtRoamsFrom"), ("HP-IF-EXT-MIB", "hpifStatsIntRoamsTo"), ("HP-IF-EXT-MIB", "hpifStatsIntRoamsFrom"), ("HP-IF-EXT-MIB", "hpifStatsNumSessions"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     hpifStatsGroup = hpifStatsGroup.setStatus('current')
-mibBuilder.exportSymbols("HP-IF-EXT-MIB", hpifStatsExtRoamsFrom=hpifStatsExtRoamsFrom, hpifExtMIBNotifications=hpifExtMIBNotifications, hpifExtMIBNotificationsPrefix=hpifExtMIBNotificationsPrefix, hpifStatsPort=hpifStatsPort, hpifExtMIBCompliance1=hpifExtMIBCompliance1, hpifStatsExtRoamsTo=hpifStatsExtRoamsTo, hpifGroups=hpifGroups, hpifMIBObjects=hpifMIBObjects, hpIfExtMIB=hpIfExtMIB, hpifStatsIntRoamsFrom=hpifStatsIntRoamsFrom, hpifStats=hpifStats, hpifStatsIntRoamsTo=hpifStatsIntRoamsTo, hpifNotificationConfig=hpifNotificationConfig, hpifCompliances=hpifCompliances, hpifStatsSlot=hpifStatsSlot, hpIfExtMIBConformance=hpIfExtMIBConformance, hpifStatsEntry=hpifStatsEntry, hpifStatsGroup=hpifStatsGroup, PYSNMP_MODULE_ID=hpIfExtMIB, hpifStatsTable=hpifStatsTable, hpifStatsNumClients=hpifStatsNumClients, hpifStatsNumSessions=hpifStatsNumSessions)
+mibBuilder.exportSymbols("HP-IF-EXT-MIB", hpifStatsSlot=hpifStatsSlot, hpifCompliances=hpifCompliances, hpifGroups=hpifGroups, hpifStatsPort=hpifStatsPort, hpifMIBObjects=hpifMIBObjects, hpifStats=hpifStats, hpifExtMIBNotificationsPrefix=hpifExtMIBNotificationsPrefix, hpIfExtMIBConformance=hpIfExtMIBConformance, hpifExtMIBNotifications=hpifExtMIBNotifications, hpifStatsExtRoamsFrom=hpifStatsExtRoamsFrom, hpIfExtMIB=hpIfExtMIB, hpifStatsNumSessions=hpifStatsNumSessions, hpifStatsTable=hpifStatsTable, hpifStatsIntRoamsTo=hpifStatsIntRoamsTo, hpifStatsGroup=hpifStatsGroup, hpifStatsNumClients=hpifStatsNumClients, hpifStatsIntRoamsFrom=hpifStatsIntRoamsFrom, hpifStatsEntry=hpifStatsEntry, hpifStatsExtRoamsTo=hpifStatsExtRoamsTo, hpifExtMIBCompliance1=hpifExtMIBCompliance1, PYSNMP_MODULE_ID=hpIfExtMIB, hpifNotificationConfig=hpifNotificationConfig)

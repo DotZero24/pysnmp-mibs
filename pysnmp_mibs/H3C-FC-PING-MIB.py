@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module H3C-FC-PING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-FC-PING-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:15 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-FC-PING-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:21:54 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-H3cFcAddress, H3cFcAddressType, H3cFcVsanIndex, H3cFcStartOper = mibBuilder.importSymbols("H3C-FC-TC-MIB", "H3cFcAddress", "H3cFcAddressType", "H3cFcVsanIndex", "H3cFcStartOper")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+H3cFcAddress, H3cFcAddressType, H3cFcStartOper, H3cFcVsanIndex = mibBuilder.importSymbols("H3C-FC-TC-MIB", "H3cFcAddress", "H3cFcAddressType", "H3cFcStartOper", "H3cFcVsanIndex")
 h3cSan, = mibBuilder.importSymbols("H3C-VSAN-MIB", "h3cSan")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
 h3cFcPing = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5))
 h3cFcPing.setRevisions(('2013-03-15 00:00',))
 if mibBuilder.loadTexts: h3cFcPing.setLastUpdated('201303150000Z')
@@ -70,4 +70,4 @@ h3cFcPingTimeoutNum = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 
 if mibBuilder.loadTexts: h3cFcPingTimeoutNum.setStatus('current')
 h3cFcPingCompletionNotify = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 3, 0, 1)).setObjects(("H3C-FC-PING-MIB", "h3cFcPingIndex"), ("H3C-FC-PING-MIB", "h3cFcPingVsan"), ("H3C-FC-PING-MIB", "h3cFcPingAddressType"), ("H3C-FC-PING-MIB", "h3cFcPingAddress"), ("H3C-FC-PING-MIB", "h3cFcPingReqPackets"), ("H3C-FC-PING-MIB", "h3cFcPingResPackets"))
 if mibBuilder.loadTexts: h3cFcPingCompletionNotify.setStatus('current')
-mibBuilder.exportSymbols("H3C-FC-PING-MIB", h3cFcPingMinTime=h3cFcPingMinTime, h3cFcPingTable=h3cFcPingTable, h3cFcPingIndex=h3cFcPingIndex, h3cFcPingAgeInterval=h3cFcPingAgeInterval, h3cFcPingStatEntry=h3cFcPingStatEntry, h3cFcPingEntry=h3cFcPingEntry, h3cFcPingTimeout=h3cFcPingTimeout, h3cFcPing=h3cFcPing, h3cFcPingRowStatus=h3cFcPingRowStatus, h3cFcPingStatTable=h3cFcPingStatTable, PYSNMP_MODULE_ID=h3cFcPing, h3cFcPingPacketCount=h3cFcPingPacketCount, h3cFcPingAddressType=h3cFcPingAddressType, h3cFcPingResPackets=h3cFcPingResPackets, h3cFcPingCompletionNotify=h3cFcPingCompletionNotify, h3cFcPingStatistics=h3cFcPingStatistics, h3cFcPingOperStatus=h3cFcPingOperStatus, h3cFcPingVsan=h3cFcPingVsan, h3cFcPingAddress=h3cFcPingAddress, h3cFcPingTrapOnCompletion=h3cFcPingTrapOnCompletion, h3cFcPingAverageTime=h3cFcPingAverageTime, h3cFcPingMaxTime=h3cFcPingMaxTime, h3cFcPingTimeoutNum=h3cFcPingTimeoutNum, h3cFcPingReqPackets=h3cFcPingReqPackets, h3cFcPingNotifications=h3cFcPingNotifications, h3cFcPingPayloadSize=h3cFcPingPayloadSize, h3cFcPingNotifyPrefix=h3cFcPingNotifyPrefix, h3cFcPingObjects=h3cFcPingObjects, h3cFcPingConfigurations=h3cFcPingConfigurations, h3cFcPingDelay=h3cFcPingDelay, h3cFcPingAdminStatus=h3cFcPingAdminStatus)
+mibBuilder.exportSymbols("H3C-FC-PING-MIB", h3cFcPingMinTime=h3cFcPingMinTime, h3cFcPingPacketCount=h3cFcPingPacketCount, h3cFcPingNotifyPrefix=h3cFcPingNotifyPrefix, h3cFcPingTable=h3cFcPingTable, h3cFcPingEntry=h3cFcPingEntry, h3cFcPingDelay=h3cFcPingDelay, h3cFcPingIndex=h3cFcPingIndex, PYSNMP_MODULE_ID=h3cFcPing, h3cFcPingResPackets=h3cFcPingResPackets, h3cFcPingConfigurations=h3cFcPingConfigurations, h3cFcPingTrapOnCompletion=h3cFcPingTrapOnCompletion, h3cFcPingOperStatus=h3cFcPingOperStatus, h3cFcPingStatTable=h3cFcPingStatTable, h3cFcPingReqPackets=h3cFcPingReqPackets, h3cFcPingVsan=h3cFcPingVsan, h3cFcPing=h3cFcPing, h3cFcPingMaxTime=h3cFcPingMaxTime, h3cFcPingStatistics=h3cFcPingStatistics, h3cFcPingCompletionNotify=h3cFcPingCompletionNotify, h3cFcPingObjects=h3cFcPingObjects, h3cFcPingPayloadSize=h3cFcPingPayloadSize, h3cFcPingAddress=h3cFcPingAddress, h3cFcPingAverageTime=h3cFcPingAverageTime, h3cFcPingAdminStatus=h3cFcPingAdminStatus, h3cFcPingRowStatus=h3cFcPingRowStatus, h3cFcPingAddressType=h3cFcPingAddressType, h3cFcPingTimeout=h3cFcPingTimeout, h3cFcPingAgeInterval=h3cFcPingAgeInterval, h3cFcPingStatEntry=h3cFcPingStatEntry, h3cFcPingTimeoutNum=h3cFcPingTimeoutNum, h3cFcPingNotifications=h3cFcPingNotifications)

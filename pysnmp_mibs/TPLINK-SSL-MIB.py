@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module TPLINK-SSL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/tplink/TPLINK-SSL-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:14 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/tplink/TPLINK-SSL-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:34 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 tplinkMgmt, = mibBuilder.importSymbols("TPLINK-MIB", "tplinkMgmt")
 tplinkSslMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 42))
 tplinkSslMIB.setRevisions(('2012-12-13 09:30',))
@@ -48,4 +48,4 @@ tpHttpsUserLimitMaxUserNum = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 42, 1, 14), 
 if mibBuilder.loadTexts: tpHttpsUserLimitMaxUserNum.setStatus('current')
 tpHttpsPort = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 42, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: tpHttpsPort.setStatus('current')
-mibBuilder.exportSymbols("TPLINK-SSL-MIB", tpEcdheAes256GcmSha384=tpEcdheAes256GcmSha384, tp3DesEdeCbcSha=tp3DesEdeCbcSha, tpHttpsUserLimitEnable=tpHttpsUserLimitEnable, tpHttpsSessionTimeOut=tpHttpsSessionTimeOut, tpHttpsUserLimitMaxOperatorNum=tpHttpsUserLimitMaxOperatorNum, tpRc4Sha=tpRc4Sha, tpEcdheAes128GcmSha256=tpEcdheAes128GcmSha256, tplinkSslMIB=tplinkSslMIB, tpHttpsUserLimitMaxUserNum=tpHttpsUserLimitMaxUserNum, tpSslProtocolVersion=tpSslProtocolVersion, tpHttpsEnable=tpHttpsEnable, tplinkSslNotifications=tplinkSslNotifications, tpDesCbcSha=tpDesCbcSha, tpHttpsUserLimitMaxPowerUserNum=tpHttpsUserLimitMaxPowerUserNum, PYSNMP_MODULE_ID=tplinkSslMIB, tpHttpsPort=tpHttpsPort, tplinkSslMIBObjects=tplinkSslMIBObjects, tpHttpsUserLimitMaxAdminNum=tpHttpsUserLimitMaxAdminNum, tpRc4Md5=tpRc4Md5)
+mibBuilder.exportSymbols("TPLINK-SSL-MIB", tp3DesEdeCbcSha=tp3DesEdeCbcSha, tpHttpsSessionTimeOut=tpHttpsSessionTimeOut, tpHttpsUserLimitMaxPowerUserNum=tpHttpsUserLimitMaxPowerUserNum, tpHttpsEnable=tpHttpsEnable, tpHttpsUserLimitEnable=tpHttpsUserLimitEnable, tpHttpsPort=tpHttpsPort, tpRc4Sha=tpRc4Sha, tplinkSslNotifications=tplinkSslNotifications, PYSNMP_MODULE_ID=tplinkSslMIB, tpHttpsUserLimitMaxAdminNum=tpHttpsUserLimitMaxAdminNum, tplinkSslMIB=tplinkSslMIB, tpRc4Md5=tpRc4Md5, tpSslProtocolVersion=tpSslProtocolVersion, tpHttpsUserLimitMaxOperatorNum=tpHttpsUserLimitMaxOperatorNum, tplinkSslMIBObjects=tplinkSslMIBObjects, tpEcdheAes128GcmSha256=tpEcdheAes128GcmSha256, tpHttpsUserLimitMaxUserNum=tpHttpsUserLimitMaxUserNum, tpEcdheAes256GcmSha384=tpEcdheAes256GcmSha384, tpDesCbcSha=tpDesCbcSha)

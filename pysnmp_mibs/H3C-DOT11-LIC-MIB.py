@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module H3C-DOT11-LIC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-DOT11-LIC-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:33 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-DOT11-LIC-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:21 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 h3cDot11, = mibBuilder.importSymbols("H3C-DOT11-REF-MIB", "h3cDot11")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 h3cDot11LIC = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 14))
 h3cDot11LIC.setRevisions(('2012-04-25 18:00',))
 if mibBuilder.loadTexts: h3cDot11LIC.setLastUpdated('201204251800Z')
@@ -68,4 +68,4 @@ h3cDot11LICTimeLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 14, 3,
 if mibBuilder.loadTexts: h3cDot11LICTimeLimit.setStatus('current')
 h3cDot11LICValue = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 14, 3, 2, 1, 5), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: h3cDot11LICValue.setStatus('current')
-mibBuilder.exportSymbols("H3C-DOT11-LIC-MIB", h3cDot11LICLicenseKey=h3cDot11LICLicenseKey, h3cDot11LIC=h3cDot11LIC, h3cDot11LICCurrentAPNumPermit=h3cDot11LICCurrentAPNumPermit, h3cDot11LICAttrMaxVal=h3cDot11LICAttrMaxVal, h3cDot11LICConfigGroup=h3cDot11LICConfigGroup, h3cDot11LICApNumLicTable=h3cDot11LICApNumLicTable, h3cDot11LICFeatureLicEntry=h3cDot11LICFeatureLicEntry, h3cDot11LICValue=h3cDot11LICValue, h3cDot11LICKeyIndex=h3cDot11LICKeyIndex, h3cDot11LICApNumAttrTable=h3cDot11LICApNumAttrTable, h3cDot11LICFeatureLicTable=h3cDot11LICFeatureLicTable, h3cDot11LICAttrTypeName=h3cDot11LICAttrTypeName, h3cDot11LICMaxAPNumPermit=h3cDot11LICMaxAPNumPermit, h3cDot11LICLicenseKeyIndex=h3cDot11LICLicenseKeyIndex, h3cDot11LICKey=h3cDot11LICKey, h3cDot11LICTypeName=h3cDot11LICTypeName, h3cDot11LICApNum=h3cDot11LICApNum, h3cDot11LICApNumGroup=h3cDot11LICApNumGroup, h3cDot11LICAttrDefVal=h3cDot11LICAttrDefVal, h3cDot11LICActivationKey=h3cDot11LICActivationKey, PYSNMP_MODULE_ID=h3cDot11LIC, h3cDot11LICSerialNumber=h3cDot11LICSerialNumber, h3cDot11LICAttrIndex=h3cDot11LICAttrIndex, h3cDot11LICApNumLicEntry=h3cDot11LICApNumLicEntry, h3cDot11LICDefautAPNumPermit=h3cDot11LICDefautAPNumPermit, h3cDot11LicApNumGroupSupport=h3cDot11LicApNumGroupSupport, h3cDot11LICFeatureGroup=h3cDot11LICFeatureGroup, h3cDot11LICFeatureAttrTable=h3cDot11LICFeatureAttrTable, h3cDot11LICTimeLimit=h3cDot11LICTimeLimit, h3cDot11LICFeatureAttrEntry=h3cDot11LICFeatureAttrEntry)
+mibBuilder.exportSymbols("H3C-DOT11-LIC-MIB", h3cDot11LicApNumGroupSupport=h3cDot11LicApNumGroupSupport, h3cDot11LICKey=h3cDot11LICKey, h3cDot11LICSerialNumber=h3cDot11LICSerialNumber, h3cDot11LICFeatureAttrEntry=h3cDot11LICFeatureAttrEntry, h3cDot11LICMaxAPNumPermit=h3cDot11LICMaxAPNumPermit, h3cDot11LICTimeLimit=h3cDot11LICTimeLimit, h3cDot11LICCurrentAPNumPermit=h3cDot11LICCurrentAPNumPermit, PYSNMP_MODULE_ID=h3cDot11LIC, h3cDot11LICFeatureAttrTable=h3cDot11LICFeatureAttrTable, h3cDot11LIC=h3cDot11LIC, h3cDot11LICValue=h3cDot11LICValue, h3cDot11LICKeyIndex=h3cDot11LICKeyIndex, h3cDot11LICApNumLicTable=h3cDot11LICApNumLicTable, h3cDot11LICFeatureLicTable=h3cDot11LICFeatureLicTable, h3cDot11LICActivationKey=h3cDot11LICActivationKey, h3cDot11LICApNum=h3cDot11LICApNum, h3cDot11LICLicenseKey=h3cDot11LICLicenseKey, h3cDot11LICAttrDefVal=h3cDot11LICAttrDefVal, h3cDot11LICApNumLicEntry=h3cDot11LICApNumLicEntry, h3cDot11LICAttrIndex=h3cDot11LICAttrIndex, h3cDot11LICApNumAttrTable=h3cDot11LICApNumAttrTable, h3cDot11LICAttrMaxVal=h3cDot11LICAttrMaxVal, h3cDot11LICAttrTypeName=h3cDot11LICAttrTypeName, h3cDot11LICDefautAPNumPermit=h3cDot11LICDefautAPNumPermit, h3cDot11LICFeatureLicEntry=h3cDot11LICFeatureLicEntry, h3cDot11LICTypeName=h3cDot11LICTypeName, h3cDot11LICFeatureGroup=h3cDot11LICFeatureGroup, h3cDot11LICApNumGroup=h3cDot11LICApNumGroup, h3cDot11LICConfigGroup=h3cDot11LICConfigGroup, h3cDot11LICLicenseKeyIndex=h3cDot11LICLicenseKeyIndex)

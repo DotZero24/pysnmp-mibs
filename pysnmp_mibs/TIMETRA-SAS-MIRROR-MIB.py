@@ -1,24 +1,24 @@
 #
 # PySNMP MIB module TIMETRA-SAS-MIRROR-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TIMETRA-SAS-MIRROR-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:20:27 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nokia/TIMETRA-SAS-MIRROR-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:38:41 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, TimeStamp, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeStamp", "RowStatus", "TruthValue", "TextualConvention")
-TEntryIdOrZero, TFilterID, TEntryId, TFilterType = mibBuilder.importSymbols("TIMETRA-FILTER-MIB", "TEntryIdOrZero", "TFilterID", "TEntryId", "TFilterType")
-tmnxSRNotifyPrefix, tmnxSRObjs, timetraSRMIBModules, tmnxSRConfs = mibBuilder.importSymbols("TIMETRA-GLOBAL-MIB", "tmnxSRNotifyPrefix", "tmnxSRObjs", "timetraSRMIBModules", "tmnxSRConfs")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, MacAddress, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TruthValue", "TimeStamp", "DisplayString")
+TEntryIdOrZero, TFilterType, TEntryId, TFilterID = mibBuilder.importSymbols("TIMETRA-FILTER-MIB", "TEntryIdOrZero", "TFilterType", "TEntryId", "TFilterID")
+tmnxSRObjs, timetraSRMIBModules, tmnxSRNotifyPrefix, tmnxSRConfs = mibBuilder.importSymbols("TIMETRA-GLOBAL-MIB", "tmnxSRObjs", "timetraSRMIBModules", "tmnxSRNotifyPrefix", "tmnxSRConfs")
 tMirrorSourcePortEntry, tMirrorDestinationEntry = mibBuilder.importSymbols("TIMETRA-MIRROR-MIB", "tMirrorSourcePortEntry", "tMirrorDestinationEntry")
-timetraSASObjs, timetraSASConfs, timetraSASModules, timetraSASNotifyPrefix = mibBuilder.importSymbols("TIMETRA-SAS-GLOBAL-MIB", "timetraSASObjs", "timetraSASConfs", "timetraSASModules", "timetraSASNotifyPrefix")
+timetraSASModules, timetraSASNotifyPrefix, timetraSASConfs, timetraSASObjs = mibBuilder.importSymbols("TIMETRA-SAS-GLOBAL-MIB", "timetraSASModules", "timetraSASNotifyPrefix", "timetraSASConfs", "timetraSASObjs")
 SdpId, = mibBuilder.importSymbols("TIMETRA-SERV-MIB", "SdpId")
-TNamedItem, ServiceOperStatus, TmnxPortID, TmnxEncapVal, TNamedItemOrEmpty, TmnxServId, TPolicyID, TItemDescription, TFCSet, SdpBindId, ServiceAdminStatus, TProfileOrNone, TFCName = mibBuilder.importSymbols("TIMETRA-TC-MIB", "TNamedItem", "ServiceOperStatus", "TmnxPortID", "TmnxEncapVal", "TNamedItemOrEmpty", "TmnxServId", "TPolicyID", "TItemDescription", "TFCSet", "SdpBindId", "ServiceAdminStatus", "TProfileOrNone", "TFCName")
+TProfileOrNone, TPolicyID, TmnxPortID, TNamedItem, TItemDescription, TFCName, ServiceOperStatus, ServiceAdminStatus, TFCSet, TNamedItemOrEmpty, TmnxEncapVal, SdpBindId, TmnxServId = mibBuilder.importSymbols("TIMETRA-TC-MIB", "TProfileOrNone", "TPolicyID", "TmnxPortID", "TNamedItem", "TItemDescription", "TFCName", "ServiceOperStatus", "ServiceAdminStatus", "TFCSet", "TNamedItemOrEmpty", "TmnxEncapVal", "SdpBindId", "TmnxServId")
 timetraSASMirrorMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 2, 1, 1, 13))
 timetraSASMirrorMIBModule.setRevisions(('1911-05-01 00:00',))
 if mibBuilder.loadTexts: timetraSASMirrorMIBModule.setLastUpdated('1105010000Z')
@@ -46,4 +46,4 @@ tmnxSASMirrorGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 1, 8))
 tmnxSASMirrorV1v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 1, 8, 1)).setObjects(("TIMETRA-SAS-MIRROR-MIB", "tMirrorSourcePortEgressMirroringType"), ("TIMETRA-SAS-MIRROR-MIB", "tMirrorDestinationFCProfile"), ("TIMETRA-SAS-MIRROR-MIB", "tMirrorDestinationMirrorSourceType"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     tmnxSASMirrorV1v0Group = tmnxSASMirrorV1v0Group.setStatus('current')
-mibBuilder.exportSymbols("TIMETRA-SAS-MIRROR-MIB", tMirrorSourcePortExtnTable=tMirrorSourcePortExtnTable, tMirrorDestinationMirrorSourceType=tMirrorDestinationMirrorSourceType, timetraSASMirrorMIBModule=timetraSASMirrorMIBModule, PYSNMP_MODULE_ID=timetraSASMirrorMIBModule, tMirrorDestinationExtnEntry=tMirrorDestinationExtnEntry, tSASMirrorObjects=tSASMirrorObjects, tmnxSASMirrorGroups=tmnxSASMirrorGroups, tMirrorDestinationFCProfile=tMirrorDestinationFCProfile, tMirrorDestinationExtnTable=tMirrorDestinationExtnTable, tMirrorSourcePortExtnEntry=tMirrorSourcePortExtnEntry, tmnxSASMirrorV1v0Group=tmnxSASMirrorV1v0Group, tMirrorSourcePortEgressMirroringType=tMirrorSourcePortEgressMirroringType)
+mibBuilder.exportSymbols("TIMETRA-SAS-MIRROR-MIB", tMirrorSourcePortExtnEntry=tMirrorSourcePortExtnEntry, tMirrorDestinationExtnEntry=tMirrorDestinationExtnEntry, tMirrorDestinationMirrorSourceType=tMirrorDestinationMirrorSourceType, tMirrorSourcePortExtnTable=tMirrorSourcePortExtnTable, tmnxSASMirrorV1v0Group=tmnxSASMirrorV1v0Group, timetraSASMirrorMIBModule=timetraSASMirrorMIBModule, tMirrorDestinationFCProfile=tMirrorDestinationFCProfile, tSASMirrorObjects=tSASMirrorObjects, PYSNMP_MODULE_ID=timetraSASMirrorMIBModule, tMirrorSourcePortEgressMirroringType=tMirrorSourcePortEgressMirroringType, tMirrorDestinationExtnTable=tMirrorDestinationExtnTable, tmnxSASMirrorGroups=tmnxSASMirrorGroups)

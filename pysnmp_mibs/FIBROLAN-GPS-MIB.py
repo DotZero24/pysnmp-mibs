@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module FIBROLAN-GPS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fibrolan/FIBROLAN-GPS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:23:15 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/fibrolan/FIBROLAN-GPS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:43:13 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-fibrolanGeneric, FlGeoCoordinateAxis = mibBuilder.importSymbols("FIBROLAN-COMMON-MIB", "fibrolanGeneric", "FlGeoCoordinateAxis")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+FlGeoCoordinateAxis, fibrolanGeneric = mibBuilder.importSymbols("FIBROLAN-COMMON-MIB", "FlGeoCoordinateAxis", "fibrolanGeneric")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
 flGps = ModuleIdentity((1, 3, 6, 1, 4, 1, 4467, 1000, 210))
 flGps.setRevisions(('2015-09-15 00:00', '2015-08-10 00:00',))
 if mibBuilder.loadTexts: flGps.setLastUpdated('201509150000Z')
@@ -82,4 +82,4 @@ flGpsStateChanged = NotificationType((1, 3, 6, 1, 4, 1, 4467, 1000, 210, 0, 10))
 if mibBuilder.loadTexts: flGpsStateChanged.setStatus('current')
 flGpsAntennaStateChanged = NotificationType((1, 3, 6, 1, 4, 1, 4467, 1000, 210, 0, 20)).setObjects(("FIBROLAN-GPS-MIB", "flGpsAntennaState"))
 if mibBuilder.loadTexts: flGpsAntennaStateChanged.setStatus('current')
-mibBuilder.exportSymbols("FIBROLAN-GPS-MIB", flGpsModuleSerialNumber=flGpsModuleSerialNumber, flGpsEntry=flGpsEntry, flGpsSatelliteTable=flGpsSatelliteTable, flGpsHardwareId=flGpsHardwareId, flGpsMIBObjects=flGpsMIBObjects, flGpsAltitude=flGpsAltitude, flGpsFirmwareDate=flGpsFirmwareDate, flGps=flGps, flGpsLatitude=flGpsLatitude, flGpsAntennaStateChanged=flGpsAntennaStateChanged, flGpsAntennaState=flGpsAntennaState, flGpsSatelliteAcquisitionState=flGpsSatelliteAcquisitionState, flGpsSatelliteAzimuthAngle=flGpsSatelliteAzimuthAngle, flGpsSatelliteUsedForPosition=flGpsSatelliteUsedForPosition, flGpsSatelliteChannel=flGpsSatelliteChannel, flGpsFirmwareVersion=flGpsFirmwareVersion, flGpsState=flGpsState, flGpsSatelliteSignalLevel=flGpsSatelliteSignalLevel, flGpsStateChanged=flGpsStateChanged, PYSNMP_MODULE_ID=flGps, flGpsSatelliteType=flGpsSatelliteType, flGpsLongitude=flGpsLongitude, flGps1PpsState=flGps1PpsState, flGpsTable=flGpsTable, flGpsSatelliteElevationAngle=flGpsSatelliteElevationAngle, flGpsId=flGpsId, flGpsDateAndTime=flGpsDateAndTime, flGpsModulePartNumber=flGpsModulePartNumber, flGpsCableDelay=flGpsCableDelay, flGpsNotifications=flGpsNotifications, flGpsSatelliteUsedForTiming=flGpsSatelliteUsedForTiming, flGpsSatelliteId=flGpsSatelliteId, flGpsTrackedSatelliteCount=flGpsTrackedSatelliteCount, flGpsSatellitePrn=flGpsSatellitePrn, flGpsSatelliteEntry=flGpsSatelliteEntry, flGpsStateLastChange=flGpsStateLastChange)
+mibBuilder.exportSymbols("FIBROLAN-GPS-MIB", flGpsModulePartNumber=flGpsModulePartNumber, flGpsDateAndTime=flGpsDateAndTime, flGpsSatelliteEntry=flGpsSatelliteEntry, flGpsFirmwareDate=flGpsFirmwareDate, flGpsSatelliteTable=flGpsSatelliteTable, flGpsState=flGpsState, flGpsLongitude=flGpsLongitude, flGpsCableDelay=flGpsCableDelay, flGpsSatellitePrn=flGpsSatellitePrn, flGpsStateChanged=flGpsStateChanged, flGpsAltitude=flGpsAltitude, flGpsSatelliteSignalLevel=flGpsSatelliteSignalLevel, flGpsLatitude=flGpsLatitude, flGpsSatelliteType=flGpsSatelliteType, flGpsTrackedSatelliteCount=flGpsTrackedSatelliteCount, flGpsModuleSerialNumber=flGpsModuleSerialNumber, flGpsSatelliteUsedForTiming=flGpsSatelliteUsedForTiming, flGpsSatelliteElevationAngle=flGpsSatelliteElevationAngle, flGpsSatelliteChannel=flGpsSatelliteChannel, flGpsSatelliteId=flGpsSatelliteId, flGpsAntennaStateChanged=flGpsAntennaStateChanged, flGpsId=flGpsId, flGpsFirmwareVersion=flGpsFirmwareVersion, flGpsNotifications=flGpsNotifications, flGpsAntennaState=flGpsAntennaState, flGpsSatelliteUsedForPosition=flGpsSatelliteUsedForPosition, flGpsMIBObjects=flGpsMIBObjects, flGps=flGps, flGpsSatelliteAcquisitionState=flGpsSatelliteAcquisitionState, flGpsSatelliteAzimuthAngle=flGpsSatelliteAzimuthAngle, flGpsEntry=flGpsEntry, PYSNMP_MODULE_ID=flGps, flGpsHardwareId=flGpsHardwareId, flGpsTable=flGpsTable, flGps1PpsState=flGps1PpsState, flGpsStateLastChange=flGpsStateLastChange)

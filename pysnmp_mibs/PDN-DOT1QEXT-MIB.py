@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module PDN-DOT1QEXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/paradyne/PDN-DOT1QEXT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:37 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/paradyne/PDN-DOT1QEXT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:12 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 pdn_dot1q, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdn-dot1q")
 TblCmd, = mibBuilder.importSymbols("PDN-TC", "TblCmd")
 dot1qVlanStaticEntry, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "dot1qVlanStaticEntry")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 pdnDot1qExt = ModuleIdentity((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1))
 pdnDot1qExt.setRevisions(('2005-07-26 00:00', '2003-11-12 00:00', '2002-11-30 00:00',))
 if mibBuilder.loadTexts: pdnDot1qExt.setLastUpdated('200507260000Z')
@@ -71,4 +71,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 pdnDot1dVlanStackingGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 2, 1, 4)).setObjects(("PDN-DOT1QEXT-MIB", "pdnDot1qVlanStaticOuterTag"), ("PDN-DOT1QEXT-MIB", "pdnDot1qVlanStaticOuterDefaultPriority"), ("PDN-DOT1QEXT-MIB", "pdnDot1qVlanStaticOuterEthertype"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     pdnDot1dVlanStackingGroup = pdnDot1dVlanStackingGroup.setStatus('current')
-mibBuilder.exportSymbols("PDN-DOT1QEXT-MIB", pdnDot1BasePortPIWGTable=pdnDot1BasePortPIWGTable, pdnDot1qVlanStaticDefaultNHR=pdnDot1qVlanStaticDefaultNHR, pdnDot1dVlanStackingGroup=pdnDot1dVlanStackingGroup, PYSNMP_MODULE_ID=pdnDot1qExt, pdnDot1qVlanStaticExtEntry=pdnDot1qVlanStaticExtEntry, pdnDot1qExtObjects=pdnDot1qExtObjects, pdnDot1qVlanStaticProxyArpStatus=pdnDot1qVlanStaticProxyArpStatus, pdnDot1BasePortPIWGCircuit=pdnDot1BasePortPIWGCircuit, pdnDot1qExtConformance=pdnDot1qExtConformance, pdnDot1TpFdbClear=pdnDot1TpFdbClear, pdnDot1BasePortPIWGGroup=pdnDot1BasePortPIWGGroup, pdnDot1qVlanStaticOuterDefaultPriority=pdnDot1qVlanStaticOuterDefaultPriority, pdnDot1qExtCompliance=pdnDot1qExtCompliance, pdnDot1BasePortPIWGEntry=pdnDot1BasePortPIWGEntry, pdnDot1qVlanStaticOuterTag=pdnDot1qVlanStaticOuterTag, pdnDot1qExt=pdnDot1qExt, pdnDot1BasePort=pdnDot1BasePort, pdnDot1GeneralGroup=pdnDot1GeneralGroup, pdnDot1qExtGroups=pdnDot1qExtGroups, pdnDot1qVlanExtGroup=pdnDot1qVlanExtGroup, pdnDot1qExtCompliances=pdnDot1qExtCompliances, pdnDot1BasePortPIWGId=pdnDot1BasePortPIWGId, pdnDot1qVlanStaticUplink=pdnDot1qVlanStaticUplink, pdnDot1qVlanStaticOuterEthertype=pdnDot1qVlanStaticOuterEthertype, pdnDot1qVlanStaticSecureModeStatus=pdnDot1qVlanStaticSecureModeStatus, pdnDot1qVlanStaticExtTable=pdnDot1qVlanStaticExtTable)
+mibBuilder.exportSymbols("PDN-DOT1QEXT-MIB", pdnDot1qExtConformance=pdnDot1qExtConformance, pdnDot1dVlanStackingGroup=pdnDot1dVlanStackingGroup, pdnDot1qExtObjects=pdnDot1qExtObjects, pdnDot1qExtCompliance=pdnDot1qExtCompliance, pdnDot1qVlanStaticExtTable=pdnDot1qVlanStaticExtTable, pdnDot1qExt=pdnDot1qExt, pdnDot1qVlanStaticExtEntry=pdnDot1qVlanStaticExtEntry, pdnDot1qVlanStaticUplink=pdnDot1qVlanStaticUplink, pdnDot1BasePortPIWGGroup=pdnDot1BasePortPIWGGroup, pdnDot1qVlanStaticSecureModeStatus=pdnDot1qVlanStaticSecureModeStatus, pdnDot1BasePortPIWGId=pdnDot1BasePortPIWGId, pdnDot1qVlanStaticOuterDefaultPriority=pdnDot1qVlanStaticOuterDefaultPriority, pdnDot1qVlanStaticDefaultNHR=pdnDot1qVlanStaticDefaultNHR, pdnDot1BasePortPIWGTable=pdnDot1BasePortPIWGTable, pdnDot1BasePort=pdnDot1BasePort, pdnDot1TpFdbClear=pdnDot1TpFdbClear, pdnDot1qExtCompliances=pdnDot1qExtCompliances, pdnDot1GeneralGroup=pdnDot1GeneralGroup, PYSNMP_MODULE_ID=pdnDot1qExt, pdnDot1BasePortPIWGCircuit=pdnDot1BasePortPIWGCircuit, pdnDot1qExtGroups=pdnDot1qExtGroups, pdnDot1qVlanStaticOuterTag=pdnDot1qVlanStaticOuterTag, pdnDot1qVlanStaticOuterEthertype=pdnDot1qVlanStaticOuterEthertype, pdnDot1qVlanExtGroup=pdnDot1qVlanExtGroup, pdnDot1BasePortPIWGEntry=pdnDot1BasePortPIWGEntry, pdnDot1qVlanStaticProxyArpStatus=pdnDot1qVlanStaticProxyArpStatus)

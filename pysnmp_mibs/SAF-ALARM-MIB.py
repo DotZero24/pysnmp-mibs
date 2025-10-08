@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module SAF-ALARM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/saf/SAF-ALARM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:18 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/saf/SAF-ALARM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:53:57 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-IANAItuProbableCause, IANAItuEventType = mibBuilder.importSymbols("IANA-ITU-ALARM-TC-MIB", "IANAItuProbableCause", "IANAItuEventType")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+IANAItuEventType, IANAItuProbableCause = mibBuilder.importSymbols("IANA-ITU-ALARM-TC-MIB", "IANAItuEventType", "IANAItuProbableCause")
 tehnika, = mibBuilder.importSymbols("SAF-ENTERPRISE", "tehnika")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+DateAndTime, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "DisplayString", "TextualConvention")
 safAlarmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 7571, 100, 118))
 safAlarmMIB.setRevisions(('2016-03-03 00:00', '2014-07-03 00:00', '2014-07-01 00:00', '2008-09-17 00:00', '2007-05-10 00:00',))
 if mibBuilder.loadTexts: safAlarmMIB.setLastUpdated('201603030000Z')
@@ -76,4 +76,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 safAlarmNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 7571, 100, 118, 3, 2, 2)).setObjects(("SAF-ALARM-MIB", "safAlarmActiveState"), ("SAF-ALARM-MIB", "safAlarmActiveTState"), ("SAF-ALARM-MIB", "safAlarmClearState"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     safAlarmNotificationsGroup = safAlarmNotificationsGroup.setStatus('deprecated')
-mibBuilder.exportSymbols("SAF-ALARM-MIB", safAlarmActiveProbableCause=safAlarmActiveProbableCause, safAlarmActiveThresholdTTriggered=safAlarmActiveThresholdTTriggered, safAlarmCompliances=safAlarmCompliances, safAlarmActiveAdditionalText=safAlarmActiveAdditionalText, safAlarmNotificationsGroup=safAlarmNotificationsGroup, safAlarmActiveGroup=safAlarmActiveGroup, safAlarmClearState=safAlarmClearState, safAlarmActive=safAlarmActive, safAlarmActivePerceivedSeverity=safAlarmActivePerceivedSeverity, safAlarmActiveTState=safAlarmActiveTState, safAlarmActiveIndex=safAlarmActiveIndex, safAlarmActiveThresholdTValue=safAlarmActiveThresholdTValue, safAlarmActiveDateAndTime=safAlarmActiveDateAndTime, safAlarmConformance=safAlarmConformance, safAlarmActiveManagedObj=safAlarmActiveManagedObj, safAlarmActiveThresholdValue=safAlarmActiveThresholdValue, safAlarmCompliance=safAlarmCompliance, PYSNMP_MODULE_ID=safAlarmMIB, safAlarmActiveThresholdTriggered=safAlarmActiveThresholdTriggered, safAlarmNotifications=safAlarmNotifications, safAlarmObjects=safAlarmObjects, safAlarmActiveTable=safAlarmActiveTable, SafPerceivedSeverity=SafPerceivedSeverity, safAlarmActiveEventType=safAlarmActiveEventType, safAlarmMIB=safAlarmMIB, safAlarmActiveState=safAlarmActiveState, safAlarmActiveEntry=safAlarmActiveEntry, safAlarmActiveLastChangedDateAndTime=safAlarmActiveLastChangedDateAndTime, safAlarmActiveLastChanged=safAlarmActiveLastChanged, safAlarmGroups=safAlarmGroups)
+mibBuilder.exportSymbols("SAF-ALARM-MIB", safAlarmActiveManagedObj=safAlarmActiveManagedObj, safAlarmActiveEventType=safAlarmActiveEventType, safAlarmActiveThresholdValue=safAlarmActiveThresholdValue, safAlarmActiveIndex=safAlarmActiveIndex, safAlarmActiveThresholdTTriggered=safAlarmActiveThresholdTTriggered, safAlarmNotifications=safAlarmNotifications, safAlarmClearState=safAlarmClearState, safAlarmGroups=safAlarmGroups, PYSNMP_MODULE_ID=safAlarmMIB, safAlarmCompliance=safAlarmCompliance, safAlarmConformance=safAlarmConformance, safAlarmActive=safAlarmActive, safAlarmActiveTable=safAlarmActiveTable, safAlarmActiveThresholdTValue=safAlarmActiveThresholdTValue, safAlarmCompliances=safAlarmCompliances, safAlarmActiveProbableCause=safAlarmActiveProbableCause, safAlarmObjects=safAlarmObjects, safAlarmActiveState=safAlarmActiveState, safAlarmActiveThresholdTriggered=safAlarmActiveThresholdTriggered, safAlarmActivePerceivedSeverity=safAlarmActivePerceivedSeverity, SafPerceivedSeverity=SafPerceivedSeverity, safAlarmNotificationsGroup=safAlarmNotificationsGroup, safAlarmMIB=safAlarmMIB, safAlarmActiveAdditionalText=safAlarmActiveAdditionalText, safAlarmActiveGroup=safAlarmActiveGroup, safAlarmActiveTState=safAlarmActiveTState, safAlarmActiveLastChanged=safAlarmActiveLastChanged, safAlarmActiveLastChangedDateAndTime=safAlarmActiveLastChangedDateAndTime, safAlarmActiveDateAndTime=safAlarmActiveDateAndTime, safAlarmActiveEntry=safAlarmActiveEntry)

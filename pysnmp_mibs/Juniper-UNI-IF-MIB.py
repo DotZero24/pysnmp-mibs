@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module Juniper-UNI-IF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/junose/Juniper-UNI-IF-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:23:07 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/junose/Juniper-UNI-IF-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:42:57 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ifStackHigherLayer, ifStackLowerLayer, ifEntry = mibBuilder.importSymbols("IF-MIB", "ifStackHigherLayer", "ifStackLowerLayer", "ifEntry")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ifStackLowerLayer, ifEntry, ifStackHigherLayer = mibBuilder.importSymbols("IF-MIB", "ifStackLowerLayer", "ifEntry", "ifStackHigherLayer")
 juniMibs, = mibBuilder.importSymbols("Juniper-MIBs", "juniMibs")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
 juniIfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 2, 2, 3))
 juniIfMIB.setRevisions(('2014-03-25 21:30', '2005-10-11 20:40', '2003-07-16 21:40', '2003-02-06 15:57', '2002-01-22 16:52', '2001-03-28 15:12', '2000-11-22 23:41', '2000-09-29 18:35', '2000-07-27 15:45', '2000-05-05 15:08', '1999-12-21 15:18', '1999-09-03 14:16', '1998-11-13 20:19',))
 if mibBuilder.loadTexts: juniIfMIB.setLastUpdated('200510112040Z')
@@ -67,4 +67,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 juniIfCountGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 3, 1, 1, 4, 2, 3)).setObjects(("Juniper-UNI-IF-MIB", "juniIfCountNumberOfInterfaces"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     juniIfCountGroup = juniIfCountGroup.setStatus('current')
-mibBuilder.exportSymbols("Juniper-UNI-IF-MIB", JuniIfType=JuniIfType, juniIfEntry=juniIfEntry, PYSNMP_MODULE_ID=juniIfMIB, juniIfType=juniIfType, juniInterfaces=juniInterfaces, juniIfCompliance=juniIfCompliance, juniIfTable=juniIfTable, juniIfConformance=juniIfConformance, juniIfObjects=juniIfObjects, juniIfCompliance1=juniIfCompliance1, juniIfInvStackEntry=juniIfInvStackEntry, juniIf=juniIf, juniIfInvStackStatus=juniIfInvStackStatus, juniIfCompliances=juniIfCompliances, juniIfMIB=juniIfMIB, juniIfCountTable=juniIfCountTable, juniIfInvStackTable=juniIfInvStackTable, juniIfCountEntry=juniIfCountEntry, juniIfCountGroup=juniIfCountGroup, juniIfCountIfType=juniIfCountIfType, juniIfGroup=juniIfGroup, juniIfInvStackGroup=juniIfInvStackGroup, juniIfGroups=juniIfGroups, juniIfCountNumberOfInterfaces=juniIfCountNumberOfInterfaces)
+mibBuilder.exportSymbols("Juniper-UNI-IF-MIB", juniIfInvStackStatus=juniIfInvStackStatus, JuniIfType=JuniIfType, juniIfEntry=juniIfEntry, juniIfCompliances=juniIfCompliances, juniIfObjects=juniIfObjects, juniIfConformance=juniIfConformance, juniIfCountGroup=juniIfCountGroup, juniIfType=juniIfType, juniIfInvStackEntry=juniIfInvStackEntry, juniIfCompliance=juniIfCompliance, juniIfCompliance1=juniIfCompliance1, juniIfMIB=juniIfMIB, juniIfGroups=juniIfGroups, juniIfCountIfType=juniIfCountIfType, juniInterfaces=juniInterfaces, juniIfGroup=juniIfGroup, juniIfInvStackGroup=juniIfInvStackGroup, PYSNMP_MODULE_ID=juniIfMIB, juniIfTable=juniIfTable, juniIfInvStackTable=juniIfInvStackTable, juniIf=juniIf, juniIfCountNumberOfInterfaces=juniIfCountNumberOfInterfaces, juniIfCountEntry=juniIfCountEntry, juniIfCountTable=juniIfCountTable)

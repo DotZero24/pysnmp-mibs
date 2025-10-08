@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module H3C-FC-TRACE-ROUTE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-FC-TRACE-ROUTE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:52 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-FC-TRACE-ROUTE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:48 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-H3cFcNameId, H3cFcVsanIndex, H3cFcStartOper, H3cFcAddress, H3cFcAddressType = mibBuilder.importSymbols("H3C-FC-TC-MIB", "H3cFcNameId", "H3cFcVsanIndex", "H3cFcStartOper", "H3cFcAddress", "H3cFcAddressType")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+H3cFcVsanIndex, H3cFcAddressType, H3cFcStartOper, H3cFcAddress, H3cFcNameId = mibBuilder.importSymbols("H3C-FC-TC-MIB", "H3cFcVsanIndex", "H3cFcAddressType", "H3cFcStartOper", "H3cFcAddress", "H3cFcNameId")
 h3cSan, = mibBuilder.importSymbols("H3C-VSAN-MIB", "h3cSan")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
 h3cFcTraceRoute = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 4))
 h3cFcTraceRoute.setRevisions(('2013-02-27 00:00',))
 if mibBuilder.loadTexts: h3cFcTraceRoute.setLastUpdated('201302270000Z')
@@ -56,4 +56,4 @@ h3cFcTraceRouteHopsAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 4,
 if mibBuilder.loadTexts: h3cFcTraceRouteHopsAddr.setStatus('current')
 h3cFcTraceRouteCompletionNotify = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 4, 1, 3, 0, 1)).setObjects(("H3C-FC-TRACE-ROUTE-MIB", "h3cFcTraceRouteIndex"), ("H3C-FC-TRACE-ROUTE-MIB", "h3cFcTraceRouteVsan"), ("H3C-FC-TRACE-ROUTE-MIB", "h3cFcTraceRouteAddressType"), ("H3C-FC-TRACE-ROUTE-MIB", "h3cFcTraceRouteAddress"), ("H3C-FC-TRACE-ROUTE-MIB", "h3cFcTraceRouteOperStatus"))
 if mibBuilder.loadTexts: h3cFcTraceRouteCompletionNotify.setStatus('current')
-mibBuilder.exportSymbols("H3C-FC-TRACE-ROUTE-MIB", h3cFcTraceRouteAdminStatus=h3cFcTraceRouteAdminStatus, h3cFcTraceRouteHopsIndex=h3cFcTraceRouteHopsIndex, h3cFcTraceRouteHopsAddr=h3cFcTraceRouteHopsAddr, h3cFcTraceRouteCompletionNotify=h3cFcTraceRouteCompletionNotify, h3cFcTraceRouteResults=h3cFcTraceRouteResults, h3cFcTraceRouteConfigurations=h3cFcTraceRouteConfigurations, h3cFcTraceRouteRowStatus=h3cFcTraceRouteRowStatus, h3cFcTraceRouteEntry=h3cFcTraceRouteEntry, PYSNMP_MODULE_ID=h3cFcTraceRoute, h3cFcTraceRouteTable=h3cFcTraceRouteTable, h3cFcTraceRouteOperStatus=h3cFcTraceRouteOperStatus, h3cFcTraceRoute=h3cFcTraceRoute, h3cFcTraceRouteHopsTable=h3cFcTraceRouteHopsTable, h3cFcTraceRouteTrapOnCompletion=h3cFcTraceRouteTrapOnCompletion, h3cFcTraceRouteIndex=h3cFcTraceRouteIndex, h3cFcTraceRouteAddressType=h3cFcTraceRouteAddressType, h3cFcTraceRouteNotifyPrefix=h3cFcTraceRouteNotifyPrefix, h3cFcTraceRouteVsan=h3cFcTraceRouteVsan, h3cFcTraceRouteHopsEntry=h3cFcTraceRouteHopsEntry, h3cFcTraceRouteAgeInterval=h3cFcTraceRouteAgeInterval, h3cFcTraceRouteObjects=h3cFcTraceRouteObjects, h3cFcTraceRouteNotifications=h3cFcTraceRouteNotifications, h3cFcTraceRouteAddress=h3cFcTraceRouteAddress, h3cFcTraceRouteTimeout=h3cFcTraceRouteTimeout)
+mibBuilder.exportSymbols("H3C-FC-TRACE-ROUTE-MIB", h3cFcTraceRouteAdminStatus=h3cFcTraceRouteAdminStatus, h3cFcTraceRouteHopsAddr=h3cFcTraceRouteHopsAddr, PYSNMP_MODULE_ID=h3cFcTraceRoute, h3cFcTraceRouteTrapOnCompletion=h3cFcTraceRouteTrapOnCompletion, h3cFcTraceRouteEntry=h3cFcTraceRouteEntry, h3cFcTraceRouteVsan=h3cFcTraceRouteVsan, h3cFcTraceRouteNotifyPrefix=h3cFcTraceRouteNotifyPrefix, h3cFcTraceRouteAgeInterval=h3cFcTraceRouteAgeInterval, h3cFcTraceRouteOperStatus=h3cFcTraceRouteOperStatus, h3cFcTraceRouteCompletionNotify=h3cFcTraceRouteCompletionNotify, h3cFcTraceRoute=h3cFcTraceRoute, h3cFcTraceRouteResults=h3cFcTraceRouteResults, h3cFcTraceRouteNotifications=h3cFcTraceRouteNotifications, h3cFcTraceRouteAddress=h3cFcTraceRouteAddress, h3cFcTraceRouteHopsTable=h3cFcTraceRouteHopsTable, h3cFcTraceRouteHopsEntry=h3cFcTraceRouteHopsEntry, h3cFcTraceRouteTable=h3cFcTraceRouteTable, h3cFcTraceRouteAddressType=h3cFcTraceRouteAddressType, h3cFcTraceRouteIndex=h3cFcTraceRouteIndex, h3cFcTraceRouteTimeout=h3cFcTraceRouteTimeout, h3cFcTraceRouteHopsIndex=h3cFcTraceRouteHopsIndex, h3cFcTraceRouteConfigurations=h3cFcTraceRouteConfigurations, h3cFcTraceRouteObjects=h3cFcTraceRouteObjects, h3cFcTraceRouteRowStatus=h3cFcTraceRouteRowStatus)

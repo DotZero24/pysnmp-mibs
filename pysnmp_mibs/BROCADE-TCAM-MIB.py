@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module BROCADE-TCAM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/brocade/BROCADE-TCAM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:55 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/brocade/BROCADE-TCAM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:15:23 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 bcsiModules, = mibBuilder.importSymbols("Brocade-REG-MIB", "bcsiModules")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 bcsiTCAM = ModuleIdentity((1, 3, 6, 1, 4, 1, 1588, 3, 1, 14))
 bcsiTCAM.setRevisions(('2018-05-29 12:00', '2016-10-24 13:30',))
@@ -48,4 +48,4 @@ bcsiTCAMUsageFreeCountDB = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 3, 1, 14, 1, 
 if mibBuilder.loadTexts: bcsiTCAMUsageFreeCountDB.setStatus('current')
 bcsiTCAMUsageFreeCountFeature = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 3, 1, 14, 1, 2, 1, 1, 11), Gauge32()).setUnits('Entries').setMaxAccess("readonly")
 if mibBuilder.loadTexts: bcsiTCAMUsageFreeCountFeature.setStatus('current')
-mibBuilder.exportSymbols("BROCADE-TCAM-MIB", bcsiTCAMUsageDBId=bcsiTCAMUsageDBId, bcsiTCAMUsageFreeCountFeature=bcsiTCAMUsageFreeCountFeature, bcsiTCAMObjects=bcsiTCAMObjects, bcsiTCAMUsageProcessor=bcsiTCAMUsageProcessor, bcsiTCAMNotification=bcsiTCAMNotification, bcsiTCAMGlobals=bcsiTCAMGlobals, bcsiTCAMUsageMaxLimit=bcsiTCAMUsageMaxLimit, bcsiTCAM=bcsiTCAM, bcsiTCAMUsageSlot=bcsiTCAMUsageSlot, bcsiTCAMUsageFreeCountContainer=bcsiTCAMUsageFreeCountContainer, bcsiTCAMUsageEntry=bcsiTCAMUsageEntry, bcsiTCAMUsageCurrentUsage=bcsiTCAMUsageCurrentUsage, bcsiTCAMUsageTable=bcsiTCAMUsageTable, bcsiTCAMUsageSize=bcsiTCAMUsageSize, bcsiTCAMProfile=bcsiTCAMProfile, bcsiTCAMUsageContainerId=bcsiTCAMUsageContainerId, bcsiTCAMUsageFeature=bcsiTCAMUsageFeature, bcsiTCAMUsageFreeCountDB=bcsiTCAMUsageFreeCountDB, bcsiTCAMUsageGroup=bcsiTCAMUsageGroup, PYSNMP_MODULE_ID=bcsiTCAM)
+mibBuilder.exportSymbols("BROCADE-TCAM-MIB", bcsiTCAMUsageGroup=bcsiTCAMUsageGroup, bcsiTCAMUsageTable=bcsiTCAMUsageTable, bcsiTCAMUsageMaxLimit=bcsiTCAMUsageMaxLimit, bcsiTCAMUsageCurrentUsage=bcsiTCAMUsageCurrentUsage, bcsiTCAMUsageFreeCountDB=bcsiTCAMUsageFreeCountDB, bcsiTCAMUsageFeature=bcsiTCAMUsageFeature, bcsiTCAMUsageContainerId=bcsiTCAMUsageContainerId, PYSNMP_MODULE_ID=bcsiTCAM, bcsiTCAM=bcsiTCAM, bcsiTCAMUsageDBId=bcsiTCAMUsageDBId, bcsiTCAMNotification=bcsiTCAMNotification, bcsiTCAMUsageFreeCountContainer=bcsiTCAMUsageFreeCountContainer, bcsiTCAMProfile=bcsiTCAMProfile, bcsiTCAMObjects=bcsiTCAMObjects, bcsiTCAMUsageEntry=bcsiTCAMUsageEntry, bcsiTCAMGlobals=bcsiTCAMGlobals, bcsiTCAMUsageFreeCountFeature=bcsiTCAMUsageFreeCountFeature, bcsiTCAMUsageSlot=bcsiTCAMUsageSlot, bcsiTCAMUsageProcessor=bcsiTCAMUsageProcessor, bcsiTCAMUsageSize=bcsiTCAMUsageSize)

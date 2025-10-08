@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module DDM-MGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DDM-MGMT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:19 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/DDM-MGMT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:00:25 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 swDdmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 72))
 if mibBuilder.loadTexts: swDdmMIB.setLastUpdated('1203200000Z')
 if mibBuilder.loadTexts: swDdmMIB.setOrganization('D-Link Corp.')
@@ -87,4 +87,4 @@ swDdmThresholdExceedType = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 72, 4, 1, 1), I
 if mibBuilder.loadTexts: swDdmThresholdExceedType.setStatus('current')
 swDdmThresholdExceedOrRecover = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 72, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("exceed", 1), ("recover", 2)))).setMaxAccess("accessiblefornotify")
 if mibBuilder.loadTexts: swDdmThresholdExceedOrRecover.setStatus('current')
-mibBuilder.exportSymbols("DDM-MGMT-MIB", swDdmPowerUnit=swDdmPowerUnit, swDdmLowWarning=swDdmLowWarning, swDdmHighWarning=swDdmHighWarning, swDdmHighAlarm=swDdmHighAlarm, swDdmTemperature=swDdmTemperature, swDdmStatusEntry=swDdmStatusEntry, swDdmActionMgmtTable=swDdmActionMgmtTable, swDdmThresholdExceedType=swDdmThresholdExceedType, swDdmPortShutdown=swDdmPortShutdown, swDdmMIB=swDdmMIB, swDdmActionMgmtEntry=swDdmActionMgmtEntry, swDdmThresholdMgmtTable=swDdmThresholdMgmtTable, swDdmInfo=swDdmInfo, swDdmThresholdMgmt=swDdmThresholdMgmt, swDdmPortMgmtTable=swDdmPortMgmtTable, swDdmPortState=swDdmPortState, swDdmActionMgmt=swDdmActionMgmt, swDdmThresholdExceedOrRecover=swDdmThresholdExceedOrRecover, PYSNMP_MODULE_ID=swDdmMIB, swDdmTrapState=swDdmTrapState, swDdmActionType=swDdmActionType, swDdmNotifyPrefix=swDdmNotifyPrefix, swDdmPort=swDdmPort, swDdmPortMgmtEntry=swDdmPortMgmtEntry, swDdmTrapAndLog=swDdmTrapAndLog, swDdmStatusTable=swDdmStatusTable, swDdmStatus=swDdmStatus, swDdmThresholdMgmtEntry=swDdmThresholdMgmtEntry, swDdmThresholdType=swDdmThresholdType, swDdmLogState=swDdmLogState, swDdmTxPower=swDdmTxPower, swDdmShutdown=swDdmShutdown, swDdmVoltage=swDdmVoltage, swDdmMgmt=swDdmMgmt, swDdmBiasCurrent=swDdmBiasCurrent, swDdmNotificationBinding=swDdmNotificationBinding, swDdmNotify=swDdmNotify, swDdmRxPower=swDdmRxPower, swDdmWarningTrap=swDdmWarningTrap, swDdmLowAlarm=swDdmLowAlarm, swDdmAlarmTrap=swDdmAlarmTrap, swDdmCtrl=swDdmCtrl)
+mibBuilder.exportSymbols("DDM-MGMT-MIB", swDdmPort=swDdmPort, swDdmRxPower=swDdmRxPower, swDdmLowWarning=swDdmLowWarning, swDdmTrapState=swDdmTrapState, swDdmLogState=swDdmLogState, swDdmStatusTable=swDdmStatusTable, swDdmActionMgmtTable=swDdmActionMgmtTable, swDdmThresholdExceedType=swDdmThresholdExceedType, swDdmTxPower=swDdmTxPower, PYSNMP_MODULE_ID=swDdmMIB, swDdmNotifyPrefix=swDdmNotifyPrefix, swDdmActionMgmt=swDdmActionMgmt, swDdmThresholdMgmt=swDdmThresholdMgmt, swDdmThresholdMgmtTable=swDdmThresholdMgmtTable, swDdmHighAlarm=swDdmHighAlarm, swDdmPortShutdown=swDdmPortShutdown, swDdmNotify=swDdmNotify, swDdmWarningTrap=swDdmWarningTrap, swDdmTrapAndLog=swDdmTrapAndLog, swDdmHighWarning=swDdmHighWarning, swDdmPortMgmtEntry=swDdmPortMgmtEntry, swDdmBiasCurrent=swDdmBiasCurrent, swDdmPortMgmtTable=swDdmPortMgmtTable, swDdmPowerUnit=swDdmPowerUnit, swDdmStatus=swDdmStatus, swDdmMIB=swDdmMIB, swDdmTemperature=swDdmTemperature, swDdmShutdown=swDdmShutdown, swDdmNotificationBinding=swDdmNotificationBinding, swDdmLowAlarm=swDdmLowAlarm, swDdmStatusEntry=swDdmStatusEntry, swDdmAlarmTrap=swDdmAlarmTrap, swDdmThresholdType=swDdmThresholdType, swDdmCtrl=swDdmCtrl, swDdmThresholdMgmtEntry=swDdmThresholdMgmtEntry, swDdmActionType=swDdmActionType, swDdmMgmt=swDdmMgmt, swDdmInfo=swDdmInfo, swDdmActionMgmtEntry=swDdmActionMgmtEntry, swDdmPortState=swDdmPortState, swDdmThresholdExceedOrRecover=swDdmThresholdExceedOrRecover, swDdmVoltage=swDdmVoltage)

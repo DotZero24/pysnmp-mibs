@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PKT-STORM-CTRL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/PKT-STORM-CTRL-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:33:31 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/PKT-STORM-CTRL-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:58:01 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+MacAddress, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "RowStatus", "TextualConvention", "DisplayString")
 swPktStormMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 25))
 if mibBuilder.loadTexts: swPktStormMIB.setLastUpdated('1004150000Z')
 if mibBuilder.loadTexts: swPktStormMIB.setOrganization('D-Link Corp.')
@@ -66,4 +66,4 @@ swPktStormCleared = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 25, 5, 0, 2)).s
 if mibBuilder.loadTexts: swPktStormCleared.setStatus('current')
 swPktStormDisablePort = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 25, 5, 0, 3)).setObjects(("PKT-STORM-CTRL-MIB", "swPktStormCtrlPortIndex"))
 if mibBuilder.loadTexts: swPktStormDisablePort.setStatus('current')
-mibBuilder.exportSymbols("PKT-STORM-CTRL-MIB", swPktStormCtrlShutdownForever=swPktStormCtrlShutdownForever, swPktStormNotifyPrefix=swPktStormNotifyPrefix, swPktStormRecover=swPktStormRecover, swPktStormOccurred=swPktStormOccurred, swPktStormCtrlEntry=swPktStormCtrlEntry, swPktStormCtrlCountDown=swPktStormCtrlCountDown, swPktStormCtrl=swPktStormCtrl, swPktStormAutoRecoverTime=swPktStormAutoRecoverTime, swPktStormMgmt=swPktStormMgmt, swPktStormMIB=swPktStormMIB, swPktStormNotify=swPktStormNotify, swPktStormCtrlMCastThreshold=swPktStormCtrlMCastThreshold, swPktStormTrapCtrl=swPktStormTrapCtrl, swPktStormDisablePort=swPktStormDisablePort, swPktStormCtrlthreshold=swPktStormCtrlthreshold, swPktStormLogCtrl=swPktStormLogCtrl, swPktStormCtrlBCastThreshold=swPktStormCtrlBCastThreshold, swPktStormCtrlTable=swPktStormCtrlTable, swPktStormCtrlPortIndex=swPktStormCtrlPortIndex, PYSNMP_MODULE_ID=swPktStormMIB, swPktStormInfo=swPktStormInfo, swPktStormCtrlMulticastStatus=swPktStormCtrlMulticastStatus, swPktStormCtrlUnicastThreshold=swPktStormCtrlUnicastThreshold, swPktStormCtrlActionStatus=swPktStormCtrlActionStatus, PortList=PortList, swPktStormCleared=swPktStormCleared, swPktStormCtrlUnicastStatus=swPktStormCtrlUnicastStatus, swPktStormCtrlTimeinterval=swPktStormCtrlTimeinterval, swPktStormCtrlBroadcastStatus=swPktStormCtrlBroadcastStatus)
+mibBuilder.exportSymbols("PKT-STORM-CTRL-MIB", swPktStormCtrlthreshold=swPktStormCtrlthreshold, swPktStormCtrlShutdownForever=swPktStormCtrlShutdownForever, swPktStormCtrlTable=swPktStormCtrlTable, swPktStormCtrlMulticastStatus=swPktStormCtrlMulticastStatus, swPktStormMgmt=swPktStormMgmt, swPktStormCtrl=swPktStormCtrl, swPktStormCtrlEntry=swPktStormCtrlEntry, swPktStormNotifyPrefix=swPktStormNotifyPrefix, swPktStormCtrlUnicastThreshold=swPktStormCtrlUnicastThreshold, swPktStormAutoRecoverTime=swPktStormAutoRecoverTime, swPktStormCleared=swPktStormCleared, swPktStormCtrlUnicastStatus=swPktStormCtrlUnicastStatus, swPktStormLogCtrl=swPktStormLogCtrl, swPktStormCtrlMCastThreshold=swPktStormCtrlMCastThreshold, swPktStormOccurred=swPktStormOccurred, swPktStormCtrlPortIndex=swPktStormCtrlPortIndex, swPktStormRecover=swPktStormRecover, PYSNMP_MODULE_ID=swPktStormMIB, swPktStormInfo=swPktStormInfo, swPktStormCtrlActionStatus=swPktStormCtrlActionStatus, swPktStormDisablePort=swPktStormDisablePort, swPktStormCtrlBroadcastStatus=swPktStormCtrlBroadcastStatus, swPktStormTrapCtrl=swPktStormTrapCtrl, swPktStormCtrlBCastThreshold=swPktStormCtrlBCastThreshold, PortList=PortList, swPktStormMIB=swPktStormMIB, swPktStormCtrlCountDown=swPktStormCtrlCountDown, swPktStormCtrlTimeinterval=swPktStormCtrlTimeinterval, swPktStormNotify=swPktStormNotify)

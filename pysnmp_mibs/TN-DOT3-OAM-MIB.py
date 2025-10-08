@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module TN-DOT3-OAM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TN-DOT3-OAM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:18:37 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nokia/TN-DOT3-OAM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:35:54 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-dot3OamEntry, dot3OamLoopbackEntry, dot3OamPeerMacAddress = mibBuilder.importSymbols("DOT3-OAM-MIB", "dot3OamEntry", "dot3OamLoopbackEntry", "dot3OamPeerMacAddress")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+dot3OamEntry, dot3OamPeerMacAddress, dot3OamLoopbackEntry = mibBuilder.importSymbols("DOT3-OAM-MIB", "dot3OamEntry", "dot3OamPeerMacAddress", "dot3OamLoopbackEntry")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-TimeStamp, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TruthValue", "TextualConvention")
-tnSRMIBModules, tnSRNotifyPrefix, tnSRObjs = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnSRMIBModules", "tnSRNotifyPrefix", "tnSRObjs")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "TimeStamp", "DisplayString")
+tnSRNotifyPrefix, tnSRObjs, tnSRMIBModules = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnSRNotifyPrefix", "tnSRObjs", "tnSRMIBModules")
 tnDOT3OAMMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 7483, 5, 1, 3, 42))
 tnDOT3OAMMIBModule.setRevisions(('2008-07-01 00:00', '2008-01-01 00:00', '2006-08-01 00:00',))
 if mibBuilder.loadTexts: tnDOT3OAMMIBModule.setLastUpdated('200807010000Z')
@@ -58,4 +58,4 @@ tnDot3OamLoopDetected = NotificationType((1, 3, 6, 1, 4, 1, 7483, 6, 1, 3, 42, 4
 if mibBuilder.loadTexts: tnDot3OamLoopDetected.setStatus('current')
 tnDot3OamLoopCleared = NotificationType((1, 3, 6, 1, 4, 1, 7483, 6, 1, 3, 42, 42, 0, 3)).setObjects(("IF-MIB", "ifIndex"))
 if mibBuilder.loadTexts: tnDot3OamLoopCleared.setStatus('current')
-mibBuilder.exportSymbols("TN-DOT3-OAM-MIB", tnDot3OamTunneling=tnDot3OamTunneling, tnDot3OamNotifyPrefix=tnDot3OamNotifyPrefix, tnDot3OamMultiplier=tnDot3OamMultiplier, tnDot3OamLoopbackTable=tnDot3OamLoopbackTable, tnDot3OamNotificationsPrefix=tnDot3OamNotificationsPrefix, tnDOT3OAMMIBModule=tnDOT3OAMMIBModule, tnDot3OamPeerChanged=tnDot3OamPeerChanged, tnDot3OamEntry=tnDot3OamEntry, tnDot3OamTable=tnDot3OamTable, tnDot3OamLoopbackEntry=tnDot3OamLoopbackEntry, tnDot3OamLooped=tnDot3OamLooped, tnDot3OamLoopbackLastChanged=tnDot3OamLoopbackLastChanged, tnDot3OamHoldTime=tnDot3OamHoldTime, tnDot3OamLoopCleared=tnDot3OamLoopCleared, tnDot3OamLastChanged=tnDot3OamLastChanged, tnDot3OamNotifications=tnDot3OamNotifications, tnDot3OamLoopDetected=tnDot3OamLoopDetected, PYSNMP_MODULE_ID=tnDOT3OAMMIBModule, tnDot3OamObjs=tnDot3OamObjs, tnDot3OamLoopbackObjs=tnDot3OamLoopbackObjs, tnDot3OamLoopbackLocalStatus=tnDot3OamLoopbackLocalStatus, tnDot3OamEntryObjs=tnDot3OamEntryObjs, tnDot3OamInterval=tnDot3OamInterval)
+mibBuilder.exportSymbols("TN-DOT3-OAM-MIB", tnDot3OamLoopbackEntry=tnDot3OamLoopbackEntry, tnDot3OamLoopbackLastChanged=tnDot3OamLoopbackLastChanged, tnDot3OamNotifyPrefix=tnDot3OamNotifyPrefix, tnDot3OamPeerChanged=tnDot3OamPeerChanged, tnDot3OamLastChanged=tnDot3OamLastChanged, tnDot3OamLoopbackLocalStatus=tnDot3OamLoopbackLocalStatus, tnDot3OamEntry=tnDot3OamEntry, tnDOT3OAMMIBModule=tnDOT3OAMMIBModule, PYSNMP_MODULE_ID=tnDOT3OAMMIBModule, tnDot3OamLoopCleared=tnDot3OamLoopCleared, tnDot3OamHoldTime=tnDot3OamHoldTime, tnDot3OamNotifications=tnDot3OamNotifications, tnDot3OamLooped=tnDot3OamLooped, tnDot3OamLoopDetected=tnDot3OamLoopDetected, tnDot3OamEntryObjs=tnDot3OamEntryObjs, tnDot3OamLoopbackObjs=tnDot3OamLoopbackObjs, tnDot3OamLoopbackTable=tnDot3OamLoopbackTable, tnDot3OamMultiplier=tnDot3OamMultiplier, tnDot3OamInterval=tnDot3OamInterval, tnDot3OamTable=tnDot3OamTable, tnDot3OamObjs=tnDot3OamObjs, tnDot3OamTunneling=tnDot3OamTunneling, tnDot3OamNotificationsPrefix=tnDot3OamNotificationsPrefix)

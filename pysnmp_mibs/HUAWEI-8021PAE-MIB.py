@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module HUAWEI-8021PAE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/HUAWEI-8021PAE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:51 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/HUAWEI-8021PAE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:46 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 huaweiMgmt, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "huaweiMgmt")
 dot1xPaePortNumber, = mibBuilder.importSymbols("IEEE8021-PAE-MIB", "dot1xPaePortNumber")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
 hwpaeExtMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 5, 22))
 hwpaeExtMib.setRevisions(('2001-06-29 00:00',))
 if mibBuilder.loadTexts: hwpaeExtMib.setLastUpdated('200106290000Z')
@@ -65,4 +65,4 @@ proxycheckIpaddr = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 0, 5), IpAddress
 if mibBuilder.loadTexts: proxycheckIpaddr.setStatus('current')
 proxycheckUsrName = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 0, 6), OctetString()).setMaxAccess("accessiblefornotify")
 if mibBuilder.loadTexts: proxycheckUsrName.setStatus('current')
-mibBuilder.exportSymbols("HUAWEI-8021PAE-MIB", hwdot1xpaeportClearStatistics=hwdot1xpaeportClearStatistics, hwpaeExtMibObjects=hwpaeExtMibObjects, hwdot1xpaeportMaxUserNum=hwdot1xpaeportMaxUserNum, proxycheckMacAddr=proxycheckMacAddr, PYSNMP_MODULE_ID=hwpaeExtMib, hwdot1xAuthSuppTimeout=hwdot1xAuthSuppTimeout, hwpaeExtMib=hwpaeExtMib, hwdot1xAuthReAuthPeriod=hwdot1xAuthReAuthPeriod, hwdot1xAuthConfigExtTable=hwdot1xAuthConfigExtTable, hwdot1xAuthConfigExtEntry=hwdot1xAuthConfigExtEntry, hwdot1xPaeAuthenticator=hwdot1xPaeAuthenticator, hwdot1xpaeportUserNumNow=hwdot1xpaeportUserNumNow, proxycheckIpaddr=proxycheckIpaddr, hwdot1xPaeTraps=hwdot1xPaeTraps, hwdot1xAuthMaxReq=hwdot1xAuthMaxReq, hwdot1xAuthMethod=hwdot1xAuthMethod, hwdot1xAuthQuietPeriod=hwdot1xAuthQuietPeriod, hwdot1xpaeportHandshakeStatus=hwdot1xpaeportHandshakeStatus, hwdot1xPaeSystem=hwdot1xPaeSystem, hwdot1xpaeportAuthAdminStatus=hwdot1xpaeportAuthAdminStatus, proxycheckUsrName=proxycheckUsrName, hwdot1xAuthTxPeriod=hwdot1xAuthTxPeriod, hwdot1xpaeportMcastTrigStatus=hwdot1xpaeportMcastTrigStatus, hwdot1xpaeportControlledType=hwdot1xpaeportControlledType, proxycheckVlanId=proxycheckVlanId, proxycheckPortName=proxycheckPortName, supplicantproxycheck=supplicantproxycheck, hwdot1xAuthServerTimeout=hwdot1xAuthServerTimeout)
+mibBuilder.exportSymbols("HUAWEI-8021PAE-MIB", proxycheckVlanId=proxycheckVlanId, PYSNMP_MODULE_ID=hwpaeExtMib, proxycheckMacAddr=proxycheckMacAddr, hwdot1xAuthConfigExtEntry=hwdot1xAuthConfigExtEntry, hwdot1xAuthConfigExtTable=hwdot1xAuthConfigExtTable, hwdot1xPaeAuthenticator=hwdot1xPaeAuthenticator, proxycheckUsrName=proxycheckUsrName, hwdot1xAuthServerTimeout=hwdot1xAuthServerTimeout, hwdot1xpaeportControlledType=hwdot1xpaeportControlledType, hwdot1xpaeportMaxUserNum=hwdot1xpaeportMaxUserNum, hwdot1xAuthMethod=hwdot1xAuthMethod, hwdot1xAuthQuietPeriod=hwdot1xAuthQuietPeriod, hwdot1xpaeportMcastTrigStatus=hwdot1xpaeportMcastTrigStatus, supplicantproxycheck=supplicantproxycheck, hwdot1xpaeportUserNumNow=hwdot1xpaeportUserNumNow, hwdot1xPaeSystem=hwdot1xPaeSystem, hwdot1xAuthReAuthPeriod=hwdot1xAuthReAuthPeriod, proxycheckPortName=proxycheckPortName, hwpaeExtMib=hwpaeExtMib, proxycheckIpaddr=proxycheckIpaddr, hwdot1xpaeportAuthAdminStatus=hwdot1xpaeportAuthAdminStatus, hwdot1xpaeportClearStatistics=hwdot1xpaeportClearStatistics, hwdot1xPaeTraps=hwdot1xPaeTraps, hwpaeExtMibObjects=hwpaeExtMibObjects, hwdot1xpaeportHandshakeStatus=hwdot1xpaeportHandshakeStatus, hwdot1xAuthMaxReq=hwdot1xAuthMaxReq, hwdot1xAuthSuppTimeout=hwdot1xAuthSuppTimeout, hwdot1xAuthTxPeriod=hwdot1xAuthTxPeriod)

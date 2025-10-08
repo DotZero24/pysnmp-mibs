@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module LUM-IFOTDR-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/LUM-IFOTDR-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:42 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/LUM-IFOTDR-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:20:52 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-lumModules, lumIfOtdrMIB = mibBuilder.importSymbols("LUM-REG", "lumModules", "lumIfOtdrMIB")
-Unsigned32WithNA, OperStatusWithNA, DisplayStringWithNA, AdminStatusWithNA, SlotNumber, EnabledDisabledWithNA, CommandString, MgmtNameString, FaultStatusWithNA, PortNumber, SubrackNumber = mibBuilder.importSymbols("LUM-TC", "Unsigned32WithNA", "OperStatusWithNA", "DisplayStringWithNA", "AdminStatusWithNA", "SlotNumber", "EnabledDisabledWithNA", "CommandString", "MgmtNameString", "FaultStatusWithNA", "PortNumber", "SubrackNumber")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+lumIfOtdrMIB, lumModules = mibBuilder.importSymbols("LUM-REG", "lumIfOtdrMIB", "lumModules")
+PortNumber, MgmtNameString, Unsigned32WithNA, DisplayStringWithNA, AdminStatusWithNA, SlotNumber, EnabledDisabledWithNA, OperStatusWithNA, SubrackNumber, CommandString, FaultStatusWithNA = mibBuilder.importSymbols("LUM-TC", "PortNumber", "MgmtNameString", "Unsigned32WithNA", "DisplayStringWithNA", "AdminStatusWithNA", "SlotNumber", "EnabledDisabledWithNA", "OperStatusWithNA", "SubrackNumber", "CommandString", "FaultStatusWithNA")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
 ifOtdrMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 8708, 1, 1, 72))
 ifOtdrMIBModule.setRevisions(('2018-06-15 00:00',))
 if mibBuilder.loadTexts: ifOtdrMIBModule.setLastUpdated('201806150000Z')
@@ -63,4 +63,4 @@ lumIfOtdrComplV1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 8708, 2, 72, 1, 2, 1)).se
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     lumIfOtdrComplV1 = lumIfOtdrComplV1.setStatus('current')
-mibBuilder.exportSymbols("LUM-IFOTDR-MIB", ifOtdrMIBModule=ifOtdrMIBModule, ifOtdrFiberSpanStartMeasurementCommand=ifOtdrFiberSpanStartMeasurementCommand, lumIfOtdrComplV1=lumIfOtdrComplV1, ifOtdrFiberSpanPortNr=ifOtdrFiberSpanPortNr, ifOtdrFiberSpanGroupV1=ifOtdrFiberSpanGroupV1, ifOtdrFiberSpanSessionType=ifOtdrFiberSpanSessionType, ifOtdrFiberSpanTable=ifOtdrFiberSpanTable, ifOtdrFiberSpanIndex=ifOtdrFiberSpanIndex, lumIfOtdrGroups=lumIfOtdrGroups, ifOtdrFiberSpanList=ifOtdrFiberSpanList, ifOtdrGeneralGroupV1=ifOtdrGeneralGroupV1, ifOtdrFiberSpanState=ifOtdrFiberSpanState, ifOtdrFiberSpanSlot=ifOtdrFiberSpanSlot, ifOtdrFiberSpanEntry=ifOtdrFiberSpanEntry, ifOtdrFiberSpanConnIfBasicIfIndex=ifOtdrFiberSpanConnIfBasicIfIndex, ifOtdrFiberSpanFiberId=ifOtdrFiberSpanFiberId, ifOtdrFiberSpanName=ifOtdrFiberSpanName, lumIfOtdrMIBObjects=lumIfOtdrMIBObjects, ifOtdrGeneralStateLastChangeTime=ifOtdrGeneralStateLastChangeTime, ifOtdrGeneralFiberSpanTableSize=ifOtdrGeneralFiberSpanTableSize, ifOtdrGeneral=ifOtdrGeneral, ifOtdrGeneralConfigLastChangeTime=ifOtdrGeneralConfigLastChangeTime, ifOtdrFiberSpanSubrack=ifOtdrFiberSpanSubrack, lumIfOtdrCompl=lumIfOtdrCompl, PYSNMP_MODULE_ID=ifOtdrMIBModule, lumIfOtdrConfs=lumIfOtdrConfs)
+mibBuilder.exportSymbols("LUM-IFOTDR-MIB", PYSNMP_MODULE_ID=ifOtdrMIBModule, ifOtdrFiberSpanStartMeasurementCommand=ifOtdrFiberSpanStartMeasurementCommand, lumIfOtdrMIBObjects=lumIfOtdrMIBObjects, ifOtdrGeneralStateLastChangeTime=ifOtdrGeneralStateLastChangeTime, ifOtdrFiberSpanTable=ifOtdrFiberSpanTable, ifOtdrGeneralConfigLastChangeTime=ifOtdrGeneralConfigLastChangeTime, ifOtdrFiberSpanSlot=ifOtdrFiberSpanSlot, ifOtdrFiberSpanName=ifOtdrFiberSpanName, lumIfOtdrConfs=lumIfOtdrConfs, lumIfOtdrCompl=lumIfOtdrCompl, ifOtdrFiberSpanEntry=ifOtdrFiberSpanEntry, ifOtdrGeneralFiberSpanTableSize=ifOtdrGeneralFiberSpanTableSize, ifOtdrFiberSpanFiberId=ifOtdrFiberSpanFiberId, ifOtdrFiberSpanConnIfBasicIfIndex=ifOtdrFiberSpanConnIfBasicIfIndex, ifOtdrMIBModule=ifOtdrMIBModule, ifOtdrFiberSpanSubrack=ifOtdrFiberSpanSubrack, lumIfOtdrGroups=lumIfOtdrGroups, ifOtdrFiberSpanGroupV1=ifOtdrFiberSpanGroupV1, ifOtdrGeneral=ifOtdrGeneral, lumIfOtdrComplV1=lumIfOtdrComplV1, ifOtdrFiberSpanSessionType=ifOtdrFiberSpanSessionType, ifOtdrFiberSpanList=ifOtdrFiberSpanList, ifOtdrGeneralGroupV1=ifOtdrGeneralGroupV1, ifOtdrFiberSpanPortNr=ifOtdrFiberSpanPortNr, ifOtdrFiberSpanState=ifOtdrFiberSpanState, ifOtdrFiberSpanIndex=ifOtdrFiberSpanIndex)

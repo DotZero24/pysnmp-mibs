@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module RADLAN-SMARTPORTS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/radlan/RADLAN-SMARTPORTS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:40:44 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/radlan/RADLAN-SMARTPORTS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:07:41 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
 EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
 rnd, = mibBuilder.importSymbols("RADLAN-MIB", "rnd")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
 rlSmartPorts = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 140))
 rlSmartPorts.setRevisions(('2008-07-30 00:00',))
 if mibBuilder.loadTexts: rlSmartPorts.setLastUpdated('200807300000Z')
@@ -78,4 +78,4 @@ rlSmartPortsDiagCommandLine = MibScalar((1, 3, 6, 1, 4, 1, 89, 140, 7), SnmpAdmi
 if mibBuilder.loadTexts: rlSmartPortsDiagCommandLine.setStatus('current')
 rlSmartPortsCondenseMode = MibScalar((1, 3, 6, 1, 4, 1, 89, 140, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: rlSmartPortsCondenseMode.setStatus('current')
-mibBuilder.exportSymbols("RADLAN-SMARTPORTS-MIB", rlSmartPortsMacroOctetIndex=rlSmartPortsMacroOctetIndex, rlSmartPortsMacroText=rlSmartPortsMacroText, rlSmartPortsMacroType=rlSmartPortsMacroType, rlSmartPortsMacroContentTable=rlSmartPortsMacroContentTable, RlSmartPortsMacroName=RlSmartPortsMacroName, rlSmartPortsMacroManageEntry=rlSmartPortsMacroManageEntry, rlSmartPorts=rlSmartPorts, rlSmartPortsDiagMacroName=rlSmartPortsDiagMacroName, rlSmartPortsMacroContentEntry=rlSmartPortsMacroContentEntry, rlSmartPortsMacroDescriptionText=rlSmartPortsMacroDescriptionText, rlSmartPortsMacroStatus=rlSmartPortsMacroStatus, rlSmartPortsMacroDescriptionStatus=rlSmartPortsMacroDescriptionStatus, rlSmartPortsFreeIndexes=rlSmartPortsFreeIndexes, rlSmartPortsMacroDesc2=rlSmartPortsMacroDesc2, PYSNMP_MODULE_ID=rlSmartPorts, rlSmartPortsMacroDesc1=rlSmartPortsMacroDesc1, rlSmartPortsMacroDescriptionIndex=rlSmartPortsMacroDescriptionIndex, rlSmartPortsMacroDescriptionTable=rlSmartPortsMacroDescriptionTable, rlSmartPortsMacroManageTable=rlSmartPortsMacroManageTable, rlSmartPortsCondenseMode=rlSmartPortsCondenseMode, MacroType=MacroType, rlSmartPortsMacroKeywords=rlSmartPortsMacroKeywords, rlSmartPortsDiagCommandLine=rlSmartPortsDiagCommandLine, rlSmartPortsMacroName=rlSmartPortsMacroName, rlSmartPortsMacroIndex=rlSmartPortsMacroIndex, RlSmartPortsMacroNameOrZero=RlSmartPortsMacroNameOrZero, rlSmartPortsMacroDescriptionEntry=rlSmartPortsMacroDescriptionEntry, rlSmartPortsDiagLineNumber=rlSmartPortsDiagLineNumber)
+mibBuilder.exportSymbols("RADLAN-SMARTPORTS-MIB", rlSmartPortsMacroOctetIndex=rlSmartPortsMacroOctetIndex, rlSmartPortsMacroManageTable=rlSmartPortsMacroManageTable, rlSmartPortsMacroKeywords=rlSmartPortsMacroKeywords, rlSmartPortsMacroDescriptionTable=rlSmartPortsMacroDescriptionTable, rlSmartPortsDiagMacroName=rlSmartPortsDiagMacroName, rlSmartPortsMacroStatus=rlSmartPortsMacroStatus, rlSmartPortsMacroDescriptionIndex=rlSmartPortsMacroDescriptionIndex, PYSNMP_MODULE_ID=rlSmartPorts, rlSmartPortsMacroContentTable=rlSmartPortsMacroContentTable, rlSmartPortsFreeIndexes=rlSmartPortsFreeIndexes, rlSmartPortsDiagLineNumber=rlSmartPortsDiagLineNumber, rlSmartPortsMacroIndex=rlSmartPortsMacroIndex, rlSmartPortsMacroDescriptionEntry=rlSmartPortsMacroDescriptionEntry, rlSmartPortsMacroText=rlSmartPortsMacroText, rlSmartPortsMacroDesc2=rlSmartPortsMacroDesc2, rlSmartPortsMacroDescriptionText=rlSmartPortsMacroDescriptionText, RlSmartPortsMacroNameOrZero=RlSmartPortsMacroNameOrZero, rlSmartPortsCondenseMode=rlSmartPortsCondenseMode, rlSmartPortsMacroManageEntry=rlSmartPortsMacroManageEntry, rlSmartPortsDiagCommandLine=rlSmartPortsDiagCommandLine, rlSmartPortsMacroDesc1=rlSmartPortsMacroDesc1, rlSmartPortsMacroDescriptionStatus=rlSmartPortsMacroDescriptionStatus, rlSmartPortsMacroContentEntry=rlSmartPortsMacroContentEntry, rlSmartPortsMacroName=rlSmartPortsMacroName, MacroType=MacroType, rlSmartPortsMacroType=rlSmartPortsMacroType, rlSmartPorts=rlSmartPorts, RlSmartPortsMacroName=RlSmartPortsMacroName)

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module MAIPU-STATICROUTE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/maipu/MAIPU-STATICROUTE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:57 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/maipu/MAIPU-STATICROUTE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:19:13 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 mpMgmt, = mibBuilder.importSymbols("MAIPU-SMI", "mpMgmt")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, ObjectSyntax, iso, MibIdentifier, ObjectName, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "ObjectSyntax", "iso", "MibIdentifier", "ObjectName", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectSyntax, Counter32, ModuleIdentity, TimeTicks, Counter64, ObjectIdentity, Gauge32, ObjectName = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectSyntax", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "ObjectIdentity", "Gauge32", "ObjectName")
+RowStatus, DateAndTime, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
 routeMib = MibIdentifier((1, 3, 6, 1, 4, 1, 5651, 3, 81))
 staticRoute = MibIdentifier((1, 3, 6, 1, 4, 1, 5651, 3, 81, 7))
 staticIfRouteTable = MibTable((1, 3, 6, 1, 4, 1, 5651, 3, 81, 7, 1), )
@@ -48,4 +48,4 @@ staticGwRouteDistance = MibScalar((1, 3, 6, 1, 4, 1, 5651, 3, 81, 7, 2, 1, 6), I
 if mibBuilder.loadTexts: staticGwRouteDistance.setStatus('current')
 staticGwRouteRowStatus = MibScalar((1, 3, 6, 1, 4, 1, 5651, 3, 81, 7, 2, 1, 7), RowStatus()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: staticGwRouteRowStatus.setStatus('current')
-mibBuilder.exportSymbols("MAIPU-STATICROUTE-MIB", staticIfRouteIfName=staticIfRouteIfName, staticIfRouteDistance=staticIfRouteDistance, staticGwRouteVrfName=staticGwRouteVrfName, staticGwRouteRowStatus=staticGwRouteRowStatus, staticGwRouteDest=staticGwRouteDest, staticGwRouteGw=staticGwRouteGw, staticGwRouteGwVrfName=staticGwRouteGwVrfName, staticIfRouteMask=staticIfRouteMask, staticGwRouteEntry=staticGwRouteEntry, staticRoute=staticRoute, staticIfRouteRowStatus=staticIfRouteRowStatus, staticIfRouteEntry=staticIfRouteEntry, staticIfRouteTable=staticIfRouteTable, staticGwRouteMask=staticGwRouteMask, staticIfRouteDest=staticIfRouteDest, routeMib=routeMib, staticGwRouteTable=staticGwRouteTable, staticIfRouteVrfName=staticIfRouteVrfName, staticGwRouteDistance=staticGwRouteDistance)
+mibBuilder.exportSymbols("MAIPU-STATICROUTE-MIB", routeMib=routeMib, staticGwRouteMask=staticGwRouteMask, staticIfRouteIfName=staticIfRouteIfName, staticRoute=staticRoute, staticGwRouteVrfName=staticGwRouteVrfName, staticIfRouteDest=staticIfRouteDest, staticIfRouteEntry=staticIfRouteEntry, staticIfRouteDistance=staticIfRouteDistance, staticGwRouteTable=staticGwRouteTable, staticGwRouteGw=staticGwRouteGw, staticIfRouteTable=staticIfRouteTable, staticGwRouteDest=staticGwRouteDest, staticGwRouteRowStatus=staticGwRouteRowStatus, staticIfRouteVrfName=staticIfRouteVrfName, staticGwRouteGwVrfName=staticGwRouteGwVrfName, staticGwRouteDistance=staticGwRouteDistance, staticIfRouteMask=staticIfRouteMask, staticGwRouteEntry=staticGwRouteEntry, staticIfRouteRowStatus=staticIfRouteRowStatus)

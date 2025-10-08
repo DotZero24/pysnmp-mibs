@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module F10-PRODUCTS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/force10/F10-PRODUCTS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:43:16 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/force10/F10-PRODUCTS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:10:49 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 f10Modules, f10Products = mibBuilder.importSymbols("FORCE10-SMI", "f10Modules", "f10Products")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 f10FamilyMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6027, 4, 1))
 f10FamilyMIB.setRevisions(('2013-10-22 12:00', '2011-12-15 12:00', '2007-06-15 12:00', '2002-01-31 00:00',))
 if mibBuilder.loadTexts: f10FamilyMIB.setLastUpdated('201310221200Z')
@@ -92,4 +92,4 @@ s_IOA = ObjectIdentity((1, 3, 6, 1, 4, 1, 6027, 1, 4, 3)).setLabel("s-IOA")
 if mibBuilder.loadTexts: s_IOA.setStatus('current')
 z9500 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6027, 1, 5, 1))
 if mibBuilder.loadTexts: z9500.setStatus('current')
-mibBuilder.exportSymbols("F10-PRODUCTS-MIB", s2410cp=s2410cp, z9000=z9000, e1200i=e1200i, e610=e610, m_MXL=m_MXL, f10FamilyMIB=f10FamilyMIB, s50e=s50e, e300=e300, s25v=s25v, s25n=s25n, e1200=e1200, PYSNMP_MODULE_ID=f10FamilyMIB, s25pdc=s25pdc, f10CSeriesProducts=f10CSeriesProducts, s6000on=s6000on, z9500=z9500, f10ESeriesProducts=f10ESeriesProducts, s4820=s4820, m_IOA=m_IOA, s4048on=s4048on, f10MSeriesProducts=f10MSeriesProducts, e600=e600, s50nac=s50nac, s25pac=s25pac, s50v=s50v, s50ndc=s50ndc, s50=s50, s4810on=s4810on, c150=c150, s5000=s5000, s60=s60, s55=s55, s_IOA=s_IOA, s2410p=s2410p, f10ZSeriesProducts=f10ZSeriesProducts, f10SSeriesProducts=f10SSeriesProducts, s6000=s6000, s4810=s4810, s3048on=s3048on, c300=c300)
+mibBuilder.exportSymbols("F10-PRODUCTS-MIB", m_IOA=m_IOA, z9000=z9000, c150=c150, PYSNMP_MODULE_ID=f10FamilyMIB, s4810on=s4810on, s3048on=s3048on, s4048on=s4048on, s60=s60, z9500=z9500, s6000on=s6000on, f10ESeriesProducts=f10ESeriesProducts, s50v=s50v, f10FamilyMIB=f10FamilyMIB, f10ZSeriesProducts=f10ZSeriesProducts, s50nac=s50nac, s25v=s25v, e1200i=e1200i, s2410p=s2410p, s_IOA=s_IOA, s4820=s4820, f10SSeriesProducts=f10SSeriesProducts, s25n=s25n, s2410cp=s2410cp, s55=s55, e1200=e1200, s50e=s50e, e610=e610, e600=e600, f10CSeriesProducts=f10CSeriesProducts, s50ndc=s50ndc, f10MSeriesProducts=f10MSeriesProducts, s6000=s6000, s4810=s4810, c300=c300, s25pdc=s25pdc, s5000=s5000, s25pac=s25pac, e300=e300, s50=s50, m_MXL=m_MXL)

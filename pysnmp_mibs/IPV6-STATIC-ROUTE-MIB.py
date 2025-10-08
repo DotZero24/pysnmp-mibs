@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module IPV6-STATIC-ROUTE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/IPV6-STATIC-ROUTE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:34:24 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/IPV6-STATIC-ROUTE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:59:10 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+MacAddress, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "RowStatus", "TextualConvention", "DisplayString")
 swIPv6StaticRouteMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 26))
 if mibBuilder.loadTexts: swIPv6StaticRouteMIB.setLastUpdated('0706150000Z')
 if mibBuilder.loadTexts: swIPv6StaticRouteMIB.setOrganization('D-Link Corp.')
@@ -64,4 +64,4 @@ swIPv6NeighborCacheRouteStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 26, 
 if mibBuilder.loadTexts: swIPv6NeighborCacheRouteStatus.setStatus('current')
 swIPv6NeighborCacheDeleteAction = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 26, 4, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("all", 1), ("static", 2), ("dynamic", 3), ("other", 4)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: swIPv6NeighborCacheDeleteAction.setStatus('current')
-mibBuilder.exportSymbols("IPV6-STATIC-ROUTE-MIB", swIPv6StaticRouteMetric=swIPv6StaticRouteMetric, swIPv6StaticRouteCtrl=swIPv6StaticRouteCtrl, swIPv6StaticRouteNextHop=swIPv6StaticRouteNextHop, swIPv6StaticRouteDest=swIPv6StaticRouteDest, swIPv6NeighborCacheReachState=swIPv6NeighborCacheReachState, swIPv6StaticProtocol=swIPv6StaticProtocol, swIPv6NeighborCacheInterfaceName=swIPv6NeighborCacheInterfaceName, swIPv6NeighborCacheMgmt=swIPv6NeighborCacheMgmt, swIPv6StaticRouteMgmt=swIPv6StaticRouteMgmt, swIPv6StaticRouteInfo=swIPv6StaticRouteInfo, swIPv6StaticRouteBkupState=swIPv6StaticRouteBkupState, swIPv6StaticRouteEntry=swIPv6StaticRouteEntry, Ipv6Address=Ipv6Address, swIPv6StaticRouteInterfaceName=swIPv6StaticRouteInterfaceName, swIPv6NeighborCacheMacAddress=swIPv6NeighborCacheMacAddress, PYSNMP_MODULE_ID=swIPv6StaticRouteMIB, swIPv6NeighborCacheDeleteAction=swIPv6NeighborCacheDeleteAction, swIPv6StaticRouteStatus=swIPv6StaticRouteStatus, swIPv6StaticRouteWeight=swIPv6StaticRouteWeight, swIPv6NeighborCacheRouteStatus=swIPv6NeighborCacheRouteStatus, swIPv6StaticRoutePrefixLen=swIPv6StaticRoutePrefixLen, swIPv6NeighborCacheTable=swIPv6NeighborCacheTable, swIPv6StaticRouteTable=swIPv6StaticRouteTable, swIPv6NeighborCacheEntry=swIPv6NeighborCacheEntry, swIPv6NeighborCacheIPv6Address=swIPv6NeighborCacheIPv6Address, swIPv6StaticRouteMIB=swIPv6StaticRouteMIB)
+mibBuilder.exportSymbols("IPV6-STATIC-ROUTE-MIB", swIPv6StaticRouteTable=swIPv6StaticRouteTable, swIPv6NeighborCacheMgmt=swIPv6NeighborCacheMgmt, swIPv6StaticRouteMetric=swIPv6StaticRouteMetric, swIPv6NeighborCacheTable=swIPv6NeighborCacheTable, swIPv6StaticRouteInfo=swIPv6StaticRouteInfo, swIPv6StaticRouteInterfaceName=swIPv6StaticRouteInterfaceName, swIPv6StaticRouteMIB=swIPv6StaticRouteMIB, swIPv6NeighborCacheDeleteAction=swIPv6NeighborCacheDeleteAction, swIPv6NeighborCacheEntry=swIPv6NeighborCacheEntry, swIPv6NeighborCacheIPv6Address=swIPv6NeighborCacheIPv6Address, swIPv6NeighborCacheMacAddress=swIPv6NeighborCacheMacAddress, swIPv6StaticRouteStatus=swIPv6StaticRouteStatus, swIPv6NeighborCacheRouteStatus=swIPv6NeighborCacheRouteStatus, swIPv6StaticRouteEntry=swIPv6StaticRouteEntry, swIPv6StaticRouteWeight=swIPv6StaticRouteWeight, Ipv6Address=Ipv6Address, swIPv6StaticRouteMgmt=swIPv6StaticRouteMgmt, swIPv6StaticRouteNextHop=swIPv6StaticRouteNextHop, swIPv6StaticRouteDest=swIPv6StaticRouteDest, swIPv6StaticRouteCtrl=swIPv6StaticRouteCtrl, swIPv6NeighborCacheReachState=swIPv6NeighborCacheReachState, PYSNMP_MODULE_ID=swIPv6StaticRouteMIB, swIPv6StaticRouteBkupState=swIPv6StaticRouteBkupState, swIPv6NeighborCacheInterfaceName=swIPv6NeighborCacheInterfaceName, swIPv6StaticProtocol=swIPv6StaticProtocol, swIPv6StaticRoutePrefixLen=swIPv6StaticRoutePrefixLen)

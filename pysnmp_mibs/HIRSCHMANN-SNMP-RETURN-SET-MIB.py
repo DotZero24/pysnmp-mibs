@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module HIRSCHMANN-SNMP-RETURN-SET-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hirschmann/HIRSCHMANN-SNMP-RETURN-SET-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:22 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hirschmann/HIRSCHMANN-SNMP-RETURN-SET-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:30 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TestAndIncr, TextualConvention, AutonomousType = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TestAndIncr", "TextualConvention", "AutonomousType")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+AutonomousType, TestAndIncr, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "AutonomousType", "TestAndIncr", "TextualConvention", "DisplayString")
 hmMgmtSEReturnSetGroup = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 16, 1, 1))
 hmMgmtSEReturnSetGroup.setRevisions(('2010-09-14 12:00',))
 if mibBuilder.loadTexts: hmMgmtSEReturnSetGroup.setLastUpdated('201009141200Z')
@@ -48,4 +48,4 @@ if mibBuilder.loadTexts: hmMgmtSEParameterValue.setStatus('current')
 hmMgmtSETestGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 16, 1, 1, 100))
 hmMgmtSETestVar = MibScalar((1, 3, 6, 1, 4, 1, 248, 16, 1, 1, 100, 1), OctetString()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: hmMgmtSETestVar.setStatus('current')
-mibBuilder.exportSymbols("HIRSCHMANN-SNMP-RETURN-SET-MIB", hmMgmtSEParameterEntry=hmMgmtSEParameterEntry, hmMgmtSEReturnTable=hmMgmtSEReturnTable, hmMgmtSNMPExtensionGroup=hmMgmtSNMPExtensionGroup, hmMgmtSESPendingReturn=hmMgmtSESPendingReturn, hmMgmtSETestGroup=hmMgmtSETestGroup, hmMgmtSEParameterValue=hmMgmtSEParameterValue, hmMgmtSeReturnKey=hmMgmtSeReturnKey, hmMgmtSEReturnEntry=hmMgmtSEReturnEntry, hmMgmtSEParameterID=hmMgmtSEParameterID, hmMgmtSESReturns=hmMgmtSESReturns, hirschmann=hirschmann, hmMgmtSeReturnCode=hmMgmtSeReturnCode, PYSNMP_MODULE_ID=hmMgmtSEReturnSetGroup, hmMgmtSESFailureReturn=hmMgmtSESFailureReturn, hmMgmtSETestVar=hmMgmtSETestVar, hmMgmtSEReturnSetGroup=hmMgmtSEReturnSetGroup, hmMgmtSESpinLock=hmMgmtSESpinLock, hmMgmtSESTestReturn=hmMgmtSESTestReturn, hmMgmtSESOkReturn=hmMgmtSESOkReturn, hmMgmtSEParameterTable=hmMgmtSEParameterTable)
+mibBuilder.exportSymbols("HIRSCHMANN-SNMP-RETURN-SET-MIB", hmMgmtSESReturns=hmMgmtSESReturns, PYSNMP_MODULE_ID=hmMgmtSEReturnSetGroup, hmMgmtSEParameterTable=hmMgmtSEParameterTable, hmMgmtSeReturnKey=hmMgmtSeReturnKey, hmMgmtSESTestReturn=hmMgmtSESTestReturn, hmMgmtSESOkReturn=hmMgmtSESOkReturn, hmMgmtSESFailureReturn=hmMgmtSESFailureReturn, hmMgmtSESPendingReturn=hmMgmtSESPendingReturn, hmMgmtSETestVar=hmMgmtSETestVar, hmMgmtSEReturnSetGroup=hmMgmtSEReturnSetGroup, hmMgmtSEParameterID=hmMgmtSEParameterID, hmMgmtSESpinLock=hmMgmtSESpinLock, hmMgmtSETestGroup=hmMgmtSETestGroup, hmMgmtSEParameterEntry=hmMgmtSEParameterEntry, hmMgmtSEReturnEntry=hmMgmtSEReturnEntry, hmMgmtSEReturnTable=hmMgmtSEReturnTable, hirschmann=hirschmann, hmMgmtSeReturnCode=hmMgmtSeReturnCode, hmMgmtSEParameterValue=hmMgmtSEParameterValue, hmMgmtSNMPExtensionGroup=hmMgmtSNMPExtensionGroup)

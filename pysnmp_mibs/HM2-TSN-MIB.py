@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module HM2-TSN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hirschmann/HM2-TSN-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:13 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hirschmann/HM2-TSN-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:15 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-HmEnabledStatus, hm2ConfigurationMibs = mibBuilder.importSymbols("HM2-TC-MIB", "HmEnabledStatus", "hm2ConfigurationMibs")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+hm2ConfigurationMibs, HmEnabledStatus = mibBuilder.importSymbols("HM2-TC-MIB", "hm2ConfigurationMibs", "HmEnabledStatus")
 ieee8021STParametersEntry, = mibBuilder.importSymbols("IEEE8021-ST-MIB", "ieee8021STParametersEntry")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 hm2TsnMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 11, 51))
 hm2TsnMib.setRevisions(('2018-02-06 00:00', '2021-02-19 00:00', '2021-03-15 00:00',))
@@ -61,4 +61,4 @@ hm2TsnGCLTimeIntervalConflit = ObjectIdentity((1, 3, 6, 1, 4, 1, 248, 11, 51, 3,
 if mibBuilder.loadTexts: hm2TsnGCLTimeIntervalConflit.setStatus('current')
 hm2TsnGCLTemplateConflict = ObjectIdentity((1, 3, 6, 1, 4, 1, 248, 11, 51, 3, 1, 3))
 if mibBuilder.loadTexts: hm2TsnGCLTemplateConflict.setStatus('current')
-mibBuilder.exportSymbols("HM2-TSN-MIB", hm2TsnGCLTimeIntervalConflit=hm2TsnGCLTimeIntervalConflit, hm2TsnGranulaityConflict=hm2TsnGranulaityConflict, hm2TsnTemplateBasedParametersEntry=hm2TsnTemplateBasedParametersEntry, hm2STParametersTable=hm2STParametersTable, PYSNMP_MODULE_ID=hm2TsnMib, hm2TsnTemplateBasedParametersTable=hm2TsnTemplateBasedParametersTable, hm2STAdminBaseTime=hm2STAdminBaseTime, hm2STConfigChangeTime=hm2STConfigChangeTime, Hm2TsnBaseTime=Hm2TsnBaseTime, hm2TsnTemplateBasedGroup=hm2TsnTemplateBasedGroup, hm2TsnGCLTemplateConflict=hm2TsnGCLTemplateConflict, hm2TsnMibObjects=hm2TsnMibObjects, hm2TsnMibSNMPExtensionGroup=hm2TsnMibSNMPExtensionGroup, hm2TsnGroup=hm2TsnGroup, hm2STOperBaseTime=hm2STOperBaseTime, hm2TsnAdminTemplateGcl=hm2TsnAdminTemplateGcl, hm2TsnConflictMibSESGroup=hm2TsnConflictMibSESGroup, hm2STParametersEntry=hm2STParametersEntry, hm2STPortStatus=hm2STPortStatus, hm2TsnOperTemplateGcl=hm2TsnOperTemplateGcl, hm2TsnNotifications=hm2TsnNotifications, hm2TsnMib=hm2TsnMib, hm2TsnAdminState=hm2TsnAdminState)
+mibBuilder.exportSymbols("HM2-TSN-MIB", Hm2TsnBaseTime=Hm2TsnBaseTime, hm2TsnTemplateBasedGroup=hm2TsnTemplateBasedGroup, hm2TsnConflictMibSESGroup=hm2TsnConflictMibSESGroup, hm2TsnMibObjects=hm2TsnMibObjects, hm2TsnAdminState=hm2TsnAdminState, hm2TsnMibSNMPExtensionGroup=hm2TsnMibSNMPExtensionGroup, hm2STAdminBaseTime=hm2STAdminBaseTime, hm2TsnOperTemplateGcl=hm2TsnOperTemplateGcl, hm2TsnTemplateBasedParametersTable=hm2TsnTemplateBasedParametersTable, hm2TsnGCLTimeIntervalConflit=hm2TsnGCLTimeIntervalConflit, hm2STParametersEntry=hm2STParametersEntry, PYSNMP_MODULE_ID=hm2TsnMib, hm2TsnAdminTemplateGcl=hm2TsnAdminTemplateGcl, hm2STPortStatus=hm2STPortStatus, hm2TsnGroup=hm2TsnGroup, hm2STParametersTable=hm2STParametersTable, hm2TsnTemplateBasedParametersEntry=hm2TsnTemplateBasedParametersEntry, hm2TsnGCLTemplateConflict=hm2TsnGCLTemplateConflict, hm2TsnMib=hm2TsnMib, hm2STOperBaseTime=hm2STOperBaseTime, hm2TsnGranulaityConflict=hm2TsnGranulaityConflict, hm2TsnNotifications=hm2TsnNotifications, hm2STConfigChangeTime=hm2STConfigChangeTime)

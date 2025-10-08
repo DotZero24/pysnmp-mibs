@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module NORTEL-OME40G-CNXN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/NORTEL-OME40G-CNXN-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:22 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nortel/NORTEL-OME40G-CNXN-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:02:59 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 nnOme40G, = mibBuilder.importSymbols("NORTEL-OME40G-MIB", "nnOme40G")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 nnOme40GConnections = ModuleIdentity((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 2))
 nnOme40GConnections.setRevisions(('2007-02-02 00:00', '2008-02-07 00:00',))
 if mibBuilder.loadTexts: nnOme40GConnections.setLastUpdated('200802070000Z')
@@ -34,4 +34,4 @@ crossConnectType = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 2, 1, 1, 1,
 if mibBuilder.loadTexts: crossConnectType.setStatus('current')
 crossConnectName = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 2, 1, 1, 1, 6), DisplayString()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: crossConnectName.setStatus('current')
-mibBuilder.exportSymbols("NORTEL-OME40G-CNXN-MIB", crossConnectName=crossConnectName, toIfIndex=toIfIndex, nnCrossConnects=nnCrossConnects, fromIfIndex=fromIfIndex, xcRowStatus=xcRowStatus, crossConnectType=crossConnectType, PYSNMP_MODULE_ID=nnOme40GConnections, payloadIndex=payloadIndex, nnCrossConnectsEntry=nnCrossConnectsEntry, nnOme40GConnections=nnOme40GConnections, nnCrossConnectsTable=nnCrossConnectsTable)
+mibBuilder.exportSymbols("NORTEL-OME40G-CNXN-MIB", PYSNMP_MODULE_ID=nnOme40GConnections, toIfIndex=toIfIndex, crossConnectType=crossConnectType, nnCrossConnectsEntry=nnCrossConnectsEntry, nnCrossConnectsTable=nnCrossConnectsTable, fromIfIndex=fromIfIndex, payloadIndex=payloadIndex, nnOme40GConnections=nnOme40GConnections, xcRowStatus=xcRowStatus, nnCrossConnects=nnCrossConnects, crossConnectName=crossConnectName)

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module H3C-SAN-AGG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-SAN-AGG-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:48 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-SAN-AGG-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:42 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 h3cSan, = mibBuilder.importSymbols("H3C-VSAN-MIB", "h3cSan")
-ifIndex, ifDescr = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifDescr")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ifDescr, ifIndex = mibBuilder.importSymbols("IF-MIB", "ifDescr", "ifIndex")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
 h3cSanAgg = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 2))
 h3cSanAgg.setRevisions(('2013-02-25 09:40',))
 if mibBuilder.loadTexts: h3cSanAgg.setLastUpdated('201302250940Z')
@@ -50,4 +50,4 @@ h3cSanAggMemberInactive = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 
 if mibBuilder.loadTexts: h3cSanAggMemberInactive.setStatus('current')
 h3cSanAggMemberActive = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 2, 4, 0, 3)).setObjects(("H3C-SAN-AGG-MIB", "h3cSanAggGroupNumber"), ("IF-MIB", "ifIndex"), ("IF-MIB", "ifDescr"))
 if mibBuilder.loadTexts: h3cSanAggMemberActive.setStatus('current')
-mibBuilder.exportSymbols("H3C-SAN-AGG-MIB", h3cSanAggGroupCurrentSpeed=h3cSanAggGroupCurrentSpeed, h3cSanAggMemberList=h3cSanAggMemberList, h3cSanAggObjForNotification=h3cSanAggObjForNotification, h3cSanAggGroupIndex=h3cSanAggGroupIndex, h3cSanAggGroupRowStatus=h3cSanAggGroupRowStatus, h3cSanAggGroupNumber=h3cSanAggGroupNumber, h3cSanAggGroupSpeedChange=h3cSanAggGroupSpeedChange, PYSNMP_MODULE_ID=h3cSanAgg, h3cSanAggGroupEntry=h3cSanAggGroupEntry, h3cSanAggNotifications=h3cSanAggNotifications, h3cSanAggMemberActive=h3cSanAggMemberActive, H3cMemberList=H3cMemberList, h3cSanAggMemberStateList=h3cSanAggMemberStateList, h3cSanAggNotificationPrefix=h3cSanAggNotificationPrefix, h3cSanAggGroupTable=h3cSanAggGroupTable, h3cSanAggMemberInactive=h3cSanAggMemberInactive, h3cSanAggGroupPreviousSpeed=h3cSanAggGroupPreviousSpeed, h3cSanAggMibObjects=h3cSanAggMibObjects, h3cSanAgg=h3cSanAgg, h3cSanAggMaxMemberNumber=h3cSanAggMaxMemberNumber)
+mibBuilder.exportSymbols("H3C-SAN-AGG-MIB", h3cSanAggNotifications=h3cSanAggNotifications, h3cSanAggGroupRowStatus=h3cSanAggGroupRowStatus, h3cSanAggMemberStateList=h3cSanAggMemberStateList, h3cSanAggGroupPreviousSpeed=h3cSanAggGroupPreviousSpeed, h3cSanAggMemberActive=h3cSanAggMemberActive, h3cSanAggMibObjects=h3cSanAggMibObjects, h3cSanAggMaxMemberNumber=h3cSanAggMaxMemberNumber, h3cSanAggGroupEntry=h3cSanAggGroupEntry, h3cSanAgg=h3cSanAgg, h3cSanAggGroupTable=h3cSanAggGroupTable, h3cSanAggGroupNumber=h3cSanAggGroupNumber, h3cSanAggMemberList=h3cSanAggMemberList, h3cSanAggGroupIndex=h3cSanAggGroupIndex, h3cSanAggNotificationPrefix=h3cSanAggNotificationPrefix, h3cSanAggGroupCurrentSpeed=h3cSanAggGroupCurrentSpeed, H3cMemberList=H3cMemberList, h3cSanAggMemberInactive=h3cSanAggMemberInactive, h3cSanAggObjForNotification=h3cSanAggObjForNotification, h3cSanAggGroupSpeedChange=h3cSanAggGroupSpeedChange, PYSNMP_MODULE_ID=h3cSanAgg)

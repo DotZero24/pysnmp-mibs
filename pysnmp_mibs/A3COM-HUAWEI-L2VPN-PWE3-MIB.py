@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module A3COM-HUAWEI-L2VPN-PWE3-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-L2VPN-PWE3-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:43 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-L2VPN-PWE3-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:32:55 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 h3cCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCommon")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "DisplayString", "TextualConvention")
 h3cL2VpnPwe3 = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 78))
 if mibBuilder.loadTexts: h3cL2VpnPwe3.setLastUpdated('200703310000Z')
 if mibBuilder.loadTexts: h3cL2VpnPwe3.setOrganization('Huawei 3Com Technologies Co., Ltd.')
@@ -63,4 +63,4 @@ h3cPwVcUp = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 78, 3, 4)).set
 if mibBuilder.loadTexts: h3cPwVcUp.setStatus('current')
 h3cPwVcDeleted = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 78, 3, 5)).setObjects(("A3COM-HUAWEI-L2VPN-PWE3-MIB", "h3cPwVcID"), ("A3COM-HUAWEI-L2VPN-PWE3-MIB", "h3cPwVcType"), ("A3COM-HUAWEI-L2VPN-PWE3-MIB", "h3cPwVcPeerAddr"))
 if mibBuilder.loadTexts: h3cPwVcDeleted.setStatus('current')
-mibBuilder.exportSymbols("A3COM-HUAWEI-L2VPN-PWE3-MIB", h3cPwVcInboundLabel=h3cPwVcInboundLabel, hwPwVcCfgType=hwPwVcCfgType, h3cPwVcStatus=h3cPwVcStatus, h3cPwVcUp=h3cPwVcUp, h3cPwVcIfIndex=h3cPwVcIfIndex, h3cPwVcDeleted=h3cPwVcDeleted, h3cPwVcOutboundLabel=h3cPwVcOutboundLabel, h3cPwVcRowStatus=h3cPwVcRowStatus, h3cL2VpnPwe3Notifications=h3cL2VpnPwe3Notifications, h3cL2VpnPwe3ScalarGroup=h3cL2VpnPwe3ScalarGroup, PYSNMP_MODULE_ID=h3cL2VpnPwe3, H3cL2VpnVcEncapsType=H3cL2VpnVcEncapsType, h3cL2VpnPwe3=h3cL2VpnPwe3, h3cPwVcTable=h3cPwVcTable, h3cPwVcType=h3cPwVcType, h3cL2VpnPwe3Table=h3cL2VpnPwe3Table, h3cPwVcAcStatus=h3cPwVcAcStatus, h3cPwVcEntry=h3cPwVcEntry, h3cPwVcSwitchPtoW=h3cPwVcSwitchPtoW, h3cPwVcIndex=h3cPwVcIndex, h3cPwVcMtu=h3cPwVcMtu, h3cPwVcDown=h3cPwVcDown, h3cPwVcID=h3cPwVcID, h3cPwVcSwitchWtoP=h3cPwVcSwitchWtoP, h3cPwVcTrapOpen=h3cPwVcTrapOpen, h3cPwVcPeerAddr=h3cPwVcPeerAddr)
+mibBuilder.exportSymbols("A3COM-HUAWEI-L2VPN-PWE3-MIB", h3cPwVcSwitchWtoP=h3cPwVcSwitchWtoP, h3cPwVcSwitchPtoW=h3cPwVcSwitchPtoW, h3cPwVcUp=h3cPwVcUp, h3cPwVcType=h3cPwVcType, H3cL2VpnVcEncapsType=H3cL2VpnVcEncapsType, hwPwVcCfgType=hwPwVcCfgType, h3cPwVcEntry=h3cPwVcEntry, h3cPwVcAcStatus=h3cPwVcAcStatus, h3cL2VpnPwe3ScalarGroup=h3cL2VpnPwe3ScalarGroup, h3cPwVcIndex=h3cPwVcIndex, h3cPwVcStatus=h3cPwVcStatus, h3cL2VpnPwe3=h3cL2VpnPwe3, h3cPwVcDeleted=h3cPwVcDeleted, h3cPwVcID=h3cPwVcID, PYSNMP_MODULE_ID=h3cL2VpnPwe3, h3cPwVcMtu=h3cPwVcMtu, h3cPwVcIfIndex=h3cPwVcIfIndex, h3cPwVcRowStatus=h3cPwVcRowStatus, h3cL2VpnPwe3Notifications=h3cL2VpnPwe3Notifications, h3cL2VpnPwe3Table=h3cL2VpnPwe3Table, h3cPwVcInboundLabel=h3cPwVcInboundLabel, h3cPwVcTrapOpen=h3cPwVcTrapOpen, h3cPwVcOutboundLabel=h3cPwVcOutboundLabel, h3cPwVcPeerAddr=h3cPwVcPeerAddr, h3cPwVcDown=h3cPwVcDown, h3cPwVcTable=h3cPwVcTable)

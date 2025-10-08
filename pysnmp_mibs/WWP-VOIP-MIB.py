@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module WWP-VOIP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciena/WWP-VOIP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:10 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ciena/WWP-VOIP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:11:07 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
 wwpModules, = mibBuilder.importSymbols("WWP-SMI", "wwpModules")
 wwpVoipMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6141, 2, 15))
 wwpVoipMIB.setRevisions(('2001-04-03 17:00',))
@@ -45,4 +45,4 @@ wwpVoipResetOp = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1, 1, 8), 
 if mibBuilder.loadTexts: wwpVoipResetOp.setStatus('current')
 wwpVoipDiagFailNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 15, 2, 0, 1))
 if mibBuilder.loadTexts: wwpVoipDiagFailNotification.setStatus('current')
-mibBuilder.exportSymbols("WWP-VOIP-MIB", wwpVoipCallAgentAddr=wwpVoipCallAgentAddr, wwpVoipPortNum=wwpVoipPortNum, wwpVoipDiagFailNotification=wwpVoipDiagFailNotification, wwpVoipMIBConformance=wwpVoipMIBConformance, PYSNMP_MODULE_ID=wwpVoipMIB, wwpVoipEntry=wwpVoipEntry, wwpVoipMIBNotificationPrefix=wwpVoipMIBNotificationPrefix, wwpVoipMIBObjects=wwpVoipMIBObjects, wwpVoipMIBCompliances=wwpVoipMIBCompliances, wwpVoipIndex=wwpVoipIndex, wwpVoipMIBGroups=wwpVoipMIBGroups, wwpVoipMIB=wwpVoipMIB, wwpVoipDownLoaderVersion=wwpVoipDownLoaderVersion, wwpVoipApplicationVersion=wwpVoipApplicationVersion, wwpVoipTable=wwpVoipTable, wwpVoipResetOp=wwpVoipResetOp, wwpVoipNumResets=wwpVoipNumResets, wwpVoip=wwpVoip, wwpVoipIpAddr=wwpVoipIpAddr, wwpVoipMIBNotifications=wwpVoipMIBNotifications)
+mibBuilder.exportSymbols("WWP-VOIP-MIB", wwpVoipTable=wwpVoipTable, wwpVoipIndex=wwpVoipIndex, wwpVoipEntry=wwpVoipEntry, wwpVoipNumResets=wwpVoipNumResets, wwpVoipPortNum=wwpVoipPortNum, PYSNMP_MODULE_ID=wwpVoipMIB, wwpVoipResetOp=wwpVoipResetOp, wwpVoipMIBCompliances=wwpVoipMIBCompliances, wwpVoipCallAgentAddr=wwpVoipCallAgentAddr, wwpVoipApplicationVersion=wwpVoipApplicationVersion, wwpVoipMIBGroups=wwpVoipMIBGroups, wwpVoipMIBNotificationPrefix=wwpVoipMIBNotificationPrefix, wwpVoipDownLoaderVersion=wwpVoipDownLoaderVersion, wwpVoipMIBObjects=wwpVoipMIBObjects, wwpVoip=wwpVoip, wwpVoipDiagFailNotification=wwpVoipDiagFailNotification, wwpVoipMIBConformance=wwpVoipMIBConformance, wwpVoipIpAddr=wwpVoipIpAddr, wwpVoipMIBNotifications=wwpVoipMIBNotifications, wwpVoipMIB=wwpVoipMIB)

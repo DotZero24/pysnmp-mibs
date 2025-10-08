@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BROCADE-STACK-ISSU-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/brocade/BROCADE-STACK-ISSU-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:05 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/brocade/BROCADE-STACK-ISSU-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:15:43 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 DisplayString, = mibBuilder.importSymbols("FOUNDRY-SN-AGENT-MIB", "DisplayString")
 snSwitch, = mibBuilder.importSymbols("FOUNDRY-SN-SWITCH-GROUP-MIB", "snSwitch")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 brcdStackISSUMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 41))
 brcdStackISSUMIB.setRevisions(('2016-03-15 00:00', '2017-08-07 00:00',))
 if mibBuilder.loadTexts: brcdStackISSUMIB.setLastUpdated('201708070000Z')
@@ -41,4 +41,4 @@ brcdStackISSUStatusUnitRole = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 4
 if mibBuilder.loadTexts: brcdStackISSUStatusUnitRole.setStatus('current')
 brcdStackISSUStatusUnitStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 41, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("notUpgraded", 0), ("upgrading", 1), ("joined", 2), ("versionSyncStart", 3), ("versionSyncComplete", 4), ("upgradeComplete", 5), ("upgradeAbort", 6), ("upgradePending", 7)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: brcdStackISSUStatusUnitStatus.setStatus('current')
-mibBuilder.exportSymbols("BROCADE-STACK-ISSU-MIB", brcdStackISSUGlobalUpgradeOption=brcdStackISSUGlobalUpgradeOption, brcdStackISSUStatusUnitStatus=brcdStackISSUStatusUnitStatus, brcdStackISSUMIB=brcdStackISSUMIB, brcdStackISSUStatusUnitEntry=brcdStackISSUStatusUnitEntry, brcdStackISSUGlobalUpgradeError=brcdStackISSUGlobalUpgradeError, brcdStackISSUGlobalUpgradeSystemReady=brcdStackISSUGlobalUpgradeSystemReady, brcdStackISSUTableObjects=brcdStackISSUTableObjects, brcdStackISSUStatusUnitType=brcdStackISSUStatusUnitType, brcdStackISSUStatusUnitRole=brcdStackISSUStatusUnitRole, brcdStackISSUStatusUnitIndex=brcdStackISSUStatusUnitIndex, brcdStackISSUStatusUnitSequence=brcdStackISSUStatusUnitSequence, brcdStackISSUGlobalUpgradeStatus=brcdStackISSUGlobalUpgradeStatus, PYSNMP_MODULE_ID=brcdStackISSUMIB, brcdStackISSUGlobalObjects=brcdStackISSUGlobalObjects, brcdStackISSUStatusUnitTable=brcdStackISSUStatusUnitTable)
+mibBuilder.exportSymbols("BROCADE-STACK-ISSU-MIB", brcdStackISSUTableObjects=brcdStackISSUTableObjects, brcdStackISSUStatusUnitEntry=brcdStackISSUStatusUnitEntry, brcdStackISSUStatusUnitTable=brcdStackISSUStatusUnitTable, brcdStackISSUGlobalUpgradeError=brcdStackISSUGlobalUpgradeError, brcdStackISSUStatusUnitRole=brcdStackISSUStatusUnitRole, brcdStackISSUGlobalUpgradeOption=brcdStackISSUGlobalUpgradeOption, brcdStackISSUStatusUnitType=brcdStackISSUStatusUnitType, brcdStackISSUStatusUnitSequence=brcdStackISSUStatusUnitSequence, PYSNMP_MODULE_ID=brcdStackISSUMIB, brcdStackISSUMIB=brcdStackISSUMIB, brcdStackISSUStatusUnitStatus=brcdStackISSUStatusUnitStatus, brcdStackISSUGlobalObjects=brcdStackISSUGlobalObjects, brcdStackISSUGlobalUpgradeStatus=brcdStackISSUGlobalUpgradeStatus, brcdStackISSUGlobalUpgradeSystemReady=brcdStackISSUGlobalUpgradeSystemReady, brcdStackISSUStatusUnitIndex=brcdStackISSUStatusUnitIndex)

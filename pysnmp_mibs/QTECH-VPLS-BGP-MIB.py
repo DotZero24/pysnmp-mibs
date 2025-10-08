@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module QTECH-VPLS-BGP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-VPLS-BGP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:11 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/qtech/QTECH-VPLS-BGP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:14:06 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 qtechMgmt, = mibBuilder.importSymbols("QTECH-SMI", "qtechMgmt")
 qtechvplsConfigIndex, qtechvplsPwBindIndex = mibBuilder.importSymbols("QTECH-VPLS-GENERIC-MIB", "qtechvplsConfigIndex", "qtechvplsPwBindIndex")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, transmission, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "transmission", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention, RowStatus, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus", "StorageType")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+transmission, MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "transmission", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+StorageType, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "StorageType", "RowStatus", "DisplayString", "TextualConvention")
 qtechvplsBgpDraft01MIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 79))
 qtechvplsBgpDraft01MIB.setRevisions(('2010-04-28 12:00',))
 if mibBuilder.loadTexts: qtechvplsBgpDraft01MIB.setLastUpdated('201004281200Z')
@@ -68,4 +68,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 qtechvplsBgpPwBindGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 79, 2, 2, 3)).setObjects(("QTECH-VPLS-BGP-MIB", "qtechvplsBgpPwBindLocalVEId"), ("QTECH-VPLS-BGP-MIB", "qtechvplsBgpPwBindRemoteVEId"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     qtechvplsBgpPwBindGroup = qtechvplsBgpPwBindGroup.setStatus('current')
-mibBuilder.exportSymbols("QTECH-VPLS-BGP-MIB", qtechvplsBgpVEId=qtechvplsBgpVEId, qtechvplsBgpVERowStatus=qtechvplsBgpVERowStatus, qtechvplsBgpPwBindTable=qtechvplsBgpPwBindTable, QtechVplsBgpRouteTarget=QtechVplsBgpRouteTarget, qtechvplsBgpVEEntry=qtechvplsBgpVEEntry, qtechvplsBgpRangeSize=qtechvplsBgpRangeSize, qtechvplsBgpObjects=qtechvplsBgpObjects, qtechvplsBgpVEPreference=qtechvplsBgpVEPreference, qtechvplsBgpPwBindEntry=qtechvplsBgpPwBindEntry, qtechvplsBgpCompliances=qtechvplsBgpCompliances, qtechvplsBgpModuleFullCompliance=qtechvplsBgpModuleFullCompliance, qtechvplsBgpModuleReadOnlyCompliance=qtechvplsBgpModuleReadOnlyCompliance, qtechvplsBgpPwBindRemoteVEId=qtechvplsBgpPwBindRemoteVEId, qtechvplsBgpConformance=qtechvplsBgpConformance, qtechvplsBgpPwBindLocalVEId=qtechvplsBgpPwBindLocalVEId, qtechvplsBgpVEGroup=qtechvplsBgpVEGroup, qtechvplsBgpVEindex=qtechvplsBgpVEindex, qtechvplsBgpVETable=qtechvplsBgpVETable, qtechvplsBgpPwBindGroup=qtechvplsBgpPwBindGroup, PYSNMP_MODULE_ID=qtechvplsBgpDraft01MIB, QtechVplsBgpRouteDistinguisher=QtechVplsBgpRouteDistinguisher, qtechvplsBgpDraft01MIB=qtechvplsBgpDraft01MIB, qtechvplsBgpGroups=qtechvplsBgpGroups)
+mibBuilder.exportSymbols("QTECH-VPLS-BGP-MIB", qtechvplsBgpVEId=qtechvplsBgpVEId, qtechvplsBgpModuleFullCompliance=qtechvplsBgpModuleFullCompliance, qtechvplsBgpPwBindLocalVEId=qtechvplsBgpPwBindLocalVEId, qtechvplsBgpCompliances=qtechvplsBgpCompliances, QtechVplsBgpRouteDistinguisher=QtechVplsBgpRouteDistinguisher, qtechvplsBgpDraft01MIB=qtechvplsBgpDraft01MIB, qtechvplsBgpVERowStatus=qtechvplsBgpVERowStatus, qtechvplsBgpVETable=qtechvplsBgpVETable, qtechvplsBgpPwBindTable=qtechvplsBgpPwBindTable, qtechvplsBgpVEEntry=qtechvplsBgpVEEntry, qtechvplsBgpVEGroup=qtechvplsBgpVEGroup, qtechvplsBgpRangeSize=qtechvplsBgpRangeSize, qtechvplsBgpPwBindRemoteVEId=qtechvplsBgpPwBindRemoteVEId, QtechVplsBgpRouteTarget=QtechVplsBgpRouteTarget, qtechvplsBgpPwBindEntry=qtechvplsBgpPwBindEntry, qtechvplsBgpVEPreference=qtechvplsBgpVEPreference, PYSNMP_MODULE_ID=qtechvplsBgpDraft01MIB, qtechvplsBgpModuleReadOnlyCompliance=qtechvplsBgpModuleReadOnlyCompliance, qtechvplsBgpVEindex=qtechvplsBgpVEindex, qtechvplsBgpPwBindGroup=qtechvplsBgpPwBindGroup, qtechvplsBgpObjects=qtechvplsBgpObjects, qtechvplsBgpConformance=qtechvplsBgpConformance, qtechvplsBgpGroups=qtechvplsBgpGroups)

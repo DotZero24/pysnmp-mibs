@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module CPQDSCCS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/CPQDSCCS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:17 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/CPQDSCCS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:08:00 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 compaq, = mibBuilder.importSymbols("CPQHOST-MIB", "compaq")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-sysName, sysContact, sysDescr, sysLocation = mibBuilder.importSymbols("SNMPv2-MIB", "sysName", "sysContact", "sysDescr", "sysLocation")
-ModuleIdentity, NotificationType, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+sysDescr, sysContact, sysLocation, sysName = mibBuilder.importSymbols("SNMPv2-MIB", "sysDescr", "sysContact", "sysLocation", "sysName")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 cpqDsccs = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 171))
 dsccsTrapInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 171, 1))
 csRoomName = MibScalar((1, 3, 6, 1, 4, 1, 232, 171, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readonly")
@@ -37,4 +37,4 @@ trapDscTest = NotificationType((1, 3, 6, 1, 4, 1, 232, 171) + (0,1)).setObjects(
 trapDscCritical = NotificationType((1, 3, 6, 1, 4, 1, 232, 171) + (0,2)).setObjects(("SNMPv2-MIB", "sysName"), ("CPQDSCCS-MIB", "csRoomName"), ("CPQDSCCS-MIB", "csContactName"), ("CPQDSCCS-MIB", "csContactPhoneNumber"), ("CPQDSCCS-MIB", "csProductName"), ("CPQDSCCS-MIB", "csProductId"), ("CPQDSCCS-MIB", "csSerialNumber"), ("CPQDSCCS-MIB", "csSoftwareVersion"), ("CPQDSCCS-MIB", "trapEventId"), ("CPQDSCCS-MIB", "trapDescription"))
 trapDscWarning = NotificationType((1, 3, 6, 1, 4, 1, 232, 171) + (0,3)).setObjects(("SNMPv2-MIB", "sysName"), ("CPQDSCCS-MIB", "csRoomName"), ("CPQDSCCS-MIB", "csContactName"), ("CPQDSCCS-MIB", "csContactPhoneNumber"), ("CPQDSCCS-MIB", "csProductName"), ("CPQDSCCS-MIB", "csProductId"), ("CPQDSCCS-MIB", "csSerialNumber"), ("CPQDSCCS-MIB", "csSoftwareVersion"), ("CPQDSCCS-MIB", "trapEventId"), ("CPQDSCCS-MIB", "trapDescription"))
 trapDscInformation = NotificationType((1, 3, 6, 1, 4, 1, 232, 171) + (0,4)).setObjects(("SNMPv2-MIB", "sysName"), ("CPQDSCCS-MIB", "csRoomName"), ("CPQDSCCS-MIB", "csContactName"), ("CPQDSCCS-MIB", "csContactPhoneNumber"), ("CPQDSCCS-MIB", "csProductName"), ("CPQDSCCS-MIB", "csProductId"), ("CPQDSCCS-MIB", "csSerialNumber"), ("CPQDSCCS-MIB", "csSoftwareVersion"), ("CPQDSCCS-MIB", "trapEventId"), ("CPQDSCCS-MIB", "trapDescription"))
-mibBuilder.exportSymbols("CPQDSCCS-MIB", trapDscInformation=trapDscInformation, csContactName=csContactName, csSoftwareVersion=csSoftwareVersion, trapEventId=trapEventId, csRoomName=csRoomName, dsccsTrapInfo=dsccsTrapInfo, trapDscCritical=trapDscCritical, trapDscWarning=trapDscWarning, csProductId=csProductId, csContactPhoneNumber=csContactPhoneNumber, cpqDsccs=cpqDsccs, trapDscTest=trapDscTest, csProductName=csProductName, csSerialNumber=csSerialNumber, trapDescription=trapDescription)
+mibBuilder.exportSymbols("CPQDSCCS-MIB", csContactName=csContactName, csProductName=csProductName, csProductId=csProductId, trapDscTest=trapDscTest, trapDscCritical=trapDscCritical, trapDscWarning=trapDscWarning, trapDescription=trapDescription, csContactPhoneNumber=csContactPhoneNumber, csSerialNumber=csSerialNumber, dsccsTrapInfo=dsccsTrapInfo, csSoftwareVersion=csSoftwareVersion, trapDscInformation=trapDscInformation, csRoomName=csRoomName, trapEventId=trapEventId, cpqDsccs=cpqDsccs)

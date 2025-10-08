@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module UCD-SNMP-MIB-OLD (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/net-snmp/UCD-SNMP-MIB-OLD
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:43 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/net-snmp/UCD-SNMP-MIB-OLD
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:16:55 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ucdavis, = mibBuilder.importSymbols("UCD-SNMP-MIB", "ucdavis")
 processes = MibTable((1, 3, 6, 1, 4, 1, 2021, 1), ).setIndexNames((0, "UCD-SNMP-MIB-OLD", "processIndex"))
 if mibBuilder.loadTexts: processes.setStatus('mandatory')
@@ -82,4 +82,4 @@ loadaveErrorFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 7, 100), Integer32())
 if mibBuilder.loadTexts: loadaveErrorFlag.setStatus('mandatory')
 loadaveErrMessage = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 7, 101), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: loadaveErrMessage.setStatus('mandatory')
-mibBuilder.exportSymbols("UCD-SNMP-MIB-OLD", extensibleNames=extensibleNames, diskMinimum=diskMinimum, loadaves=loadaves, processErrFix=processErrFix, extensibleErrFix=extensibleErrFix, extensibleIndex=extensibleIndex, processErrMessage=processErrMessage, processMin=processMin, loadaveLoad=loadaveLoad, diskTotal=diskTotal, loadaveErrorFlag=loadaveErrorFlag, extensibleOutput=extensibleOutput, diskMinPercent=diskMinPercent, disk=disk, processes=processes, diskIndex=diskIndex, extensible=extensible, diskPath=diskPath, processCount=processCount, diskUsed=diskUsed, diskAvail=diskAvail, processMax=processMax, processIndex=processIndex, diskDevice=diskDevice, loadaveConfig=loadaveConfig, processNames=processNames, loadaveNames=loadaveNames, extensibleResult=extensibleResult, extensibleCommand=extensibleCommand, diskPercent=diskPercent, diskErrorMsg=diskErrorMsg, diskErrorFlag=diskErrorFlag, loadaveErrMessage=loadaveErrMessage, processErrorFlag=processErrorFlag, loadaveIndex=loadaveIndex)
+mibBuilder.exportSymbols("UCD-SNMP-MIB-OLD", loadaves=loadaves, diskUsed=diskUsed, diskTotal=diskTotal, extensibleErrFix=extensibleErrFix, processErrorFlag=processErrorFlag, processIndex=processIndex, extensibleNames=extensibleNames, processNames=processNames, diskMinPercent=diskMinPercent, diskErrorMsg=diskErrorMsg, loadaveErrMessage=loadaveErrMessage, extensibleIndex=extensibleIndex, processErrMessage=processErrMessage, extensibleOutput=extensibleOutput, loadaveNames=loadaveNames, disk=disk, loadaveLoad=loadaveLoad, processErrFix=processErrFix, processCount=processCount, loadaveConfig=loadaveConfig, diskPath=diskPath, processes=processes, extensible=extensible, diskPercent=diskPercent, diskErrorFlag=diskErrorFlag, loadaveErrorFlag=loadaveErrorFlag, diskDevice=diskDevice, loadaveIndex=loadaveIndex, diskMinimum=diskMinimum, processMax=processMax, diskAvail=diskAvail, extensibleCommand=extensibleCommand, extensibleResult=extensibleResult, processMin=processMin, diskIndex=diskIndex)

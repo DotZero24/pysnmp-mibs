@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module MITEL-SX2000-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mitel/MITEL-SX2000-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:40 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mitel/MITEL-SX2000-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:05:01 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-mitelConfAgents, mitelConfCompliances, mitelAppCallServer, mitelGrpCs2000, mitelIdCs2000Light = mibBuilder.importSymbols("MITEL-MIB", "mitelConfAgents", "mitelConfCompliances", "mitelAppCallServer", "mitelGrpCs2000", "mitelIdCs2000Light")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, NotificationType, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+mitelAppCallServer, mitelConfCompliances, mitelGrpCs2000, mitelConfAgents, mitelIdCs2000Light = mibBuilder.importSymbols("MITEL-MIB", "mitelAppCallServer", "mitelConfCompliances", "mitelGrpCs2000", "mitelConfAgents", "mitelIdCs2000Light")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 mitelAppCs2000 = MibIdentifier((1, 3, 6, 1, 4, 1, 1027, 4, 1, 1, 1))
 class Integer32(Integer32):
     subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(-2147483648, 2147483647)
@@ -58,4 +58,4 @@ mitelComplCs2000 = MibIdentifier((1, 3, 6, 1, 4, 1, 1027, 5, 1, 4))
 mitelGrpCs2000System = MibIdentifier((1, 3, 6, 1, 4, 1, 1027, 5, 2, 3, 1))
 mitelGrpCs2000Alarms = MibIdentifier((1, 3, 6, 1, 4, 1, 1027, 5, 2, 3, 2))
 mitelAgentCs2000 = MibIdentifier((1, 3, 6, 1, 4, 1, 1027, 5, 3, 2))
-mibBuilder.exportSymbols("MITEL-SX2000-MIB", mitelCs2000AlmDetectDate=mitelCs2000AlmDetectDate, mitelGrpCs2000System=mitelGrpCs2000System, mitelCs2000CatTblMajorThresh=mitelCs2000CatTblMajorThresh, mitelCs2000SysName=mitelCs2000SysName, Integer32=Integer32, mitelComplCs2000=mitelComplCs2000, mitelAgentCs2000=mitelAgentCs2000, mitelCs2000CatTblCriticalThresh=mitelCs2000CatTblCriticalThresh, mitelCs2000System=mitelCs2000System, mitelCs2000NotifAlarm=mitelCs2000NotifAlarm, mitelCs2000CatTblIndex=mitelCs2000CatTblIndex, DateAndTime=DateAndTime, mitelGrpCs2000Alarms=mitelGrpCs2000Alarms, mitelCs2000Alarms=mitelCs2000Alarms, mitelAppCs2000=mitelAppCs2000, mitelCs2000CatTblName=mitelCs2000CatTblName, mitelCs2000AlmNbrCategories=mitelCs2000AlmNbrCategories, mitelCs2000Notifications=mitelCs2000Notifications, mitelCs2000CatTblMinorThresh=mitelCs2000CatTblMinorThresh, MitelCs2000AlarmLevelType=MitelCs2000AlarmLevelType, mitelCs2000CatTblUnavailable=mitelCs2000CatTblUnavailable, mitelCs2000CatTblAvailable=mitelCs2000CatTblAvailable, mitelCs2000CatTblLevel=mitelCs2000CatTblLevel, mitelCs2000AlmLevel=mitelCs2000AlmLevel, mitelCs2000CategoryTableEntry=mitelCs2000CategoryTableEntry, mitelCs2000CategoryTable=mitelCs2000CategoryTable)
+mibBuilder.exportSymbols("MITEL-SX2000-MIB", mitelCs2000NotifAlarm=mitelCs2000NotifAlarm, mitelCs2000CategoryTableEntry=mitelCs2000CategoryTableEntry, mitelGrpCs2000Alarms=mitelGrpCs2000Alarms, mitelCs2000CatTblCriticalThresh=mitelCs2000CatTblCriticalThresh, mitelCs2000AlmNbrCategories=mitelCs2000AlmNbrCategories, mitelCs2000CatTblAvailable=mitelCs2000CatTblAvailable, mitelCs2000Alarms=mitelCs2000Alarms, mitelComplCs2000=mitelComplCs2000, mitelCs2000CatTblIndex=mitelCs2000CatTblIndex, mitelAgentCs2000=mitelAgentCs2000, DateAndTime=DateAndTime, mitelAppCs2000=mitelAppCs2000, mitelCs2000CatTblMinorThresh=mitelCs2000CatTblMinorThresh, mitelCs2000CategoryTable=mitelCs2000CategoryTable, mitelGrpCs2000System=mitelGrpCs2000System, mitelCs2000CatTblUnavailable=mitelCs2000CatTblUnavailable, mitelCs2000AlmDetectDate=mitelCs2000AlmDetectDate, mitelCs2000CatTblName=mitelCs2000CatTblName, mitelCs2000System=mitelCs2000System, Integer32=Integer32, mitelCs2000Notifications=mitelCs2000Notifications, mitelCs2000AlmLevel=mitelCs2000AlmLevel, mitelCs2000CatTblMajorThresh=mitelCs2000CatTblMajorThresh, mitelCs2000SysName=mitelCs2000SysName, MitelCs2000AlarmLevelType=MitelCs2000AlarmLevelType, mitelCs2000CatTblLevel=mitelCs2000CatTblLevel)

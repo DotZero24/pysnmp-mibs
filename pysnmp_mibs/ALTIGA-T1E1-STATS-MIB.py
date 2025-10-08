@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ALTIGA-T1E1-STATS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/ALTIGA-T1E1-STATS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:40 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/ALTIGA-T1E1-STATS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:47:01 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 alT1E1MibModule, = mibBuilder.importSymbols("ALTIGA-GLOBAL-REG", "alT1E1MibModule")
 alStatsT1E1, alT1E1Group = mibBuilder.importSymbols("ALTIGA-MIB", "alStatsT1E1", "alT1E1Group")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 altigaT1E1StatsMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 3076, 1, 1, 38, 2))
 altigaT1E1StatsMibModule.setRevisions(('2002-09-05 13:00', '2002-07-10 00:00',))
 if mibBuilder.loadTexts: altigaT1E1StatsMibModule.setLastUpdated('200209051300Z')
@@ -63,4 +63,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 altigaT1E1StatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3076, 2, 1, 1, 1, 33, 2)).setObjects(("ALTIGA-T1E1-STATS-MIB", "alT1E1StatsRowStatus"), ("ALTIGA-T1E1-STATS-MIB", "alT1E1StatsSlot"), ("ALTIGA-T1E1-STATS-MIB", "alT1E1StatsConn"), ("ALTIGA-T1E1-STATS-MIB", "alT1E1StatsLineStatus"), ("ALTIGA-T1E1-STATS-MIB", "alT1E1StatsElapsedSecs"), ("ALTIGA-T1E1-STATS-MIB", "alT1E1StatsBPVs"), ("ALTIGA-T1E1-STATS-MIB", "alT1E1StatsESs"), ("ALTIGA-T1E1-STATS-MIB", "alT1E1StatsSESs"), ("ALTIGA-T1E1-STATS-MIB", "alT1E1StatsBESs"), ("ALTIGA-T1E1-STATS-MIB", "alT1E1StatsSEFSs"), ("ALTIGA-T1E1-STATS-MIB", "alT1E1StatsUASs"), ("ALTIGA-T1E1-STATS-MIB", "alT1E1StatsLCVs"), ("ALTIGA-T1E1-STATS-MIB", "alT1E1StatsCSSs"), ("ALTIGA-T1E1-STATS-MIB", "alT1E1StatsDMs"), ("ALTIGA-T1E1-STATS-MIB", "alT1E1StatsPCVs"), ("ALTIGA-T1E1-STATS-MIB", "alT1E1StatsLESs"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     altigaT1E1StatsGroup = altigaT1E1StatsGroup.setStatus('current')
-mibBuilder.exportSymbols("ALTIGA-T1E1-STATS-MIB", alT1E1StatsLineStatus=alT1E1StatsLineStatus, alT1E1StatsPCVs=alT1E1StatsPCVs, alStatsT1E1Global=alStatsT1E1Global, altigaT1E1StatsMibCompliances=altigaT1E1StatsMibCompliances, alT1E1StatsSEFSs=alT1E1StatsSEFSs, alT1E1StatsRowStatus=alT1E1StatsRowStatus, PYSNMP_MODULE_ID=altigaT1E1StatsMibModule, altigaT1E1StatsMibConformance=altigaT1E1StatsMibConformance, alT1E1StatsElapsedSecs=alT1E1StatsElapsedSecs, alT1E1StatsBPVs=alT1E1StatsBPVs, altigaT1E1StatsMibModule=altigaT1E1StatsMibModule, alT1E1StatsCSSs=alT1E1StatsCSSs, alT1E1StatsUASs=alT1E1StatsUASs, alT1E1StatsBESs=alT1E1StatsBESs, alT1E1StatsConn=alT1E1StatsConn, alT1E1StatsSESs=alT1E1StatsSESs, alT1E1StatsDMs=alT1E1StatsDMs, alT1E1StatsEntry=alT1E1StatsEntry, alT1E1StatsLESs=alT1E1StatsLESs, altigaT1E1StatsMibCompliance=altigaT1E1StatsMibCompliance, alT1E1StatsLCVs=alT1E1StatsLCVs, altigaT1E1StatsGroup=altigaT1E1StatsGroup, alT1E1StatsSlot=alT1E1StatsSlot, alT1E1StatsTable=alT1E1StatsTable, alT1E1StatsESs=alT1E1StatsESs)
+mibBuilder.exportSymbols("ALTIGA-T1E1-STATS-MIB", alT1E1StatsSEFSs=alT1E1StatsSEFSs, alT1E1StatsLineStatus=alT1E1StatsLineStatus, alStatsT1E1Global=alStatsT1E1Global, PYSNMP_MODULE_ID=altigaT1E1StatsMibModule, alT1E1StatsElapsedSecs=alT1E1StatsElapsedSecs, altigaT1E1StatsMibModule=altigaT1E1StatsMibModule, alT1E1StatsBESs=alT1E1StatsBESs, alT1E1StatsESs=alT1E1StatsESs, altigaT1E1StatsMibConformance=altigaT1E1StatsMibConformance, altigaT1E1StatsMibCompliance=altigaT1E1StatsMibCompliance, alT1E1StatsTable=alT1E1StatsTable, altigaT1E1StatsGroup=altigaT1E1StatsGroup, alT1E1StatsSESs=alT1E1StatsSESs, alT1E1StatsDMs=alT1E1StatsDMs, alT1E1StatsBPVs=alT1E1StatsBPVs, alT1E1StatsPCVs=alT1E1StatsPCVs, alT1E1StatsSlot=alT1E1StatsSlot, alT1E1StatsCSSs=alT1E1StatsCSSs, alT1E1StatsLCVs=alT1E1StatsLCVs, alT1E1StatsLESs=alT1E1StatsLESs, alT1E1StatsRowStatus=alT1E1StatsRowStatus, alT1E1StatsUASs=alT1E1StatsUASs, alT1E1StatsEntry=alT1E1StatsEntry, altigaT1E1StatsMibCompliances=altigaT1E1StatsMibCompliances, alT1E1StatsConn=alT1E1StatsConn)

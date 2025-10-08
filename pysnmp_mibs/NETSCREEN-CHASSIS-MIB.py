@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module NETSCREEN-CHASSIS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netscreen/NETSCREEN-CHASSIS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:29 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/netscreen/NETSCREEN-CHASSIS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:50 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 netscreen, = mibBuilder.importSymbols("NETSCREEN-SMI", "netscreen")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 netscreenChassis = ModuleIdentity((1, 3, 6, 1, 4, 1, 3224, 21))
 if mibBuilder.loadTexts: netscreenChassis.setLastUpdated('200705080000Z')
 if mibBuilder.loadTexts: netscreenChassis.setOrganization('Juniper Networks, Inc.')
@@ -61,4 +61,4 @@ nsSlotStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 21, 5, 1, 3), Integer32()
 if mibBuilder.loadTexts: nsSlotStatus.setStatus('current')
 nsSlotSN = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 21, 5, 1, 4), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: nsSlotSN.setStatus('current')
-mibBuilder.exportSymbols("NETSCREEN-CHASSIS-MIB", nsPowerTable=nsPowerTable, nsSlotTable=nsSlotTable, netscreenChassis=netscreenChassis, nsPowerStatus=nsPowerStatus, nsFanStatus=nsFanStatus, nsSlotEntry=nsSlotEntry, nsTemperatureEntry=nsTemperatureEntry, nsPowerDesc=nsPowerDesc, nsFanId=nsFanId, nsPowerId=nsPowerId, nsTemperatureId=nsTemperatureId, nsSlotStatus=nsSlotStatus, PYSNMP_MODULE_ID=netscreenChassis, nsPowerEntry=nsPowerEntry, nsTemperatureCur=nsTemperatureCur, nsFanEntry=nsFanEntry, nsFanTable=nsFanTable, nsTemperatureSlotId=nsTemperatureSlotId, nsFanDesc=nsFanDesc, nsSlotSN=nsSlotSN, nsSlotType=nsSlotType, nsTemperatureTable=nsTemperatureTable, nsSlotId=nsSlotId, nsTemperatureDesc=nsTemperatureDesc, sysBatteryStatus=sysBatteryStatus)
+mibBuilder.exportSymbols("NETSCREEN-CHASSIS-MIB", nsFanTable=nsFanTable, PYSNMP_MODULE_ID=netscreenChassis, nsTemperatureCur=nsTemperatureCur, nsPowerDesc=nsPowerDesc, nsTemperatureId=nsTemperatureId, nsSlotStatus=nsSlotStatus, netscreenChassis=netscreenChassis, nsSlotId=nsSlotId, nsSlotType=nsSlotType, nsFanDesc=nsFanDesc, nsTemperatureDesc=nsTemperatureDesc, nsFanId=nsFanId, nsSlotSN=nsSlotSN, nsFanStatus=nsFanStatus, nsFanEntry=nsFanEntry, nsPowerEntry=nsPowerEntry, nsPowerId=nsPowerId, nsTemperatureSlotId=nsTemperatureSlotId, nsTemperatureEntry=nsTemperatureEntry, nsSlotEntry=nsSlotEntry, nsTemperatureTable=nsTemperatureTable, nsSlotTable=nsSlotTable, nsPowerTable=nsPowerTable, nsPowerStatus=nsPowerStatus, sysBatteryStatus=sysBatteryStatus)

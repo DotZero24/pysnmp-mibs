@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module MELLANOX-ENTITY-STATE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mellanox/MELLANOX-ENTITY-STATE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:05 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mellanox/MELLANOX-ENTITY-STATE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:44:45 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
 mellanoxEntState, = mibBuilder.importSymbols("MELLANOX-SMI-MIB", "mellanoxEntState")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 mellanoxEntStateMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 33049, 7, 1))
 mellanoxEntStateMib.setRevisions(('2017-07-25 00:00',))
@@ -37,4 +37,4 @@ mellanoxEntStateModuleStateDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 33049, 7, 1
 if mibBuilder.loadTexts: mellanoxEntStateModuleStateDescr.setStatus('current')
 mellanoxEntStateChangeAlarm = NotificationType((1, 3, 6, 1, 4, 1, 33049, 7, 1, 0, 1)).setObjects(("ENTITY-MIB", "entPhysicalIndex"), ("MELLANOX-ENTITY-STATE-MIB", "entPhysicalDescr"), ("MELLANOX-ENTITY-STATE-MIB", "entPhysicalName"), ("MELLANOX-ENTITY-STATE-MIB", "mellanoxEntStateModuleCurrentState"), ("MELLANOX-ENTITY-STATE-MIB", "mellanoxEntStateModulePreviousState"), ("MELLANOX-ENTITY-STATE-MIB", "mellanoxEntStateModuleStateDescr"), ("MELLANOX-ENTITY-STATE-MIB", "entStateAlarm"))
 if mibBuilder.loadTexts: mellanoxEntStateChangeAlarm.setStatus('current')
-mibBuilder.exportSymbols("MELLANOX-ENTITY-STATE-MIB", mellanoxEntStateMibObjects=mellanoxEntStateMibObjects, mellanoxEntStateChangeAlarm=mellanoxEntStateChangeAlarm, mellanoxEntStateModuleCurrentState=mellanoxEntStateModuleCurrentState, mellanoxEntStateMibNotifications=mellanoxEntStateMibNotifications, mellanoxEntStateModuleStateDescr=mellanoxEntStateModuleStateDescr, mellanoxEntStateTable=mellanoxEntStateTable, ModuleStateType=ModuleStateType, mellanoxEntStateEntry=mellanoxEntStateEntry, mellanoxEntStateModulePreviousState=mellanoxEntStateModulePreviousState, PYSNMP_MODULE_ID=mellanoxEntStateMib, mellanoxEntStateMib=mellanoxEntStateMib)
+mibBuilder.exportSymbols("MELLANOX-ENTITY-STATE-MIB", mellanoxEntStateEntry=mellanoxEntStateEntry, PYSNMP_MODULE_ID=mellanoxEntStateMib, mellanoxEntStateModuleCurrentState=mellanoxEntStateModuleCurrentState, mellanoxEntStateMib=mellanoxEntStateMib, ModuleStateType=ModuleStateType, mellanoxEntStateModuleStateDescr=mellanoxEntStateModuleStateDescr, mellanoxEntStateMibObjects=mellanoxEntStateMibObjects, mellanoxEntStateChangeAlarm=mellanoxEntStateChangeAlarm, mellanoxEntStateMibNotifications=mellanoxEntStateMibNotifications, mellanoxEntStateTable=mellanoxEntStateTable, mellanoxEntStateModulePreviousState=mellanoxEntStateModulePreviousState)

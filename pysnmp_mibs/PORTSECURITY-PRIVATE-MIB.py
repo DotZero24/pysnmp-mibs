@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PORTSECURITY-PRIVATE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/quanta/PORTSECURITY-PRIVATE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:22 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/quanta/PORTSECURITY-PRIVATE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:08:26 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-quanta, switch = mibBuilder.importSymbols("QUANTA-SWITCH-MIB", "quanta", "switch")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+switch, quanta = mibBuilder.importSymbols("QUANTA-SWITCH-MIB", "switch", "quanta")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+MacAddress, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "RowStatus", "DisplayString", "TextualConvention")
 portSecurity = ModuleIdentity((1, 3, 6, 1, 4, 1, 7244, 2, 20))
 if mibBuilder.loadTexts: portSecurity.setLastUpdated('201108310000Z')
 if mibBuilder.loadTexts: portSecurity.setOrganization('Quanta Computer Inc.')
@@ -52,4 +52,4 @@ if mibBuilder.loadTexts: agentPortSecurityDynamicMACAddress.setStatus('current')
 agentPortSecurityTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 7244, 2, 20, 2))
 agentPortSecurityViolation = NotificationType((1, 3, 6, 1, 4, 1, 7244, 2, 20, 2, 1)).setObjects(("IF-MIB", "ifIndex"), ("PORTSECURITY-PRIVATE-MIB", "agentPortSecurityLastDiscardedMAC"))
 if mibBuilder.loadTexts: agentPortSecurityViolation.setStatus('current')
-mibBuilder.exportSymbols("PORTSECURITY-PRIVATE-MIB", agentPortSecurityStaticLimit=agentPortSecurityStaticLimit, agentPortSecurityViolation=agentPortSecurityViolation, agentPortSecurityMACAddressAdd=agentPortSecurityMACAddressAdd, agentPortSecurityMACAddressRemove=agentPortSecurityMACAddressRemove, agentPortSecurityEntry=agentPortSecurityEntry, agentGlobalPortSecurityMode=agentGlobalPortSecurityMode, agentPortSecurityLastDiscardedMAC=agentPortSecurityLastDiscardedMAC, agentPortSecurityMode=agentPortSecurityMode, agentPortSecurityDynamicVLANId=agentPortSecurityDynamicVLANId, agentPortSecurityStaticMACs=agentPortSecurityStaticMACs, agentPortSecurityViolationTrapMode=agentPortSecurityViolationTrapMode, agentPortSecurityDynamicEntry=agentPortSecurityDynamicEntry, agentPortSecurityGroup=agentPortSecurityGroup, agentPortSecurityDynamicTable=agentPortSecurityDynamicTable, agentPortSecurityMACAddressMove=agentPortSecurityMACAddressMove, portSecurity=portSecurity, agentPortSecurityTraps=agentPortSecurityTraps, agentPortSecurityTable=agentPortSecurityTable, PYSNMP_MODULE_ID=portSecurity, agentPortSecurityDynamicLimit=agentPortSecurityDynamicLimit, agentPortSecurityDynamicMACAddress=agentPortSecurityDynamicMACAddress)
+mibBuilder.exportSymbols("PORTSECURITY-PRIVATE-MIB", PYSNMP_MODULE_ID=portSecurity, agentPortSecurityTable=agentPortSecurityTable, agentPortSecurityMACAddressRemove=agentPortSecurityMACAddressRemove, agentPortSecurityGroup=agentPortSecurityGroup, agentPortSecurityMACAddressMove=agentPortSecurityMACAddressMove, agentPortSecurityDynamicMACAddress=agentPortSecurityDynamicMACAddress, agentPortSecurityStaticLimit=agentPortSecurityStaticLimit, agentPortSecurityDynamicVLANId=agentPortSecurityDynamicVLANId, agentPortSecurityTraps=agentPortSecurityTraps, portSecurity=portSecurity, agentPortSecurityDynamicEntry=agentPortSecurityDynamicEntry, agentPortSecurityLastDiscardedMAC=agentPortSecurityLastDiscardedMAC, agentPortSecurityViolationTrapMode=agentPortSecurityViolationTrapMode, agentPortSecurityDynamicLimit=agentPortSecurityDynamicLimit, agentPortSecurityMACAddressAdd=agentPortSecurityMACAddressAdd, agentPortSecurityStaticMACs=agentPortSecurityStaticMACs, agentPortSecurityMode=agentPortSecurityMode, agentPortSecurityEntry=agentPortSecurityEntry, agentGlobalPortSecurityMode=agentGlobalPortSecurityMode, agentPortSecurityDynamicTable=agentPortSecurityDynamicTable, agentPortSecurityViolation=agentPortSecurityViolation)

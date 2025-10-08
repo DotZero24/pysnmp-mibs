@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module HMIT-DEVINFO-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hirschmann/HMIT-DEVINFO-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:02 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hirschmann/HMIT-DEVINFO-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:55:55 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 hmITMgmt, = mibBuilder.importSymbols("HMIT-SMI", "hmITMgmt")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
 hmITDeviceInfoMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 100, 1, 3, 602))
 hmITDeviceInfoMib.setRevisions(('2010-01-08 17:00',))
 if mibBuilder.loadTexts: hmITDeviceInfoMib.setLastUpdated('201001081700Z')
@@ -39,4 +39,4 @@ hmITDevSwVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 100, 1, 3, 602, 1, 100
 if mibBuilder.loadTexts: hmITDevSwVersion.setStatus('current')
 hmITDevCfgVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 100, 1, 3, 602, 1, 100, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: hmITDevCfgVersion.setStatus('current')
-mibBuilder.exportSymbols("HMIT-DEVINFO-MIB", hmITDevHwModel=hmITDevHwModel, PYSNMP_MODULE_ID=hmITDeviceInfoMib, hmITDeviceInfoEntry=hmITDeviceInfoEntry, hmITDeviceInfoTable=hmITDeviceInfoTable, hmITDevName=hmITDevName, hmITDevSwVersion=hmITDevSwVersion, hmITDevHwVersion=hmITDevHwVersion, hmITDeviceInformation=hmITDeviceInformation, hmITDeviceSerialNumber=hmITDeviceSerialNumber, hmITDevIndex=hmITDevIndex, hmITDevHwSerial=hmITDevHwSerial, hmITDevCfgVersion=hmITDevCfgVersion, hmITDevType=hmITDevType, hmITDeviceInfoMib=hmITDeviceInfoMib)
+mibBuilder.exportSymbols("HMIT-DEVINFO-MIB", hmITDevHwSerial=hmITDevHwSerial, hmITDeviceInformation=hmITDeviceInformation, hmITDeviceSerialNumber=hmITDeviceSerialNumber, hmITDevHwVersion=hmITDevHwVersion, hmITDeviceInfoMib=hmITDeviceInfoMib, hmITDevIndex=hmITDevIndex, hmITDevType=hmITDevType, hmITDeviceInfoEntry=hmITDeviceInfoEntry, hmITDevName=hmITDevName, hmITDevSwVersion=hmITDevSwVersion, hmITDevCfgVersion=hmITDevCfgVersion, hmITDeviceInfoTable=hmITDeviceInfoTable, hmITDevHwModel=hmITDevHwModel, PYSNMP_MODULE_ID=hmITDeviceInfoMib)

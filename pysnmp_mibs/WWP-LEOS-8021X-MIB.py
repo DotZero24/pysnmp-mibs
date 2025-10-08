@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module WWP-LEOS-8021X-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciena/WWP-LEOS-8021X-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:14 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ciena/WWP-LEOS-8021X-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:11:15 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 wwpModulesLeos, = mibBuilder.importSymbols("WWP-SMI", "wwpModulesLeos")
 wwpLeos8021xMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401))
 wwpLeos8021xMibModule.setRevisions(('2005-08-28 19:35',))
@@ -52,4 +52,4 @@ wwpLeos8021xAuthStatsClear = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 2
 if mibBuilder.loadTexts: wwpLeos8021xAuthStatsClear.setStatus('current')
 wwpLeos8021xSuppStatsClear = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 2, 3, 2), TruthValue()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: wwpLeos8021xSuppStatsClear.setStatus('current')
-mibBuilder.exportSymbols("WWP-LEOS-8021X-MIB", wwpLeos8021xEvents=wwpLeos8021xEvents, wwpLeos8021xGroups=wwpLeos8021xGroups, wwpLeos8021xPortEntry=wwpLeos8021xPortEntry, wwpLeos8021xSuppPortStatsClear=wwpLeos8021xSuppPortStatsClear, wwpLeos8021xRole=wwpLeos8021xRole, wwpLeos8021xCompls=wwpLeos8021xCompls, wwpLeos8021xGlobalAttrs=wwpLeos8021xGlobalAttrs, wwpLeos8021xSuppUserName=wwpLeos8021xSuppUserName, wwpLeos8021xMIB=wwpLeos8021xMIB, wwpLeos8021xSuppTable=wwpLeos8021xSuppTable, wwpLeos8021xConf=wwpLeos8021xConf, wwpLeos8021xSuppPort=wwpLeos8021xSuppPort, wwpLeos8021xAuthStatsClear=wwpLeos8021xAuthStatsClear, wwpLeos8021xMibModule=wwpLeos8021xMibModule, wwpLeos8021xSuppPassword=wwpLeos8021xSuppPassword, wwpLeos8021xSuppEntry=wwpLeos8021xSuppEntry, wwpLeos8021xPortTable=wwpLeos8021xPortTable, wwpLeos8021xEventsV2=wwpLeos8021xEventsV2, wwpLeos8021xAuthPortStatsClear=wwpLeos8021xAuthPortStatsClear, PYSNMP_MODULE_ID=wwpLeos8021xMibModule, wwpLeos8021xObjs=wwpLeos8021xObjs, wwpLeos8021xSuppEAPMethod=wwpLeos8021xSuppEAPMethod, wwpLeos8021xPort=wwpLeos8021xPort, wwpLeos8021xSuppStatsClear=wwpLeos8021xSuppStatsClear)
+mibBuilder.exportSymbols("WWP-LEOS-8021X-MIB", wwpLeos8021xAuthStatsClear=wwpLeos8021xAuthStatsClear, wwpLeos8021xGroups=wwpLeos8021xGroups, wwpLeos8021xPortEntry=wwpLeos8021xPortEntry, wwpLeos8021xCompls=wwpLeos8021xCompls, wwpLeos8021xSuppPort=wwpLeos8021xSuppPort, wwpLeos8021xSuppPassword=wwpLeos8021xSuppPassword, PYSNMP_MODULE_ID=wwpLeos8021xMibModule, wwpLeos8021xSuppEntry=wwpLeos8021xSuppEntry, wwpLeos8021xSuppEAPMethod=wwpLeos8021xSuppEAPMethod, wwpLeos8021xObjs=wwpLeos8021xObjs, wwpLeos8021xPortTable=wwpLeos8021xPortTable, wwpLeos8021xPort=wwpLeos8021xPort, wwpLeos8021xConf=wwpLeos8021xConf, wwpLeos8021xSuppPortStatsClear=wwpLeos8021xSuppPortStatsClear, wwpLeos8021xAuthPortStatsClear=wwpLeos8021xAuthPortStatsClear, wwpLeos8021xSuppUserName=wwpLeos8021xSuppUserName, wwpLeos8021xSuppStatsClear=wwpLeos8021xSuppStatsClear, wwpLeos8021xRole=wwpLeos8021xRole, wwpLeos8021xMibModule=wwpLeos8021xMibModule, wwpLeos8021xGlobalAttrs=wwpLeos8021xGlobalAttrs, wwpLeos8021xSuppTable=wwpLeos8021xSuppTable, wwpLeos8021xMIB=wwpLeos8021xMIB, wwpLeos8021xEvents=wwpLeos8021xEvents, wwpLeos8021xEventsV2=wwpLeos8021xEventsV2)

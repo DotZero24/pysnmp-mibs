@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module INFINERA-TP-PXPW-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-PXPW-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:55 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/INFINERA-TP-PXPW-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:21:19 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
-FloatTenths, InfnPWSetupMode, InfnCreationType, InfnPmHistStatsControl, InfnFlapActionClear, FloatHundredths = mibBuilder.importSymbols("INFINERA-TC-MIB", "FloatTenths", "InfnPWSetupMode", "InfnCreationType", "InfnPmHistStatsControl", "InfnFlapActionClear", "FloatHundredths")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+FloatHundredths, InfnPmHistStatsControl, InfnCreationType, InfnFlapActionClear, InfnPWSetupMode, FloatTenths = mibBuilder.importSymbols("INFINERA-TC-MIB", "FloatHundredths", "InfnPmHistStatsControl", "InfnCreationType", "InfnFlapActionClear", "InfnPWSetupMode", "FloatTenths")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 pxmPwMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 75))
 pxmPwMIB.setRevisions(('2016-05-20 00:00',))
 if mibBuilder.loadTexts: pxmPwMIB.setLastUpdated('201605200000Z')
@@ -50,4 +50,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 pxmPwGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 75, 3, 2, 1)).setObjects(("INFINERA-TP-PXPW-MIB", "pxmPwMTUSize"), ("INFINERA-TP-PXPW-MIB", "pxmPwSetupMode"), ("INFINERA-TP-PXPW-MIB", "pxmPwIncomingLabel"), ("INFINERA-TP-PXPW-MIB", "pxmPwOutgoingLabel"), ("INFINERA-TP-PXPW-MIB", "pxmPwCreationType"), ("INFINERA-TP-PXPW-MIB", "pxmPwPmHistStatsEnable"), ("INFINERA-TP-PXPW-MIB", "pxmPwSplitHorizonGroupID"), ("INFINERA-TP-PXPW-MIB", "pxmPwFlapActionClear"), ("INFINERA-TP-PXPW-MIB", "pxmPwAssociatedMPLSTunnel"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     pxmPwGroup = pxmPwGroup.setStatus('current')
-mibBuilder.exportSymbols("INFINERA-TP-PXPW-MIB", pxmPwSplitHorizonGroupID=pxmPwSplitHorizonGroupID, pxmPwEntry=pxmPwEntry, pxmPwAssociatedMPLSTunnel=pxmPwAssociatedMPLSTunnel, pxmPwMIB=pxmPwMIB, pxmPwSetupMode=pxmPwSetupMode, pxmPwGroups=pxmPwGroups, pxmPwCreationType=pxmPwCreationType, pxmPwTable=pxmPwTable, pxmPwCompliances=pxmPwCompliances, pxmPwConformance=pxmPwConformance, pxmPwCompliance=pxmPwCompliance, pxmPwIncomingLabel=pxmPwIncomingLabel, pxmPwGroup=pxmPwGroup, pxmPwFlapActionClear=pxmPwFlapActionClear, pxmPwMTUSize=pxmPwMTUSize, PYSNMP_MODULE_ID=pxmPwMIB, pxmPwPmHistStatsEnable=pxmPwPmHistStatsEnable, pxmPwOutgoingLabel=pxmPwOutgoingLabel)
+mibBuilder.exportSymbols("INFINERA-TP-PXPW-MIB", PYSNMP_MODULE_ID=pxmPwMIB, pxmPwGroups=pxmPwGroups, pxmPwCreationType=pxmPwCreationType, pxmPwGroup=pxmPwGroup, pxmPwFlapActionClear=pxmPwFlapActionClear, pxmPwCompliances=pxmPwCompliances, pxmPwIncomingLabel=pxmPwIncomingLabel, pxmPwConformance=pxmPwConformance, pxmPwPmHistStatsEnable=pxmPwPmHistStatsEnable, pxmPwCompliance=pxmPwCompliance, pxmPwMTUSize=pxmPwMTUSize, pxmPwMIB=pxmPwMIB, pxmPwOutgoingLabel=pxmPwOutgoingLabel, pxmPwTable=pxmPwTable, pxmPwSetupMode=pxmPwSetupMode, pxmPwEntry=pxmPwEntry, pxmPwSplitHorizonGroupID=pxmPwSplitHorizonGroupID, pxmPwAssociatedMPLSTunnel=pxmPwAssociatedMPLSTunnel)

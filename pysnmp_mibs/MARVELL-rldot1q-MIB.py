@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module MARVELL-rldot1q-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/radlan/MARVELL-rldot1q-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:40:56 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/radlan/MARVELL-rldot1q-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:07:54 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-PortList, dot1qStaticUnicastEntry, dot1qTpFdbEntry = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList", "dot1qStaticUnicastEntry", "dot1qTpFdbEntry")
+PortList, dot1qTpFdbEntry, dot1qStaticUnicastEntry = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList", "dot1qTpFdbEntry", "dot1qStaticUnicastEntry")
 rlpBridgeMIBObjects, = mibBuilder.importSymbols("RADLAN-BRIDGEMIBOBJECTS-MIB", "rlpBridgeMIBObjects")
 rnd, = mibBuilder.importSymbols("RADLAN-MIB", "rnd")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "DisplayString", "TextualConvention")
 rlq_bridge_mib = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 57, 8)).setLabel("rlq-bridge-mib")
 rlq_bridge_mib.setRevisions(('2008-11-25 00:00',))
 if mibBuilder.loadTexts: rlq_bridge_mib.setLastUpdated('200811250000Z')
@@ -48,4 +48,4 @@ rldot1qTpFdbCountType = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 57, 8, 3, 1, 3), I
 if mibBuilder.loadTexts: rldot1qTpFdbCountType.setStatus('current')
 rldot1qTpFdbCountCount = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 57, 8, 3, 1, 4), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: rldot1qTpFdbCountCount.setStatus('current')
-mibBuilder.exportSymbols("MARVELL-rldot1q-MIB", rldot1q=rldot1q, rldot1qStaticUnicastTable=rldot1qStaticUnicastTable, rldot1qTpFdbTable=rldot1qTpFdbTable, rldot1qTpFdbEntry=rldot1qTpFdbEntry, rldot1qTpFdbCountVlanTag=rldot1qTpFdbCountVlanTag, rldot1qTpFdbCountCount=rldot1qTpFdbCountCount, PYSNMP_MODULE_ID=rlq_bridge_mib, rldot1qTpFdbCountEntry=rldot1qTpFdbCountEntry, rldot1qStaticUnicastEntry=rldot1qStaticUnicastEntry, rlq_bridge_mib=rlq_bridge_mib, rldot1qTpFdbCountType=rldot1qTpFdbCountType, rldot1qTpFdbCountPort=rldot1qTpFdbCountPort, rldot1qStaticUnicastAddressOwner=rldot1qStaticUnicastAddressOwner, rldot1qTpFdbCountTable=rldot1qTpFdbCountTable, rldot1qTpFdbSubStatus=rldot1qTpFdbSubStatus)
+mibBuilder.exportSymbols("MARVELL-rldot1q-MIB", rldot1qTpFdbCountVlanTag=rldot1qTpFdbCountVlanTag, rldot1qStaticUnicastTable=rldot1qStaticUnicastTable, rldot1qTpFdbCountTable=rldot1qTpFdbCountTable, rldot1qTpFdbEntry=rldot1qTpFdbEntry, rldot1qTpFdbCountType=rldot1qTpFdbCountType, rldot1qTpFdbTable=rldot1qTpFdbTable, rldot1qStaticUnicastAddressOwner=rldot1qStaticUnicastAddressOwner, PYSNMP_MODULE_ID=rlq_bridge_mib, rldot1q=rldot1q, rldot1qTpFdbCountPort=rldot1qTpFdbCountPort, rldot1qStaticUnicastEntry=rldot1qStaticUnicastEntry, rldot1qTpFdbCountCount=rldot1qTpFdbCountCount, rlq_bridge_mib=rlq_bridge_mib, rldot1qTpFdbSubStatus=rldot1qTpFdbSubStatus, rldot1qTpFdbCountEntry=rldot1qTpFdbCountEntry)

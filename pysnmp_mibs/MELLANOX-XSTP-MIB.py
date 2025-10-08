@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module MELLANOX-XSTP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mellanox/MELLANOX-XSTP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:05 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mellanox/MELLANOX-XSTP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:44:45 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 BridgeId, = mibBuilder.importSymbols("BRIDGE-MIB", "BridgeId")
 mellanoxXstp, = mibBuilder.importSymbols("MELLANOX-SMI-MIB", "mellanoxXstp")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 mellanoxXstpMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 33049, 13, 1))
 mellanoxXstpMib.setRevisions(('2017-07-26 00:00',))
 if mibBuilder.loadTexts: mellanoxXstpMib.setLastUpdated('201707260000Z')
@@ -73,4 +73,4 @@ mellanoxXstpRootPortChange = NotificationType((1, 3, 6, 1, 4, 1, 33049, 13, 1, 1
 if mibBuilder.loadTexts: mellanoxXstpRootPortChange.setStatus('current')
 mellanoxXstpTopologyChange = NotificationType((1, 3, 6, 1, 4, 1, 33049, 13, 1, 1, 3)).setObjects(("MELLANOX-XSTP-MIB", "mellanoxXstpId"), ("MELLANOX-XSTP-MIB", "mellanoxXstpPortNum"), ("MELLANOX-XSTP-MIB", "mellanoxXstpPortState"))
 if mibBuilder.loadTexts: mellanoxXstpTopologyChange.setStatus('current')
-mibBuilder.exportSymbols("MELLANOX-XSTP-MIB", mellanoxXstpVids3=mellanoxXstpVids3, mellanoxXstpMib=mellanoxXstpMib, mellanoxXstpId=mellanoxXstpId, mellanoxXstpBridgeId=mellanoxXstpBridgeId, mellanoxXstpBridgePriority=mellanoxXstpBridgePriority, mellanoxXstpObjects=mellanoxXstpObjects, mellanoxXstpPortEntry=mellanoxXstpPortEntry, mellanoxXstpPortRole=mellanoxXstpPortRole, mellanoxXstpVids1=mellanoxXstpVids1, mellanoxXstpPortPathCost=mellanoxXstpPortPathCost, mellanoxXstpVlanId=mellanoxXstpVlanId, PYSNMP_MODULE_ID=mellanoxXstpMib, mellanoxXstpPortNum=mellanoxXstpPortNum, mellanoxXstpPortTable=mellanoxXstpPortTable, mellanoxXstpDesignatedRoot=mellanoxXstpDesignatedRoot, mellanoxXstpVlanMstId=mellanoxXstpVlanMstId, mellanoxXstpTopologyChange=mellanoxXstpTopologyChange, mellanoxXstpPortMstId=mellanoxXstpPortMstId, mellanoxXstpRootPort=mellanoxXstpRootPort, mellanoxXstpEntry=mellanoxXstpEntry, mellanoxXstpPortPriority=mellanoxXstpPortPriority, mellanoxXstpVlanTable=mellanoxXstpVlanTable, mellanoxXstpRootPortChange=mellanoxXstpRootPortChange, mellanoxXstpRootPathCost=mellanoxXstpRootPathCost, mellanoxXstpRootBridgeChange=mellanoxXstpRootBridgeChange, mellanoxXstpVlanEntry=mellanoxXstpVlanEntry, mellanoxXstpPortState=mellanoxXstpPortState, mellanoxXstpVids0=mellanoxXstpVids0, mellanoxXstpTable=mellanoxXstpTable, mellanoxXstpNotifications=mellanoxXstpNotifications, mellanoxXstpVids2=mellanoxXstpVids2)
+mibBuilder.exportSymbols("MELLANOX-XSTP-MIB", mellanoxXstpRootPortChange=mellanoxXstpRootPortChange, mellanoxXstpPortPathCost=mellanoxXstpPortPathCost, mellanoxXstpDesignatedRoot=mellanoxXstpDesignatedRoot, mellanoxXstpVids0=mellanoxXstpVids0, mellanoxXstpVids3=mellanoxXstpVids3, mellanoxXstpNotifications=mellanoxXstpNotifications, mellanoxXstpRootPathCost=mellanoxXstpRootPathCost, mellanoxXstpPortState=mellanoxXstpPortState, mellanoxXstpPortEntry=mellanoxXstpPortEntry, mellanoxXstpRootPort=mellanoxXstpRootPort, mellanoxXstpPortPriority=mellanoxXstpPortPriority, mellanoxXstpTable=mellanoxXstpTable, mellanoxXstpTopologyChange=mellanoxXstpTopologyChange, mellanoxXstpPortTable=mellanoxXstpPortTable, PYSNMP_MODULE_ID=mellanoxXstpMib, mellanoxXstpVids1=mellanoxXstpVids1, mellanoxXstpObjects=mellanoxXstpObjects, mellanoxXstpPortMstId=mellanoxXstpPortMstId, mellanoxXstpVlanEntry=mellanoxXstpVlanEntry, mellanoxXstpVlanMstId=mellanoxXstpVlanMstId, mellanoxXstpVlanId=mellanoxXstpVlanId, mellanoxXstpVlanTable=mellanoxXstpVlanTable, mellanoxXstpVids2=mellanoxXstpVids2, mellanoxXstpBridgeId=mellanoxXstpBridgeId, mellanoxXstpMib=mellanoxXstpMib, mellanoxXstpEntry=mellanoxXstpEntry, mellanoxXstpRootBridgeChange=mellanoxXstpRootBridgeChange, mellanoxXstpId=mellanoxXstpId, mellanoxXstpPortRole=mellanoxXstpPortRole, mellanoxXstpBridgePriority=mellanoxXstpBridgePriority, mellanoxXstpPortNum=mellanoxXstpPortNum)

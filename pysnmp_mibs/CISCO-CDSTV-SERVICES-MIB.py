@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module CISCO-CDSTV-SERVICES-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-CDSTV-SERVICES-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:29 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-CDSTV-SERVICES-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:23:36 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 ciscoCdstvServicesMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 729))
 ciscoCdstvServicesMIB.setRevisions(('2010-03-29 00:00',))
 if mibBuilder.loadTexts: ciscoCdstvServicesMIB.setLastUpdated('201003290000Z')
@@ -54,4 +54,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 ciscoCdstvServicesMIBNotifEnableObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 729, 2, 2, 3)).setObjects(("CISCO-CDSTV-SERVICES-MIB", "cdstvServiceUpNotifEnable"), ("CISCO-CDSTV-SERVICES-MIB", "cdstvServiceDownNotifEnable"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ciscoCdstvServicesMIBNotifEnableObjectGroup = ciscoCdstvServicesMIBNotifEnableObjectGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-CDSTV-SERVICES-MIB", ciscoCdstvServicesMIBGroups=ciscoCdstvServicesMIBGroups, cdstvServiceUp=cdstvServiceUp, ciscoCdstvServicesMIBObjects=ciscoCdstvServicesMIBObjects, cdstvServicesMonitorIndex=cdstvServicesMonitorIndex, ciscoCdstvServicesMIB=ciscoCdstvServicesMIB, ciscoCdstvServicesMIBCompliances=ciscoCdstvServicesMIBCompliances, ciscoCdstvServicesMIBNotifEnableObjectGroup=ciscoCdstvServicesMIBNotifEnableObjectGroup, cdstvServicesMonitorTableEntry=cdstvServicesMonitorTableEntry, PYSNMP_MODULE_ID=ciscoCdstvServicesMIB, cdstvServiceTrapsEnable=cdstvServiceTrapsEnable, cdstvServiceDownNotifEnable=cdstvServiceDownNotifEnable, ciscoCdstvServicesMIBNotifs=ciscoCdstvServicesMIBNotifs, cdstvServiceStatus=cdstvServiceStatus, cdstvServiceDown=cdstvServiceDown, ciscoCdstvServicesMIBNotificationGroup=ciscoCdstvServicesMIBNotificationGroup, cdstvServiceUpNotifEnable=cdstvServiceUpNotifEnable, ciscoCdstvServicesMIBMainObjectGroup=ciscoCdstvServicesMIBMainObjectGroup, cdstvServicesMonitorTable=cdstvServicesMonitorTable, ciscoCdstvServicesMIBConform=ciscoCdstvServicesMIBConform, ciscoCdstvServicesMIBCompliance=ciscoCdstvServicesMIBCompliance, cdstvServiceName=cdstvServiceName)
+mibBuilder.exportSymbols("CISCO-CDSTV-SERVICES-MIB", ciscoCdstvServicesMIBCompliance=ciscoCdstvServicesMIBCompliance, cdstvServicesMonitorTableEntry=cdstvServicesMonitorTableEntry, cdstvServiceDown=cdstvServiceDown, cdstvServicesMonitorIndex=cdstvServicesMonitorIndex, PYSNMP_MODULE_ID=ciscoCdstvServicesMIB, cdstvServiceUpNotifEnable=cdstvServiceUpNotifEnable, ciscoCdstvServicesMIB=ciscoCdstvServicesMIB, cdstvServiceUp=cdstvServiceUp, cdstvServiceDownNotifEnable=cdstvServiceDownNotifEnable, cdstvServicesMonitorTable=cdstvServicesMonitorTable, ciscoCdstvServicesMIBObjects=ciscoCdstvServicesMIBObjects, ciscoCdstvServicesMIBGroups=ciscoCdstvServicesMIBGroups, cdstvServiceName=cdstvServiceName, cdstvServiceTrapsEnable=cdstvServiceTrapsEnable, ciscoCdstvServicesMIBConform=ciscoCdstvServicesMIBConform, ciscoCdstvServicesMIBNotificationGroup=ciscoCdstvServicesMIBNotificationGroup, ciscoCdstvServicesMIBNotifEnableObjectGroup=ciscoCdstvServicesMIBNotifEnableObjectGroup, ciscoCdstvServicesMIBCompliances=ciscoCdstvServicesMIBCompliances, ciscoCdstvServicesMIBMainObjectGroup=ciscoCdstvServicesMIBMainObjectGroup, ciscoCdstvServicesMIBNotifs=ciscoCdstvServicesMIBNotifs, cdstvServiceStatus=cdstvServiceStatus)

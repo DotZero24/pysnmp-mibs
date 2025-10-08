@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module DLINKPRIME-TIME-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DLINKPRIME-TIME-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:33:23 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/DLINKPRIME-TIME-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:57:51 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dlinkPrimeCommon, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlinkPrimeCommon")
 InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, DateAndTime, TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "TruthValue", "DisplayString")
 dlinkPrimeTimeMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 15, 23))
 dlinkPrimeTimeMIB.setRevisions(('2014-04-26 00:00',))
 if mibBuilder.loadTexts: dlinkPrimeTimeMIB.setLastUpdated('201404260000Z')
@@ -77,4 +77,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 dpTimeSummerTimeCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 15, 23, 2, 2, 4)).setObjects(("DLINKPRIME-TIME-MIB", "dpTimeSummerTimeAutoSwitchMode"), ("DLINKPRIME-TIME-MIB", "dpTimeSummerTimeTimeZone"), ("DLINKPRIME-TIME-MIB", "dpTimeSummerTimeStart"), ("DLINKPRIME-TIME-MIB", "dpTimeSummerTimeEnd"), ("DLINKPRIME-TIME-MIB", "dpTimeSummerTimeOffset"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     dpTimeSummerTimeCfgGroup = dpTimeSummerTimeCfgGroup.setStatus('current')
-mibBuilder.exportSymbols("DLINKPRIME-TIME-MIB", dpTimeSummerTimeCfgGroup=dpTimeSummerTimeCfgGroup, dpTimeCompliance=dpTimeCompliance, dpTimeSummerTime=dpTimeSummerTime, dpTimeManagedClock=dpTimeManagedClock, PYSNMP_MODULE_ID=dlinkPrimeTimeMIB, dpTimeSummerTimeTimeZone=dpTimeSummerTimeTimeZone, dpTimeSummerTimeOffset=dpTimeSummerTimeOffset, dpTimeSummerTimeEnd=dpTimeSummerTimeEnd, dpTimeCurrentTime=dpTimeCurrentTime, dpTimeSntpServerVersion=dpTimeSntpServerVersion, dpTimeSntpEnabled=dpTimeSntpEnabled, dpTimeSntpServerAddr=dpTimeSntpServerAddr, DlinkTimeSummerTimeValue=DlinkTimeSummerTimeValue, dpTimeSummerTimeAutoSwitchMode=dpTimeSummerTimeAutoSwitchMode, dpTimeCompliances=dpTimeCompliances, dpTimeGroups=dpTimeGroups, dpTimeMIBNotifications=dpTimeMIBNotifications, dpTimeSntpServerStratum=dpTimeSntpServerStratum, dpTimeSummerTimeStart=dpTimeSummerTimeStart, dpTimeGeneral=dpTimeGeneral, dpTimeSntpPollInterval=dpTimeSntpPollInterval, dlinkPrimeTimeMIB=dlinkPrimeTimeMIB, dpTimeMIBObjects=dpTimeMIBObjects, dpTimeClock=dpTimeClock, dpTimeSysInfoGroup=dpTimeSysInfoGroup, dpTimeSntpServerLastReceive=dpTimeSntpServerLastReceive, dpTimeClockGroup=dpTimeClockGroup, dpTimeSntpGroup=dpTimeSntpGroup, dpTimeMIBConformance=dpTimeMIBConformance, dpTimeServer=dpTimeServer, dpTimeCurrentTimeSource=dpTimeCurrentTimeSource)
+mibBuilder.exportSymbols("DLINKPRIME-TIME-MIB", dpTimeSummerTimeAutoSwitchMode=dpTimeSummerTimeAutoSwitchMode, dpTimeClock=dpTimeClock, dpTimeCurrentTime=dpTimeCurrentTime, dpTimeSntpServerVersion=dpTimeSntpServerVersion, dpTimeServer=dpTimeServer, dpTimeSntpEnabled=dpTimeSntpEnabled, dpTimeSummerTime=dpTimeSummerTime, dpTimeClockGroup=dpTimeClockGroup, dpTimeSntpServerAddr=dpTimeSntpServerAddr, dlinkPrimeTimeMIB=dlinkPrimeTimeMIB, dpTimeSummerTimeCfgGroup=dpTimeSummerTimeCfgGroup, dpTimeSummerTimeStart=dpTimeSummerTimeStart, dpTimeSntpServerStratum=dpTimeSntpServerStratum, dpTimeSntpServerLastReceive=dpTimeSntpServerLastReceive, dpTimeSysInfoGroup=dpTimeSysInfoGroup, dpTimeSummerTimeTimeZone=dpTimeSummerTimeTimeZone, PYSNMP_MODULE_ID=dlinkPrimeTimeMIB, dpTimeMIBConformance=dpTimeMIBConformance, dpTimeMIBObjects=dpTimeMIBObjects, dpTimeSummerTimeEnd=dpTimeSummerTimeEnd, dpTimeSummerTimeOffset=dpTimeSummerTimeOffset, dpTimeManagedClock=dpTimeManagedClock, dpTimeCompliances=dpTimeCompliances, dpTimeSntpGroup=dpTimeSntpGroup, dpTimeMIBNotifications=dpTimeMIBNotifications, DlinkTimeSummerTimeValue=DlinkTimeSummerTimeValue, dpTimeCompliance=dpTimeCompliance, dpTimeSntpPollInterval=dpTimeSntpPollInterval, dpTimeGroups=dpTimeGroups, dpTimeGeneral=dpTimeGeneral, dpTimeCurrentTimeSource=dpTimeCurrentTimeSource)

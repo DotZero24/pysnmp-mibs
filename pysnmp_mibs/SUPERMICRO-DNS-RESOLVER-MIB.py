@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SUPERMICRO-DNS-RESOLVER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-DNS-RESOLVER-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:59 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-DNS-RESOLVER-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:55 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 fsDns = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876, 101, 2, 99))
 fsDns.setRevisions(('2012-09-05 00:00',))
 if mibBuilder.loadTexts: fsDns.setLastUpdated('201209050000Z')
@@ -77,4 +77,4 @@ fsDnsFailedQueries = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 2, 99, 5, 5), Coun
 if mibBuilder.loadTexts: fsDnsFailedQueries.setStatus('current')
 fsDnsReTransQueries = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 2, 99, 5, 6), Counter32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: fsDnsReTransQueries.setStatus('current')
-mibBuilder.exportSymbols("SUPERMICRO-DNS-RESOLVER-MIB", fsDnsQueryEntry=fsDnsQueryEntry, fsDnsUnAnsweredQueries=fsDnsUnAnsweredQueries, fsDnsFailedQueries=fsDnsFailedQueries, fsDnsServerIPAddress=fsDnsServerIPAddress, fsDnsNameServerRowStatus=fsDnsNameServerRowStatus, fsDnsDomainNameIndex=fsDnsDomainNameIndex, fsDnsDomainNameTable=fsDnsDomainNameTable, fsDnsStatistics=fsDnsStatistics, fsDns=fsDns, fsDnsDomainName=fsDnsDomainName, fsDnsQueryName=fsDnsQueryName, fsDnsDomainNameRowStatus=fsDnsDomainNameRowStatus, fsDnsNameServerTable=fsDnsNameServerTable, fsDnsReTransQueries=fsDnsReTransQueries, fsDnsQueryIndex=fsDnsQueryIndex, fsDnsTraceOption=fsDnsTraceOption, fsDnsDomain=fsDnsDomain, fsDnsSystem=fsDnsSystem, fsDnsNameServerIndex=fsDnsNameServerIndex, fsDnsResponseReceived=fsDnsResponseReceived, fsDnsModuleStatus=fsDnsModuleStatus, fsDnsQueryTimeOut=fsDnsQueryTimeOut, fsDnsQueryTable=fsDnsQueryTable, fsDnsQueryNSAddress=fsDnsQueryNSAddress, fsDnsDroppedResponse=fsDnsDroppedResponse, PYSNMP_MODULE_ID=fsDns, fsDnsDomainNameEntry=fsDnsDomainNameEntry, fsDnsNameServer=fsDnsNameServer, fsDnsQueryRetryCount=fsDnsQueryRetryCount, fsDnsQuery=fsDnsQuery, fsDnsQueriesSent=fsDnsQueriesSent, fsDnsSystemControl=fsDnsSystemControl, fsDnsNameServerEntry=fsDnsNameServerEntry, fsDnsQueryNSAddressType=fsDnsQueryNSAddressType, fsDnsServerIPAddressType=fsDnsServerIPAddressType)
+mibBuilder.exportSymbols("SUPERMICRO-DNS-RESOLVER-MIB", fsDns=fsDns, fsDnsServerIPAddress=fsDnsServerIPAddress, fsDnsDomainNameEntry=fsDnsDomainNameEntry, fsDnsDomain=fsDnsDomain, fsDnsNameServerTable=fsDnsNameServerTable, fsDnsDomainNameIndex=fsDnsDomainNameIndex, fsDnsDroppedResponse=fsDnsDroppedResponse, fsDnsQuery=fsDnsQuery, fsDnsSystemControl=fsDnsSystemControl, fsDnsQueryNSAddress=fsDnsQueryNSAddress, fsDnsNameServerRowStatus=fsDnsNameServerRowStatus, fsDnsQueryName=fsDnsQueryName, fsDnsQueryNSAddressType=fsDnsQueryNSAddressType, fsDnsQueryIndex=fsDnsQueryIndex, fsDnsNameServer=fsDnsNameServer, fsDnsQueryEntry=fsDnsQueryEntry, fsDnsServerIPAddressType=fsDnsServerIPAddressType, fsDnsQueryTable=fsDnsQueryTable, fsDnsModuleStatus=fsDnsModuleStatus, fsDnsNameServerIndex=fsDnsNameServerIndex, fsDnsDomainNameRowStatus=fsDnsDomainNameRowStatus, fsDnsUnAnsweredQueries=fsDnsUnAnsweredQueries, fsDnsDomainNameTable=fsDnsDomainNameTable, fsDnsReTransQueries=fsDnsReTransQueries, PYSNMP_MODULE_ID=fsDns, fsDnsQueriesSent=fsDnsQueriesSent, fsDnsQueryTimeOut=fsDnsQueryTimeOut, fsDnsTraceOption=fsDnsTraceOption, fsDnsFailedQueries=fsDnsFailedQueries, fsDnsDomainName=fsDnsDomainName, fsDnsNameServerEntry=fsDnsNameServerEntry, fsDnsSystem=fsDnsSystem, fsDnsQueryRetryCount=fsDnsQueryRetryCount, fsDnsStatistics=fsDnsStatistics, fsDnsResponseReceived=fsDnsResponseReceived)

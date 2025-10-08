@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module AQUAQM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinet/AQUAQM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:53 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinet/AQUAQM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:14 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 wanflex, = mibBuilder.importSymbols("INFINET-MIB", "wanflex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 aquaqmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3942, 1, 1, 4))
 aquaqmMIB.setRevisions(('2011-02-16 08:26', '2007-11-08 12:55', '2004-08-16 19:10',))
 if mibBuilder.loadTexts: aquaqmMIB.setLastUpdated('201102160826Z')
@@ -61,4 +61,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 qmGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3942, 1, 1, 4, 3, 2, 1)).setObjects(("AQUAQM-MIB", "qmChannel"), ("AQUAQM-MIB", "qmPriority"), ("AQUAQM-MIB", "qmClass"), ("AQUAQM-MIB", "qmTo"), ("AQUAQM-MIB", "qmMax"), ("AQUAQM-MIB", "qmMaxPps"), ("AQUAQM-MIB", "qmCur"), ("AQUAQM-MIB", "qmCurPps"), ("AQUAQM-MIB", "qmPackets"), ("AQUAQM-MIB", "qmPacketsDropped"), ("AQUAQM-MIB", "qmBytes"), ("AQUAQM-MIB", "qmBytesDropped"), ("AQUAQM-MIB", "qmHtbCurrentQL"), ("AQUAQM-MIB", "qmHtbMaxQL"), ("AQUAQM-MIB", "qmHtbSystemDrop"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     qmGroup = qmGroup.setStatus('current')
-mibBuilder.exportSymbols("AQUAQM-MIB", aquaqmMIB=aquaqmMIB, qmHtbSystemDrop=qmHtbSystemDrop, aquaqmMIBCompliances=aquaqmMIBCompliances, qmGroup=qmGroup, qmHTB=qmHTB, qmMaxPps=qmMaxPps, qmClass=qmClass, qmHtbMaxQL=qmHtbMaxQL, qmPriority=qmPriority, qmBytes=qmBytes, qmTable=qmTable, PYSNMP_MODULE_ID=aquaqmMIB, qmHtbCurrentQL=qmHtbCurrentQL, qmMax=qmMax, qmCurPps=qmCurPps, qmTo=qmTo, qmPacketsDropped=qmPacketsDropped, qmPackets=qmPackets, aquaqmMIBCompliance=aquaqmMIBCompliance, qmBytesDropped=qmBytesDropped, qmEntry=qmEntry, qmCur=qmCur, aquaqmMIBGroups=aquaqmMIBGroups, qmChannel=qmChannel, aquaqmMIBConformance=aquaqmMIBConformance)
+mibBuilder.exportSymbols("AQUAQM-MIB", qmBytes=qmBytes, qmHtbCurrentQL=qmHtbCurrentQL, aquaqmMIBConformance=aquaqmMIBConformance, qmGroup=qmGroup, qmTable=qmTable, qmMax=qmMax, qmTo=qmTo, qmPackets=qmPackets, aquaqmMIBCompliances=aquaqmMIBCompliances, qmHtbMaxQL=qmHtbMaxQL, qmCur=qmCur, qmCurPps=qmCurPps, qmMaxPps=qmMaxPps, qmHTB=qmHTB, qmHtbSystemDrop=qmHtbSystemDrop, qmPacketsDropped=qmPacketsDropped, qmEntry=qmEntry, qmPriority=qmPriority, aquaqmMIBCompliance=aquaqmMIBCompliance, aquaqmMIBGroups=aquaqmMIBGroups, aquaqmMIB=aquaqmMIB, qmClass=qmClass, qmBytesDropped=qmBytesDropped, qmChannel=qmChannel, PYSNMP_MODULE_ID=aquaqmMIB)

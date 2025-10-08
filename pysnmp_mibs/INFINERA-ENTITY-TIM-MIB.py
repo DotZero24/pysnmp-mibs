@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module INFINERA-ENTITY-TIM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-ENTITY-TIM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:24 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/INFINERA-ENTITY-TIM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:20:21 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 entLPPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entLPPhysicalIndex")
 equipment, = mibBuilder.importSymbols("INFINERA-REG-MIB", "equipment")
 InfnEqptType, InfnFPGAOperatingMode, InfnPortMappingMode = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnEqptType", "InfnFPGAOperatingMode", "InfnPortMappingMode")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 timMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 23))
 if mibBuilder.loadTexts: timMIB.setLastUpdated('200810200000Z')
 if mibBuilder.loadTexts: timMIB.setOrganization('INFINERA')
@@ -49,4 +49,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 timGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 23, 3, 2, 1)).setObjects(("INFINERA-ENTITY-TIM-MIB", "timMoId"), ("INFINERA-ENTITY-TIM-MIB", "timProvEqptType"), ("INFINERA-ENTITY-TIM-MIB", "timRowStatus"), ("INFINERA-ENTITY-TIM-MIB", "timOperatingModeStatus"), ("INFINERA-ENTITY-TIM-MIB", "timOperatingMode"), ("INFINERA-ENTITY-TIM-MIB", "timPortMappingModeGroup1"), ("INFINERA-ENTITY-TIM-MIB", "timPortMappingModeGroup2"), ("INFINERA-ENTITY-TIM-MIB", "timPortMappingModeGroup3"), ("INFINERA-ENTITY-TIM-MIB", "timPortMappingModeGroup4"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     timGroup = timGroup.setStatus('current')
-mibBuilder.exportSymbols("INFINERA-ENTITY-TIM-MIB", timOperatingMode=timOperatingMode, timPortMappingModeGroup4=timPortMappingModeGroup4, timCompliance=timCompliance, timEntry=timEntry, timPortMappingModeGroup3=timPortMappingModeGroup3, timMIB=timMIB, timGroup=timGroup, timCompliances=timCompliances, timProvEqptType=timProvEqptType, timPortMappingModeGroup1=timPortMappingModeGroup1, timMoId=timMoId, timConformance=timConformance, timPortMappingModeGroup2=timPortMappingModeGroup2, timOperatingModeStatus=timOperatingModeStatus, PYSNMP_MODULE_ID=timMIB, timRowStatus=timRowStatus, timGroups=timGroups, timTable=timTable)
+mibBuilder.exportSymbols("INFINERA-ENTITY-TIM-MIB", timMIB=timMIB, timEntry=timEntry, timPortMappingModeGroup3=timPortMappingModeGroup3, PYSNMP_MODULE_ID=timMIB, timTable=timTable, timRowStatus=timRowStatus, timOperatingMode=timOperatingMode, timConformance=timConformance, timCompliances=timCompliances, timProvEqptType=timProvEqptType, timPortMappingModeGroup1=timPortMappingModeGroup1, timPortMappingModeGroup4=timPortMappingModeGroup4, timGroup=timGroup, timCompliance=timCompliance, timGroups=timGroups, timOperatingModeStatus=timOperatingModeStatus, timPortMappingModeGroup2=timPortMappingModeGroup2, timMoId=timMoId)

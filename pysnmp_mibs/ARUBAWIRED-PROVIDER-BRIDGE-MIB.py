@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module ARUBAWIRED-PROVIDER-BRIDGE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aruba/ARUBAWIRED-PROVIDER-BRIDGE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:44:16 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/aruba/ARUBAWIRED-PROVIDER-BRIDGE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:12:24 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 wndFeatures, = mibBuilder.importSymbols("ARUBAWIRED-NETWORKING-OID", "wndFeatures")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 VlanId, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanId")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 arubaWiredProviderBridgeMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 23))
 arubaWiredProviderBridgeMIB.setRevisions(('2021-11-12 00:00',))
 if mibBuilder.loadTexts: arubaWiredProviderBridgeMIB.setLastUpdated('202111120000Z')
@@ -51,4 +51,4 @@ arubaWiredProviderBridgeCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 47196, 
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     arubaWiredProviderBridgeCompliance = arubaWiredProviderBridgeCompliance.setStatus('current')
-mibBuilder.exportSymbols("ARUBAWIRED-PROVIDER-BRIDGE-MIB", arubaWiredProviderBridgeCompliances=arubaWiredProviderBridgeCompliances, arubaWiredProviderBridgeNotifications=arubaWiredProviderBridgeNotifications, arubaWiredProviderBridgeEtherType=arubaWiredProviderBridgeEtherType, arubaWiredProviderBridgeObjects=arubaWiredProviderBridgeObjects, arubaWiredProviderBridgePortifIndex=arubaWiredProviderBridgePortifIndex, arubaWiredProviderBridgePortEntry=arubaWiredProviderBridgePortEntry, arubaWiredProviderBridgeVlanType=arubaWiredProviderBridgeVlanType, PYSNMP_MODULE_ID=arubaWiredProviderBridgeMIB, arubaWiredProviderBridgeMIB=arubaWiredProviderBridgeMIB, arubaWiredProviderBridgePortTable=arubaWiredProviderBridgePortTable, arubaWiredProviderBridgeCompliance=arubaWiredProviderBridgeCompliance, arubaWiredProviderBridgeVlanTypeVlanID=arubaWiredProviderBridgeVlanTypeVlanID, arubaWiredProviderBridgeBaseGroup=arubaWiredProviderBridgeBaseGroup, arubaWiredProviderBridgeGroups=arubaWiredProviderBridgeGroups, arubaWiredProviderBridgePortType=arubaWiredProviderBridgePortType, arubaWiredProviderBridgeVlanTypeEntry=arubaWiredProviderBridgeVlanTypeEntry, arubaWiredProviderBridgeType=arubaWiredProviderBridgeType, arubaWiredProviderBridgeVlanTypeTable=arubaWiredProviderBridgeVlanTypeTable, arubaWiredProviderBridgeConformance=arubaWiredProviderBridgeConformance, arubaWiredProviderBridgeBase=arubaWiredProviderBridgeBase)
+mibBuilder.exportSymbols("ARUBAWIRED-PROVIDER-BRIDGE-MIB", arubaWiredProviderBridgePortType=arubaWiredProviderBridgePortType, arubaWiredProviderBridgeCompliance=arubaWiredProviderBridgeCompliance, arubaWiredProviderBridgeConformance=arubaWiredProviderBridgeConformance, arubaWiredProviderBridgeBaseGroup=arubaWiredProviderBridgeBaseGroup, arubaWiredProviderBridgeObjects=arubaWiredProviderBridgeObjects, arubaWiredProviderBridgePortEntry=arubaWiredProviderBridgePortEntry, arubaWiredProviderBridgePortifIndex=arubaWiredProviderBridgePortifIndex, arubaWiredProviderBridgeType=arubaWiredProviderBridgeType, arubaWiredProviderBridgeVlanTypeTable=arubaWiredProviderBridgeVlanTypeTable, arubaWiredProviderBridgeNotifications=arubaWiredProviderBridgeNotifications, arubaWiredProviderBridgeVlanType=arubaWiredProviderBridgeVlanType, arubaWiredProviderBridgeGroups=arubaWiredProviderBridgeGroups, arubaWiredProviderBridgeMIB=arubaWiredProviderBridgeMIB, arubaWiredProviderBridgeVlanTypeEntry=arubaWiredProviderBridgeVlanTypeEntry, arubaWiredProviderBridgeVlanTypeVlanID=arubaWiredProviderBridgeVlanTypeVlanID, arubaWiredProviderBridgePortTable=arubaWiredProviderBridgePortTable, arubaWiredProviderBridgeBase=arubaWiredProviderBridgeBase, PYSNMP_MODULE_ID=arubaWiredProviderBridgeMIB, arubaWiredProviderBridgeCompliances=arubaWiredProviderBridgeCompliances, arubaWiredProviderBridgeEtherType=arubaWiredProviderBridgeEtherType)

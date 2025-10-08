@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module OLD-CISCO-MEMORY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/OLD-CISCO-MEMORY-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:13:08 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/OLD-CISCO-MEMORY-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:25:59 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 local, = mibBuilder.importSymbols("CISCO-SMI", "local")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 lmem = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 2, 1))
 freeMem = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 8), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: freeMem.setStatus('obsolete')
@@ -109,4 +109,4 @@ bufferHgTrim = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 68), Integer32()).setMaxAcc
 if mibBuilder.loadTexts: bufferHgTrim.setStatus('mandatory')
 bufferHgCreate = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 69), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: bufferHgCreate.setStatus('mandatory')
-mibBuilder.exportSymbols("OLD-CISCO-MEMORY-MIB", bufferElFree=bufferElFree, bufferMdTotal=bufferMdTotal, bufferSmTrim=bufferSmTrim, bufferSmTotal=bufferSmTotal, bufferSmFree=bufferSmFree, bufferSmCreate=bufferSmCreate, bufferHgMax=bufferHgMax, bufferMdTrim=bufferMdTrim, bufferBgHit=bufferBgHit, bufferElMax=bufferElMax, bufferBgFree=bufferBgFree, bufferBgSize=bufferBgSize, bufferSmMax=bufferSmMax, bufferHgHit=bufferHgHit, bufferElMiss=bufferElMiss, bufferFail=bufferFail, bufferHgFree=bufferHgFree, bufferHgMiss=bufferHgMiss, bufferElCreate=bufferElCreate, bufferLgHit=bufferLgHit, bufferBgCreate=bufferBgCreate, bufferHgTotal=bufferHgTotal, bufferMdCreate=bufferMdCreate, bufferLgFree=bufferLgFree, bufferSmSize=bufferSmSize, bufferMdHit=bufferMdHit, bufferMdSize=bufferMdSize, bufferLgTrim=bufferLgTrim, bufferLgSize=bufferLgSize, lmem=lmem, bufferLgTotal=bufferLgTotal, freeMem=freeMem, bufferBgTrim=bufferBgTrim, bufferBgMax=bufferBgMax, bufferNoMem=bufferNoMem, bufferHgTrim=bufferHgTrim, bufferSmHit=bufferSmHit, bufferLgCreate=bufferLgCreate, bufferLgMiss=bufferLgMiss, bufferHgCreate=bufferHgCreate, bufferBgTotal=bufferBgTotal, bufferMdFree=bufferMdFree, bufferMdMiss=bufferMdMiss, bufferBgMiss=bufferBgMiss, bufferHgSize=bufferHgSize, bufferLgMax=bufferLgMax, bufferMdMax=bufferMdMax, bufferSmMiss=bufferSmMiss, bufferElHit=bufferElHit)
+mibBuilder.exportSymbols("OLD-CISCO-MEMORY-MIB", lmem=lmem, bufferLgMiss=bufferLgMiss, bufferHgMax=bufferHgMax, bufferBgMiss=bufferBgMiss, bufferNoMem=bufferNoMem, bufferBgTrim=bufferBgTrim, bufferLgTotal=bufferLgTotal, bufferSmTrim=bufferSmTrim, bufferFail=bufferFail, bufferMdTotal=bufferMdTotal, bufferHgTotal=bufferHgTotal, bufferLgHit=bufferLgHit, bufferElFree=bufferElFree, bufferLgSize=bufferLgSize, bufferLgMax=bufferLgMax, bufferMdSize=bufferMdSize, bufferLgCreate=bufferLgCreate, bufferMdMiss=bufferMdMiss, bufferHgMiss=bufferHgMiss, bufferSmTotal=bufferSmTotal, bufferElMax=bufferElMax, bufferMdTrim=bufferMdTrim, bufferBgTotal=bufferBgTotal, bufferSmHit=bufferSmHit, bufferSmMiss=bufferSmMiss, bufferMdFree=bufferMdFree, bufferSmFree=bufferSmFree, bufferMdHit=bufferMdHit, bufferBgHit=bufferBgHit, bufferBgFree=bufferBgFree, freeMem=freeMem, bufferElCreate=bufferElCreate, bufferHgHit=bufferHgHit, bufferSmCreate=bufferSmCreate, bufferHgCreate=bufferHgCreate, bufferBgSize=bufferBgSize, bufferLgFree=bufferLgFree, bufferSmMax=bufferSmMax, bufferHgSize=bufferHgSize, bufferSmSize=bufferSmSize, bufferMdCreate=bufferMdCreate, bufferHgFree=bufferHgFree, bufferElMiss=bufferElMiss, bufferBgCreate=bufferBgCreate, bufferBgMax=bufferBgMax, bufferHgTrim=bufferHgTrim, bufferMdMax=bufferMdMax, bufferElHit=bufferElHit, bufferLgTrim=bufferLgTrim)

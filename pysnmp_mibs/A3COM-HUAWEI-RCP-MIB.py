@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module A3COM-HUAWEI-RCP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-RCP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:40 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-RCP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:32:51 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 h3cRCP, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cRCP")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
 h3cRCPMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 73, 1))
 h3cRCPMIB.setRevisions(('2006-09-20 00:00',))
 if mibBuilder.loadTexts: h3cRCPMIB.setLastUpdated('200609200000Z')
@@ -82,4 +82,4 @@ h3cRCPSessionRunningStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2,
 if mibBuilder.loadTexts: h3cRCPSessionRunningStatus.setStatus('current')
 h3cRCPSessionUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 73, 1, 2, 3, 1, 5), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: h3cRCPSessionUserName.setStatus('current')
-mibBuilder.exportSymbols("A3COM-HUAWEI-RCP-MIB", h3cRCPSessionClientIPType=h3cRCPSessionClientIPType, h3cRCPRuleTimeout=h3cRCPRuleTimeout, h3cRCPUserEntry=h3cRCPUserEntry, h3cRCPSessionTable=h3cRCPSessionTable, h3cRCPSessionUserName=h3cRCPSessionUserName, h3cRCPSessionRunningStatus=h3cRCPSessionRunningStatus, h3cRCPTable=h3cRCPTable, h3cRCPLeaf=h3cRCPLeaf, h3cRCPUserRedirectInterface=h3cRCPUserRedirectInterface, h3cRCPClientIP=h3cRCPClientIP, h3cRCPUserPassword=h3cRCPUserPassword, h3cRCPServerEnableStatus=h3cRCPServerEnableStatus, h3cRCPSessionClientIP=h3cRCPSessionClientIP, h3cRCPMIB=h3cRCPMIB, h3cRCPClientIPEntry=h3cRCPClientIPEntry, h3cRCPRuleTimeoutMaxValue=h3cRCPRuleTimeoutMaxValue, h3cRCPBalanceGroupIdMaxValue=h3cRCPBalanceGroupIdMaxValue, h3cRCPClientIPTable=h3cRCPClientIPTable, h3cRCPServerCurConn=h3cRCPServerCurConn, h3cRCPUserRowStatus=h3cRCPUserRowStatus, h3cRCPConnTimeout=h3cRCPConnTimeout, h3cRCPTotalClientIPs=h3cRCPTotalClientIPs, h3cRCPConnTimeoutMaxValue=h3cRCPConnTimeoutMaxValue, h3cRCPTotalUsers=h3cRCPTotalUsers, h3cRCPServerMaxConnMaxValue=h3cRCPServerMaxConnMaxValue, h3cRCPBalanceGroupIdMinValue=h3cRCPBalanceGroupIdMinValue, h3cRCPUserRedirectBalanceGroup=h3cRCPUserRedirectBalanceGroup, h3cRCPServerMaxConn=h3cRCPServerMaxConn, PYSNMP_MODULE_ID=h3cRCPMIB, h3cRCPUserName=h3cRCPUserName, h3cRCPUserTable=h3cRCPUserTable, h3cRCPClientIPType=h3cRCPClientIPType, h3cRCPSessionId=h3cRCPSessionId, h3cRCPClientIPRowStatus=h3cRCPClientIPRowStatus, h3cRCPSessionEntry=h3cRCPSessionEntry)
+mibBuilder.exportSymbols("A3COM-HUAWEI-RCP-MIB", h3cRCPUserRedirectInterface=h3cRCPUserRedirectInterface, h3cRCPBalanceGroupIdMaxValue=h3cRCPBalanceGroupIdMaxValue, h3cRCPConnTimeoutMaxValue=h3cRCPConnTimeoutMaxValue, h3cRCPClientIP=h3cRCPClientIP, h3cRCPServerEnableStatus=h3cRCPServerEnableStatus, h3cRCPBalanceGroupIdMinValue=h3cRCPBalanceGroupIdMinValue, h3cRCPMIB=h3cRCPMIB, h3cRCPServerMaxConnMaxValue=h3cRCPServerMaxConnMaxValue, h3cRCPSessionTable=h3cRCPSessionTable, h3cRCPClientIPEntry=h3cRCPClientIPEntry, h3cRCPServerMaxConn=h3cRCPServerMaxConn, h3cRCPTotalUsers=h3cRCPTotalUsers, h3cRCPRuleTimeoutMaxValue=h3cRCPRuleTimeoutMaxValue, h3cRCPTable=h3cRCPTable, h3cRCPUserPassword=h3cRCPUserPassword, h3cRCPConnTimeout=h3cRCPConnTimeout, h3cRCPClientIPTable=h3cRCPClientIPTable, h3cRCPSessionEntry=h3cRCPSessionEntry, h3cRCPUserTable=h3cRCPUserTable, h3cRCPUserEntry=h3cRCPUserEntry, h3cRCPRuleTimeout=h3cRCPRuleTimeout, h3cRCPClientIPType=h3cRCPClientIPType, h3cRCPUserName=h3cRCPUserName, h3cRCPSessionUserName=h3cRCPSessionUserName, h3cRCPLeaf=h3cRCPLeaf, PYSNMP_MODULE_ID=h3cRCPMIB, h3cRCPSessionClientIP=h3cRCPSessionClientIP, h3cRCPSessionRunningStatus=h3cRCPSessionRunningStatus, h3cRCPSessionId=h3cRCPSessionId, h3cRCPUserRowStatus=h3cRCPUserRowStatus, h3cRCPUserRedirectBalanceGroup=h3cRCPUserRedirectBalanceGroup, h3cRCPServerCurConn=h3cRCPServerCurConn, h3cRCPTotalClientIPs=h3cRCPTotalClientIPs, h3cRCPSessionClientIPType=h3cRCPSessionClientIPType, h3cRCPClientIPRowStatus=h3cRCPClientIPRowStatus)

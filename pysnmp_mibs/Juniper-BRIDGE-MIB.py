@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module Juniper-BRIDGE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/junose/Juniper-BRIDGE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:22:55 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/junose/Juniper-BRIDGE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:42:28 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndexOrZero, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "InterfaceIndex")
 juniMibs, = mibBuilder.importSymbols("Juniper-MIBs", "juniMibs")
 JuniNextIfIndex, = mibBuilder.importSymbols("Juniper-TC", "JuniNextIfIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+MacAddress, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "RowStatus", "TextualConvention", "DisplayString")
 juniBridgeMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 2, 2, 63))
 juniBridgeMIB.setRevisions(('2003-11-04 20:39', '2002-09-16 21:44',))
 if mibBuilder.loadTexts: juniBridgeMIB.setLastUpdated('200311042039Z')
@@ -57,4 +57,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 juniBridgeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 63, 4, 2, 1)).setObjects(("Juniper-BRIDGE-MIB", "juniBridgeIfNextIfIndex"), ("Juniper-BRIDGE-MIB", "juniBridgeIfRowStatus"), ("Juniper-BRIDGE-MIB", "juniBridgeIfLowerIfIndex"), ("Juniper-BRIDGE-MIB", "juniBridgeSPolicyIndex"), ("Juniper-BRIDGE-MIB", "juniBridgeIfMaxLearnCount"), ("Juniper-BRIDGE-MIB", "juniBridgeAge"), ("Juniper-BRIDGE-MIB", "juniBridgeDupMacCounter"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     juniBridgeGroup = juniBridgeGroup.setStatus('current')
-mibBuilder.exportSymbols("Juniper-BRIDGE-MIB", juniBridgeIfNextIfIndex=juniBridgeIfNextIfIndex, juniBridgeCompliance=juniBridgeCompliance, juniBridgeCompliances=juniBridgeCompliances, juniBridgeIfLowerIfIndex=juniBridgeIfLowerIfIndex, juniBridgeMiscCounters=juniBridgeMiscCounters, juniBridgeDupMacCounter=juniBridgeDupMacCounter, juniBridgeAgeTable=juniBridgeAgeTable, juniBridgeConformance=juniBridgeConformance, juniBridgeIfTable=juniBridgeIfTable, PYSNMP_MODULE_ID=juniBridgeMIB, juniBridgeIfLayer=juniBridgeIfLayer, juniBridgeSPolicyIndex=juniBridgeSPolicyIndex, juniBridgeIfEntry=juniBridgeIfEntry, juniBridgeMacAddress=juniBridgeMacAddress, juniBridgeIfRowStatus=juniBridgeIfRowStatus, juniBridgeIfIndex=juniBridgeIfIndex, juniBridgeIfMaxLearnCount=juniBridgeIfMaxLearnCount, juniBridgeAgeLayer=juniBridgeAgeLayer, juniBridgeAge=juniBridgeAge, juniBridgeGroups=juniBridgeGroups, juniBridgeAgeEntry=juniBridgeAgeEntry, juniBridgeGroup=juniBridgeGroup, juniBridgeMIB=juniBridgeMIB)
+mibBuilder.exportSymbols("Juniper-BRIDGE-MIB", juniBridgeIfLayer=juniBridgeIfLayer, juniBridgeMiscCounters=juniBridgeMiscCounters, juniBridgeAgeTable=juniBridgeAgeTable, PYSNMP_MODULE_ID=juniBridgeMIB, juniBridgeConformance=juniBridgeConformance, juniBridgeAgeLayer=juniBridgeAgeLayer, juniBridgeAge=juniBridgeAge, juniBridgeIfMaxLearnCount=juniBridgeIfMaxLearnCount, juniBridgeIfRowStatus=juniBridgeIfRowStatus, juniBridgeSPolicyIndex=juniBridgeSPolicyIndex, juniBridgeGroups=juniBridgeGroups, juniBridgeIfTable=juniBridgeIfTable, juniBridgeDupMacCounter=juniBridgeDupMacCounter, juniBridgeCompliances=juniBridgeCompliances, juniBridgeMacAddress=juniBridgeMacAddress, juniBridgeIfIndex=juniBridgeIfIndex, juniBridgeIfNextIfIndex=juniBridgeIfNextIfIndex, juniBridgeAgeEntry=juniBridgeAgeEntry, juniBridgeMIB=juniBridgeMIB, juniBridgeIfLowerIfIndex=juniBridgeIfLowerIfIndex, juniBridgeGroup=juniBridgeGroup, juniBridgeCompliance=juniBridgeCompliance, juniBridgeIfEntry=juniBridgeIfEntry)

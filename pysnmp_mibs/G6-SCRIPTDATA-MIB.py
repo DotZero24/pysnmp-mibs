@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module G6-SCRIPTDATA-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/microsens/G6-SCRIPTDATA-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:53 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/microsens/G6-SCRIPTDATA-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:09 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 g6, = mibBuilder.importSymbols("MICROSENS-G6-MIB", "g6")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
 management = ModuleIdentity((1, 3, 6, 1, 4, 1, 3181, 10, 6, 3))
 management.setRevisions(('2018-02-12 16:19',))
 if mibBuilder.loadTexts: management.setLastUpdated('201802121619Z')
@@ -37,4 +37,4 @@ variablesName = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 3, 77, 100, 1, 2)
 if mibBuilder.loadTexts: variablesName.setStatus('current')
 variablesValue = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 3, 77, 100, 1, 3), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: variablesValue.setStatus('current')
-mibBuilder.exportSymbols("G6-SCRIPTDATA-MIB", variablesTable=variablesTable, parameterName=parameterName, parameterTable=parameterTable, variablesEntry=variablesEntry, scriptdata=scriptdata, PYSNMP_MODULE_ID=management, parameterIndex=parameterIndex, parameterValue=parameterValue, management=management, parameterEntry=parameterEntry, variablesIndex=variablesIndex, variablesName=variablesName, variablesValue=variablesValue)
+mibBuilder.exportSymbols("G6-SCRIPTDATA-MIB", variablesName=variablesName, PYSNMP_MODULE_ID=management, parameterValue=parameterValue, variablesValue=variablesValue, variablesEntry=variablesEntry, parameterTable=parameterTable, parameterEntry=parameterEntry, parameterName=parameterName, variablesIndex=variablesIndex, variablesTable=variablesTable, scriptdata=scriptdata, management=management, parameterIndex=parameterIndex)

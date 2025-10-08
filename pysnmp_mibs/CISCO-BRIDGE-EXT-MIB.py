@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module CISCO-BRIDGE-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-BRIDGE-EXT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:11 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-BRIDGE-EXT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:27:52 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
 ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-CiscoPortList, CiscoPortListRange = mibBuilder.importSymbols("CISCO-TC", "CiscoPortList", "CiscoPortListRange")
-VlanId, VlanIndex = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanId", "VlanIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+CiscoPortListRange, CiscoPortList = mibBuilder.importSymbols("CISCO-TC", "CiscoPortListRange", "CiscoPortList")
+VlanIndex, VlanId = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanIndex", "VlanId")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
 ciscoBridgeExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 401))
 ciscoBridgeExtMIB.setRevisions(('2008-05-22 00:00', '2005-04-07 00:00', '2004-12-03 00:00', '2004-08-23 00:00',))
 if mibBuilder.loadTexts: ciscoBridgeExtMIB.setLastUpdated('200805220000Z')
@@ -87,4 +87,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 cbeDot1dOperVlanGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 401, 2, 2, 4)).setObjects(("CISCO-BRIDGE-EXT-MIB", "cbeDot1dVlanOperVlan"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     cbeDot1dOperVlanGroup = cbeDot1dOperVlanGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-BRIDGE-EXT-MIB", cbeDot1dStaticReceivePort=cbeDot1dStaticReceivePort, cbeDot1dTpGlobalAgingTime=cbeDot1dTpGlobalAgingTime, cbeDot1dTpVlanIndex=cbeDot1dTpVlanIndex, cbeDot1dTpVlanGroup=cbeDot1dTpVlanGroup, cbeDot1dVlan=cbeDot1dVlan, cbeDot1dTpVlanEntry=cbeDot1dTpVlanEntry, cbeDot1dStaticStatus=cbeDot1dStaticStatus, cbExtMIBGroups=cbExtMIBGroups, cbeDot1dVlanEntry=cbeDot1dVlanEntry, cbeDot1dStatic=cbeDot1dStatic, cbeDot1dStaticEntry=cbeDot1dStaticEntry, cbeDot1dTpGroup=cbeDot1dTpGroup, cbeDot1dStaticGroup=cbeDot1dStaticGroup, cbeDot1dTpVlanTable=cbeDot1dTpVlanTable, cbeDot1dTpVlanAgingFromGlobal=cbeDot1dTpVlanAgingFromGlobal, ciscoBridgeExtMIB=ciscoBridgeExtMIB, cbeDot1dOperVlanGroup=cbeDot1dOperVlanGroup, cbeDot1dStaticPortRangeIndex=cbeDot1dStaticPortRangeIndex, cbExtMIBConformance=cbExtMIBConformance, cbExtMIBObjects=cbExtMIBObjects, cbeDot1dVlanOperVlan=cbeDot1dVlanOperVlan, cbExtMIBCompliance3=cbExtMIBCompliance3, cbeDot1dTp=cbeDot1dTp, cbeDot1dTpVlanRowStatus=cbeDot1dTpVlanRowStatus, cbeDot1dStaticTable=cbeDot1dStaticTable, cbExtMIBCompliance2=cbExtMIBCompliance2, cbeDot1dStaticAddress=cbeDot1dStaticAddress, PYSNMP_MODULE_ID=ciscoBridgeExtMIB, cbeDot1dVlanIndex=cbeDot1dVlanIndex, cbExtMIBNotifications=cbExtMIBNotifications, cbeDot1dTpVlanAgingTime=cbeDot1dTpVlanAgingTime, cbExtMIBCompliances=cbExtMIBCompliances, cbExtMIBCompliance=cbExtMIBCompliance, cbeDot1dStaticAllowedToGoTo=cbeDot1dStaticAllowedToGoTo, cbeDot1dVlanTable=cbeDot1dVlanTable)
+mibBuilder.exportSymbols("CISCO-BRIDGE-EXT-MIB", cbExtMIBGroups=cbExtMIBGroups, cbeDot1dStaticEntry=cbeDot1dStaticEntry, cbeDot1dVlanOperVlan=cbeDot1dVlanOperVlan, cbeDot1dTp=cbeDot1dTp, cbeDot1dTpVlanAgingTime=cbeDot1dTpVlanAgingTime, cbeDot1dStaticGroup=cbeDot1dStaticGroup, cbeDot1dStatic=cbeDot1dStatic, cbeDot1dStaticPortRangeIndex=cbeDot1dStaticPortRangeIndex, cbExtMIBCompliance3=cbExtMIBCompliance3, cbExtMIBObjects=cbExtMIBObjects, PYSNMP_MODULE_ID=ciscoBridgeExtMIB, cbeDot1dStaticAllowedToGoTo=cbeDot1dStaticAllowedToGoTo, cbExtMIBCompliance=cbExtMIBCompliance, cbeDot1dStaticAddress=cbeDot1dStaticAddress, cbeDot1dStaticTable=cbeDot1dStaticTable, cbeDot1dTpGlobalAgingTime=cbeDot1dTpGlobalAgingTime, cbExtMIBNotifications=cbExtMIBNotifications, cbeDot1dVlan=cbeDot1dVlan, cbeDot1dStaticStatus=cbeDot1dStaticStatus, ciscoBridgeExtMIB=ciscoBridgeExtMIB, cbeDot1dTpVlanGroup=cbeDot1dTpVlanGroup, cbExtMIBConformance=cbExtMIBConformance, cbeDot1dTpVlanRowStatus=cbeDot1dTpVlanRowStatus, cbExtMIBCompliances=cbExtMIBCompliances, cbeDot1dTpVlanTable=cbeDot1dTpVlanTable, cbExtMIBCompliance2=cbExtMIBCompliance2, cbeDot1dTpGroup=cbeDot1dTpGroup, cbeDot1dTpVlanAgingFromGlobal=cbeDot1dTpVlanAgingFromGlobal, cbeDot1dStaticReceivePort=cbeDot1dStaticReceivePort, cbeDot1dTpVlanEntry=cbeDot1dTpVlanEntry, cbeDot1dVlanEntry=cbeDot1dVlanEntry, cbeDot1dTpVlanIndex=cbeDot1dTpVlanIndex, cbeDot1dVlanIndex=cbeDot1dVlanIndex, cbeDot1dOperVlanGroup=cbeDot1dOperVlanGroup, cbeDot1dVlanTable=cbeDot1dVlanTable)

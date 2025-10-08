@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module OS-PROV-VIF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mrv/OS-PROV-VIF-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:37 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mrv/OS-PROV-VIF-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:16:43 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InetAddressPrefixLength, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressPrefixLength", "InetAddressType", "InetAddress")
 EntryValidator, oaOptiSwitch = mibBuilder.importSymbols("OS-COMMON-TC-MIB", "EntryValidator", "oaOptiSwitch")
-osEthServId, osEthServEntry = mibBuilder.importSymbols("OS-ETH-SERV-MIB", "osEthServId", "osEthServEntry")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-MacAddress, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TruthValue", "TextualConvention")
+osEthServEntry, osEthServId = mibBuilder.importSymbols("OS-ETH-SERV-MIB", "osEthServEntry", "osEthServId")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "MacAddress", "TextualConvention", "DisplayString")
 osProvVif = ModuleIdentity((1, 3, 6, 1, 4, 1, 6926, 2, 12))
 osProvVif.setRevisions(('2019-05-26 00:00', '2017-10-22 00:00', '2015-01-18 00:00', '2011-10-24 00:00', '2010-10-24 00:00', '2009-01-09 00:00',))
 if mibBuilder.loadTexts: osProvVif.setLastUpdated('201905260000Z')
@@ -76,4 +76,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 osProvVifObsoleteGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6926, 2, 12, 100, 2, 3)).setObjects(("OS-PROV-VIF-MIB", "osProvVifIpType"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     osProvVifObsoleteGroup = osProvVifObsoleteGroup.setStatus('obsolete')
-mibBuilder.exportSymbols("OS-PROV-VIF-MIB", osProvVifMgmtIpType=osProvVifMgmtIpType, osProvVifMIBGroups=osProvVifMIBGroups, osProvVifMIBCompliances=osProvVifMIBCompliances, osProvVifMIBCompliance=osProvVifMIBCompliance, PYSNMP_MODULE_ID=osProvVif, osProvVifSlaAvailable=osProvVifSlaAvailable, osProvVifMgmtTypesSupported=osProvVifMgmtTypesSupported, osProvVifPrefixLength=osProvVifPrefixLength, osProvVifAddrTypesSupported=osProvVifAddrTypesSupported, osProvVif=osProvVif, osProvVifIpv6PrefixLength=osProvVifIpv6PrefixLength, osProvVifMgmtPrtcls=osProvVifMgmtPrtcls, osProvVifCapabilities=osProvVifCapabilities, osProvVifMtuSize=osProvVifMtuSize, osProvVifTable=osProvVifTable, osProvVifMgmtEntry=osProvVifMgmtEntry, osProvVifMgmtValidator=osProvVifMgmtValidator, osProvVifRespMac=osProvVifRespMac, osProvVifMgmtPfxLen=osProvVifMgmtPfxLen, osProvVifMandatoryGroup=osProvVifMandatoryGroup, osProvVifMgmtIpAddr=osProvVifMgmtIpAddr, osProvVifConformance=osProvVifConformance, osProvVifIpDhcp=osProvVifIpDhcp, osProvVifMgmtTable=osProvVifMgmtTable, osProvVifIpType=osProvVifIpType, osProvVifIpv6Addr=osProvVifIpv6Addr, osProvVifEntry=osProvVifEntry, osProvVifIpAddr=osProvVifIpAddr, osProvVifObsoleteGroup=osProvVifObsoleteGroup, osProvVifIpv6Dhcp=osProvVifIpv6Dhcp)
+mibBuilder.exportSymbols("OS-PROV-VIF-MIB", osProvVifMandatoryGroup=osProvVifMandatoryGroup, osProvVifMgmtTypesSupported=osProvVifMgmtTypesSupported, osProvVifMgmtEntry=osProvVifMgmtEntry, osProvVifMIBCompliance=osProvVifMIBCompliance, osProvVifIpDhcp=osProvVifIpDhcp, osProvVifIpv6PrefixLength=osProvVifIpv6PrefixLength, osProvVifObsoleteGroup=osProvVifObsoleteGroup, osProvVifConformance=osProvVifConformance, osProvVifRespMac=osProvVifRespMac, osProvVifMIBGroups=osProvVifMIBGroups, osProvVifMtuSize=osProvVifMtuSize, osProvVifMgmtIpAddr=osProvVifMgmtIpAddr, osProvVifSlaAvailable=osProvVifSlaAvailable, osProvVifMIBCompliances=osProvVifMIBCompliances, osProvVifMgmtTable=osProvVifMgmtTable, osProvVifMgmtPrtcls=osProvVifMgmtPrtcls, osProvVifIpAddr=osProvVifIpAddr, osProvVifAddrTypesSupported=osProvVifAddrTypesSupported, osProvVifMgmtValidator=osProvVifMgmtValidator, osProvVifIpv6Dhcp=osProvVifIpv6Dhcp, osProvVifIpType=osProvVifIpType, osProvVifEntry=osProvVifEntry, osProvVif=osProvVif, osProvVifPrefixLength=osProvVifPrefixLength, osProvVifCapabilities=osProvVifCapabilities, osProvVifIpv6Addr=osProvVifIpv6Addr, osProvVifMgmtIpType=osProvVifMgmtIpType, osProvVifTable=osProvVifTable, PYSNMP_MODULE_ID=osProvVif, osProvVifMgmtPfxLen=osProvVifMgmtPfxLen)

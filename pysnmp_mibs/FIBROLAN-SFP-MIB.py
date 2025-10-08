@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module FIBROLAN-SFP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fibrolan/FIBROLAN-SFP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:23:15 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/fibrolan/FIBROLAN-SFP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:43:14 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 fibrolanGeneric, = mibBuilder.importSymbols("FIBROLAN-COMMON-MIB", "fibrolanGeneric")
 flDeviceNotifications, = mibBuilder.importSymbols("FIBROLAN-DEVICE-MIB", "flDeviceNotifications")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TimeStamp", "DisplayString")
 flSfp = ModuleIdentity((1, 3, 6, 1, 4, 1, 4467, 1000, 50))
 flSfp.setRevisions(('2014-04-01 00:00',))
 if mibBuilder.loadTexts: flSfp.setLastUpdated('201404010000Z')
@@ -86,4 +86,4 @@ flSfpPluggedIn = NotificationType((1, 3, 6, 1, 4, 1, 4467, 1000, 10, 0, 17))
 if mibBuilder.loadTexts: flSfpPluggedIn.setStatus('current')
 flSfpUnplugged = NotificationType((1, 3, 6, 1, 4, 1, 4467, 1000, 10, 0, 18))
 if mibBuilder.loadTexts: flSfpUnplugged.setStatus('current')
-mibBuilder.exportSymbols("FIBROLAN-SFP-MIB", flSfpMonitoringGroup=flSfpMonitoringGroup, flSfpRange=flSfpRange, flSfpMIBCompliances=flSfpMIBCompliances, flSfpTxWlFraction=flSfpTxWlFraction, flSfpDdmSupport=flSfpDdmSupport, flSfpStatusLastChange=flSfpStatusLastChange, flSfpMIBConformance=flSfpMIBConformance, flSfpAlarmStatus=flSfpAlarmStatus, flSfpUnplugged=flSfpUnplugged, flSfpVendor=flSfpVendor, flSfpInfoTable=flSfpInfoTable, flSfpPartNumber=flSfpPartNumber, flSfpMonitoringTable=flSfpMonitoringTable, flSfpMIBCompliance=flSfpMIBCompliance, flSfpPluggedIn=flSfpPluggedIn, flSfpMIBGroups=flSfpMIBGroups, flSfpTemperature=flSfpTemperature, flSfpTraps=flSfpTraps, flSfpType=flSfpType, flSfpMonitoringEntry=flSfpMonitoringEntry, flSfpMIBObjects=flSfpMIBObjects, flSfpInfoEntry=flSfpInfoEntry, flSfpRxWlFraction=flSfpRxWlFraction, flSfpSupplyVoltage=flSfpSupplyVoltage, flSfpBiasCurrent=flSfpBiasCurrent, flSfpTxPower=flSfpTxPower, flSfpRxWl=flSfpRxWl, PYSNMP_MODULE_ID=flSfp, flSfpDeviceGroup=flSfpDeviceGroup, flSfpSerialNumber=flSfpSerialNumber, flSfpMaxRate=flSfpMaxRate, flSfpTxWl=flSfpTxWl, flSfpNotificationsGroup=flSfpNotificationsGroup, flSfpRxPower=flSfpRxPower, flSfpAlarmStatusChange=flSfpAlarmStatusChange, flSfp=flSfp)
+mibBuilder.exportSymbols("FIBROLAN-SFP-MIB", flSfpDeviceGroup=flSfpDeviceGroup, flSfpRxPower=flSfpRxPower, flSfpMIBGroups=flSfpMIBGroups, flSfpRange=flSfpRange, flSfpMIBConformance=flSfpMIBConformance, flSfpPluggedIn=flSfpPluggedIn, flSfp=flSfp, PYSNMP_MODULE_ID=flSfp, flSfpTemperature=flSfpTemperature, flSfpNotificationsGroup=flSfpNotificationsGroup, flSfpMonitoringTable=flSfpMonitoringTable, flSfpAlarmStatusChange=flSfpAlarmStatusChange, flSfpBiasCurrent=flSfpBiasCurrent, flSfpStatusLastChange=flSfpStatusLastChange, flSfpMaxRate=flSfpMaxRate, flSfpDdmSupport=flSfpDdmSupport, flSfpMIBCompliance=flSfpMIBCompliance, flSfpAlarmStatus=flSfpAlarmStatus, flSfpMIBCompliances=flSfpMIBCompliances, flSfpMonitoringEntry=flSfpMonitoringEntry, flSfpMonitoringGroup=flSfpMonitoringGroup, flSfpInfoTable=flSfpInfoTable, flSfpSupplyVoltage=flSfpSupplyVoltage, flSfpTraps=flSfpTraps, flSfpType=flSfpType, flSfpPartNumber=flSfpPartNumber, flSfpMIBObjects=flSfpMIBObjects, flSfpRxWlFraction=flSfpRxWlFraction, flSfpSerialNumber=flSfpSerialNumber, flSfpVendor=flSfpVendor, flSfpRxWl=flSfpRxWl, flSfpInfoEntry=flSfpInfoEntry, flSfpTxWl=flSfpTxWl, flSfpUnplugged=flSfpUnplugged, flSfpTxWlFraction=flSfpTxWlFraction, flSfpTxPower=flSfpTxPower)

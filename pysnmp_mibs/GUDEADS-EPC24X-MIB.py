@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module GUDEADS-EPC24X-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/gude/GUDEADS-EPC24X-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:33 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/gude/GUDEADS-EPC24X-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:06:08 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 gudeads = ModuleIdentity((1, 3, 6, 1, 4, 1, 28507))
 gudeads.setRevisions(('2007-03-05 13:56',))
 if mibBuilder.loadTexts: gudeads.setLastUpdated('200703051356Z')
@@ -45,4 +45,4 @@ epc24Compls = MibIdentifier((1, 3, 6, 1, 4, 1, 28507, 5, 3, 2))
 epc24BasicGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 28507, 5, 3, 1, 1)).setObjects(("GUDEADS-EPC24X-MIB", "epc24portNumber"), ("GUDEADS-EPC24X-MIB", "epc24PortName"), ("GUDEADS-EPC24X-MIB", "epc24PortState"), ("GUDEADS-EPC24X-MIB", "epc24PortSwitchCount"), ("GUDEADS-EPC24X-MIB", "epc24Fuse1"), ("GUDEADS-EPC24X-MIB", "epc24Fuse2"), ("GUDEADS-EPC24X-MIB", "epc24Fuse3"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     epc24BasicGroup = epc24BasicGroup.setStatus('current')
-mibBuilder.exportSymbols("GUDEADS-EPC24X-MIB", epc24Fuse1=epc24Fuse1, epc24portNumber=epc24portNumber, epc24BasicGroup=epc24BasicGroup, epc24Fuse2=epc24Fuse2, epc24Compls=epc24Compls, epc24Events=epc24Events, epc24PortName=epc24PortName, epc24Groups=epc24Groups, epc24Objects=epc24Objects, epc24PortSwitchCount=epc24PortSwitchCount, epc24PortIndex=epc24PortIndex, epc24portTable=epc24portTable, gadsEPC24=gadsEPC24, gudeads=gudeads, epc24portEntry=epc24portEntry, epc24Conf=epc24Conf, epc24Fuse3=epc24Fuse3, epc24PortState=epc24PortState, PYSNMP_MODULE_ID=gudeads, epc24powerports=epc24powerports)
+mibBuilder.exportSymbols("GUDEADS-EPC24X-MIB", epc24Fuse3=epc24Fuse3, gudeads=gudeads, epc24Conf=epc24Conf, epc24PortState=epc24PortState, epc24Fuse2=epc24Fuse2, epc24portTable=epc24portTable, epc24Groups=epc24Groups, PYSNMP_MODULE_ID=gudeads, epc24PortName=epc24PortName, epc24Events=epc24Events, epc24PortSwitchCount=epc24PortSwitchCount, epc24Compls=epc24Compls, epc24Objects=epc24Objects, epc24Fuse1=epc24Fuse1, epc24powerports=epc24powerports, gadsEPC24=gadsEPC24, epc24BasicGroup=epc24BasicGroup, epc24PortIndex=epc24PortIndex, epc24portEntry=epc24portEntry, epc24portNumber=epc24portNumber)

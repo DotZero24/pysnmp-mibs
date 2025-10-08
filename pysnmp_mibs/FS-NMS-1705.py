@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module FS-NMS-1705 (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fscom/FS-NMS-1705
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:42 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/fscom/FS-NMS-1705
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:01:37 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 nmsMgmt, = mibBuilder.importSymbols("FS-NMS-SMI", "nmsMgmt")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 nms1705MIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642, 9, 175))
 if mibBuilder.loadTexts: nms1705MIB.setLastUpdated('200604111300Z')
 if mibBuilder.loadTexts: nms1705MIB.setOrganization('')
@@ -58,4 +58,4 @@ adslPtOutDrop = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 9, 175, 1, 2, 1, 12), O
 if mibBuilder.loadTexts: adslPtOutDrop.setStatus('mandatory')
 adslPtInDrop = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 9, 175, 1, 2, 1, 13), ObjectIdentifier()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: adslPtInDrop.setStatus('mandatory')
-mibBuilder.exportSymbols("FS-NMS-1705", adslPeriodEntry=adslPeriodEntry, adslPtSpeed=adslPtSpeed, adslMemLoad=adslMemLoad, adslPtInCRC=adslPtInCRC, adslPtOutError=adslPtOutError, adslPtOutDrop=adslPtOutDrop, adslLineEntry=adslLineEntry, adslCPULoad=adslCPULoad, adslLineTable=adslLineTable, adslPtStatus=adslPtStatus, adslConfigAddr=adslConfigAddr, adslProductID=adslProductID, adslPtInPkts=adslPtInPkts, nms1705Objects=nms1705Objects, adslPtInError=adslPtInError, adslPtOutSpeed=adslPtOutSpeed, adslPtInDrop=adslPtInDrop, adslPtOutPkts=adslPtOutPkts, adslPtInSpeed=adslPtInSpeed, adslPeriodTable=adslPeriodTable, PYSNMP_MODULE_ID=nms1705MIB, adslLineUser=adslLineUser, nms1705MIB=nms1705MIB, adslLineNumber=adslLineNumber)
+mibBuilder.exportSymbols("FS-NMS-1705", adslPeriodTable=adslPeriodTable, adslPtSpeed=adslPtSpeed, adslPtInPkts=adslPtInPkts, adslProductID=adslProductID, adslPtStatus=adslPtStatus, adslLineTable=adslLineTable, adslLineNumber=adslLineNumber, nms1705MIB=nms1705MIB, adslPtInDrop=adslPtInDrop, adslConfigAddr=adslConfigAddr, adslPeriodEntry=adslPeriodEntry, adslLineUser=adslLineUser, adslPtInError=adslPtInError, adslLineEntry=adslLineEntry, adslPtOutError=adslPtOutError, adslPtInSpeed=adslPtInSpeed, adslMemLoad=adslMemLoad, nms1705Objects=nms1705Objects, adslPtOutSpeed=adslPtOutSpeed, adslPtOutDrop=adslPtOutDrop, PYSNMP_MODULE_ID=nms1705MIB, adslPtInCRC=adslPtInCRC, adslPtOutPkts=adslPtOutPkts, adslCPULoad=adslCPULoad)

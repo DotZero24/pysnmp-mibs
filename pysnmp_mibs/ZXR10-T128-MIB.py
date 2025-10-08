@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ZXR10-T128-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZXR10-T128-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:52 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zte/ZXR10-T128-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:10:37 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, NotificationType, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, mgmt, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "NotificationType", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "mgmt", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-DisplayString, BoolStatus, PidUsedStatus, PortType, OperStatus, zxr10RackNo, BoardType, PortWorkingType, AvailStatus, zxr10, zxr10PosInRack, NpcType, ShelfAttrib, MasterStatus, zxr10rack, UnitRunStatus = mibBuilder.importSymbols("ZXR10-MIB", "DisplayString", "BoolStatus", "PidUsedStatus", "PortType", "OperStatus", "zxr10RackNo", "BoardType", "PortWorkingType", "AvailStatus", "zxr10", "zxr10PosInRack", "NpcType", "ShelfAttrib", "MasterStatus", "zxr10rack", "UnitRunStatus")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, mgmt, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "mgmt", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+PidUsedStatus, BoardType, PortType, zxr10RackNo, ShelfAttrib, zxr10, MasterStatus, NpcType, BoolStatus, OperStatus, zxr10PosInRack, PortWorkingType, zxr10rack, UnitRunStatus, AvailStatus, DisplayString = mibBuilder.importSymbols("ZXR10-MIB", "PidUsedStatus", "BoardType", "PortType", "zxr10RackNo", "ShelfAttrib", "zxr10", "MasterStatus", "NpcType", "BoolStatus", "OperStatus", "zxr10PosInRack", "PortWorkingType", "zxr10rack", "UnitRunStatus", "AvailStatus", "DisplayString")
 class AlarmType(Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 129, 130, 131, 132, 133, 134))
     namedValues = NamedValues(("hardware-environment", 1), ("hardware-board", 2), ("hardware-port", 3), ("softprotocol-ros", 65), ("softprotocol-database", 66), ("softprotocol-oam", 67), ("softprotocol-security", 68), ("softprotocol-ospf", 69), ("softprotocol-rip", 70), ("softprotocol-bgp", 71), ("softprotocol-drp", 72), ("softprotocol-tcp-udp", 73), ("softprotocol-ip", 74), ("softprotocol-igmp", 75), ("softprotocol-telnet", 76), ("softprotocol-udp", 77), ("softprotocol-arp", 78), ("softprotocol-isis", 79), ("softprotocol-icmp", 80), ("softprotocol-snmp", 81), ("softprotocol-rmon", 82), ("statistics-microcode", 129), ("statistics-ip", 130), ("statistics-tcp", 131), ("statistics-udp", 132), ("statistics-icmp", 133), ("statistics-bgp", 134))
@@ -46,4 +46,4 @@ zxr10PortAvailStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 2, 4, 1, 7), A
 if mibBuilder.loadTexts: zxr10PortAvailStatus.setStatus('current')
 zxr10PortOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 2, 4, 1, 8), OperStatus()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: zxr10PortOperStatus.setStatus('current')
-mibBuilder.exportSymbols("ZXR10-T128-MIB", AlarmType=AlarmType, zxr10PortWorkingType=zxr10PortWorkingType, zxr10PortMTU=zxr10PortMTU, zxr10portTable=zxr10portTable, zxr10ShelfNo=zxr10ShelfNo, zxr10portEntry=zxr10portEntry, zxr10PortAvailStatus=zxr10PortAvailStatus, zxr10ShelfAttrib=zxr10ShelfAttrib, zxr10PortIfIndex=zxr10PortIfIndex, zxr10ShelfAvailStatus=zxr10ShelfAvailStatus, zxr10PortType=zxr10PortType, zxr10PortSpeed=zxr10PortSpeed, zxr10PortOperStatus=zxr10PortOperStatus, zxr10shelfEntry=zxr10shelfEntry, zxr10shelfTable=zxr10shelfTable, zxr10PortNo=zxr10PortNo)
+mibBuilder.exportSymbols("ZXR10-T128-MIB", zxr10PortNo=zxr10PortNo, zxr10PortType=zxr10PortType, zxr10PortMTU=zxr10PortMTU, zxr10PortOperStatus=zxr10PortOperStatus, zxr10ShelfNo=zxr10ShelfNo, zxr10PortIfIndex=zxr10PortIfIndex, AlarmType=AlarmType, zxr10PortSpeed=zxr10PortSpeed, zxr10ShelfAvailStatus=zxr10ShelfAvailStatus, zxr10shelfEntry=zxr10shelfEntry, zxr10ShelfAttrib=zxr10ShelfAttrib, zxr10portEntry=zxr10portEntry, zxr10shelfTable=zxr10shelfTable, zxr10PortWorkingType=zxr10PortWorkingType, zxr10PortAvailStatus=zxr10PortAvailStatus, zxr10portTable=zxr10portTable)

@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module RAISECOM-OAM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/RAISECOM-OAM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:48 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/raisecom/RAISECOM-OAM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:54:37 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-dot3OamEventLogType, dot3OamPeerVendorOui, dot3OamPeerVendorInfo, dot3OamPeerMacAddress, dot3OamEventLogLocation, dot3OamEventLogOui = mibBuilder.importSymbols("DOT3-OAM-MIB", "dot3OamEventLogType", "dot3OamPeerVendorOui", "dot3OamPeerVendorInfo", "dot3OamPeerMacAddress", "dot3OamEventLogLocation", "dot3OamEventLogOui")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+dot3OamPeerMacAddress, dot3OamEventLogOui, dot3OamPeerVendorOui, dot3OamPeerVendorInfo, dot3OamEventLogLocation, dot3OamEventLogType = mibBuilder.importSymbols("DOT3-OAM-MIB", "dot3OamPeerMacAddress", "dot3OamEventLogOui", "dot3OamPeerVendorOui", "dot3OamPeerVendorInfo", "dot3OamEventLogLocation", "dot3OamEventLogType")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 oam, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "oam")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-TimeStamp, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "TimeStamp", "DisplayString")
 raisecomOamMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 17, 1, 2))
 raisecomOamMIB.setRevisions(('2006-09-05 00:00',))
 if mibBuilder.loadTexts: raisecomOamMIB.setLastUpdated('200609050000Z')
@@ -63,4 +63,4 @@ raisecomOamSendPeriod = MibScalar((1, 3, 6, 1, 4, 1, 8886, 17, 1, 2, 3, 1), Inte
 if mibBuilder.loadTexts: raisecomOamSendPeriod.setStatus('current')
 raisecomOamLinkTimeout = MibScalar((1, 3, 6, 1, 4, 1, 8886, 17, 1, 2, 3, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(5)).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: raisecomOamLinkTimeout.setStatus('current')
-mibBuilder.exportSymbols("RAISECOM-OAM-MIB", raisecomOamRemoteMgtStatus=raisecomOamRemoteMgtStatus, raisecomOamNormalTrap=raisecomOamNormalTrap, raisecomOamDyingGaspNormalTrap=raisecomOamDyingGaspNormalTrap, raisecomOamLinkTimeout=raisecomOamLinkTimeout, raisecomOamLostTrapTimestamp=raisecomOamLostTrapTimestamp, raisecomOamRemoteMgtLeaf=raisecomOamRemoteMgtLeaf, raisecomOamSendPeriod=raisecomOamSendPeriod, raisecomOamRemoteMgtEntry=raisecomOamRemoteMgtEntry, raisecomOamMIB=raisecomOamMIB, raisecomOamLostTrap=raisecomOamLostTrap, raisecomOamTrapEntry=raisecomOamTrapEntry, raisecomOamRemoteMgtValue=raisecomOamRemoteMgtValue, raisecomOamTrapTable=raisecomOamTrapTable, raisecomOamObjects=raisecomOamObjects, raisecomOamLostTrapTotal=raisecomOamLostTrapTotal, raisecomOamDiscoveryTrapTimestamp=raisecomOamDiscoveryTrapTimestamp, raisecomOamScalar=raisecomOamScalar, raisecomOamLinkFaultNormalTrap=raisecomOamLinkFaultNormalTrap, raisecomOamDiscoveryTrapTotal=raisecomOamDiscoveryTrapTotal, PYSNMP_MODULE_ID=raisecomOamMIB, raisecomOamRemoteMgtTable=raisecomOamRemoteMgtTable, raisecomOamEventTrapEnable=raisecomOamEventTrapEnable, raisecomOamPeerEventTrapEnable=raisecomOamPeerEventTrapEnable, raisecomOamNotifications=raisecomOamNotifications, raisecomOamRemoteMgtBranch=raisecomOamRemoteMgtBranch, raisecomOamDiscoveryTrap=raisecomOamDiscoveryTrap)
+mibBuilder.exportSymbols("RAISECOM-OAM-MIB", raisecomOamDiscoveryTrapTotal=raisecomOamDiscoveryTrapTotal, raisecomOamDiscoveryTrapTimestamp=raisecomOamDiscoveryTrapTimestamp, raisecomOamRemoteMgtValue=raisecomOamRemoteMgtValue, raisecomOamEventTrapEnable=raisecomOamEventTrapEnable, raisecomOamRemoteMgtTable=raisecomOamRemoteMgtTable, raisecomOamDiscoveryTrap=raisecomOamDiscoveryTrap, raisecomOamDyingGaspNormalTrap=raisecomOamDyingGaspNormalTrap, PYSNMP_MODULE_ID=raisecomOamMIB, raisecomOamNormalTrap=raisecomOamNormalTrap, raisecomOamLostTrap=raisecomOamLostTrap, raisecomOamRemoteMgtBranch=raisecomOamRemoteMgtBranch, raisecomOamScalar=raisecomOamScalar, raisecomOamLinkFaultNormalTrap=raisecomOamLinkFaultNormalTrap, raisecomOamLostTrapTimestamp=raisecomOamLostTrapTimestamp, raisecomOamMIB=raisecomOamMIB, raisecomOamRemoteMgtLeaf=raisecomOamRemoteMgtLeaf, raisecomOamObjects=raisecomOamObjects, raisecomOamLinkTimeout=raisecomOamLinkTimeout, raisecomOamTrapEntry=raisecomOamTrapEntry, raisecomOamRemoteMgtEntry=raisecomOamRemoteMgtEntry, raisecomOamPeerEventTrapEnable=raisecomOamPeerEventTrapEnable, raisecomOamTrapTable=raisecomOamTrapTable, raisecomOamSendPeriod=raisecomOamSendPeriod, raisecomOamRemoteMgtStatus=raisecomOamRemoteMgtStatus, raisecomOamLostTrapTotal=raisecomOamLostTrapTotal, raisecomOamNotifications=raisecomOamNotifications)

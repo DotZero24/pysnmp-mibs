@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module NEWTEC-CONTROLPLANE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/newtec/NEWTEC-CONTROLPLANE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:29 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/newtec/NEWTEC-CONTROLPLANE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:04:40 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ntcFunction, = mibBuilder.importSymbols("NEWTEC-MAIN-MIB", "ntcFunction")
-NtcAlarmState, NtcEnable, NtcNetworkAddress = mibBuilder.importSymbols("NEWTEC-TC-MIB", "NtcAlarmState", "NtcEnable", "NtcNetworkAddress")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NtcAlarmState, NtcNetworkAddress, NtcEnable = mibBuilder.importSymbols("NEWTEC-TC-MIB", "NtcAlarmState", "NtcNetworkAddress", "NtcEnable")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ntcControlPlane = ModuleIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 4300))
 ntcControlPlane.setRevisions(('2018-02-02 09:00', '2014-10-31 08:00', '2014-09-04 12:00', '2014-07-15 08:00', '2013-05-22 06:00',))
 if mibBuilder.loadTexts: ntcControlPlane.setLastUpdated('201802020900Z')
@@ -60,4 +60,4 @@ ntcCtrlPlaneConfCompV1Standard = ModuleCompliance((1, 3, 6, 1, 4, 1, 5835, 5, 2,
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ntcCtrlPlaneConfCompV1Standard = ntcCtrlPlaneConfCompV1Standard.setStatus('current')
-mibBuilder.exportSymbols("NEWTEC-CONTROLPLANE-MIB", ntcCtrlPlaneConfGroup=ntcCtrlPlaneConfGroup, ntcCtrlPlaneConfGrpV1Standard=ntcCtrlPlaneConfGrpV1Standard, ntcCtrlPlaneEnable=ntcCtrlPlaneEnable, ntcCtrlPlaneCfgPir=ntcCtrlPlaneCfgPir, ntcCtrlPlaneCfgIsi=ntcCtrlPlaneCfgIsi, ntcCtrlPlaneCfgFrmTyp=ntcCtrlPlaneCfgFrmTyp, PYSNMP_MODULE_ID=ntcControlPlane, ntcCtrlPlaneCfgMaxQTime=ntcCtrlPlaneCfgMaxQTime, ntcCtrlPlaneMasterIp=ntcCtrlPlaneMasterIp, ntcCtrlPlaneObjects=ntcCtrlPlaneObjects, ntcCtrlPlaneConfCompliance=ntcCtrlPlaneConfCompliance, ntcCtrlPlaneAlarm=ntcCtrlPlaneAlarm, ntcControlPlane=ntcControlPlane, ntcCtrlPlaneCfgNomS2ModCod=ntcCtrlPlaneCfgNomS2ModCod, ntcCtrlPlaneAlmNoMaster=ntcCtrlPlaneAlmNoMaster, ntcCtrlPlaneCfgCir=ntcCtrlPlaneCfgCir, ntcCtrlPlaneConfCompV1Standard=ntcCtrlPlaneConfCompV1Standard, ntcCtrlPlaneCfgPrio=ntcCtrlPlaneCfgPrio, ntcCtrlPlaneConformance=ntcCtrlPlaneConformance, ntcCtrlPlaneCfgLabel=ntcCtrlPlaneCfgLabel, ntcCtrlPlaneCfg=ntcCtrlPlaneCfg, ntcCtrlPlaneCfgNomS2EModCod=ntcCtrlPlaneCfgNomS2EModCod)
+mibBuilder.exportSymbols("NEWTEC-CONTROLPLANE-MIB", ntcCtrlPlaneConfGrpV1Standard=ntcCtrlPlaneConfGrpV1Standard, ntcCtrlPlaneAlmNoMaster=ntcCtrlPlaneAlmNoMaster, PYSNMP_MODULE_ID=ntcControlPlane, ntcCtrlPlaneCfgPrio=ntcCtrlPlaneCfgPrio, ntcCtrlPlaneConfCompliance=ntcCtrlPlaneConfCompliance, ntcCtrlPlaneCfgFrmTyp=ntcCtrlPlaneCfgFrmTyp, ntcCtrlPlaneCfgNomS2EModCod=ntcCtrlPlaneCfgNomS2EModCod, ntcControlPlane=ntcControlPlane, ntcCtrlPlaneCfgMaxQTime=ntcCtrlPlaneCfgMaxQTime, ntcCtrlPlaneCfgPir=ntcCtrlPlaneCfgPir, ntcCtrlPlaneConformance=ntcCtrlPlaneConformance, ntcCtrlPlaneCfgIsi=ntcCtrlPlaneCfgIsi, ntcCtrlPlaneCfgNomS2ModCod=ntcCtrlPlaneCfgNomS2ModCod, ntcCtrlPlaneObjects=ntcCtrlPlaneObjects, ntcCtrlPlaneAlarm=ntcCtrlPlaneAlarm, ntcCtrlPlaneMasterIp=ntcCtrlPlaneMasterIp, ntcCtrlPlaneCfg=ntcCtrlPlaneCfg, ntcCtrlPlaneCfgLabel=ntcCtrlPlaneCfgLabel, ntcCtrlPlaneEnable=ntcCtrlPlaneEnable, ntcCtrlPlaneCfgCir=ntcCtrlPlaneCfgCir, ntcCtrlPlaneConfCompV1Standard=ntcCtrlPlaneConfCompV1Standard, ntcCtrlPlaneConfGroup=ntcCtrlPlaneConfGroup)

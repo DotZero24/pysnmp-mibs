@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module A3Com-IPSO-r1-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3Com-IPSO-r1-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:02 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/a3com/A3Com-IPSO-r1-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:33:25 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 a3Com = MibIdentifier((1, 3, 6, 1, 4, 1, 43))
 brouterMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2))
 a3ComIPSO = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2, 12))
@@ -66,4 +66,4 @@ a3IPsecureAuthOutMatch = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 12, 5, 1, 3), 
 if mibBuilder.loadTexts: a3IPsecureAuthOutMatch.setStatus('mandatory')
 a3IPsecureAuthOutStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 12, 5, 1, 4), RowStatus()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: a3IPsecureAuthOutStatus.setStatus('mandatory')
-mibBuilder.exportSymbols("A3Com-IPSO-r1-MIB", a3IPsecureParamCtl=a3IPsecureParamCtl, a3IPsecureMaxLevel=a3IPsecureMaxLevel, a3IPsecureAuthInStatus=a3IPsecureAuthInStatus, a3IPsecureAuthOutPort=a3IPsecureAuthOutPort, a3IPsecureParamTable=a3IPsecureParamTable, a3IPsecureAuthOutEntry=a3IPsecureAuthOutEntry, a3IPsecureAuthOutTable=a3IPsecureAuthOutTable, a3IPsecureMinLevel=a3IPsecureMinLevel, a3IPsecureLabelSysAuth=a3IPsecureLabelSysAuth, a3Com=a3Com, a3IPsecureAuthInFlags=a3IPsecureAuthInFlags, a3IPsecureAuthInPort=a3IPsecureAuthInPort, a3ComIPSO=a3ComIPSO, a3IPsecureAuthInMatch=a3IPsecureAuthInMatch, RowStatus=RowStatus, a3IPsecureAuthInTable=a3IPsecureAuthInTable, a3IPsecureAuthOutMatch=a3IPsecureAuthOutMatch, a3IPsecureLabelSysLevel=a3IPsecureLabelSysLevel, a3IPsecureCtl=a3IPsecureCtl, a3IPsecureFileServer=a3IPsecureFileServer, a3IPsecureAuthOutStatus=a3IPsecureAuthOutStatus, a3IPsecureAuthOutFlags=a3IPsecureAuthOutFlags, a3IPsecureParamPortIndex=a3IPsecureParamPortIndex, brouterMIB=brouterMIB, a3IPsecureLabelDefaultAuth=a3IPsecureLabelDefaultAuth, a3IPsecureAuthInEntry=a3IPsecureAuthInEntry, a3IPsecureLabelDefaultLevel=a3IPsecureLabelDefaultLevel, a3IPsecureParamEntry=a3IPsecureParamEntry)
+mibBuilder.exportSymbols("A3Com-IPSO-r1-MIB", a3IPsecureLabelDefaultAuth=a3IPsecureLabelDefaultAuth, a3IPsecureAuthOutStatus=a3IPsecureAuthOutStatus, a3IPsecureAuthOutFlags=a3IPsecureAuthOutFlags, a3IPsecureAuthOutMatch=a3IPsecureAuthOutMatch, a3IPsecureAuthInTable=a3IPsecureAuthInTable, a3IPsecureParamTable=a3IPsecureParamTable, a3IPsecureAuthInPort=a3IPsecureAuthInPort, a3IPsecureAuthOutPort=a3IPsecureAuthOutPort, a3IPsecureParamEntry=a3IPsecureParamEntry, a3IPsecureAuthOutEntry=a3IPsecureAuthOutEntry, a3IPsecureAuthInMatch=a3IPsecureAuthInMatch, a3IPsecureLabelSysLevel=a3IPsecureLabelSysLevel, a3IPsecureParamPortIndex=a3IPsecureParamPortIndex, a3IPsecureAuthInFlags=a3IPsecureAuthInFlags, a3IPsecureAuthInStatus=a3IPsecureAuthInStatus, a3IPsecureFileServer=a3IPsecureFileServer, RowStatus=RowStatus, a3IPsecureLabelSysAuth=a3IPsecureLabelSysAuth, a3IPsecureAuthOutTable=a3IPsecureAuthOutTable, a3IPsecureLabelDefaultLevel=a3IPsecureLabelDefaultLevel, a3IPsecureCtl=a3IPsecureCtl, a3IPsecureMinLevel=a3IPsecureMinLevel, a3IPsecureAuthInEntry=a3IPsecureAuthInEntry, a3ComIPSO=a3ComIPSO, a3IPsecureMaxLevel=a3IPsecureMaxLevel, a3Com=a3Com, brouterMIB=brouterMIB, a3IPsecureParamCtl=a3IPsecureParamCtl)

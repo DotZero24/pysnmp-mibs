@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module PDN-DS3EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/paradyne/PDN-DS3EXT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:42 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/paradyne/PDN-DS3EXT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:22 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-dsx3CurrentEntry, dsx3TotalEntry, dsx3IntervalEntry = mibBuilder.importSymbols("DS3-MIB", "dsx3CurrentEntry", "dsx3TotalEntry", "dsx3IntervalEntry")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+dsx3TotalEntry, dsx3CurrentEntry, dsx3IntervalEntry = mibBuilder.importSymbols("DS3-MIB", "dsx3TotalEntry", "dsx3CurrentEntry", "dsx3IntervalEntry")
 pdn_interfaces, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdn-interfaces")
 PerfCurrentCount, PerfTotalCount, PerfIntervalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfCurrentCount", "PerfTotalCount", "PerfIntervalCount")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 pdnDs3MIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 14))
 pdnDs3MIB.setRevisions(('1902-07-10 00:00', '1902-07-05 00:00', '1900-05-26 00:00',))
 if mibBuilder.loadTexts: pdnDs3MIB.setLastUpdated('0207050000Z')
@@ -99,4 +99,4 @@ devDs3FreeRunCES = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 14, 1, 5
 if mibBuilder.loadTexts: devDs3FreeRunCES.setStatus('current')
 devDs3FreeRunCSES = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 14, 1, 5, 1, 10), PerfTotalCount()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: devDs3FreeRunCSES.setStatus('current')
-mibBuilder.exportSymbols("PDN-DS3EXT-MIB", devDs3CurrentSES=devDs3CurrentSES, devDs3IntervalEntry=devDs3IntervalEntry, devDs3FreeRunCCV=devDs3FreeRunCCV, devDs3ConfigIgnoreCbit=devDs3ConfigIgnoreCbit, devDs3FreeRunLCV=devDs3FreeRunLCV, devDs3IntervalTable=devDs3IntervalTable, devDs3FreeRunCSES=devDs3FreeRunCSES, devDs3IntervalEB=devDs3IntervalEB, devDs3ConfigIfIndex=devDs3ConfigIfIndex, devDs3FreeRunPSES=devDs3FreeRunPSES, devDs3FreeRunTable=devDs3FreeRunTable, devDs3CurrentEntry=devDs3CurrentEntry, devDs3TotalTable=devDs3TotalTable, devDs3CurrentPlcpSEFS=devDs3CurrentPlcpSEFS, devDs3TotalES=devDs3TotalES, devDs3FreeRunPES=devDs3FreeRunPES, devDs3FreeRunPSEFS=devDs3FreeRunPSEFS, devDs3ConfigFramingType=devDs3ConfigFramingType, devDs3ConfigTable=devDs3ConfigTable, devDs3FreeRunCES=devDs3FreeRunCES, devDs3TotalEntry=devDs3TotalEntry, devDs3CurrentES=devDs3CurrentES, devDs3ConfigTimingMarkerCode=devDs3ConfigTimingMarkerCode, devDs3FreeRunUAS=devDs3FreeRunUAS, devDs3IntervalSES=devDs3IntervalSES, devDs3FreeRunLES=devDs3FreeRunLES, PYSNMP_MODULE_ID=pdnDs3MIB, pdnDs3MIB=pdnDs3MIB, devDs3FreeRunPCV=devDs3FreeRunPCV, devDs3FreeRunEntry=devDs3FreeRunEntry, devDs3IntervalES=devDs3IntervalES, devDs3ConfigEntry=devDs3ConfigEntry, devDs3Objects=devDs3Objects, devDs3TotalEB=devDs3TotalEB, devDs3IntervalPlcpSEFS=devDs3IntervalPlcpSEFS, devDs3TotalPlcpSEFS=devDs3TotalPlcpSEFS, devDs3CurrentEB=devDs3CurrentEB, devDs3TotalSES=devDs3TotalSES, devDs3CurrentTable=devDs3CurrentTable)
+mibBuilder.exportSymbols("PDN-DS3EXT-MIB", devDs3ConfigIgnoreCbit=devDs3ConfigIgnoreCbit, devDs3CurrentEB=devDs3CurrentEB, devDs3IntervalSES=devDs3IntervalSES, devDs3FreeRunPES=devDs3FreeRunPES, devDs3FreeRunPSEFS=devDs3FreeRunPSEFS, devDs3CurrentPlcpSEFS=devDs3CurrentPlcpSEFS, devDs3TotalSES=devDs3TotalSES, devDs3Objects=devDs3Objects, PYSNMP_MODULE_ID=pdnDs3MIB, devDs3CurrentEntry=devDs3CurrentEntry, devDs3TotalEntry=devDs3TotalEntry, devDs3CurrentSES=devDs3CurrentSES, devDs3ConfigTable=devDs3ConfigTable, devDs3FreeRunLES=devDs3FreeRunLES, devDs3ConfigEntry=devDs3ConfigEntry, devDs3FreeRunCCV=devDs3FreeRunCCV, devDs3CurrentES=devDs3CurrentES, devDs3IntervalTable=devDs3IntervalTable, devDs3IntervalES=devDs3IntervalES, devDs3TotalPlcpSEFS=devDs3TotalPlcpSEFS, devDs3TotalTable=devDs3TotalTable, pdnDs3MIB=pdnDs3MIB, devDs3ConfigTimingMarkerCode=devDs3ConfigTimingMarkerCode, devDs3FreeRunPCV=devDs3FreeRunPCV, devDs3CurrentTable=devDs3CurrentTable, devDs3FreeRunCES=devDs3FreeRunCES, devDs3FreeRunUAS=devDs3FreeRunUAS, devDs3TotalES=devDs3TotalES, devDs3FreeRunCSES=devDs3FreeRunCSES, devDs3IntervalPlcpSEFS=devDs3IntervalPlcpSEFS, devDs3FreeRunLCV=devDs3FreeRunLCV, devDs3FreeRunTable=devDs3FreeRunTable, devDs3IntervalEntry=devDs3IntervalEntry, devDs3FreeRunPSES=devDs3FreeRunPSES, devDs3IntervalEB=devDs3IntervalEB, devDs3TotalEB=devDs3TotalEB, devDs3ConfigIfIndex=devDs3ConfigIfIndex, devDs3ConfigFramingType=devDs3ConfigFramingType, devDs3FreeRunEntry=devDs3FreeRunEntry)

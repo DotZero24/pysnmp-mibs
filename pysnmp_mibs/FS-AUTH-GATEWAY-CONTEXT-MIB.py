@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module FS-AUTH-GATEWAY-CONTEXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fscom/FS-AUTH-GATEWAY-CONTEXT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:30 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/fscom/FS-AUTH-GATEWAY-CONTEXT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:01:12 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 fsMgmt, = mibBuilder.importSymbols("FS-SMI", "fsMgmt")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 fsWebAuthVCMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 67))
 fsWebAuthVCMIB.setRevisions(('2009-12-06 00:00',))
 if mibBuilder.loadTexts: fsWebAuthVCMIB.setLastUpdated('200912060000Z')
@@ -43,4 +43,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 fsWebAuthVCMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 67, 3, 2, 1)).setObjects(("FS-AUTH-GATEWAY-CONTEXT-MIB", "authUserContextNameVC"), ("FS-AUTH-GATEWAY-CONTEXT-MIB", "authUserIpAddrVC"), ("FS-AUTH-GATEWAY-CONTEXT-MIB", "authUserOnlineFlagVC"), ("FS-AUTH-GATEWAY-CONTEXT-MIB", "authUserTimeLimitVC"), ("FS-AUTH-GATEWAY-CONTEXT-MIB", "authUserTimeUsedVC"), ("FS-AUTH-GATEWAY-CONTEXT-MIB", "authUserStatusVC"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     fsWebAuthVCMIBGroup = fsWebAuthVCMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("FS-AUTH-GATEWAY-CONTEXT-MIB", authUserTimeLimitVC=authUserTimeLimitVC, authUserIpAddrVC=authUserIpAddrVC, fsWebAuthVCMIBGroups=fsWebAuthVCMIBGroups, authUserOnlineFlagVC=authUserOnlineFlagVC, authUserStatusVC=authUserStatusVC, PYSNMP_MODULE_ID=fsWebAuthVCMIB, fsWebAuthVCMIB=fsWebAuthVCMIB, fsWebAuthVCMIBConformance=fsWebAuthVCMIBConformance, fsWebAuthVCMIBCompliance=fsWebAuthVCMIBCompliance, fsWebAuthVCMIBCompliances=fsWebAuthVCMIBCompliances, fsWebAuthVCMIBGroup=fsWebAuthVCMIBGroup, fsWebAuthUserVCTable=fsWebAuthUserVCTable, fsWebAuthUserVCEntry=fsWebAuthUserVCEntry, authUserTimeUsedVC=authUserTimeUsedVC, fsWebAuthVCMIBObjects=fsWebAuthVCMIBObjects, authUserContextNameVC=authUserContextNameVC)
+mibBuilder.exportSymbols("FS-AUTH-GATEWAY-CONTEXT-MIB", authUserIpAddrVC=authUserIpAddrVC, fsWebAuthUserVCTable=fsWebAuthUserVCTable, fsWebAuthVCMIB=fsWebAuthVCMIB, authUserTimeLimitVC=authUserTimeLimitVC, fsWebAuthVCMIBGroup=fsWebAuthVCMIBGroup, fsWebAuthUserVCEntry=fsWebAuthUserVCEntry, fsWebAuthVCMIBConformance=fsWebAuthVCMIBConformance, fsWebAuthVCMIBCompliances=fsWebAuthVCMIBCompliances, fsWebAuthVCMIBObjects=fsWebAuthVCMIBObjects, authUserStatusVC=authUserStatusVC, authUserContextNameVC=authUserContextNameVC, authUserTimeUsedVC=authUserTimeUsedVC, fsWebAuthVCMIBCompliance=fsWebAuthVCMIBCompliance, fsWebAuthVCMIBGroups=fsWebAuthVCMIBGroups, PYSNMP_MODULE_ID=fsWebAuthVCMIB, authUserOnlineFlagVC=authUserOnlineFlagVC)

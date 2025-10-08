@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SVRNTCLU-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/SVRNTCLU-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:21 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/SVRNTCLU-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:08:07 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, mgmt, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "mgmt", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, mgmt, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "mgmt", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 dec = MibIdentifier((1, 3, 6, 1, 4, 1, 36))
 ema = MibIdentifier((1, 3, 6, 1, 4, 1, 36, 2))
 class ObjectType(Integer32):
@@ -83,4 +83,4 @@ ntcExObjectDrives = MibTableColumn((1, 3, 6, 1, 4, 1, 36, 2, 18, 22, 4, 2, 1, 2,
 if mibBuilder.loadTexts: ntcExObjectDrives.setStatus('mandatory')
 ntcExObjectIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 36, 2, 18, 22, 4, 2, 1, 2, 8, 1, 6), IpAddress()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ntcExObjectIpAddress.setStatus('mandatory')
-mibBuilder.exportSymbols("SVRNTCLU-MIB", svrSystem=svrSystem, ntcExGroupMembers=ntcExGroupMembers, ntcExGroupTable=ntcExGroupTable, Boolean=Boolean, ntcExGroupOnLine=ntcExGroupOnLine, ntcExMgtMibMajorRev=ntcExMgtMibMajorRev, ntcExGroupFailedOver=ntcExGroupFailedOver, ntcExGroupIndex=ntcExGroupIndex, mib_extensions_1=mib_extensions_1, ntcExObjectName=ntcExObjectName, ntcExObjectType=ntcExObjectType, ntcExObjectIndex=ntcExObjectIndex, DateAndTime=DateAndTime, ntcExGroupComment=ntcExGroupComment, ntcExGroupEntry=ntcExGroupEntry, svrNTCluMibInfo=svrNTCluMibInfo, ntcExObjectComment=ntcExObjectComment, ntcExObjectEntry=ntcExObjectEntry, ntcExGroupReevaluate=ntcExGroupReevaluate, ntcExObjectIpAddress=ntcExObjectIpAddress, svrNTCluClusterInfo=svrNTCluClusterInfo, svrCluster=svrCluster, ntcExGroupName=ntcExGroupName, svrNTClu=svrNTClu, ntcExGroupObjects=ntcExGroupObjects, dec=dec, svrNTCluObjects=svrNTCluObjects, ntcExObjectDrives=ntcExObjectDrives, PolicyType=PolicyType, ntcExAlias=ntcExAlias, FailoverReason=FailoverReason, ntcExMgtMibMinorRev=ntcExMgtMibMinorRev, ntcExObjectTable=ntcExObjectTable, ema=ema, ntcExGroupPolicy=ntcExGroupPolicy, ObjectType=ObjectType)
+mibBuilder.exportSymbols("SVRNTCLU-MIB", ntcExGroupOnLine=ntcExGroupOnLine, ntcExObjectName=ntcExObjectName, ntcExObjectComment=ntcExObjectComment, svrSystem=svrSystem, ntcExObjectDrives=ntcExObjectDrives, dec=dec, ntcExGroupIndex=ntcExGroupIndex, ntcExGroupTable=ntcExGroupTable, ntcExObjectIpAddress=ntcExObjectIpAddress, ntcExGroupPolicy=ntcExGroupPolicy, ntcExGroupEntry=ntcExGroupEntry, ntcExGroupReevaluate=ntcExGroupReevaluate, ntcExGroupName=ntcExGroupName, svrNTCluClusterInfo=svrNTCluClusterInfo, ntcExGroupFailedOver=ntcExGroupFailedOver, DateAndTime=DateAndTime, Boolean=Boolean, ema=ema, ntcExGroupObjects=ntcExGroupObjects, ntcExObjectTable=ntcExObjectTable, FailoverReason=FailoverReason, mib_extensions_1=mib_extensions_1, ntcExAlias=ntcExAlias, svrCluster=svrCluster, ntcExGroupMembers=ntcExGroupMembers, ntcExObjectIndex=ntcExObjectIndex, PolicyType=PolicyType, svrNTCluObjects=svrNTCluObjects, ntcExMgtMibMajorRev=ntcExMgtMibMajorRev, svrNTCluMibInfo=svrNTCluMibInfo, ObjectType=ObjectType, ntcExObjectEntry=ntcExObjectEntry, ntcExObjectType=ntcExObjectType, ntcExMgtMibMinorRev=ntcExMgtMibMinorRev, svrNTClu=svrNTClu, ntcExGroupComment=ntcExGroupComment)

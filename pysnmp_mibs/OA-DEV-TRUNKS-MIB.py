@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module OA-DEV-TRUNKS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mrv/OA-DEV-TRUNKS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:24 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mrv/OA-DEV-TRUNKS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:16:18 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 oaDeviceTrunks = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23))
 oaDeviceTrunks.setRevisions(('2007-12-11 00:00', '2007-08-02 00:00',))
 if mibBuilder.loadTexts: oaDeviceTrunks.setLastUpdated('200712110000Z')
@@ -52,4 +52,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 oaDevTrunkMandatoryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23, 101, 2, 1)).setObjects(("OA-DEV-TRUNKS-MIB", "oaDevTrunkGenSupport"), ("OA-DEV-TRUNKS-MIB", "oaDevTrunkGrNumber"), ("OA-DEV-TRUNKS-MIB", "oaDevTrunkGrDescription"), ("OA-DEV-TRUNKS-MIB", "oaDevTrunkGrPortMembers"), ("OA-DEV-TRUNKS-MIB", "oaDevTrunkGrPortsNumber"), ("OA-DEV-TRUNKS-MIB", "oaDevTrunkGrAdminStatus"), ("OA-DEV-TRUNKS-MIB", "oaDevTrunkGrPortLogicalNumber"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     oaDevTrunkMandatoryGroup = oaDevTrunkMandatoryGroup.setStatus('current')
-mibBuilder.exportSymbols("OA-DEV-TRUNKS-MIB", oaDevTrunkMIBGroups=oaDevTrunkMIBGroups, oaDeviceTrunks=oaDeviceTrunks, oaDevTrunkGrPortMembers=oaDevTrunkGrPortMembers, nbase=nbase, oaDevTrunkConformance=oaDevTrunkConformance, oaDevTrunkGrDescription=oaDevTrunkGrDescription, oaDevTrunkGrEntry=oaDevTrunkGrEntry, oaDevTrunkGrId=oaDevTrunkGrId, oaDevTrunkGrPortLogicalNumber=oaDevTrunkGrPortLogicalNumber, oaDevTrunkGrAdminStatus=oaDevTrunkGrAdminStatus, nbDevGen=nbDevGen, oaDevTrunks=oaDevTrunks, PYSNMP_MODULE_ID=oaDeviceTrunks, oaDevTrunkMIBCompliance=oaDevTrunkMIBCompliance, nbDeviceConfig=nbDeviceConfig, oaDevTrunkMIBCompliances=oaDevTrunkMIBCompliances, oaDevTrunkMandatoryGroup=oaDevTrunkMandatoryGroup, oaDevTrunkGen=oaDevTrunkGen, nbSwitchG1=nbSwitchG1, oaDevTrunkGrPortsNumber=oaDevTrunkGrPortsNumber, oaDevTrunkGenSupport=oaDevTrunkGenSupport, nbSwitchG1Il=nbSwitchG1Il, oaDevTrunkGrTable=oaDevTrunkGrTable, oaDevTrunkGrNumber=oaDevTrunkGrNumber)
+mibBuilder.exportSymbols("OA-DEV-TRUNKS-MIB", oaDevTrunkGrTable=oaDevTrunkGrTable, oaDevTrunks=oaDevTrunks, oaDevTrunkGrPortMembers=oaDevTrunkGrPortMembers, oaDevTrunkMIBGroups=oaDevTrunkMIBGroups, oaDevTrunkGrDescription=oaDevTrunkGrDescription, nbDevGen=nbDevGen, oaDevTrunkGen=oaDevTrunkGen, oaDevTrunkGrId=oaDevTrunkGrId, oaDevTrunkGrAdminStatus=oaDevTrunkGrAdminStatus, oaDevTrunkGrPortLogicalNumber=oaDevTrunkGrPortLogicalNumber, oaDevTrunkGrEntry=oaDevTrunkGrEntry, oaDevTrunkMIBCompliance=oaDevTrunkMIBCompliance, oaDevTrunkGrNumber=oaDevTrunkGrNumber, oaDevTrunkGrPortsNumber=oaDevTrunkGrPortsNumber, oaDevTrunkMIBCompliances=oaDevTrunkMIBCompliances, oaDevTrunkGenSupport=oaDevTrunkGenSupport, oaDeviceTrunks=oaDeviceTrunks, nbDeviceConfig=nbDeviceConfig, nbase=nbase, nbSwitchG1=nbSwitchG1, PYSNMP_MODULE_ID=oaDeviceTrunks, nbSwitchG1Il=nbSwitchG1Il, oaDevTrunkMandatoryGroup=oaDevTrunkMandatoryGroup, oaDevTrunkConformance=oaDevTrunkConformance)

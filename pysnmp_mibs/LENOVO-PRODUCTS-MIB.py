@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module LENOVO-PRODUCTS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ibm/LENOVO-PRODUCTS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:38 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ibm/LENOVO-PRODUCTS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:45:35 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-lenovoModules, lenovoProducts = mibBuilder.importSymbols("LENOVO-SMI-MIB", "lenovoModules", "lenovoProducts")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+lenovoProducts, lenovoModules = mibBuilder.importSymbols("LENOVO-SMI-MIB", "lenovoProducts", "lenovoModules")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 lenovoProductsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 19046, 4, 1))
 lenovoProductsMIB.setRevisions(('2016-04-20 00:00', '2017-05-01 00:00', '2017-05-02 00:00',))
 if mibBuilder.loadTexts: lenovoProductsMIB.setLastUpdated('201705010000Z')
@@ -39,4 +39,4 @@ ce0152t = MibIdentifier((1, 3, 6, 1, 4, 1, 19046, 1, 7, 39))
 ne1072tv2 = MibIdentifier((1, 3, 6, 1, 4, 1, 19046, 1, 7, 40))
 ne2572 = MibIdentifier((1, 3, 6, 1, 4, 1, 19046, 1, 7, 41))
 ne0152t = MibIdentifier((1, 3, 6, 1, 4, 1, 19046, 1, 7, 42))
-mibBuilder.exportSymbols("LENOVO-PRODUCTS-MIB", ne1072tv2=ne1072tv2, g8272_cnos=g8272_cnos, si4091=si4091, ne2572=ne2572, g8272=g8272, g8332_cnos=g8332_cnos, ne1072t=ne1072t, lenovoServerProducts=lenovoServerProducts, g8296=g8296, ce0128t=ce0128t, tor=tor, ne10032=ne10032, lenovoProductsMIB=lenovoProductsMIB, PYSNMP_MODULE_ID=lenovoProductsMIB, ne1032=ne1032, ne0152t=ne0152t, ce0152t=ce0152t, ce0128p=ce0128p, ne1072=ne1072, g8296_cnos=g8296_cnos, ne1032t=ne1032t, flex=flex)
+mibBuilder.exportSymbols("LENOVO-PRODUCTS-MIB", g8272_cnos=g8272_cnos, ce0128p=ce0128p, g8296=g8296, si4091=si4091, ne1072=ne1072, PYSNMP_MODULE_ID=lenovoProductsMIB, ne10032=ne10032, ne1072t=ne1072t, ce0152t=ce0152t, tor=tor, lenovoProductsMIB=lenovoProductsMIB, g8296_cnos=g8296_cnos, ne1072tv2=ne1072tv2, ne2572=ne2572, ce0128t=ce0128t, ne1032=ne1032, g8332_cnos=g8332_cnos, ne0152t=ne0152t, flex=flex, g8272=g8272, lenovoServerProducts=lenovoServerProducts, ne1032t=ne1032t)

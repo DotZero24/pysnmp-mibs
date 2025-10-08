@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module QTECH-PFXV6-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-PFXV6-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:35 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/qtech/QTECH-PFXV6-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:14:44 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 qtechMgmt, = mibBuilder.importSymbols("QTECH-SMI", "qtechMgmt")
 IfIndex, = mibBuilder.importSymbols("QTECH-TC", "IfIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention", "PhysAddress")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, PhysAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "PhysAddress", "TextualConvention", "DisplayString")
 qtechPFXv6MIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 134))
 qtechPFXv6MIB.setRevisions(('2015-01-13 00:00',))
 if mibBuilder.loadTexts: qtechPFXv6MIB.setLastUpdated('201501130000Z')
@@ -66,4 +66,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 qtechPFXv6MIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 134, 2, 2, 1)).setObjects(("QTECH-PFXV6-MIB", "qtechPFXv6Name"), ("QTECH-PFXV6-MIB", "qtechPFXv6Total"), ("QTECH-PFXV6-MIB", "qtechPFXv6Rejects"), ("QTECH-PFXV6-MIB", "qtechPFXv6Accepts"), ("QTECH-PFXV6-MIB", "qtechPFXv6Frees"), ("QTECH-PFXV6-MIB", "qtechPFXv6Userate"), ("QTECH-PFXV6-MIB", "qtechPFXv6IfIfIndex"), ("QTECH-PFXV6-MIB", "qtechPFXv6IfName"), ("QTECH-PFXV6-MIB", "qtechPFXv6IfTotal"), ("QTECH-PFXV6-MIB", "qtechPFXv6IfRejects"), ("QTECH-PFXV6-MIB", "qtechPFXv6IfAccepts"), ("QTECH-PFXV6-MIB", "qtechPFXv6IfFrees"), ("QTECH-PFXV6-MIB", "qtechPFXv6IfUserate"), ("QTECH-PFXV6-MIB", "qtechSlaacRequestNumber"), ("QTECH-PFXV6-MIB", "qtechSlaacRequestSuccessNumber"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     qtechPFXv6MIBGroup = qtechPFXv6MIBGroup.setStatus('current')
-mibBuilder.exportSymbols("QTECH-PFXV6-MIB", qtechSlaacRequestNumber=qtechSlaacRequestNumber, qtechPFXv6IfTable=qtechPFXv6IfTable, qtechPFXv6IfUserate=qtechPFXv6IfUserate, qtechPFXv6Frees=qtechPFXv6Frees, qtechPFXv6Entry=qtechPFXv6Entry, qtechPFXv6IfName=qtechPFXv6IfName, qtechPFXv6Rejects=qtechPFXv6Rejects, qtechPFXv6MIBGroups=qtechPFXv6MIBGroups, qtechPFXv6Table=qtechPFXv6Table, qtechPFXv6MIBObjects=qtechPFXv6MIBObjects, qtechPFXv6Name=qtechPFXv6Name, qtechPFXv6IfEntry=qtechPFXv6IfEntry, qtechPFXv6Total=qtechPFXv6Total, qtechPFXv6MIBConformance=qtechPFXv6MIBConformance, qtechPFXv6MIBCompliance=qtechPFXv6MIBCompliance, qtechPFXv6MIBGroup=qtechPFXv6MIBGroup, qtechPFXv6IfFrees=qtechPFXv6IfFrees, qtechPFXv6Userate=qtechPFXv6Userate, qtechPFXv6MIBCompliances=qtechPFXv6MIBCompliances, qtechPFXv6IfAccepts=qtechPFXv6IfAccepts, qtechPFXv6MIB=qtechPFXv6MIB, PYSNMP_MODULE_ID=qtechPFXv6MIB, qtechPFXv6IfRejects=qtechPFXv6IfRejects, qtechSlaacRequestSuccessNumber=qtechSlaacRequestSuccessNumber, qtechPFXv6IfTotal=qtechPFXv6IfTotal, qtechPFXv6Accepts=qtechPFXv6Accepts, qtechPFXv6IfIfIndex=qtechPFXv6IfIfIndex)
+mibBuilder.exportSymbols("QTECH-PFXV6-MIB", qtechPFXv6Rejects=qtechPFXv6Rejects, qtechPFXv6IfFrees=qtechPFXv6IfFrees, qtechPFXv6IfTable=qtechPFXv6IfTable, qtechPFXv6Userate=qtechPFXv6Userate, qtechSlaacRequestSuccessNumber=qtechSlaacRequestSuccessNumber, qtechPFXv6Name=qtechPFXv6Name, qtechPFXv6MIB=qtechPFXv6MIB, qtechPFXv6Accepts=qtechPFXv6Accepts, qtechPFXv6IfIfIndex=qtechPFXv6IfIfIndex, qtechPFXv6IfAccepts=qtechPFXv6IfAccepts, qtechPFXv6MIBObjects=qtechPFXv6MIBObjects, qtechPFXv6IfTotal=qtechPFXv6IfTotal, qtechSlaacRequestNumber=qtechSlaacRequestNumber, qtechPFXv6MIBGroup=qtechPFXv6MIBGroup, qtechPFXv6Table=qtechPFXv6Table, qtechPFXv6MIBGroups=qtechPFXv6MIBGroups, qtechPFXv6IfUserate=qtechPFXv6IfUserate, PYSNMP_MODULE_ID=qtechPFXv6MIB, qtechPFXv6MIBCompliances=qtechPFXv6MIBCompliances, qtechPFXv6Frees=qtechPFXv6Frees, qtechPFXv6MIBConformance=qtechPFXv6MIBConformance, qtechPFXv6IfName=qtechPFXv6IfName, qtechPFXv6IfRejects=qtechPFXv6IfRejects, qtechPFXv6MIBCompliance=qtechPFXv6MIBCompliance, qtechPFXv6IfEntry=qtechPFXv6IfEntry, qtechPFXv6Total=qtechPFXv6Total, qtechPFXv6Entry=qtechPFXv6Entry)

@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module ADTRAN-GENSLOT-SUB-MODULE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-GENSLOT-SUB-MODULE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:59 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/adtran/ADTRAN-GENSLOT-SUB-MODULE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:53:30 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-adGenSlotInfoIndex, adGenSlot = mibBuilder.importSymbols("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex", "adGenSlot")
+adGenSlot, adGenSlotInfoIndex = mibBuilder.importSymbols("ADTRAN-GENSLOT-MIB", "adGenSlot", "adGenSlotInfoIndex")
 AdProductIdentifier, = mibBuilder.importSymbols("ADTRAN-TC", "AdProductIdentifier")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
 sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "PhysAddress")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+PhysAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "PhysAddress", "TextualConvention", "DisplayString")
 adGenSubSlotModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 7))
 if mibBuilder.loadTexts: adGenSubSlotModule.setLastUpdated('201102280000Z')
 if mibBuilder.loadTexts: adGenSubSlotModule.setOrganization('ADTRAN, Inc.')
@@ -37,4 +37,4 @@ adGenSubSlotProdSwVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 8, 
 if mibBuilder.loadTexts: adGenSubSlotProdSwVersion.setStatus('current')
 adGenSubSlotProdDateOfManufacturing = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 8, 1, 8), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: adGenSubSlotProdDateOfManufacturing.setStatus('current')
-mibBuilder.exportSymbols("ADTRAN-GENSLOT-SUB-MODULE-MIB", adGenSubSlotProdDateOfManufacturing=adGenSubSlotProdDateOfManufacturing, adGenSubSlotProdTable=adGenSubSlotProdTable, adGenSubSlotProdSerialNumber=adGenSubSlotProdSerialNumber, adGenSubSlotModule=adGenSubSlotModule, adGenSubSlotProdName=adGenSubSlotProdName, adGenSubSlotProdCLEIcode=adGenSubSlotProdCLEIcode, adGenSubSlotProdInfoIndex=adGenSubSlotProdInfoIndex, PYSNMP_MODULE_ID=adGenSubSlotModule, adGenSubSlotProdRevision=adGenSubSlotProdRevision, adGenSubSlotProdPartNumber=adGenSubSlotProdPartNumber, adGenSubSlotProdSwVersion=adGenSubSlotProdSwVersion, adGenSubSlotProdEntry=adGenSubSlotProdEntry)
+mibBuilder.exportSymbols("ADTRAN-GENSLOT-SUB-MODULE-MIB", adGenSubSlotProdCLEIcode=adGenSubSlotProdCLEIcode, adGenSubSlotProdName=adGenSubSlotProdName, PYSNMP_MODULE_ID=adGenSubSlotModule, adGenSubSlotProdTable=adGenSubSlotProdTable, adGenSubSlotProdDateOfManufacturing=adGenSubSlotProdDateOfManufacturing, adGenSubSlotProdInfoIndex=adGenSubSlotProdInfoIndex, adGenSubSlotProdPartNumber=adGenSubSlotProdPartNumber, adGenSubSlotProdEntry=adGenSubSlotProdEntry, adGenSubSlotModule=adGenSubSlotModule, adGenSubSlotProdSwVersion=adGenSubSlotProdSwVersion, adGenSubSlotProdSerialNumber=adGenSubSlotProdSerialNumber, adGenSubSlotProdRevision=adGenSubSlotProdRevision)

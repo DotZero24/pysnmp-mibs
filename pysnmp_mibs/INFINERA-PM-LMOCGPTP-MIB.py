@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module INFINERA-PM-LMOCGPTP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-PM-LMOCGPTP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:12 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/INFINERA-PM-LMOCGPTP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:21:50 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 perfMon, = mibBuilder.importSymbols("INFINERA-REG-MIB", "perfMon")
 FloatHundredths, = mibBuilder.importSymbols("INFINERA-TC-MIB", "FloatHundredths")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 lmOcgPtpPmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 32))
 lmOcgPtpPmMIB.setRevisions(('2008-10-20 00:00',))
 if mibBuilder.loadTexts: lmOcgPtpPmMIB.setLastUpdated('200810200000Z')
@@ -52,4 +52,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 lmOcgPtpPmRealGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 32, 3, 2, 1)).setObjects(("INFINERA-PM-LMOCGPTP-MIB", "lmOcgPtpPmRealLmOcgOpt"), ("INFINERA-PM-LMOCGPTP-MIB", "lmOcgPtpPmRealLmOcgOpr"), ("INFINERA-PM-LMOCGPTP-MIB", "lmOcgPtpPmRealLmOcgTxEdfaOpr"), ("INFINERA-PM-LMOCGPTP-MIB", "lmOcgPtpPmRealLmOcgTxEdfaOpt"), ("INFINERA-PM-LMOCGPTP-MIB", "lmOcgPtpPmRealLmOcgTxEdfaLbc"), ("INFINERA-PM-LMOCGPTP-MIB", "lmOcgPtpPmRealLmOcgRxEdfaOpr"), ("INFINERA-PM-LMOCGPTP-MIB", "lmOcgPtpPmRealLmOcgRxEdfaOpt"), ("INFINERA-PM-LMOCGPTP-MIB", "lmOcgPtpPmRealLmOcgRxEdfaLbc"), ("INFINERA-PM-LMOCGPTP-MIB", "lmOcgPtpPmRealLmOcgPmd"), ("INFINERA-PM-LMOCGPTP-MIB", "lmOcgPtpPmRealLmOcgSoPmd"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     lmOcgPtpPmRealGroup = lmOcgPtpPmRealGroup.setStatus('current')
-mibBuilder.exportSymbols("INFINERA-PM-LMOCGPTP-MIB", lmOcgPtpPmRealLmOcgPmd=lmOcgPtpPmRealLmOcgPmd, lmOcgPtpPmRealLmOcgTxEdfaOpr=lmOcgPtpPmRealLmOcgTxEdfaOpr, lmOcgPtpPmRealTable=lmOcgPtpPmRealTable, lmOcgPtpPmRealLmOcgOpr=lmOcgPtpPmRealLmOcgOpr, lmOcgPtpPmRealGroup=lmOcgPtpPmRealGroup, lmOcgPtpPmCompliances=lmOcgPtpPmCompliances, lmOcgPtpPmRealLmOcgRxEdfaLbc=lmOcgPtpPmRealLmOcgRxEdfaLbc, lmOcgPtpPmRealLmOcgTxEdfaLbc=lmOcgPtpPmRealLmOcgTxEdfaLbc, lmOcgPtpPmRealLmOcgOpt=lmOcgPtpPmRealLmOcgOpt, PYSNMP_MODULE_ID=lmOcgPtpPmMIB, lmOcgPtpPmRealEntry=lmOcgPtpPmRealEntry, lmOcgPtpPmGroups=lmOcgPtpPmGroups, lmOcgPtpPmRealLmOcgSoPmd=lmOcgPtpPmRealLmOcgSoPmd, lmOcgPtpPmRealLmOcgTxEdfaOpt=lmOcgPtpPmRealLmOcgTxEdfaOpt, lmOcgPtpPmRealLmOcgRxEdfaOpr=lmOcgPtpPmRealLmOcgRxEdfaOpr, lmOcgPtpPmRealCompliance=lmOcgPtpPmRealCompliance, lmOcgPtpPmMIB=lmOcgPtpPmMIB, lmOcgPtpPmRealLmOcgRxEdfaOpt=lmOcgPtpPmRealLmOcgRxEdfaOpt, lmOcgPtpPmConformance=lmOcgPtpPmConformance)
+mibBuilder.exportSymbols("INFINERA-PM-LMOCGPTP-MIB", lmOcgPtpPmRealLmOcgTxEdfaOpt=lmOcgPtpPmRealLmOcgTxEdfaOpt, lmOcgPtpPmConformance=lmOcgPtpPmConformance, lmOcgPtpPmRealLmOcgTxEdfaLbc=lmOcgPtpPmRealLmOcgTxEdfaLbc, lmOcgPtpPmRealGroup=lmOcgPtpPmRealGroup, lmOcgPtpPmMIB=lmOcgPtpPmMIB, lmOcgPtpPmRealLmOcgRxEdfaOpr=lmOcgPtpPmRealLmOcgRxEdfaOpr, lmOcgPtpPmRealLmOcgOpr=lmOcgPtpPmRealLmOcgOpr, lmOcgPtpPmRealLmOcgRxEdfaLbc=lmOcgPtpPmRealLmOcgRxEdfaLbc, lmOcgPtpPmRealLmOcgOpt=lmOcgPtpPmRealLmOcgOpt, lmOcgPtpPmRealTable=lmOcgPtpPmRealTable, PYSNMP_MODULE_ID=lmOcgPtpPmMIB, lmOcgPtpPmCompliances=lmOcgPtpPmCompliances, lmOcgPtpPmGroups=lmOcgPtpPmGroups, lmOcgPtpPmRealLmOcgTxEdfaOpr=lmOcgPtpPmRealLmOcgTxEdfaOpr, lmOcgPtpPmRealLmOcgSoPmd=lmOcgPtpPmRealLmOcgSoPmd, lmOcgPtpPmRealLmOcgPmd=lmOcgPtpPmRealLmOcgPmd, lmOcgPtpPmRealCompliance=lmOcgPtpPmRealCompliance, lmOcgPtpPmRealEntry=lmOcgPtpPmRealEntry, lmOcgPtpPmRealLmOcgRxEdfaOpt=lmOcgPtpPmRealLmOcgRxEdfaOpt)

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ZYXEL-L3-IP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-L3-IP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:14 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zyxel/ZYXEL-L3-IP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:04:16 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
 zyxelL3Ip = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 40))
 if mibBuilder.loadTexts: zyxelL3Ip.setLastUpdated('201207010000Z')
@@ -36,4 +36,4 @@ zyLayer3IpInbandVid = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 40, 1, 5,
 if mibBuilder.loadTexts: zyLayer3IpInbandVid.setStatus('current')
 zyLayer3IpInbandRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 40, 1, 5, 1, 4), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: zyLayer3IpInbandRowStatus.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-L3-IP-MIB", zyxelLayer3IpInbandEntry=zyxelLayer3IpInbandEntry, zyLayer3IpInbandMaxNumberOfInterfaces=zyLayer3IpInbandMaxNumberOfInterfaces, zyLayer3IpDefaultGateway=zyLayer3IpDefaultGateway, zyLayer3IpInbandIpAddress=zyLayer3IpInbandIpAddress, zyxelL3Ip=zyxelL3Ip, PYSNMP_MODULE_ID=zyxelL3Ip, zyLayer3IpDnsIpAddress=zyLayer3IpDnsIpAddress, zyLayer3IpInbandRowStatus=zyLayer3IpInbandRowStatus, zyLayer3IpInbandMask=zyLayer3IpInbandMask, zyLayer3IpDefaultMgmt=zyLayer3IpDefaultMgmt, zyxelLayer3IpSetup=zyxelLayer3IpSetup, zyLayer3IpInbandVid=zyLayer3IpInbandVid, zyxelLayer3IpInbandTable=zyxelLayer3IpInbandTable)
+mibBuilder.exportSymbols("ZYXEL-L3-IP-MIB", zyLayer3IpDefaultMgmt=zyLayer3IpDefaultMgmt, zyLayer3IpDnsIpAddress=zyLayer3IpDnsIpAddress, zyLayer3IpInbandVid=zyLayer3IpInbandVid, zyxelLayer3IpInbandTable=zyxelLayer3IpInbandTable, zyLayer3IpInbandIpAddress=zyLayer3IpInbandIpAddress, zyLayer3IpDefaultGateway=zyLayer3IpDefaultGateway, zyLayer3IpInbandMask=zyLayer3IpInbandMask, zyLayer3IpInbandRowStatus=zyLayer3IpInbandRowStatus, zyLayer3IpInbandMaxNumberOfInterfaces=zyLayer3IpInbandMaxNumberOfInterfaces, zyxelLayer3IpSetup=zyxelLayer3IpSetup, PYSNMP_MODULE_ID=zyxelL3Ip, zyxelL3Ip=zyxelL3Ip, zyxelLayer3IpInbandEntry=zyxelLayer3IpInbandEntry)

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ARUBAWIRED-SYSTEMINFO-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aruba/ARUBAWIRED-SYSTEMINFO-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:44:08 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/aruba/ARUBAWIRED-SYSTEMINFO-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:12:14 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 wndFeatures, = mibBuilder.importSymbols("ARUBAWIRED-NETWORKING-OID", "wndFeatures")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 arubaWiredSystemInfoMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 22))
 arubaWiredSystemInfoMIB.setRevisions(('2021-11-08 00:00',))
 if mibBuilder.loadTexts: arubaWiredSystemInfoMIB.setLastUpdated('202111080000Z')
@@ -55,4 +55,4 @@ arubaWiredSystemInfoCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 47196, 4, 1
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     arubaWiredSystemInfoCompliance = arubaWiredSystemInfoCompliance.setStatus('current')
-mibBuilder.exportSymbols("ARUBAWIRED-SYSTEMINFO-MIB", arubaWiredSystemInfoCpuAvgOneMin=arubaWiredSystemInfoCpuAvgOneMin, arubaWiredSystemInfoNotifications=arubaWiredSystemInfoNotifications, arubaWiredSystemInfo=arubaWiredSystemInfo, arubaWiredSystemInfoModuleType=arubaWiredSystemInfoModuleType, arubaWiredSystemInfoTable=arubaWiredSystemInfoTable, arubaWiredSystemInfoStorageNos=arubaWiredSystemInfoStorageNos, arubaWiredSystemInfoGroups=arubaWiredSystemInfoGroups, arubaWiredSystemInfoObjects=arubaWiredSystemInfoObjects, arubaWiredSystemInfoCpu=arubaWiredSystemInfoCpu, arubaWiredSystemInfoStorageCoredump=arubaWiredSystemInfoStorageCoredump, arubaWiredSystemInfoStorageSecurity=arubaWiredSystemInfoStorageSecurity, arubaWiredSystemInfoStorageSelftest=arubaWiredSystemInfoStorageSelftest, arubaWiredSystemInfoModuleName=arubaWiredSystemInfoModuleName, arubaWiredSystemInfoMemory=arubaWiredSystemInfoMemory, arubaWiredSystemInfoCpuAvgFiveMin=arubaWiredSystemInfoCpuAvgFiveMin, arubaWiredSystemInfoMIB=arubaWiredSystemInfoMIB, arubaWiredSystemInfoTableGroup=arubaWiredSystemInfoTableGroup, arubaWiredSystemInfoEntry=arubaWiredSystemInfoEntry, arubaWiredSystemInfoStorageLog=arubaWiredSystemInfoStorageLog, arubaWiredSystemInfoCompliance=arubaWiredSystemInfoCompliance, arubaWiredSystemInfoConformance=arubaWiredSystemInfoConformance, arubaWiredSystemInfoCompliances=arubaWiredSystemInfoCompliances, PYSNMP_MODULE_ID=arubaWiredSystemInfoMIB)
+mibBuilder.exportSymbols("ARUBAWIRED-SYSTEMINFO-MIB", arubaWiredSystemInfoModuleName=arubaWiredSystemInfoModuleName, arubaWiredSystemInfoCompliances=arubaWiredSystemInfoCompliances, arubaWiredSystemInfoModuleType=arubaWiredSystemInfoModuleType, arubaWiredSystemInfoCpuAvgOneMin=arubaWiredSystemInfoCpuAvgOneMin, arubaWiredSystemInfoStorageSecurity=arubaWiredSystemInfoStorageSecurity, PYSNMP_MODULE_ID=arubaWiredSystemInfoMIB, arubaWiredSystemInfoStorageNos=arubaWiredSystemInfoStorageNos, arubaWiredSystemInfoMIB=arubaWiredSystemInfoMIB, arubaWiredSystemInfoNotifications=arubaWiredSystemInfoNotifications, arubaWiredSystemInfoEntry=arubaWiredSystemInfoEntry, arubaWiredSystemInfoCompliance=arubaWiredSystemInfoCompliance, arubaWiredSystemInfoStorageCoredump=arubaWiredSystemInfoStorageCoredump, arubaWiredSystemInfoStorageSelftest=arubaWiredSystemInfoStorageSelftest, arubaWiredSystemInfo=arubaWiredSystemInfo, arubaWiredSystemInfoTable=arubaWiredSystemInfoTable, arubaWiredSystemInfoConformance=arubaWiredSystemInfoConformance, arubaWiredSystemInfoMemory=arubaWiredSystemInfoMemory, arubaWiredSystemInfoObjects=arubaWiredSystemInfoObjects, arubaWiredSystemInfoCpuAvgFiveMin=arubaWiredSystemInfoCpuAvgFiveMin, arubaWiredSystemInfoTableGroup=arubaWiredSystemInfoTableGroup, arubaWiredSystemInfoGroups=arubaWiredSystemInfoGroups, arubaWiredSystemInfoStorageLog=arubaWiredSystemInfoStorageLog, arubaWiredSystemInfoCpu=arubaWiredSystemInfoCpu)

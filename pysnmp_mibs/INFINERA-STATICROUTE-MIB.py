@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module INFINERA-STATICROUTE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-STATICROUTE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:11 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/INFINERA-STATICROUTE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:21:49 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 infnNE, = mibBuilder.importSymbols("INFINERA-REG-MIB", "infnNE")
 InfnStaticRouteAction, InfnBlackHoleRouteStatus = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnStaticRouteAction", "InfnBlackHoleRouteStatus")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 staticRouteMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 8, 5))
 staticRouteMIB.setRevisions(('2017-07-18 00:00',))
 if mibBuilder.loadTexts: staticRouteMIB.setLastUpdated('201707180000Z')
@@ -48,4 +48,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 staticRouteGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 8, 5, 2, 2, 1)).setObjects(("INFINERA-STATICROUTE-MIB", "moID"), ("INFINERA-STATICROUTE-MIB", "destinationIP"), ("INFINERA-STATICROUTE-MIB", "nextHop"), ("INFINERA-STATICROUTE-MIB", "prefixLength"), ("INFINERA-STATICROUTE-MIB", "nextHopIntf"), ("INFINERA-STATICROUTE-MIB", "cost"), ("INFINERA-STATICROUTE-MIB", "staticRouteAction"), ("INFINERA-STATICROUTE-MIB", "blackHoleRoute"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     staticRouteGroup = staticRouteGroup.setStatus('current')
-mibBuilder.exportSymbols("INFINERA-STATICROUTE-MIB", nextHopIntf=nextHopIntf, cost=cost, staticRouteAction=staticRouteAction, prefixLength=prefixLength, staticRouteEntry=staticRouteEntry, PYSNMP_MODULE_ID=staticRouteMIB, nextHop=nextHop, staticRouteGroup=staticRouteGroup, moID=moID, staticRouteMIB=staticRouteMIB, blackHoleRoute=blackHoleRoute, staticRouteConformance=staticRouteConformance, staticRouteGroups=staticRouteGroups, staticRouteCompliance=staticRouteCompliance, destinationIP=destinationIP, staticRouteTable=staticRouteTable, staticRouteCompliances=staticRouteCompliances)
+mibBuilder.exportSymbols("INFINERA-STATICROUTE-MIB", prefixLength=prefixLength, staticRouteCompliance=staticRouteCompliance, moID=moID, destinationIP=destinationIP, staticRouteMIB=staticRouteMIB, blackHoleRoute=blackHoleRoute, staticRouteGroup=staticRouteGroup, cost=cost, staticRouteGroups=staticRouteGroups, staticRouteEntry=staticRouteEntry, staticRouteAction=staticRouteAction, staticRouteTable=staticRouteTable, PYSNMP_MODULE_ID=staticRouteMIB, nextHop=nextHop, nextHopIntf=nextHopIntf, staticRouteConformance=staticRouteConformance, staticRouteCompliances=staticRouteCompliances)

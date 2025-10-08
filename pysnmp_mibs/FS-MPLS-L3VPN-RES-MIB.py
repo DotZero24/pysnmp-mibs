@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module FS-MPLS-L3VPN-RES-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fscom/FS-MPLS-L3VPN-RES-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:30 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/fscom/FS-MPLS-L3VPN-RES-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:01:11 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-bgp4PathAttrPeer, bgp4PathAttrIpAddrPrefixLen, bgp4PathAttrIpAddrPrefix = mibBuilder.importSymbols("BGP4-MIB", "bgp4PathAttrPeer", "bgp4PathAttrIpAddrPrefixLen", "bgp4PathAttrIpAddrPrefix")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+bgp4PathAttrIpAddrPrefixLen, bgp4PathAttrIpAddrPrefix, bgp4PathAttrPeer = mibBuilder.importSymbols("BGP4-MIB", "bgp4PathAttrIpAddrPrefixLen", "bgp4PathAttrIpAddrPrefix", "bgp4PathAttrPeer")
 fsMgmt, = mibBuilder.importSymbols("FS-SMI", "fsMgmt")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
 mplsL3VpnVrfName, = mibBuilder.importSymbols("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfName")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention, RowStatus, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus", "StorageType")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+StorageType, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "StorageType", "RowStatus", "TextualConvention", "DisplayString")
 fsmplsL3VpnResMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 123))
 fsmplsL3VpnResMIB.setRevisions(('2013-02-21 00:00',))
 if mibBuilder.loadTexts: fsmplsL3VpnResMIB.setLastUpdated('201302210000Z')
@@ -38,4 +38,4 @@ fsmplsL3VpnResImptRt = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 123
 if mibBuilder.loadTexts: fsmplsL3VpnResImptRt.setStatus('current')
 fsmplsL3VpnResExptRt = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 123, 1, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: fsmplsL3VpnResExptRt.setStatus('current')
-mibBuilder.exportSymbols("FS-MPLS-L3VPN-RES-MIB", fsmplsL3VpnResIntfAddr=fsmplsL3VpnResIntfAddr, fsmplsL3VpnResMIB=fsmplsL3VpnResMIB, fsmplsL3VpnResRtCollect=fsmplsL3VpnResRtCollect, fsmplsL3VpnResRdCollect=fsmplsL3VpnResRdCollect, fsmplsL3VpnResTable=fsmplsL3VpnResTable, fsmplsL3VpnResImptRt=fsmplsL3VpnResImptRt, PYSNMP_MODULE_ID=fsmplsL3VpnResMIB, fsmplsL3VpnResVrfName=fsmplsL3VpnResVrfName, fsmplsL3VpnResExptRt=fsmplsL3VpnResExptRt, fsmplsL3VpnResEntry=fsmplsL3VpnResEntry, fsmplsL3VpnResPeAddr=fsmplsL3VpnResPeAddr, fsmplsL3VpnResMIBObjects=fsmplsL3VpnResMIBObjects)
+mibBuilder.exportSymbols("FS-MPLS-L3VPN-RES-MIB", fsmplsL3VpnResIntfAddr=fsmplsL3VpnResIntfAddr, fsmplsL3VpnResRdCollect=fsmplsL3VpnResRdCollect, fsmplsL3VpnResImptRt=fsmplsL3VpnResImptRt, fsmplsL3VpnResPeAddr=fsmplsL3VpnResPeAddr, fsmplsL3VpnResRtCollect=fsmplsL3VpnResRtCollect, fsmplsL3VpnResMIB=fsmplsL3VpnResMIB, PYSNMP_MODULE_ID=fsmplsL3VpnResMIB, fsmplsL3VpnResEntry=fsmplsL3VpnResEntry, fsmplsL3VpnResExptRt=fsmplsL3VpnResExptRt, fsmplsL3VpnResTable=fsmplsL3VpnResTable, fsmplsL3VpnResMIBObjects=fsmplsL3VpnResMIBObjects, fsmplsL3VpnResVrfName=fsmplsL3VpnResVrfName)

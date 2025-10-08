@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module H3C-DLDP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-DLDP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:31 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-DLDP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:18 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-MacAddress, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "MacAddress", "DisplayString", "TextualConvention")
 h3cDldp = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 43))
 h3cDldp.setRevisions(('2004-12-13 00:00',))
 if mibBuilder.loadTexts: h3cDldp.setLastUpdated('200412130000Z')
@@ -80,4 +80,4 @@ h3cDLDPTrapObject = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 43, 2))
 h3cDLDPNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 43, 2, 1))
 h3cDLDPUnidirectionalPort = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 43, 2, 1, 1)).setObjects(("IF-MIB", "ifIndex"))
 if mibBuilder.loadTexts: h3cDLDPUnidirectionalPort.setStatus('current')
-mibBuilder.exportSymbols("H3C-DLDP-MIB", h3cDLDPPortState=h3cDLDPPortState, h3cDLDPMibObject=h3cDLDPMibObject, h3cDLDPNeighborAgingTime=h3cDLDPNeighborAgingTime, h3cDLDPTrapObject=h3cDLDPTrapObject, EnabledStatus=EnabledStatus, h3cDLDPPortDLDPReset=h3cDLDPPortDLDPReset, PYSNMP_MODULE_ID=h3cDldp, h3cDLDPSystemReset=h3cDLDPSystemReset, h3cDLDPUnidirectionalShutdown=h3cDLDPUnidirectionalShutdown, h3cDLDPLinkState=h3cDLDPLinkState, h3cDLDPNeighborBridgeMac=h3cDLDPNeighborBridgeMac, DLDPStatus=DLDPStatus, h3cDLDPNeighborState=h3cDLDPNeighborState, h3cDldp=h3cDldp, h3cDLDPNeighborPortIndex=h3cDLDPNeighborPortIndex, h3cDLDPNotification=h3cDLDPNotification, h3cDLDPPortDLDPEntry=h3cDLDPPortDLDPEntry, h3cDLDPNeighborTable=h3cDLDPNeighborTable, h3cDLDPSystemEnable=h3cDLDPSystemEnable, h3cDLDPPortDLDPState=h3cDLDPPortDLDPState, h3cDLDPPortStateEntry=h3cDLDPPortStateEntry, h3cDLDPWorkMode=h3cDLDPWorkMode, h3cDLDPUnidirectionalPort=h3cDLDPUnidirectionalPort, DLDPNeighborStatus=DLDPNeighborStatus, h3cDLDPAuthenticationMode=h3cDLDPAuthenticationMode, h3cDLDPPortStateTable=h3cDLDPPortStateTable, h3cDLDPPortDLDPTable=h3cDLDPPortDLDPTable, h3cDLDPAuthenticationPassword=h3cDLDPAuthenticationPassword, h3cDLDPNeighborEntry=h3cDLDPNeighborEntry, h3cDLDPInterval=h3cDLDPInterval, h3cDLDPConfigGroup=h3cDLDPConfigGroup)
+mibBuilder.exportSymbols("H3C-DLDP-MIB", h3cDLDPWorkMode=h3cDLDPWorkMode, h3cDLDPNeighborTable=h3cDLDPNeighborTable, h3cDLDPPortStateTable=h3cDLDPPortStateTable, h3cDLDPMibObject=h3cDLDPMibObject, h3cDLDPLinkState=h3cDLDPLinkState, DLDPStatus=DLDPStatus, h3cDLDPSystemEnable=h3cDLDPSystemEnable, h3cDLDPNeighborBridgeMac=h3cDLDPNeighborBridgeMac, h3cDLDPNeighborEntry=h3cDLDPNeighborEntry, h3cDLDPPortDLDPReset=h3cDLDPPortDLDPReset, h3cDLDPConfigGroup=h3cDLDPConfigGroup, h3cDLDPNeighborPortIndex=h3cDLDPNeighborPortIndex, h3cDLDPUnidirectionalShutdown=h3cDLDPUnidirectionalShutdown, h3cDLDPAuthenticationMode=h3cDLDPAuthenticationMode, EnabledStatus=EnabledStatus, h3cDLDPPortState=h3cDLDPPortState, h3cDLDPSystemReset=h3cDLDPSystemReset, h3cDLDPUnidirectionalPort=h3cDLDPUnidirectionalPort, h3cDLDPPortStateEntry=h3cDLDPPortStateEntry, h3cDLDPPortDLDPTable=h3cDLDPPortDLDPTable, h3cDLDPPortDLDPEntry=h3cDLDPPortDLDPEntry, h3cDLDPNotification=h3cDLDPNotification, h3cDLDPAuthenticationPassword=h3cDLDPAuthenticationPassword, h3cDldp=h3cDldp, h3cDLDPPortDLDPState=h3cDLDPPortDLDPState, PYSNMP_MODULE_ID=h3cDldp, h3cDLDPNeighborAgingTime=h3cDLDPNeighborAgingTime, h3cDLDPInterval=h3cDLDPInterval, DLDPNeighborStatus=DLDPNeighborStatus, h3cDLDPNeighborState=h3cDLDPNeighborState, h3cDLDPTrapObject=h3cDLDPTrapObject)

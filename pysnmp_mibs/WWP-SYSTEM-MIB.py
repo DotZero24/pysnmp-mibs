@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module WWP-SYSTEM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciena/WWP-SYSTEM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:10 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ciena/WWP-SYSTEM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:11:08 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "DateAndTime", "TruthValue", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+DateAndTime, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
 wwpModules, = mibBuilder.importSymbols("WWP-SMI", "wwpModules")
 wwpSystemMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6141, 2, 2))
 wwpSystemMIB.setRevisions(('2003-03-11 00:00', '2001-04-03 17:00',))
@@ -49,4 +49,4 @@ wwpSystemCfgFilepath = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 2, 1, 4, 2), Displa
 if mibBuilder.loadTexts: wwpSystemCfgFilepath.setStatus('current')
 wwpSystemConsolePortEnable = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 2, 1, 5, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: wwpSystemConsolePortEnable.setStatus('current')
-mibBuilder.exportSymbols("WWP-SYSTEM-MIB", wwpSystemDebug=wwpSystemDebug, wwpSystemMIBCompliances=wwpSystemMIBCompliances, wwpSystemCfgControl=wwpSystemCfgControl, wwpSystemInterfaceHostName=wwpSystemInterfaceHostName, wwpSysClockTimeOffset=wwpSysClockTimeOffset, wwpSystemMIBConformance=wwpSystemMIBConformance, PYSNMP_MODULE_ID=wwpSystemMIB, wwpSystemMIBObjects=wwpSystemMIBObjects, wwpSystemMIB=wwpSystemMIB, wwpSystemClock=wwpSystemClock, wwpSystemMIBNotifications=wwpSystemMIBNotifications, wwpSystemBootp=wwpSystemBootp, wwpSystemMIBNotificationPrefix=wwpSystemMIBNotificationPrefix, wwpSystemBootpMsgFreq=wwpSystemBootpMsgFreq, wwpSystemMIBGroups=wwpSystemMIBGroups, wwpSystemConsolePortEnable=wwpSystemConsolePortEnable, wwpSystemTftpServer=wwpSystemTftpServer, wwpSystemDefaultGateway=wwpSystemDefaultGateway, wwpSystemBootFile=wwpSystemBootFile, wwpSystemCfg=wwpSystemCfg, wwpSystemCfgFilepath=wwpSystemCfgFilepath, wwpSystemAttr=wwpSystemAttr, wwpSysClockDateTime=wwpSysClockDateTime, wwpSystemStartMacAddr=wwpSystemStartMacAddr)
+mibBuilder.exportSymbols("WWP-SYSTEM-MIB", wwpSystemDebug=wwpSystemDebug, wwpSystemMIBConformance=wwpSystemMIBConformance, wwpSystemBootp=wwpSystemBootp, wwpSystemConsolePortEnable=wwpSystemConsolePortEnable, wwpSysClockDateTime=wwpSysClockDateTime, wwpSystemAttr=wwpSystemAttr, wwpSystemMIBObjects=wwpSystemMIBObjects, wwpSystemMIBCompliances=wwpSystemMIBCompliances, wwpSystemCfg=wwpSystemCfg, wwpSystemBootpMsgFreq=wwpSystemBootpMsgFreq, PYSNMP_MODULE_ID=wwpSystemMIB, wwpSystemMIBNotificationPrefix=wwpSystemMIBNotificationPrefix, wwpSystemStartMacAddr=wwpSystemStartMacAddr, wwpSystemMIBNotifications=wwpSystemMIBNotifications, wwpSystemCfgControl=wwpSystemCfgControl, wwpSystemBootFile=wwpSystemBootFile, wwpSysClockTimeOffset=wwpSysClockTimeOffset, wwpSystemMIB=wwpSystemMIB, wwpSystemMIBGroups=wwpSystemMIBGroups, wwpSystemClock=wwpSystemClock, wwpSystemInterfaceHostName=wwpSystemInterfaceHostName, wwpSystemCfgFilepath=wwpSystemCfgFilepath, wwpSystemDefaultGateway=wwpSystemDefaultGateway, wwpSystemTftpServer=wwpSystemTftpServer)

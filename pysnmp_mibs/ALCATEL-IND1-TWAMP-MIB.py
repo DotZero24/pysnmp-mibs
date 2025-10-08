@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module ALCATEL-IND1-TWAMP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alcatel/ALCATEL-IND1-TWAMP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:48 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alcatel/ALCATEL-IND1-TWAMP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:06:31 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 softentIND1TWAMP, = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "softentIND1TWAMP")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 Ipv6Address, = mibBuilder.importSymbols("IPV6-TC", "Ipv6Address")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 alcatelIND1TWAMPMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1))
 alcatelIND1TWAMPMIB.setRevisions(('2014-10-07 00:00',))
 if mibBuilder.loadTexts: alcatelIND1TWAMPMIB.setLastUpdated('201410070000Z')
@@ -67,4 +67,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 twampServerConnGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 2, 1, 2)).setObjects(("ALCATEL-IND1-TWAMP-MIB", "twampServerConnClientIP"), ("ALCATEL-IND1-TWAMP-MIB", "twampServerConnSessionId"), ("ALCATEL-IND1-TWAMP-MIB", "twampServerConnTimeOfLastRun"), ("ALCATEL-IND1-TWAMP-MIB", "twampServerConnPktsSent"), ("ALCATEL-IND1-TWAMP-MIB", "twampServerConnPktsRecvd"), ("ALCATEL-IND1-TWAMP-MIB", "twampServerConnectionStatus"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     twampServerConnGroup = twampServerConnGroup.setStatus('current')
-mibBuilder.exportSymbols("ALCATEL-IND1-TWAMP-MIB", twampServerConnClientIP=twampServerConnClientIP, twampServerConnPktsSent=twampServerConnPktsSent, alcatelIND1TWAMPMIBConformance=alcatelIND1TWAMPMIBConformance, twampServerConnPktsRecvd=twampServerConnPktsRecvd, twampServerConnGroup=twampServerConnGroup, twampServerTable=twampServerTable, alcatelIND1TWAMPMIB=alcatelIND1TWAMPMIB, alcatelIND1TWAMPMIBCompliances=alcatelIND1TWAMPMIBCompliances, twampRowStatus=twampRowStatus, twampServerMIB=twampServerMIB, twampServerConnectionTableEntry=twampServerConnectionTableEntry, twampInactivityTimeout=twampInactivityTimeout, PYSNMP_MODULE_ID=alcatelIND1TWAMPMIB, twampServerConnTimeOfLastRun=twampServerConnTimeOfLastRun, alcatelIND1TWAMPMIBGroups=alcatelIND1TWAMPMIBGroups, twampServerTableEntry=twampServerTableEntry, twampServerConnectionTable=twampServerConnectionTable, twampServerConnSessionId=twampServerConnSessionId, twampServerMIBGroup=twampServerMIBGroup, twampClientIpaddress=twampClientIpaddress, twampServerConnectionStatus=twampServerConnectionStatus, alcatelIND1TWAMPMIBObjects=alcatelIND1TWAMPMIBObjects, alcatelIND1TWAMPMIBCompliance=alcatelIND1TWAMPMIBCompliance, twampClientIpaddressMask=twampClientIpaddressMask, twampPortNumber=twampPortNumber)
+mibBuilder.exportSymbols("ALCATEL-IND1-TWAMP-MIB", twampServerConnPktsSent=twampServerConnPktsSent, alcatelIND1TWAMPMIBCompliance=alcatelIND1TWAMPMIBCompliance, alcatelIND1TWAMPMIB=alcatelIND1TWAMPMIB, twampPortNumber=twampPortNumber, twampServerTable=twampServerTable, twampServerConnectionStatus=twampServerConnectionStatus, twampClientIpaddress=twampClientIpaddress, twampServerConnGroup=twampServerConnGroup, twampServerConnClientIP=twampServerConnClientIP, twampServerConnectionTable=twampServerConnectionTable, alcatelIND1TWAMPMIBGroups=alcatelIND1TWAMPMIBGroups, twampServerConnTimeOfLastRun=twampServerConnTimeOfLastRun, PYSNMP_MODULE_ID=alcatelIND1TWAMPMIB, alcatelIND1TWAMPMIBCompliances=alcatelIND1TWAMPMIBCompliances, alcatelIND1TWAMPMIBConformance=alcatelIND1TWAMPMIBConformance, twampServerConnPktsRecvd=twampServerConnPktsRecvd, twampRowStatus=twampRowStatus, twampServerMIB=twampServerMIB, twampServerConnSessionId=twampServerConnSessionId, twampClientIpaddressMask=twampClientIpaddressMask, twampServerMIBGroup=twampServerMIBGroup, twampServerConnectionTableEntry=twampServerConnectionTableEntry, alcatelIND1TWAMPMIBObjects=alcatelIND1TWAMPMIBObjects, twampServerTableEntry=twampServerTableEntry, twampInactivityTimeout=twampInactivityTimeout)

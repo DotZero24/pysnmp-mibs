@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module RESOURCE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/brocade/RESOURCE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:47 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/brocade/RESOURCE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:15:07 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 sw, = mibBuilder.importSymbols("SWBASE-MIB", "sw")
 swCpuOrMemoryUsage = ModuleIdentity((1, 3, 6, 1, 4, 1, 1588, 2, 1, 1, 1, 26))
 swCpuOrMemoryUsage.setRevisions(('1911-04-15 18:30', '1913-06-05 11:30',))
@@ -36,4 +36,4 @@ swMemPollingInterval = MibScalar((1, 3, 6, 1, 4, 1, 1588, 2, 1, 1, 1, 26, 9), In
 if mibBuilder.loadTexts: swMemPollingInterval.setStatus('current')
 swMemAction = MibScalar((1, 3, 6, 1, 4, 1, 1588, 2, 1, 1, 1, 26, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("none", 0), ("raslog", 1), ("snmp", 2), ("raslogandSnmp", 3))).clone('none')).setMaxAccess("readonly")
 if mibBuilder.loadTexts: swMemAction.setStatus('current')
-mibBuilder.exportSymbols("RESOURCE-MIB", swCpuPollingInterval=swCpuPollingInterval, swCpuOrMemoryUsage=swCpuOrMemoryUsage, swCpuUsageLimit=swCpuUsageLimit, swCpuUsage=swCpuUsage, swMemUsage=swMemUsage, swMemPollingInterval=swMemPollingInterval, swMemUsageLimit=swMemUsageLimit, swMemNoOfRetries=swMemNoOfRetries, swCpuAction=swCpuAction, PYSNMP_MODULE_ID=swCpuOrMemoryUsage, swMemAction=swMemAction, swCpuNoOfRetries=swCpuNoOfRetries)
+mibBuilder.exportSymbols("RESOURCE-MIB", swCpuPollingInterval=swCpuPollingInterval, swCpuUsageLimit=swCpuUsageLimit, swCpuOrMemoryUsage=swCpuOrMemoryUsage, swMemPollingInterval=swMemPollingInterval, swMemUsageLimit=swMemUsageLimit, swCpuUsage=swCpuUsage, swCpuNoOfRetries=swCpuNoOfRetries, swMemAction=swMemAction, swCpuAction=swCpuAction, swMemUsage=swMemUsage, swMemNoOfRetries=swMemNoOfRetries, PYSNMP_MODULE_ID=swCpuOrMemoryUsage)

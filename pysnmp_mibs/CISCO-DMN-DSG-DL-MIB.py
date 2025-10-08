@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CISCO-DMN-DSG-DL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-DMN-DSG-DL-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:01 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-DMN-DSG-DL-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:27:28 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ciscoDSGUtilities, = mibBuilder.importSymbols("CISCO-DMN-DSG-ROOT-MIB", "ciscoDSGUtilities")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ciscoDSGDl = ModuleIdentity((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 1))
 ciscoDSGDl.setRevisions(('2010-10-13 08:00', '2010-08-30 11:00', '2010-05-25 08:00', '2010-02-12 15:00', '2009-12-20 15:00', '2009-11-22 15:00',))
 if mibBuilder.loadTexts: ciscoDSGDl.setLastUpdated('201010130800Z')
@@ -81,4 +81,4 @@ dlRejected = MibScalar((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 1, 3, 7), DisplayString
 if mibBuilder.loadTexts: dlRejected.setStatus('current')
 dlCommand = MibScalar((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 1, 3, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("restart", 1), ("abort", 2), ("writeOnly", 3)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: dlCommand.setStatus('current')
-mibBuilder.exportSymbols("CISCO-DMN-DSG-DL-MIB", dlDownloadTransitionBlocked=dlDownloadTransitionBlocked, dlDownloadState=dlDownloadState, dlDownload=dlDownload, dlAboutReboot=dlAboutReboot, dlDownloadMicroCode=dlDownloadMicroCode, dlAboutAppIndex=dlAboutAppIndex, dlDownloadCodeVersion=dlDownloadCodeVersion, dlTotalCdt=dlTotalCdt, dlReceived=dlReceived, dlCommand=dlCommand, dlType=dlType, dlAboutChangeApp=dlAboutChangeApp, dlAboutCurrentVer=dlAboutCurrentVer, dlAboutAppEntry=dlAboutAppEntry, dlAboutAppString=dlAboutAppString, dlAboutEraseApp=dlAboutEraseApp, dlStatus=dlStatus, dlAbout=dlAbout, dlBank=dlBank, dlAboutProductId=dlAboutProductId, dlCfg=dlCfg, dlDownloadNanoVersion=dlDownloadNanoVersion, dlDownloadErrorStatus=dlDownloadErrorStatus, dlAboutSafeVer=dlAboutSafeVer, dlDownloadTftpFilename=dlDownloadTftpFilename, dlAboutBootVer=dlAboutBootVer, dlDownloadForcedFlag=dlDownloadForcedFlag, dlRejected=dlRejected, dlDownloadTftpServerIP=dlDownloadTftpServerIP, dlAboutAppTable=dlAboutAppTable, dlMode=dlMode, dlDownloadBankSelect=dlDownloadBankSelect, dlDownloadAbort=dlDownloadAbort, dlAboutTrackingId=dlAboutTrackingId, PYSNMP_MODULE_ID=ciscoDSGDl, ciscoDSGDl=ciscoDSGDl)
+mibBuilder.exportSymbols("CISCO-DMN-DSG-DL-MIB", dlCfg=dlCfg, dlAboutAppTable=dlAboutAppTable, dlAboutReboot=dlAboutReboot, dlAboutAppEntry=dlAboutAppEntry, dlDownloadCodeVersion=dlDownloadCodeVersion, dlDownloadState=dlDownloadState, dlDownloadErrorStatus=dlDownloadErrorStatus, dlCommand=dlCommand, dlAboutTrackingId=dlAboutTrackingId, dlDownload=dlDownload, dlDownloadNanoVersion=dlDownloadNanoVersion, dlMode=dlMode, dlRejected=dlRejected, dlAboutBootVer=dlAboutBootVer, dlReceived=dlReceived, PYSNMP_MODULE_ID=ciscoDSGDl, dlBank=dlBank, dlAboutSafeVer=dlAboutSafeVer, dlDownloadAbort=dlDownloadAbort, dlDownloadForcedFlag=dlDownloadForcedFlag, dlAboutCurrentVer=dlAboutCurrentVer, dlDownloadTransitionBlocked=dlDownloadTransitionBlocked, dlAboutAppIndex=dlAboutAppIndex, dlAboutAppString=dlAboutAppString, dlStatus=dlStatus, dlAboutProductId=dlAboutProductId, dlDownloadTftpServerIP=dlDownloadTftpServerIP, dlAboutChangeApp=dlAboutChangeApp, dlAboutEraseApp=dlAboutEraseApp, dlType=dlType, dlDownloadMicroCode=dlDownloadMicroCode, dlTotalCdt=dlTotalCdt, dlAbout=dlAbout, dlDownloadTftpFilename=dlDownloadTftpFilename, dlDownloadBankSelect=dlDownloadBankSelect, ciscoDSGDl=ciscoDSGDl)

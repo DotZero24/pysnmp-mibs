@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SUPERMICRO-SSH-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-SSH-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:56 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-SSH-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:49 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 ssh = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876, 101, 1, 97))
 ssh.setRevisions(('2021-02-19 00:00',))
 if mibBuilder.loadTexts: ssh.setLastUpdated('202102190000Z')
@@ -32,4 +32,4 @@ sshSrvBindAddr = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 97, 1, 7), OctetStr
 if mibBuilder.loadTexts: sshSrvBindAddr.setStatus('current')
 sshServerBindPortNo = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 97, 1, 8), Unsigned32().clone(22)).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: sshServerBindPortNo.setStatus('current')
-mibBuilder.exportSymbols("SUPERMICRO-SSH-MIB", sshStatus=sshStatus, sshMacList=sshMacList, sshServerBindPortNo=sshServerBindPortNo, sshTrace=sshTrace, sshGeneralGroup=sshGeneralGroup, PYSNMP_MODULE_ID=ssh, sshVersionCompatibility=sshVersionCompatibility, sshSrvBindAddr=sshSrvBindAddr, sshCipherList=sshCipherList, ssh=ssh, sshTransportMaxAllowedBytes=sshTransportMaxAllowedBytes)
+mibBuilder.exportSymbols("SUPERMICRO-SSH-MIB", sshTrace=sshTrace, ssh=ssh, sshMacList=sshMacList, sshStatus=sshStatus, sshServerBindPortNo=sshServerBindPortNo, sshSrvBindAddr=sshSrvBindAddr, sshGeneralGroup=sshGeneralGroup, PYSNMP_MODULE_ID=ssh, sshVersionCompatibility=sshVersionCompatibility, sshTransportMaxAllowedBytes=sshTransportMaxAllowedBytes, sshCipherList=sshCipherList)

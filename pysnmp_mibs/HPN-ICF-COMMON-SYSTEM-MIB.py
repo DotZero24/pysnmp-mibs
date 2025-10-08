@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module HPN-ICF-COMMON-SYSTEM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-COMMON-SYSTEM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:59 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HPN-ICF-COMMON-SYSTEM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:09:06 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 hpnicf, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicf")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
 hpnicfSystem = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 6))
 hpnicfSystem.setRevisions(('2004-06-30 00:00',))
 if mibBuilder.loadTexts: hpnicfSystem.setLastUpdated('201206060000Z')
@@ -72,4 +72,4 @@ hpnicfSysLoghostIpaddress = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 6, 1
 if mibBuilder.loadTexts: hpnicfSysLoghostIpaddress.setStatus('current')
 hpnicfSysLoghostTrapVpnName = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 6, 12, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("accessiblefornotify")
 if mibBuilder.loadTexts: hpnicfSysLoghostTrapVpnName.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-COMMON-SYSTEM-MIB", hpnicfSysLoghostIpaddress=hpnicfSysLoghostIpaddress, hpnicfSysTrapSendNum=hpnicfSysTrapSendNum, hpnicfSystemNotificationInfo=hpnicfSystemNotificationInfo, hpnicfSysLastSampleTime=hpnicfSysLastSampleTime, hpnicfWriteSuccessTrap=hpnicfWriteSuccessTrap, hpnicfSysWarmStartTrap=hpnicfSysWarmStartTrap, hpnicfSystemInfo=hpnicfSystemInfo, hpnicfSystem=hpnicfSystem, hpnicfSysFirstTrapTime=hpnicfSysFirstTrapTime, hpnicfSysTrapResendPeriod=hpnicfSysTrapResendPeriod, hpnicfSysColdStartTrap=hpnicfSysColdStartTrap, hpnicfSoftwareVersion=hpnicfSoftwareVersion, hpnicfSysBootType=hpnicfSysBootType, hpnicfSysLoghostIpaddressType=hpnicfSysLoghostIpaddressType, hpnicfWriteConfig=hpnicfWriteConfig, hpnicfSysSamplePeriod=hpnicfSysSamplePeriod, hpnicfSysLoghostTrapVpnName=hpnicfSysLoghostTrapVpnName, hpnicfSysSnmpTrapPort=hpnicfSysSnmpTrapPort, hpnicfStartFtpServer=hpnicfStartFtpServer, hpnicfReboot=hpnicfReboot, hpnicfSysSnmpPort=hpnicfSysSnmpPort, hpnicfSysBannerMOTD=hpnicfSysBannerMOTD, PYSNMP_MODULE_ID=hpnicfSystem, hpnicfSysLoghostIndex=hpnicfSysLoghostIndex, hpnicfSysTrapCollectionPeriod=hpnicfSysTrapCollectionPeriod, hpnicfRebootSendTrap=hpnicfRebootSendTrap, hpnicfSystemNotification=hpnicfSystemNotification, hpnicfSysNetID=hpnicfSysNetID, hpnicfWriteFailureTrap=hpnicfWriteFailureTrap, hpnicfSysLoghostUnreachableTrap=hpnicfSysLoghostUnreachableTrap, hpnicfSysStatisticPeriod=hpnicfSysStatisticPeriod)
+mibBuilder.exportSymbols("HPN-ICF-COMMON-SYSTEM-MIB", hpnicfSystemInfo=hpnicfSystemInfo, hpnicfSysLastSampleTime=hpnicfSysLastSampleTime, hpnicfStartFtpServer=hpnicfStartFtpServer, hpnicfSysWarmStartTrap=hpnicfSysWarmStartTrap, hpnicfWriteConfig=hpnicfWriteConfig, hpnicfSysTrapSendNum=hpnicfSysTrapSendNum, hpnicfSysLoghostIpaddressType=hpnicfSysLoghostIpaddressType, hpnicfSysStatisticPeriod=hpnicfSysStatisticPeriod, hpnicfSysNetID=hpnicfSysNetID, hpnicfSysLoghostIpaddress=hpnicfSysLoghostIpaddress, hpnicfSysColdStartTrap=hpnicfSysColdStartTrap, hpnicfSysTrapCollectionPeriod=hpnicfSysTrapCollectionPeriod, hpnicfSysBootType=hpnicfSysBootType, hpnicfSysTrapResendPeriod=hpnicfSysTrapResendPeriod, hpnicfWriteSuccessTrap=hpnicfWriteSuccessTrap, hpnicfSysLoghostUnreachableTrap=hpnicfSysLoghostUnreachableTrap, hpnicfSoftwareVersion=hpnicfSoftwareVersion, hpnicfSysSamplePeriod=hpnicfSysSamplePeriod, hpnicfSysSnmpPort=hpnicfSysSnmpPort, hpnicfSysSnmpTrapPort=hpnicfSysSnmpTrapPort, PYSNMP_MODULE_ID=hpnicfSystem, hpnicfSysBannerMOTD=hpnicfSysBannerMOTD, hpnicfSysLoghostTrapVpnName=hpnicfSysLoghostTrapVpnName, hpnicfSysFirstTrapTime=hpnicfSysFirstTrapTime, hpnicfReboot=hpnicfReboot, hpnicfSystemNotification=hpnicfSystemNotification, hpnicfSystemNotificationInfo=hpnicfSystemNotificationInfo, hpnicfRebootSendTrap=hpnicfRebootSendTrap, hpnicfWriteFailureTrap=hpnicfWriteFailureTrap, hpnicfSysLoghostIndex=hpnicfSysLoghostIndex, hpnicfSystem=hpnicfSystem)

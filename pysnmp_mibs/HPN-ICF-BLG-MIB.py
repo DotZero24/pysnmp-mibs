@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module HPN-ICF-BLG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-BLG-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:34 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HPN-ICF-BLG-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:08:27 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 hpnicfBlg = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 108))
 hpnicfBlg.setRevisions(('2009-09-15 11:11',))
@@ -38,4 +38,4 @@ hpnicfBlgGroupRxByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15,
 if mibBuilder.loadTexts: hpnicfBlgGroupRxByteCount.setStatus('current')
 hpnicfBlgGroupCountClear = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 108, 1, 1, 1, 6), CounterClear()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: hpnicfBlgGroupCountClear.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-BLG-MIB", hpnicfBlgStatsEntry=hpnicfBlgStatsEntry, hpnicfBlgGroupCountClear=hpnicfBlgGroupCountClear, hpnicfBlg=hpnicfBlg, hpnicfBlgGroupRxPacketCount=hpnicfBlgGroupRxPacketCount, hpnicfBlgObjects=hpnicfBlgObjects, hpnicfBlgGroupRxByteCount=hpnicfBlgGroupRxByteCount, CounterClear=CounterClear, hpnicfBlgGroupTxPacketCount=hpnicfBlgGroupTxPacketCount, PYSNMP_MODULE_ID=hpnicfBlg, hpnicfBlgStatsTable=hpnicfBlgStatsTable, hpnicfBlgGroupTxByteCount=hpnicfBlgGroupTxByteCount, hpnicfBlgIndex=hpnicfBlgIndex)
+mibBuilder.exportSymbols("HPN-ICF-BLG-MIB", hpnicfBlgGroupTxPacketCount=hpnicfBlgGroupTxPacketCount, hpnicfBlgObjects=hpnicfBlgObjects, hpnicfBlgGroupRxPacketCount=hpnicfBlgGroupRxPacketCount, hpnicfBlgGroupTxByteCount=hpnicfBlgGroupTxByteCount, hpnicfBlgStatsTable=hpnicfBlgStatsTable, hpnicfBlg=hpnicfBlg, hpnicfBlgGroupRxByteCount=hpnicfBlgGroupRxByteCount, PYSNMP_MODULE_ID=hpnicfBlg, CounterClear=CounterClear, hpnicfBlgStatsEntry=hpnicfBlgStatsEntry, hpnicfBlgGroupCountClear=hpnicfBlgGroupCountClear, hpnicfBlgIndex=hpnicfBlgIndex)

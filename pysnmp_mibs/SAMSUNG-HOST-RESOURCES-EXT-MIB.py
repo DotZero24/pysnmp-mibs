@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SAMSUNG-HOST-RESOURCES-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/samsung/SAMSUNG-HOST-RESOURCES-EXT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:14 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/samsung/SAMSUNG-HOST-RESOURCES-EXT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:19:58 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 hrDeviceIndex, = mibBuilder.importSymbols("HOST-RESOURCES-MIB", "hrDeviceIndex")
 samsungCommonMIB, = mibBuilder.importSymbols("SAMSUNG-COMMON-MIB", "samsungCommonMIB")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 scmHrMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 236, 11, 5, 11, 53))
 if mibBuilder.loadTexts: scmHrMIB.setLastUpdated('190407170000Z')
@@ -66,4 +66,4 @@ scmHrDevCountColor = MibTableColumn((1, 3, 6, 1, 4, 1, 236, 11, 5, 11, 53, 11, 2
 if mibBuilder.loadTexts: scmHrDevCountColor.setStatus('current')
 scmHrDevCountValue = MibTableColumn((1, 3, 6, 1, 4, 1, 236, 11, 5, 11, 53, 11, 2, 1, 7), Counter32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: scmHrDevCountValue.setStatus('current')
-mibBuilder.exportSymbols("SAMSUNG-HOST-RESOURCES-EXT-MIB", scmHrDevCountValue=scmHrDevCountValue, scmHrDevCountColor=scmHrDevCountColor, scmHrDevCountTable=scmHrDevCountTable, scmHrDevCount=scmHrDevCount, ScmHrDevCountDuplexTC=ScmHrDevCountDuplexTC, scmHrDevCountSimple=scmHrDevCountSimple, scmHrMIB=scmHrMIB, scmHrDevInfoGroup=scmHrDevInfoGroup, scmHrDevCountDuplex=scmHrDevCountDuplex, ScmHrDevCountColorTC=ScmHrDevCountColorTC, scmHrDevCountUnit=scmHrDevCountUnit, scmHrDevCountMediaSize=scmHrDevCountMediaSize, ScmHrDevCountJobTypeTC=ScmHrDevCountJobTypeTC, scmHrDevCountIndex=scmHrDevCountIndex, ScmHrDevCountUnitTC=ScmHrDevCountUnitTC, scmHrDevCountJobType=scmHrDevCountJobType, scmHrMIBGroups=scmHrMIBGroups, scmHrDevCountEntry=scmHrDevCountEntry, ScmHrDevCountMediaSizeTC=ScmHrDevCountMediaSizeTC, PYSNMP_MODULE_ID=scmHrMIB, scmHrMIBConformance=scmHrMIBConformance)
+mibBuilder.exportSymbols("SAMSUNG-HOST-RESOURCES-EXT-MIB", scmHrDevCountTable=scmHrDevCountTable, scmHrDevCountDuplex=scmHrDevCountDuplex, ScmHrDevCountMediaSizeTC=ScmHrDevCountMediaSizeTC, scmHrDevCountUnit=scmHrDevCountUnit, PYSNMP_MODULE_ID=scmHrMIB, scmHrDevCountValue=scmHrDevCountValue, scmHrDevCountEntry=scmHrDevCountEntry, scmHrDevCountMediaSize=scmHrDevCountMediaSize, scmHrDevCountColor=scmHrDevCountColor, scmHrMIBGroups=scmHrMIBGroups, scmHrDevCountIndex=scmHrDevCountIndex, scmHrDevCount=scmHrDevCount, ScmHrDevCountJobTypeTC=ScmHrDevCountJobTypeTC, scmHrMIB=scmHrMIB, scmHrDevCountSimple=scmHrDevCountSimple, scmHrDevCountJobType=scmHrDevCountJobType, scmHrDevInfoGroup=scmHrDevInfoGroup, scmHrMIBConformance=scmHrMIBConformance, ScmHrDevCountUnitTC=ScmHrDevCountUnitTC, ScmHrDevCountDuplexTC=ScmHrDevCountDuplexTC, ScmHrDevCountColorTC=ScmHrDevCountColorTC)

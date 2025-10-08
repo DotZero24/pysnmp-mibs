@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module RAISECOM-LOOPBACK-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/RAISECOM-LOOPBACK-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:41 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/raisecom/RAISECOM-LOOPBACK-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:54:26 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 iscomSwitch, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "iscomSwitch")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+MacAddress, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "RowStatus", "TextualConvention", "DisplayString")
 rcLoopback = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 6, 1, 73))
 rcLoopback.setRevisions(('2012-08-02 00:00',))
 if mibBuilder.loadTexts: rcLoopback.setLastUpdated('201208020000Z')
@@ -70,4 +70,4 @@ rcL3LoopbackPortDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 73, 3, 1, 6
 if mibBuilder.loadTexts: rcL3LoopbackPortDscp.setStatus('current')
 rcL3LoopbackPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 73, 3, 1, 7), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: rcL3LoopbackPortStatus.setStatus('current')
-mibBuilder.exportSymbols("RAISECOM-LOOPBACK-MIB", PYSNMP_MODULE_ID=rcLoopback, rcLoopbackPortStatistics=rcLoopbackPortStatistics, rcL2LoopbackPortStatistics=rcL2LoopbackPortStatistics, rcL3LoopbackPortTable=rcL3LoopbackPortTable, rcL2LoopbackPortEntry=rcL2LoopbackPortEntry, rcLoopbackPortSmac=rcLoopbackPortSmac, rcL3LoopbackPortStatus=rcL3LoopbackPortStatus, rcL3LoopbackPortMAC=rcL3LoopbackPortMAC, rcLoopback=rcLoopback, rcLoopbackPortVlan=rcLoopbackPortVlan, rcL3LoopbackPortDscp=rcL3LoopbackPortDscp, rcL3LoopbackPortEntry=rcL3LoopbackPortEntry, rcLoopbackPortEnable=rcLoopbackPortEnable, rcLoopbackPortClearStatistics=rcLoopbackPortClearStatistics, rcL2LoopbackPortVlan=rcL2LoopbackPortVlan, rcLoopbackPortIndex=rcLoopbackPortIndex, rcL3LoopbackPortNum=rcL3LoopbackPortNum, rcL2LoopbackPortSmac=rcL2LoopbackPortSmac, rcL3LoopbackPortCvlan=rcL3LoopbackPortCvlan, rcLoopbackPortEntry=rcLoopbackPortEntry, rcLoopbackPortTable=rcLoopbackPortTable, rcL2LoopbackPortProtocol=rcL2LoopbackPortProtocol, rcL2LoopbackPortStatus=rcL2LoopbackPortStatus, rcL3LoopbackPortDestAddr=rcL3LoopbackPortDestAddr, rcL2LoopbackPortNum=rcL2LoopbackPortNum, rcL3LoopbackPortSvlan=rcL3LoopbackPortSvlan, rcL2LoopbackPortTable=rcL2LoopbackPortTable, rcLoopbackPortMode=rcLoopbackPortMode, rcLoopbackPortProtocol=rcLoopbackPortProtocol)
+mibBuilder.exportSymbols("RAISECOM-LOOPBACK-MIB", rcL2LoopbackPortProtocol=rcL2LoopbackPortProtocol, rcL2LoopbackPortStatistics=rcL2LoopbackPortStatistics, rcLoopbackPortEntry=rcLoopbackPortEntry, rcLoopback=rcLoopback, rcL2LoopbackPortTable=rcL2LoopbackPortTable, rcL2LoopbackPortStatus=rcL2LoopbackPortStatus, rcL3LoopbackPortDscp=rcL3LoopbackPortDscp, rcLoopbackPortEnable=rcLoopbackPortEnable, rcLoopbackPortProtocol=rcLoopbackPortProtocol, rcL3LoopbackPortDestAddr=rcL3LoopbackPortDestAddr, rcLoopbackPortTable=rcLoopbackPortTable, rcLoopbackPortStatistics=rcLoopbackPortStatistics, rcL3LoopbackPortNum=rcL3LoopbackPortNum, rcL3LoopbackPortStatus=rcL3LoopbackPortStatus, rcL2LoopbackPortNum=rcL2LoopbackPortNum, PYSNMP_MODULE_ID=rcLoopback, rcL3LoopbackPortMAC=rcL3LoopbackPortMAC, rcLoopbackPortVlan=rcLoopbackPortVlan, rcLoopbackPortSmac=rcLoopbackPortSmac, rcLoopbackPortIndex=rcLoopbackPortIndex, rcL2LoopbackPortEntry=rcL2LoopbackPortEntry, rcL2LoopbackPortSmac=rcL2LoopbackPortSmac, rcL3LoopbackPortCvlan=rcL3LoopbackPortCvlan, rcL3LoopbackPortSvlan=rcL3LoopbackPortSvlan, rcL3LoopbackPortTable=rcL3LoopbackPortTable, rcL3LoopbackPortEntry=rcL3LoopbackPortEntry, rcLoopbackPortMode=rcLoopbackPortMode, rcL2LoopbackPortVlan=rcL2LoopbackPortVlan, rcLoopbackPortClearStatistics=rcLoopbackPortClearStatistics)

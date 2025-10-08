@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CLAB-DEF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/casa/CLAB-DEF-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:27:47 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/casa/CLAB-DEF-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:50:17 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 DocsX509ASN1DEREncodedCertificate, = mibBuilder.importSymbols("DOCS-IETF-BPI2-MIB", "DocsX509ASN1DEREncodedCertificate")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 cableLabs = ModuleIdentity((1, 3, 6, 1, 4, 1, 4491))
 cableLabs.setRevisions(('2012-08-09 00:00', '2011-02-10 00:00', '2009-08-11 00:00', '2008-03-06 00:00', '2007-01-19 17:00', '2005-04-08 17:00',))
@@ -58,4 +58,4 @@ class DocsL2vpnIfList(TextualConvention, Bits):
     status = 'current'
     namedValues = NamedValues(("eCm", 0), ("cmci", 1), ("docsCableMacLayer", 2), ("docsCableDownstream", 3), ("docsCableUpstream", 4), ("eMta", 16), ("eStbIp", 17), ("eStbDsg", 18))
 
-mibBuilder.exportSymbols("CLAB-DEF-MIB", pktcPACMMibs=pktcPACMMibs, clabProjWireless=clabProjWireless, DocsL2vpnIfList=DocsL2vpnIfList, clabProjOpenCable=clabProjOpenCable, pktcPACMUEMib=pktcPACMUEMib, pktcPACMUserMib=pktcPACMUserMib, pktcSecurity=pktcSecurity, clabSecCertObject=clabSecCertObject, clabProjDocsis=clabProjDocsis, clabFuncMib2=clabFuncMib2, clabProject=clabProject, pktcLawfulIntercept=pktcLawfulIntercept, cableLabs=cableLabs, PYSNMP_MODULE_ID=cableLabs, pktcEUEMibs=pktcEUEMibs, clabProjCableHome=clabProjCableHome, pktcApplicationMibs=pktcApplicationMibs, clabCVCRootCACert=clabCVCRootCACert, clabProjPacketCable=clabProjPacketCable, clabSecOlcaObject=clabSecOlcaObject, pktcESSupportMibs=pktcESSupportMibs, clabTopoMib=clabTopoMib, clabCommonMibs=clabCommonMibs, clabCVCCACert=clabCVCCACert, clabMfgCACert=clabMfgCACert, clabFuncProprietary=clabFuncProprietary, pktcEnhancements=pktcEnhancements, clabUpsMib=clabUpsMib, pktcSupportMibs=pktcSupportMibs, pktcSMAMibs=pktcSMAMibs, clabSrvcPrvdrRootCACert=clabSrvcPrvdrRootCACert, pktcEUEDeviceMibs=pktcEUEDeviceMibs, clabSecurity=clabSecurity, pktcPACMTC=pktcPACMTC, clabMfgCVCCert=clabMfgCVCCert, clabFunction=clabFunction)
+mibBuilder.exportSymbols("CLAB-DEF-MIB", pktcApplicationMibs=pktcApplicationMibs, clabSecurity=clabSecurity, clabProjOpenCable=clabProjOpenCable, PYSNMP_MODULE_ID=cableLabs, clabUpsMib=clabUpsMib, clabSrvcPrvdrRootCACert=clabSrvcPrvdrRootCACert, DocsL2vpnIfList=DocsL2vpnIfList, pktcPACMTC=pktcPACMTC, clabMfgCACert=clabMfgCACert, pktcPACMUEMib=pktcPACMUEMib, pktcEUEDeviceMibs=pktcEUEDeviceMibs, pktcEUEMibs=pktcEUEMibs, clabCVCCACert=clabCVCCACert, clabProject=clabProject, clabProjPacketCable=clabProjPacketCable, pktcLawfulIntercept=pktcLawfulIntercept, clabProjWireless=clabProjWireless, clabCVCRootCACert=clabCVCRootCACert, clabFuncMib2=clabFuncMib2, clabCommonMibs=clabCommonMibs, cableLabs=cableLabs, clabProjCableHome=clabProjCableHome, clabSecOlcaObject=clabSecOlcaObject, clabFunction=clabFunction, pktcSupportMibs=pktcSupportMibs, pktcEnhancements=pktcEnhancements, clabSecCertObject=clabSecCertObject, pktcSecurity=pktcSecurity, pktcSMAMibs=pktcSMAMibs, clabFuncProprietary=clabFuncProprietary, pktcESSupportMibs=pktcESSupportMibs, clabProjDocsis=clabProjDocsis, clabMfgCVCCert=clabMfgCVCCert, pktcPACMUserMib=pktcPACMUserMib, pktcPACMMibs=pktcPACMMibs, clabTopoMib=clabTopoMib)

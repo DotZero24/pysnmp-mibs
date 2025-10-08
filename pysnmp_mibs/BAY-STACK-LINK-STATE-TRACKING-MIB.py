@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BAY-STACK-LINK-STATE-TRACKING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/BAY-STACK-LINK-STATE-TRACKING-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:25 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nortel/BAY-STACK-LINK-STATE-TRACKING-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:03:06 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 bayStackMibs, = mibBuilder.importSymbols("SYNOPTICS-ROOT-MIB", "bayStackMibs")
 bayStackLinkStateTrackingMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 5, 43))
 bayStackLinkStateTrackingMib.setRevisions(('2018-09-28 00:00', '2017-08-31 00:00', '2013-10-11 00:00', '2013-02-13 00:00', '2012-11-15 00:00', '2012-10-17 00:00', '2012-09-03 00:00',))
@@ -51,4 +51,4 @@ bsLstInterfaceStatusChanged = NotificationType((1, 3, 6, 1, 4, 1, 45, 5, 43, 0, 
 if mibBuilder.loadTexts: bsLstInterfaceStatusChanged.setStatus('current')
 bsLstGroupOperStateChanged = NotificationType((1, 3, 6, 1, 4, 1, 45, 5, 43, 0, 2)).setObjects(("IF-MIB", "ifIndex"), ("BAY-STACK-LINK-STATE-TRACKING-MIB", "bsLstInterfaceStatus"), ("BAY-STACK-LINK-STATE-TRACKING-MIB", "bsLstGroupOperState"))
 if mibBuilder.loadTexts: bsLstGroupOperStateChanged.setStatus('current')
-mibBuilder.exportSymbols("BAY-STACK-LINK-STATE-TRACKING-MIB", bsLstGroupDownstreamMltList=bsLstGroupDownstreamMltList, bsLstGroupEntry=bsLstGroupEntry, bsLstNotifObjects=bsLstNotifObjects, bsLstGroupIndex=bsLstGroupIndex, PYSNMP_MODULE_ID=bayStackLinkStateTrackingMib, bsLstInterfaceStatus=bsLstInterfaceStatus, IdList=IdList, bsLstGroupOperState=bsLstGroupOperState, bsLstGroupOperStateChanged=bsLstGroupOperStateChanged, bsLstNotifications=bsLstNotifications, bsLstScalars=bsLstScalars, bsLstGroupEnabled=bsLstGroupEnabled, bsLstInterfaceStatusChanged=bsLstInterfaceStatusChanged, bsLstGroupDownstreamPortList=bsLstGroupDownstreamPortList, bsLstGroupTable=bsLstGroupTable, bayStackLinkStateTrackingMib=bayStackLinkStateTrackingMib, bsLstObjects=bsLstObjects, bsLstGroupUpstreamMltList=bsLstGroupUpstreamMltList, PortList=PortList, bsLstGroupUpstreamPortList=bsLstGroupUpstreamPortList)
+mibBuilder.exportSymbols("BAY-STACK-LINK-STATE-TRACKING-MIB", bsLstGroupUpstreamPortList=bsLstGroupUpstreamPortList, bsLstNotifications=bsLstNotifications, PYSNMP_MODULE_ID=bayStackLinkStateTrackingMib, bsLstGroupUpstreamMltList=bsLstGroupUpstreamMltList, bsLstGroupTable=bsLstGroupTable, bsLstInterfaceStatusChanged=bsLstInterfaceStatusChanged, bsLstGroupEntry=bsLstGroupEntry, bsLstGroupDownstreamMltList=bsLstGroupDownstreamMltList, bsLstGroupDownstreamPortList=bsLstGroupDownstreamPortList, IdList=IdList, bsLstGroupOperState=bsLstGroupOperState, bsLstNotifObjects=bsLstNotifObjects, bsLstObjects=bsLstObjects, bayStackLinkStateTrackingMib=bayStackLinkStateTrackingMib, bsLstGroupIndex=bsLstGroupIndex, bsLstGroupEnabled=bsLstGroupEnabled, bsLstGroupOperStateChanged=bsLstGroupOperStateChanged, bsLstInterfaceStatus=bsLstInterfaceStatus, PortList=PortList, bsLstScalars=bsLstScalars)

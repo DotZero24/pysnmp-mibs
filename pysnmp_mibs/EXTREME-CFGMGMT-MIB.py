@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module EXTREME-CFGMGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/extreme/EXTREME-CFGMGMT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:55 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/extreme/EXTREME-CFGMGMT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:02:02 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-PortList, extremeAgent = mibBuilder.importSymbols("EXTREME-BASE-MIB", "PortList", "extremeAgent")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+extremeAgent, PortList = mibBuilder.importSymbols("EXTREME-BASE-MIB", "extremeAgent", "PortList")
 ifDescr, = mibBuilder.importSymbols("IF-MIB", "ifDescr")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-sysUpTime, sysDescr = mibBuilder.importSymbols("SNMPv2-MIB", "sysUpTime", "sysDescr")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+sysDescr, sysUpTime = mibBuilder.importSymbols("SNMPv2-MIB", "sysDescr", "sysUpTime")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
 extremeCfgMgmt = ModuleIdentity((1, 3, 6, 1, 4, 1, 1916, 1, 42))
 extremeCfgMgmt.setRevisions(('2017-09-12 00:00',))
 if mibBuilder.loadTexts: extremeCfgMgmt.setLastUpdated('201709120000Z')
@@ -61,4 +61,4 @@ cfgMgmtConfigSaveTrap = NotificationType((1, 3, 6, 1, 4, 1, 1916, 1, 42, 10, 0, 
 if mibBuilder.loadTexts: cfgMgmtConfigSaveTrap.setStatus('current')
 cfgMgmtConfigChangeTrap = NotificationType((1, 3, 6, 1, 4, 1, 1916, 1, 42, 10, 0, 2)).setObjects(("EXTREME-CFGMGMT-MIB", "extremeLastChangeConfigTime"), ("EXTREME-CFGMGMT-MIB", "extremeLastChangeConfigFileName"), ("EXTREME-CFGMGMT-MIB", "extremeLastChangeConfigSource"))
 if mibBuilder.loadTexts: cfgMgmtConfigChangeTrap.setStatus('current')
-mibBuilder.exportSymbols("EXTREME-CFGMGMT-MIB", extremeCfgMgmtCommon=extremeCfgMgmtCommon, extremeRunningLastChangeCfgGroup=extremeRunningLastChangeCfgGroup, extremeLastSavedEntry=extremeLastSavedEntry, extremeRunningLastSavedCfgGroup=extremeRunningLastSavedCfgGroup, extremeCfgMgmtTrapPrefix=extremeCfgMgmtTrapPrefix, cfgMgmtConfigSaveTrap=cfgMgmtConfigSaveTrap, extremeCfgGroups=extremeCfgGroups, extremeCfgMgmt=extremeCfgMgmt, extremeLastSaveConfigTime=extremeLastSaveConfigTime, extremeLastChangeConfigFileName=extremeLastChangeConfigFileName, extremeLastChangeCfgEntry=extremeLastChangeCfgEntry, cfgMgmtTraps=cfgMgmtTraps, extremeLastSaveConfigFileName=extremeLastSaveConfigFileName, PYSNMP_MODULE_ID=extremeCfgMgmt, cfgMgmtConfigChangeTrap=cfgMgmtConfigChangeTrap, extremeLastChangeConfigTime=extremeLastChangeConfigTime, extremeLastSaveConfigSource=extremeLastSaveConfigSource, cfgMgmtConfigChangeTrapEnable=cfgMgmtConfigChangeTrapEnable, extremeLastSaveCfgTable=extremeLastSaveCfgTable, extremeLastChangeCfgSlotId=extremeLastChangeCfgSlotId, extremeLastChangeConfigSource=extremeLastChangeConfigSource, extremeLastSaveConfigSlotId=extremeLastSaveConfigSlotId, extremeLastChangeCfgTable=extremeLastChangeCfgTable, cfgMgmtConfigSaveTrapEnable=cfgMgmtConfigSaveTrapEnable, cfgMgmtControl=cfgMgmtControl)
+mibBuilder.exportSymbols("EXTREME-CFGMGMT-MIB", extremeLastSaveConfigFileName=extremeLastSaveConfigFileName, PYSNMP_MODULE_ID=extremeCfgMgmt, extremeCfgMgmtTrapPrefix=extremeCfgMgmtTrapPrefix, extremeCfgMgmtCommon=extremeCfgMgmtCommon, extremeLastSaveCfgTable=extremeLastSaveCfgTable, cfgMgmtConfigSaveTrapEnable=cfgMgmtConfigSaveTrapEnable, extremeLastChangeCfgSlotId=extremeLastChangeCfgSlotId, extremeLastSaveConfigSource=extremeLastSaveConfigSource, extremeLastChangeConfigFileName=extremeLastChangeConfigFileName, extremeRunningLastSavedCfgGroup=extremeRunningLastSavedCfgGroup, extremeRunningLastChangeCfgGroup=extremeRunningLastChangeCfgGroup, extremeLastSaveConfigSlotId=extremeLastSaveConfigSlotId, cfgMgmtConfigSaveTrap=cfgMgmtConfigSaveTrap, extremeLastChangeConfigTime=extremeLastChangeConfigTime, extremeCfgMgmt=extremeCfgMgmt, cfgMgmtConfigChangeTrap=cfgMgmtConfigChangeTrap, cfgMgmtConfigChangeTrapEnable=cfgMgmtConfigChangeTrapEnable, extremeLastSaveConfigTime=extremeLastSaveConfigTime, extremeCfgGroups=extremeCfgGroups, extremeLastChangeCfgEntry=extremeLastChangeCfgEntry, extremeLastChangeConfigSource=extremeLastChangeConfigSource, extremeLastSavedEntry=extremeLastSavedEntry, cfgMgmtControl=cfgMgmtControl, cfgMgmtTraps=cfgMgmtTraps, extremeLastChangeCfgTable=extremeLastChangeCfgTable)

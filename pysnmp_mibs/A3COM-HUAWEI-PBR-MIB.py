@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module A3COM-HUAWEI-PBR-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-PBR-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:38 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-PBR-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:32:48 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 h3cCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCommon")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 h3cPBR = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 113))
 h3cPBR.setRevisions(('2010-12-10 15:58',))
 if mibBuilder.loadTexts: h3cPBR.setLastUpdated('201012101558Z')
@@ -31,4 +31,4 @@ h3cPBRTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 113, 1, 2, 2))
 h3cPBRTrapsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 113, 1, 2, 2, 0))
 h3cPBRNexthopFailedTrap = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 113, 1, 2, 2, 0, 1)).setObjects(("A3COM-HUAWEI-PBR-MIB", "h3cPBRNexthopAddrType"), ("A3COM-HUAWEI-PBR-MIB", "h3cPBRNexthopAddr"))
 if mibBuilder.loadTexts: h3cPBRNexthopFailedTrap.setStatus('current')
-mibBuilder.exportSymbols("A3COM-HUAWEI-PBR-MIB", PYSNMP_MODULE_ID=h3cPBR, h3cPBRNexthopAddrType=h3cPBRNexthopAddrType, h3cPBRNexthopFailedTrap=h3cPBRNexthopFailedTrap, h3cPBRObjects=h3cPBRObjects, h3cPBRTraps=h3cPBRTraps, h3cPBRMibTrap=h3cPBRMibTrap, h3cPBRTrapsPrefix=h3cPBRTrapsPrefix, h3cPBRNexthopAddr=h3cPBRNexthopAddr, h3cPBRGlobal=h3cPBRGlobal, h3cPBR=h3cPBR, h3cPBRNexthopTrapEnabled=h3cPBRNexthopTrapEnabled, h3cPBRTrapObjects=h3cPBRTrapObjects)
+mibBuilder.exportSymbols("A3COM-HUAWEI-PBR-MIB", h3cPBRTrapObjects=h3cPBRTrapObjects, h3cPBRObjects=h3cPBRObjects, h3cPBRMibTrap=h3cPBRMibTrap, h3cPBRNexthopAddrType=h3cPBRNexthopAddrType, h3cPBRTrapsPrefix=h3cPBRTrapsPrefix, h3cPBR=h3cPBR, h3cPBRNexthopFailedTrap=h3cPBRNexthopFailedTrap, h3cPBRNexthopTrapEnabled=h3cPBRNexthopTrapEnabled, h3cPBRTraps=h3cPBRTraps, h3cPBRNexthopAddr=h3cPBRNexthopAddr, PYSNMP_MODULE_ID=h3cPBR, h3cPBRGlobal=h3cPBRGlobal)

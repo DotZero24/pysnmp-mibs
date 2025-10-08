@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module TPLINK-IPV6ADDR-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/tplink/TPLINK-IPV6ADDR-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:30 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/tplink/TPLINK-IPV6ADDR-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:55 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 tplinkMgmt, = mibBuilder.importSymbols("TPLINK-MIB", "tplinkMgmt")
 tplinkIpv6AddrMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 50))
 tplinkIpv6AddrMIB.setRevisions(('2012-12-13 09:30',))
@@ -59,4 +59,4 @@ ipv6Gateway = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 50, 1, 3, 1), OctetString()
 if mibBuilder.loadTexts: ipv6Gateway.setStatus('current')
 tpIpv6Routing = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 50, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: tpIpv6Routing.setStatus('current')
-mibBuilder.exportSymbols("TPLINK-IPV6ADDR-MIB", ipv6ParaConfigNegotiateEnable=ipv6ParaConfigNegotiateEnable, ipv6ParaConfigAddrTable=ipv6ParaConfigAddrTable, ipv6ParaConfigAddrEntry=ipv6ParaConfigAddrEntry, ipv6ParaConfigCfgIfIndex=ipv6ParaConfigCfgIfIndex, ipv6Gateway=ipv6Gateway, ipv6ParaConfigAddrType=ipv6ParaConfigAddrType, tplinkIpv6AddrMIBObjects=tplinkIpv6AddrMIBObjects, ipv6ParaConfigIPv6Enable=ipv6ParaConfigIPv6Enable, ipv6ParaConfigCfgTable=ipv6ParaConfigCfgTable, ipv6ParaConfigIfDescription=ipv6ParaConfigIfDescription, tpIpv6Routing=tpIpv6Routing, ipv6ParaConfigRowStatus=ipv6ParaConfigRowStatus, tplinkIpv6AddrNotifications=tplinkIpv6AddrNotifications, ipv6ParaConfigSourceType=ipv6ParaConfigSourceType, ipv6ParaConfigCfgIfDescription=ipv6ParaConfigCfgIfDescription, ipv6ParaConfigCfgEntry=ipv6ParaConfigCfgEntry, ipv6ParaConfigAutoLinkLocalEnable=ipv6ParaConfigAutoLinkLocalEnable, tplinkIpv6AddrMIB=tplinkIpv6AddrMIB, PYSNMP_MODULE_ID=tplinkIpv6AddrMIB, tplinkIpv6RoutingConfig=tplinkIpv6RoutingConfig, ipv6ParaConfigIfIndex=ipv6ParaConfigIfIndex, ipv6ParaConfigPrefixLength=ipv6ParaConfigPrefixLength, ipv6ParaConfigDhcpEnable=ipv6ParaConfigDhcpEnable, ipv6ParaConfigAddress=ipv6ParaConfigAddress, ipv6GatewayConfig=ipv6GatewayConfig)
+mibBuilder.exportSymbols("TPLINK-IPV6ADDR-MIB", ipv6ParaConfigDhcpEnable=ipv6ParaConfigDhcpEnable, ipv6ParaConfigIfIndex=ipv6ParaConfigIfIndex, ipv6ParaConfigAddrType=ipv6ParaConfigAddrType, ipv6ParaConfigIfDescription=ipv6ParaConfigIfDescription, tplinkIpv6AddrMIBObjects=tplinkIpv6AddrMIBObjects, PYSNMP_MODULE_ID=tplinkIpv6AddrMIB, tplinkIpv6AddrNotifications=tplinkIpv6AddrNotifications, tplinkIpv6RoutingConfig=tplinkIpv6RoutingConfig, ipv6ParaConfigSourceType=ipv6ParaConfigSourceType, ipv6ParaConfigCfgIfIndex=ipv6ParaConfigCfgIfIndex, ipv6ParaConfigAddress=ipv6ParaConfigAddress, ipv6ParaConfigCfgIfDescription=ipv6ParaConfigCfgIfDescription, ipv6ParaConfigIPv6Enable=ipv6ParaConfigIPv6Enable, tplinkIpv6AddrMIB=tplinkIpv6AddrMIB, ipv6GatewayConfig=ipv6GatewayConfig, ipv6ParaConfigNegotiateEnable=ipv6ParaConfigNegotiateEnable, tpIpv6Routing=tpIpv6Routing, ipv6ParaConfigPrefixLength=ipv6ParaConfigPrefixLength, ipv6ParaConfigAutoLinkLocalEnable=ipv6ParaConfigAutoLinkLocalEnable, ipv6ParaConfigAddrTable=ipv6ParaConfigAddrTable, ipv6ParaConfigAddrEntry=ipv6ParaConfigAddrEntry, ipv6ParaConfigCfgEntry=ipv6ParaConfigCfgEntry, ipv6ParaConfigCfgTable=ipv6ParaConfigCfgTable, ipv6Gateway=ipv6Gateway, ipv6ParaConfigRowStatus=ipv6ParaConfigRowStatus)

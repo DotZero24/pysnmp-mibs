@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ARISTA-PFC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/arista/ARISTA-PFC-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:27 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/arista/ARISTA-PFC-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:42 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 PacketType, = mibBuilder.importSymbols("ARISTA-QUEUE-MIB", "PacketType")
 aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 aristaPfcMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 11))
 aristaPfcMIB.setRevisions(('2017-01-17 00:00', '2014-08-15 00:00', '2013-02-28 00:00',))
@@ -60,4 +60,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 aristaPfcGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 11, 2, 2, 1)).setObjects(("ARISTA-PFC-MIB", "aristaPfcPriorityRequests"), ("ARISTA-PFC-MIB", "aristaPfcPriorityIndications"), ("ARISTA-PFC-MIB", "aristaPfcWatchdogTxQueueStuckCount"), ("ARISTA-PFC-MIB", "aristaPfcWatchdogTxQueueRecoveredCount"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     aristaPfcGroup = aristaPfcGroup.setStatus('current')
-mibBuilder.exportSymbols("ARISTA-PFC-MIB", aristaPfcPriorityRequests=aristaPfcPriorityRequests, aristaPfcWatchdogTxQueueType=aristaPfcWatchdogTxQueueType, aristaPfcCompliances=aristaPfcCompliances, aristaPfcPriorityTable=aristaPfcPriorityTable, aristaPfcMIB=aristaPfcMIB, aristaPfcPriorityIndications=aristaPfcPriorityIndications, aristaPfcWatchdogTxQueueEntry=aristaPfcWatchdogTxQueueEntry, aristaPfcConformance=aristaPfcConformance, aristaPfcWatchdogTxQueueRecoveredCount=aristaPfcWatchdogTxQueueRecoveredCount, aristaPfcGroup=aristaPfcGroup, aristaPfcGroups=aristaPfcGroups, aristaPfcCompliance=aristaPfcCompliance, aristaPfc=aristaPfc, aristaPfcWatchdogIfIndex=aristaPfcWatchdogIfIndex, aristaPfcIfIndex=aristaPfcIfIndex, aristaPfcWatchdogTxQueueTable=aristaPfcWatchdogTxQueueTable, AristaPfcCOSIndex=AristaPfcCOSIndex, PYSNMP_MODULE_ID=aristaPfcMIB, aristaPfcWatchdogTxQueueId=aristaPfcWatchdogTxQueueId, aristaPfcPriorityEntry=aristaPfcPriorityEntry, aristaPfcPriorityIndex=aristaPfcPriorityIndex, aristaPfcWatchdogTxQueueStuckCount=aristaPfcWatchdogTxQueueStuckCount)
+mibBuilder.exportSymbols("ARISTA-PFC-MIB", aristaPfcIfIndex=aristaPfcIfIndex, aristaPfcWatchdogTxQueueTable=aristaPfcWatchdogTxQueueTable, aristaPfcGroups=aristaPfcGroups, aristaPfcCompliance=aristaPfcCompliance, aristaPfcPriorityIndications=aristaPfcPriorityIndications, aristaPfcWatchdogTxQueueEntry=aristaPfcWatchdogTxQueueEntry, aristaPfcPriorityRequests=aristaPfcPriorityRequests, aristaPfcWatchdogTxQueueRecoveredCount=aristaPfcWatchdogTxQueueRecoveredCount, AristaPfcCOSIndex=AristaPfcCOSIndex, aristaPfcWatchdogTxQueueStuckCount=aristaPfcWatchdogTxQueueStuckCount, aristaPfc=aristaPfc, PYSNMP_MODULE_ID=aristaPfcMIB, aristaPfcMIB=aristaPfcMIB, aristaPfcWatchdogTxQueueType=aristaPfcWatchdogTxQueueType, aristaPfcConformance=aristaPfcConformance, aristaPfcCompliances=aristaPfcCompliances, aristaPfcPriorityTable=aristaPfcPriorityTable, aristaPfcPriorityEntry=aristaPfcPriorityEntry, aristaPfcWatchdogTxQueueId=aristaPfcWatchdogTxQueueId, aristaPfcPriorityIndex=aristaPfcPriorityIndex, aristaPfcWatchdogIfIndex=aristaPfcWatchdogIfIndex, aristaPfcGroup=aristaPfcGroup)

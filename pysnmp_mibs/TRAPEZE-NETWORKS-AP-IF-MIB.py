@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module TRAPEZE-NETWORKS-AP-IF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/trapeze/TRAPEZE-NETWORKS-AP-IF-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:55 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/trapeze/TRAPEZE-NETWORKS-AP-IF-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:05:20 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 IANAifType, = mibBuilder.importSymbols("IANAifType-MIB", "IANAifType")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TextualConvention")
 TrpzApSerialNum, = mibBuilder.importSymbols("TRAPEZE-NETWORKS-AP-TC", "TrpzApSerialNum")
 trpzMibs, = mibBuilder.importSymbols("TRAPEZE-NETWORKS-ROOT-MIB", "trpzMibs")
 trpzApIfMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 14525, 4, 16))
@@ -52,4 +52,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 trpzApIfBasicGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 14525, 4, 16, 2, 2, 1)).setObjects(("TRAPEZE-NETWORKS-AP-IF-MIB", "trpzApIfName"), ("TRAPEZE-NETWORKS-AP-IF-MIB", "trpzApIfType"), ("TRAPEZE-NETWORKS-AP-IF-MIB", "trpzApIfMtu"), ("TRAPEZE-NETWORKS-AP-IF-MIB", "trpzApIfHighSpeed"), ("TRAPEZE-NETWORKS-AP-IF-MIB", "trpzApIfMac"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     trpzApIfBasicGroup = trpzApIfBasicGroup.setStatus('current')
-mibBuilder.exportSymbols("TRAPEZE-NETWORKS-AP-IF-MIB", PYSNMP_MODULE_ID=trpzApIfMib, trpzApIfType=trpzApIfType, trpzApIfMtu=trpzApIfMtu, trpzApIfGroups=trpzApIfGroups, TrpzApInterfaceIndex=TrpzApInterfaceIndex, trpzApIfMib=trpzApIfMib, trpzApIfBasicGroup=trpzApIfBasicGroup, trpzApIfHighSpeed=trpzApIfHighSpeed, trpzApIfCompliance=trpzApIfCompliance, trpzApIfConformance=trpzApIfConformance, trpzApIfEntry=trpzApIfEntry, trpzApIfApSerialNum=trpzApIfApSerialNum, trpzApIfName=trpzApIfName, trpzApIfTable=trpzApIfTable, trpzApIfIndex=trpzApIfIndex, trpzApIfCompliances=trpzApIfCompliances, trpzApIfMac=trpzApIfMac, trpzApIfMibObjects=trpzApIfMibObjects)
+mibBuilder.exportSymbols("TRAPEZE-NETWORKS-AP-IF-MIB", trpzApIfMibObjects=trpzApIfMibObjects, trpzApIfHighSpeed=trpzApIfHighSpeed, TrpzApInterfaceIndex=TrpzApInterfaceIndex, trpzApIfApSerialNum=trpzApIfApSerialNum, trpzApIfType=trpzApIfType, trpzApIfBasicGroup=trpzApIfBasicGroup, trpzApIfGroups=trpzApIfGroups, trpzApIfCompliances=trpzApIfCompliances, trpzApIfConformance=trpzApIfConformance, trpzApIfName=trpzApIfName, trpzApIfIndex=trpzApIfIndex, trpzApIfEntry=trpzApIfEntry, trpzApIfMac=trpzApIfMac, trpzApIfMib=trpzApIfMib, trpzApIfTable=trpzApIfTable, trpzApIfMtu=trpzApIfMtu, trpzApIfCompliance=trpzApIfCompliance, PYSNMP_MODULE_ID=trpzApIfMib)

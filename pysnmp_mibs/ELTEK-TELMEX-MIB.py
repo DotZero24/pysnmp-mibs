@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ELTEK-TELMEX-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltek/ELTEK-TELMEX-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:56 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/eltek/ELTEK-TELMEX-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:02:05 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 eltek, = mibBuilder.importSymbols("ELTEK-COMMON-MIB", "eltek")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 telmex = MibIdentifier((1, 3, 6, 1, 4, 1, 12148, 13))
 eltekTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 12148, 13, 1))
 mainsFailAlarmOn = NotificationType((1, 3, 6, 1, 4, 1, 12148, 13, 1, 1))
@@ -62,4 +62,4 @@ batteryFuseAlarmOn = NotificationType((1, 3, 6, 1, 4, 1, 12148, 13, 1, 23))
 if mibBuilder.loadTexts: batteryFuseAlarmOn.setStatus('current')
 batteryFuseAlarmOff = NotificationType((1, 3, 6, 1, 4, 1, 12148, 13, 1, 24))
 if mibBuilder.loadTexts: batteryFuseAlarmOff.setStatus('current')
-mibBuilder.exportSymbols("ELTEK-TELMEX-MIB", rectifierErrorAlarmOff=rectifierErrorAlarmOff, batteryVoltageLowAlarmOff=batteryVoltageLowAlarmOff, batteryFuseAlarmOn=batteryFuseAlarmOn, batteryVoltageLowAlarmOn=batteryVoltageLowAlarmOn, userAlarm5On=userAlarm5On, userAlarm1On=userAlarm1On, userAlarm3On=userAlarm3On, userAlarm3Off=userAlarm3Off, userAlarm6Off=userAlarm6Off, userAlarm5Off=userAlarm5Off, userAlarm4On=userAlarm4On, userAlarm2On=userAlarm2On, mainsFailAlarmOff=mainsFailAlarmOff, batteryVoltageHighAlarmOn=batteryVoltageHighAlarmOn, batteryFuseAlarmOff=batteryFuseAlarmOff, loadFuseAlarmOn=loadFuseAlarmOn, batteryVoltageHighAlarmOff=batteryVoltageHighAlarmOff, mainsFailAlarmOn=mainsFailAlarmOn, userAlarm4Off=userAlarm4Off, rectifierErrorAlarmOn=rectifierErrorAlarmOn, userAlarm2Off=userAlarm2Off, telmex=telmex, loadFuseAlarmOff=loadFuseAlarmOff, eltekTraps=eltekTraps, userAlarm1Off=userAlarm1Off, userAlarm6On=userAlarm6On)
+mibBuilder.exportSymbols("ELTEK-TELMEX-MIB", userAlarm3Off=userAlarm3Off, batteryFuseAlarmOff=batteryFuseAlarmOff, userAlarm5Off=userAlarm5Off, userAlarm6Off=userAlarm6Off, batteryVoltageLowAlarmOff=batteryVoltageLowAlarmOff, batteryVoltageLowAlarmOn=batteryVoltageLowAlarmOn, mainsFailAlarmOn=mainsFailAlarmOn, eltekTraps=eltekTraps, userAlarm2On=userAlarm2On, userAlarm1On=userAlarm1On, userAlarm5On=userAlarm5On, batteryVoltageHighAlarmOn=batteryVoltageHighAlarmOn, rectifierErrorAlarmOff=rectifierErrorAlarmOff, userAlarm1Off=userAlarm1Off, userAlarm4Off=userAlarm4Off, rectifierErrorAlarmOn=rectifierErrorAlarmOn, userAlarm4On=userAlarm4On, userAlarm2Off=userAlarm2Off, loadFuseAlarmOn=loadFuseAlarmOn, userAlarm6On=userAlarm6On, batteryVoltageHighAlarmOff=batteryVoltageHighAlarmOff, loadFuseAlarmOff=loadFuseAlarmOff, userAlarm3On=userAlarm3On, mainsFailAlarmOff=mainsFailAlarmOff, telmex=telmex, batteryFuseAlarmOn=batteryFuseAlarmOn)

@@ -1,22 +1,22 @@
 #
 # PySNMP MIB module RAD-CopyFile-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rad/RAD-CopyFile-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:42:53 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/rad/RAD-CopyFile-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:10:12 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressType", "InetAddress")
-alarmEventLogAlarmOrEventId, alarmEventLogDescription, alarmEventLogSeverity, alarmEventReason, alarmEventLogDateAndTime, alarmEventLogSourceName = mibBuilder.importSymbols("RAD-GEN-MIB", "alarmEventLogAlarmOrEventId", "alarmEventLogDescription", "alarmEventLogSeverity", "alarmEventReason", "alarmEventLogDateAndTime", "alarmEventLogSourceName")
+alarmEventLogDescription, alarmEventReason, alarmEventLogAlarmOrEventId, alarmEventLogSeverity, alarmEventLogSourceName, alarmEventLogDateAndTime = mibBuilder.importSymbols("RAD-GEN-MIB", "alarmEventLogDescription", "alarmEventReason", "alarmEventLogAlarmOrEventId", "alarmEventLogSeverity", "alarmEventLogSourceName", "alarmEventLogDateAndTime")
 fileTransfer, = mibBuilder.importSymbols("RAD-SMI-MIB", "fileTransfer")
 FileType, = mibBuilder.importSymbols("RAD-TC", "FileType")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
 sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
-ModuleIdentity, Counter64, Unsigned32, ObjectIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "ObjectIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "DateAndTime", "TextualConvention")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "DisplayString")
 copyFileGroup = ModuleIdentity((1, 3, 6, 1, 4, 1, 164, 6, 2, 12, 18))
 if mibBuilder.loadTexts: copyFileGroup.setLastUpdated('201502191800Z')
 if mibBuilder.loadTexts: copyFileGroup.setOrganization('RAD Data Communications Ltd.')
@@ -68,4 +68,4 @@ copyFileNotifications = ObjectIdentity((1, 3, 6, 1, 4, 1, 164, 6, 2, 12, 18, 0))
 if mibBuilder.loadTexts: copyFileNotifications.setStatus('current')
 systemDownloadEnd = NotificationType((1, 3, 6, 1, 4, 1, 164, 6, 2, 12, 18, 0, 2)).setObjects(("RAD-GEN-MIB", "alarmEventLogSourceName"), ("RAD-GEN-MIB", "alarmEventLogAlarmOrEventId"), ("RAD-GEN-MIB", "alarmEventLogDescription"), ("RAD-GEN-MIB", "alarmEventLogSeverity"), ("RAD-GEN-MIB", "alarmEventLogDateAndTime"), ("RAD-GEN-MIB", "alarmEventReason"), ("SNMPv2-MIB", "sysName"), ("RAD-CopyFile-MIB", "copyFileSrcType"), ("RAD-CopyFile-MIB", "copyFileSrcFilePath"), ("RAD-CopyFile-MIB", "copyFileSrcFileName"), ("RAD-CopyFile-MIB", "copyFileDstType"), ("RAD-CopyFile-MIB", "copyFileDstFilePath"), ("RAD-CopyFile-MIB", "copyFileDstFileName"), ("RAD-CopyFile-MIB", "copyFileAddress"), ("RAD-CopyFile-MIB", "copyFilePort"), ("RAD-CopyFile-MIB", "copyFileError"))
 if mibBuilder.loadTexts: systemDownloadEnd.setStatus('current')
-mibBuilder.exportSymbols("RAD-CopyFile-MIB", copyFileAddressType=copyFileAddressType, copyFileGroup=copyFileGroup, copyFileSrcFilePath=copyFileSrcFilePath, copyFilePort=copyFilePort, copyFileRowStatus=copyFileRowStatus, copyFileTable=copyFileTable, copyFileDstFilePath=copyFileDstFilePath, copyFileStatus=copyFileStatus, copyFileDirection=copyFileDirection, copyFileProtocol=copyFileProtocol, copyFilePassword=copyFilePassword, copyFileEndTime=copyFileEndTime, copyFileSrcType=copyFileSrcType, copyFileDstType=copyFileDstType, copyFileSrcFileName=copyFileSrcFileName, copyFileNotifications=copyFileNotifications, copyFileProgressBytes=copyFileProgressBytes, copyFileDstFileName=copyFileDstFileName, copyFileStartTime=copyFileStartTime, PYSNMP_MODULE_ID=copyFileGroup, systemDownloadEnd=systemDownloadEnd, copyFileAddress=copyFileAddress, copyFileUserName=copyFileUserName, copyFileEntry=copyFileEntry, copyFileError=copyFileError, copyFileIdx=copyFileIdx)
+mibBuilder.exportSymbols("RAD-CopyFile-MIB", copyFileNotifications=copyFileNotifications, copyFilePort=copyFilePort, copyFileDstType=copyFileDstType, copyFileStartTime=copyFileStartTime, systemDownloadEnd=systemDownloadEnd, copyFileProgressBytes=copyFileProgressBytes, copyFileIdx=copyFileIdx, copyFileSrcType=copyFileSrcType, copyFileTable=copyFileTable, copyFileEntry=copyFileEntry, copyFileDstFileName=copyFileDstFileName, copyFileSrcFilePath=copyFileSrcFilePath, copyFileEndTime=copyFileEndTime, copyFilePassword=copyFilePassword, copyFileDirection=copyFileDirection, copyFileGroup=copyFileGroup, copyFileSrcFileName=copyFileSrcFileName, copyFileUserName=copyFileUserName, PYSNMP_MODULE_ID=copyFileGroup, copyFileDstFilePath=copyFileDstFilePath, copyFileAddress=copyFileAddress, copyFileAddressType=copyFileAddressType, copyFileRowStatus=copyFileRowStatus, copyFileProtocol=copyFileProtocol, copyFileError=copyFileError, copyFileStatus=copyFileStatus)

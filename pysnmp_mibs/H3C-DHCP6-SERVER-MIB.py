@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module H3C-DHCP6-SERVER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-DHCP6-SERVER-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:40 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-DHCP6-SERVER-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:30 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
 InetAddressIPv6, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv6")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 h3cDHCP6Server = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 159))
 h3cDHCP6Server.setRevisions(('2014-10-30 00:00',))
 if mibBuilder.loadTexts: h3cDHCP6Server.setLastUpdated('201410300000Z')
@@ -52,4 +52,4 @@ h3cDHCPS6PoolStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 159, 1, 4, 
 if mibBuilder.loadTexts: h3cDHCPS6PoolStatEntry.setStatus('current')
 h3cDHCPS6PoolIPPoolUsage = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 159, 1, 4, 1, 1), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: h3cDHCPS6PoolIPPoolUsage.setStatus('current')
-mibBuilder.exportSymbols("H3C-DHCP6-SERVER-MIB", h3cDHCPS6PoolName=h3cDHCPS6PoolName, h3cDHCPS6PoolPrimaryDNSIP=h3cDHCPS6PoolPrimaryDNSIP, h3cDHCPS6PoolStartAddr=h3cDHCPS6PoolStartAddr, h3cDHCPS6PoolStatEntry=h3cDHCPS6PoolStatEntry, h3cDHCP6ServerTables=h3cDHCP6ServerTables, h3cDHCPS6PoolRowStatus=h3cDHCPS6PoolRowStatus, h3cDHCPS6PoolLeaseTime=h3cDHCPS6PoolLeaseTime, h3cDHCPS6PoolIPPoolUsage=h3cDHCPS6PoolIPPoolUsage, h3cDHCPS6PoolSecondDNSIP=h3cDHCPS6PoolSecondDNSIP, h3cDHCPS6PoolNetPrefixLen=h3cDHCPS6PoolNetPrefixLen, h3cDHCPS6PoolEntry=h3cDHCPS6PoolEntry, h3cDHCP6Server=h3cDHCP6Server, h3cDHCPS6PoolNetworkTable=h3cDHCPS6PoolNetworkTable, h3cDHCPS6PoolNetworkEntry=h3cDHCPS6PoolNetworkEntry, h3cDHCPS6PoolStatTable=h3cDHCPS6PoolStatTable, h3cDHCPS6PoolConfigEntry=h3cDHCPS6PoolConfigEntry, h3cDHCPS6PoolConfigTable=h3cDHCPS6PoolConfigTable, PYSNMP_MODULE_ID=h3cDHCP6Server, h3cDHCPS6PoolStopAddr=h3cDHCPS6PoolStopAddr, h3cDHCPS6PoolTable=h3cDHCPS6PoolTable)
+mibBuilder.exportSymbols("H3C-DHCP6-SERVER-MIB", h3cDHCPS6PoolPrimaryDNSIP=h3cDHCPS6PoolPrimaryDNSIP, h3cDHCPS6PoolStatTable=h3cDHCPS6PoolStatTable, h3cDHCPS6PoolSecondDNSIP=h3cDHCPS6PoolSecondDNSIP, h3cDHCPS6PoolLeaseTime=h3cDHCPS6PoolLeaseTime, h3cDHCPS6PoolName=h3cDHCPS6PoolName, PYSNMP_MODULE_ID=h3cDHCP6Server, h3cDHCP6ServerTables=h3cDHCP6ServerTables, h3cDHCPS6PoolRowStatus=h3cDHCPS6PoolRowStatus, h3cDHCP6Server=h3cDHCP6Server, h3cDHCPS6PoolTable=h3cDHCPS6PoolTable, h3cDHCPS6PoolIPPoolUsage=h3cDHCPS6PoolIPPoolUsage, h3cDHCPS6PoolEntry=h3cDHCPS6PoolEntry, h3cDHCPS6PoolConfigEntry=h3cDHCPS6PoolConfigEntry, h3cDHCPS6PoolConfigTable=h3cDHCPS6PoolConfigTable, h3cDHCPS6PoolStatEntry=h3cDHCPS6PoolStatEntry, h3cDHCPS6PoolStopAddr=h3cDHCPS6PoolStopAddr, h3cDHCPS6PoolNetworkTable=h3cDHCPS6PoolNetworkTable, h3cDHCPS6PoolStartAddr=h3cDHCPS6PoolStartAddr, h3cDHCPS6PoolNetworkEntry=h3cDHCPS6PoolNetworkEntry, h3cDHCPS6PoolNetPrefixLen=h3cDHCPS6PoolNetPrefixLen)

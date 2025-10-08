@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module MELLANOX-PRODUCTS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mellanox/MELLANOX-PRODUCTS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:05 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mellanox/MELLANOX-PRODUCTS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:44:44 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 mellanoxProducts, = mibBuilder.importSymbols("MELLANOX-SMI-MIB", "mellanoxProducts")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 mellanoxProductsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 33049, 1, 1))
 mellanoxProductsMib.setRevisions(('2020-08-26 00:00',))
 if mibBuilder.loadTexts: mellanoxProductsMib.setLastUpdated('202008260000Z')
@@ -133,4 +133,4 @@ ufmServer = MibScalar((1, 3, 6, 1, 4, 1, 33049, 1, 1, 2, 2), Integer32()).setMax
 if mibBuilder.loadTexts: ufmServer.setStatus('current')
 neoAppliance = MibScalar((1, 3, 6, 1, 4, 1, 33049, 1, 1, 3, 1), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: neoAppliance.setStatus('current')
-mibBuilder.exportSymbols("MELLANOX-PRODUCTS-MIB", sx6700=sx6700, sb7800=sb7800, cs7520=cs7520, sn3800=sn3800, sn4700=sn4700, sb7880=sb7880, sn4600=sn4600, sx6506=sx6506, sn2410=sn2410, sx6018g=sx6018g, sx1400=sx1400, neo=neo, cs7510=cs7510, ufm=ufm, sn2700b=sn2700b, sn27002=sn27002, sn4600c=sn4600c, ufmServer=ufmServer, switchXFamily=switchXFamily, sx6730=sx6730, mqm8700=mqm8700, sx6018=sx6018, sx1710=sx1710, sx1016=sx1016, mtx6240=mtx6240, sx6536=sx6536, sx6012=sx6012, cs7500=cs7500, sx1700=sx1700, sn3700c=sn3700c, ufmAppliance=ufmAppliance, sx6036=sx6036, mellanoxProductsMib=mellanoxProductsMib, sn2740=sn2740, neoAppliance=neoAppliance, sn3420=sn3420, sx1012=sx1012, sn3700=sn3700, sx6710g=sx6710g, sn2700=sn2700, sn2010=sn2010, sx6710=sx6710, mtx6280=mtx6280, sx1024=sx1024, mtx6100=mtx6100, mtq8200=mtq8200, sn2100=sn2100, sx6518=sx6518, sx6720=sx6720, sb7780=sb7780, cs8500=cs8500, mtx6000=mtx6000, sx1012x=sx1012x, PYSNMP_MODULE_ID=mellanoxProductsMib, sn2100b=sn2100b, mtq8100=mtq8100, sx6036g=sx6036g, sx1036=sx1036, msx1410=msx1410, sx6512=sx6512, sb7700=sb7700, sx1035=sx1035)
+mibBuilder.exportSymbols("MELLANOX-PRODUCTS-MIB", switchXFamily=switchXFamily, sn2700=sn2700, mtx6280=mtx6280, ufm=ufm, sn4600c=sn4600c, sx6036g=sx6036g, mellanoxProductsMib=mellanoxProductsMib, sb7880=sb7880, cs7510=cs7510, sn4600=sn4600, cs8500=cs8500, sx1036=sx1036, sb7780=sb7780, ufmServer=ufmServer, sn3800=sn3800, sx6036=sx6036, cs7500=cs7500, neoAppliance=neoAppliance, sx1012=sx1012, sn2700b=sn2700b, sx1012x=sx1012x, sb7700=sb7700, sx1400=sx1400, sx6720=sx6720, sn3700c=sn3700c, sx6710g=sx6710g, sx6518=sx6518, sn2410=sn2410, mtx6000=mtx6000, sx1710=sx1710, sn2100b=sn2100b, sn4700=sn4700, sx6012=sx6012, sn3420=sn3420, sx1024=sx1024, sn2010=sn2010, sx6512=sx6512, sn2100=sn2100, sn2740=sn2740, cs7520=cs7520, ufmAppliance=ufmAppliance, sx1016=sx1016, sx6710=sx6710, mtx6240=mtx6240, sx6506=sx6506, neo=neo, sb7800=sb7800, sx1035=sx1035, mqm8700=mqm8700, sx6018=sx6018, sn3700=sn3700, PYSNMP_MODULE_ID=mellanoxProductsMib, sx6018g=sx6018g, sx6536=sx6536, sx6700=sx6700, mtx6100=mtx6100, mtq8100=mtq8100, mtq8200=mtq8200, sx1700=sx1700, sx6730=sx6730, sn27002=sn27002, msx1410=msx1410)

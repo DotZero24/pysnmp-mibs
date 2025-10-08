@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BAY-STACK-NTP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/BAY-STACK-NTP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:26 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nortel/BAY-STACK-NTP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:03:07 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, DateAndTime, TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "TruthValue", "DisplayString")
 bayStackMibs, = mibBuilder.importSymbols("SYNOPTICS-ROOT-MIB", "bayStackMibs")
 bayStackNtpMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 5, 49))
 bayStackNtpMib.setRevisions(('2018-09-27 00:00', '2017-07-07 00:00',))
@@ -70,4 +70,4 @@ bsNtpKeySecret = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 49, 1, 3, 1, 3), Displ
 if mibBuilder.loadTexts: bsNtpKeySecret.setStatus('current')
 bsNtpKeyRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 49, 1, 3, 1, 4), RowStatus()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: bsNtpKeyRowStatus.setStatus('current')
-mibBuilder.exportSymbols("BAY-STACK-NTP-MIB", bsNtpObjects=bsNtpObjects, bsNtpKeySecret=bsNtpKeySecret, bsNtpServerAddressType=bsNtpServerAddressType, bsNtpServerSynchronized=bsNtpServerSynchronized, bsNtpServerPckProcessed=bsNtpServerPckProcessed, bsNtpKeyEntry=bsNtpKeyEntry, bsNtpKeyType=bsNtpKeyType, bsNtpServerRowStatus=bsNtpServerRowStatus, bsNtpKeyId=bsNtpKeyId, bsNtpServerEnable=bsNtpServerEnable, bsNtpKeyTable=bsNtpKeyTable, bsNtpServerPckSent=bsNtpServerPckSent, bsNtpGlobal=bsNtpGlobal, bsNtpServerStratum=bsNtpServerStratum, bsNtpGlobalEnable=bsNtpGlobalEnable, bsNtpServerTable=bsNtpServerTable, bsNtpServerRootDelay=bsNtpServerRootDelay, bsNtpServerKeyId=bsNtpServerKeyId, bsNtpServerReachable=bsNtpServerReachable, bsNtpServerAuthEnable=bsNtpServerAuthEnable, bayStackNtpMib=bayStackNtpMib, bsNtpServerAutokeyEnable=bsNtpServerAutokeyEnable, bsNtpNotifications=bsNtpNotifications, bsNtpServerEntry=bsNtpServerEntry, bsNtpServerAddress=bsNtpServerAddress, PYSNMP_MODULE_ID=bayStackNtpMib, bsNtpServerPckDiscarded=bsNtpServerPckDiscarded, bsNtpKeyRowStatus=bsNtpKeyRowStatus, bsNtpServerPrecision=bsNtpServerPrecision, bsNtpServerVersion=bsNtpServerVersion)
+mibBuilder.exportSymbols("BAY-STACK-NTP-MIB", bsNtpObjects=bsNtpObjects, bsNtpServerPckDiscarded=bsNtpServerPckDiscarded, bsNtpServerRootDelay=bsNtpServerRootDelay, bsNtpKeyId=bsNtpKeyId, bsNtpServerVersion=bsNtpServerVersion, bsNtpServerAuthEnable=bsNtpServerAuthEnable, bsNtpKeyType=bsNtpKeyType, bsNtpKeySecret=bsNtpKeySecret, bsNtpGlobalEnable=bsNtpGlobalEnable, bsNtpServerKeyId=bsNtpServerKeyId, bsNtpKeyRowStatus=bsNtpKeyRowStatus, bsNtpNotifications=bsNtpNotifications, bsNtpServerTable=bsNtpServerTable, PYSNMP_MODULE_ID=bayStackNtpMib, bsNtpServerPrecision=bsNtpServerPrecision, bsNtpServerAddress=bsNtpServerAddress, bsNtpKeyEntry=bsNtpKeyEntry, bsNtpServerAddressType=bsNtpServerAddressType, bsNtpServerAutokeyEnable=bsNtpServerAutokeyEnable, bayStackNtpMib=bayStackNtpMib, bsNtpServerRowStatus=bsNtpServerRowStatus, bsNtpKeyTable=bsNtpKeyTable, bsNtpServerPckProcessed=bsNtpServerPckProcessed, bsNtpServerEnable=bsNtpServerEnable, bsNtpServerSynchronized=bsNtpServerSynchronized, bsNtpServerStratum=bsNtpServerStratum, bsNtpServerPckSent=bsNtpServerPckSent, bsNtpGlobal=bsNtpGlobal, bsNtpServerEntry=bsNtpServerEntry, bsNtpServerReachable=bsNtpServerReachable)

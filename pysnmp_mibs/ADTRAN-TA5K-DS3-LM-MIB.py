@@ -1,21 +1,21 @@
 #
 # PySNMP MIB module ADTRAN-TA5K-DS3-LM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-TA5K-DS3-LM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:48 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/adtran/ADTRAN-TA5K-DS3-LM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:53:12 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 adTrapInformSeqNum, = mibBuilder.importSymbols("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum")
-adMgmt, adProducts, adIdentity = mibBuilder.importSymbols("ADTRAN-MIB", "adMgmt", "adProducts", "adIdentity")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+adProducts, adMgmt, adIdentity = mibBuilder.importSymbols("ADTRAN-MIB", "adProducts", "adMgmt", "adIdentity")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-dsx3TotalIndex, dsx3IntervalNumber, dsx3IntervalIndex, dsx3CurrentIndex = mibBuilder.importSymbols("DS3-MIB", "dsx3TotalIndex", "dsx3IntervalNumber", "dsx3IntervalIndex", "dsx3CurrentIndex")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+dsx3IntervalIndex, dsx3CurrentIndex, dsx3TotalIndex, dsx3IntervalNumber = mibBuilder.importSymbols("DS3-MIB", "dsx3IntervalIndex", "dsx3CurrentIndex", "dsx3TotalIndex", "dsx3IntervalNumber")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 PerfCurrentCount, PerfTotalCount, PerfIntervalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfCurrentCount", "PerfTotalCount", "PerfIntervalCount")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 adTa5kDs3ModuleIdentity = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 979))
 if mibBuilder.loadTexts: adTa5kDs3ModuleIdentity.setLastUpdated('200703120000Z')
 if mibBuilder.loadTexts: adTa5kDs3ModuleIdentity.setOrganization('ADTRAN, Inc.')
@@ -68,4 +68,4 @@ adTa5kDS3TotalBIP8 = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 979, 3, 3, 1, 1),
 if mibBuilder.loadTexts: adTa5kDS3TotalBIP8.setStatus('current')
 adTa5kDS3TotalPLCPES = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 979, 3, 3, 1, 2), PerfTotalCount()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: adTa5kDS3TotalPLCPES.setStatus('current')
-mibBuilder.exportSymbols("ADTRAN-TA5K-DS3-LM-MIB", adTa5kDS3CurrentTable=adTa5kDS3CurrentTable, adTa5kDS3CurrentBIP8=adTa5kDS3CurrentBIP8, adTa5kDS3TestPatternErrors=adTa5kDS3TestPatternErrors, adTa5kDS3CurrentEntry=adTa5kDS3CurrentEntry, PYSNMP_MODULE_ID=adTa5kDs3ModuleIdentity, adTa5kDS3TestPatternResetStatus=adTa5kDS3TestPatternResetStatus, adTa5kDS3LoopbackEntry=adTa5kDS3LoopbackEntry, adTa5kDS3RxTestPattern=adTa5kDS3RxTestPattern, adTa5kDS3LoopbackCancelFarEnd=adTa5kDS3LoopbackCancelFarEnd, adTa5kDs3ModuleIdentity=adTa5kDs3ModuleIdentity, adTa5kDS3TestPattenTable=adTa5kDS3TestPattenTable, adTa5kDS3TotalTable=adTa5kDS3TotalTable, adTa5kDs3Traps=adTa5kDs3Traps, adTa5kDS3CurrentPLCPES=adTa5kDS3CurrentPLCPES, adTa5kDS3IntervalTable=adTa5kDS3IntervalTable, adTa5kDS3TxTestPattern=adTa5kDS3TxTestPattern, adTa5kDS3TotalBIP8=adTa5kDS3TotalBIP8, adTa5kDS3TestPattenEntry=adTa5kDS3TestPattenEntry, adTa5kDS3IntervalBIP8=adTa5kDS3IntervalBIP8, adTa5kDS3TotalPLCPES=adTa5kDS3TotalPLCPES, adTa5kDS3LoopbackTable=adTa5kDS3LoopbackTable, adTa5kDS3Provisioning=adTa5kDS3Provisioning, adTa5kDS3IntervalPLCPES=adTa5kDS3IntervalPLCPES, adTa5kDS3Performance=adTa5kDS3Performance, adTa5kDS3LoopbackFarEnd=adTa5kDS3LoopbackFarEnd, adTa5kDS3IntervalEntry=adTa5kDS3IntervalEntry, adTa5kDS3Test=adTa5kDS3Test, adTa5kDS3TotalEntry=adTa5kDS3TotalEntry, adTa5kDs3=adTa5kDs3)
+mibBuilder.exportSymbols("ADTRAN-TA5K-DS3-LM-MIB", adTa5kDS3Provisioning=adTa5kDS3Provisioning, adTa5kDs3Traps=adTa5kDs3Traps, adTa5kDS3LoopbackTable=adTa5kDS3LoopbackTable, adTa5kDS3CurrentEntry=adTa5kDS3CurrentEntry, adTa5kDS3CurrentTable=adTa5kDS3CurrentTable, adTa5kDS3TotalEntry=adTa5kDS3TotalEntry, adTa5kDS3IntervalEntry=adTa5kDS3IntervalEntry, adTa5kDs3ModuleIdentity=adTa5kDs3ModuleIdentity, PYSNMP_MODULE_ID=adTa5kDs3ModuleIdentity, adTa5kDS3TestPattenEntry=adTa5kDS3TestPattenEntry, adTa5kDS3TotalTable=adTa5kDS3TotalTable, adTa5kDS3LoopbackEntry=adTa5kDS3LoopbackEntry, adTa5kDS3RxTestPattern=adTa5kDS3RxTestPattern, adTa5kDS3TxTestPattern=adTa5kDS3TxTestPattern, adTa5kDS3TestPatternResetStatus=adTa5kDS3TestPatternResetStatus, adTa5kDS3TotalPLCPES=adTa5kDS3TotalPLCPES, adTa5kDS3IntervalTable=adTa5kDS3IntervalTable, adTa5kDS3TestPattenTable=adTa5kDS3TestPattenTable, adTa5kDS3Performance=adTa5kDS3Performance, adTa5kDS3TotalBIP8=adTa5kDS3TotalBIP8, adTa5kDS3LoopbackCancelFarEnd=adTa5kDS3LoopbackCancelFarEnd, adTa5kDS3IntervalBIP8=adTa5kDS3IntervalBIP8, adTa5kDS3CurrentPLCPES=adTa5kDS3CurrentPLCPES, adTa5kDS3TestPatternErrors=adTa5kDS3TestPatternErrors, adTa5kDS3Test=adTa5kDS3Test, adTa5kDS3CurrentBIP8=adTa5kDS3CurrentBIP8, adTa5kDS3IntervalPLCPES=adTa5kDS3IntervalPLCPES, adTa5kDs3=adTa5kDs3, adTa5kDS3LoopbackFarEnd=adTa5kDS3LoopbackFarEnd)

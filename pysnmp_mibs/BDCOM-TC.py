@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module BDCOM-TC (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/bdcom/BDCOM-TC
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:22:50 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/bdcom/BDCOM-TC
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:42:19 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 bdcomModules, = mibBuilder.importSymbols("BDCOM-SMI", "bdcomModules")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 bdcomTextualConventions = ModuleIdentity((1, 3, 6, 1, 4, 1, 3320, 12, 1))
 bdcomTextualConventions.setRevisions(('2003-10-16 00:00',))
@@ -128,4 +128,4 @@ class BDCOMMilliSeconds(TextualConvention, Unsigned32):
 class MicroSeconds(TextualConvention, Unsigned32):
     status = 'current'
 
-mibBuilder.exportSymbols("BDCOM-TC", BDCOMSnapShotAbsCounter32=BDCOMSnapShotAbsCounter32, BDCOMIpProtocol=BDCOMIpProtocol, BDCOMRowOperStatus=BDCOMRowOperStatus, MicroSeconds=MicroSeconds, BDCOMLocationSpecifier=BDCOMLocationSpecifier, CountryCode=CountryCode, SAPType=SAPType, BDCOMLocationClass=BDCOMLocationClass, TimeIntervalMin=TimeIntervalMin, InterfaceIndexOrZero=InterfaceIndexOrZero, BDCOMNetworkProtocol=BDCOMNetworkProtocol, ListIndex=ListIndex, CountryCodeITU=CountryCodeITU, BDCOMAbsZeroBasedCounter32=BDCOMAbsZeroBasedCounter32, ConfigIterator=ConfigIterator, BDCOMMilliSeconds=BDCOMMilliSeconds, BDCOMAlarmSeverity=BDCOMAlarmSeverity, Unsigned64=Unsigned64, BDCOMPort=BDCOMPort, BulkConfigResult=BulkConfigResult, BDCOMNetworkAddress=BDCOMNetworkAddress, ListIndexOrZero=ListIndexOrZero, EntPhysicalIndexOrZero=EntPhysicalIndexOrZero, bdcomTextualConventions=bdcomTextualConventions, BDCOMInetAddressMask=BDCOMInetAddressMask, TimeIntervalSec=TimeIntervalSec, PYSNMP_MODULE_ID=bdcomTextualConventions, PerfHighIntervalCount=PerfHighIntervalCount)
+mibBuilder.exportSymbols("BDCOM-TC", BDCOMAlarmSeverity=BDCOMAlarmSeverity, BDCOMSnapShotAbsCounter32=BDCOMSnapShotAbsCounter32, ListIndexOrZero=ListIndexOrZero, BDCOMAbsZeroBasedCounter32=BDCOMAbsZeroBasedCounter32, BDCOMIpProtocol=BDCOMIpProtocol, bdcomTextualConventions=bdcomTextualConventions, PerfHighIntervalCount=PerfHighIntervalCount, ListIndex=ListIndex, BDCOMMilliSeconds=BDCOMMilliSeconds, TimeIntervalMin=TimeIntervalMin, EntPhysicalIndexOrZero=EntPhysicalIndexOrZero, BDCOMLocationSpecifier=BDCOMLocationSpecifier, BDCOMInetAddressMask=BDCOMInetAddressMask, BDCOMLocationClass=BDCOMLocationClass, SAPType=SAPType, ConfigIterator=ConfigIterator, BDCOMNetworkAddress=BDCOMNetworkAddress, BulkConfigResult=BulkConfigResult, BDCOMPort=BDCOMPort, BDCOMRowOperStatus=BDCOMRowOperStatus, Unsigned64=Unsigned64, TimeIntervalSec=TimeIntervalSec, MicroSeconds=MicroSeconds, PYSNMP_MODULE_ID=bdcomTextualConventions, InterfaceIndexOrZero=InterfaceIndexOrZero, BDCOMNetworkProtocol=BDCOMNetworkProtocol, CountryCode=CountryCode, CountryCodeITU=CountryCodeITU)

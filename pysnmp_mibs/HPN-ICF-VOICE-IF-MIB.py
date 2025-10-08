@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module HPN-ICF-VOICE-IF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-VOICE-IF-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:21 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HPN-ICF-VOICE-IF-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:09:43 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 hpnicfVoice, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfVoice")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 hpnicfVoiceInterface = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 39, 13))
 hpnicfVoiceInterface.setRevisions(('2007-12-10 17:00',))
 if mibBuilder.loadTexts: hpnicfVoiceInterface.setLastUpdated('200712101700Z')
@@ -42,4 +42,4 @@ hpnicfVoiceIfCfgPrivateline = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 1
 if mibBuilder.loadTexts: hpnicfVoiceIfCfgPrivateline.setStatus('current')
 hpnicfVoiceIfCfgRegTone = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 39, 13, 1, 1, 1, 10), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(2, 3), ))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: hpnicfVoiceIfCfgRegTone.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-VOICE-IF-MIB", hpnicfVoiceIfConfigTable=hpnicfVoiceIfConfigTable, hpnicfVoiceIfObjects=hpnicfVoiceIfObjects, hpnicfVoiceInterface=hpnicfVoiceInterface, hpnicfVoiceIfConfigEntry=hpnicfVoiceIfConfigEntry, hpnicfVoiceIfCfgEchoCancelDelay=hpnicfVoiceIfCfgEchoCancelDelay, hpnicfVoiceIfCfgPrivateline=hpnicfVoiceIfCfgPrivateline, hpnicfVoiceIfCfgInputGain=hpnicfVoiceIfCfgInputGain, hpnicfVoiceIfCfgOutputGain=hpnicfVoiceIfCfgOutputGain, hpnicfVoiceIfCfgTimerDialInterval=hpnicfVoiceIfCfgTimerDialInterval, PYSNMP_MODULE_ID=hpnicfVoiceInterface, hpnicfVoiceIfCfgNonLinearSwitch=hpnicfVoiceIfCfgNonLinearSwitch, hpnicfVoiceIfCfgEchoCancelSwitch=hpnicfVoiceIfCfgEchoCancelSwitch, hpnicfVoiceIfCfgRegTone=hpnicfVoiceIfCfgRegTone, hpnicfVoiceIfCfgCngOn=hpnicfVoiceIfCfgCngOn, hpnicfVoiceIfCfgTimerFirstDial=hpnicfVoiceIfCfgTimerFirstDial)
+mibBuilder.exportSymbols("HPN-ICF-VOICE-IF-MIB", hpnicfVoiceIfConfigTable=hpnicfVoiceIfConfigTable, hpnicfVoiceIfCfgEchoCancelSwitch=hpnicfVoiceIfCfgEchoCancelSwitch, hpnicfVoiceIfCfgCngOn=hpnicfVoiceIfCfgCngOn, hpnicfVoiceIfCfgTimerDialInterval=hpnicfVoiceIfCfgTimerDialInterval, hpnicfVoiceIfCfgPrivateline=hpnicfVoiceIfCfgPrivateline, hpnicfVoiceIfCfgEchoCancelDelay=hpnicfVoiceIfCfgEchoCancelDelay, hpnicfVoiceIfCfgOutputGain=hpnicfVoiceIfCfgOutputGain, hpnicfVoiceIfObjects=hpnicfVoiceIfObjects, hpnicfVoiceIfCfgInputGain=hpnicfVoiceIfCfgInputGain, PYSNMP_MODULE_ID=hpnicfVoiceInterface, hpnicfVoiceIfConfigEntry=hpnicfVoiceIfConfigEntry, hpnicfVoiceIfCfgNonLinearSwitch=hpnicfVoiceIfCfgNonLinearSwitch, hpnicfVoiceIfCfgTimerFirstDial=hpnicfVoiceIfCfgTimerFirstDial, hpnicfVoiceInterface=hpnicfVoiceInterface, hpnicfVoiceIfCfgRegTone=hpnicfVoiceIfCfgRegTone)

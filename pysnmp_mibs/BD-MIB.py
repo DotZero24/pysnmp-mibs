@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BD-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/brocade/BD-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:46 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/brocade/BD-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:15:05 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 fcSwitch, bcsiModules = mibBuilder.importSymbols("Brocade-REG-MIB", "fcSwitch", "bcsiModules")
 SwPortIndex, = mibBuilder.importSymbols("Brocade-TC", "SwPortIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 swVfId, = mibBuilder.importSymbols("SW-MIB", "swVfId")
 bd = ModuleIdentity((1, 3, 6, 1, 4, 1, 1588, 2, 1, 1, 51))
 bd.setRevisions(('2014-04-10 11:46',))
@@ -73,4 +73,4 @@ bdTrap = NotificationType((1, 3, 6, 1, 4, 1, 1588, 2, 1, 1, 51, 0, 1)).setObject
 if mibBuilder.loadTexts: bdTrap.setStatus('current')
 bdClearTrap = NotificationType((1, 3, 6, 1, 4, 1, 1588, 2, 1, 1, 51, 0, 2)).setObjects(("BD-MIB", "userPortNumber"), ("BD-MIB", "slotPort"), ("BD-MIB", "bdWinAvgTime"), ("BD-MIB", "nBdType"), ("BD-MIB", "bdThreshold"), ("BD-MIB", "bdAggrStats"), ("BD-MIB", "bdAbsoluteValue"), ("SW-MIB", "swVfId"), ("BD-MIB", "bdAvgFrameSize"))
 if mibBuilder.loadTexts: bdClearTrap.setStatus('current')
-mibBuilder.exportSymbols("BD-MIB", bdWinAvgTime=bdWinAvgTime, userPortNumber=userPortNumber, slotPort=slotPort, bd=bd, bdAbsoluteValue=bdAbsoluteValue, PYSNMP_MODULE_ID=bd, bdStatus=bdStatus, bdTraps=bdTraps, bdStatsValue10SecsSample=bdStatsValue10SecsSample, bdTrap=bdTrap, BdType=BdType, nBdType=nBdType, bdClearTrap=bdClearTrap, bdQTime=bdQTime, bdAvgFrameSize=bdAvgFrameSize, bdConfig=bdConfig, bdType=bdType, bdLThreshold=bdLThreshold, bdStatsValue300SecsSample=bdStatsValue300SecsSample, bdStatsEntry=bdStatsEntry, bdSampleTime=bdSampleTime, bdAggrStats=bdAggrStats, bdCThreshold=bdCThreshold, bdThreshold=bdThreshold, bdNumOfEntries=bdNumOfEntries, bdStats=bdStats, bdStatsTable=bdStatsTable, bdStatsValue60SecsSample=bdStatsValue60SecsSample)
+mibBuilder.exportSymbols("BD-MIB", slotPort=slotPort, userPortNumber=userPortNumber, bdAggrStats=bdAggrStats, bdType=bdType, bdStats=bdStats, bdTrap=bdTrap, bdStatsValue10SecsSample=bdStatsValue10SecsSample, bdStatsEntry=bdStatsEntry, bdLThreshold=bdLThreshold, PYSNMP_MODULE_ID=bd, bdAbsoluteValue=bdAbsoluteValue, bdStatsValue60SecsSample=bdStatsValue60SecsSample, bdStatsTable=bdStatsTable, bdSampleTime=bdSampleTime, bdClearTrap=bdClearTrap, bd=bd, bdCThreshold=bdCThreshold, BdType=BdType, bdAvgFrameSize=bdAvgFrameSize, bdThreshold=bdThreshold, bdTraps=bdTraps, bdConfig=bdConfig, bdStatsValue300SecsSample=bdStatsValue300SecsSample, bdStatus=bdStatus, nBdType=nBdType, bdWinAvgTime=bdWinAvgTime, bdQTime=bdQTime, bdNumOfEntries=bdNumOfEntries)

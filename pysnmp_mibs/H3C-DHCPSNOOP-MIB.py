@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module H3C-DHCPSNOOP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-DHCPSNOOP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:54 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-DHCPSNOOP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:50 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
 hwdot1qVlanIndex, = mibBuilder.importSymbols("HUAWEI-LswVLAN-MIB", "hwdot1qVlanIndex")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-TruthValue, MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "MacAddress", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "MacAddress", "TextualConvention", "DisplayString")
 h3cDhcpSnoop = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 36))
 if mibBuilder.loadTexts: h3cDhcpSnoop.setLastUpdated('200501140000Z')
 if mibBuilder.loadTexts: h3cDhcpSnoop.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
@@ -64,4 +64,4 @@ h3cDhcpSnoopSpoofServerDetected = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 
 if mibBuilder.loadTexts: h3cDhcpSnoopSpoofServerDetected.setStatus('current')
 h3cDhcpSnoopNewBinding = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 36, 2, 0, 2)).setObjects(("H3C-DHCPSNOOP-MIB", "h3cDhcpSnoopBindingIP"), ("H3C-DHCPSNOOP-MIB", "h3cDhcpSnoopBindingMac"))
 if mibBuilder.loadTexts: h3cDhcpSnoopNewBinding.setStatus('current')
-mibBuilder.exportSymbols("H3C-DHCPSNOOP-MIB", h3cDhcpSnoop=h3cDhcpSnoop, h3cDhcpSnoopClientMacAddress=h3cDhcpSnoopClientMacAddress, h3cDhcpSnoopEnable=h3cDhcpSnoopEnable, h3cDhcpSnoopVlanEnable=h3cDhcpSnoopVlanEnable, PYSNMP_MODULE_ID=h3cDhcpSnoop, h3cDhcpSnoopEntry=h3cDhcpSnoopEntry, h3cDhcpSnoopTrustStatus=h3cDhcpSnoopTrustStatus, h3cDhcpSnoopBindingIP=h3cDhcpSnoopBindingIP, h3cDhcpSnoopTrustTable=h3cDhcpSnoopTrustTable, h3cDhcpSnoopClientIpAddress=h3cDhcpSnoopClientIpAddress, h3cDhcpSnoopTrapsPrefix=h3cDhcpSnoopTrapsPrefix, h3cDhcpSnoopVlanIndex=h3cDhcpSnoopVlanIndex, h3cDhcpSnoopBindingMac=h3cDhcpSnoopBindingMac, h3cDhcpSnoopClientUnitNum=h3cDhcpSnoopClientUnitNum, h3cDhcpSnoopSpoofServerDetected=h3cDhcpSnoopSpoofServerDetected, h3cDhcpSnoopVlanEntry=h3cDhcpSnoopVlanEntry, h3cDhcpSnoopNewBinding=h3cDhcpSnoopNewBinding, h3cDhcpSnoopVlanTable=h3cDhcpSnoopVlanTable, h3cDhcpSnoopTrustEntry=h3cDhcpSnoopTrustEntry, h3cDhcpSnoopTrapsObject=h3cDhcpSnoopTrapsObject, h3cDhcpSnoopTable=h3cDhcpSnoopTable, h3cDhcpSnoopClientProperty=h3cDhcpSnoopClientProperty, h3cDhcpSnoopTraps=h3cDhcpSnoopTraps, h3cDhcpSnoopMibObject=h3cDhcpSnoopMibObject, h3cDhcpSnoopSpoofServerMac=h3cDhcpSnoopSpoofServerMac, h3cDhcpSnoopSpoofServerIP=h3cDhcpSnoopSpoofServerIP, h3cDhcpSnoopClientIpAddressType=h3cDhcpSnoopClientIpAddressType)
+mibBuilder.exportSymbols("H3C-DHCPSNOOP-MIB", h3cDhcpSnoopVlanTable=h3cDhcpSnoopVlanTable, h3cDhcpSnoopBindingMac=h3cDhcpSnoopBindingMac, h3cDhcpSnoopEnable=h3cDhcpSnoopEnable, h3cDhcpSnoopVlanEnable=h3cDhcpSnoopVlanEnable, h3cDhcpSnoopClientProperty=h3cDhcpSnoopClientProperty, h3cDhcpSnoopEntry=h3cDhcpSnoopEntry, h3cDhcpSnoopMibObject=h3cDhcpSnoopMibObject, h3cDhcpSnoopTable=h3cDhcpSnoopTable, h3cDhcpSnoopVlanIndex=h3cDhcpSnoopVlanIndex, h3cDhcpSnoopBindingIP=h3cDhcpSnoopBindingIP, h3cDhcpSnoopTrustEntry=h3cDhcpSnoopTrustEntry, h3cDhcpSnoopVlanEntry=h3cDhcpSnoopVlanEntry, h3cDhcpSnoopClientIpAddressType=h3cDhcpSnoopClientIpAddressType, h3cDhcpSnoopTrustTable=h3cDhcpSnoopTrustTable, h3cDhcpSnoopSpoofServerDetected=h3cDhcpSnoopSpoofServerDetected, PYSNMP_MODULE_ID=h3cDhcpSnoop, h3cDhcpSnoopClientMacAddress=h3cDhcpSnoopClientMacAddress, h3cDhcpSnoopTrapsPrefix=h3cDhcpSnoopTrapsPrefix, h3cDhcpSnoopTrustStatus=h3cDhcpSnoopTrustStatus, h3cDhcpSnoopSpoofServerIP=h3cDhcpSnoopSpoofServerIP, h3cDhcpSnoopClientUnitNum=h3cDhcpSnoopClientUnitNum, h3cDhcpSnoopTraps=h3cDhcpSnoopTraps, h3cDhcpSnoopNewBinding=h3cDhcpSnoopNewBinding, h3cDhcpSnoop=h3cDhcpSnoop, h3cDhcpSnoopClientIpAddress=h3cDhcpSnoopClientIpAddress, h3cDhcpSnoopTrapsObject=h3cDhcpSnoopTrapsObject, h3cDhcpSnoopSpoofServerMac=h3cDhcpSnoopSpoofServerMac)

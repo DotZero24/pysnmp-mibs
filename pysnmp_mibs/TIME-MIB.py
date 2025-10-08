@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module TIME-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/TIME-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:07 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/TIME-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:00:09 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
 Ipv6Address, = mibBuilder.importSymbols("IPV6-TC", "Ipv6Address")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "DateAndTime", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DateAndTime", "TextualConvention", "DisplayString")
 swTimeMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 10))
 if mibBuilder.loadTexts: swTimeMIB.setLastUpdated('201108080000Z')
 if mibBuilder.loadTexts: swTimeMIB.setOrganization('D-Link Corp.')
@@ -64,4 +64,4 @@ swAnnualSummerTimeStart = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 10, 12, 5), Octe
 if mibBuilder.loadTexts: swAnnualSummerTimeStart.setStatus('current')
 swAnnualSummerTimeEnd = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 10, 12, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: swAnnualSummerTimeEnd.setStatus('current')
-mibBuilder.exportSymbols("TIME-MIB", swSNTPIPv6Server2IPAddr=swSNTPIPv6Server2IPAddr, swSNTPServer2IPAddr=swSNTPServer2IPAddr, swSystemUpTime=swSystemUpTime, swSNTPPollInterval=swSNTPPollInterval, swSummerTime=swSummerTime, swTimeMIB=swTimeMIB, swSystemCurrentTime=swSystemCurrentTime, swSNTPServer1IPAddr=swSNTPServer1IPAddr, swAnnualSummerTimeEnd=swAnnualSummerTimeEnd, PYSNMP_MODULE_ID=swTimeMIB, swAnnualSummerTimeStart=swAnnualSummerTimeStart, swSNTPIPv6Server2InterfaceName=swSNTPIPv6Server2InterfaceName, swSystemBootTime=swSystemBootTime, swRepeatSummerTimeStart=swRepeatSummerTimeStart, swRepeatSummerTimeEnd=swRepeatSummerTimeEnd, swSummerTimeStatus=swSummerTimeStatus, swSNTPIPv6Server1InterfaceName=swSNTPIPv6Server1InterfaceName, swTimeCapacity=swTimeCapacity, swSystemTimeZone=swSystemTimeZone, swClockLostOnReboot=swClockLostOnReboot, swSummerTimeOffset=swSummerTimeOffset, swTimeNotifPrefix=swTimeNotifPrefix, swCurrentClock=swCurrentClock, swSNTPState=swSNTPState, swSNTP=swSNTP, swSNTPIPv6Server1IPAddr=swSNTPIPv6Server1IPAddr, swSNTPTimeSource=swSNTPTimeSource, swSystemTime=swSystemTime)
+mibBuilder.exportSymbols("TIME-MIB", swTimeNotifPrefix=swTimeNotifPrefix, swSystemBootTime=swSystemBootTime, swSNTPPollInterval=swSNTPPollInterval, swClockLostOnReboot=swClockLostOnReboot, swSummerTimeStatus=swSummerTimeStatus, swSNTPIPv6Server1IPAddr=swSNTPIPv6Server1IPAddr, swSNTPIPv6Server2IPAddr=swSNTPIPv6Server2IPAddr, swSNTPIPv6Server1InterfaceName=swSNTPIPv6Server1InterfaceName, swSNTPServer2IPAddr=swSNTPServer2IPAddr, swAnnualSummerTimeStart=swAnnualSummerTimeStart, swSystemUpTime=swSystemUpTime, swRepeatSummerTimeStart=swRepeatSummerTimeStart, swAnnualSummerTimeEnd=swAnnualSummerTimeEnd, swTimeMIB=swTimeMIB, swSNTPIPv6Server2InterfaceName=swSNTPIPv6Server2InterfaceName, swSystemTime=swSystemTime, swRepeatSummerTimeEnd=swRepeatSummerTimeEnd, swSNTPTimeSource=swSNTPTimeSource, swSNTPServer1IPAddr=swSNTPServer1IPAddr, swSNTPState=swSNTPState, swSummerTime=swSummerTime, PYSNMP_MODULE_ID=swTimeMIB, swSystemTimeZone=swSystemTimeZone, swTimeCapacity=swTimeCapacity, swSNTP=swSNTP, swCurrentClock=swCurrentClock, swSummerTimeOffset=swSummerTimeOffset, swSystemCurrentTime=swSystemCurrentTime)

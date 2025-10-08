@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module FS-PFXV6-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fscom/FS-PFXV6-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:43 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/fscom/FS-PFXV6-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:01:38 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 fsMgmt, = mibBuilder.importSymbols("FS-SMI", "fsMgmt")
 IfIndex, = mibBuilder.importSymbols("FS-TC", "IfIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention", "PhysAddress")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, PhysAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "PhysAddress", "TextualConvention", "DisplayString")
 fsPFXv6MIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 134))
 fsPFXv6MIB.setRevisions(('2015-01-13 00:00',))
 if mibBuilder.loadTexts: fsPFXv6MIB.setLastUpdated('201501130000Z')
@@ -66,4 +66,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 fsPFXv6MIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 134, 2, 2, 1)).setObjects(("FS-PFXV6-MIB", "fsPFXv6Name"), ("FS-PFXV6-MIB", "fsPFXv6Total"), ("FS-PFXV6-MIB", "fsPFXv6Rejects"), ("FS-PFXV6-MIB", "fsPFXv6Accepts"), ("FS-PFXV6-MIB", "fsPFXv6Frees"), ("FS-PFXV6-MIB", "fsPFXv6Userate"), ("FS-PFXV6-MIB", "fsPFXv6IfIfIndex"), ("FS-PFXV6-MIB", "fsPFXv6IfName"), ("FS-PFXV6-MIB", "fsPFXv6IfTotal"), ("FS-PFXV6-MIB", "fsPFXv6IfRejects"), ("FS-PFXV6-MIB", "fsPFXv6IfAccepts"), ("FS-PFXV6-MIB", "fsPFXv6IfFrees"), ("FS-PFXV6-MIB", "fsPFXv6IfUserate"), ("FS-PFXV6-MIB", "fsSlaacRequestNumber"), ("FS-PFXV6-MIB", "fsSlaacRequestSuccessNumber"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     fsPFXv6MIBGroup = fsPFXv6MIBGroup.setStatus('current')
-mibBuilder.exportSymbols("FS-PFXV6-MIB", PYSNMP_MODULE_ID=fsPFXv6MIB, fsPFXv6Accepts=fsPFXv6Accepts, fsPFXv6Userate=fsPFXv6Userate, fsPFXv6Entry=fsPFXv6Entry, fsPFXv6MIBGroups=fsPFXv6MIBGroups, fsPFXv6MIBCompliance=fsPFXv6MIBCompliance, fsPFXv6Frees=fsPFXv6Frees, fsPFXv6IfRejects=fsPFXv6IfRejects, fsPFXv6IfName=fsPFXv6IfName, fsPFXv6IfTable=fsPFXv6IfTable, fsPFXv6Total=fsPFXv6Total, fsPFXv6MIBCompliances=fsPFXv6MIBCompliances, fsSlaacRequestNumber=fsSlaacRequestNumber, fsPFXv6MIBObjects=fsPFXv6MIBObjects, fsPFXv6Name=fsPFXv6Name, fsPFXv6IfFrees=fsPFXv6IfFrees, fsSlaacRequestSuccessNumber=fsSlaacRequestSuccessNumber, fsPFXv6MIBGroup=fsPFXv6MIBGroup, fsPFXv6IfIfIndex=fsPFXv6IfIfIndex, fsPFXv6IfUserate=fsPFXv6IfUserate, fsPFXv6IfTotal=fsPFXv6IfTotal, fsPFXv6Rejects=fsPFXv6Rejects, fsPFXv6IfAccepts=fsPFXv6IfAccepts, fsPFXv6Table=fsPFXv6Table, fsPFXv6MIB=fsPFXv6MIB, fsPFXv6MIBConformance=fsPFXv6MIBConformance, fsPFXv6IfEntry=fsPFXv6IfEntry)
+mibBuilder.exportSymbols("FS-PFXV6-MIB", fsPFXv6MIB=fsPFXv6MIB, fsPFXv6Entry=fsPFXv6Entry, fsPFXv6IfIfIndex=fsPFXv6IfIfIndex, fsPFXv6IfTotal=fsPFXv6IfTotal, fsPFXv6IfUserate=fsPFXv6IfUserate, fsPFXv6Total=fsPFXv6Total, fsPFXv6Rejects=fsPFXv6Rejects, PYSNMP_MODULE_ID=fsPFXv6MIB, fsSlaacRequestNumber=fsSlaacRequestNumber, fsPFXv6MIBObjects=fsPFXv6MIBObjects, fsPFXv6Frees=fsPFXv6Frees, fsPFXv6IfFrees=fsPFXv6IfFrees, fsPFXv6MIBCompliances=fsPFXv6MIBCompliances, fsPFXv6MIBGroup=fsPFXv6MIBGroup, fsPFXv6MIBConformance=fsPFXv6MIBConformance, fsPFXv6Name=fsPFXv6Name, fsPFXv6MIBGroups=fsPFXv6MIBGroups, fsPFXv6Accepts=fsPFXv6Accepts, fsPFXv6IfAccepts=fsPFXv6IfAccepts, fsPFXv6IfTable=fsPFXv6IfTable, fsPFXv6IfName=fsPFXv6IfName, fsPFXv6IfEntry=fsPFXv6IfEntry, fsPFXv6MIBCompliance=fsPFXv6MIBCompliance, fsPFXv6Table=fsPFXv6Table, fsSlaacRequestSuccessNumber=fsSlaacRequestSuccessNumber, fsPFXv6IfRejects=fsPFXv6IfRejects, fsPFXv6Userate=fsPFXv6Userate)

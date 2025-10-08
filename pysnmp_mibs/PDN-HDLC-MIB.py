@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PDN-HDLC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/paradyne/PDN-HDLC-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:39 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/paradyne/PDN-HDLC-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:17 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 pdn_interfaces, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdn-interfaces")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 pdnHdlcMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26))
 pdnHdlcMIB.setRevisions(('2004-09-10 00:00',))
 if mibBuilder.loadTexts: pdnHdlcMIB.setLastUpdated('200409100000Z')
@@ -55,4 +55,4 @@ pdnHdlcNtfyGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 3, 2
 pdnHdlcStatsTotalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 3, 2, 1, 1)).setObjects(("PDN-HDLC-MIB", "pdnHdlcStatsTotalRxGood"), ("PDN-HDLC-MIB", "pdnHdlcStatsTotalRxCRCErrors"), ("PDN-HDLC-MIB", "pdnHdlcStatsTotalRxAborts"), ("PDN-HDLC-MIB", "pdnHdlcStatsTotalRxBadAddress"), ("PDN-HDLC-MIB", "pdnHdlcStatsTotalRxNoBufAvail"), ("PDN-HDLC-MIB", "pdnHdlcStatsTotalReceiverOverrun"), ("PDN-HDLC-MIB", "pdnHdlcStatsTotalRxMaxSizeExceeded"), ("PDN-HDLC-MIB", "pdnHdlcStatsTotalTx"), ("PDN-HDLC-MIB", "pdnHdlcStatsTotalTxBufUnderrun"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     pdnHdlcStatsTotalGroup = pdnHdlcStatsTotalGroup.setStatus('current')
-mibBuilder.exportSymbols("PDN-HDLC-MIB", pdnHdlcStatsTotalRxCRCErrors=pdnHdlcStatsTotalRxCRCErrors, pdnHdlcStatsTotalRxBadAddress=pdnHdlcStatsTotalRxBadAddress, pdnHdlcNotifications=pdnHdlcNotifications, pdnHdlcStatsTotalTxBufUnderrun=pdnHdlcStatsTotalTxBufUnderrun, pdnHdlcAfnGroups=pdnHdlcAfnGroups, pdnHdlcAFNs=pdnHdlcAFNs, pdnHdlcMIB=pdnHdlcMIB, pdnHdlcStatsTotalEntry=pdnHdlcStatsTotalEntry, pdnHdlcStatsTotalRxMaxSizeExceeded=pdnHdlcStatsTotalRxMaxSizeExceeded, pdnHdlcConformance=pdnHdlcConformance, pdnHdlcObjects=pdnHdlcObjects, pdnHdlcNtfyGroups=pdnHdlcNtfyGroups, pdnHdlcStatsTotalRxNoBufAvail=pdnHdlcStatsTotalRxNoBufAvail, pdnHdlcStatsTotalGroup=pdnHdlcStatsTotalGroup, pdnHdlcGroups=pdnHdlcGroups, pdnHdlcStatsTotalTable=pdnHdlcStatsTotalTable, pdnHdlcCompliance=pdnHdlcCompliance, pdnHdlcStatsTotalReceiverOverrun=pdnHdlcStatsTotalReceiverOverrun, pdnHdlcStatsTotalRxGood=pdnHdlcStatsTotalRxGood, PYSNMP_MODULE_ID=pdnHdlcMIB, pdnHdlcStatsTotalTx=pdnHdlcStatsTotalTx, pdnHdlcObjGroups=pdnHdlcObjGroups, pdnHdlcCompliances=pdnHdlcCompliances, pdnHdlcStatsTotalRxAborts=pdnHdlcStatsTotalRxAborts)
+mibBuilder.exportSymbols("PDN-HDLC-MIB", pdnHdlcStatsTotalTx=pdnHdlcStatsTotalTx, pdnHdlcObjects=pdnHdlcObjects, pdnHdlcAFNs=pdnHdlcAFNs, pdnHdlcStatsTotalTable=pdnHdlcStatsTotalTable, pdnHdlcStatsTotalRxBadAddress=pdnHdlcStatsTotalRxBadAddress, PYSNMP_MODULE_ID=pdnHdlcMIB, pdnHdlcCompliances=pdnHdlcCompliances, pdnHdlcConformance=pdnHdlcConformance, pdnHdlcGroups=pdnHdlcGroups, pdnHdlcStatsTotalReceiverOverrun=pdnHdlcStatsTotalReceiverOverrun, pdnHdlcNotifications=pdnHdlcNotifications, pdnHdlcStatsTotalRxGood=pdnHdlcStatsTotalRxGood, pdnHdlcStatsTotalRxAborts=pdnHdlcStatsTotalRxAborts, pdnHdlcStatsTotalRxMaxSizeExceeded=pdnHdlcStatsTotalRxMaxSizeExceeded, pdnHdlcStatsTotalGroup=pdnHdlcStatsTotalGroup, pdnHdlcStatsTotalRxCRCErrors=pdnHdlcStatsTotalRxCRCErrors, pdnHdlcStatsTotalTxBufUnderrun=pdnHdlcStatsTotalTxBufUnderrun, pdnHdlcMIB=pdnHdlcMIB, pdnHdlcStatsTotalRxNoBufAvail=pdnHdlcStatsTotalRxNoBufAvail, pdnHdlcStatsTotalEntry=pdnHdlcStatsTotalEntry, pdnHdlcObjGroups=pdnHdlcObjGroups, pdnHdlcCompliance=pdnHdlcCompliance, pdnHdlcAfnGroups=pdnHdlcAfnGroups, pdnHdlcNtfyGroups=pdnHdlcNtfyGroups)

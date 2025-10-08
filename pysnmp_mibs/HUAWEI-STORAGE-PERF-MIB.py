@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module HUAWEI-STORAGE-PERF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/huawei/HUAWEI-STORAGE-PERF-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:01:41 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/huawei/HUAWEI-STORAGE-PERF-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:07:00 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Integer32, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 huawei = MibIdentifier((1, 3, 6, 1, 4, 1, 2011))
 products = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2))
 storage = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2, 251))
@@ -45,4 +45,4 @@ hwPerfDiskAverageWriteIO = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 21, 1
 if mibBuilder.loadTexts: hwPerfDiskAverageWriteIO.setStatus('current')
 hwPerfDiskMaxIOPS = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 21, 10, 1, 14), Unsigned32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: hwPerfDiskMaxIOPS.setStatus('current')
-mibBuilder.exportSymbols("HUAWEI-STORAGE-PERF-MIB", storage=storage, hwPerfDiskWriteTraffic=hwPerfDiskWriteTraffic, hwPerfDiskAverageReadIO=hwPerfDiskAverageReadIO, hwPerfDiskLengthOfQueue=hwPerfDiskLengthOfQueue, huawei=huawei, hwPerfDiskTable=hwPerfDiskTable, performance=performance, hwPerfDiskTotalTraffic=hwPerfDiskTotalTraffic, hwPerfDiskAverageIO=hwPerfDiskAverageIO, hwPerfDiskAverageWriteIO=hwPerfDiskAverageWriteIO, hwPerfDiskReadIOPS=hwPerfDiskReadIOPS, hwPerfDiskMaxIOPS=hwPerfDiskMaxIOPS, hwPerfDiskIndex=hwPerfDiskIndex, hwPerfDiskDelay=hwPerfDiskDelay, hwPerfDiskWriteIOPS=hwPerfDiskWriteIOPS, hwPerfDiskTotalIOPS=hwPerfDiskTotalIOPS, hwPerfDiskEntry=hwPerfDiskEntry, products=products, hwPerfDiskReadTraffic=hwPerfDiskReadTraffic)
+mibBuilder.exportSymbols("HUAWEI-STORAGE-PERF-MIB", hwPerfDiskAverageWriteIO=hwPerfDiskAverageWriteIO, hwPerfDiskWriteTraffic=hwPerfDiskWriteTraffic, hwPerfDiskIndex=hwPerfDiskIndex, hwPerfDiskTable=hwPerfDiskTable, hwPerfDiskMaxIOPS=hwPerfDiskMaxIOPS, hwPerfDiskTotalTraffic=hwPerfDiskTotalTraffic, storage=storage, hwPerfDiskReadIOPS=hwPerfDiskReadIOPS, hwPerfDiskDelay=hwPerfDiskDelay, performance=performance, hwPerfDiskAverageReadIO=hwPerfDiskAverageReadIO, hwPerfDiskWriteIOPS=hwPerfDiskWriteIOPS, hwPerfDiskReadTraffic=hwPerfDiskReadTraffic, hwPerfDiskLengthOfQueue=hwPerfDiskLengthOfQueue, hwPerfDiskAverageIO=hwPerfDiskAverageIO, hwPerfDiskEntry=hwPerfDiskEntry, products=products, hwPerfDiskTotalIOPS=hwPerfDiskTotalIOPS, huawei=huawei)

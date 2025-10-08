@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module Brcm-adapterInfo-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/broadcom/Brcm-adapterInfo-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:19 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/broadcom/Brcm-adapterInfo-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:18:10 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 InetAddressIPv6, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv6")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "PhysAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+PhysAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "PhysAddress", "TextualConvention", "DisplayString")
 broadcom = MibIdentifier((1, 3, 6, 1, 4, 1, 4413))
 enet = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 1))
 basp = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 1, 2))
@@ -61,4 +61,4 @@ ifFunctionNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 3, 2, 1, 17), Inte
 if mibBuilder.loadTexts: ifFunctionNumber.setStatus('mandatory')
 ifIpv6NetworkAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 3, 2, 1, 18), InetAddressIPv6()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ifIpv6NetworkAddress.setStatus('mandatory')
-mibBuilder.exportSymbols("Brcm-adapterInfo-MIB", ifiIndex=ifiIndex, ifMemBaseLow=ifMemBaseLow, ifPermPhysAddress=ifPermPhysAddress, ifInterrupt=ifInterrupt, ifDeviceNumber=ifDeviceNumber, ifiEntry=ifiEntry, ifIpv6NetworkAddress=ifIpv6NetworkAddress, ifControllers=ifControllers, baspStat=baspStat, ifMemBaseHigh=ifMemBaseHigh, baspTrap=baspTrap, baspConfig=baspConfig, ifiTable=ifiTable, ifState=ifState, basp=basp, ifiPhysAddress=ifiPhysAddress, enet=enet, ifiNumber=ifiNumber, ifNetworkAddress=ifNetworkAddress, ifSubnetMask=ifSubnetMask, ifName=ifName, ifLineSpeed=ifLineSpeed, broadcom=broadcom, ifBusNumber=ifBusNumber, ifLinkStatus=ifLinkStatus, ifiDescr=ifiDescr, ifFunctionNumber=ifFunctionNumber, ifDuplexMode=ifDuplexMode)
+mibBuilder.exportSymbols("Brcm-adapterInfo-MIB", baspTrap=baspTrap, ifDuplexMode=ifDuplexMode, ifiTable=ifiTable, ifiNumber=ifiNumber, ifState=ifState, ifLinkStatus=ifLinkStatus, broadcom=broadcom, ifDeviceNumber=ifDeviceNumber, enet=enet, ifFunctionNumber=ifFunctionNumber, baspStat=baspStat, basp=basp, ifInterrupt=ifInterrupt, ifMemBaseHigh=ifMemBaseHigh, ifiIndex=ifiIndex, baspConfig=baspConfig, ifControllers=ifControllers, ifiPhysAddress=ifiPhysAddress, ifiDescr=ifiDescr, ifLineSpeed=ifLineSpeed, ifIpv6NetworkAddress=ifIpv6NetworkAddress, ifBusNumber=ifBusNumber, ifPermPhysAddress=ifPermPhysAddress, ifMemBaseLow=ifMemBaseLow, ifiEntry=ifiEntry, ifName=ifName, ifNetworkAddress=ifNetworkAddress, ifSubnetMask=ifSubnetMask)

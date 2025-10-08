@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module HP-ENTITY-POWER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HP-ENTITY-POWER-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:21 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HP-ENTITY-POWER-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:09:43 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
 hpSwitch, = mibBuilder.importSymbols("HP-ICF-OID", "hpSwitch")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 hpEntityPowerMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 71))
 hpEntityPowerMIB.setRevisions(('2010-04-11 00:00',))
 if mibBuilder.loadTexts: hpEntityPowerMIB.setLastUpdated('201004110000Z')
@@ -38,4 +38,4 @@ hpEntPowerGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 71, 2, 
 hpEntPowerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 71, 2, 2, 1)).setObjects(("HP-ENTITY-POWER-MIB", "hpEntPowerMaxPowerUsage"), ("HP-ENTITY-POWER-MIB", "hpEntPowerMinPowerUsage"), ("HP-ENTITY-POWER-MIB", "hpEntPowerCurrentPowerUsage"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     hpEntPowerGroup = hpEntPowerGroup.setStatus('current')
-mibBuilder.exportSymbols("HP-ENTITY-POWER-MIB", hpEntPowerCurrentPowerUsage=hpEntPowerCurrentPowerUsage, hpEntPowerMaxPowerUsage=hpEntPowerMaxPowerUsage, hpEntPowerMinPowerUsage=hpEntPowerMinPowerUsage, hpEntPowerConformance=hpEntPowerConformance, hpEntPowerGroup=hpEntPowerGroup, PYSNMP_MODULE_ID=hpEntityPowerMIB, hpEntPowerGroups=hpEntPowerGroups, hpEntityPowerMIB=hpEntityPowerMIB, hpEntPowerCompliances=hpEntPowerCompliances, hpEntPowerCompliance=hpEntPowerCompliance, hpEntPowerEntry=hpEntPowerEntry, hpEntPowerObjects=hpEntPowerObjects, hpEntPowerTable=hpEntPowerTable)
+mibBuilder.exportSymbols("HP-ENTITY-POWER-MIB", hpEntPowerConformance=hpEntPowerConformance, hpEntPowerGroups=hpEntPowerGroups, hpEntPowerTable=hpEntPowerTable, hpEntPowerGroup=hpEntPowerGroup, hpEntPowerMaxPowerUsage=hpEntPowerMaxPowerUsage, hpEntPowerCompliance=hpEntPowerCompliance, hpEntPowerMinPowerUsage=hpEntPowerMinPowerUsage, hpEntPowerEntry=hpEntPowerEntry, hpEntPowerCompliances=hpEntPowerCompliances, hpEntPowerObjects=hpEntPowerObjects, hpEntPowerCurrentPowerUsage=hpEntPowerCurrentPowerUsage, hpEntityPowerMIB=hpEntityPowerMIB, PYSNMP_MODULE_ID=hpEntityPowerMIB)

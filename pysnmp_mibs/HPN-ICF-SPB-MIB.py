@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module HPN-ICF-SPB-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-SPB-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:16 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HPN-ICF-SPB-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:07:58 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
 IEEE8021SpbmSPsourceId, = mibBuilder.importSymbols("IEEE8021-SPB-MIB", "IEEE8021SpbmSPsourceId")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 VlanIdOrNone, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanIdOrNone")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
 hpnicfSpb = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128))
 hpnicfSpb.setRevisions(('2012-11-22 00:00',))
 if mibBuilder.loadTexts: hpnicfSpb.setLastUpdated('201211220000Z')
@@ -57,4 +57,4 @@ hpnicfSpbConflictSPSourceID = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2,
 if mibBuilder.loadTexts: hpnicfSpbConflictSPSourceID.setStatus('current')
 hpnicfSpbConflictBMac = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 3, 1, 3), MacAddress()).setMaxAccess("accessiblefornotify")
 if mibBuilder.loadTexts: hpnicfSpbConflictBMac.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-SPB-MIB", hpnicfSpbTrapsObjects=hpnicfSpbTrapsObjects, PYSNMP_MODULE_ID=hpnicfSpb, hpnicfSpbObjects=hpnicfSpbObjects, hpnicfSpbConflictBMac=hpnicfSpbConflictBMac, hpnicfSpbConflictSysID=hpnicfSpbConflictSysID, hpnicfSpbConflictSPSourceID=hpnicfSpbConflictSPSourceID, hpnicfSpbTraps=hpnicfSpbTraps, hpnicfSpbSrvTableEntryIsid=hpnicfSpbSrvTableEntryIsid, hpnicfSpbConfig=hpnicfSpbConfig, hpnicfSpbIfStatus=hpnicfSpbIfStatus, hpnicfSpb=hpnicfSpb, hpnicfSpbSysObjects=hpnicfSpbSysObjects, hpnicfSpbIfTable=hpnicfSpbIfTable, hpnicfSpbSysStatus=hpnicfSpbSysStatus, hpnicfSpbSPSourceConflictTrap=hpnicfSpbSPSourceConflictTrap, hpnicfSpbMulticastBVlanStatus=hpnicfSpbMulticastBVlanStatus, hpnicfSpbTrap=hpnicfSpbTrap, hpnicfSpbSrvTableEntryMode=hpnicfSpbSrvTableEntryMode, hpnicfSpbSrvTable=hpnicfSpbSrvTable, hpnicfSpbSrvTableEntryBaseVid=hpnicfSpbSrvTableEntryBaseVid, hpnicfSpbIfEntry=hpnicfSpbIfEntry, hpnicfSpbSrvTableEntryTopIx=hpnicfSpbSrvTableEntryTopIx, hpnicfSpbBMacConflictTrap=hpnicfSpbBMacConflictTrap, hpnicfSpbSrvEntry=hpnicfSpbSrvEntry)
+mibBuilder.exportSymbols("HPN-ICF-SPB-MIB", hpnicfSpbTrapsObjects=hpnicfSpbTrapsObjects, hpnicfSpbSysStatus=hpnicfSpbSysStatus, hpnicfSpbSysObjects=hpnicfSpbSysObjects, hpnicfSpbSrvTable=hpnicfSpbSrvTable, hpnicfSpbTrap=hpnicfSpbTrap, hpnicfSpbConfig=hpnicfSpbConfig, hpnicfSpbSrvEntry=hpnicfSpbSrvEntry, hpnicfSpbBMacConflictTrap=hpnicfSpbBMacConflictTrap, hpnicfSpbSPSourceConflictTrap=hpnicfSpbSPSourceConflictTrap, hpnicfSpbConflictSPSourceID=hpnicfSpbConflictSPSourceID, hpnicfSpbSrvTableEntryBaseVid=hpnicfSpbSrvTableEntryBaseVid, hpnicfSpbIfStatus=hpnicfSpbIfStatus, hpnicfSpbSrvTableEntryTopIx=hpnicfSpbSrvTableEntryTopIx, hpnicfSpbConflictSysID=hpnicfSpbConflictSysID, hpnicfSpbSrvTableEntryMode=hpnicfSpbSrvTableEntryMode, hpnicfSpbIfEntry=hpnicfSpbIfEntry, PYSNMP_MODULE_ID=hpnicfSpb, hpnicfSpbMulticastBVlanStatus=hpnicfSpbMulticastBVlanStatus, hpnicfSpbSrvTableEntryIsid=hpnicfSpbSrvTableEntryIsid, hpnicfSpbTraps=hpnicfSpbTraps, hpnicfSpbObjects=hpnicfSpbObjects, hpnicfSpbConflictBMac=hpnicfSpbConflictBMac, hpnicfSpb=hpnicfSpb, hpnicfSpbIfTable=hpnicfSpbIfTable)

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ARUBAWIRED-MACNOTIFY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aruba/ARUBAWIRED-MACNOTIFY-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:44:09 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/aruba/ARUBAWIRED-MACNOTIFY-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:12:15 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 wndFeatures, = mibBuilder.importSymbols("ARUBAWIRED-NETWORKING-OID", "wndFeatures")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
 macNotify = ModuleIdentity((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 19))
 macNotify.setRevisions(('2021-03-24 00:00',))
 if mibBuilder.loadTexts: macNotify.setLastUpdated('202103240000Z')
@@ -60,4 +60,4 @@ macNotifyComplianceGroups = ModuleCompliance((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     macNotifyComplianceGroups = macNotifyComplianceGroups.setStatus('current')
-mibBuilder.exportSymbols("ARUBAWIRED-MACNOTIFY-MIB", macNotifyTrapsGroup=macNotifyTrapsGroup, arubaWiredMacNotifyToDest=arubaWiredMacNotifyToDest, macNotify=macNotify, macNotifyTrapsGroups=macNotifyTrapsGroups, arubaWiredMacNotifyFromPortId=arubaWiredMacNotifyFromPortId, macNotifyDataGroups=macNotifyDataGroups, macNotifyComplianceGroups=macNotifyComplianceGroups, macNotifySystemGroup=macNotifySystemGroup, arubaWiredMacNotifyEnable=arubaWiredMacNotifyEnable, macNotifyCompliance=macNotifyCompliance, macNotifyConformance=macNotifyConformance, arubaWiredMacNotify=arubaWiredMacNotify, macNotifyChangeTableEntry=macNotifyChangeTableEntry, arubaWiredMacNotifyMacAddress=arubaWiredMacNotifyMacAddress, arubaWiredMacNotifyVlanId=arubaWiredMacNotifyVlanId, arubaWiredMacNotifyAction=arubaWiredMacNotifyAction, arubaWiredMacNotifyNotificationObjects=arubaWiredMacNotifyNotificationObjects, PYSNMP_MODULE_ID=macNotify, arubaWiredMacNotifyFromDest=arubaWiredMacNotifyFromDest, arubaWiredMacNotifyConformance=arubaWiredMacNotifyConformance, arubaWiredMacNotifyMacAddressTableChange=arubaWiredMacNotifyMacAddressTableChange, macNotifyChangeTable=macNotifyChangeTable, arubaWiredMacNotifyToPortId=arubaWiredMacNotifyToPortId, macNotifySystemGroups=macNotifySystemGroups, arubaWiredMacNotifyConfigObjects=arubaWiredMacNotifyConfigObjects, macNotifyDataGroup=macNotifyDataGroup)
+mibBuilder.exportSymbols("ARUBAWIRED-MACNOTIFY-MIB", macNotifyDataGroups=macNotifyDataGroups, macNotifyTrapsGroup=macNotifyTrapsGroup, arubaWiredMacNotifyMacAddress=arubaWiredMacNotifyMacAddress, macNotifyChangeTableEntry=macNotifyChangeTableEntry, PYSNMP_MODULE_ID=macNotify, macNotifyChangeTable=macNotifyChangeTable, arubaWiredMacNotifyFromPortId=arubaWiredMacNotifyFromPortId, macNotify=macNotify, arubaWiredMacNotifyAction=arubaWiredMacNotifyAction, arubaWiredMacNotifyConformance=arubaWiredMacNotifyConformance, macNotifySystemGroup=macNotifySystemGroup, arubaWiredMacNotifyNotificationObjects=arubaWiredMacNotifyNotificationObjects, arubaWiredMacNotifyEnable=arubaWiredMacNotifyEnable, arubaWiredMacNotifyToDest=arubaWiredMacNotifyToDest, arubaWiredMacNotifyConfigObjects=arubaWiredMacNotifyConfigObjects, arubaWiredMacNotifyVlanId=arubaWiredMacNotifyVlanId, macNotifyConformance=macNotifyConformance, arubaWiredMacNotifyMacAddressTableChange=arubaWiredMacNotifyMacAddressTableChange, macNotifyComplianceGroups=macNotifyComplianceGroups, arubaWiredMacNotify=arubaWiredMacNotify, arubaWiredMacNotifyFromDest=arubaWiredMacNotifyFromDest, macNotifyDataGroup=macNotifyDataGroup, macNotifySystemGroups=macNotifySystemGroups, macNotifyTrapsGroups=macNotifyTrapsGroups, arubaWiredMacNotifyToPortId=arubaWiredMacNotifyToPortId, macNotifyCompliance=macNotifyCompliance)

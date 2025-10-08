@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module INFINERA-TP-PXMRMEP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-PXMRMEP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:14 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/INFINERA-TP-PXMRMEP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:19:59 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
-InfnPortStatusTLV, InfnRmepState, InfnRMepType, InfnInterfaceStatusTLV, InfnIsEnabled, InfnSenderIDTLV = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnPortStatusTLV", "InfnRmepState", "InfnRMepType", "InfnInterfaceStatusTLV", "InfnIsEnabled", "InfnSenderIDTLV")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+InfnInterfaceStatusTLV, InfnIsEnabled, InfnRmepState, InfnPortStatusTLV, InfnSenderIDTLV, InfnRMepType = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnInterfaceStatusTLV", "InfnIsEnabled", "InfnRmepState", "InfnPortStatusTLV", "InfnSenderIDTLV", "InfnRMepType")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 rmepMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 77))
 if mibBuilder.loadTexts: rmepMIB.setLastUpdated('201605200000Z')
 if mibBuilder.loadTexts: rmepMIB.setOrganization('INFINERA')
@@ -55,4 +55,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 rmepGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 77, 3, 2, 1)).setObjects(("INFINERA-TP-PXMRMEP-MIB", "rmepLocalMepAid"), ("INFINERA-TP-PXMRMEP-MIB", "rmepLocalMepId"), ("INFINERA-TP-PXMRMEP-MIB", "rmepRMepId"), ("INFINERA-TP-PXMRMEP-MIB", "rmepRMepType"), ("INFINERA-TP-PXMRMEP-MIB", "rmepMDLevel"), ("INFINERA-TP-PXMRMEP-MIB", "rmepRmepState"), ("INFINERA-TP-PXMRMEP-MIB", "rmepFailedOkTime"), ("INFINERA-TP-PXMRMEP-MIB", "rmepMacAddress"), ("INFINERA-TP-PXMRMEP-MIB", "rmepRDI"), ("INFINERA-TP-PXMRMEP-MIB", "rmepPortStatusTLV"), ("INFINERA-TP-PXMRMEP-MIB", "rmepInterfaceStatusTLV"), ("INFINERA-TP-PXMRMEP-MIB", "rmepSenderIDTLV"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     rmepGroup = rmepGroup.setStatus('current')
-mibBuilder.exportSymbols("INFINERA-TP-PXMRMEP-MIB", rmepRMepType=rmepRMepType, rmepSenderIDTLV=rmepSenderIDTLV, rmepRDI=rmepRDI, rmepCompliance=rmepCompliance, rmepRmepState=rmepRmepState, rmepEntry=rmepEntry, rmepRMepId=rmepRMepId, rmepPortStatusTLV=rmepPortStatusTLV, rmepLocalMepAid=rmepLocalMepAid, rmepMDLevel=rmepMDLevel, rmepGroup=rmepGroup, rmepTable=rmepTable, rmepFailedOkTime=rmepFailedOkTime, rmepMacAddress=rmepMacAddress, rmepConformance=rmepConformance, rmepCompliances=rmepCompliances, rmepMIB=rmepMIB, PYSNMP_MODULE_ID=rmepMIB, rmepInterfaceStatusTLV=rmepInterfaceStatusTLV, rmepGroups=rmepGroups, rmepLocalMepId=rmepLocalMepId)
+mibBuilder.exportSymbols("INFINERA-TP-PXMRMEP-MIB", rmepPortStatusTLV=rmepPortStatusTLV, rmepInterfaceStatusTLV=rmepInterfaceStatusTLV, rmepCompliances=rmepCompliances, rmepLocalMepId=rmepLocalMepId, rmepMDLevel=rmepMDLevel, rmepTable=rmepTable, rmepCompliance=rmepCompliance, PYSNMP_MODULE_ID=rmepMIB, rmepRMepType=rmepRMepType, rmepEntry=rmepEntry, rmepMacAddress=rmepMacAddress, rmepSenderIDTLV=rmepSenderIDTLV, rmepRmepState=rmepRmepState, rmepFailedOkTime=rmepFailedOkTime, rmepConformance=rmepConformance, rmepRMepId=rmepRMepId, rmepMIB=rmepMIB, rmepLocalMepAid=rmepLocalMepAid, rmepGroup=rmepGroup, rmepGroups=rmepGroups, rmepRDI=rmepRDI)

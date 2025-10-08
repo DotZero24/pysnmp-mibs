@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module H3C-FC-FLOGIN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-FC-FLOGIN-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:34 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-FC-FLOGIN-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:23 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-H3cFcBbCredit, H3cFcNameId, H3cFcClassOfServices, H3cFcAddressId, H3cFcRxMTU = mibBuilder.importSymbols("H3C-FC-TC-MIB", "H3cFcBbCredit", "H3cFcNameId", "H3cFcClassOfServices", "H3cFcAddressId", "H3cFcRxMTU")
-h3cSan, h3cVsanIndex = mibBuilder.importSymbols("H3C-VSAN-MIB", "h3cSan", "h3cVsanIndex")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+H3cFcBbCredit, H3cFcAddressId, H3cFcRxMTU, H3cFcNameId, H3cFcClassOfServices = mibBuilder.importSymbols("H3C-FC-TC-MIB", "H3cFcBbCredit", "H3cFcAddressId", "H3cFcRxMTU", "H3cFcNameId", "H3cFcClassOfServices")
+h3cVsanIndex, h3cSan = mibBuilder.importSymbols("H3C-VSAN-MIB", "h3cVsanIndex", "h3cSan")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 h3cFcFLogin = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 3))
 h3cFcFLogin.setRevisions(('2013-02-27 11:00',))
 if mibBuilder.loadTexts: h3cFcFLogin.setLastUpdated('201302271100Z')
@@ -45,4 +45,4 @@ h3cFcFLoginClass2ReqAgreed = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127,
 if mibBuilder.loadTexts: h3cFcFLoginClass2ReqAgreed.setStatus('current')
 h3cFcFLoginClass3ReqAgreed = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 3, 1, 1, 1, 11), TruthValue()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: h3cFcFLoginClass3ReqAgreed.setStatus('current')
-mibBuilder.exportSymbols("H3C-FC-FLOGIN-MIB", h3cFcFLoginPortWWN=h3cFcFLoginPortWWN, h3cFcFLoginTable=h3cFcFLoginTable, h3cFcFLoginClass2RxMTU=h3cFcFLoginClass2RxMTU, h3cFcFLoginSuppClassRequested=h3cFcFLoginSuppClassRequested, h3cFcFLoginClass3RxMTU=h3cFcFLoginClass3RxMTU, h3cFcFLoginRxBbCredit=h3cFcFLoginRxBbCredit, h3cFcFLoginTxBbCredit=h3cFcFLoginTxBbCredit, PYSNMP_MODULE_ID=h3cFcFLogin, h3cFcFLoginClass2ReqAgreed=h3cFcFLoginClass2ReqAgreed, h3cFcFLoginMibObjects=h3cFcFLoginMibObjects, h3cFcFLoginPortNodeWWN=h3cFcFLoginPortNodeWWN, h3cFcFLoginIndex=h3cFcFLoginIndex, h3cFcFLoginPortFcId=h3cFcFLoginPortFcId, h3cFcFLoginEntry=h3cFcFLoginEntry, h3cFcFLogin=h3cFcFLogin, h3cFcFLoginClass3ReqAgreed=h3cFcFLoginClass3ReqAgreed)
+mibBuilder.exportSymbols("H3C-FC-FLOGIN-MIB", h3cFcFLogin=h3cFcFLogin, h3cFcFLoginSuppClassRequested=h3cFcFLoginSuppClassRequested, h3cFcFLoginPortFcId=h3cFcFLoginPortFcId, h3cFcFLoginRxBbCredit=h3cFcFLoginRxBbCredit, h3cFcFLoginClass2ReqAgreed=h3cFcFLoginClass2ReqAgreed, h3cFcFLoginClass3RxMTU=h3cFcFLoginClass3RxMTU, PYSNMP_MODULE_ID=h3cFcFLogin, h3cFcFLoginMibObjects=h3cFcFLoginMibObjects, h3cFcFLoginEntry=h3cFcFLoginEntry, h3cFcFLoginPortNodeWWN=h3cFcFLoginPortNodeWWN, h3cFcFLoginPortWWN=h3cFcFLoginPortWWN, h3cFcFLoginClass2RxMTU=h3cFcFLoginClass2RxMTU, h3cFcFLoginIndex=h3cFcFLoginIndex, h3cFcFLoginTxBbCredit=h3cFcFLoginTxBbCredit, h3cFcFLoginTable=h3cFcFLoginTable, h3cFcFLoginClass3ReqAgreed=h3cFcFLoginClass3ReqAgreed)

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module HM2-PWRMGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hirschmann/HM2-PWRMGMT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:08 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hirschmann/HM2-PWRMGMT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:06 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 hm2ConfigurationMibs, = mibBuilder.importSymbols("HM2-TC-MIB", "hm2ConfigurationMibs")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 hm2PowerMgmtMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 11, 11))
 hm2PowerMgmtMib.setRevisions(('2011-03-16 00:00',))
 if mibBuilder.loadTexts: hm2PowerMgmtMib.setLastUpdated('201103160000Z')
@@ -76,4 +76,4 @@ hm2PSUUnitPowerInterruption = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 11, 1, 
 if mibBuilder.loadTexts: hm2PSUUnitPowerInterruption.setStatus('current')
 hm2PowerSupplyTrap = NotificationType((1, 3, 6, 1, 4, 1, 248, 11, 11, 0, 1)).setObjects(("HM2-PWRMGMT-MIB", "hm2PSID"), ("HM2-PWRMGMT-MIB", "hm2PSState"))
 if mibBuilder.loadTexts: hm2PowerSupplyTrap.setStatus('current')
-mibBuilder.exportSymbols("HM2-PWRMGMT-MIB", hm2PSUSlotManufacturerDate=hm2PSUSlotManufacturerDate, hm2PSUSlotInfoEntry=hm2PSUSlotInfoEntry, hm2PSUSlotIndex=hm2PSUSlotIndex, hm2PowerMgmtMib=hm2PowerMgmtMib, hm2PowerMgmtMibNotifications=hm2PowerMgmtMibNotifications, hm2PSUUnitInfoTable=hm2PSUUnitInfoTable, hm2PSUSlotChassisTypeId=hm2PSUSlotChassisTypeId, hm2PSState=hm2PSState, hm2PSUUnitVoltageRange=hm2PSUUnitVoltageRange, hm2PSUUnitNumberOfInputs=hm2PSUUnitNumberOfInputs, hm2PSUUnitPoeBudget=hm2PSUUnitPoeBudget, hm2PSEntry=hm2PSEntry, hm2PSUUnitPowerInterruption=hm2PSUUnitPowerInterruption, hm2PSUUnitIndex=hm2PSUUnitIndex, hm2PowerMgmtMibObjects=hm2PowerMgmtMibObjects, hm2PSUUnitFanCount=hm2PSUUnitFanCount, hm2PSUSlotProductCode=hm2PSUSlotProductCode, hm2PowerSupplyTrap=hm2PowerSupplyTrap, hm2PSUSlotTemperatureRange=hm2PSUSlotTemperatureRange, PYSNMP_MODULE_ID=hm2PowerMgmtMib, hm2PSUUnitOutputType=hm2PSUUnitOutputType, hm2PSUUnitSystemBudget=hm2PSUUnitSystemBudget, hm2PSUSlotRevisionId=hm2PSUSlotRevisionId, hm2PSTable=hm2PSTable, hm2PSUSlotCombinationType=hm2PSUSlotCombinationType, hm2PSUUnitInfoEntry=hm2PSUUnitInfoEntry, hm2PSUSlotDescription=hm2PSUSlotDescription, hm2PSUSlotInfoTable=hm2PSUSlotInfoTable, hm2PSUSlotSerialNumber=hm2PSUSlotSerialNumber, hm2PSUUnitConverterType=hm2PSUUnitConverterType, hm2PSID=hm2PSID, hm2PSUSlotManufacturerId=hm2PSUSlotManufacturerId, hm2PowerSupplyGroup=hm2PowerSupplyGroup)
+mibBuilder.exportSymbols("HM2-PWRMGMT-MIB", hm2PSUUnitPowerInterruption=hm2PSUUnitPowerInterruption, hm2PSUSlotCombinationType=hm2PSUSlotCombinationType, hm2PowerSupplyGroup=hm2PowerSupplyGroup, hm2PSUUnitIndex=hm2PSUUnitIndex, hm2PSUUnitConverterType=hm2PSUUnitConverterType, hm2PSUUnitPoeBudget=hm2PSUUnitPoeBudget, hm2PSUSlotChassisTypeId=hm2PSUSlotChassisTypeId, hm2PSUUnitFanCount=hm2PSUUnitFanCount, hm2PSUUnitInfoTable=hm2PSUUnitInfoTable, hm2PSUUnitOutputType=hm2PSUUnitOutputType, hm2PSUUnitSystemBudget=hm2PSUUnitSystemBudget, hm2PSUSlotInfoEntry=hm2PSUSlotInfoEntry, hm2PowerMgmtMibObjects=hm2PowerMgmtMibObjects, hm2PSUSlotRevisionId=hm2PSUSlotRevisionId, hm2PSState=hm2PSState, hm2PSUUnitNumberOfInputs=hm2PSUUnitNumberOfInputs, hm2PSUUnitVoltageRange=hm2PSUUnitVoltageRange, hm2PSEntry=hm2PSEntry, hm2PSUSlotDescription=hm2PSUSlotDescription, hm2PowerMgmtMib=hm2PowerMgmtMib, hm2PSUSlotManufacturerDate=hm2PSUSlotManufacturerDate, hm2PSUSlotSerialNumber=hm2PSUSlotSerialNumber, hm2PSUSlotProductCode=hm2PSUSlotProductCode, hm2PSUSlotInfoTable=hm2PSUSlotInfoTable, hm2PowerMgmtMibNotifications=hm2PowerMgmtMibNotifications, hm2PSUSlotTemperatureRange=hm2PSUSlotTemperatureRange, hm2PowerSupplyTrap=hm2PowerSupplyTrap, hm2PSTable=hm2PSTable, hm2PSUSlotIndex=hm2PSUSlotIndex, PYSNMP_MODULE_ID=hm2PowerMgmtMib, hm2PSUSlotManufacturerId=hm2PSUSlotManufacturerId, hm2PSUUnitInfoEntry=hm2PSUUnitInfoEntry, hm2PSID=hm2PSID)

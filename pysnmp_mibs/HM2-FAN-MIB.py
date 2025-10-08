@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module HM2-FAN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hirschmann/HM2-FAN-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:08 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hirschmann/HM2-FAN-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:07 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 hm2UnitIndex, = mibBuilder.importSymbols("HM2-DEVMGMT-MIB", "hm2UnitIndex")
 hm2ConfigurationMibs, = mibBuilder.importSymbols("HM2-TC-MIB", "hm2ConfigurationMibs")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 hm2FanMgmtMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 11, 13))
 hm2FanMgmtMib.setRevisions(('2017-04-26 00:00',))
 if mibBuilder.loadTexts: hm2FanMgmtMib.setLastUpdated('201704260000Z')
@@ -50,4 +50,4 @@ hm2FanMgmtModuleNotification = NotificationType((1, 3, 6, 1, 4, 1, 248, 11, 13, 
 if mibBuilder.loadTexts: hm2FanMgmtModuleNotification.setStatus('current')
 hm2FanMgmtFanNotification = NotificationType((1, 3, 6, 1, 4, 1, 248, 11, 13, 0, 2)).setObjects(("HM2-DEVMGMT-MIB", "hm2UnitIndex"), ("HM2-FAN-MIB", "hm2FanModuleMgmtId"), ("HM2-FAN-MIB", "hm2FanMgmtFanId"), ("HM2-FAN-MIB", "hm2FanMgmtStatus"))
 if mibBuilder.loadTexts: hm2FanMgmtFanNotification.setStatus('current')
-mibBuilder.exportSymbols("HM2-FAN-MIB", hm2FanMgmtStatus=hm2FanMgmtStatus, hm2FanModuleMgmtStatus=hm2FanModuleMgmtStatus, hm2FanModuleMgmtTable=hm2FanModuleMgmtTable, PYSNMP_MODULE_ID=hm2FanMgmtMib, hm2FanModuleMgmtId=hm2FanModuleMgmtId, hm2FanMgmtMibNotifications=hm2FanMgmtMibNotifications, hm2FanMgmtGroup=hm2FanMgmtGroup, hm2FanMgmtMaxSuppFanPerModule=hm2FanMgmtMaxSuppFanPerModule, hm2FanMgmtFanId=hm2FanMgmtFanId, hm2FanMgmtModuleNotification=hm2FanMgmtModuleNotification, hm2FanMgmtFanNotification=hm2FanMgmtFanNotification, hm2FanMgmtTable=hm2FanMgmtTable, Hm2FanModuleStatus=Hm2FanModuleStatus, hm2FanMgmtMibObjects=hm2FanMgmtMibObjects, hm2FanMgmtGlobalGroup=hm2FanMgmtGlobalGroup, hm2FanMgmtMaxSuppModulesPerUnit=hm2FanMgmtMaxSuppModulesPerUnit, hm2FanModuleMgmtEntry=hm2FanModuleMgmtEntry, hm2FanMgmtMib=hm2FanMgmtMib, hm2FanMgmtEntry=hm2FanMgmtEntry)
+mibBuilder.exportSymbols("HM2-FAN-MIB", PYSNMP_MODULE_ID=hm2FanMgmtMib, hm2FanModuleMgmtTable=hm2FanModuleMgmtTable, hm2FanMgmtMaxSuppFanPerModule=hm2FanMgmtMaxSuppFanPerModule, hm2FanMgmtFanId=hm2FanMgmtFanId, hm2FanMgmtMibNotifications=hm2FanMgmtMibNotifications, hm2FanMgmtMaxSuppModulesPerUnit=hm2FanMgmtMaxSuppModulesPerUnit, hm2FanMgmtGlobalGroup=hm2FanMgmtGlobalGroup, hm2FanMgmtEntry=hm2FanMgmtEntry, hm2FanMgmtMibObjects=hm2FanMgmtMibObjects, hm2FanMgmtTable=hm2FanMgmtTable, hm2FanMgmtModuleNotification=hm2FanMgmtModuleNotification, hm2FanMgmtGroup=hm2FanMgmtGroup, hm2FanModuleMgmtEntry=hm2FanModuleMgmtEntry, Hm2FanModuleStatus=Hm2FanModuleStatus, hm2FanMgmtMib=hm2FanMgmtMib, hm2FanModuleMgmtStatus=hm2FanModuleMgmtStatus, hm2FanModuleMgmtId=hm2FanModuleMgmtId, hm2FanMgmtFanNotification=hm2FanMgmtFanNotification, hm2FanMgmtStatus=hm2FanMgmtStatus)

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CPQEXTERNAL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/CPQEXTERNAL-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:12 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/CPQEXTERNAL-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:07:53 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 compaq, = mibBuilder.importSymbols("CPQHOST-MIB", "compaq")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 cpqExternalMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 17))
 cpqExMibRev = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 17, 1))
 cpqExComponent = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 17, 2))
@@ -64,4 +64,4 @@ cpqExExternalStatusDegradedValues = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 17, 2
 if mibBuilder.loadTexts: cpqExExternalStatusDegradedValues.setStatus('mandatory')
 cpqExExternalStatusFailedValues = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 17, 2, 2, 2, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: cpqExExternalStatusFailedValues.setStatus('mandatory')
-mibBuilder.exportSymbols("CPQEXTERNAL-MIB", cpqExExternalCondition=cpqExExternalCondition, cpqExExternalStatusDegradedValues=cpqExExternalStatusDegradedValues, cpqExExternalStatusInterval=cpqExExternalStatusInterval, cpqExOsCommonModuleDate=cpqExOsCommonModuleDate, cpqExInterface=cpqExInterface, cpqExMibRevMajor=cpqExMibRevMajor, cpqExOsCommonModuleIndex=cpqExOsCommonModuleIndex, cpqExOsCommonModulePurpose=cpqExOsCommonModulePurpose, cpqExMibRev=cpqExMibRev, cpqExExternalStatusTable=cpqExExternalStatusTable, cpqExExternalStatusCondition=cpqExExternalStatusCondition, cpqExOsCommonModuleName=cpqExOsCommonModuleName, cpqExExternalStatusValue=cpqExExternalStatusValue, cpqExOsCommonPollFreq=cpqExOsCommonPollFreq, cpqExStatus=cpqExStatus, cpqExExternalStatusVariable=cpqExExternalStatusVariable, cpqExExternalStatusValid=cpqExExternalStatusValid, cpqExMibCondition=cpqExMibCondition, cpqExExternalStatusOkValues=cpqExExternalStatusOkValues, cpqExMibRevMinor=cpqExMibRevMinor, cpqExOsCommonModuleVersion=cpqExOsCommonModuleVersion, cpqExComponent=cpqExComponent, cpqExOsCommonModuleTable=cpqExOsCommonModuleTable, cpqExExternalStatusEntry=cpqExExternalStatusEntry, cpqExExternalStatusIndex=cpqExExternalStatusIndex, cpqExOsCommonModuleEntry=cpqExOsCommonModuleEntry, cpqExternalMgmt=cpqExternalMgmt, cpqExExternalStatusFailedValues=cpqExExternalStatusFailedValues, cpqExOsCommon=cpqExOsCommon)
+mibBuilder.exportSymbols("CPQEXTERNAL-MIB", cpqExExternalStatusVariable=cpqExExternalStatusVariable, cpqExExternalStatusTable=cpqExExternalStatusTable, cpqExOsCommonModuleName=cpqExOsCommonModuleName, cpqExOsCommonPollFreq=cpqExOsCommonPollFreq, cpqExOsCommon=cpqExOsCommon, cpqExMibRev=cpqExMibRev, cpqExExternalStatusOkValues=cpqExExternalStatusOkValues, cpqExExternalStatusInterval=cpqExExternalStatusInterval, cpqExExternalStatusValue=cpqExExternalStatusValue, cpqExOsCommonModuleTable=cpqExOsCommonModuleTable, cpqExOsCommonModuleIndex=cpqExOsCommonModuleIndex, cpqExOsCommonModuleDate=cpqExOsCommonModuleDate, cpqExInterface=cpqExInterface, cpqExExternalStatusIndex=cpqExExternalStatusIndex, cpqExMibRevMajor=cpqExMibRevMajor, cpqExExternalStatusDegradedValues=cpqExExternalStatusDegradedValues, cpqExOsCommonModuleVersion=cpqExOsCommonModuleVersion, cpqExExternalStatusCondition=cpqExExternalStatusCondition, cpqExOsCommonModulePurpose=cpqExOsCommonModulePurpose, cpqExMibCondition=cpqExMibCondition, cpqExMibRevMinor=cpqExMibRevMinor, cpqExExternalStatusEntry=cpqExExternalStatusEntry, cpqExExternalCondition=cpqExExternalCondition, cpqExComponent=cpqExComponent, cpqExStatus=cpqExStatus, cpqExOsCommonModuleEntry=cpqExOsCommonModuleEntry, cpqExExternalStatusValid=cpqExExternalStatusValid, cpqExExternalStatusFailedValues=cpqExExternalStatusFailedValues, cpqExternalMgmt=cpqExternalMgmt)

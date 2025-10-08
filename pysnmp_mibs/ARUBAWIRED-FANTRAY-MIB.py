@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ARUBAWIRED-FANTRAY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aruba/ARUBAWIRED-FANTRAY-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:44:05 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/aruba/ARUBAWIRED-FANTRAY-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:12:10 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 arubaWiredChassisMIB, = mibBuilder.importSymbols("ARUBAWIRED-CHASSIS-MIB", "arubaWiredChassisMIB")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 arubaWiredFanTray = ModuleIdentity((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4))
 arubaWiredFanTray.setRevisions(('2023-03-31 00:00', '2020-02-13 00:00',))
 if mibBuilder.loadTexts: arubaWiredFanTray.setLastUpdated('202303310000Z')
@@ -52,4 +52,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 arubaWiredFanTrayNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 4, 99, 2, 2)).setObjects(("ARUBAWIRED-FANTRAY-MIB", "arubaWiredFanTrayStateNotification"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     arubaWiredFanTrayNotificationsGroup = arubaWiredFanTrayNotificationsGroup.setStatus('current')
-mibBuilder.exportSymbols("ARUBAWIRED-FANTRAY-MIB", arubaWiredFanTrayNotifications=arubaWiredFanTrayNotifications, arubaWiredFanTrayGroupIndex=arubaWiredFanTrayGroupIndex, arubaWiredFanTrayGroups=arubaWiredFanTrayGroups, arubaWiredFanTray=arubaWiredFanTray, arubaWiredFanTrayConformance=arubaWiredFanTrayConformance, arubaWiredFanTrayStateNotification=arubaWiredFanTrayStateNotification, arubaWiredFanTrayNumberFans=arubaWiredFanTrayNumberFans, arubaWiredFanTrayNotificationsGroup=arubaWiredFanTrayNotificationsGroup, arubaWiredFanTrayProductName=arubaWiredFanTrayProductName, arubaWiredFanTrayTableGroup=arubaWiredFanTrayTableGroup, arubaWiredFanTrayCompliance=arubaWiredFanTrayCompliance, PYSNMP_MODULE_ID=arubaWiredFanTray, arubaWiredFanTraySerialNumber=arubaWiredFanTraySerialNumber, arubaWiredFanTrayEntry=arubaWiredFanTrayEntry, arubaWiredFanTraySlotIndex=arubaWiredFanTraySlotIndex, arubaWiredFanTrayState=arubaWiredFanTrayState, arubaWiredFanTrayCompliances=arubaWiredFanTrayCompliances, arubaWiredFanTrayName=arubaWiredFanTrayName, arubaWiredFanTrayStateEnum=arubaWiredFanTrayStateEnum, arubaWiredFanTrayTable=arubaWiredFanTrayTable)
+mibBuilder.exportSymbols("ARUBAWIRED-FANTRAY-MIB", arubaWiredFanTrayStateNotification=arubaWiredFanTrayStateNotification, arubaWiredFanTray=arubaWiredFanTray, arubaWiredFanTrayState=arubaWiredFanTrayState, arubaWiredFanTrayTableGroup=arubaWiredFanTrayTableGroup, arubaWiredFanTrayTable=arubaWiredFanTrayTable, arubaWiredFanTraySerialNumber=arubaWiredFanTraySerialNumber, arubaWiredFanTrayGroupIndex=arubaWiredFanTrayGroupIndex, arubaWiredFanTrayProductName=arubaWiredFanTrayProductName, arubaWiredFanTrayNotificationsGroup=arubaWiredFanTrayNotificationsGroup, arubaWiredFanTrayEntry=arubaWiredFanTrayEntry, arubaWiredFanTrayNotifications=arubaWiredFanTrayNotifications, arubaWiredFanTraySlotIndex=arubaWiredFanTraySlotIndex, arubaWiredFanTrayGroups=arubaWiredFanTrayGroups, arubaWiredFanTrayNumberFans=arubaWiredFanTrayNumberFans, arubaWiredFanTrayName=arubaWiredFanTrayName, arubaWiredFanTrayConformance=arubaWiredFanTrayConformance, arubaWiredFanTrayCompliance=arubaWiredFanTrayCompliance, arubaWiredFanTrayStateEnum=arubaWiredFanTrayStateEnum, PYSNMP_MODULE_ID=arubaWiredFanTray, arubaWiredFanTrayCompliances=arubaWiredFanTrayCompliances)

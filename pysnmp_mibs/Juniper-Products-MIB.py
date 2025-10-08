@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module Juniper-Products-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/junose/Juniper-Products-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:22:58 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/junose/Juniper-Products-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:42:36 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 juniperUni, = mibBuilder.importSymbols("Juniper-UNI-SMI", "juniperUni")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 juniProducts = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 1))
 juniProducts.setRevisions(('2006-11-24 09:13', '2005-05-25 06:04', '2003-12-16 18:54', '2002-11-13 20:18', '2001-12-07 15:36', '2001-03-01 15:27', '2000-05-24 00:00', '1999-12-13 19:36', '1999-11-16 00:00', '1999-09-28 00:00',))
 if mibBuilder.loadTexts: juniProducts.setLastUpdated('200611240913Z')
@@ -39,4 +39,4 @@ usSmx = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 1, 1, 1, 3))
 usServiceMediationSwitch2100 = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 1, 1, 1, 3, 1))
 usSrx = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 1, 1, 1, 4))
 usServiceReadySwitch3000 = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 1, 1, 1, 4, 1))
-mibBuilder.exportSymbols("Juniper-Products-MIB", juniErx310=juniErx310, PYSNMP_MODULE_ID=juniProducts, juniOemProductFamilies=juniOemProductFamilies, juniperUniProductFamilies=juniperUniProductFamilies, juniErx700=juniErx700, usServiceReadySwitch3000=usServiceReadySwitch3000, juniE320=juniE320, usSmx=usSmx, juniProducts=juniProducts, juniSsx1440=juniSsx1440, juniUmcSystemManagement=juniUmcSystemManagement, juniErx705=juniErx705, juniErx1400=juniErx1400, juniEseries2=juniEseries2, juniProductFamilies=juniProductFamilies, juniUmc=juniUmc, juniSsx=juniSsx, usServiceMediationSwitch2100=usServiceMediationSwitch2100, juniErx=juniErx, usSrx=usSrx, juniE120=juniE120, juniSsx700=juniSsx700, juniErx1440=juniErx1440, juniSsx1400=juniSsx1400, juniMarconiProductFamilies=juniMarconiProductFamilies)
+mibBuilder.exportSymbols("Juniper-Products-MIB", juniE120=juniE120, juniErx=juniErx, juniSsx1440=juniSsx1440, juniUmcSystemManagement=juniUmcSystemManagement, juniEseries2=juniEseries2, usSrx=usSrx, juniProductFamilies=juniProductFamilies, usServiceMediationSwitch2100=usServiceMediationSwitch2100, juniErx1400=juniErx1400, usSmx=usSmx, juniOemProductFamilies=juniOemProductFamilies, juniErx705=juniErx705, usServiceReadySwitch3000=usServiceReadySwitch3000, juniErx310=juniErx310, juniProducts=juniProducts, juniErx1440=juniErx1440, juniUmc=juniUmc, juniSsx1400=juniSsx1400, PYSNMP_MODULE_ID=juniProducts, juniperUniProductFamilies=juniperUniProductFamilies, juniMarconiProductFamilies=juniMarconiProductFamilies, juniSsx700=juniSsx700, juniE320=juniE320, juniSsx=juniSsx, juniErx700=juniErx700)

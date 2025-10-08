@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module HM2-TRAFFICMGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hirschmann/HM2-TRAFFICMGMT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:02 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hirschmann/HM2-TRAFFICMGMT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:55:56 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-HmEnabledStatus, hm2ConfigurationMibs = mibBuilder.importSymbols("HM2-TC-MIB", "HmEnabledStatus", "hm2ConfigurationMibs")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+hm2ConfigurationMibs, HmEnabledStatus = mibBuilder.importSymbols("HM2-TC-MIB", "hm2ConfigurationMibs", "HmEnabledStatus")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 hm2TrafficMgmtMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 11, 31))
 hm2TrafficMgmtMib.setRevisions(('2011-03-16 00:00',))
 if mibBuilder.loadTexts: hm2TrafficMgmtMib.setLastUpdated('201103160000Z')
@@ -50,4 +50,4 @@ hm2TrafficMgmtIngressStormBucketType = MibScalar((1, 3, 6, 1, 4, 1, 248, 11, 31,
 if mibBuilder.loadTexts: hm2TrafficMgmtIngressStormBucketType.setStatus('current')
 hm2TrafficMgmtNoFlowControl = ObjectIdentity((1, 3, 6, 1, 4, 1, 248, 11, 31, 3, 1))
 if mibBuilder.loadTexts: hm2TrafficMgmtNoFlowControl.setStatus('current')
-mibBuilder.exportSymbols("HM2-TRAFFICMGMT-MIB", hm2TrafficMgmtMibObjects=hm2TrafficMgmtMibObjects, hm2TrafficMgmtMibExtensionGroup=hm2TrafficMgmtMibExtensionGroup, hm2TrafficMgmtIfTable=hm2TrafficMgmtIfTable, hm2TrafficMgmtMibNotifications=hm2TrafficMgmtMibNotifications, hm2TrafficMgmtIfIngressStormCtlBcastThreshold=hm2TrafficMgmtIfIngressStormCtlBcastThreshold, hm2TrafficMgmtMib=hm2TrafficMgmtMib, hm2TrafficMgmtIfIngressStormCtlBcastMode=hm2TrafficMgmtIfIngressStormCtlBcastMode, hm2TrafficMgmtIfIngressStormCtlThresholdUnit=hm2TrafficMgmtIfIngressStormCtlThresholdUnit, hm2TrafficMgmtIfEntry=hm2TrafficMgmtIfEntry, hm2TrafficMgmtFlowControl=hm2TrafficMgmtFlowControl, PYSNMP_MODULE_ID=hm2TrafficMgmtMib, hm2TrafficMgmtIfIngressStormCtlMcastThreshold=hm2TrafficMgmtIfIngressStormCtlMcastThreshold, hm2TrafficMgmtNoFlowControl=hm2TrafficMgmtNoFlowControl, hm2TrafficMgmtIngressStormBucketType=hm2TrafficMgmtIngressStormBucketType, hm2TrafficMgmtIfEgressShapingRateUnit=hm2TrafficMgmtIfEgressShapingRateUnit, hm2TrafficMgmtIfIngressStormCtlMcastMode=hm2TrafficMgmtIfIngressStormCtlMcastMode, hm2TrafficMgmtIfEgressShapingRate=hm2TrafficMgmtIfEgressShapingRate, hm2TrafficMgmtIfIngressStormCtlUcastMode=hm2TrafficMgmtIfIngressStormCtlUcastMode, hm2TrafficMgmtIfFlowControl=hm2TrafficMgmtIfFlowControl, hm2TrafficMgmtIfIngressStormCtlUcastThreshold=hm2TrafficMgmtIfIngressStormCtlUcastThreshold)
+mibBuilder.exportSymbols("HM2-TRAFFICMGMT-MIB", hm2TrafficMgmtIfIngressStormCtlBcastMode=hm2TrafficMgmtIfIngressStormCtlBcastMode, hm2TrafficMgmtIngressStormBucketType=hm2TrafficMgmtIngressStormBucketType, hm2TrafficMgmtIfEgressShapingRate=hm2TrafficMgmtIfEgressShapingRate, hm2TrafficMgmtIfFlowControl=hm2TrafficMgmtIfFlowControl, hm2TrafficMgmtMibObjects=hm2TrafficMgmtMibObjects, hm2TrafficMgmtMib=hm2TrafficMgmtMib, hm2TrafficMgmtIfEntry=hm2TrafficMgmtIfEntry, hm2TrafficMgmtMibExtensionGroup=hm2TrafficMgmtMibExtensionGroup, hm2TrafficMgmtFlowControl=hm2TrafficMgmtFlowControl, hm2TrafficMgmtMibNotifications=hm2TrafficMgmtMibNotifications, hm2TrafficMgmtIfIngressStormCtlBcastThreshold=hm2TrafficMgmtIfIngressStormCtlBcastThreshold, hm2TrafficMgmtIfIngressStormCtlMcastThreshold=hm2TrafficMgmtIfIngressStormCtlMcastThreshold, hm2TrafficMgmtIfIngressStormCtlUcastMode=hm2TrafficMgmtIfIngressStormCtlUcastMode, hm2TrafficMgmtNoFlowControl=hm2TrafficMgmtNoFlowControl, hm2TrafficMgmtIfIngressStormCtlMcastMode=hm2TrafficMgmtIfIngressStormCtlMcastMode, hm2TrafficMgmtIfIngressStormCtlThresholdUnit=hm2TrafficMgmtIfIngressStormCtlThresholdUnit, hm2TrafficMgmtIfEgressShapingRateUnit=hm2TrafficMgmtIfEgressShapingRateUnit, hm2TrafficMgmtIfIngressStormCtlUcastThreshold=hm2TrafficMgmtIfIngressStormCtlUcastThreshold, hm2TrafficMgmtIfTable=hm2TrafficMgmtIfTable, PYSNMP_MODULE_ID=hm2TrafficMgmtMib)

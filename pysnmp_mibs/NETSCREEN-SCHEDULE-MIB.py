@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module NETSCREEN-SCHEDULE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netscreen/NETSCREEN-SCHEDULE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:29 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/netscreen/NETSCREEN-SCHEDULE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:51 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 netscreenSchedule, = mibBuilder.importSymbols("NETSCREEN-SMI", "netscreenSchedule")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 netscreenScheduleMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 3224, 14, 0))
 netscreenScheduleMibModule.setRevisions(('2004-05-03 00:00', '2004-03-03 00:00', '2003-11-10 00:00', '2001-09-28 00:00', '2001-05-27 00:00',))
 if mibBuilder.loadTexts: netscreenScheduleMibModule.setLastUpdated('200405032022Z')
@@ -54,4 +54,4 @@ nsSchRecurComments = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 14, 2, 1, 8), Displ
 if mibBuilder.loadTexts: nsSchRecurComments.setStatus('current')
 nsSchRecurVsys = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 14, 2, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: nsSchRecurVsys.setStatus('current')
-mibBuilder.exportSymbols("NETSCREEN-SCHEDULE-MIB", nsSchOnceTable=nsSchOnceTable, nsSchOnceStartTime=nsSchOnceStartTime, nsSchRecurVsys=nsSchRecurVsys, nsSchOnceStopTime=nsSchOnceStopTime, nsSchOnceVsys=nsSchOnceVsys, nsSchRecurName=nsSchRecurName, nsSchRecurStartTime2=nsSchRecurStartTime2, nsSchOnceEntry=nsSchOnceEntry, nsSchRecurComments=nsSchRecurComments, PYSNMP_MODULE_ID=netscreenScheduleMibModule, nsSchOnceName=nsSchOnceName, netscreenScheduleMibModule=netscreenScheduleMibModule, nsSchRecurIndex=nsSchRecurIndex, nsSchRecurWeekday=nsSchRecurWeekday, nsSchRecurStartTime1=nsSchRecurStartTime1, nsSchRecurTable=nsSchRecurTable, nsSchRecurEntry=nsSchRecurEntry, nsSchRecurStopTime1=nsSchRecurStopTime1, nsSchRecurStopTime2=nsSchRecurStopTime2, nsSchOnceComments=nsSchOnceComments, nsSchOnceIndex=nsSchOnceIndex)
+mibBuilder.exportSymbols("NETSCREEN-SCHEDULE-MIB", nsSchRecurWeekday=nsSchRecurWeekday, nsSchRecurStopTime1=nsSchRecurStopTime1, nsSchOnceStartTime=nsSchOnceStartTime, nsSchOnceIndex=nsSchOnceIndex, nsSchRecurVsys=nsSchRecurVsys, nsSchRecurIndex=nsSchRecurIndex, nsSchRecurStartTime1=nsSchRecurStartTime1, netscreenScheduleMibModule=netscreenScheduleMibModule, nsSchOnceComments=nsSchOnceComments, nsSchOnceEntry=nsSchOnceEntry, nsSchRecurComments=nsSchRecurComments, nsSchOnceVsys=nsSchOnceVsys, nsSchOnceStopTime=nsSchOnceStopTime, nsSchOnceTable=nsSchOnceTable, nsSchRecurName=nsSchRecurName, nsSchRecurTable=nsSchRecurTable, nsSchRecurEntry=nsSchRecurEntry, PYSNMP_MODULE_ID=netscreenScheduleMibModule, nsSchRecurStartTime2=nsSchRecurStartTime2, nsSchOnceName=nsSchOnceName, nsSchRecurStopTime2=nsSchRecurStopTime2)

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ZXR10-PEAKRATE1MIN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZXR10-PEAKRATE1MIN-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:56 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zte/ZXR10-PEAKRATE1MIN-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:10:42 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 zte = MibIdentifier((1, 3, 6, 1, 4, 1, 3902))
 zxr10 = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 3))
 zxr10switch = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 3, 102))
@@ -60,4 +60,4 @@ portOutTotalErrTime = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 102, 31, 1, 1, 
 if mibBuilder.loadTexts: portOutTotalErrTime.setStatus('current')
 portClearPeakPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 102, 31, 1, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("clear", 0)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: portClearPeakPkts.setStatus('current')
-mibBuilder.exportSymbols("ZXR10-PEAKRATE1MIN-MIB", zte=zte, portPeakrateEnable=portPeakrateEnable, portInUnicastTime=portInUnicastTime, portIfOutIndex=portIfOutIndex, portInBroadcastTime=portInBroadcastTime, portInMulticastTime=portInMulticastTime, zxr10switch=zxr10switch, portInUnicastPktsPeak=portInUnicastPktsPeak, portOutTotalErrPktsPeak=portOutTotalErrPktsPeak, zxr10Peakrate1Min=zxr10Peakrate1Min, portOutUnicastPktsPeak=portOutUnicastPktsPeak, portOutBroadcastPktsPeak=portOutBroadcastPktsPeak, portInBroadcastPktsPeak=portInBroadcastPktsPeak, portOutTotalErrTime=portOutTotalErrTime, portInMulticastPktsPeak=portInMulticastPktsPeak, DisplayString=DisplayString, portInTotalErrPktsPeak=portInTotalErrPktsPeak, zxr10=zxr10, portPeakrateTable=portPeakrateTable, portInTotalErrTime=portInTotalErrTime, portPeakrateEntry=portPeakrateEntry, portOutBroadcastTime=portOutBroadcastTime, portClearPeakPkts=portClearPeakPkts, portOutMulticastTime=portOutMulticastTime, portOutUnicastTime=portOutUnicastTime, portOutMulticastPktsPeak=portOutMulticastPktsPeak)
+mibBuilder.exportSymbols("ZXR10-PEAKRATE1MIN-MIB", portOutBroadcastPktsPeak=portOutBroadcastPktsPeak, portOutUnicastTime=portOutUnicastTime, portOutTotalErrTime=portOutTotalErrTime, DisplayString=DisplayString, portOutMulticastPktsPeak=portOutMulticastPktsPeak, portInMulticastTime=portInMulticastTime, portClearPeakPkts=portClearPeakPkts, portOutTotalErrPktsPeak=portOutTotalErrPktsPeak, portInUnicastTime=portInUnicastTime, zxr10switch=zxr10switch, portInTotalErrPktsPeak=portInTotalErrPktsPeak, zxr10Peakrate1Min=zxr10Peakrate1Min, portOutBroadcastTime=portOutBroadcastTime, portOutUnicastPktsPeak=portOutUnicastPktsPeak, portIfOutIndex=portIfOutIndex, zxr10=zxr10, portPeakrateEntry=portPeakrateEntry, portOutMulticastTime=portOutMulticastTime, portInTotalErrTime=portInTotalErrTime, zte=zte, portPeakrateTable=portPeakrateTable, portInBroadcastPktsPeak=portInBroadcastPktsPeak, portPeakrateEnable=portPeakrateEnable, portInMulticastPktsPeak=portInMulticastPktsPeak, portInBroadcastTime=portInBroadcastTime, portInUnicastPktsPeak=portInUnicastPktsPeak)

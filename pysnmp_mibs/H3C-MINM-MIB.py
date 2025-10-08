@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module H3C-MINM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-MINM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:29 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-MINM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:15 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 h3cVsiIndex, = mibBuilder.importSymbols("H3C-VSI-MIB", "h3cVsiIndex")
 h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+MacAddress, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "RowStatus", "DisplayString", "TextualConvention")
 h3cMinm = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 107))
 h3cMinm.setRevisions(('2009-08-08 10:00',))
 if mibBuilder.loadTexts: h3cMinm.setLastUpdated('200908081000Z')
@@ -63,4 +63,4 @@ h3cMinmConnectionAgingStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 10
 if mibBuilder.loadTexts: h3cMinmConnectionAgingStatus.setStatus('current')
 h3cMinmConnectionRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 107, 1, 4, 1, 7), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: h3cMinmConnectionRowStatus.setStatus('current')
-mibBuilder.exportSymbols("H3C-MINM-MIB", PYSNMP_MODULE_ID=h3cMinm, h3cMinmConnectionStatus=h3cMinmConnectionStatus, h3cMinmConnectionTable=h3cMinmConnectionTable, h3cMinmUplinkEntry=h3cMinmUplinkEntry, h3cMinmCapabilities=h3cMinmCapabilities, h3cMinmUplinkRowStatus=h3cMinmUplinkRowStatus, h3cMinmObjects=h3cMinmObjects, H3cMinmEnabledStatus=H3cMinmEnabledStatus, h3cMinmVsiEntry=h3cMinmVsiEntry, h3cMinmConnectionEntry=h3cMinmConnectionEntry, h3cMinmConnectionBmac=h3cMinmConnectionBmac, h3cMinmScalarGroup=h3cMinmScalarGroup, h3cMinmConnectionRowStatus=h3cMinmConnectionRowStatus, h3cMinm=h3cMinm, h3cMinmBmac=h3cMinmBmac, h3cMinmUplinkTable=h3cMinmUplinkTable, h3cMinmVsiTable=h3cMinmVsiTable, h3cMinmConnectionLinkId=h3cMinmConnectionLinkId, h3cMinmConnectionPort=h3cMinmConnectionPort, h3cMinmVsiNextAvailableLinkId=h3cMinmVsiNextAvailableLinkId, h3cMinmConnectionBvlan=h3cMinmConnectionBvlan, h3cMinmVsiBvlan=h3cMinmVsiBvlan, h3cMinmConnectionAgingStatus=h3cMinmConnectionAgingStatus, h3cMinmVsiReEncapsulation=h3cMinmVsiReEncapsulation)
+mibBuilder.exportSymbols("H3C-MINM-MIB", h3cMinmVsiReEncapsulation=h3cMinmVsiReEncapsulation, PYSNMP_MODULE_ID=h3cMinm, h3cMinmVsiNextAvailableLinkId=h3cMinmVsiNextAvailableLinkId, h3cMinmBmac=h3cMinmBmac, h3cMinmVsiBvlan=h3cMinmVsiBvlan, h3cMinmCapabilities=h3cMinmCapabilities, h3cMinmUplinkRowStatus=h3cMinmUplinkRowStatus, h3cMinmVsiTable=h3cMinmVsiTable, h3cMinmConnectionTable=h3cMinmConnectionTable, H3cMinmEnabledStatus=H3cMinmEnabledStatus, h3cMinmConnectionBmac=h3cMinmConnectionBmac, h3cMinmObjects=h3cMinmObjects, h3cMinmVsiEntry=h3cMinmVsiEntry, h3cMinmConnectionPort=h3cMinmConnectionPort, h3cMinmConnectionEntry=h3cMinmConnectionEntry, h3cMinmConnectionRowStatus=h3cMinmConnectionRowStatus, h3cMinmConnectionAgingStatus=h3cMinmConnectionAgingStatus, h3cMinmUplinkEntry=h3cMinmUplinkEntry, h3cMinm=h3cMinm, h3cMinmUplinkTable=h3cMinmUplinkTable, h3cMinmConnectionBvlan=h3cMinmConnectionBvlan, h3cMinmConnectionStatus=h3cMinmConnectionStatus, h3cMinmScalarGroup=h3cMinmScalarGroup, h3cMinmConnectionLinkId=h3cMinmConnectionLinkId)

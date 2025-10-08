@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module H3C-OFP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-OFP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:33 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-OFP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:21 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 h3cOfp = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 167))
 h3cOfp.setRevisions(('2017-02-28 17:00',))
 if mibBuilder.loadTexts: h3cOfp.setLastUpdated('201702281700Z')
@@ -42,4 +42,4 @@ h3cOfpInstanceCtrIPaddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 167,
 if mibBuilder.loadTexts: h3cOfpInstanceCtrIPaddress.setStatus('current')
 h3cOfpInstanceCtrPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 167, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: h3cOfpInstanceCtrPort.setStatus('current')
-mibBuilder.exportSymbols("H3C-OFP-MIB", h3cOfpInstanceControllerID=h3cOfpInstanceControllerID, h3cOfpInstanceCtrVRFName=h3cOfpInstanceCtrVRFName, h3cOfpInstanceControllerEntry=h3cOfpInstanceControllerEntry, h3cOfpInstanceObjects=h3cOfpInstanceObjects, h3cOfpInstanceControllerRole=h3cOfpInstanceControllerRole, h3cOfpInstanceControllerTable=h3cOfpInstanceControllerTable, PYSNMP_MODULE_ID=h3cOfp, h3cOfpInstanceCtrIPType=h3cOfpInstanceCtrIPType, h3cOfpInstanceCtrPort=h3cOfpInstanceCtrPort, h3cOfpInstanceCtrIPaddress=h3cOfpInstanceCtrIPaddress, h3cOfpInstanceCtrConnectType=h3cOfpInstanceCtrConnectType, h3cOfpInstanceCtrSSLPolicy=h3cOfpInstanceCtrSSLPolicy, h3cOfpInstanceCtrConnectState=h3cOfpInstanceCtrConnectState, h3cOfp=h3cOfp, h3cOfpInstanceID=h3cOfpInstanceID)
+mibBuilder.exportSymbols("H3C-OFP-MIB", h3cOfp=h3cOfp, h3cOfpInstanceCtrConnectType=h3cOfpInstanceCtrConnectType, h3cOfpInstanceCtrPort=h3cOfpInstanceCtrPort, h3cOfpInstanceControllerTable=h3cOfpInstanceControllerTable, h3cOfpInstanceCtrIPType=h3cOfpInstanceCtrIPType, h3cOfpInstanceCtrSSLPolicy=h3cOfpInstanceCtrSSLPolicy, PYSNMP_MODULE_ID=h3cOfp, h3cOfpInstanceControllerID=h3cOfpInstanceControllerID, h3cOfpInstanceControllerRole=h3cOfpInstanceControllerRole, h3cOfpInstanceCtrVRFName=h3cOfpInstanceCtrVRFName, h3cOfpInstanceCtrIPaddress=h3cOfpInstanceCtrIPaddress, h3cOfpInstanceControllerEntry=h3cOfpInstanceControllerEntry, h3cOfpInstanceID=h3cOfpInstanceID, h3cOfpInstanceCtrConnectState=h3cOfpInstanceCtrConnectState, h3cOfpInstanceObjects=h3cOfpInstanceObjects)

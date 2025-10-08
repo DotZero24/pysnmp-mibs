@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module LEFTHAND-NETWORKS-GLOBAL-REG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/LEFTHAND-NETWORKS-GLOBAL-REG-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:34 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/LEFTHAND-NETWORKS-GLOBAL-REG-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:10:04 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 lhnMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9804, 1))
 lhnMIB.setRevisions(('2013-11-21 00:00', '2013-06-25 00:00', '2012-09-04 00:00', '2011-06-21 00:00', '2010-09-07 00:00', '2010-07-19 00:00', '2009-11-20 00:00', '2009-03-10 00:00', '2008-01-24 00:00',))
 if mibBuilder.loadTexts: lhnMIB.setLastUpdated('201311210000Z')
@@ -27,4 +27,4 @@ if mibBuilder.loadTexts: lhnModules.setStatus('current')
 lefthandnetworksProducts = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3))
 lhnNsm = ObjectIdentity((1, 3, 6, 1, 4, 1, 9804, 3, 1))
 if mibBuilder.loadTexts: lhnNsm.setStatus('current')
-mibBuilder.exportSymbols("LEFTHAND-NETWORKS-GLOBAL-REG-MIB", lhnMIBObjects=lhnMIBObjects, lhnMIB=lhnMIB, lefthandnetworksRegistrations=lefthandnetworksRegistrations, PYSNMP_MODULE_ID=lhnMIB, lhnModules=lhnModules, lhnMIBConformance=lhnMIBConformance, lhnMIBGroups=lhnMIBGroups, lefthandnetworks=lefthandnetworks, lhnMIBNotifications=lhnMIBNotifications, lhnMIBCompliances=lhnMIBCompliances, lefthandnetworksProducts=lefthandnetworksProducts, lhnNsm=lhnNsm)
+mibBuilder.exportSymbols("LEFTHAND-NETWORKS-GLOBAL-REG-MIB", lhnMIBCompliances=lhnMIBCompliances, lhnNsm=lhnNsm, lhnModules=lhnModules, lhnMIBGroups=lhnMIBGroups, lefthandnetworksRegistrations=lefthandnetworksRegistrations, lefthandnetworksProducts=lefthandnetworksProducts, PYSNMP_MODULE_ID=lhnMIB, lefthandnetworks=lefthandnetworks, lhnMIBNotifications=lhnMIBNotifications, lhnMIB=lhnMIB, lhnMIBObjects=lhnMIBObjects, lhnMIBConformance=lhnMIBConformance)

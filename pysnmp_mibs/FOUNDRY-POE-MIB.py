@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module FOUNDRY-POE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/brocade/FOUNDRY-POE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:00 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/brocade/FOUNDRY-POE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:15:30 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 snAgentSys, = mibBuilder.importSymbols("FOUNDRY-SN-ROOT-MIB", "snAgentSys")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 snAgentPoe = ModuleIdentity((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14))
 snAgentPoe.setRevisions(('2010-06-02 00:00', '2009-09-30 00:00', '2009-04-03 00:00',))
 if mibBuilder.loadTexts: snAgentPoe.setLastUpdated('201006020000Z')
@@ -67,4 +67,4 @@ snAgentPoeUnitPowerCapacityFree = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 
 if mibBuilder.loadTexts: snAgentPoeUnitPowerCapacityFree.setStatus('current')
 snAgentPoeUnitPowerAllocationsRequestsHonored = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 4, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snAgentPoeUnitPowerAllocationsRequestsHonored.setStatus('current')
-mibBuilder.exportSymbols("FOUNDRY-POE-MIB", snAgentPoePortControl=snAgentPoePortControl, snAgentPoePortWattage=snAgentPoePortWattage, snAgentPoePort=snAgentPoePort, snAgentPoeGblPowerAllocationsRequestsHonored=snAgentPoeGblPowerAllocationsRequestsHonored, snAgentPoeGbl=snAgentPoeGbl, snAgentPoeModule=snAgentPoeModule, snAgentPoeUnitPowerAllocationsRequestsHonored=snAgentPoeUnitPowerAllocationsRequestsHonored, snAgentPoePortConsumed=snAgentPoePortConsumed, snAgentPoeUnitPowerCapacityFree=snAgentPoeUnitPowerCapacityFree, snAgentPoePortNumber=snAgentPoePortNumber, snAgentPoeUnit=snAgentPoeUnit, snAgentPoe=snAgentPoe, snAgentPoeUnitEntry=snAgentPoeUnitEntry, snAgentPoePortEntry=snAgentPoePortEntry, snAgentPoeGblPowerCapacityFree=snAgentPoeGblPowerCapacityFree, snAgentPoeUnitTable=snAgentPoeUnitTable, snAgentPoePortTable=snAgentPoePortTable, snAgentPoePortClass=snAgentPoePortClass, snAgentPoeUnitPowerCapacityTotal=snAgentPoeUnitPowerCapacityTotal, snAgentPoeModuleEntry=snAgentPoeModuleEntry, snAgentPoePortPriority=snAgentPoePortPriority, snAgentPoeModuleMaxPDTypeSupport=snAgentPoeModuleMaxPDTypeSupport, snAgentPoeModuleNumber=snAgentPoeModuleNumber, snAgentPoePortType=snAgentPoePortType, PYSNMP_MODULE_ID=snAgentPoe, snAgentPoeGblPowerCapacityTotal=snAgentPoeGblPowerCapacityTotal, snAgentPoeModuleBudget=snAgentPoeModuleBudget, snAgentPoeModuleTable=snAgentPoeModuleTable, snAgentPoeUnitIndex=snAgentPoeUnitIndex)
+mibBuilder.exportSymbols("FOUNDRY-POE-MIB", snAgentPoeGblPowerCapacityTotal=snAgentPoeGblPowerCapacityTotal, snAgentPoeModuleNumber=snAgentPoeModuleNumber, snAgentPoePort=snAgentPoePort, snAgentPoePortControl=snAgentPoePortControl, snAgentPoeModuleBudget=snAgentPoeModuleBudget, snAgentPoe=snAgentPoe, snAgentPoeUnitEntry=snAgentPoeUnitEntry, snAgentPoePortClass=snAgentPoePortClass, snAgentPoeUnitPowerAllocationsRequestsHonored=snAgentPoeUnitPowerAllocationsRequestsHonored, snAgentPoeModule=snAgentPoeModule, snAgentPoePortTable=snAgentPoePortTable, snAgentPoeGblPowerCapacityFree=snAgentPoeGblPowerCapacityFree, snAgentPoePortWattage=snAgentPoePortWattage, snAgentPoeModuleTable=snAgentPoeModuleTable, snAgentPoeUnitTable=snAgentPoeUnitTable, snAgentPoePortNumber=snAgentPoePortNumber, snAgentPoePortPriority=snAgentPoePortPriority, snAgentPoeUnitIndex=snAgentPoeUnitIndex, snAgentPoeModuleMaxPDTypeSupport=snAgentPoeModuleMaxPDTypeSupport, snAgentPoeGbl=snAgentPoeGbl, snAgentPoePortEntry=snAgentPoePortEntry, snAgentPoeUnitPowerCapacityTotal=snAgentPoeUnitPowerCapacityTotal, snAgentPoePortType=snAgentPoePortType, snAgentPoeUnit=snAgentPoeUnit, PYSNMP_MODULE_ID=snAgentPoe, snAgentPoePortConsumed=snAgentPoePortConsumed, snAgentPoeGblPowerAllocationsRequestsHonored=snAgentPoeGblPowerAllocationsRequestsHonored, snAgentPoeUnitPowerCapacityFree=snAgentPoeUnitPowerCapacityFree, snAgentPoeModuleEntry=snAgentPoeModuleEntry)

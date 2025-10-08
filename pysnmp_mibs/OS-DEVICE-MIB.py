@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module OS-DEVICE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mrv/OS-DEVICE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:26 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mrv/OS-DEVICE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:16:21 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 oaOptiSwitch, = mibBuilder.importSymbols("OS-COMMON-TC-MIB", "oaOptiSwitch")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 osDevice = ModuleIdentity((1, 3, 6, 1, 4, 1, 6926, 2, 40))
 osDevice.setRevisions(('2019-04-04 00:00', '2016-09-14 00:00',))
@@ -74,4 +74,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 osDevNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6926, 2, 40, 101, 2, 2)).setObjects(("OS-DEVICE-MIB", "osDevModuleInserted"), ("OS-DEVICE-MIB", "osDevModuleRemoved"), ("OS-DEVICE-MIB", "osDevModuleLedPowerOn"), ("OS-DEVICE-MIB", "osDevModuleLedPowerOff"), ("OS-DEVICE-MIB", "osDevModuleLedWanOn"), ("OS-DEVICE-MIB", "osDevModuleLedWanOff"), ("OS-DEVICE-MIB", "osDevModuleLedConnOn"), ("OS-DEVICE-MIB", "osDevModuleLedConnOff"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     osDevNotificationsGroup = osDevNotificationsGroup.setStatus('current')
-mibBuilder.exportSymbols("OS-DEVICE-MIB", osDevSerialEntry=osDevSerialEntry, osDevMIBGroups=osDevMIBGroups, osDevModuleRemoved=osDevModuleRemoved, osDevSerialTable=osDevSerialTable, osDevParams=osDevParams, osDevModuleLedPowerOff=osDevModuleLedPowerOff, DevModuleType=DevModuleType, osDevModuleLedConnOn=osDevModuleLedConnOn, osDevModule=osDevModule, osDevSerialAdminBaudrate=osDevSerialAdminBaudrate, osDevModuleInserted=osDevModuleInserted, osDevSerialNumber=osDevSerialNumber, osDevNotifications=osDevNotifications, osDevice=osDevice, osDevMandatoryGroup=osDevMandatoryGroup, osDevMIBCompliances=osDevMIBCompliances, osDevSerial=osDevSerial, osDevModuleLedConnOff=osDevModuleLedConnOff, osDevConformance=osDevConformance, osDevSerialOperBaudrate=osDevSerialOperBaudrate, osDevSerialIndex=osDevSerialIndex, osDevMIBCompliance=osDevMIBCompliance, osDevModuleType=osDevModuleType, osDevModuleSlotNumber=osDevModuleSlotNumber, osDevNotificationsGroup=osDevNotificationsGroup, osDevModuleLedWanOn=osDevModuleLedWanOn, osDevModuleLedPowerOn=osDevModuleLedPowerOn, SerialBaudRate=SerialBaudRate, PYSNMP_MODULE_ID=osDevice, osDevModuleLedWanOff=osDevModuleLedWanOff)
+mibBuilder.exportSymbols("OS-DEVICE-MIB", DevModuleType=DevModuleType, osDevModuleType=osDevModuleType, osDevModuleLedPowerOn=osDevModuleLedPowerOn, osDevice=osDevice, osDevModuleSlotNumber=osDevModuleSlotNumber, osDevMandatoryGroup=osDevMandatoryGroup, osDevModuleLedWanOff=osDevModuleLedWanOff, osDevMIBCompliance=osDevMIBCompliance, osDevModule=osDevModule, osDevParams=osDevParams, osDevConformance=osDevConformance, osDevModuleLedWanOn=osDevModuleLedWanOn, osDevMIBGroups=osDevMIBGroups, osDevSerialOperBaudrate=osDevSerialOperBaudrate, osDevModuleLedConnOn=osDevModuleLedConnOn, osDevNotificationsGroup=osDevNotificationsGroup, PYSNMP_MODULE_ID=osDevice, osDevSerialIndex=osDevSerialIndex, osDevSerialEntry=osDevSerialEntry, SerialBaudRate=SerialBaudRate, osDevSerialTable=osDevSerialTable, osDevModuleRemoved=osDevModuleRemoved, osDevSerialNumber=osDevSerialNumber, osDevNotifications=osDevNotifications, osDevModuleInserted=osDevModuleInserted, osDevSerial=osDevSerial, osDevSerialAdminBaudrate=osDevSerialAdminBaudrate, osDevModuleLedConnOff=osDevModuleLedConnOff, osDevMIBCompliances=osDevMIBCompliances, osDevModuleLedPowerOff=osDevModuleLedPowerOff)

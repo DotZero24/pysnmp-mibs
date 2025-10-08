@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ALVARION-VSC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alvarion/ALVARION-VSC-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:04 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alvarion/ALVARION-VSC-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:37 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 alvarionMgmtV2, = mibBuilder.importSymbols("ALVARION-SMI", "alvarionMgmtV2")
 AlvarionSSID, = mibBuilder.importSymbols("ALVARION-TC", "AlvarionSSID")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 alvarionVscMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 22))
 if mibBuilder.loadTexts: alvarionVscMIB.setLastUpdated('200710310000Z')
 if mibBuilder.loadTexts: alvarionVscMIB.setOrganization('Alvarion Ltd.')
@@ -50,4 +50,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 alvarionVscMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 22, 2, 2, 1)).setObjects(("ALVARION-VSC-MIB", "coVscCfgFriendlyVscName"), ("ALVARION-VSC-MIB", "coVscCfgSSID"), ("ALVARION-VSC-MIB", "coVscCfgAccessControlled"), ("ALVARION-VSC-MIB", "coVscCfgSecurity"), ("ALVARION-VSC-MIB", "coVscCfgEncryption"), ("ALVARION-VSC-MIB", "coVscCfg8021xAuthentication"), ("ALVARION-VSC-MIB", "coVscCfgMACAuthentication"), ("ALVARION-VSC-MIB", "coVscCfgHTMLAuthentication"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     alvarionVscMIBGroup = alvarionVscMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("ALVARION-VSC-MIB", PYSNMP_MODULE_ID=alvarionVscMIB, coVscConfigEntry=coVscConfigEntry, alvarionVscMIBGroup=alvarionVscMIBGroup, alvarionVscMIBCompliances=alvarionVscMIBCompliances, coVscConfigTable=coVscConfigTable, coVscCfgIndex=coVscCfgIndex, alvarionVscMIBObjects=alvarionVscMIBObjects, coVscCfgMACAuthentication=coVscCfgMACAuthentication, coVscConfigGroup=coVscConfigGroup, coVscCfgFriendlyVscName=coVscCfgFriendlyVscName, alvarionVscMIBCompliance=alvarionVscMIBCompliance, alvarionVscMIB=alvarionVscMIB, coVscCfgSecurity=coVscCfgSecurity, alvarionVscMIBGroups=alvarionVscMIBGroups, coVscCfgAccessControlled=coVscCfgAccessControlled, coVscCfgHTMLAuthentication=coVscCfgHTMLAuthentication, coVscCfgEncryption=coVscCfgEncryption, coVscCfgSSID=coVscCfgSSID, coVscCfg8021xAuthentication=coVscCfg8021xAuthentication, alvarionVscMIBConformance=alvarionVscMIBConformance)
+mibBuilder.exportSymbols("ALVARION-VSC-MIB", coVscConfigEntry=coVscConfigEntry, coVscCfgAccessControlled=coVscCfgAccessControlled, alvarionVscMIB=alvarionVscMIB, coVscConfigTable=coVscConfigTable, coVscCfgEncryption=coVscCfgEncryption, coVscCfgIndex=coVscCfgIndex, PYSNMP_MODULE_ID=alvarionVscMIB, coVscCfg8021xAuthentication=coVscCfg8021xAuthentication, alvarionVscMIBCompliance=alvarionVscMIBCompliance, coVscCfgFriendlyVscName=coVscCfgFriendlyVscName, coVscCfgMACAuthentication=coVscCfgMACAuthentication, coVscConfigGroup=coVscConfigGroup, coVscCfgSecurity=coVscCfgSecurity, coVscCfgHTMLAuthentication=coVscCfgHTMLAuthentication, alvarionVscMIBCompliances=alvarionVscMIBCompliances, alvarionVscMIBGroups=alvarionVscMIBGroups, alvarionVscMIBGroup=alvarionVscMIBGroup, alvarionVscMIBConformance=alvarionVscMIBConformance, coVscCfgSSID=coVscCfgSSID, alvarionVscMIBObjects=alvarionVscMIBObjects)

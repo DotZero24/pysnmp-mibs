@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module FS-VPLS-LDP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fscom/FS-VPLS-LDP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:36 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/fscom/FS-VPLS-LDP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:01:25 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 fsMgmt, = mibBuilder.importSymbols("FS-SMI", "fsMgmt")
-fsvplsPwBindIndex, fsvplsConfigIndex = mibBuilder.importSymbols("FS-VPLS-GENERIC-MIB", "fsvplsPwBindIndex", "fsvplsConfigIndex")
-IANAPwTypeTC, IANAPwPsnTypeTC, IANAPwCapabilities = mibBuilder.importSymbols("IANA-PWE3-MIB", "IANAPwTypeTC", "IANAPwPsnTypeTC", "IANAPwCapabilities")
+fsvplsConfigIndex, fsvplsPwBindIndex = mibBuilder.importSymbols("FS-VPLS-GENERIC-MIB", "fsvplsConfigIndex", "fsvplsPwBindIndex")
+IANAPwCapabilities, IANAPwPsnTypeTC, IANAPwTypeTC = mibBuilder.importSymbols("IANA-PWE3-MIB", "IANAPwCapabilities", "IANAPwPsnTypeTC", "IANAPwTypeTC")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, transmission, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "transmission", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+transmission, MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "transmission", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
 fsvplsLdpDraft01MIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 78))
 fsvplsLdpDraft01MIB.setRevisions(('2010-04-28 12:00',))
 if mibBuilder.loadTexts: fsvplsLdpDraft01MIB.setLastUpdated('201004281200Z')
@@ -38,4 +38,4 @@ fsvplsPwEncapType = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 78, 1,
 if mibBuilder.loadTexts: fsvplsPwEncapType.setStatus('current')
 fsvplsLdpNeighborRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 78, 1, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: fsvplsLdpNeighborRowStatus.setStatus('current')
-mibBuilder.exportSymbols("FS-VPLS-LDP-MIB", fsvplsPwType=fsvplsPwType, fsvplsLdpDraft01MIB=fsvplsLdpDraft01MIB, fsvplsLdpPeerAddr=fsvplsLdpPeerAddr, fsvplsLdpObjects=fsvplsLdpObjects, fsvplsLdpConformance=fsvplsLdpConformance, fsvplsLdpNotifications=fsvplsLdpNotifications, fsvplsLdpPwIndex=fsvplsLdpPwIndex, fsvplsLdpConfigEntry=fsvplsLdpConfigEntry, fsvplsPwEncapType=fsvplsPwEncapType, fsvplsLdpNeighborRowStatus=fsvplsLdpNeighborRowStatus, PYSNMP_MODULE_ID=fsvplsLdpDraft01MIB, fsvplsLdpPwId=fsvplsLdpPwId, fsvplsLdpConfigTable=fsvplsLdpConfigTable)
+mibBuilder.exportSymbols("FS-VPLS-LDP-MIB", fsvplsLdpNotifications=fsvplsLdpNotifications, fsvplsLdpConformance=fsvplsLdpConformance, fsvplsLdpConfigEntry=fsvplsLdpConfigEntry, fsvplsLdpNeighborRowStatus=fsvplsLdpNeighborRowStatus, PYSNMP_MODULE_ID=fsvplsLdpDraft01MIB, fsvplsLdpPeerAddr=fsvplsLdpPeerAddr, fsvplsLdpPwId=fsvplsLdpPwId, fsvplsLdpObjects=fsvplsLdpObjects, fsvplsPwEncapType=fsvplsPwEncapType, fsvplsLdpPwIndex=fsvplsLdpPwIndex, fsvplsPwType=fsvplsPwType, fsvplsLdpDraft01MIB=fsvplsLdpDraft01MIB, fsvplsLdpConfigTable=fsvplsLdpConfigTable)

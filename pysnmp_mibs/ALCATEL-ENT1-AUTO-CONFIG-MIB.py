@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ALCATEL-ENT1-AUTO-CONFIG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alcatel-ent1/ALCATEL-ENT1-AUTO-CONFIG-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:00 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alcatel-ent1/ALCATEL-ENT1-AUTO-CONFIG-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:00:04 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 softentIND1AutoConfig, = mibBuilder.importSymbols("ALCATEL-ENT1-BASE", "softentIND1AutoConfig")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 alaAUTOCONFIGMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 83, 1))
 alaAUTOCONFIGMIB.setRevisions(('2012-05-04 00:00',))
 if mibBuilder.loadTexts: alaAUTOCONFIGMIB.setLastUpdated('201205040000Z')
@@ -44,4 +44,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 alaAutoConfigGlobalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 83, 1, 2, 1, 2)).setObjects(("ALCATEL-ENT1-AUTO-CONFIG-MIB", "alaAutoConfigAbort"), ("ALCATEL-ENT1-AUTO-CONFIG-MIB", "alaAutoConfigAutoFabricEnableTrap"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     alaAutoConfigGlobalGroup = alaAutoConfigGlobalGroup.setStatus('current')
-mibBuilder.exportSymbols("ALCATEL-ENT1-AUTO-CONFIG-MIB", alaAutoConfigTrapsObj=alaAutoConfigTrapsObj, alaAUTOCONFIGGlobal=alaAUTOCONFIGGlobal, alaAUTOCONFIGNotificationGroup=alaAUTOCONFIGNotificationGroup, alaAUTOCONFIGMIBConformance=alaAUTOCONFIGMIBConformance, PYSNMP_MODULE_ID=alaAUTOCONFIGMIB, alaAutoConfigGlobalGroup=alaAutoConfigGlobalGroup, alaAUTOCONFIGMIBCompliances=alaAUTOCONFIGMIBCompliances, alaAUTOCONFIGMIBGroups=alaAUTOCONFIGMIBGroups, alaAutoConfigTrap=alaAutoConfigTrap, alaAUTOCONFIGMIB=alaAUTOCONFIGMIB, alaAutoConfigAbort=alaAutoConfigAbort, alaAUTOCONFIGNotificationObjects=alaAUTOCONFIGNotificationObjects, alaAUTOCONFIGMIBNotifications=alaAUTOCONFIGMIBNotifications, alaAUTOCONFIGMIBCompliance=alaAUTOCONFIGMIBCompliance, alaAutoConfigAutoFabricEnableTrap=alaAutoConfigAutoFabricEnableTrap, alaAUTOCONFIGMIBObjects=alaAUTOCONFIGMIBObjects)
+mibBuilder.exportSymbols("ALCATEL-ENT1-AUTO-CONFIG-MIB", alaAutoConfigAbort=alaAutoConfigAbort, alaAUTOCONFIGMIBCompliance=alaAUTOCONFIGMIBCompliance, alaAutoConfigGlobalGroup=alaAutoConfigGlobalGroup, alaAUTOCONFIGMIBNotifications=alaAUTOCONFIGMIBNotifications, alaAUTOCONFIGMIB=alaAUTOCONFIGMIB, alaAutoConfigTrap=alaAutoConfigTrap, alaAUTOCONFIGMIBCompliances=alaAUTOCONFIGMIBCompliances, alaAUTOCONFIGGlobal=alaAUTOCONFIGGlobal, alaAutoConfigAutoFabricEnableTrap=alaAutoConfigAutoFabricEnableTrap, alaAUTOCONFIGNotificationObjects=alaAUTOCONFIGNotificationObjects, alaAUTOCONFIGNotificationGroup=alaAUTOCONFIGNotificationGroup, alaAUTOCONFIGMIBObjects=alaAUTOCONFIGMIBObjects, PYSNMP_MODULE_ID=alaAUTOCONFIGMIB, alaAutoConfigTrapsObj=alaAutoConfigTrapsObj, alaAUTOCONFIGMIBConformance=alaAUTOCONFIGMIBConformance, alaAUTOCONFIGMIBGroups=alaAUTOCONFIGMIBGroups)

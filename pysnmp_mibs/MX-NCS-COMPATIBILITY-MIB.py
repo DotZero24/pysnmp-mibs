@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module MX-NCS-COMPATIBILITY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-NCS-COMPATIBILITY-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:59 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/media5/MX-NCS-COMPATIBILITY-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:05:24 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 mediatrixExperimental, = mibBuilder.importSymbols("MX-SMI", "mediatrixExperimental")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ncsCompatibilityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 99, 15))
 ncsCompatibilityMIB.setRevisions(('2008-12-03 00:00', '1902-08-28 00:00',))
 if mibBuilder.loadTexts: ncsCompatibilityMIB.setLastUpdated('200812030000Z')
@@ -31,4 +31,4 @@ ncsCompatibilityGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 15, 2, 2))
 ncsCompatibilityBasicGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 99, 15, 2, 2, 10)).setObjects(("MX-NCS-COMPATIBILITY-MIB", "ncsCompatibilityRtpPayloadType18EncodingName"), ("MX-NCS-COMPATIBILITY-MIB", "ncsCompatibilityVersion"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ncsCompatibilityBasicGroupVer1 = ncsCompatibilityBasicGroupVer1.setStatus('current')
-mibBuilder.exportSymbols("MX-NCS-COMPATIBILITY-MIB", ncsCompatibilityVersion=ncsCompatibilityVersion, PYSNMP_MODULE_ID=ncsCompatibilityMIB, ncsCompatibilityComplVer1=ncsCompatibilityComplVer1, ncsCompatibilityGroups=ncsCompatibilityGroups, ncsCompatibilityBasicGroupVer1=ncsCompatibilityBasicGroupVer1, ncsCompatibilityMIBObjects=ncsCompatibilityMIBObjects, ncsCompatibilityMIB=ncsCompatibilityMIB, ncsCompatibilityConformance=ncsCompatibilityConformance, ncsCompatibilityCompliances=ncsCompatibilityCompliances, ncsCompatibilityRtpPayloadType18EncodingName=ncsCompatibilityRtpPayloadType18EncodingName)
+mibBuilder.exportSymbols("MX-NCS-COMPATIBILITY-MIB", ncsCompatibilityRtpPayloadType18EncodingName=ncsCompatibilityRtpPayloadType18EncodingName, ncsCompatibilityConformance=ncsCompatibilityConformance, ncsCompatibilityVersion=ncsCompatibilityVersion, PYSNMP_MODULE_ID=ncsCompatibilityMIB, ncsCompatibilityBasicGroupVer1=ncsCompatibilityBasicGroupVer1, ncsCompatibilityCompliances=ncsCompatibilityCompliances, ncsCompatibilityGroups=ncsCompatibilityGroups, ncsCompatibilityMIBObjects=ncsCompatibilityMIBObjects, ncsCompatibilityComplVer1=ncsCompatibilityComplVer1, ncsCompatibilityMIB=ncsCompatibilityMIB)

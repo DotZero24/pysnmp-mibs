@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module EdgeSwitch-DHCPCLIENT-PRIVATE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ubiquiti/EdgeSwitch-DHCPCLIENT-PRIVATE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:30 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ubiquiti/EdgeSwitch-DHCPCLIENT-PRIVATE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:55 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 fastPath, = mibBuilder.importSymbols("EdgeSwitch-REF-MIB", "fastPath")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 fastPathDHCPClientPrivate = ModuleIdentity((1, 3, 6, 1, 4, 1, 4413, 1, 1, 100))
 fastPathDHCPClientPrivate.setRevisions(('2011-01-26 00:00', '2007-05-23 00:00',))
 if mibBuilder.loadTexts: fastPathDHCPClientPrivate.setLastUpdated('201101260000Z')
@@ -42,4 +42,4 @@ agentdhcp4ClientRebindTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 100, 
 if mibBuilder.loadTexts: agentdhcp4ClientRebindTime.setStatus('current')
 agentdhcp4ClientRetryCount = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 100, 1, 1, 1, 10), Counter32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: agentdhcp4ClientRetryCount.setStatus('current')
-mibBuilder.exportSymbols("EdgeSwitch-DHCPCLIENT-PRIVATE-MIB", agentdhcp4ClientTransactionID=agentdhcp4ClientTransactionID, agentdhcp4ClientRenewTime=agentdhcp4ClientRenewTime, agentdhcp4ClientDhcpServerAddress=agentdhcp4ClientDhcpServerAddress, agentdhcp4ClientLeaseParametersEntry=agentdhcp4ClientLeaseParametersEntry, agentdhcp4ClientLeaseTime=agentdhcp4ClientLeaseTime, agentdhcp4ClientLeaseParametersTable=agentdhcp4ClientLeaseParametersTable, agentdhcp4ClientInterfaceIndex=agentdhcp4ClientInterfaceIndex, agentdhcp4ClientRetryCount=agentdhcp4ClientRetryCount, agentdhcp4ClientState=agentdhcp4ClientState, fastPathDHCPClientPrivate=fastPathDHCPClientPrivate, agentdhcp4ClientRebindTime=agentdhcp4ClientRebindTime, agentdhcp4ClientLeaseParameters=agentdhcp4ClientLeaseParameters, agentdhcp4ClientIpAddress=agentdhcp4ClientIpAddress, PYSNMP_MODULE_ID=fastPathDHCPClientPrivate, agentdhcp4ClientSubnetMask=agentdhcp4ClientSubnetMask)
+mibBuilder.exportSymbols("EdgeSwitch-DHCPCLIENT-PRIVATE-MIB", agentdhcp4ClientDhcpServerAddress=agentdhcp4ClientDhcpServerAddress, agentdhcp4ClientRetryCount=agentdhcp4ClientRetryCount, agentdhcp4ClientLeaseTime=agentdhcp4ClientLeaseTime, agentdhcp4ClientRebindTime=agentdhcp4ClientRebindTime, agentdhcp4ClientLeaseParametersTable=agentdhcp4ClientLeaseParametersTable, agentdhcp4ClientState=agentdhcp4ClientState, agentdhcp4ClientLeaseParameters=agentdhcp4ClientLeaseParameters, agentdhcp4ClientSubnetMask=agentdhcp4ClientSubnetMask, agentdhcp4ClientTransactionID=agentdhcp4ClientTransactionID, agentdhcp4ClientRenewTime=agentdhcp4ClientRenewTime, agentdhcp4ClientInterfaceIndex=agentdhcp4ClientInterfaceIndex, agentdhcp4ClientIpAddress=agentdhcp4ClientIpAddress, fastPathDHCPClientPrivate=fastPathDHCPClientPrivate, PYSNMP_MODULE_ID=fastPathDHCPClientPrivate, agentdhcp4ClientLeaseParametersEntry=agentdhcp4ClientLeaseParametersEntry)

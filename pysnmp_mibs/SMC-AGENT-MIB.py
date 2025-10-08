@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SMC-AGENT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/smc/SMC-AGENT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:31:08 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/smc/SMC-AGENT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:55:01 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 class MacAddress(OctetString):
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(6, 6)
     fixedLength = 6
@@ -81,4 +81,4 @@ smcDosWsTrapDstPro = MibTableColumn((1, 3, 6, 1, 4, 1, 202, 2, 23, 1, 3), Intege
 if mibBuilder.loadTexts: smcDosWsTrapDstPro.setStatus('mandatory')
 smcDosWsApiTrap = MibScalar((1, 3, 6, 1, 4, 1, 202, 2, 24), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: smcDosWsApiTrap.setStatus('mandatory')
-mibBuilder.exportSymbols("SMC-AGENT-MIB", smcDosWsTrapDstPro=smcDosWsTrapDstPro, smcDosWsPcVideo=smcDosWsPcVideo, smcDosWsDrvSpcEntry=smcDosWsDrvSpcEntry, smcDosWsPcTyp=smcDosWsPcTyp, smcDosWsDrvSpcTable=smcDosWsDrvSpcTable, smc=smc, smcDosWsProtoMix=smcDosWsProtoMix, smcDosWsPcIo=smcDosWsPcIo, smcDosWsPcDisk=smcDosWsPcDisk, smcDosWsRst=smcDosWsRst, smcDosWsPcRam=smcDosWsPcRam, smcDosWsRcvPkts=smcDosWsRcvPkts, smcDosWsPcBios=smcDosWsPcBios, smcDosWsNicIrq=smcDosWsNicIrq, smcDosWsPcTime=smcDosWsPcTime, smcDosWsComment=smcDosWsComment, smcDosWsDrvSpcCnt=smcDosWsDrvSpcCnt, MacAddress=MacAddress, smcDosWsDrvSpcTxt=smcDosWsDrvSpcTxt, smcDosWsNicBasIo=smcDosWsNicBasIo, smcDosWsTrapDstAdr=smcDosWsTrapDstAdr, smcDosWsPcDate=smcDosWsPcDate, smcDosWs=smcDosWs, smcDosWsTrapId=smcDosWsTrapId, smcDosWsTrapDestEntry=smcDosWsTrapDestEntry, smcDosWsTrapDestTable=smcDosWsTrapDestTable, smcDosWsDosVer=smcDosWsDosVer, smcDosWsApiTrap=smcDosWsApiTrap, smcDosWsIpAdr=smcDosWsIpAdr, smcDosWsPcProc=smcDosWsPcProc, smcDosWsNodId=smcDosWsNodId, smcDosWsNicRam=smcDosWsNicRam, smcDosWsDrvSpcId=smcDosWsDrvSpcId, smcDosWsDrvId=smcDosWsDrvId, smcDosWsXmtPkts=smcDosWsXmtPkts)
+mibBuilder.exportSymbols("SMC-AGENT-MIB", smcDosWsPcVideo=smcDosWsPcVideo, smcDosWsDosVer=smcDosWsDosVer, smcDosWsNicIrq=smcDosWsNicIrq, smcDosWsIpAdr=smcDosWsIpAdr, smcDosWsProtoMix=smcDosWsProtoMix, smcDosWsTrapId=smcDosWsTrapId, smcDosWsDrvSpcEntry=smcDosWsDrvSpcEntry, smcDosWsDrvSpcTxt=smcDosWsDrvSpcTxt, smcDosWsDrvSpcId=smcDosWsDrvSpcId, smcDosWsNicRam=smcDosWsNicRam, smcDosWsXmtPkts=smcDosWsXmtPkts, smc=smc, smcDosWsPcProc=smcDosWsPcProc, smcDosWsDrvSpcCnt=smcDosWsDrvSpcCnt, smcDosWsRst=smcDosWsRst, smcDosWsPcBios=smcDosWsPcBios, smcDosWsPcTyp=smcDosWsPcTyp, smcDosWsTrapDstPro=smcDosWsTrapDstPro, smcDosWs=smcDosWs, smcDosWsComment=smcDosWsComment, smcDosWsPcIo=smcDosWsPcIo, smcDosWsNicBasIo=smcDosWsNicBasIo, MacAddress=MacAddress, smcDosWsDrvSpcTable=smcDosWsDrvSpcTable, smcDosWsPcDate=smcDosWsPcDate, smcDosWsTrapDstAdr=smcDosWsTrapDstAdr, smcDosWsNodId=smcDosWsNodId, smcDosWsRcvPkts=smcDosWsRcvPkts, smcDosWsPcRam=smcDosWsPcRam, smcDosWsPcDisk=smcDosWsPcDisk, smcDosWsTrapDestEntry=smcDosWsTrapDestEntry, smcDosWsApiTrap=smcDosWsApiTrap, smcDosWsPcTime=smcDosWsPcTime, smcDosWsDrvId=smcDosWsDrvId, smcDosWsTrapDestTable=smcDosWsTrapDestTable)

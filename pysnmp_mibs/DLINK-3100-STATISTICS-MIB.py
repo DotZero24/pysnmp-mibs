@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module DLINK-3100-STATISTICS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DLINK-3100-STATISTICS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:33:21 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/DLINK-3100-STATISTICS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:57:48 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 rnd, = mibBuilder.importSymbols("DLINK-3100-MIB", "rnd")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 rlStatistics = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 141))
 rlStatistics.setRevisions(('2007-11-18 00:00',))
 if mibBuilder.loadTexts: rlStatistics.setLastUpdated('2007111800Z')
@@ -59,4 +59,4 @@ rlStatisticsPortTx = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 141,
 if mibBuilder.loadTexts: rlStatisticsPortTx.setStatus('current')
 rlStatisticsPortUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 141, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: rlStatisticsPortUtilization.setStatus('current')
-mibBuilder.exportSymbols("DLINK-3100-STATISTICS-MIB", rlStatisticsPacket256to511Octets=rlStatisticsPacket256to511Octets, rlStatisticsPacketEntry=rlStatisticsPacketEntry, rlStatisticsPacketTxFrames=rlStatisticsPacketTxFrames, rlStatisticsPortRx=rlStatisticsPortRx, rlStatisticsPacket64Octets=rlStatisticsPacket64Octets, PYSNMP_MODULE_ID=rlStatistics, rlStatisticsPacketRxFrames=rlStatisticsPacketRxFrames, rlStatisticsPacket65to127Octets=rlStatisticsPacket65to127Octets, rlStatisticsPacketRxBytes=rlStatisticsPacketRxBytes, rlStatistics=rlStatistics, rlStatisticsPortEntry=rlStatisticsPortEntry, rlStatisticsPacketTxBytes=rlStatisticsPacketTxBytes, rlStatisticsPacketMulticastRx=rlStatisticsPacketMulticastRx, rlStatisticsPortTable=rlStatisticsPortTable, rlStatisticsPacket1024to1518Octets=rlStatisticsPacket1024to1518Octets, rlStatisticsPacketTable=rlStatisticsPacketTable, rlStatisticsPacketOversizePkts=rlStatisticsPacketOversizePkts, rlStatisticsPacket128to255Octets=rlStatisticsPacket128to255Octets, rlStatisticsPortTx=rlStatisticsPortTx, rlStatisticsPacket512to1023Octets=rlStatisticsPacket512to1023Octets, rlStatisticsPortUtilization=rlStatisticsPortUtilization, rlStatisticsPacketBroadcastRx=rlStatisticsPacketBroadcastRx, rlStatisticsPacketUnicastRx=rlStatisticsPacketUnicastRx)
+mibBuilder.exportSymbols("DLINK-3100-STATISTICS-MIB", rlStatisticsPortEntry=rlStatisticsPortEntry, rlStatisticsPacketTxFrames=rlStatisticsPacketTxFrames, rlStatisticsPacket64Octets=rlStatisticsPacket64Octets, rlStatisticsPacketBroadcastRx=rlStatisticsPacketBroadcastRx, rlStatisticsPortRx=rlStatisticsPortRx, rlStatisticsPacket1024to1518Octets=rlStatisticsPacket1024to1518Octets, rlStatisticsPortUtilization=rlStatisticsPortUtilization, rlStatisticsPacketOversizePkts=rlStatisticsPacketOversizePkts, rlStatisticsPacketMulticastRx=rlStatisticsPacketMulticastRx, rlStatisticsPortTx=rlStatisticsPortTx, rlStatisticsPacket256to511Octets=rlStatisticsPacket256to511Octets, rlStatisticsPacketRxBytes=rlStatisticsPacketRxBytes, rlStatisticsPacketUnicastRx=rlStatisticsPacketUnicastRx, rlStatisticsPacketRxFrames=rlStatisticsPacketRxFrames, rlStatisticsPacketEntry=rlStatisticsPacketEntry, rlStatisticsPacket512to1023Octets=rlStatisticsPacket512to1023Octets, rlStatisticsPortTable=rlStatisticsPortTable, PYSNMP_MODULE_ID=rlStatistics, rlStatisticsPacket65to127Octets=rlStatisticsPacket65to127Octets, rlStatisticsPacketTable=rlStatisticsPacketTable, rlStatistics=rlStatistics, rlStatisticsPacketTxBytes=rlStatisticsPacketTxBytes, rlStatisticsPacket128to255Octets=rlStatisticsPacket128to255Octets)

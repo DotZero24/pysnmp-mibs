@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module CISCO-CABLE-L2VPN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-CABLE-L2VPN-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:11 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-CABLE-L2VPN-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:30:10 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-CpwVcType, CpwVcIDType = mibBuilder.importSymbols("CISCO-IETF-PW-TC-MIB", "CpwVcType", "CpwVcIDType")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+CpwVcIDType, CpwVcType = mibBuilder.importSymbols("CISCO-IETF-PW-TC-MIB", "CpwVcIDType", "CpwVcType")
 ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TextualConvention")
 ciscoCableL2vpnMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 700))
 ciscoCableL2vpnMIB.setRevisions(('2009-06-17 00:00',))
 if mibBuilder.loadTexts: ciscoCableL2vpnMIB.setLastUpdated('200906170000Z')
@@ -76,4 +76,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 ccl2vpnPWMappingGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 700, 2, 2, 1)).setObjects(("CISCO-CABLE-L2VPN-MIB", "ccl2vpnPWMAC"), ("CISCO-CABLE-L2VPN-MIB", "ccl2vpnPWVpnId"), ("CISCO-CABLE-L2VPN-MIB", "ccl2vpnPWPeerIPAddressType"), ("CISCO-CABLE-L2VPN-MIB", "ccl2vpnPWPeerIPAddress"), ("CISCO-CABLE-L2VPN-MIB", "ccl2vpnPWType"), ("CISCO-CABLE-L2VPN-MIB", "ccl2vpnPWVCID"), ("CISCO-CABLE-L2VPN-MIB", "ccl2vpnMacVpnIdToL2vpnIndex"), ("CISCO-CABLE-L2VPN-MIB", "ccl2vpnPWToL2vpnIndex"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ccl2vpnPWMappingGroup = ccl2vpnPWMappingGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-CABLE-L2VPN-MIB", ccl2vpnL2vpnIndex=ccl2vpnL2vpnIndex, ccl2vpnPeerIPAddressType=ccl2vpnPeerIPAddressType, ccl2vpnPWMappingGroup=ccl2vpnPWMappingGroup, CiscoCableL2vpnIndex=CiscoCableL2vpnIndex, ccl2vpnVpnId=ccl2vpnVpnId, ccl2vpnPWToL2vpnIndex=ccl2vpnPWToL2vpnIndex, ciscoCableL2vpnMIBConform=ciscoCableL2vpnMIBConform, ccl2vpnMacVpnIdToL2vpnIndex=ccl2vpnMacVpnIdToL2vpnIndex, PYSNMP_MODULE_ID=ciscoCableL2vpnMIB, ccl2vpnMacVpnIdL2vpnIndexTable=ccl2vpnMacVpnIdL2vpnIndexTable, ciscoCableL2vpnMIBObjects=ciscoCableL2vpnMIBObjects, ccl2vpnPWVpnId=ccl2vpnPWVpnId, ccl2vpnMacVpnIdL2vpnIndexEntry=ccl2vpnMacVpnIdL2vpnIndexEntry, ccl2vpnL2vpnIndexPWTable=ccl2vpnL2vpnIndexPWTable, ccl2vpnMIBCompliances=ccl2vpnMIBCompliances, ccl2vpnMIBCompliance=ccl2vpnMIBCompliance, ccl2vpnPWL2vpnIndexEntry=ccl2vpnPWL2vpnIndexEntry, ccl2vpnMac=ccl2vpnMac, ccl2vpnPWType=ccl2vpnPWType, ciscoCableL2vpnMIB=ciscoCableL2vpnMIB, ccl2vpnPeerIPAddress=ccl2vpnPeerIPAddress, ccl2vpnMIBGroups=ccl2vpnMIBGroups, ccl2vpnPWPeerIPAddressType=ccl2vpnPWPeerIPAddressType, ccl2vpnPWMAC=ccl2vpnPWMAC, ccl2vpnL2vpnIndexPWEntry=ccl2vpnL2vpnIndexPWEntry, ccl2vpnPWL2vpnIndexTable=ccl2vpnPWL2vpnIndexTable, ccl2vpnVCID=ccl2vpnVCID, ciscoCableL2vpnMIBNotifs=ciscoCableL2vpnMIBNotifs, ccl2vpnPWVCID=ccl2vpnPWVCID, ccl2vpnPseudoWireType=ccl2vpnPseudoWireType, ccl2vpnPWPeerIPAddress=ccl2vpnPWPeerIPAddress)
+mibBuilder.exportSymbols("CISCO-CABLE-L2VPN-MIB", ccl2vpnPWMAC=ccl2vpnPWMAC, ccl2vpnL2vpnIndexPWTable=ccl2vpnL2vpnIndexPWTable, ccl2vpnL2vpnIndexPWEntry=ccl2vpnL2vpnIndexPWEntry, ccl2vpnPWPeerIPAddress=ccl2vpnPWPeerIPAddress, ccl2vpnVpnId=ccl2vpnVpnId, ccl2vpnMacVpnIdToL2vpnIndex=ccl2vpnMacVpnIdToL2vpnIndex, ccl2vpnPeerIPAddress=ccl2vpnPeerIPAddress, ciscoCableL2vpnMIB=ciscoCableL2vpnMIB, ccl2vpnMIBCompliance=ccl2vpnMIBCompliance, ccl2vpnPWMappingGroup=ccl2vpnPWMappingGroup, PYSNMP_MODULE_ID=ciscoCableL2vpnMIB, ccl2vpnVCID=ccl2vpnVCID, ccl2vpnMacVpnIdL2vpnIndexEntry=ccl2vpnMacVpnIdL2vpnIndexEntry, ccl2vpnPWToL2vpnIndex=ccl2vpnPWToL2vpnIndex, ccl2vpnPWPeerIPAddressType=ccl2vpnPWPeerIPAddressType, ciscoCableL2vpnMIBConform=ciscoCableL2vpnMIBConform, ccl2vpnMacVpnIdL2vpnIndexTable=ccl2vpnMacVpnIdL2vpnIndexTable, ccl2vpnPWL2vpnIndexEntry=ccl2vpnPWL2vpnIndexEntry, ccl2vpnPWVCID=ccl2vpnPWVCID, ccl2vpnPeerIPAddressType=ccl2vpnPeerIPAddressType, ccl2vpnMIBGroups=ccl2vpnMIBGroups, ccl2vpnPWL2vpnIndexTable=ccl2vpnPWL2vpnIndexTable, ccl2vpnPWType=ccl2vpnPWType, ccl2vpnMIBCompliances=ccl2vpnMIBCompliances, ccl2vpnPseudoWireType=ccl2vpnPseudoWireType, ccl2vpnMac=ccl2vpnMac, ciscoCableL2vpnMIBNotifs=ciscoCableL2vpnMIBNotifs, ciscoCableL2vpnMIBObjects=ciscoCableL2vpnMIBObjects, ccl2vpnL2vpnIndex=ccl2vpnL2vpnIndex, ccl2vpnPWVpnId=ccl2vpnPWVpnId, CiscoCableL2vpnIndex=CiscoCableL2vpnIndex)

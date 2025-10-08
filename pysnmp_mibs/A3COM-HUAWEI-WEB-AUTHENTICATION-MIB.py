@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module A3COM-HUAWEI-WEB-AUTHENTICATION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-WEB-AUTHENTICATION-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:57 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-WEB-AUTHENTICATION-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:33:18 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 h3cCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCommon")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifDescr, = mibBuilder.importSymbols("IF-MIB", "ifDescr")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
 h3cWebAuthentication = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 93))
 h3cWebAuthentication.setRevisions(('2008-06-25 00:00',))
 if mibBuilder.loadTexts: h3cWebAuthentication.setLastUpdated('200806250000Z')
@@ -36,4 +36,4 @@ h3cWaClientLogout = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 93, 2,
 if mibBuilder.loadTexts: h3cWaClientLogout.setStatus('current')
 h3cWaSysAction = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 93, 2, 0, 4)).setObjects(("A3COM-HUAWEI-WEB-AUTHENTICATION-MIB", "h3cWaActionCode"))
 if mibBuilder.loadTexts: h3cWaSysAction.setStatus('current')
-mibBuilder.exportSymbols("A3COM-HUAWEI-WEB-AUTHENTICATION-MIB", h3cWaClientLogon=h3cWaClientLogon, PYSNMP_MODULE_ID=h3cWebAuthentication, h3cWebAuthentication=h3cWebAuthentication, h3cWaTrap=h3cWaTrap, h3cWaClientLogout=h3cWaClientLogout, h3cWaTrapPrefix=h3cWaTrapPrefix, h3cWaSysAction=h3cWaSysAction, h3cWaClientLogonFail=h3cWaClientLogonFail, h3cWaReasonCode=h3cWaReasonCode, h3cWaVlanID=h3cWaVlanID, h3cWaClientMacAddr=h3cWaClientMacAddr, h3cWaTrapObjects=h3cWaTrapObjects, h3cWaActionCode=h3cWaActionCode)
+mibBuilder.exportSymbols("A3COM-HUAWEI-WEB-AUTHENTICATION-MIB", h3cWaTrap=h3cWaTrap, h3cWaReasonCode=h3cWaReasonCode, h3cWaClientLogonFail=h3cWaClientLogonFail, PYSNMP_MODULE_ID=h3cWebAuthentication, h3cWaVlanID=h3cWaVlanID, h3cWaClientMacAddr=h3cWaClientMacAddr, h3cWebAuthentication=h3cWebAuthentication, h3cWaTrapPrefix=h3cWaTrapPrefix, h3cWaActionCode=h3cWaActionCode, h3cWaClientLogout=h3cWaClientLogout, h3cWaTrapObjects=h3cWaTrapObjects, h3cWaClientLogon=h3cWaClientLogon, h3cWaSysAction=h3cWaSysAction)

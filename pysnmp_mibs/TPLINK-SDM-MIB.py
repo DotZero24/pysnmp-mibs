@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module TPLINK-SDM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/tplink/TPLINK-SDM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:22 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/tplink/TPLINK-SDM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:45 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 tplinkMgmt, = mibBuilder.importSymbols("TPLINK-MIB", "tplinkMgmt")
 tplinkSDMMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 90))
 tplinkSDMMIB.setRevisions(('2012-12-13 09:30',))
@@ -42,4 +42,4 @@ sdmCurTemName = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 90, 1, 2), DisplayString(
 if mibBuilder.loadTexts: sdmCurTemName.setStatus('current')
 sdmNextTemID = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 90, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("default", 0), ("enterpriseV4", 1), ("enterpriseV6", 2)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: sdmNextTemID.setStatus('current')
-mibBuilder.exportSymbols("TPLINK-SDM-MIB", ipv6AclRuleNum=ipv6AclRuleNum, ipAclRuleNum=ipAclRuleNum, PYSNMP_MODULE_ID=tplinkSDMMIB, macAclRuleNum=macAclRuleNum, tplinkSDMNotifications=tplinkSDMNotifications, v6SourceNum=v6SourceNum, combinedAclRuleNum=combinedAclRuleNum, tplinkSDMMIBObjects=tplinkSDMMIBObjects, sdmTemLayOutEntry=sdmTemLayOutEntry, v4SourceNum=v4SourceNum, tplinkSDMMIB=tplinkSDMMIB, sdmNextTemID=sdmNextTemID, sdmCurTemName=sdmCurTemName, sdmTemName=sdmTemName, sdmTemLayOutTable=sdmTemLayOutTable, packetContentAclNum=packetContentAclNum)
+mibBuilder.exportSymbols("TPLINK-SDM-MIB", tplinkSDMMIBObjects=tplinkSDMMIBObjects, sdmTemName=sdmTemName, PYSNMP_MODULE_ID=tplinkSDMMIB, ipAclRuleNum=ipAclRuleNum, ipv6AclRuleNum=ipv6AclRuleNum, sdmTemLayOutTable=sdmTemLayOutTable, tplinkSDMMIB=tplinkSDMMIB, sdmTemLayOutEntry=sdmTemLayOutEntry, v6SourceNum=v6SourceNum, sdmCurTemName=sdmCurTemName, combinedAclRuleNum=combinedAclRuleNum, macAclRuleNum=macAclRuleNum, v4SourceNum=v4SourceNum, sdmNextTemID=sdmNextTemID, tplinkSDMNotifications=tplinkSDMNotifications, packetContentAclNum=packetContentAclNum)

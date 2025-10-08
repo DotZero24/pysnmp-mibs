@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module EATON-PXG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eaton/EATON-PXG-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:24 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/eaton/EATON-PXG-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:34 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 powerChain, = mibBuilder.importSymbols("EATON-OIDS", "powerChain")
 entPhysicalName, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalName")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TimeStamp", "DisplayString")
 pxgMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 534, 8, 1))
 pxgMIB.setRevisions(('2008-01-30 00:00', '2007-07-05 00:00', '2007-04-10 00:00', '2007-01-03 00:00', '2006-10-13 00:00',))
 if mibBuilder.loadTexts: pxgMIB.setLastUpdated('200801300000Z')
@@ -93,4 +93,4 @@ tkAlarmsTableCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 534, 8, 1, 2, 6)).
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     tkAlarmsTableCompliance = tkAlarmsTableCompliance.setStatus('current')
-mibBuilder.exportSymbols("EATON-PXG-MIB", powerChainCautionaryAlarm=powerChainCautionaryAlarm, alarmValue=alarmValue, eventSequenceIndex=eventSequenceIndex, PYSNMP_MODULE_ID=pxgMIB, tkEventGroup=tkEventGroup, powerChainAlarmCleared=powerChainAlarmCleared, alarmSequenceIndex=alarmSequenceIndex, eventID=eventID, powerChainAlarmAcknowledged=powerChainAlarmAcknowledged, powerChainCautionaryAlarmEvent=powerChainCautionaryAlarmEvent, pxgNotifications=pxgNotifications, activeAlarmsEntry=activeAlarmsEntry, pxgMIBObjects=pxgMIBObjects, pxgMIB=pxgMIB, eventInfo=eventInfo, pxgConformance=pxgConformance, eventDescription=eventDescription, powerChainEventCleared=powerChainEventCleared, eventValue=eventValue, powerChainEvent=powerChainEvent, activeAlarmsTable=activeAlarmsTable, alarmLevel=alarmLevel, powerChainAlarmEventAcknowledged=powerChainAlarmEventAcknowledged, tkAlarmTableGroup=tkAlarmTableGroup, tkAlarmsTableCompliance=tkAlarmsTableCompliance, powerChainAlarmEventClosed=powerChainAlarmEventClosed, powerChainAlarmClosed=powerChainAlarmClosed, tkEventNotifyGroup=tkEventNotifyGroup, tkSimpleCompliance=tkSimpleCompliance, powerChainAlarmUpdated=powerChainAlarmUpdated, tkAlarmNotifyGroup=tkAlarmNotifyGroup, powerChainCriticalAlarmEvent=powerChainCriticalAlarmEvent, alarmDescription=alarmDescription, alarms=alarms, numAlarmsPresent=numAlarmsPresent, alarmID=alarmID, alarmTime=alarmTime, powerChainCriticalAlarm=powerChainCriticalAlarm)
+mibBuilder.exportSymbols("EATON-PXG-MIB", alarmLevel=alarmLevel, pxgNotifications=pxgNotifications, pxgMIB=pxgMIB, alarmValue=alarmValue, tkSimpleCompliance=tkSimpleCompliance, powerChainCriticalAlarm=powerChainCriticalAlarm, tkEventNotifyGroup=tkEventNotifyGroup, pxgConformance=pxgConformance, tkAlarmNotifyGroup=tkAlarmNotifyGroup, activeAlarmsEntry=activeAlarmsEntry, eventDescription=eventDescription, powerChainAlarmUpdated=powerChainAlarmUpdated, alarmTime=alarmTime, pxgMIBObjects=pxgMIBObjects, alarms=alarms, alarmID=alarmID, powerChainCriticalAlarmEvent=powerChainCriticalAlarmEvent, alarmSequenceIndex=alarmSequenceIndex, powerChainAlarmEventClosed=powerChainAlarmEventClosed, powerChainCautionaryAlarmEvent=powerChainCautionaryAlarmEvent, numAlarmsPresent=numAlarmsPresent, powerChainEventCleared=powerChainEventCleared, tkAlarmsTableCompliance=tkAlarmsTableCompliance, alarmDescription=alarmDescription, tkEventGroup=tkEventGroup, powerChainCautionaryAlarm=powerChainCautionaryAlarm, eventValue=eventValue, tkAlarmTableGroup=tkAlarmTableGroup, PYSNMP_MODULE_ID=pxgMIB, powerChainAlarmAcknowledged=powerChainAlarmAcknowledged, eventInfo=eventInfo, powerChainEvent=powerChainEvent, powerChainAlarmCleared=powerChainAlarmCleared, powerChainAlarmEventAcknowledged=powerChainAlarmEventAcknowledged, powerChainAlarmClosed=powerChainAlarmClosed, eventID=eventID, activeAlarmsTable=activeAlarmsTable, eventSequenceIndex=eventSequenceIndex)

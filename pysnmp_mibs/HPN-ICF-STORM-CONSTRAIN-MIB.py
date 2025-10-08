@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module HPN-ICF-STORM-CONSTRAIN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-STORM-CONSTRAIN-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:31 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HPN-ICF-STORM-CONSTRAIN-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:09:59 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
 hpnicfStormConstrain = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 66))
 if mibBuilder.loadTexts: hpnicfStormConstrain.setLastUpdated('200806060000Z')
 if mibBuilder.loadTexts: hpnicfStormConstrain.setOrganization('')
@@ -60,4 +60,4 @@ hpnicfStormRising = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 66
 if mibBuilder.loadTexts: hpnicfStormRising.setStatus('current')
 hpnicfStormFalling = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 66, 3, 2)).setObjects(("IF-MIB", "ifIndex"), ("HPN-ICF-STORM-CONSTRAIN-MIB", "hpnicfStormTrapType"), ("HPN-ICF-STORM-CONSTRAIN-MIB", "hpnicfStormTrapThreshold"), ("HPN-ICF-STORM-CONSTRAIN-MIB", "hpnicfStormCtrlPortStatus"))
 if mibBuilder.loadTexts: hpnicfStormFalling.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-STORM-CONSTRAIN-MIB", HpnicfStormConstrainUnit=HpnicfStormConstrainUnit, hpnicfStormCtrlUnicastUpper=hpnicfStormCtrlUnicastUpper, hpnicfStormCtrlUnicastLower=hpnicfStormCtrlUnicastLower, hpnicfStormCtrlBroadcastUpper=hpnicfStormCtrlBroadcastUpper, hpnicfStormTableGroup=hpnicfStormTableGroup, hpnicfStormCtrlMulticastLower=hpnicfStormCtrlMulticastLower, hpnicfStormConstrain=hpnicfStormConstrain, PYSNMP_MODULE_ID=hpnicfStormConstrain, hpnicfStormRising=hpnicfStormRising, hpnicfStormTrapThreshold=hpnicfStormTrapThreshold, hpnicfStormScalarGroup=hpnicfStormScalarGroup, hpnicfStormCtrlMulticastUnit=hpnicfStormCtrlMulticastUnit, hpnicfStormCtrlBroadcastLower=hpnicfStormCtrlBroadcastLower, hpnicfStormCtrlEntry=hpnicfStormCtrlEntry, hpnicfStormCtrlMulticastUpper=hpnicfStormCtrlMulticastUpper, hpnicfStormTrapType=hpnicfStormTrapType, hpnicfStormCtrlBroadcastUnit=hpnicfStormCtrlBroadcastUnit, hpnicfStormCtrlPortMode=hpnicfStormCtrlPortMode, hpnicfStormCtrlUnicastUnit=hpnicfStormCtrlUnicastUnit, hpnicfStormCtrlPortStatus=hpnicfStormCtrlPortStatus, hpnicfStormCtrlTable=hpnicfStormCtrlTable, hpnicfStormCtrlRowStatus=hpnicfStormCtrlRowStatus, hpnicfStormNotifications=hpnicfStormNotifications, hpnicfStormFalling=hpnicfStormFalling)
+mibBuilder.exportSymbols("HPN-ICF-STORM-CONSTRAIN-MIB", hpnicfStormCtrlMulticastLower=hpnicfStormCtrlMulticastLower, hpnicfStormCtrlUnicastUpper=hpnicfStormCtrlUnicastUpper, hpnicfStormTableGroup=hpnicfStormTableGroup, hpnicfStormCtrlBroadcastUpper=hpnicfStormCtrlBroadcastUpper, PYSNMP_MODULE_ID=hpnicfStormConstrain, hpnicfStormCtrlMulticastUnit=hpnicfStormCtrlMulticastUnit, hpnicfStormConstrain=hpnicfStormConstrain, hpnicfStormCtrlUnicastLower=hpnicfStormCtrlUnicastLower, hpnicfStormRising=hpnicfStormRising, hpnicfStormScalarGroup=hpnicfStormScalarGroup, hpnicfStormFalling=hpnicfStormFalling, hpnicfStormCtrlPortStatus=hpnicfStormCtrlPortStatus, hpnicfStormCtrlPortMode=hpnicfStormCtrlPortMode, hpnicfStormTrapThreshold=hpnicfStormTrapThreshold, hpnicfStormCtrlUnicastUnit=hpnicfStormCtrlUnicastUnit, hpnicfStormCtrlRowStatus=hpnicfStormCtrlRowStatus, hpnicfStormNotifications=hpnicfStormNotifications, hpnicfStormCtrlBroadcastUnit=hpnicfStormCtrlBroadcastUnit, hpnicfStormCtrlMulticastUpper=hpnicfStormCtrlMulticastUpper, HpnicfStormConstrainUnit=HpnicfStormConstrainUnit, hpnicfStormCtrlBroadcastLower=hpnicfStormCtrlBroadcastLower, hpnicfStormCtrlTable=hpnicfStormCtrlTable, hpnicfStormTrapType=hpnicfStormTrapType, hpnicfStormCtrlEntry=hpnicfStormCtrlEntry)

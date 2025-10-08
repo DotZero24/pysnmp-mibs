@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module FS-TRAP-FORMAT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fscom/FS-TRAP-FORMAT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:46 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/fscom/FS-TRAP-FORMAT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:01:44 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 fsMgmt, = mibBuilder.importSymbols("FS-SMI", "fsMgmt")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 fsTrapFormatMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 97))
 fsTrapFormatMIB.setRevisions(('2011-05-11 00:00',))
 if mibBuilder.loadTexts: fsTrapFormatMIB.setLastUpdated('201105110000Z')
@@ -53,4 +53,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 fsTrapFormatMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 97, 2, 2, 1)).setObjects(("FS-TRAP-FORMAT-MIB", "fsTrapFormatTrapSerialNo"), ("FS-TRAP-FORMAT-MIB", "fsTrapFormatTrapLevel"), ("FS-TRAP-FORMAT-MIB", "fsTrapFormatTrapType"), ("FS-TRAP-FORMAT-MIB", "fsTrapFormatTrapReasonNo"), ("FS-TRAP-FORMAT-MIB", "fsTrapFormatTrapReasons"), ("FS-TRAP-FORMAT-MIB", "fsTrapFormatTrapStatus"), ("FS-TRAP-FORMAT-MIB", "fsTrapFormatTrapTitle"), ("FS-TRAP-FORMAT-MIB", "fsTrapFormatTrapContent"), ("FS-TRAP-FORMAT-MIB", "fsTrapFormatTrapTime"), ("FS-TRAP-FORMAT-MIB", "fsTrapFormatTrapSlotInfo"), ("FS-TRAP-FORMAT-MIB", "fsTrapFormatTrapVendorId"), ("FS-TRAP-FORMAT-MIB", "fsTrapFormatTrapSerialNum"), ("FS-TRAP-FORMAT-MIB", "fsTrapFormatTrapDateTime"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     fsTrapFormatMIBGroup = fsTrapFormatMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("FS-TRAP-FORMAT-MIB", fsTrapFormatMIBGroup=fsTrapFormatMIBGroup, fsTrapFormatMIBCompliances=fsTrapFormatMIBCompliances, fsTrapFormatTrapTime=fsTrapFormatTrapTime, fsTrapFormatTrapContent=fsTrapFormatTrapContent, fsTrapFormatMIBCompliance=fsTrapFormatMIBCompliance, fsTrapFormatTrapStatus=fsTrapFormatTrapStatus, fsTrapFormatTrapReasonNo=fsTrapFormatTrapReasonNo, fsTrapFormatMIBGroups=fsTrapFormatMIBGroups, fsTrapFormatTrapDateTime=fsTrapFormatTrapDateTime, fsTrapFormatTrapVendorId=fsTrapFormatTrapVendorId, PYSNMP_MODULE_ID=fsTrapFormatMIB, fsTrapFormatTrapReasons=fsTrapFormatTrapReasons, fsTrapFormatTrapSlotInfo=fsTrapFormatTrapSlotInfo, fsTrapFormatMIB=fsTrapFormatMIB, fsTrapFormatTrapLevel=fsTrapFormatTrapLevel, fsTrapFormatMIBObjects=fsTrapFormatMIBObjects, fsTrapFormatTrapTitle=fsTrapFormatTrapTitle, fsTrapFormatTrapSerialNo=fsTrapFormatTrapSerialNo, fsTrapFormatMIBConformance=fsTrapFormatMIBConformance, fsTrapFormatTrapType=fsTrapFormatTrapType, fsTrapFormatTrapSerialNum=fsTrapFormatTrapSerialNum)
+mibBuilder.exportSymbols("FS-TRAP-FORMAT-MIB", fsTrapFormatTrapTitle=fsTrapFormatTrapTitle, fsTrapFormatTrapLevel=fsTrapFormatTrapLevel, fsTrapFormatMIBGroup=fsTrapFormatMIBGroup, fsTrapFormatMIBCompliances=fsTrapFormatMIBCompliances, fsTrapFormatTrapDateTime=fsTrapFormatTrapDateTime, fsTrapFormatMIBCompliance=fsTrapFormatMIBCompliance, fsTrapFormatMIBConformance=fsTrapFormatMIBConformance, fsTrapFormatTrapContent=fsTrapFormatTrapContent, fsTrapFormatMIBObjects=fsTrapFormatMIBObjects, fsTrapFormatTrapType=fsTrapFormatTrapType, fsTrapFormatTrapStatus=fsTrapFormatTrapStatus, fsTrapFormatTrapSerialNo=fsTrapFormatTrapSerialNo, fsTrapFormatTrapSerialNum=fsTrapFormatTrapSerialNum, fsTrapFormatTrapVendorId=fsTrapFormatTrapVendorId, fsTrapFormatTrapTime=fsTrapFormatTrapTime, PYSNMP_MODULE_ID=fsTrapFormatMIB, fsTrapFormatMIB=fsTrapFormatMIB, fsTrapFormatTrapReasonNo=fsTrapFormatTrapReasonNo, fsTrapFormatMIBGroups=fsTrapFormatMIBGroups, fsTrapFormatTrapSlotInfo=fsTrapFormatTrapSlotInfo, fsTrapFormatTrapReasons=fsTrapFormatTrapReasons)

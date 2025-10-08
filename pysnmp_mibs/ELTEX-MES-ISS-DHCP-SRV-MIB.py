@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module ELTEX-MES-ISS-DHCP-SRV-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-MES-ISS-DHCP-SRV-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:45 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/eltex/ELTEX-MES-ISS-DHCP-SRV-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:12:05 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 dhcpSrvSubnetPoolIndex, = mibBuilder.importSymbols("ARICENT-DHCP-SERVER-MIB", "dhcpSrvSubnetPoolIndex")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 eltMesIss, = mibBuilder.importSymbols("ELTEX-MES-ISS-MIB", "eltMesIss")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 eltMesIssDhcpSrvMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 139, 33))
 eltMesIssDhcpSrvMIB.setRevisions(('2023-04-10 00:00',))
 if mibBuilder.loadTexts: eltMesIssDhcpSrvMIB.setLastUpdated('202304100000Z')
@@ -49,4 +49,4 @@ eltMesIssDhcpSrvHostInterfaceBootServerAddress = MibTableColumn((1, 3, 6, 1, 4, 
 if mibBuilder.loadTexts: eltMesIssDhcpSrvHostInterfaceBootServerAddress.setStatus('current')
 eltMesIssDhcpSrvHostInterfaceConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 33, 1, 2, 2, 1, 5), RowStatus()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: eltMesIssDhcpSrvHostInterfaceConfigRowStatus.setStatus('current')
-mibBuilder.exportSymbols("ELTEX-MES-ISS-DHCP-SRV-MIB", eltMesIssDhcpSrvHostInterfaceIpAddress=eltMesIssDhcpSrvHostInterfaceIpAddress, PYSNMP_MODULE_ID=eltMesIssDhcpSrvMIB, eltMesIssDhcpSrvGlobals=eltMesIssDhcpSrvGlobals, eltMesIssDhcpSrvHostInterfaceOptType=eltMesIssDhcpSrvHostInterfaceOptType, eltMesIssDhcpSrvHostInterfaceIfIndex=eltMesIssDhcpSrvHostInterfaceIfIndex, eltMesIssDhcpSrvObjects=eltMesIssDhcpSrvObjects, eltMesIssDhcpSrvHostInterfaceOptTable=eltMesIssDhcpSrvHostInterfaceOptTable, eltMesIssDhcpSrvMIB=eltMesIssDhcpSrvMIB, eltMesIssDhcpSrvHostInterfaceOptLen=eltMesIssDhcpSrvHostInterfaceOptLen, eltMesIssDhcpSrvHostInterfaceOptRowStatus=eltMesIssDhcpSrvHostInterfaceOptRowStatus, eltMesIssDhcpSrvHostInterfaceOptVal=eltMesIssDhcpSrvHostInterfaceOptVal, eltMesIssDhcpSrvHostInterfaceBootFileName=eltMesIssDhcpSrvHostInterfaceBootFileName, eltMesIssDhcpSrvConfig=eltMesIssDhcpSrvConfig, eltMesIssDhcpSrvHostInterfaceConfigEntry=eltMesIssDhcpSrvHostInterfaceConfigEntry, eltMesIssDhcpSrvHostInterfaceConfigRowStatus=eltMesIssDhcpSrvHostInterfaceConfigRowStatus, eltMesIssDhcpSrvHostInterfacePoolName=eltMesIssDhcpSrvHostInterfacePoolName, eltMesIssDhcpSrvHostInterfaceConfigTable=eltMesIssDhcpSrvHostInterfaceConfigTable, eltMesIssDhcpSrvHostInterfaceOptEntry=eltMesIssDhcpSrvHostInterfaceOptEntry, eltMesIssDhcpSrvHostInterfaceBootServerAddress=eltMesIssDhcpSrvHostInterfaceBootServerAddress)
+mibBuilder.exportSymbols("ELTEX-MES-ISS-DHCP-SRV-MIB", eltMesIssDhcpSrvHostInterfaceConfigRowStatus=eltMesIssDhcpSrvHostInterfaceConfigRowStatus, eltMesIssDhcpSrvMIB=eltMesIssDhcpSrvMIB, eltMesIssDhcpSrvHostInterfaceOptType=eltMesIssDhcpSrvHostInterfaceOptType, eltMesIssDhcpSrvConfig=eltMesIssDhcpSrvConfig, eltMesIssDhcpSrvHostInterfaceConfigTable=eltMesIssDhcpSrvHostInterfaceConfigTable, eltMesIssDhcpSrvObjects=eltMesIssDhcpSrvObjects, eltMesIssDhcpSrvHostInterfaceOptVal=eltMesIssDhcpSrvHostInterfaceOptVal, eltMesIssDhcpSrvGlobals=eltMesIssDhcpSrvGlobals, eltMesIssDhcpSrvHostInterfaceBootServerAddress=eltMesIssDhcpSrvHostInterfaceBootServerAddress, eltMesIssDhcpSrvHostInterfaceOptTable=eltMesIssDhcpSrvHostInterfaceOptTable, eltMesIssDhcpSrvHostInterfaceConfigEntry=eltMesIssDhcpSrvHostInterfaceConfigEntry, eltMesIssDhcpSrvHostInterfaceIpAddress=eltMesIssDhcpSrvHostInterfaceIpAddress, eltMesIssDhcpSrvHostInterfaceOptRowStatus=eltMesIssDhcpSrvHostInterfaceOptRowStatus, eltMesIssDhcpSrvHostInterfaceBootFileName=eltMesIssDhcpSrvHostInterfaceBootFileName, PYSNMP_MODULE_ID=eltMesIssDhcpSrvMIB, eltMesIssDhcpSrvHostInterfaceIfIndex=eltMesIssDhcpSrvHostInterfaceIfIndex, eltMesIssDhcpSrvHostInterfaceOptLen=eltMesIssDhcpSrvHostInterfaceOptLen, eltMesIssDhcpSrvHostInterfacePoolName=eltMesIssDhcpSrvHostInterfacePoolName, eltMesIssDhcpSrvHostInterfaceOptEntry=eltMesIssDhcpSrvHostInterfaceOptEntry)

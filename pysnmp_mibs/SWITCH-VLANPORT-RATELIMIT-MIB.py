@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SWITCH-VLANPORT-RATELIMIT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/SWITCH-VLANPORT-RATELIMIT-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:42 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/raisecom/SWITCH-VLANPORT-RATELIMIT-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:54:28 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 iscomSwitch, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "iscomSwitch")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 EnableVar, = mibBuilder.importSymbols("SWITCH-TC", "EnableVar")
 rcRateLimit = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 6, 1, 2))
 if mibBuilder.loadTexts: rcRateLimit.setLastUpdated('200412200000Z')
@@ -32,4 +32,4 @@ rcVlanPortRateLimitBurst = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 2, 5, 1
 if mibBuilder.loadTexts: rcVlanPortRateLimitBurst.setStatus('current')
 rcVlanPortRateLimitRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 2, 5, 1, 6), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: rcVlanPortRateLimitRowStatus.setStatus('current')
-mibBuilder.exportSymbols("SWITCH-VLANPORT-RATELIMIT-MIB", rcVlanPortRateLimitEntry=rcVlanPortRateLimitEntry, rcVlanPortRateLimitPortRule=rcVlanPortRateLimitPortRule, PYSNMP_MODULE_ID=rcRateLimit, rcVlanPortRateLimitVlanIndex=rcVlanPortRateLimitVlanIndex, rcRateLimit=rcRateLimit, rcVlanPortRateLimitRowStatus=rcVlanPortRateLimitRowStatus, rcVlanPortRateLimitPortIndex=rcVlanPortRateLimitPortIndex, rcVlanPortRateLimitRate=rcVlanPortRateLimitRate, rcVlanPortRateLimitTable=rcVlanPortRateLimitTable, rcVlanPortRateLimitBurst=rcVlanPortRateLimitBurst)
+mibBuilder.exportSymbols("SWITCH-VLANPORT-RATELIMIT-MIB", PYSNMP_MODULE_ID=rcRateLimit, rcVlanPortRateLimitRowStatus=rcVlanPortRateLimitRowStatus, rcVlanPortRateLimitRate=rcVlanPortRateLimitRate, rcVlanPortRateLimitPortIndex=rcVlanPortRateLimitPortIndex, rcVlanPortRateLimitTable=rcVlanPortRateLimitTable, rcVlanPortRateLimitPortRule=rcVlanPortRateLimitPortRule, rcVlanPortRateLimitVlanIndex=rcVlanPortRateLimitVlanIndex, rcVlanPortRateLimitBurst=rcVlanPortRateLimitBurst, rcRateLimit=rcRateLimit, rcVlanPortRateLimitEntry=rcVlanPortRateLimitEntry)

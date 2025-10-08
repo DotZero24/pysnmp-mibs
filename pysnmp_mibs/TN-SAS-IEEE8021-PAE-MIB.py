@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module TN-SAS-IEEE8021-PAE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TN-SAS-IEEE8021-PAE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:20:49 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nokia/TN-SAS-IEEE8021-PAE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:39:14 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dot1xAuthConfigEntry, = mibBuilder.importSymbols("IEEE8021-PAE-MIB", "dot1xAuthConfigEntry")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
-tnSASModules, tnSASObjs = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnSASModules", "tnSASObjs")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
+tnSASObjs, tnSASModules = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnSASObjs", "tnSASModules")
 tnSASIEEE8021PaeMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 7483, 7, 2, 1, 1, 17))
 tnSASIEEE8021PaeMIBModule.setRevisions(('2015-01-09 00:00',))
 if mibBuilder.loadTexts: tnSASIEEE8021PaeMIBModule.setLastUpdated('201501090000Z')
@@ -36,4 +36,4 @@ tnDot1xAuthConfigExtnCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 7483, 7, 2
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     tnDot1xAuthConfigExtnCompliance = tnDot1xAuthConfigExtnCompliance.setStatus('current')
-mibBuilder.exportSymbols("TN-SAS-IEEE8021-PAE-MIB", tnDot1xAuthConfigExtnTable=tnDot1xAuthConfigExtnTable, tnSASDot1xMIBObjs=tnSASDot1xMIBObjs, tnDot1xAuthConfigExtnCompliance=tnDot1xAuthConfigExtnCompliance, tnDot1xPortEtherTunnel=tnDot1xPortEtherTunnel, tnSASIEEE8021PaeMIBModule=tnSASIEEE8021PaeMIBModule, tnDot1xSASGroups=tnDot1xSASGroups, tnDot1xAuthConfigExtnEntry=tnDot1xAuthConfigExtnEntry, tnDot1xAuthConfigExtnGroup=tnDot1xAuthConfigExtnGroup, tnSASDot1xAuthenticatorObjs=tnSASDot1xAuthenticatorObjs, PYSNMP_MODULE_ID=tnSASIEEE8021PaeMIBModule, tnDot1xSASCompliancs=tnDot1xSASCompliancs)
+mibBuilder.exportSymbols("TN-SAS-IEEE8021-PAE-MIB", tnDot1xSASCompliancs=tnDot1xSASCompliancs, tnSASDot1xMIBObjs=tnSASDot1xMIBObjs, tnDot1xAuthConfigExtnCompliance=tnDot1xAuthConfigExtnCompliance, tnDot1xAuthConfigExtnEntry=tnDot1xAuthConfigExtnEntry, PYSNMP_MODULE_ID=tnSASIEEE8021PaeMIBModule, tnDot1xPortEtherTunnel=tnDot1xPortEtherTunnel, tnSASIEEE8021PaeMIBModule=tnSASIEEE8021PaeMIBModule, tnDot1xAuthConfigExtnGroup=tnDot1xAuthConfigExtnGroup, tnDot1xSASGroups=tnDot1xSASGroups, tnDot1xAuthConfigExtnTable=tnDot1xAuthConfigExtnTable, tnSASDot1xAuthenticatorObjs=tnSASDot1xAuthenticatorObjs)

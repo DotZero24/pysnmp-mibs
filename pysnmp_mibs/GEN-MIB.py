@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module GEN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/avaya/GEN-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:22:39 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/avaya/GEN-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:41:53 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 lannet = MibIdentifier((1, 3, 6, 1, 4, 1, 81))
 madge = MibIdentifier((1, 3, 6, 1, 4, 1, 494))
 lntOID = MibIdentifier((1, 3, 6, 1, 4, 1, 81, 17))
@@ -53,4 +53,4 @@ cajunP333ROID = MibIdentifier((1, 3, 6, 1, 4, 1, 81, 17, 2, 13))
 cajunP122OID = MibIdentifier((1, 3, 6, 1, 4, 1, 81, 17, 2, 14))
 cajunP330AtmOID = MibIdentifier((1, 3, 6, 1, 4, 1, 81, 17, 2, 15))
 cajunP333RLBOID = MibIdentifier((1, 3, 6, 1, 4, 1, 81, 17, 2, 16))
-mibBuilder.exportSymbols("GEN-MIB", lSTACKBoxOID=lSTACKBoxOID, smartDevicesOID=smartDevicesOID, cajunP120OID=cajunP120OID, visage26OID=visage26OID, lUnknownBoxOID=lUnknownBoxOID, lannet=lannet, lsfOID=lsfOID, iasOID=iasOID, lsa2OID=lsa2OID, lBoxOID=lBoxOID, letM770BoxOID=letM770BoxOID, lLET3BoxOID=lLET3BoxOID, lntOID=lntOID, m770BoxOID=m770BoxOID, lLET10BoxOID=lLET10BoxOID, cajunP330AtmOID=cajunP330AtmOID, lsaOID=lsaOID, cajunP122OID=cajunP122OID, deviceMgr=deviceMgr, collage530OID=collage530OID, cajunP330OID=cajunP330OID, lLET18BoxOID=lLET18BoxOID, lLET36_01_02BoxOID=lLET36_01_02BoxOID, eaxOID=eaxOID, cajunP333ROID=cajunP333ROID, madge=madge, lbt155plusOID=lbt155plusOID, visage16155BoxOID=visage16155BoxOID, m770AtmOID=m770AtmOID, lLET36BoxOID=lLET36BoxOID, cajunP333RLBOID=cajunP333RLBOID, visageBoxOID=visageBoxOID, cajunP360OID=cajunP360OID, cajunP130OID=cajunP130OID, lLET18EBoxOID=lLET18EBoxOID, visage26PlusOID=visage26PlusOID, lLERT40BoxOID=lLERT40BoxOID, lFDX100BoxOID=lFDX100BoxOID, mmlsOID=mmlsOID, unknownDeviceOID=unknownDeviceOID, lLET20BoxOID=lLET20BoxOID, probe=probe)
+mibBuilder.exportSymbols("GEN-MIB", m770BoxOID=m770BoxOID, cajunP333RLBOID=cajunP333RLBOID, cajunP333ROID=cajunP333ROID, lBoxOID=lBoxOID, cajunP360OID=cajunP360OID, visage16155BoxOID=visage16155BoxOID, cajunP120OID=cajunP120OID, m770AtmOID=m770AtmOID, visageBoxOID=visageBoxOID, madge=madge, lsfOID=lsfOID, lLERT40BoxOID=lLERT40BoxOID, visage26PlusOID=visage26PlusOID, lsa2OID=lsa2OID, lLET18BoxOID=lLET18BoxOID, cajunP122OID=cajunP122OID, lFDX100BoxOID=lFDX100BoxOID, lLET18EBoxOID=lLET18EBoxOID, lLET20BoxOID=lLET20BoxOID, lUnknownBoxOID=lUnknownBoxOID, cajunP330OID=cajunP330OID, lLET36_01_02BoxOID=lLET36_01_02BoxOID, unknownDeviceOID=unknownDeviceOID, lLET36BoxOID=lLET36BoxOID, letM770BoxOID=letM770BoxOID, lLET3BoxOID=lLET3BoxOID, collage530OID=collage530OID, lannet=lannet, lSTACKBoxOID=lSTACKBoxOID, cajunP330AtmOID=cajunP330AtmOID, visage26OID=visage26OID, eaxOID=eaxOID, probe=probe, cajunP130OID=cajunP130OID, mmlsOID=mmlsOID, iasOID=iasOID, lsaOID=lsaOID, smartDevicesOID=smartDevicesOID, lLET10BoxOID=lLET10BoxOID, lntOID=lntOID, lbt155plusOID=lbt155plusOID, deviceMgr=deviceMgr)

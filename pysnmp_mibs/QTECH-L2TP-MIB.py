@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module QTECH-L2TP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-L2TP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:34 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/qtech/QTECH-L2TP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:14:41 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 qtechMgmt, = mibBuilder.importSymbols("QTECH-SMI", "qtechMgmt")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, ModuleIdentity, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "ModuleIdentity", "TimeTicks", "Gauge32")
+TimeStamp, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "TextualConvention", "DisplayString")
 qtechVPDNMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 112))
 qtechVPDNMIB.setRevisions(('2011-02-17 00:00',))
 if mibBuilder.loadTexts: qtechVPDNMIB.setLastUpdated('201102170000Z')
@@ -42,4 +42,4 @@ qtechVPDNStart = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 112, 2,
 if mibBuilder.loadTexts: qtechVPDNStart.setStatus('current')
 qtechVPDNStop = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 112, 2, 1, 1, 2)).setObjects(("QTECH-L2TP-MIB", "l2tpPrivateSessionIfIndex"), ("QTECH-L2TP-MIB", "l2tpPrivateLocalTunnelID"), ("QTECH-L2TP-MIB", "l2tpPrivateSessionLocalIpAdd"), ("QTECH-L2TP-MIB", "l2tpPrivateSessionRemoteIpAdd"), ("QTECH-L2TP-MIB", "l2tpPrivateSessionVrfId"), ("QTECH-L2TP-MIB", "l2tpPrivateSessionExistTime"))
 if mibBuilder.loadTexts: qtechVPDNStop.setStatus('current')
-mibBuilder.exportSymbols("QTECH-L2TP-MIB", qtechVPDNStop=qtechVPDNStop, l2tpPrivateLocalTunnelID=l2tpPrivateLocalTunnelID, l2tpPrivateSessionLocalIpAdd=l2tpPrivateSessionLocalIpAdd, qtechL2TPSessionTable=qtechL2TPSessionTable, qtechVPDNMonitor=qtechVPDNMonitor, l2tpPrivateSessionIfIndex=l2tpPrivateSessionIfIndex, l2tpPrivateSessionRemoteIpAdd=l2tpPrivateSessionRemoteIpAdd, l2tpPrivateSessionVrfId=l2tpPrivateSessionVrfId, qtechVPDNMonitorTRAP=qtechVPDNMonitorTRAP, qtechL2TPSessionObjects=qtechL2TPSessionObjects, qtechVPDNMIB=qtechVPDNMIB, qtechVPDNStart=qtechVPDNStart, l2tpPrivateSessionStatus=l2tpPrivateSessionStatus, l2tpPrivateSessionExistTime=l2tpPrivateSessionExistTime, PYSNMP_MODULE_ID=qtechVPDNMIB, qtechL2TPSessionEntry=qtechL2TPSessionEntry, qtechVPDNNotifications=qtechVPDNNotifications)
+mibBuilder.exportSymbols("QTECH-L2TP-MIB", PYSNMP_MODULE_ID=qtechVPDNMIB, l2tpPrivateSessionExistTime=l2tpPrivateSessionExistTime, l2tpPrivateSessionStatus=l2tpPrivateSessionStatus, qtechL2TPSessionTable=qtechL2TPSessionTable, qtechVPDNStart=qtechVPDNStart, l2tpPrivateSessionLocalIpAdd=l2tpPrivateSessionLocalIpAdd, qtechVPDNStop=qtechVPDNStop, qtechVPDNNotifications=qtechVPDNNotifications, l2tpPrivateSessionIfIndex=l2tpPrivateSessionIfIndex, qtechVPDNMonitorTRAP=qtechVPDNMonitorTRAP, qtechVPDNMonitor=qtechVPDNMonitor, l2tpPrivateLocalTunnelID=l2tpPrivateLocalTunnelID, qtechVPDNMIB=qtechVPDNMIB, l2tpPrivateSessionVrfId=l2tpPrivateSessionVrfId, qtechL2TPSessionObjects=qtechL2TPSessionObjects, qtechL2TPSessionEntry=qtechL2TPSessionEntry, l2tpPrivateSessionRemoteIpAdd=l2tpPrivateSessionRemoteIpAdd)

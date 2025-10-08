@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module DCP-ENV-MON-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/smartoptics/DCP-ENV-MON-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:00 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/smartoptics/DCP-ENV-MON-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:07:32 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dcpGeneric, = mibBuilder.importSymbols("DCP-MIB", "dcpGeneric")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 FanMode, FanStatus, DcpTenths = mibBuilder.importSymbols("SO-TC-MIB", "FanMode", "FanStatus", "DcpTenths")
 dcpEnv = ModuleIdentity((1, 3, 6, 1, 4, 1, 30826, 2, 2, 6))
 dcpEnv.setRevisions(('2023-03-30 18:00',))
@@ -58,4 +58,4 @@ dcpEnvMonFanMode = MibTableColumn((1, 3, 6, 1, 4, 1, 30826, 2, 2, 6, 1, 3, 1, 1,
 if mibBuilder.loadTexts: dcpEnvMonFanMode.setStatus('current')
 dcpEnvMonFanSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 30826, 2, 2, 6, 1, 3, 1, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: dcpEnvMonFanSpeed.setStatus('current')
-mibBuilder.exportSymbols("DCP-ENV-MON-MIB", dcpEnvMonPowerConsumptionEntry=dcpEnvMonPowerConsumptionEntry, dcpEnvMonPowerConsumptionValue=dcpEnvMonPowerConsumptionValue, dcpEnvMonFanIndex=dcpEnvMonFanIndex, dcpEnvMonPowerConsumption=dcpEnvMonPowerConsumption, dcpEnvMonPowerConsumptionObjects=dcpEnvMonPowerConsumptionObjects, dcpEnvMonFanObjects=dcpEnvMonFanObjects, dcpEnvMonFan=dcpEnvMonFan, dcpEnvMon=dcpEnvMon, dcpEnvMonPowerConsumptionTable=dcpEnvMonPowerConsumptionTable, dcpEnvMonFanDescription=dcpEnvMonFanDescription, PYSNMP_MODULE_ID=dcpEnv, dcpEnvMonTemperatureDescription=dcpEnvMonTemperatureDescription, dcpEnvMonTemperatureObjects=dcpEnvMonTemperatureObjects, dcpEnvMonFanStatus=dcpEnvMonFanStatus, dcpEnv=dcpEnv, dcpEnvMonTemperatureValue=dcpEnvMonTemperatureValue, dcpEnvMonFanMode=dcpEnvMonFanMode, dcpEnvMonTemperature=dcpEnvMonTemperature, dcpEnvMonTemperatureTable=dcpEnvMonTemperatureTable, dcpEnvMonFanEntry=dcpEnvMonFanEntry, dcpEnvMonTemperatureEntry=dcpEnvMonTemperatureEntry, dcpEnvMonTemperatureIndex=dcpEnvMonTemperatureIndex, dcpEnvMonFanSpeed=dcpEnvMonFanSpeed, dcpEnvMonPowerConsumptionDescription=dcpEnvMonPowerConsumptionDescription, dcpEnvMonPowerConsumptionIndex=dcpEnvMonPowerConsumptionIndex, dcpEnvMonFanTable=dcpEnvMonFanTable)
+mibBuilder.exportSymbols("DCP-ENV-MON-MIB", dcpEnvMonPowerConsumptionObjects=dcpEnvMonPowerConsumptionObjects, dcpEnvMonTemperatureIndex=dcpEnvMonTemperatureIndex, dcpEnvMonPowerConsumptionValue=dcpEnvMonPowerConsumptionValue, dcpEnvMonTemperatureObjects=dcpEnvMonTemperatureObjects, dcpEnvMonFanObjects=dcpEnvMonFanObjects, dcpEnvMonPowerConsumptionDescription=dcpEnvMonPowerConsumptionDescription, dcpEnvMonPowerConsumptionIndex=dcpEnvMonPowerConsumptionIndex, dcpEnvMonPowerConsumptionEntry=dcpEnvMonPowerConsumptionEntry, dcpEnv=dcpEnv, dcpEnvMonTemperatureValue=dcpEnvMonTemperatureValue, dcpEnvMonTemperature=dcpEnvMonTemperature, dcpEnvMonFanDescription=dcpEnvMonFanDescription, dcpEnvMonFanMode=dcpEnvMonFanMode, dcpEnvMonFanTable=dcpEnvMonFanTable, dcpEnvMonFan=dcpEnvMonFan, dcpEnvMonFanStatus=dcpEnvMonFanStatus, dcpEnvMonPowerConsumption=dcpEnvMonPowerConsumption, dcpEnvMonFanSpeed=dcpEnvMonFanSpeed, dcpEnvMonTemperatureEntry=dcpEnvMonTemperatureEntry, dcpEnvMonPowerConsumptionTable=dcpEnvMonPowerConsumptionTable, dcpEnvMonFanIndex=dcpEnvMonFanIndex, dcpEnvMon=dcpEnvMon, dcpEnvMonTemperatureDescription=dcpEnvMonTemperatureDescription, dcpEnvMonFanEntry=dcpEnvMonFanEntry, PYSNMP_MODULE_ID=dcpEnv, dcpEnvMonTemperatureTable=dcpEnvMonTemperatureTable)

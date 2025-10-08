@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module DOS-PREV-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DOS-PREV-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:34:01 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/DOS-PREV-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:58:40 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
 swDoSMgmtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 59))
 if mibBuilder.loadTexts: swDoSMgmtMIB.setLastUpdated('201101240000Z')
 if mibBuilder.loadTexts: swDoSMgmtMIB.setOrganization('D-Link Corp.')
@@ -53,4 +53,4 @@ swDoSNotifyVarIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 59, 4, 1, 1), IpAdd
 if mibBuilder.loadTexts: swDoSNotifyVarIpAddr.setStatus('current')
 swDoSNotifyVarPortNumber = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 59, 4, 1, 2), DisplayString()).setMaxAccess("accessiblefornotify")
 if mibBuilder.loadTexts: swDoSNotifyVarPortNumber.setStatus('current')
-mibBuilder.exportSymbols("DOS-PREV-MIB", swDoSCtrlMirrorPriority=swDoSCtrlMirrorPriority, swDoSCtrlActionType=swDoSCtrlActionType, swDoSCtrlEntry=swDoSCtrlEntry, swDoSFunctionVersion=swDoSFunctionVersion, swDoSNotifyVarBindings=swDoSNotifyVarBindings, swDoSCtrlMirrorPort=swDoSCtrlMirrorPort, swDoSAttackDetected=swDoSAttackDetected, swDoSCtrl=swDoSCtrl, swDoSCtrlMirrorRxRate=swDoSCtrlMirrorRxRate, swDoSNotifyVarPortNumber=swDoSNotifyVarPortNumber, swDoSNotifyVarIpAddr=swDoSNotifyVarIpAddr, swDoSCtrlType=swDoSCtrlType, swDoSTrapState=swDoSTrapState, PYSNMP_MODULE_ID=swDoSMgmtMIB, swDoSCtrlTable=swDoSCtrlTable, swDoSTrapLog=swDoSTrapLog, swDoSNotify=swDoSNotify, swDoSClearCounters=swDoSClearCounters, swDoSCtrlFrameCount=swDoSCtrlFrameCount, swDoSLogState=swDoSLogState, swDoSMgmtMIB=swDoSMgmtMIB, swDoSNotifyPrefix=swDoSNotifyPrefix, swDoSCtrlState=swDoSCtrlState)
+mibBuilder.exportSymbols("DOS-PREV-MIB", PYSNMP_MODULE_ID=swDoSMgmtMIB, swDoSNotifyVarBindings=swDoSNotifyVarBindings, swDoSAttackDetected=swDoSAttackDetected, swDoSCtrlActionType=swDoSCtrlActionType, swDoSCtrlMirrorRxRate=swDoSCtrlMirrorRxRate, swDoSCtrlMirrorPriority=swDoSCtrlMirrorPriority, swDoSCtrlFrameCount=swDoSCtrlFrameCount, swDoSCtrl=swDoSCtrl, swDoSCtrlTable=swDoSCtrlTable, swDoSMgmtMIB=swDoSMgmtMIB, swDoSCtrlState=swDoSCtrlState, swDoSNotify=swDoSNotify, swDoSLogState=swDoSLogState, swDoSFunctionVersion=swDoSFunctionVersion, swDoSCtrlType=swDoSCtrlType, swDoSNotifyVarPortNumber=swDoSNotifyVarPortNumber, swDoSClearCounters=swDoSClearCounters, swDoSCtrlEntry=swDoSCtrlEntry, swDoSTrapState=swDoSTrapState, swDoSTrapLog=swDoSTrapLog, swDoSCtrlMirrorPort=swDoSCtrlMirrorPort, swDoSNotifyVarIpAddr=swDoSNotifyVarIpAddr, swDoSNotifyPrefix=swDoSNotifyPrefix)

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module UTS-BBS-COMMON-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/utstarcom/UTS-BBS-COMMON-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:12 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/utstarcom/UTS-BBS-COMMON-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:33:42 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 utsBroadbandSwitch, utBroadbandModules = mibBuilder.importSymbols("UTS-COMMON-MIB", "utsBroadbandSwitch", "utBroadbandModules")
 utBBSCommonModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 1949, 1, 1, 1, 8, 1))
 utBBSCommonModule.setRevisions(('2003-09-29 12:00',))
@@ -86,4 +86,4 @@ utsGeponBBS4000Security = ObjectIdentity((1, 3, 6, 1, 4, 1, 1949, 1, 3, 10, 200,
 if mibBuilder.loadTexts: utsGeponBBS4000Security.setStatus('current')
 utsGeponBBS4000V5TG = ObjectIdentity((1, 3, 6, 1, 4, 1, 1949, 1, 3, 10, 200, 6, 6))
 if mibBuilder.loadTexts: utsGeponBBS4000V5TG.setStatus('current')
-mibBuilder.exportSymbols("UTS-BBS-COMMON-MIB", utsGeponBBS1000plus=utsGeponBBS1000plus, utBBS2000=utBBS2000, utAccounting=utAccounting, utBBSProducts=utBBSProducts, utsGeponBBS=utsGeponBBS, utBBSEponOnuSysId2004=utBBSEponOnuSysId2004, utBBSChassis=utBBSChassis, utsGeponBBS4000Performance=utsGeponBBS4000Performance, PYSNMP_MODULE_ID=utBBSCommonModule, utBBSCommonModule=utBBSCommonModule, utBBSEponOnuSysId2024=utBBSEponOnuSysId2024, utConfiguration=utConfiguration, utBBSEponOnuSysId200A=utBBSEponOnuSysId200A, utsGeponBBS4000V5TG=utsGeponBBS4000V5TG, utSecurity=utSecurity, utsGeponBBS4000Configuration=utsGeponBBS4000Configuration, utsGeponBBS4000Security=utsGeponBBS4000Security, utsGeponBBS4000Accounting=utsGeponBBS4000Accounting, utsBBSProductSysId=utsBBSProductSysId, utBBSEponOnuSysId=utBBSEponOnuSysId, utBBSMIB=utBBSMIB, utBBS1000=utBBS1000, utBBSGeponOnu200A=utBBSGeponOnu200A, utBBSGeponOnu=utBBSGeponOnu, utFault=utFault, utPerformance=utPerformance, utBBS4000=utBBS4000, utBBSTrapObjects=utBBSTrapObjects, utBBSTrapEntityInstance=utBBSTrapEntityInstance, utBBSGepon=utBBSGepon, utBBS5000=utBBS5000, utsGeponBBS1000=utsGeponBBS1000, utsGeponBBS4000=utsGeponBBS4000, utBBSGeponOnu2024=utBBSGeponOnu2024, utBBS1000plus=utBBS1000plus, utBBSGeponOnu2004=utBBSGeponOnu2004, BBSEntityInstance=BBSEntityInstance, utsGeponBBS4000Fault=utsGeponBBS4000Fault)
+mibBuilder.exportSymbols("UTS-BBS-COMMON-MIB", utBBSEponOnuSysId2024=utBBSEponOnuSysId2024, utBBSCommonModule=utBBSCommonModule, utBBSMIB=utBBSMIB, utBBSGeponOnu200A=utBBSGeponOnu200A, utFault=utFault, utBBSGeponOnu=utBBSGeponOnu, utSecurity=utSecurity, utBBSEponOnuSysId=utBBSEponOnuSysId, utsBBSProductSysId=utsBBSProductSysId, utsGeponBBS1000plus=utsGeponBBS1000plus, utBBSTrapObjects=utBBSTrapObjects, utBBS2000=utBBS2000, utBBSGepon=utBBSGepon, utBBSChassis=utBBSChassis, utBBS1000plus=utBBS1000plus, utsGeponBBS4000Configuration=utsGeponBBS4000Configuration, BBSEntityInstance=BBSEntityInstance, utsGeponBBS4000Fault=utsGeponBBS4000Fault, utBBS4000=utBBS4000, utsGeponBBS4000Performance=utsGeponBBS4000Performance, utBBS1000=utBBS1000, utBBSTrapEntityInstance=utBBSTrapEntityInstance, utAccounting=utAccounting, utBBSGeponOnu2004=utBBSGeponOnu2004, utsGeponBBS4000=utsGeponBBS4000, utBBSGeponOnu2024=utBBSGeponOnu2024, utsGeponBBS4000V5TG=utsGeponBBS4000V5TG, utPerformance=utPerformance, utBBSEponOnuSysId2004=utBBSEponOnuSysId2004, utBBS5000=utBBS5000, utsGeponBBS=utsGeponBBS, utBBSProducts=utBBSProducts, utsGeponBBS4000Security=utsGeponBBS4000Security, utsGeponBBS1000=utsGeponBBS1000, utBBSEponOnuSysId200A=utBBSEponOnuSysId200A, utsGeponBBS4000Accounting=utsGeponBBS4000Accounting, utConfiguration=utConfiguration, PYSNMP_MODULE_ID=utBBSCommonModule)

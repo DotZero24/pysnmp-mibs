@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module DES7200-LLDP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DES7200-LLDP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:34:12 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/DES7200-LLDP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:58:54 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 myMgmt, = mibBuilder.importSymbols("DES7200-SMI", "myMgmt")
 IfIndex, ConfigStatus = mibBuilder.importSymbols("DES7200-TC", "IfIndex", "ConfigStatus")
 EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
 VlanId, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanId")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, TimeStamp, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeStamp", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, MacAddress, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TimeStamp", "DisplayString")
 myLldpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 32))
 myLldpMIB.setRevisions(('2003-04-01 00:00',))
 if mibBuilder.loadTexts: myLldpMIB.setLastUpdated('200304010000Z')
@@ -94,4 +94,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 lldpStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 32, 2, 2, 2)).setObjects(("DES7200-LLDP-MIB", "lldpStatsInGoodPkts"), ("DES7200-LLDP-MIB", "lldpStatsInErrors"), ("DES7200-LLDP-MIB", "lldpStatsOutPkts"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     lldpStatsGroup = lldpStatsGroup.setStatus('current')
-mibBuilder.exportSymbols("DES7200-LLDP-MIB", lldpSuppressPortIfIndex=lldpSuppressPortIfIndex, lldpStatsClear=lldpStatsClear, lldpRcvTableClear=lldpRcvTableClear, lldpRcvIfIndex=lldpRcvIfIndex, lldpRcvClusterName=lldpRcvClusterName, PYSNMP_MODULE_ID=myLldpMIB, lldpRcvObjects=lldpRcvObjects, lldpRcvDeviceID=lldpRcvDeviceID, lldpRcvClusterStatus=lldpRcvClusterStatus, lldpStatsInGoodPkts=lldpStatsInGoodPkts, lldpStatsGroup=lldpStatsGroup, lldpMIBConformance=lldpMIBConformance, lldpRcvClusterMode=lldpRcvClusterMode, lldpConfigGroup=lldpConfigGroup, myLldpMIB=myLldpMIB, lldpRcvTable=lldpRcvTable, lldpDeviceID=lldpDeviceID, lldpRcvCommandAddress=lldpRcvCommandAddress, lldpOperStatus=lldpOperStatus, lldpRcvMgmtAddress=lldpRcvMgmtAddress, lldpMIBCompliances=lldpMIBCompliances, lldpMibObjects=lldpMibObjects, lldpAdminStatus=lldpAdminStatus, lldpRcvHostName=lldpRcvHostName, lldpRcvEntry=lldpRcvEntry, lldpStatsTable=lldpStatsTable, lldpMessageTxHoldTime=lldpMessageTxHoldTime, lldpStatsOutPkts=lldpStatsOutPkts, lldpMIBGroups=lldpMIBGroups, lldpRcvPortInfo=lldpRcvPortInfo, lldpSuppressTable=lldpSuppressTable, lldpConfig=lldpConfig, lldpRcvPortIDSubtype=lldpRcvPortIDSubtype, lldpCompliances=lldpCompliances, lldpStats=lldpStats, lldpSuppressPortStatus=lldpSuppressPortStatus, lldpMessageTxInterval=lldpMessageTxInterval, lldpStatsEntry=lldpStatsEntry, lldpStatsInErrors=lldpStatsInErrors, lldpStatsPortIfIndex=lldpStatsPortIfIndex, lldpSuppressEntry=lldpSuppressEntry)
+mibBuilder.exportSymbols("DES7200-LLDP-MIB", lldpMIBGroups=lldpMIBGroups, lldpAdminStatus=lldpAdminStatus, lldpRcvTable=lldpRcvTable, lldpStatsInGoodPkts=lldpStatsInGoodPkts, myLldpMIB=myLldpMIB, lldpOperStatus=lldpOperStatus, lldpRcvHostName=lldpRcvHostName, lldpConfigGroup=lldpConfigGroup, lldpMibObjects=lldpMibObjects, lldpStatsEntry=lldpStatsEntry, lldpStatsPortIfIndex=lldpStatsPortIfIndex, lldpRcvIfIndex=lldpRcvIfIndex, lldpStats=lldpStats, lldpRcvPortInfo=lldpRcvPortInfo, lldpSuppressPortIfIndex=lldpSuppressPortIfIndex, lldpRcvTableClear=lldpRcvTableClear, lldpSuppressTable=lldpSuppressTable, lldpMIBCompliances=lldpMIBCompliances, lldpSuppressEntry=lldpSuppressEntry, lldpMIBConformance=lldpMIBConformance, lldpRcvCommandAddress=lldpRcvCommandAddress, lldpStatsOutPkts=lldpStatsOutPkts, lldpDeviceID=lldpDeviceID, lldpSuppressPortStatus=lldpSuppressPortStatus, lldpStatsTable=lldpStatsTable, PYSNMP_MODULE_ID=myLldpMIB, lldpMessageTxHoldTime=lldpMessageTxHoldTime, lldpStatsGroup=lldpStatsGroup, lldpRcvObjects=lldpRcvObjects, lldpStatsClear=lldpStatsClear, lldpRcvClusterMode=lldpRcvClusterMode, lldpCompliances=lldpCompliances, lldpRcvDeviceID=lldpRcvDeviceID, lldpMessageTxInterval=lldpMessageTxInterval, lldpRcvClusterStatus=lldpRcvClusterStatus, lldpRcvEntry=lldpRcvEntry, lldpStatsInErrors=lldpStatsInErrors, lldpRcvMgmtAddress=lldpRcvMgmtAddress, lldpRcvClusterName=lldpRcvClusterName, lldpConfig=lldpConfig, lldpRcvPortIDSubtype=lldpRcvPortIDSubtype)

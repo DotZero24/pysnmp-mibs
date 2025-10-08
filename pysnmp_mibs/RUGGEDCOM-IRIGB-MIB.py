@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module RUGGEDCOM-IRIGB-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/siemens/RUGGEDCOM-IRIGB-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:00 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/siemens/RUGGEDCOM-IRIGB-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:29 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ruggedcomTraps, ruggedcomMgmt = mibBuilder.importSymbols("RUGGEDCOM-MIB", "ruggedcomTraps", "ruggedcomMgmt")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ruggedcomMgmt, ruggedcomTraps = mibBuilder.importSymbols("RUGGEDCOM-MIB", "ruggedcomMgmt", "ruggedcomTraps")
 RcTimeSyncStatus, = mibBuilder.importSymbols("RUGGEDCOM-TIMECONFIG-MIB", "RcTimeSyncStatus")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 rcIrigb = ModuleIdentity((1, 3, 6, 1, 4, 1, 15004, 4, 10))
 rcIrigb.setRevisions(('2015-10-30 17:00', '2014-12-01 17:00',))
@@ -83,4 +83,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 rcIrigbTTLOutput02Group = ObjectGroup((1, 3, 6, 1, 4, 1, 15004, 4, 10, 2, 2, 7)).setObjects(("RUGGEDCOM-IRIGB-MIB", "rcIrigbOutputPWM2"), ("RUGGEDCOM-IRIGB-MIB", "rcIrigbPulseInterval2"), ("RUGGEDCOM-IRIGB-MIB", "rcIrigbPulseWidth2"), ("RUGGEDCOM-IRIGB-MIB", "rcIrigbStartTime2"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     rcIrigbTTLOutput02Group = rcIrigbTTLOutput02Group.setStatus('current')
-mibBuilder.exportSymbols("RUGGEDCOM-IRIGB-MIB", rcIrigbPulseWidth2=rcIrigbPulseWidth2, rcIrigbStartTime2=rcIrigbStartTime2, rcIrigbGroups=rcIrigbGroups, rcIrigbConformance=rcIrigbConformance, rcIrigbExt=rcIrigbExt, rcIrigbStartTime1=rcIrigbStartTime1, rcIrigbOutputPWM1=rcIrigbOutputPWM1, rcIrigbTTLOutput02Group=rcIrigbTTLOutput02Group, rcIrigbTimeCode=rcIrigbTimeCode, rcIrigbCommonGroup=rcIrigbCommonGroup, rcIrigbPulseInterval2=rcIrigbPulseInterval2, rcIrigbBase=rcIrigbBase, rcIrigbInput=rcIrigbInput, rcIrigbOFM=rcIrigbOFM, rcIrigbPulseWidth1=rcIrigbPulseWidth1, rcIrigbNotifyGroup=rcIrigbNotifyGroup, rcIrigbAMOutput=rcIrigbAMOutput, rcIrigbAMOutGroup=rcIrigbAMOutGroup, rcIrigbStatus=rcIrigbStatus, rcIrigbOutputPWM2=rcIrigbOutputPWM2, rcIrigbPulseInterval1=rcIrigbPulseInterval1, rcIrigbLockInt=rcIrigbLockInt, RcTimeStamp=RcTimeStamp, rcIrigb=rcIrigb, rcIrigbBaseGroup=rcIrigbBaseGroup, rcIrigbStatusChange=rcIrigbStatusChange, rcIrigbInputGroup=rcIrigbInputGroup, rcIrigbCableComp=rcIrigbCableComp, PYSNMP_MODULE_ID=rcIrigb, rcIrigbFreqAdj=rcIrigbFreqAdj, rcIrigbTTLOutput01Group=rcIrigbTTLOutput01Group)
+mibBuilder.exportSymbols("RUGGEDCOM-IRIGB-MIB", rcIrigbLockInt=rcIrigbLockInt, PYSNMP_MODULE_ID=rcIrigb, rcIrigb=rcIrigb, rcIrigbAMOutGroup=rcIrigbAMOutGroup, rcIrigbStartTime2=rcIrigbStartTime2, rcIrigbFreqAdj=rcIrigbFreqAdj, rcIrigbTTLOutput02Group=rcIrigbTTLOutput02Group, rcIrigbExt=rcIrigbExt, rcIrigbPulseInterval2=rcIrigbPulseInterval2, rcIrigbConformance=rcIrigbConformance, rcIrigbGroups=rcIrigbGroups, rcIrigbOutputPWM2=rcIrigbOutputPWM2, rcIrigbPulseWidth2=rcIrigbPulseWidth2, RcTimeStamp=RcTimeStamp, rcIrigbInput=rcIrigbInput, rcIrigbOutputPWM1=rcIrigbOutputPWM1, rcIrigbStatusChange=rcIrigbStatusChange, rcIrigbBase=rcIrigbBase, rcIrigbBaseGroup=rcIrigbBaseGroup, rcIrigbCableComp=rcIrigbCableComp, rcIrigbInputGroup=rcIrigbInputGroup, rcIrigbStartTime1=rcIrigbStartTime1, rcIrigbAMOutput=rcIrigbAMOutput, rcIrigbStatus=rcIrigbStatus, rcIrigbCommonGroup=rcIrigbCommonGroup, rcIrigbOFM=rcIrigbOFM, rcIrigbTimeCode=rcIrigbTimeCode, rcIrigbPulseInterval1=rcIrigbPulseInterval1, rcIrigbTTLOutput01Group=rcIrigbTTLOutput01Group, rcIrigbNotifyGroup=rcIrigbNotifyGroup, rcIrigbPulseWidth1=rcIrigbPulseWidth1)

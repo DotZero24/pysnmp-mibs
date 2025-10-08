@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module A3COM-HUAWEI-ATM-DXI-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-ATM-DXI-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:49 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-ATM-DXI-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:33:07 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 h3cCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCommon")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 h3cAtmDxi = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 49))
 h3cAtmDxi.setRevisions(('2005-04-14 15:18',))
 if mibBuilder.loadTexts: h3cAtmDxi.setLastUpdated('200504141518Z')
@@ -71,4 +71,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 h3cAtmDxiGeneralGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 49, 3, 2, 2)).setObjects(("A3COM-HUAWEI-ATM-DXI-MIB", "h3cAtmDxiConfMode"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     h3cAtmDxiGeneralGroup = h3cAtmDxiGeneralGroup.setStatus('current')
-mibBuilder.exportSymbols("A3COM-HUAWEI-ATM-DXI-MIB", h3cAtmDxiScalarGroup=h3cAtmDxiScalarGroup, h3cAtmDxiPvcVpi=h3cAtmDxiPvcVpi, h3cAtmDxiMapPvcVpi=h3cAtmDxiMapPvcVpi, h3cAtmDxiMapPeerIpType=h3cAtmDxiMapPeerIpType, h3cAtmDxiPvcEncType=h3cAtmDxiPvcEncType, h3cAtmDxiMapPeerIp=h3cAtmDxiMapPeerIp, h3cAtmDxiPvcDFA=h3cAtmDxiPvcDFA, h3cAtmDxiMapEntry=h3cAtmDxiMapEntry, h3cAtmDxiMapPvcVci=h3cAtmDxiMapPvcVci, h3cAtmDxiCompliances=h3cAtmDxiCompliances, h3cAtmDxiMapInarpTime=h3cAtmDxiMapInarpTime, h3cAtmDxiMapBroEnable=h3cAtmDxiMapBroEnable, h3cAtmDxiPvcMapCount=h3cAtmDxiPvcMapCount, h3cAtmDxi=h3cAtmDxi, h3cPVCMAPGroup=h3cPVCMAPGroup, h3cAtmDxiMapType=h3cAtmDxiMapType, h3cAtmDxiCompliance=h3cAtmDxiCompliance, h3cAtmDxiMapRowStatus=h3cAtmDxiMapRowStatus, PYSNMP_MODULE_ID=h3cAtmDxi, h3cAtmDxiPvcTable=h3cAtmDxiPvcTable, h3cAtmDxiGroup=h3cAtmDxiGroup, h3cAtmDxiConfMode=h3cAtmDxiConfMode, h3cAtmDxiIfObjects=h3cAtmDxiIfObjects, h3cAtmDxiPvcEntry=h3cAtmDxiPvcEntry, h3cAtmDxiGeneralGroup=h3cAtmDxiGeneralGroup, h3cAtmDxiPvcRowStatus=h3cAtmDxiPvcRowStatus, h3cAtmDxiPvcVci=h3cAtmDxiPvcVci, h3cAtmDxiMapTable=h3cAtmDxiMapTable, h3cAtmDxiConformance=h3cAtmDxiConformance)
+mibBuilder.exportSymbols("A3COM-HUAWEI-ATM-DXI-MIB", h3cAtmDxiConfMode=h3cAtmDxiConfMode, h3cAtmDxiMapInarpTime=h3cAtmDxiMapInarpTime, h3cAtmDxiMapRowStatus=h3cAtmDxiMapRowStatus, h3cPVCMAPGroup=h3cPVCMAPGroup, h3cAtmDxiMapBroEnable=h3cAtmDxiMapBroEnable, h3cAtmDxiMapType=h3cAtmDxiMapType, h3cAtmDxiPvcTable=h3cAtmDxiPvcTable, h3cAtmDxiPvcMapCount=h3cAtmDxiPvcMapCount, h3cAtmDxiScalarGroup=h3cAtmDxiScalarGroup, h3cAtmDxiIfObjects=h3cAtmDxiIfObjects, h3cAtmDxiGroup=h3cAtmDxiGroup, h3cAtmDxiGeneralGroup=h3cAtmDxiGeneralGroup, h3cAtmDxiMapPvcVpi=h3cAtmDxiMapPvcVpi, h3cAtmDxiMapPeerIp=h3cAtmDxiMapPeerIp, PYSNMP_MODULE_ID=h3cAtmDxi, h3cAtmDxiMapEntry=h3cAtmDxiMapEntry, h3cAtmDxiPvcVci=h3cAtmDxiPvcVci, h3cAtmDxiPvcRowStatus=h3cAtmDxiPvcRowStatus, h3cAtmDxiPvcVpi=h3cAtmDxiPvcVpi, h3cAtmDxiPvcEntry=h3cAtmDxiPvcEntry, h3cAtmDxiMapTable=h3cAtmDxiMapTable, h3cAtmDxiMapPvcVci=h3cAtmDxiMapPvcVci, h3cAtmDxiPvcEncType=h3cAtmDxiPvcEncType, h3cAtmDxi=h3cAtmDxi, h3cAtmDxiConformance=h3cAtmDxiConformance, h3cAtmDxiMapPeerIpType=h3cAtmDxiMapPeerIpType, h3cAtmDxiCompliances=h3cAtmDxiCompliances, h3cAtmDxiPvcDFA=h3cAtmDxiPvcDFA, h3cAtmDxiCompliance=h3cAtmDxiCompliance)

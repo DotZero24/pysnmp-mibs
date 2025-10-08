@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module CIENA-OME6500-SHELF-PARAMS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciena/CIENA-OME6500-SHELF-PARAMS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:12 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ciena/CIENA-OME6500-SHELF-PARAMS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:11:11 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 cienaOme6500, = mibBuilder.importSymbols("CIENA-OME6500-OPTICAL-MIB", "cienaOme6500")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 cienaOme6500ShelfParams = ModuleIdentity((1, 3, 6, 1, 4, 1, 1271, 68, 11, 1))
 cienaOme6500ShelfParams.setRevisions(('2015-06-30 00:00',))
 if mibBuilder.loadTexts: cienaOme6500ShelfParams.setLastUpdated('201506300000Z')
@@ -56,4 +56,4 @@ ome6500ShelfGneInetAddressType = MibScalar((1, 3, 6, 1, 4, 1, 1271, 68, 11, 1, 1
 if mibBuilder.loadTexts: ome6500ShelfGneInetAddressType.setStatus('current')
 ome6500ShelfGneInetAddress = MibScalar((1, 3, 6, 1, 4, 1, 1271, 68, 11, 1, 1, 17), InetAddress()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ome6500ShelfGneInetAddress.setStatus('current')
-mibBuilder.exportSymbols("CIENA-OME6500-SHELF-PARAMS-MIB", ome6500ShelfSnmpVersion=ome6500ShelfSnmpVersion, ome6500ShelfSubId=ome6500ShelfSubId, ome6500ShelfInetAddress=ome6500ShelfInetAddress, cienaOme6500ShelfParamsProv=cienaOme6500ShelfParamsProv, PYSNMP_MODULE_ID=cienaOme6500ShelfParams, ome6500ShelfSiteId=ome6500ShelfSiteId, ome6500shelfMode=ome6500shelfMode, ome6500ShelfInetAddressType=ome6500ShelfInetAddressType, ome6500ShelfIpAddress=ome6500ShelfIpAddress, ome6500ShelfId=ome6500ShelfId, ErrorCodes=ErrorCodes, cienaOme6500ShelfParams=cienaOme6500ShelfParams, ome6500LastErrorRc=ome6500LastErrorRc, ome6500ShelfGneInetAddress=ome6500ShelfGneInetAddress, ome6500ShelfTid=ome6500ShelfTid, ome6500ShelfSoftwareVersion=ome6500ShelfSoftwareVersion, ome6500ShelfGneIpAddress=ome6500ShelfGneIpAddress, ome6500LastErrorDescription=ome6500LastErrorDescription, ome6500ShelfIsGne=ome6500ShelfIsGne, ome6500ShelfSiteName=ome6500ShelfSiteName, ome6500ShelfGneInetAddressType=ome6500ShelfGneInetAddressType)
+mibBuilder.exportSymbols("CIENA-OME6500-SHELF-PARAMS-MIB", ome6500ShelfIpAddress=ome6500ShelfIpAddress, ome6500ShelfGneInetAddressType=ome6500ShelfGneInetAddressType, ome6500ShelfInetAddress=ome6500ShelfInetAddress, cienaOme6500ShelfParamsProv=cienaOme6500ShelfParamsProv, ome6500ShelfInetAddressType=ome6500ShelfInetAddressType, ome6500ShelfTid=ome6500ShelfTid, ome6500ShelfSiteName=ome6500ShelfSiteName, ome6500ShelfSoftwareVersion=ome6500ShelfSoftwareVersion, ome6500ShelfSiteId=ome6500ShelfSiteId, ome6500ShelfGneIpAddress=ome6500ShelfGneIpAddress, ome6500ShelfSnmpVersion=ome6500ShelfSnmpVersion, ome6500ShelfId=ome6500ShelfId, ome6500ShelfIsGne=ome6500ShelfIsGne, PYSNMP_MODULE_ID=cienaOme6500ShelfParams, cienaOme6500ShelfParams=cienaOme6500ShelfParams, ome6500ShelfSubId=ome6500ShelfSubId, ome6500LastErrorRc=ome6500LastErrorRc, ome6500LastErrorDescription=ome6500LastErrorDescription, ome6500ShelfGneInetAddress=ome6500ShelfGneInetAddress, ome6500shelfMode=ome6500shelfMode, ErrorCodes=ErrorCodes)

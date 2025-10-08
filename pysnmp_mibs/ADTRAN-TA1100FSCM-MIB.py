@@ -1,21 +1,21 @@
 #
 # PySNMP MIB module ADTRAN-TA1100FSCM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-TA1100FSCM-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:42 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/adtran/ADTRAN-TA1100FSCM-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:53:02 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 adGenSlotInfoIndex, adGenSlotProdName = mibBuilder.importSymbols("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex", "adGenSlotProdName")
 adTrapInformSeqNum, = mibBuilder.importSymbols("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum")
-adMgmt, adProducts = mibBuilder.importSymbols("ADTRAN-MIB", "adMgmt", "adProducts")
+adProducts, adMgmt = mibBuilder.importSymbols("ADTRAN-MIB", "adProducts", "adMgmt")
 adTAeSCUTrapAlarmLevel, = mibBuilder.importSymbols("ADTRAN-TAeSCUEXT1-MIB", "adTAeSCUTrapAlarmLevel")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
 sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
-ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 adTA1100Fcfmg = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 2, 827))
 adTA1100Fcfmg.setRevisions(('2010-02-24 13:00',))
 if mibBuilder.loadTexts: adTA1100Fcfmg.setLastUpdated('201002241300Z')
@@ -45,4 +45,4 @@ adTADeviceInserted = NotificationType((1, 3, 6, 1, 4, 1, 664, 1, 827, 0, 82404))
 if mibBuilder.loadTexts: adTADeviceInserted.setStatus('current')
 adTADeviceRemoved = NotificationType((1, 3, 6, 1, 4, 1, 664, 1, 827, 0, 82405)).setObjects(("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum"), ("SNMPv2-MIB", "sysName"), ("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"), ("ADTRAN-TAeSCUEXT1-MIB", "adTAeSCUTrapAlarmLevel"), ("ADTRAN-GENSLOT-MIB", "adGenSlotProdName"))
 if mibBuilder.loadTexts: adTADeviceRemoved.setStatus('current')
-mibBuilder.exportSymbols("ADTRAN-TA1100FSCM-MIB", adTATIDSysNameSyncEnable=adTATIDSysNameSyncEnable, adTADeviceRemoved=adTADeviceRemoved, adTA1100FffScm=adTA1100FffScm, adTA1124PT1=adTA1124PT1, PYSNMP_MODULE_ID=adTA1100Fcfmg, adTA1100Fcf=adTA1100Fcf, adTA1248EthIPScm=adTA1248EthIPScm, adTA1124PT1Scm=adTA1124PT1Scm, adTA1124PHDSL4=adTA1124PHDSL4, adTADeviceMgmtFail=adTADeviceMgmtFail, adTA1100FcfScm=adTA1100FcfScm, adTA1200FffScm=adTA1200FffScm, adTADeviceInserted=adTADeviceInserted, adTA1100Fffmg=adTA1100Fffmg, adTA1200Fff=adTA1200Fff, adTADeviceMgmtRestored=adTADeviceMgmtRestored, adTA1100FcfSCMNotificationEvents=adTA1100FcfSCMNotificationEvents, adTA1100Fff=adTA1100Fff, adTA1100Fcfmg=adTA1100Fcfmg, adTA1248EthIP=adTA1248EthIP, adTA1100FSysConfig=adTA1100FSysConfig)
+mibBuilder.exportSymbols("ADTRAN-TA1100FSCM-MIB", adTA1124PHDSL4=adTA1124PHDSL4, adTA1248EthIP=adTA1248EthIP, adTA1100FcfScm=adTA1100FcfScm, adTA1100FcfSCMNotificationEvents=adTA1100FcfSCMNotificationEvents, adTA1200Fff=adTA1200Fff, adTA1100FSysConfig=adTA1100FSysConfig, adTADeviceRemoved=adTADeviceRemoved, adTADeviceMgmtFail=adTADeviceMgmtFail, adTA1248EthIPScm=adTA1248EthIPScm, adTA1100FffScm=adTA1100FffScm, adTA1124PT1=adTA1124PT1, adTA1124PT1Scm=adTA1124PT1Scm, adTA1100Fcf=adTA1100Fcf, adTA1200FffScm=adTA1200FffScm, adTATIDSysNameSyncEnable=adTATIDSysNameSyncEnable, adTADeviceMgmtRestored=adTADeviceMgmtRestored, PYSNMP_MODULE_ID=adTA1100Fcfmg, adTA1100Fcfmg=adTA1100Fcfmg, adTADeviceInserted=adTADeviceInserted, adTA1100Fffmg=adTA1100Fffmg, adTA1100Fff=adTA1100Fff)

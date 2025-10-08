@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module INFINERA-PM-BASESCGPTP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-PM-BASESCGPTP-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:36 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/INFINERA-PM-BASESCGPTP-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:20:42 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 perfMon, = mibBuilder.importSymbols("INFINERA-REG-MIB", "perfMon")
 FloatHundredths, = mibBuilder.importSymbols("INFINERA-TC-MIB", "FloatHundredths")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 baseScgPtpPmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 45))
 baseScgPtpPmMIB.setRevisions(('2013-10-08 00:00',))
 if mibBuilder.loadTexts: baseScgPtpPmMIB.setLastUpdated('201310080000Z')
@@ -61,4 +61,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 baseScgPtpPmRealGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 45, 3, 2, 2)).setObjects(("INFINERA-PM-BASESCGPTP-MIB", "baseScgPtpPmRealCmnScgOpt"), ("INFINERA-PM-BASESCGPTP-MIB", "baseScgPtpPmRealCmnScgOpr"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     baseScgPtpPmRealGroup = baseScgPtpPmRealGroup.setStatus('current')
-mibBuilder.exportSymbols("INFINERA-PM-BASESCGPTP-MIB", baseScgPtpPmTable=baseScgPtpPmTable, baseScgPtpPmEntry=baseScgPtpPmEntry, baseScgPtpPmCmnScgOptMax=baseScgPtpPmCmnScgOptMax, baseScgPtpPmRealCompliance=baseScgPtpPmRealCompliance, baseScgPtpPmRealEntry=baseScgPtpPmRealEntry, baseScgPtpPmCmnScgOprMax=baseScgPtpPmCmnScgOprMax, baseScgPtpPmRealTable=baseScgPtpPmRealTable, baseScgPtpPmRealGroup=baseScgPtpPmRealGroup, baseScgPtpPmRealCmnScgOpt=baseScgPtpPmRealCmnScgOpt, baseScgPtpPmCmnScgOptAve=baseScgPtpPmCmnScgOptAve, baseScgPtpPmCompliance=baseScgPtpPmCompliance, baseScgPtpPmValidity=baseScgPtpPmValidity, baseScgPtpPmRealCmnScgOpr=baseScgPtpPmRealCmnScgOpr, baseScgPtpPmGroup=baseScgPtpPmGroup, baseScgPtpPmConformance=baseScgPtpPmConformance, baseScgPtpPmMIB=baseScgPtpPmMIB, baseScgPtpPmGroups=baseScgPtpPmGroups, baseScgPtpPmCmnScgOprAve=baseScgPtpPmCmnScgOprAve, baseScgPtpPmCmnScgOprMin=baseScgPtpPmCmnScgOprMin, baseScgPtpPmCmnScgOptMin=baseScgPtpPmCmnScgOptMin, PYSNMP_MODULE_ID=baseScgPtpPmMIB, baseScgPtpPmCompliances=baseScgPtpPmCompliances)
+mibBuilder.exportSymbols("INFINERA-PM-BASESCGPTP-MIB", baseScgPtpPmRealGroup=baseScgPtpPmRealGroup, baseScgPtpPmCmnScgOptMin=baseScgPtpPmCmnScgOptMin, baseScgPtpPmMIB=baseScgPtpPmMIB, baseScgPtpPmRealEntry=baseScgPtpPmRealEntry, baseScgPtpPmCmnScgOprMax=baseScgPtpPmCmnScgOprMax, baseScgPtpPmCmnScgOptMax=baseScgPtpPmCmnScgOptMax, baseScgPtpPmCompliance=baseScgPtpPmCompliance, baseScgPtpPmCompliances=baseScgPtpPmCompliances, baseScgPtpPmCmnScgOprAve=baseScgPtpPmCmnScgOprAve, baseScgPtpPmTable=baseScgPtpPmTable, baseScgPtpPmRealCmnScgOpt=baseScgPtpPmRealCmnScgOpt, baseScgPtpPmRealTable=baseScgPtpPmRealTable, baseScgPtpPmCmnScgOptAve=baseScgPtpPmCmnScgOptAve, baseScgPtpPmValidity=baseScgPtpPmValidity, baseScgPtpPmGroup=baseScgPtpPmGroup, baseScgPtpPmRealCompliance=baseScgPtpPmRealCompliance, baseScgPtpPmCmnScgOprMin=baseScgPtpPmCmnScgOprMin, PYSNMP_MODULE_ID=baseScgPtpPmMIB, baseScgPtpPmEntry=baseScgPtpPmEntry, baseScgPtpPmRealCmnScgOpr=baseScgPtpPmRealCmnScgOpr, baseScgPtpPmConformance=baseScgPtpPmConformance, baseScgPtpPmGroups=baseScgPtpPmGroups)

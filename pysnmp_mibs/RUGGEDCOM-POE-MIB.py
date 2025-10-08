@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module RUGGEDCOM-POE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/siemens/RUGGEDCOM-POE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:00 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/siemens/RUGGEDCOM-POE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:29 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ruggedcomTraps, ruggedcomMgmt = mibBuilder.importSymbols("RUGGEDCOM-MIB", "ruggedcomTraps", "ruggedcomMgmt")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ruggedcomMgmt, ruggedcomTraps = mibBuilder.importSymbols("RUGGEDCOM-MIB", "ruggedcomMgmt", "ruggedcomTraps")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 rcPoe = ModuleIdentity((1, 3, 6, 1, 4, 1, 15004, 4, 7))
 rcPoe.setRevisions(('2021-09-07 14:00', '2012-06-01 17:00', '2011-02-20 10:00',))
 if mibBuilder.loadTexts: rcPoe.setLastUpdated('202109071400Z')
@@ -74,4 +74,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 rcPoeNotifyGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 15004, 4, 7, 3, 2, 5)).setObjects(("RUGGEDCOM-POE-MIB", "rcPoeOverheat"), ("RUGGEDCOM-POE-MIB", "rcPoeOverload"), ("RUGGEDCOM-POE-MIB", "rcPoeUndervoltage"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     rcPoeNotifyGroup = rcPoeNotifyGroup.setStatus('current')
-mibBuilder.exportSymbols("RUGGEDCOM-POE-MIB", rcPoeTables=rcPoeTables, rcPoeUndervoltageStatus=rcPoeUndervoltageStatus, rcPoeOverload=rcPoeOverload, rcPoeConsumption=rcPoeConsumption, rcPoePortTable=rcPoePortTable, rcPoePortAdmin=rcPoePortAdmin, rcPoeOverheatStatus=rcPoeOverheatStatus, rcPoeGroups=rcPoeGroups, PYSNMP_MODULE_ID=rcPoe, rcPoeReenableTime=rcPoeReenableTime, rcPoeTablePriorityGroup=rcPoeTablePriorityGroup, rcPoePortVoltage=rcPoePortVoltage, rcPoePortCurrent=rcPoePortCurrent, rcPoeOverheat=rcPoeOverheat, rcPoeOverloadStatus=rcPoeOverloadStatus, rcPoeConformance=rcPoeConformance, rcBasePoeStatusGroup=rcBasePoeStatusGroup, rcBasePoeGroup=rcBasePoeGroup, rcPoePort=rcPoePort, rcPoeTableGroup=rcPoeTableGroup, rcPoePortEntry=rcPoePortEntry, rcPoePortClass=rcPoePortClass, rcPoe=rcPoe, rcPoeBase=rcPoeBase, rcPoePortPowered=rcPoePortPowered, rcPoeCapacity=rcPoeCapacity, rcPoePortPriority=rcPoePortPriority, rcPoeNotifyGroup=rcPoeNotifyGroup, rcPoeMinimumVoltage=rcPoeMinimumVoltage, ruggedcomPoeTraps=ruggedcomPoeTraps, rcPoeUndervoltage=rcPoeUndervoltage)
+mibBuilder.exportSymbols("RUGGEDCOM-POE-MIB", rcPoeTablePriorityGroup=rcPoeTablePriorityGroup, ruggedcomPoeTraps=ruggedcomPoeTraps, rcPoeGroups=rcPoeGroups, rcPoePortPowered=rcPoePortPowered, rcPoeConsumption=rcPoeConsumption, rcPoeTables=rcPoeTables, rcPoeNotifyGroup=rcPoeNotifyGroup, rcPoe=rcPoe, rcPoeBase=rcPoeBase, rcPoeUndervoltageStatus=rcPoeUndervoltageStatus, rcBasePoeGroup=rcBasePoeGroup, rcPoePortClass=rcPoePortClass, rcPoeConformance=rcPoeConformance, rcPoeOverload=rcPoeOverload, rcPoeReenableTime=rcPoeReenableTime, rcPoePortPriority=rcPoePortPriority, rcPoeMinimumVoltage=rcPoeMinimumVoltage, rcPoePortTable=rcPoePortTable, rcPoeOverheatStatus=rcPoeOverheatStatus, rcPoePort=rcPoePort, rcPoePortAdmin=rcPoePortAdmin, rcPoePortCurrent=rcPoePortCurrent, rcBasePoeStatusGroup=rcBasePoeStatusGroup, rcPoeCapacity=rcPoeCapacity, rcPoeOverheat=rcPoeOverheat, rcPoeOverloadStatus=rcPoeOverloadStatus, rcPoePortVoltage=rcPoePortVoltage, PYSNMP_MODULE_ID=rcPoe, rcPoeTableGroup=rcPoeTableGroup, rcPoeUndervoltage=rcPoeUndervoltage, rcPoePortEntry=rcPoePortEntry)

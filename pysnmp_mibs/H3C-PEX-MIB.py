@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module H3C-PEX-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-PEX-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:34 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-PEX-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:22 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-entPhysicalDescr, entPhysicalIndex = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalDescr", "entPhysicalIndex")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+entPhysicalIndex, entPhysicalDescr = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex", "entPhysicalDescr")
 h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 h3cPex = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 129))
 h3cPex.setRevisions(('2015-10-15 11:29', '2012-11-12 11:29',))
 if mibBuilder.loadTexts: h3cPex.setLastUpdated('201510151129Z')
@@ -82,4 +82,4 @@ if mibBuilder.loadTexts: h3cPexPhyPortBlocked.setStatus('current')
 h3cPexTrapObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 129, 4))
 h3cPexEntPhysicalIndexBind = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 129, 4, 1), Integer32()).setMaxAccess("accessiblefornotify")
 if mibBuilder.loadTexts: h3cPexEntPhysicalIndexBind.setStatus('current')
-mibBuilder.exportSymbols("H3C-PEX-MIB", h3cPexPhyPortTable=h3cPexPhyPortTable, h3cPexMinAssociateId=h3cPexMinAssociateId, h3cPexPortEntPhysicalIndex=h3cPexPortEntPhysicalIndex, h3cPexTopoTable=h3cPexTopoTable, h3cPexEntPhysicalIndexBind=h3cPexEntPhysicalIndexBind, h3cPexPortRowStatus=h3cPexPortRowStatus, h3cPexPortOnline=h3cPexPortOnline, h3cPexPortAssociateId=h3cPexPortAssociateId, h3cPexPortId=h3cPexPortId, h3cPexPhyPortNeighborEntIndex=h3cPexPhyPortNeighborEntIndex, PYSNMP_MODULE_ID=h3cPex, h3cPexMaxPortPerPexPort=h3cPexMaxPortPerPexPort, h3cPexTopoEntry=h3cPexTopoEntry, h3cPexDeviceInfoEntry=h3cPexDeviceInfoEntry, h3cPexDeviceInfoTable=h3cPexDeviceInfoTable, h3cPexTrapPrefix=h3cPexTrapPrefix, h3cPexMaxAssociateId=h3cPexMaxAssociateId, h3cPexDeviceStatus=h3cPexDeviceStatus, h3cPexTable=h3cPexTable, h3cPexPortMaxId=h3cPexPortMaxId, h3cPexSpecInfo=h3cPexSpecInfo, h3cPexPortDescr=h3cPexPortDescr, h3cPex=h3cPex, h3cPexPhyPortStatus=h3cPexPhyPortStatus, h3cPexTraps=h3cPexTraps, h3cPexPortEntry=h3cPexPortEntry, h3cPexPhyPortBlocked=h3cPexPhyPortBlocked, h3cPexPhyPortForwarding=h3cPexPhyPortForwarding, h3cPexPhyPortBelongToPexPort=h3cPexPhyPortBelongToPexPort, h3cPexPhyPortEntry=h3cPexPhyPortEntry, h3cPexPortTable=h3cPexPortTable, h3cPexPortOffline=h3cPexPortOffline, h3cPexNeighborEntIndex=h3cPexNeighborEntIndex, h3cPexPortStatus=h3cPexPortStatus, h3cPexDeviceAssociateId=h3cPexDeviceAssociateId, h3cPexPortMinId=h3cPexPortMinId, h3cPexTrapObjects=h3cPexTrapObjects)
+mibBuilder.exportSymbols("H3C-PEX-MIB", h3cPexTopoEntry=h3cPexTopoEntry, h3cPexDeviceStatus=h3cPexDeviceStatus, h3cPexPhyPortBelongToPexPort=h3cPexPhyPortBelongToPexPort, h3cPexDeviceInfoTable=h3cPexDeviceInfoTable, h3cPexNeighborEntIndex=h3cPexNeighborEntIndex, h3cPexPhyPortForwarding=h3cPexPhyPortForwarding, h3cPexPhyPortTable=h3cPexPhyPortTable, h3cPexPortRowStatus=h3cPexPortRowStatus, h3cPexDeviceAssociateId=h3cPexDeviceAssociateId, h3cPexPortEntry=h3cPexPortEntry, h3cPexTrapObjects=h3cPexTrapObjects, h3cPexTrapPrefix=h3cPexTrapPrefix, h3cPexPortStatus=h3cPexPortStatus, h3cPexSpecInfo=h3cPexSpecInfo, h3cPexPortMaxId=h3cPexPortMaxId, h3cPexPortEntPhysicalIndex=h3cPexPortEntPhysicalIndex, h3cPexPhyPortNeighborEntIndex=h3cPexPhyPortNeighborEntIndex, h3cPexTopoTable=h3cPexTopoTable, h3cPexMaxAssociateId=h3cPexMaxAssociateId, h3cPexMaxPortPerPexPort=h3cPexMaxPortPerPexPort, h3cPexTraps=h3cPexTraps, h3cPex=h3cPex, h3cPexDeviceInfoEntry=h3cPexDeviceInfoEntry, h3cPexPhyPortBlocked=h3cPexPhyPortBlocked, h3cPexPortTable=h3cPexPortTable, h3cPexPortMinId=h3cPexPortMinId, h3cPexPortAssociateId=h3cPexPortAssociateId, h3cPexPortOnline=h3cPexPortOnline, h3cPexEntPhysicalIndexBind=h3cPexEntPhysicalIndexBind, h3cPexPhyPortEntry=h3cPexPhyPortEntry, PYSNMP_MODULE_ID=h3cPex, h3cPexPortDescr=h3cPexPortDescr, h3cPexPhyPortStatus=h3cPexPhyPortStatus, h3cPexPortOffline=h3cPexPortOffline, h3cPexPortId=h3cPexPortId, h3cPexMinAssociateId=h3cPexMinAssociateId, h3cPexTable=h3cPexTable)

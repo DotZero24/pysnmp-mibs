@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BSUSUSTATUS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aperto/BSUSUSTATUS-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:54 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/aperto/BSUSUSTATUS-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:18 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
 aniBsuSuGroup, = mibBuilder.importSymbols("ANIROOT-MIB", "aniBsuSuGroup")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 aniBsuWirelessPort, = mibBuilder.importSymbols("BSUWIRELESSIF-MIB", "aniBsuWirelessPort")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
 aniBsuSuStatus = ModuleIdentity((1, 3, 6, 1, 4, 1, 4325, 3, 7, 3))
 if mibBuilder.loadTexts: aniBsuSuStatus.setLastUpdated('0105091130Z')
 if mibBuilder.loadTexts: aniBsuSuStatus.setOrganization('Aperto Networks')
@@ -64,4 +64,4 @@ aniBsuSuStatusLinkType = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 3, 7, 3, 3, 1, 
 if mibBuilder.loadTexts: aniBsuSuStatusLinkType.setStatus('current')
 aniBsuSuStatusPathLossExponent = MibTableColumn((1, 3, 6, 1, 4, 1, 4325, 3, 7, 3, 3, 1, 5), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: aniBsuSuStatusPathLossExponent.setStatus('current')
-mibBuilder.exportSymbols("BSUSUSTATUS-MIB", aniBsuSuStatusLinkType=aniBsuSuStatusLinkType, aniBsuSuStatusDistance=aniBsuSuStatusDistance, aniBsuSuStatusDSFec=aniBsuSuStatusDSFec, aniBsuSuStatusSuTxPowerAttn=aniBsuSuStatusSuTxPowerAttn, aniBsuSuStatusUSFec=aniBsuSuStatusUSFec, aniBsuSuDSLinkStatusTable=aniBsuSuDSLinkStatusTable, aniBsuSuLinkStatusEntry=aniBsuSuLinkStatusEntry, aniBsuSuStatusBsuTxPower=aniBsuSuStatusBsuTxPower, aniBsuSuStatusUSModulation=aniBsuSuStatusUSModulation, aniBsuSuStatus=aniBsuSuStatus, aniBsuSuStatusMacAddr=aniBsuSuStatusMacAddr, aniBsuSuDSLinkStatusEntry=aniBsuSuDSLinkStatusEntry, aniBsuSuStatusIpAddr=aniBsuSuStatusIpAddr, aniBsuSuStatusDSPolarization=aniBsuSuStatusDSPolarization, aniBsuSuLinkStatusTable=aniBsuSuLinkStatusTable, aniBsuSuStatusSuTxPower=aniBsuSuStatusSuTxPower, aniBsuSuStatusPropagationDelay=aniBsuSuStatusPropagationDelay, aniBsuSuStatusPathLossExponent=aniBsuSuStatusPathLossExponent, aniBsuSuUSLinkStatusEntry=aniBsuSuUSLinkStatusEntry, aniBsuSuStatusDSModulation=aniBsuSuStatusDSModulation, aniBsuSuStatusIpAddress=aniBsuSuStatusIpAddress, PYSNMP_MODULE_ID=aniBsuSuStatus, aniBsuSuStatusUSPolarization=aniBsuSuStatusUSPolarization, aniBsuSuStatusUSRxPower=aniBsuSuStatusUSRxPower, aniBsuSuStatusDSRxPower=aniBsuSuStatusDSRxPower, aniBsuSuUSLinkStatusTable=aniBsuSuUSLinkStatusTable)
+mibBuilder.exportSymbols("BSUSUSTATUS-MIB", aniBsuSuStatusPropagationDelay=aniBsuSuStatusPropagationDelay, aniBsuSuStatusDSRxPower=aniBsuSuStatusDSRxPower, aniBsuSuStatusLinkType=aniBsuSuStatusLinkType, aniBsuSuStatusDSFec=aniBsuSuStatusDSFec, aniBsuSuStatusSuTxPower=aniBsuSuStatusSuTxPower, aniBsuSuUSLinkStatusTable=aniBsuSuUSLinkStatusTable, aniBsuSuStatusDSModulation=aniBsuSuStatusDSModulation, aniBsuSuStatusUSFec=aniBsuSuStatusUSFec, aniBsuSuStatusUSPolarization=aniBsuSuStatusUSPolarization, aniBsuSuStatusUSRxPower=aniBsuSuStatusUSRxPower, PYSNMP_MODULE_ID=aniBsuSuStatus, aniBsuSuUSLinkStatusEntry=aniBsuSuUSLinkStatusEntry, aniBsuSuStatusIpAddr=aniBsuSuStatusIpAddr, aniBsuSuStatusSuTxPowerAttn=aniBsuSuStatusSuTxPowerAttn, aniBsuSuStatusBsuTxPower=aniBsuSuStatusBsuTxPower, aniBsuSuDSLinkStatusTable=aniBsuSuDSLinkStatusTable, aniBsuSuStatusUSModulation=aniBsuSuStatusUSModulation, aniBsuSuStatusDistance=aniBsuSuStatusDistance, aniBsuSuStatus=aniBsuSuStatus, aniBsuSuLinkStatusTable=aniBsuSuLinkStatusTable, aniBsuSuLinkStatusEntry=aniBsuSuLinkStatusEntry, aniBsuSuStatusIpAddress=aniBsuSuStatusIpAddress, aniBsuSuStatusMacAddr=aniBsuSuStatusMacAddr, aniBsuSuStatusPathLossExponent=aniBsuSuStatusPathLossExponent, aniBsuSuDSLinkStatusEntry=aniBsuSuDSLinkStatusEntry, aniBsuSuStatusDSPolarization=aniBsuSuStatusDSPolarization)

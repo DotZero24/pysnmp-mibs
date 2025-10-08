@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module NTWS-BASIC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/NTWS-BASIC-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:08 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nortel/NTWS-BASIC-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:02:29 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 NtwsLicenseFeature, = mibBuilder.importSymbols("NTWS-LICENSE-FEATURE-TC-MIB", "NtwsLicenseFeature")
 ntwsMibs, = mibBuilder.importSymbols("NTWS-ROOT-MIB", "ntwsMibs")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ntwsBasic = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 2))
 ntwsBasic.setRevisions(('2009-11-16 00:10', '2007-08-16 00:09', '2006-07-10 00:08', '2006-04-14 00:07', '2005-01-01 00:00',))
 if mibBuilder.loadTexts: ntwsBasic.setLastUpdated('200911160010Z')
@@ -52,4 +52,4 @@ ntwsLicenseInfoEntryValue = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 2, 3,
 if mibBuilder.loadTexts: ntwsLicenseInfoEntryValue.setStatus('current')
 ntwsLicenseInfoEntryDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 2, 3, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ntwsLicenseInfoEntryDescr.setStatus('current')
-mibBuilder.exportSymbols("NTWS-BASIC-MIB", ntwsSwMajorVersionNumber=ntwsSwMajorVersionNumber, PYSNMP_MODULE_ID=ntwsBasic, ntwsMobilityDomainName=ntwsMobilityDomainName, ntwsVersionString=ntwsVersionString, ntwsMobilityMemberTable=ntwsMobilityMemberTable, ntwsLicenseInfoEntryValue=ntwsLicenseInfoEntryValue, ntwsLicenseInfoTableSize=ntwsLicenseInfoTableSize, ntwsMobilityMemberEntryAddr=ntwsMobilityMemberEntryAddr, ntwsBasicSystemInfo=ntwsBasicSystemInfo, ntwsLicenseInfoEntry=ntwsLicenseInfoEntry, ntwsMobilitySeedIp=ntwsMobilitySeedIp, ntwsLicenseInfoGroup=ntwsLicenseInfoGroup, ntwsMobilityDomainInfo=ntwsMobilityDomainInfo, ntwsBasic=ntwsBasic, ntwsSerialNumber=ntwsSerialNumber, ntwsLicenseInfoTable=ntwsLicenseInfoTable, ntwsLicenseInfoEntryDescr=ntwsLicenseInfoEntryDescr, ntwsMobilityMemberTableSize=ntwsMobilityMemberTableSize, ntwsSwMinorVersionNumber=ntwsSwMinorVersionNumber, ntwsLicenseInfoEntryFeature=ntwsLicenseInfoEntryFeature, ntwsMobilityMemberEntry=ntwsMobilityMemberEntry)
+mibBuilder.exportSymbols("NTWS-BASIC-MIB", ntwsMobilityMemberTable=ntwsMobilityMemberTable, ntwsSwMajorVersionNumber=ntwsSwMajorVersionNumber, ntwsLicenseInfoTable=ntwsLicenseInfoTable, ntwsLicenseInfoEntry=ntwsLicenseInfoEntry, ntwsMobilityDomainName=ntwsMobilityDomainName, ntwsLicenseInfoGroup=ntwsLicenseInfoGroup, ntwsMobilitySeedIp=ntwsMobilitySeedIp, ntwsLicenseInfoEntryValue=ntwsLicenseInfoEntryValue, ntwsBasic=ntwsBasic, ntwsMobilityMemberEntryAddr=ntwsMobilityMemberEntryAddr, ntwsVersionString=ntwsVersionString, ntwsLicenseInfoEntryDescr=ntwsLicenseInfoEntryDescr, ntwsMobilityMemberEntry=ntwsMobilityMemberEntry, ntwsLicenseInfoEntryFeature=ntwsLicenseInfoEntryFeature, ntwsSwMinorVersionNumber=ntwsSwMinorVersionNumber, ntwsSerialNumber=ntwsSerialNumber, ntwsLicenseInfoTableSize=ntwsLicenseInfoTableSize, ntwsMobilityMemberTableSize=ntwsMobilityMemberTableSize, PYSNMP_MODULE_ID=ntwsBasic, ntwsBasicSystemInfo=ntwsBasicSystemInfo, ntwsMobilityDomainInfo=ntwsMobilityDomainInfo)

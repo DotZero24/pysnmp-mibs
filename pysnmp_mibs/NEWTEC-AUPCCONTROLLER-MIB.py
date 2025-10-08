@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module NEWTEC-AUPCCONTROLLER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/newtec/NEWTEC-AUPCCONTROLLER-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:31 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/newtec/NEWTEC-AUPCCONTROLLER-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 11:04:43 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ntcFunction, = mibBuilder.importSymbols("NEWTEC-MAIN-MIB", "ntcFunction")
 NtcEnable, = mibBuilder.importSymbols("NEWTEC-TC-MIB", "NtcEnable")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, Integer32, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, ModuleIdentity, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "ModuleIdentity", "TimeTicks", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ntcAupcController = ModuleIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 4200))
 ntcAupcController.setRevisions(('2017-10-16 12:00', '2014-02-03 12:00', '2013-05-22 06:00',))
 if mibBuilder.loadTexts: ntcAupcController.setLastUpdated('201710161200Z')
@@ -56,4 +56,4 @@ ntcAupcCtrlConfCompV1Standard = ModuleCompliance((1, 3, 6, 1, 4, 1, 5835, 5, 2, 
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ntcAupcCtrlConfCompV1Standard = ntcAupcCtrlConfCompV1Standard.setStatus('current')
-mibBuilder.exportSymbols("NEWTEC-AUPCCONTROLLER-MIB", ntcAupcCtrlConformance=ntcAupcCtrlConformance, ntcAupcCtrlReqModulatorPower=ntcAupcCtrlReqModulatorPower, ntcAupcCtrlClientFeedbackCounter=ntcAupcCtrlClientFeedbackCounter, ntcAupcCtrlMaximumPowerStepUp=ntcAupcCtrlMaximumPowerStepUp, ntcAupcCtrlObjects=ntcAupcCtrlObjects, ntcAupcCtrlForwardConfigCounter=ntcAupcCtrlForwardConfigCounter, ntcAupcCtrlConfGroup=ntcAupcCtrlConfGroup, ntcAupcCtrlConfGrpV1Standard=ntcAupcCtrlConfGrpV1Standard, ntcAupcCtrlPowerRequestCounter=ntcAupcCtrlPowerRequestCounter, ntcAupcCtrlConfCompliance=ntcAupcCtrlConfCompliance, ntcAupcCtrlCurModulatorPower=ntcAupcCtrlCurModulatorPower, ntcAupcCtrlMaximumPowerStepDown=ntcAupcCtrlMaximumPowerStepDown, ntcAupcCtrlConfCompV1Standard=ntcAupcCtrlConfCompV1Standard, ntcAupcCtrlEnable=ntcAupcCtrlEnable, ntcAupcCtrlNominalModPower=ntcAupcCtrlNominalModPower, ntcAupcCtrlMonitoring=ntcAupcCtrlMonitoring, ntcAupcCtrlRefTerm=ntcAupcCtrlRefTerm, ntcAupcController=ntcAupcController, PYSNMP_MODULE_ID=ntcAupcController, ntcAupcCtrlMaximumModPower=ntcAupcCtrlMaximumModPower)
+mibBuilder.exportSymbols("NEWTEC-AUPCCONTROLLER-MIB", ntcAupcCtrlNominalModPower=ntcAupcCtrlNominalModPower, ntcAupcCtrlMaximumPowerStepDown=ntcAupcCtrlMaximumPowerStepDown, ntcAupcCtrlCurModulatorPower=ntcAupcCtrlCurModulatorPower, ntcAupcCtrlConfGrpV1Standard=ntcAupcCtrlConfGrpV1Standard, ntcAupcCtrlMaximumModPower=ntcAupcCtrlMaximumModPower, ntcAupcCtrlForwardConfigCounter=ntcAupcCtrlForwardConfigCounter, ntcAupcCtrlConfCompliance=ntcAupcCtrlConfCompliance, ntcAupcCtrlConfGroup=ntcAupcCtrlConfGroup, ntcAupcCtrlRefTerm=ntcAupcCtrlRefTerm, ntcAupcCtrlMonitoring=ntcAupcCtrlMonitoring, ntcAupcCtrlReqModulatorPower=ntcAupcCtrlReqModulatorPower, ntcAupcCtrlPowerRequestCounter=ntcAupcCtrlPowerRequestCounter, ntcAupcController=ntcAupcController, ntcAupcCtrlClientFeedbackCounter=ntcAupcCtrlClientFeedbackCounter, ntcAupcCtrlMaximumPowerStepUp=ntcAupcCtrlMaximumPowerStepUp, ntcAupcCtrlConformance=ntcAupcCtrlConformance, PYSNMP_MODULE_ID=ntcAupcController, ntcAupcCtrlConfCompV1Standard=ntcAupcCtrlConfCompV1Standard, ntcAupcCtrlObjects=ntcAupcCtrlObjects, ntcAupcCtrlEnable=ntcAupcCtrlEnable)

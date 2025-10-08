@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module HUAWEI-VO-CALL-ACTIVE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/HUAWEI-VO-CALL-ACTIVE-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:54 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/HUAWEI-VO-CALL-ACTIVE-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:50 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 voice, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "voice")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 hwVoiceCallActiveMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 6))
 hwVoiceCallActiveMIB.setRevisions(('2004-04-08 13:45',))
 if mibBuilder.loadTexts: hwVoiceCallActiveMIB.setLastUpdated('200410200000Z')
@@ -41,4 +41,4 @@ hwVoCallActivePSTNSigType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 6,
 if mibBuilder.loadTexts: hwVoCallActivePSTNSigType.setStatus('current')
 hwVoCallActiveStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 6, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("idle", 1), ("calling", 2), ("alerting", 3), ("talking", 4), ("release", 5)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: hwVoCallActiveStatus.setStatus('current')
-mibBuilder.exportSymbols("HUAWEI-VO-CALL-ACTIVE-MIB", hwVoCallActiveLocalAddress=hwVoCallActiveLocalAddress, PYSNMP_MODULE_ID=hwVoiceCallActiveMIB, hwVoCallActiveEncodeType=hwVoCallActiveEncodeType, hwVoCallActivePeerAddress=hwVoCallActivePeerAddress, hwVoCallActiveCallOrigin=hwVoCallActiveCallOrigin, hwVoCallActiveStatus=hwVoCallActiveStatus, hwVoCallActiveCalledNumber=hwVoCallActiveCalledNumber, hwVoCallActiveEntry=hwVoCallActiveEntry, hwVoCallActivePSTNSigType=hwVoCallActivePSTNSigType, hwVoCallActiveObjects=hwVoCallActiveObjects, hwVoCallActiveIPSigType=hwVoCallActiveIPSigType, hwVoCallActiveTable=hwVoCallActiveTable, hwVoCallActiveChannel=hwVoCallActiveChannel, hwVoCallActiveCallerNumber=hwVoCallActiveCallerNumber, hwVoiceCallActiveMIB=hwVoiceCallActiveMIB)
+mibBuilder.exportSymbols("HUAWEI-VO-CALL-ACTIVE-MIB", hwVoCallActiveChannel=hwVoCallActiveChannel, PYSNMP_MODULE_ID=hwVoiceCallActiveMIB, hwVoiceCallActiveMIB=hwVoiceCallActiveMIB, hwVoCallActiveStatus=hwVoCallActiveStatus, hwVoCallActiveObjects=hwVoCallActiveObjects, hwVoCallActiveCallerNumber=hwVoCallActiveCallerNumber, hwVoCallActiveTable=hwVoCallActiveTable, hwVoCallActiveCalledNumber=hwVoCallActiveCalledNumber, hwVoCallActivePeerAddress=hwVoCallActivePeerAddress, hwVoCallActiveEntry=hwVoCallActiveEntry, hwVoCallActiveIPSigType=hwVoCallActiveIPSigType, hwVoCallActiveEncodeType=hwVoCallActiveEncodeType, hwVoCallActiveLocalAddress=hwVoCallActiveLocalAddress, hwVoCallActivePSTNSigType=hwVoCallActivePSTNSigType, hwVoCallActiveCallOrigin=hwVoCallActiveCallOrigin)

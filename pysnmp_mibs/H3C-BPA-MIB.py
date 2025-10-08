@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module H3C-BPA-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-BPA-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:16 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-BPA-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:21:56 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 InetAddressType, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 h3cBpa = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 144))
 h3cBpa.setRevisions(('2014-11-20 09:27', '2013-11-13 11:28',))
 if mibBuilder.loadTexts: h3cBpa.setLastUpdated('201411200927Z')
@@ -45,4 +45,4 @@ h3cBpaOutPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 144, 1, 2,
 if mibBuilder.loadTexts: h3cBpaOutPacketCount.setStatus('current')
 h3cBpaOutOctetCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 144, 1, 2, 1, 6), Counter64()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: h3cBpaOutOctetCount.setStatus('current')
-mibBuilder.exportSymbols("H3C-BPA-MIB", h3cBpaTrafficIndex=h3cBpaTrafficIndex, h3cBpaRowStatus=h3cBpaRowStatus, h3cBpaCfgTable=h3cBpaCfgTable, h3cBpaOutOctetCount=h3cBpaOutOctetCount, h3cBpaDirection=h3cBpaDirection, h3cBpaOutPacketCount=h3cBpaOutPacketCount, h3cBpa=h3cBpa, PYSNMP_MODULE_ID=h3cBpa, h3cBpaInOctetCount=h3cBpaInOctetCount, h3cBpaSrcOrDest=h3cBpaSrcOrDest, h3cBpaCfgEntry=h3cBpaCfgEntry, h3cBpaStatEntry=h3cBpaStatEntry, h3cBpaStatTable=h3cBpaStatTable, h3cBpaInPacketCount=h3cBpaInPacketCount, h3cBpaObjects=h3cBpaObjects, h3cBpaTrafficType=h3cBpaTrafficType)
+mibBuilder.exportSymbols("H3C-BPA-MIB", h3cBpa=h3cBpa, PYSNMP_MODULE_ID=h3cBpa, h3cBpaCfgTable=h3cBpaCfgTable, h3cBpaSrcOrDest=h3cBpaSrcOrDest, h3cBpaInOctetCount=h3cBpaInOctetCount, h3cBpaDirection=h3cBpaDirection, h3cBpaStatEntry=h3cBpaStatEntry, h3cBpaOutPacketCount=h3cBpaOutPacketCount, h3cBpaRowStatus=h3cBpaRowStatus, h3cBpaOutOctetCount=h3cBpaOutOctetCount, h3cBpaStatTable=h3cBpaStatTable, h3cBpaCfgEntry=h3cBpaCfgEntry, h3cBpaObjects=h3cBpaObjects, h3cBpaInPacketCount=h3cBpaInPacketCount, h3cBpaTrafficIndex=h3cBpaTrafficIndex, h3cBpaTrafficType=h3cBpaTrafficType)

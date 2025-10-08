@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module DS0-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/DS0-MIB
-# Produced by pysmi-1.1.12 at Thu Sep 11 10:26:40 2025
-# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
-# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/rfc/DS0-MIB
+# Produced by pysmi-1.1.12 at Wed Oct  8 10:48:32 2025
+# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ifIndex, InterfaceIndexOrZero, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndexOrZero", "InterfaceIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ModuleIdentity, transmission, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "transmission", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+InterfaceIndexOrZero, ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "ifIndex", "InterfaceIndex")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+transmission, MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "transmission", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 ds0 = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 81))
 ds0.setRevisions(('1998-05-24 20:10',))
 if mibBuilder.loadTexts: ds0.setLastUpdated('9807161630Z')
@@ -52,4 +52,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 ds0ConfigGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 81, 2, 1, 1)).setObjects(("DS0-MIB", "dsx0Ds0ChannelNumber"), ("DS0-MIB", "dsx0RobbedBitSignalling"), ("DS0-MIB", "dsx0CircuitIdentifier"), ("DS0-MIB", "dsx0IdleCode"), ("DS0-MIB", "dsx0SeizedCode"), ("DS0-MIB", "dsx0ReceivedCode"), ("DS0-MIB", "dsx0TransmitCodesEnable"), ("DS0-MIB", "dsx0Ds0BundleMappedIfIndex"), ("DS0-MIB", "dsx0ChanMappedIfIndex"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ds0ConfigGroup = ds0ConfigGroup.setStatus('current')
-mibBuilder.exportSymbols("DS0-MIB", PYSNMP_MODULE_ID=ds0, dsx0ChanMappingEntry=dsx0ChanMappingEntry, dsx0RobbedBitSignalling=dsx0RobbedBitSignalling, dsx0ChanMappedIfIndex=dsx0ChanMappedIfIndex, ds0Compliance=ds0Compliance, dsx0Ds0ChannelNumber=dsx0Ds0ChannelNumber, dsx0ReceivedCode=dsx0ReceivedCode, dsx0SeizedCode=dsx0SeizedCode, dsx0ConfigEntry=dsx0ConfigEntry, dsx0ChanMappingTable=dsx0ChanMappingTable, dsx0ConfigTable=dsx0ConfigTable, ds0Compliances=ds0Compliances, dsx0TransmitCodesEnable=dsx0TransmitCodesEnable, ds0Conformance=ds0Conformance, dsx0Ds0BundleMappedIfIndex=dsx0Ds0BundleMappedIfIndex, ds0Groups=ds0Groups, dsx0IdleCode=dsx0IdleCode, ds0=ds0, ds0ConfigGroup=ds0ConfigGroup, dsx0CircuitIdentifier=dsx0CircuitIdentifier)
+mibBuilder.exportSymbols("DS0-MIB", ds0Groups=ds0Groups, dsx0ChanMappingTable=dsx0ChanMappingTable, dsx0RobbedBitSignalling=dsx0RobbedBitSignalling, dsx0ConfigTable=dsx0ConfigTable, dsx0ReceivedCode=dsx0ReceivedCode, dsx0Ds0BundleMappedIfIndex=dsx0Ds0BundleMappedIfIndex, ds0Compliances=ds0Compliances, dsx0SeizedCode=dsx0SeizedCode, ds0Conformance=ds0Conformance, dsx0ChanMappingEntry=dsx0ChanMappingEntry, dsx0ConfigEntry=dsx0ConfigEntry, dsx0Ds0ChannelNumber=dsx0Ds0ChannelNumber, dsx0CircuitIdentifier=dsx0CircuitIdentifier, dsx0TransmitCodesEnable=dsx0TransmitCodesEnable, ds0Compliance=ds0Compliance, dsx0IdleCode=dsx0IdleCode, dsx0ChanMappedIfIndex=dsx0ChanMappedIfIndex, ds0=ds0, ds0ConfigGroup=ds0ConfigGroup, PYSNMP_MODULE_ID=ds0)
