@@ -1,6095 +1,2347 @@
-_O_='tmnxSysNetconfCountersExtension'
-_Oz='tmnxSysRemoteMgmtV20v0Group'
-_Oy='tmnxSysFpResAllocV20v0Group'
-_Ox='tmnxSysMgmtInterfaceV20v0Group'
-_Ow='tmnxSysGeneralV20v0Group'
-_Ov='tmnxSysSwitchFabricV20v0Group'
-_Ou='tmnxSysAutoBootV20v0Group'
-_Ot='tmnxSysFwdPathOptsV20v0Group'
-_Os='tmnxSysNotificationV20v0Group'
-_Or='tmnxSysFpCamAllocV19v0Group'
-_Oq='tmnxSysResItCamV19v0Group'
-_Op='tmnxSysMgmtIfMdCliCmdAccntGroup'
-_Oo='tmnxSysBootConfFmtNotifyGrp'
-_On='tmnxSysFwdPathOptsV19v0Group'
-_Om='tmnxSysBootConfFmtNotifyObjsGrp'
-_Ol='tmnxSysEhsV19v0Group'
-_Ok='tmnxSysNetconfV19v0Group'
-_Oj='tmnxSysLicensingV19v0Group'
-_Oi='tmnxSysNetworkElementV19v0Group'
-_Oh='tmnxSysBofV19v0Group'
-_Og='tmnxSysResInfoV19v0Group'
-_Of='tmnxSysLicenseNotifV19v0Group'
-_Oe='tmnxSysLicNotifyObjsV19v0Group'
-_Od='tmnxSysSwFabNotifV16v0Group'
-_Oc='tmnxSysSwitchFabricV16v0Group'
-_Ob='tmnxSysNetworkElementV16v0Group'
-_Oa='tmnxSysMgmtIfNotifyObjsGroup'
-_OZ='tmnxSysMgmtInterfaceV16v0Group'
-_OY='tmnxSysLicensingV16v0Group'
-_OX='tmnxSysMgmtIfDsLocksV16v0Group'
-_OW='tmnxSysLicenseNotifV16v0Group'
-_OV='tmnxSysHttpRdrV16v0Group'
-_OU='tmnxSysBofV15v1Group'
-_OT='tmnxSysFileTransProfV15v1Group'
-_OS='tmnxSysMgmtIfYangModulesGroup'
-_OR='tmnxSysMgmtIfMdCliGroup'
-_OQ='tmnxSysConfigSaveCtrlV15v1Group'
-_OP='tmnxSysMgmtProtocolV15v1Group'
-_OO='tmnxSysNetconfV15v1Group'
-_ON='tmnxSysLicenseApp48HrsGroup'
-_OM='tmnxSysXmppMgmtGroup'
-_OL='tmnxSysGrpcV15v0Group'
-_OK='tmnxSysLoginControlV15v0Group'
-_OJ='tmnxSysTimeV14v0Group'
-_OI='tmnxSysNotifyObjsV14v0Group'
-_OH='tmnxSysLicenseApplicationGroup'
-_OG='tmnxSysEhsParameterGroup'
-_OF='tmnxPersistenceV14v0Group'
-_OE='tmnxSysNotificationV14v0Group'
-_OD='tmnxSysBofV14v0Group'
-_OC='tmnxPersistenceV11v0Group'
-_OB='tmnxSysBootedBofGroup'
-_OA='tmnxPersistenceV5v0Group'
-_O9='tmnxSysNotificationV5v0Group'
-_O8='tmnxPersistenceV4v0Group'
-_O7='tmnxSysNotificationV4v0Group'
-_O6='tmnxSysTacPlusServerGroup'
-_O5='tmnxSysRadiusServerGroup'
-_O4='stiDateAndTimeChanging'
-_O3='tmnxEqOperStateChange'
-_O2='tmnxSysMgmtIfLiCfgNotEncrypted'
-_O1='tmnxSysMgmtIfLiIncorrectFormat'
-_O0='tmnxSysLicenseUpdateRequired'
-_N_='tmnxSysAppLicenseInsufficient'
-_Nz='tmnxSysSwFabFailRecDetected'
-_Ny='tmnxSysSwFabFailRecAborted'
-_Nx='tmnxSysSwFabFailRecCompleted'
-_Nw='tmnxSysSwFabFailRecStarted'
-_Nv='tmnxSysMgmtIfModeChangeFailure'
-_Nu='tmnxSysMgmtIfModeChangeComplete'
-_Nt='tmnxSysMgmtIfModeChangeStart'
-_Ns='tmnxSysStandbyLicensingReady'
-_Nr='tmnxSysStandbyLicensingError'
-_Nq='tmnxSysLicenseActivated'
-_Np='tmnxSysAppStatsWeekAvailable'
-_No='tmnxSysAppStats24HrsAvailable'
-_Nn='tmnxEhsDroppedByMinDelay'
-_Nm='tmnxEhsHandlerInvoked'
-_Nl='tmnxSmLaunchStartFailed'
-_Nk='tmnxSysBaseMacAddressNotSet'
-_Nj='tmnxSysLicenseValid'
-_Ni='tmnxSysXmppServerNotFunctional'
-_Nh='tmnxSysXmppServerFunctional'
-_Ng='tmnxSysVsdServerUnavailable'
-_Nf='tmnxSysVsdServerAvailable'
-_Ne='tmnxSysLicenseExpiresSoon'
-_Nd='tmnxSysLicenseInvalid'
-_Nc='tmnxConfigConflict'
-_Nb='sysDNSSecFailedAuthentication'
-_Na='tmnxSysNvsysFileError'
-_NZ='tmnxSysRollbackDeleteStarted'
-_NY='tmnxSysRollbackSaveStarted'
-_NX='tmnxSysExecFinished'
-_NW='tmnxSysExecStarted'
-_NV='persistencyFileSysThresCleared'
-_NU='persistencyFileSysThresRaised'
-_NT='ssiSyncCertFailed'
-_NS='ssiSyncCertOK'
-_NR='ssiSyncRollbackFailed'
-_NQ='ssiSyncRollbackOK'
-_NP='tmnxSysRollbackFileDeleteStatus'
-_NO='tmnxSysRollbackSaveStatusChange'
-_NN='tmnxSysRollbackStatusChange'
-_NM='tmnxSysRollbackStarted'
-_NL='persistenceRestoreProblem'
-_NK='sbiBootLiConfig'
-_NJ='sbiBootConfigOKFileError'
-_NI='sbiBootConfigFailFileError'
-_NH='tmnxSysNetconfActionRequests'
-_NG='tmnxSysNetconfGetDataRequests'
-_NF='tmnxSysNetconfGetSchemaRequests'
-_NE='tmnxSysRmtMgmtMgrOperTranspType'
-_ND='tmnxSysRmtMgmtMgrOperVRtrId'
-_NC='tmnxSysRmtMgmtMgrOperTlsProf'
-_NB='tmnxSysRmtMgmtMgrOperTimeout'
-_NA='tmnxSysRmtMgmtMgrOperSrcPort'
-_N9='tmnxSysRmtMgmtMgrOperSrcIpAddr'
-_N8='tmnxSysRmtMgmtMgrOperSrcIpAdType'
-_N7='tmnxSysRmtMgmtMgrOperDevName'
-_N6='tmnxSysRmtMgmtMgrOperDevLabel'
-_N5='tmnxSysRmtMgmtMgrVRtrId'
-_N4='tmnxSysRmtMgmtMgrTlsClientProf'
-_N3='tmnxSysRmtMgmtMgrTimeout'
-_N2='tmnxSysRmtMgmtMgrSrcDefaultPort'
-_N1='tmnxSysRmtMgmtMgrSrcPort'
-_N0='tmnxSysRmtMgmtMgrSrcIpAddress'
-_M_='tmnxSysRmtMgmtMgrSrcIpAddType'
-_Mz='tmnxSysRmtMgmtMgrRowStatus'
-_My='tmnxSysRmtMgmtMgrRegsSent'
-_Mx='tmnxSysRmtMgmtMgrRegsFailed'
-_Mw='tmnxSysRmtMgmtMgrRegsCancelled'
-_Mv='tmnxSysRmtMgmtMgrOperState'
-_Mu='tmnxSysRmtMgmtMgrOperDownReason'
-_Mt='tmnxSysRmtMgmtMgrLastRegTime'
-_Ms='tmnxSysRmtMgmtMgrLastRegStatus'
-_Mr='tmnxSysRmtMgmtMgrIpAddress'
-_Mq='tmnxSysRmtMgmtMgrPort'
-_Mp='tmnxSysRmtMgmtMgrIpAddType'
-_Mo='tmnxSysRmtMgmtMgrFQDN'
-_Mn='tmnxSysRmtMgmtMgrDeviceName'
-_Mm='tmnxSysRmtMgmtMgrDeviceLabel'
-_Ml='tmnxSysRmtMgmtMgrDescription'
-_Mk='tmnxSysRmtMgmtMgrAllowUnsecure'
-_Mj='tmnxSysRmtMgmtMgrAdminState'
-_Mi='tmnxSysRmtMgmtVRtrId'
-_Mh='tmnxSysRmtMgmtTlsClientProf'
-_Mg='tmnxSysRmtMgmtTimeout'
-_Mf='tmnxSysRmtMgmtSrcDefaultPort'
-_Me='tmnxSysRmtMgmtSrcPort'
-_Md='tmnxSysRmtMgmtSrcIpAddress'
-_Mc='tmnxSysRmtMgmtSrcIpAddType'
-_Mb='tmnxSysRmtMgmtRegsSent'
-_Ma='tmnxSysRmtMgmtRegsFailed'
-_MZ='tmnxSysRmtMgmtRegsCancelled'
-_MY='tmnxSysRmtMgmtOperDownReason'
-_MX='tmnxSysRmtMgmtLastRegTime'
-_MW='tmnxSysRmtMgmtLastRegStatus'
-_MV='tmnxSysRmtMgmtLastHelloTime'
-_MU='tmnxSysRmtMgmtHelloInterval'
-_MT='tmnxSysRmtMgmtDeviceName'
-_MS='tmnxSysRmtMgmtDeviceLabel'
-_MR='tmnxSysRmtMgmtAllowUnsecure'
-_MQ='tmnxSysRmtMgmtOperState'
-_MP='tmnxSysRmtMgmtAdminState'
-_MO='tmnxSysFpResAllocOperG8032Sap'
-_MN='tmnxSysFpResAllocG8032Sap'
-_MM='tmnxSysMgmtIfOperSchemaPathValue'
-_ML='tmnxSysMgmtIfOperSchemaPathState'
-_MK='tmnxSysMgmtIfTerSchemaPathValue'
-_MJ='tmnxSysMgmtIfTerSchemaPathState'
-_MI='tmnxSysMgmtIfSecSchemaPathValue'
-_MH='tmnxSysMgmtIfSecSchemaPathState'
-_MG='tmnxSysMgmtIfPriSchemaPathValue'
-_MF='tmnxSysMgmtIfPriSchemaPathState'
-_ME='sgiCryptoModVersion'
-_MD='tmnxSysSwFabSfmLossThresh'
-_MC='sbiAutoBootVlanDiscovery'
-_MB='tmnxSysFpoRouterEcmpOperState'
-_MA='tmnxSysFpoRouterEcmpAdminState'
-_M9='tmnxSysFpoMplsFastSwOvOperState'
-_M8='tmnxSysFpoMplsFastSwOvAdminState'
-_M7='tmnxSysFpCamAllocOperV6Multicast'
-_M6='tmnxSysFpCamAllocAdmnV6Multicast'
-_M5='tmnxSysResItCamBankV6Multicast'
-_M4='tmnxSysMgmtIfMDCliCmdAccntLoad'
-_M3='tmnxSysFpoQosBumPolOperState'
-_M2='tmnxSysFpoQosBumPolAdminState'
-_M1='tmnxSysFpoQosIpv6CritOperState'
-_M0='tmnxSysFpoQosIpv6CritAdminState'
-_L_='tmnxSysFpoQosMacCritOperState'
-_Lz='tmnxSysFpoQosMacCritAdminState'
-_Ly='tmnxSysFpoQosFc4ProfOperState'
-_Lx='tmnxSysFpoQosFc4ProfAdminState'
-_Lw='tmnxSysFpoVplsEvpnMplsOperState'
-_Lv='tmnxSysFpoVplsEvpnMplsAdminState'
-_Lu='tmnxSysFpoMacFltOutVlanPrioOprSt'
-_Lt='tmnxSysFpoMacFltOutVlanPrioAdmSt'
-_Ls='tmnxSysFpoEntropyLabelOperState'
-_Lr='tmnxSysFpoEntropyLabelAdminState'
-_Lq='tmnxSysFpoDscpTransOperState'
-_Lp='tmnxSysFpoDscpTransAdminState'
-_Lo='tmnxSmLaunchExtLockOverride'
-_Ln='tmnxSysNetconfPort'
-_Lm='tmnxSysLicensingUuid'
-_Ll='tmnxSysLicensingProduct'
-_Lk='tmnxSysLicensingRebootPending'
-_Lj='tmnxSysLicensingState'
-_Li='tmnxSysAvailLicenseProduct'
-_Lh='sbiMgmtIfIpMtu'
-_Lg='sbiStandbyDIPv6PfxLen'
-_Lf='sbiStandbyDIPv6Addr'
-_Le='sbiStandbyDIpMask'
-_Ld='sbiStandbyDIpAddr'
-_Lc='sbiStandbyCIPv6PfxLen'
-_Lb='sbiStandbyCIPv6Addr'
-_La='sbiStandbyCIpMask'
-_LZ='sbiStandbyCIpAddr'
-_LY='sbiStandbyBIPv6PfxLen'
-_LX='sbiStandbyBIPv6Addr'
-_LW='sbiStandbyBIpMask'
-_LV='sbiStandbyBIpAddr'
-_LU='sbiStandbyAIPv6PfxLen'
-_LT='sbiStandbyAIPv6Addr'
-_LS='sbiStandbyAIpMask'
-_LR='sbiStandbyAIpAddr'
-_LQ='sbiAutoIpv6DhcpTimeout'
-_LP='sbiAutoIpv6DhcpOptUserClass'
-_LO='sbiAutoIpv6DhcpClientIdDuid'
-_LN='sbiAutoIpv6DhcpClientIdDuidType'
-_LM='sbiAutoIpv6DhcpClientIdType'
-_LL='sbiAutoIpv6Dhcp'
-_LK='sbiAutoIpv4DhcpTimeout'
-_LJ='sbiAutoIpv4DhcpOptUserClass'
-_LI='sbiAutoIpv4DhcpClientId'
-_LH='sbiAutoIpv4DhcpClientIdType'
-_LG='sbiAutoIpv4Dhcp'
-_LF='sbiAutoBootIncludeUserClass'
-_LE='sbiAutoBootUsingIpv6'
-_LD='sbiAutoBootUsingIpv4'
-_LC='sbiAutoBootInbandVlan'
-_LB='sbiAutoBootUsingInband'
-_LA='sbiAutoBootUsingMgmt'
-_L9='sbiAutoBootClientIdType'
-_L8='sbiAutoBootClientId'
-_L7='sbiAutoBoot'
-_L6='tmnxSysResEcmpProfNumGrps'
-_L5='tmnxSysResEcmpProfLinksPerGrp'
-_L4='tmnxSysResEcmpProfType'
-_L3='tmnxSysResEcmpProfRowStatus'
-_L2='tmnxSysSwFabFailRecSfmStateTime'
-_L1='tmnxSysSwFabFailRecSfmState'
-_L0='tmnxSysSwFabFailRecOperState'
-_K_='tmnxSysSwFabFailRecAdminState'
-_Kz='tmnxSysMgmtIfSchemaPath'
-_Ky='sbiAllowBootLicenseViolations'
-_Kx='tmnxSysAvailLicEndDateTime'
-_Kw='tmnxSysAvailLicStartDateTime'
-_Kv='tmnxSysAvailLicIssueDateTime'
-_Ku='tmnxSysAvailLicenseSwVersion'
-_Kt='tmnxSysAvailLicenseDescription'
-_Ks='tmnxSysAvailLicenseUuid'
-_Kr='tmnxSysAvailLicenseName'
-_Kq='tmnxSysAppLicensePresent'
-_Kp='tmnxSysAppLicenseAllocated'
-_Ko='tmnxSysAppLicensePoolSize'
-_Kn='tmnxSysAppLicenseType'
-_Km='tmnxSysAppLicenseDescription'
-_Kl='tmnxSysMgmtIfDsLocksCronEhs'
-_Kk='tmnxSysMgmtIfDsLocksScratchCnt'
-_Kj='tmnxSysMgmtIfDsLocksIdleTime'
-_Ki='tmnxSysMgmtIfDsLocksCndLock'
-_Kh='tmnxSysMgmtIfDsLocksRunLock'
-_Kg='tmnxSysMgmtIfDsLocksRegion'
-_Kf='tmnxSysMgmtIfDsLocksSessionType'
-_Ke='tmnxSysMgmtIfDsLocksSessionMode'
-_Kd='tmnxSysMgmtIfDsLocksUserName'
-_Kc='tmnxSysMgmtIfDsLocksConsole'
-_Kb='tmnxSysMgmtIfDsLocksRmtIpAddress'
-_Ka='tmnxSysHttpRdrCpmOptimizedMode'
-_KZ='sbiSystemProfile'
-_KY='tmnxSysFileTransProfSvcName'
-_KX='tmnxSysMgmtIfYangNmdaSupport'
-_KW='tmnxSysMgmtIfYangNokiaCombined'
-_KV='tmnxSysMgmtIfYangOpenConfig'
-_KU='tmnxSysMgmtIfYangNokia'
-_KT='tmnxSysMgmtIfYangBaseR13'
-_KS='tmnxSysMgmtIfMDEnvTimeFormat'
-_KR='tmnxSysMgmtIfModeSwitchDuration'
-_KQ='tmnxSysMgmtIfModeLastSwitchTime'
-_KP='tmnxSysMgmtIfWriteOperMode'
-_KO='tmnxSysMgmtIfMDEnvProIndDelay'
-_KN='tmnxSysMgmtIfMDEnvProIndType'
-_KM='tmnxSysMgmtIfMDEnvProIndAdminSt'
-_KL='tmnxSysMgmtIfMDEnvMsgCliSvrt'
-_KK='tmnxSysMgmtIfMDEnvTimeDisplay'
-_KJ='tmnxSysMgmtIfMDEnvPromptIndic'
-_KI='tmnxSysMgmtIfMDEnvPromptTime'
-_KH='tmnxSysMgmtIfMDEnvPromptNewline'
-_KG='tmnxSysMgmtIfMDEnvPromptCtx'
-_KF='tmnxSysMgmtIfMDEnvMore'
-_KE='tmnxSysMgmtIfMDEnvConsWidth'
-_KD='tmnxSysMgmtIfMDEnvConsLength'
-_KC='tmnxSysMgmtIfMDEnvComplTab'
-_KB='tmnxSysMgmtIfMDEnvComplSpace'
-_KA='tmnxSysMgmtIfMDEnvComplEnter'
-_K9='tmnxSysGrpcAutoCfgSave'
-_K8='tmnxSysNetconfAutoCfgSave'
-_K7='tmnxSysMgmtIfMDCliAutoCfgSave'
-_K6='tmnxSysMgmtCliEngine2'
-_K5='tmnxSysMgmtCliEngine1'
-_K4='tmnxSysNetconfCreateSubRequests'
-_K3='tmnxSysAppStats48HrsTime'
-_K2='tmnxSysAppStats48HrsValue'
-_K1='tmnxSysAppStats48HrsName'
-_K0='tmnxSysXmppServRouterId'
-_J_='tmnxSysXmppServServiceId'
-_Jz='tmnxSysGrpcRpcSessionId'
-_Jy='tmnxSysGrpcRpcUserName'
-_Jx='tmnxSysGrpcRpcSrcPort'
-_Jw='tmnxSysGrpcRpcSrcIpAddress'
-_Jv='tmnxSysGrpcRpcSrcIpAddType'
-_Ju='tmnxSysGrpcRpcStartTime'
-_Jt='tmnxSysGrpcRpcServiceName'
-_Js='tmnxSysGrpcRpcName'
-_Jr='tmnxSysGrpcConnSrcVRtrId'
-_Jq='tmnxSysGrpcConnQos'
-_Jp='tmnxSysGrpcConnTxBytes'
-_Jo='tmnxSysGrpcConnRxBytes'
-_Jn='tmnxSysGrpcConnTotRpcCnt'
-_Jm='tmnxSysGrpcConnActRpcCnt'
-_Jl='tmnxSysGrpcConnStartTime'
-_Jk='tmnxSysGrpcGnoiSystemVersion'
-_Jj='tmnxSysGrpcGnoiSystemAdminState'
-_Ji='tmnxSysGrpcMdCliVersion'
-_Jh='tmnxSysGrpcMdCliAdminState'
-_Jg='tmnxSysGrpcGnoiCertMgmtVersion'
-_Jf='tmnxSysGrpcGnoiCertMgmtAdmnState'
-_Je='tmnxSysGrpcRibApiVersion'
-_Jd='tmnxSysGrpcRibApiPurgeTimeout'
-_Jc='tmnxSysGrpcRibApiAdminState'
-_Jb='tmnxSysGrpcTcpKaCount'
-_Ja='tmnxSysGrpcTcpKaInterval'
-_JZ='tmnxSysGrpcTcpKaIdle'
-_JY='tmnxSysGrpcTcpKaAdminState'
-_JX='tmnxSysGrpcGnmiAdminState'
-_JW='tmnxSysGrpcAllowUnsecure'
-_JV='tmnxSysGrpcGnmiVersion'
-_JU='tmnxSysGrpcMaxMsgSize'
-_JT='tmnxSysGrpcTlsServerProfile'
-_JS='tmnxSysGrpcOperState'
-_JR='tmnxSysGrpcAdminState'
-_JQ='slcLoginScriptPerUserFilename'
-_JP='slcLoginScriptPerUserDirectory'
-_JO='slcLoginScriptGlobal'
-_JN='slcIdleTimeout'
-_JM='stiPreferLocalTime'
-_JL='tmnxSysAppStatsPeakTime'
-_JK='tmnxSysAppStatsPeakValue'
-_JJ='tmnxSysAppStatsPeakName'
-_JI='tmnxSysAppStatsWeekTime'
-_JH='tmnxSysAppStatsWeekPeak'
-_JG='tmnxSysAppStatsWeekAverage'
-_JF='tmnxSysAppStatsWeekName'
-_JE='tmnxSysAppStats24HrsTime'
-_JD='tmnxSysAppStats24HrsValue'
-_JC='tmnxSysAppStats24HrsName'
-_JB='tmnxSmRunEventArgValue'
-_JA='tmnxSmRunEventArgName'
-_J9='tmnxDhcpLeaseTimeModeThreshold'
-_J8='sbiSystemBaseMacAddress'
-_J7='sbiEssSystemType'
-_J6='sbiFips1402Level1'
-_J5='tmnxSysSwReposTertiaryLocation'
-_J4='tmnxSysSwReposSecondaryLocation'
-_J3='tmnxSysSwReposPrimaryLocation'
-_J2='tmnxSysSwReposDescription'
-_J1='tmnxSysSwReposLastChanged'
-_J0='tmnxSysSwReposRowStatus'
-_I_='tmnxSysSwReposTableLastChanged'
-_Iz='tmnxSysCpmCardLicFeatDescription'
-_Iy='tmnxSysCpmCardLicMaxNumIOMs'
-_Ix='tmnxSysCpmCardLicMaxNumCPMs'
-_Iw='tmnxSysCpmCardLicVChassisType'
-_Iv='tmnxSysCpmCardLicEndDateTime'
-_Iu='tmnxSysCpmCardLicStartDateTime'
-_It='tmnxSysCpmCardLicIssueDateTime'
-_Is='tmnxSysCpmCardLicSwVersion'
-_Ir='tmnxSysCpmCardLicProduct'
-_Iq='tmnxSysCpmCardLicDescription'
-_Ip='tmnxSysCpmCardLicUuid'
-_Io='tmnxSysCpmCardLicName'
-_In='tmnxSysCpmCardLicStatus'
-_Im='tmnxSysLicenseMaxNumIOMs'
-_Il='tmnxSysLicenseMaxNumCPMs'
-_Ik='tmnxSysLicenseVChassisType'
-_Ij='tmnxSysFileTransProfRedirection'
-_Ii='tmnxSysFileTransProfRetry'
-_Ih='tmnxSysFileTransProfTimeout'
-_Ig='tmnxSysFileTransProfSrcAddrV6'
-_If='tmnxSysFileTransProfSrcAddrV6T'
-_Ie='tmnxSysFileTransProfSrcAddrV4'
-_Id='tmnxSysFileTransProfSrcAddrV4T'
-_Ic='tmnxSysFileTransProfSvcId'
-_Ib='tmnxSysFileTransProfRtrId'
-_Ia='tmnxSysFileTransProfLastChanged'
-_IZ='tmnxSysFileTransProfRowStatus'
-_IY='tmnxSysFileTransProfTableLstChgd'
-_IX='tmnxSysMgmtAllowImmediateChange'
-_IW='tmnxSysMgmtProtLastChange'
-_IV='tmnxSysMgmtProtocolTblLstChng'
-_IU='tmnxSysSnmpCommunityPktDropped'
-_IT='tmnxSysSnmpSrcAccessLstLastChg'
-_IS='tmnxSysSnmpSrcAccessLstRowStatus'
-_IR='tmnxSysSnmpSrcAccessTblLstChgd'
-_IQ='tmnxSysNetconfValidateRequests'
-_IP='tmnxSysNetconfDelConfigRequests'
-_IO='tmnxSysNetconfCopyConfigRequests'
-_IN='tmnxSysFibSelective'
-_IM='tmnxSysDhcp6AdvNoaddrsGlobal'
-_IL='tmnxSysLicenseEndDateAndTime'
-_IK='tmnxSysLicenseStartDateAndTime'
-_IJ='tmnxSysLicenseIssueDateAndTime'
-_II='tmnxSysLicenseSwVersion'
-_IH='tmnxSysLicenseProduct'
-_IG='tmnxSysLicenseDescription'
-_IF='tmnxSysLicenseUuid'
-_IE='tmnxSysLicenseName'
-_ID='tmnxSysLicenseStatus'
-_IC='sbiLicenseFile'
-_IB='tmnxCardMemResPoolsAllocated'
-_IA='tmnxCardMemResMemoryAvailable'
-_I9='tmnxCardMemResMemoryUsed'
-_I8='tmnxCardCpuResMonBusyGroupUtil'
-_I7='tmnxCardCpuResMonBusyGroupName'
-_I6='tmnxCardCpuResMonBusyCoreUtil'
-_I5='tmnxCardCpuResMonCpuIdle'
-_I4='tmnxSysXmppServConnMode'
-_I3='tmnxSysXmppServAuthType'
-_I2='tmnxSysXmppServOperUserName'
-_I1='tmnxSysVsdServMsgMaxRtt'
-_I0='tmnxSysVsdServMsgMinRtt'
-_H_='tmnxSysVsdServMsgTimedOut'
-_Hz='tmnxSysVsdServMsgError'
-_Hy='tmnxSysVsdServMsgAckRcvd'
-_Hx='tmnxSysVsdServMsgRcvd'
-_Hw='tmnxSysVsdServMsgSent'
-_Hv='tmnxSysVsdServerStatus'
-_Hu='tmnxSysVsdServUserName'
-_Ht='tmnxSysVsdServUptime'
-_Hs='tmnxSysXmppServAdminState'
-_Hr='tmnxSysXmppServState'
-_Hq='tmnxSysXmppServUnSubSent'
-_Hp='tmnxSysXmppServSubSent'
-_Ho='tmnxSysXmppServMsgMaxRtt'
-_Hn='tmnxSysXmppServMsgMinRtt'
-_Hm='tmnxSysXmppServMsgTimedOut'
-_Hl='tmnxSysXmppServMsgError'
-_Hk='tmnxSysXmppServMsgAckRcvd'
-_Hj='tmnxSysXmppServMsgRcvd'
-_Hi='tmnxSysXmppServMsgSent'
-_Hh='tmnxSysXmppServUpdatesRcvd'
-_Hg='tmnxSysXmppServVsdUpdatesRcvd'
-_Hf='tmnxSysXmppServIQMaxRtt'
-_He='tmnxSysXmppServIQMinRtt'
-_Hd='tmnxSysXmppServIQAckRcvd'
-_Hc='tmnxSysXmppServIQTimedOut'
-_Hb='tmnxSysXmppServIQError'
-_Ha='tmnxSysXmppServIQRcvd'
-_HZ='tmnxSysXmppServIQSent'
-_HY='tmnxSysXmppServUptime'
-_HX='tmnxSysXmppServLastChanged'
-_HW='tmnxSysXmppServPassword'
-_HV='tmnxSysXmppServUserName'
-_HU='tmnxSysXmppServRowStatus'
-_HT='tmnxSysXmppServFQDN'
-_HS='tmnxSysVsdGwLastAuditTxTime'
-_HR='tmnxSysVsdGwPubSubLstSubscrdTime'
-_HQ='tmnxSysVsdGwPubSubNodeName'
-_HP='tmnxSysVsdGwPubSubIsSubscrd'
-_HO='tmnxSysVsdSystemId'
-_HN='sysDNSSecAdValidation'
-_HM='spiPythonPersistenceDescr'
-_HL='spiPythonPersistenceFileLoc'
-_HK='tmnxSysStrmResponses'
-_HJ='tmnxSysStrmGetManyRequests'
-_HI='tmnxSysStrmDumpSnmpRequests'
-_HH='tmnxSysStrmAdminStatus'
-_HG='tmnxSysNetconfErrorResponses'
-_HF='tmnxSysNetconfResponses'
-_HE='tmnxSysNetconfKillRequests'
-_HD='tmnxSysNetconfCloseRequests'
-_HC='tmnxSysNetconfEditConfigRequests'
-_HB='tmnxSysNetconfGetConfigRequests'
-_HA='tmnxSysNetconfGetRequests'
-_H9='tmnxSysNetconfRequests'
-_H8='tmnxSysNetconfOperStatus'
-_H7='tmnxSysNetconfAdminStatus'
-_H6='tmnxSysCandidateCfgUser'
-_H5='tmnxSysCandidateCfgExclusiveUsr'
-_H4='tmnxSysCandidateCfgChckptCreated'
-_H3='tmnxSysCandidateCfgRevertTime'
-_H2='tmnxSysCandidateCfgCommitTime'
-_H1='tmnxSysCandidateCfgCommitState'
-_H0='tmnxSysCandidateCfgEditors'
-_G_='tmnxSysCandidateCfgState'
-_Gz='sgiSystemSubGroupID'
-_Gy='sgiSystemGroupID'
-_Gx='tmnxSysRollbackMaxRemoteFiles'
-_Gw='tmnxSysRollbackMaxLocalFiles'
-_Gv='tmnxSysRollbackRescueFileExists'
-_Gu='tmnxSysRollbackRescueAbortRevert'
-_Gt='tmnxSysRollbackRescueSaveComment'
-_Gs='tmnxSysRollbackRescueRevUser'
-_Gr='tmnxSysRollbackRescueRevEdTime'
-_Gq='tmnxSysRollbackRescueRevStTime'
-_Gp='tmnxSysRollbackRescueSavedTime'
-_Go='tmnxSysRollbackRescueDeleteRes'
-_Gn='tmnxSysRollbackRescueRevertRes'
-_Gm='tmnxSysRollbackRescueSaveRes'
-_Gl='tmnxSysRollbackRescueDelete'
-_Gk='tmnxSysRollbackRescueRevert'
-_Gj='tmnxSysRollbackRescueSave'
-_Gi='tmnxSysRollbackRescueLocation'
-_Gh='sbbiLiLocalSave'
-_Gg='sbbiLiSeparate'
-_Gf='ssiSyncCertStatus'
-_Ge='ssiSyncCertMode'
-_Gd='ssiSyncCertLastTime'
-_Gc='ssiSyncCertForce'
-_Gb='tmnxSysCpuMonBusyGroupUtil'
-_Ga='tmnxSysCpuMonBusyGroupName'
-_GZ='tmnxSysCpuMonBusyCoreUtil'
-_GY='tmnxSysCpuMonCpuIdle'
-_GX='slcSSHOutboundMaxSessions'
-_GW='slcSSHInboundMaxSessions'
-_GV='ssiSyncRollbackStatus'
-_GU='ssiSyncRollbackForce'
-_GT='ssiSyncRollbackMode'
-_GS='tmnxSysRollbackFileDelete'
-_GR='tmnxSysRollbackFileVersion'
-_GQ='tmnxSysRollbackAbortRevert'
-_GP='tmnxSysRollbackSaveComment'
-_GO='tmnxSysRollbackRevertFilename'
-_GN='tmnxSysRollbackRevertUserName'
-_GM='tmnxSysRollbackRevertStartTime'
-_GL='ssiSyncRollbackLastTime'
-_GK='tmnxSysRollbackSavedTime'
-_GJ='tmnxSysRollbackFileUserName'
-_GI='tmnxSysRollbackFileComment'
-_GH='tmnxSysRollbackFileCreationTime'
-_GG='tmnxSysRollbackTableLastChanged'
-_GF='tmnxSysRollbackRevertEndTime'
-_GE='tmnxSysRollbackRevertIndex'
-_GD='tmnxSysRollbackLocation'
-_GC='tmnxSysRollbackSave'
-_GB='tmnxSysRollbackStart'
-_GA='sliFilterLock'
-_G9='slcSSHMinTTLValue'
-_G8='slcTelnetMinTTLValue'
-_G7='sysNewQinqUntaggedSap'
-_G6='slcSSHGracefulShutdown'
-_G5='slcTelnetGracefulShutdown'
-_G4='sysIcmpVSEnhancement'
-_G3='sgiKbMemoryPoolAllocated'
-_G2='sgiKbMemoryAvailable'
-_G1='sgiKbMemoryUsed'
-_G0='sgiSnmpInGetBulks'
-_F_='sliConfigLastSaved'
-_Fz='sliConfigLastModified'
-_Fy='sliSaveConfigResult'
-_Fx='sliSaveConfig'
-_Fw='sysDNSAddressResolvePref'
-_Fv='sysDNSInfoLastChanged'
-_Fu='sbiStaticRouteIPv6RowStatus'
-_Ft='sbiStaticRouteIPv6NextHop'
-_Fs='sbiTertiaryDnsIPv6Addr'
-_Fr='sbiSecondaryDnsIPv6Addr'
-_Fq='sbiPrimaryDnsIPv6Addr'
-_Fp='sbiStandbyIPv6PfxLen'
-_Fo='sbiStandbyIPv6Addr'
-_Fn='sbiActiveIPv6PfxLen'
-_Fm='sbiActiveIPv6Addr'
-_Fl='sntpServerInterval'
-_Fk='sntpServerPreference'
-_Fj='sntpServerVersion'
-_Fi='sntpServerRowStatus'
-_Fh='sntpState'
-_Fg='stiSummerZoneEndMinute'
-_Ff='stiSummerZoneEndHour'
-_Fe='stiSummerZoneEndMonth'
-_Fd='stiSummerZoneEndWeek'
-_Fc='stiSummerZoneEndDay'
-_Fb='stiSummerZoneStartMinute'
-_Fa='stiSummerZoneStartHour'
-_FZ='stiSummerZoneStartMonth'
-_FY='stiSummerZoneStartWeek'
-_FX='stiSummerZoneStartDay'
-_FW='stiSummerZoneOffset'
-_FV='stiSummerZoneRowStatus'
-_FU='stiZoneType'
-_FT='stiMinutesOffset'
-_FS='stiHoursOffset'
-_FR='stiActiveZone'
-_FQ='sgiSwVersionModifier'
-_FP='sgiSwMinorVersion'
-_FO='sgiSwMajorVersion'
-_FN='sgiMemoryPoolAllocated'
-_FM='sgiMemoryAvailable'
-_FL='sgiMemoryUsed'
-_FK='sgiCpuUsage'
-_FJ='tmnxSmRunExtEntry'
-_FI='tmnxSmLaunchExtEntry'
-_FH='tmnxSysSnmpCommunityStatsEntry'
-_FG='tmnxSysRmtMgmtMgrName'
-_FF='adminDown'
-_FE='TmnxSysNeid'
-_FD='tmnxSysNEProfName'
-_FC='tmnxSysGrpcRpcId'
-_FB='tmnxSysGrpcConnSrcPort'
-_FA='tmnxSysGrpcConnSrcIpAddress'
-_F9='tmnxSysGrpcConnSrcIpAddType'
-_F8='tmnxSysSwReposName'
-_F7='tmnxSmRunEventArgIndex'
-_F6='tmnxSysFileTransProfName'
-_F5='tmnxSysMgmtProtocol'
-_F4='tmnxSysSnmpSrcAccessLstName'
-_F3='tmnxSysAppStats48HrsIndex'
-_F2='tmnxSysAppStats48HrsType'
-_F1='tmnxSysAppStats48HrsApplication'
-_F0='tmnxSysAppStatsPeakType'
-_E_='tmnxSysAppStatsPeakApplication'
-_Ez='tmnxSysAppStatsWeekIndex'
-_Ey='tmnxSysAppStatsWeekType'
-_Ex='tmnxSysAppStatsWeekApplication'
-_Ew='tmnxSysAppStats24HrsIndex'
-_Ev='tmnxSysAppStats24HrsType'
-_Eu='tmnxSysAppStats24HrsApplication'
-_Et='tmnxSysAvailLicenseIndex'
-_Es='tmnxSysLicensedAppName'
-_Er='tmnxSysLicensingGroup'
-_Eq='tmnxSysCpmCardLicFeatNumber'
-_Ep='tmnxSysCpmCardLicFeatApplication'
-_Eo='tmnxSysResEcmpProfId'
-_En='tmnxCardCpuResSampleTime'
-_Em='tmnxSysVsdServerInstance'
-_El='tmnxSysXmppServName'
-_Ek='tmnxSysRollbackFileIndex'
-_Ej='interrupted'
-_Ei='000000000000'
-_Eh='sbiStaticRouteIPv6PfxLen'
-_Eg='sbiStaticRouteIPv6Dest'
-_Ef='sbiStaticRouteMask'
-_Ee='sbiStaticRouteDest'
-_Ed='tacplusServerIndex'
-_Ec='radiusServerIndex'
-_Eb='sntpServerAddress'
-_Ea='september'
-_EZ='wednesday'
-_EY='stiSummerZoneName'
-_EX='tmnxSysCpuMonSampleTime'
-_EW='classicCli'
-_EV='TmnxVRtrID'
-_EU='TmnxEnabledDisabledAdminState'
-_ET='TmnxEnabledDisabled'
-_ES='TmnxAdminStateTruthValue'
-_ER='TTcpUdpPort'
-_EQ='tmnxEhsHandlerDescription'
-_EP='tmnxEhsHEntryMinDelayInterval'
-_EO='tmnxEhsHEntryMinDelay'
-_EN='tmnxFabricSlotNum'
-_EM='tmnxChassisBaseMacAddress'
-_EL='smRunIndex'
-_EK='smLaunchOwner'
-_EJ='smLaunchName'
-_EI='smLaunchError'
-_EH='tmnxSysSwReposV13v0Group'
-_EG='tmnxSysLicenseNotifV13v0Group'
-_EF='tmnxSysLicenseV13v0Group'
-_EE='tmnxSysBofV13v0Group'
-_ED='tmnxSysEhsV13v0Group'
-_EC='tmnxSysFileTransProfV13v0Group'
-_EB='tmnxSysMgmtProtocolV13v0Group'
-_EA='tmnxSysSnmpSrcAccesLstV13v0Group'
-_E9='tmnxSysNetconfV13v0Group'
-_E8='tmnxSysFibV13v0Group'
-_E7='tmnxPersistenceV9v0Group'
-_E6='tmnxSysBofGroup'
-_E5='persistencyEventReport'
-_E4='radiusInetServerOperStatusChange'
-_E3='tacplusInetSrvrOperStatusChange'
-_E2='tmnxFtpClientFailure'
-_E1='tacplusServerOperStatusChange'
-_E0='radiusServerOperStatusChange'
-_D_='tmnxLiConfigFileFormatType'
-_Dz='tmnxPrimaryConfigFileFormatType'
-_Dy='tmnxSysLicensedNotifyAppName'
-_Dx='tmnxSysLicensingNotifyGroup'
-_Dw='tmnxSysNEDiscoveryGenerateTraps'
-_Dv='tmnxSysNEProfVendorId'
-_Du='tmnxSysNEProfPlatformType'
-_Dt='tmnxSysNEProfSystemMac'
-_Ds='tmnxSysNEProfNeipV6'
-_Dr='tmnxSysNEProfNeipV6Type'
-_Dq='tmnxSysNEProfNeipV4'
-_Dp='tmnxSysNEProfNeipV4Type'
-_Do='tmnxSysNEProfNeid'
-_Dn='tmnxSysNEProfLastChanged'
-_Dm='tmnxSysNEProfRowStatus'
-_Dl='tmnxSysNEProfTableLstChgd'
-_Dk='tmnxNotifySysMgmtIfOriginalMode'
-_Dj='tmnxSysMgmtIfWriteSwitchReason'
-_Di='tmnxSysAppLicenseState'
-_Dh='tmnxSysNotifAppStatsType'
-_Dg='tmnxSysNotifAppStatsApplication'
-_Df='tmnxSysLicenseErrorAction'
-_De='tmnxSysNetconfYangNokia'
-_Dd='tmnxSysNetconfYangBaseR13'
-_Dc='tmnxSysNetconfCapRunningCfg'
-_Db='tmnxSysNetconfCapCandidateCfg'
-_Da='tmnxSysNetconfDiscardRequests'
-_DZ='tmnxSysNetconfCommitRequests'
-_DY='tmnxSysNetconfUnlockRequests'
-_DX='tmnxSysNetconfLockRequests'
-_DW='sgiSnmpFailedSets'
-_DV='tmnxSysNetconfFailedLockReqs'
-_DU='tmnxSysNetconfFailedEditCfgReqs'
-_DT='tmnxSmLaunchExtAuthType'
-_DS='tmnxSysDNSSecDomainName'
-_DR='sysDNSSecRespCtrl'
-_DQ='tmnxTrapDroppedCount'
-_DP='spiAncpPersistenceDescr'
-_DO='spiAncpPersistenceFileLoc'
-_DN='tmnxSysFileErrorType'
-_DM='tmnxSysExecResult'
-_DL='tmnxSysRollbackFileDeleteResult'
-_DK='tmnxSysRollbackSaveResult'
-_DJ='tmnxSysRollbackResult'
-_DI='sliConfigStatus'
-_DH='sbiLiLocalSave'
-_DG='sbiLiSeparate'
-_DF='radiusServerInetAddress'
-_DE='radiusServerInetAddressType'
-_DD='tacPlusServerInetAddress'
-_DC='tacPlusServerInetAddressType'
-_DB='tmnxFtpFailureDestAddress'
-_DA='tmnxFtpFailureDestAddressType'
-_D9='tmnxFtpFailureMsg'
-_D8='sntpOperStatus'
-_D7='sntpAdminState'
-_D6='spiDhcpL3PersistenceDescription'
-_D5='spiDhcpL3PersistenceFileLocation'
-_D4='spiDhcpL2PersistenceDescription'
-_D3='spiDhcpL2PersistenceFileLocation'
-_D2='stiSummerZoneEndDate'
-_D1='stiSummerZoneStartDate'
-_D0='slcLoginExponentialBackOff'
-_C_='sysLACPSystemPriority'
-_Cz='slcLoginBanner'
-_Cy='slcMessageOfTheDayType'
-_Cx='slcMessageOfTheDay'
-_Cw='slcPreLoginMessageInclName'
-_Cv='slcPreLoginMessage'
-_Cu='slcTelnetOutboundMaxSessions'
-_Ct='slcTelnetInboundMaxSessions'
-_Cs='slcFtpInboundMaxSessions'
-_Cr='sbiRedSwitchoverScriptStatus'
-_Cq='sbiRedSwitchoverScript'
-_Cp='sbiConfigFailScriptStatus'
-_Co='sbiConfigOKScriptStatus'
-_Cn='sbiSnmpdPortNum'
-_Cm='sbiSnmpdMaxPktSize'
-_Cl='ssiSaveConfigDetail'
-_Ck='ssiSaveConfigDest'
-_Cj='ssiSaveBofResult'
-_Ci='ssiSaveBof'
-_Ch='ssiSaveConfigResult'
-_Cg='ssiConfigMaxBackupRevisions'
-_Cf='ssiSyncBootEnvLastTime'
-_Ce='ssiSyncConfigLastTime'
-_Cd='ssiSyncStatus'
-_Cc='ssiSyncForce'
-_Cb='ssiSaveConfig'
-_Ca='sbiStaticRouteRowStatus'
-_CZ='sbiStaticRouteNextHop'
-_CY='sbiWait'
-_CX='sbiDnsDomain'
-_CW='sbiTertiaryDns'
-_CV='sbiSecondaryDns'
-_CU='sbiPrimaryDns'
-_CT='sbiDuplex'
-_CS='sbiSpeed'
-_CR='sbiAutoNegotiate'
-_CQ='sbiConsoleSpeed'
-_CP='sbiTertiaryConfigFile'
-_CO='sbiSecondaryConfigFile'
-_CN='sbiPrimaryConfigFile'
-_CM='sbiTertiaryImage'
-_CL='sbiSecondaryImage'
-_CK='sbiPrimaryImage'
-_CJ='sbiStandbyIpMask'
-_CI='sbiStandbyIpAddr'
-_CH='sbiActiveIpMask'
-_CG='sbiActiveIpAddr'
-_CF='TmnxSysRmtMgmtSrcDefaultPort'
-_CE='tmnxSysMgmtIfDsLocksSessionId'
-_CD='tmnxCardResourceSlotNum'
-_CC='ascii'
-_CB='mixed'
-_CA='modelDriven'
-_C9='classic'
-_C8='TmnxSsiSyncRollbackMode'
-_C7='TmnxSsiSyncMode'
-_C6='hours'
-_C5='system'
-_C4='TmnxServId'
-_C3='TmnxLongDisplayString'
-_C2='TmnxCliEngine'
-_C1='tmnxLogExecRollbackOpType'
-_C0='tmnxEhsHEntryScriptPlcyOwner'
-_B_='tmnxEhsHEntryScriptPlcyName'
-_Bz='tmnxCpmCardSlotNum'
-_By='tmnxCpmCardNum'
-_Bx='MacAddress'
-_Bw='smLaunchScriptOwner'
-_Bv='smLaunchScriptName'
-_Bu='tmnxSysLicenseV12v0Group'
-_Bt='tmnxSysBofV12v0Group'
-_Bs='tmnxSysXmppV12v4Group'
-_Br='tmnxSysDhcpGroup'
-_Bq='tmnxSysNotificationV12v0Group'
-_Bp='tmnxSysDNSSecV12v0Group'
-_Bo='tmnxSysDNSSecNotifV12v0Group'
-_Bn='tmnxSysCardResourceGroup'
-_Bm='tmnxPersistenceV12v0Group'
-_Bl='tmnxPersistenceV6v0Group'
-_Bk='tmnxSysTimeSet'
-_Bj='tmnxSntpOperChange'
-_Bi='persistencyClosedAlarmCleared'
-_Bh='persistencyClosedAlarmRaised'
-_Bg='ssiRedSingleCpm'
-_Bf='ssiRedCpmActive'
-_Be='ssiRedSwitchover'
-_Bd='ssiRedStandbySyncLost'
-_Bc='ssiRedStandbyReady'
-_Bb='ssiRedStandbySyncing'
-_Ba='tmnxSnmpdStateChange'
-_BZ='tmnxSsiMismatch'
-_BY='tmnxSnmpdError'
-_BX='tacplusOperStatusChange'
-_BW='sntpTimeDiffExceedsThreshold'
-_BV='ssiSyncBootEnvFailed'
-_BU='ssiSyncBootEnvOK'
-_BT='ssiSyncConfigFailed'
-_BS='ssiSyncConfigOK'
-_BR='tmnxTrapDropped'
-_BQ='tmnxModuleMallocFailed'
-_BP='tmnxStateChange'
-_BO='tmnxConfigDelete'
-_BN='tmnxConfigCreate'
-_BM='tmnxConfigModify'
-_BL='radiusOperStatusChange'
-_BK='sbiBootSnmpd'
-_BJ='sbiBootConfig'
-_BI='ssiSaveConfigFailed'
-_BH='ssiSaveConfigSucceeded'
-_BG='stiDateAndTimeChanged'
-_BF='tmnxSysNotifAppStatsTime'
-_BE='tmnxSysLicenseTimeLeft'
-_BD='tmnxSysNotifXmppServerName'
-_BC='tmnxSysNotifVsdServerName'
-_BB='tmnxSysExecScript'
-_BA='spiAAPersistenceDescr'
-_B9='spiAAPersistenceFileLoc'
-_B8='spiNatFwdPersistenceDescr'
-_B7='spiNatFwdPersistenceFileLoc'
-_B6='tmnxSysTimeSetBy'
-_B5='tmnxSnmpdErrorMsg'
-_B4='tmnxTrapDroppedEntryID'
-_B3='tmnxTrapDroppedReasonCode'
-_B2='tmnxDroppedTrapID'
-_B1='tmnxModuleMallocSize'
-_B0='tmnxMemoryModule'
-_A_='tmnxNotifyRowAdminState'
-_Az='sbiBootConfigFailScript'
-_Ay='sbiBootConfigOKScript'
-_Ax='sbiPersistStatus'
-_Aw='sbiConfigStatus'
-_Av='ssiRedFailoverReason'
-_Au='ssiRedFailoverTime'
-_At='ssiSyncMode'
-_As='sbiPersist'
-_Ar='tacplusOperStatus'
-_Aq='radiusOperStatus'
-_Ap='down'
-_Ao='notRun'
-_An='TmnxVRtrIDOrZero'
-_Am='InetPortNumber'
-_Al='tmnxSysStrmV11v0R4Group'
-_Ak='tmnxSysNetconfV11v0Group'
-_Aj='tmnxSysCandidateCfgGroup'
-_Ai='tmnxSysGroupingSystemGroup'
-_Ah='tmnxSysConfigV3v0Group'
-_Ag='tmnxSysMgmtIfWriteMode'
-_Af='tmnxSmRunExtUserName'
-_Ae='tmnxSmRunExtAuthType'
-_Ad='tmnxSysLicenseErrorReason'
-_Ac='spiDhcpSrvPersistenceDescr'
-_Ab='spiDhcpSrvPersistenceFileLoc'
-_Aa='tmnxNotifyRowOperState'
-_AZ='stiDateAndTime'
-_AY='sbiSnmpdOperStatus'
-_AX='sbiSnmpdAdminStatus'
-_AW='sbiPersistIndex'
-_AV='tacplusServerOperStatus'
-_AU='tacplusServerAddress'
-_AT='radiusServerOperStatus'
-_AS='radiusServerAddress'
-_AR='tmnxLogExecRollbackOpIndex'
-_AQ='tmnxChassisIndex'
-_AP='InetAddressType'
-_AO='tmnxSysRollbackRescueGroup'
-_AN='tmnxSysNotificationV10v0Group'
-_AM='tmnxSysRollbackIndex'
-_AL='tmnxSyncFailureReason'
-_AK='tmnxPersistenceAffectedCpm'
-_AJ='tmnxPersistencyFileLocator'
-_AI='fail'
-_AH='kilobytes'
-_AG='TLNamedItemOrEmpty'
-_AF='tmnxSysNotificationRBGroup'
-_AE='tmnxSysCertGroup'
-_AD='tmnxSysRollbackV9v0Group'
-_AC='tmnxSysNotificationV9v0Group'
-_AB='tmnxSysLoginControlV9v0Group'
-_AA='tmnxSysLoginControlSecGroup'
-_A9='tmnxSysLiFilterGroup'
-_A8='tmnxPersistencyClient'
-_A7='spiSubMgmtPersistenceDescription'
-_A6='spiSubMgmtPersistenceFileLocation'
-_A5='milliseconds'
-_A4='minutes'
-_A3='bytes'
-_A2='TNamedItemOrEmpty'
-_A1='IpAddressPrefixLength'
-_A0='tmnxHwID'
-_z='tmnxChassisNotifyHwIndex'
-_y='tmnxSysEthInfoGroup'
-_x='tmnxSysIcmpVSV6v1Group'
-_w='tmnxSysLoginControlV8v0Group'
-_v='tmnxSysConfigV8v0Group'
-_u='tmnxSysRollbackFileType'
-_t='tmnxNotifyObjectName'
-_s='tmnxPersistencyNotifyMsg'
-_r='unknown'
-_q='InetAddressPrefixLength'
-_p='OctetString'
-_o='tmnxSystemCpuMonitorGroup'
-_n='tmnxSysGeneralV7v0Group'
-_m='tmnxNotifyEntryOID'
-_l='tmnxNotifyRow'
-_k='00000000000000000000000000000000'
-_j='DateAndTime'
-_i='DISMAN-SCRIPT-MIB'
-_h='tmnxSysLiV6v0Group'
-_g='tmnxSysIpv6MgmtItfV6v0Group'
-_f='tmnxSysNotificationV6v0Group'
-_e='tmnxSysBofV6v0Group'
-_d='InetAddressIPv6'
-_c='tmnxSysTacPlusServerV5v0Group'
-_b='tmnxSysRadiusServerV5v0Group'
-_a='failed'
-_Z='inProgress'
-_Y='TItemDescription'
-_X='tmnxSysTimeV4v0Group'
-_W='tmnxSysGeneralV3v0Group'
-_V='TmnxActionType'
-_U='seconds'
-_T='TIMETRA-LOG-MIB'
-_S='tmnxHwClass'
-_R='InetAddress'
-_Q='success'
-_P='TmnxDisplayStringURL'
-_O='none'
-_N='TmnxAdminState'
-_M='DisplayString'
-_L='obsolete'
-_K='TIMETRA-CHASSIS-MIB'
-_J='accessible-for-notify'
-_I='not-accessible'
-_H='TruthValue'
-_G='Unsigned32'
-_F='Integer32'
-_E='read-create'
-_D='read-write'
-_C='read-only'
-_B='current'
-_A='TIMETRA-SYSTEM-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_p,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-smLaunchEntry,smLaunchError,smLaunchName,smLaunchOwner,smLaunchScriptName,smLaunchScriptOwner,smRunEntry,smRunIndex=mibBuilder.importSymbols(_i,'smLaunchEntry',_EI,_EJ,_EK,_Bv,_Bw,'smRunEntry',_EL)
-CounterBasedGauge64,=mibBuilder.importSymbols('HCNUM-TC','CounterBasedGauge64')
-InetAddress,InetAddressIPv6,InetAddressPrefixLength,InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB',_R,_d,_q,_AP,_Am)
-snmpCommunityEntry,=mibBuilder.importSymbols('SNMP-COMMUNITY-MIB','snmpCommunityEntry')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_j,_M,_Bx,'PhysAddress','RowPointer','RowStatus','TextualConvention','TimeStamp',_H)
-TmnxSlotNum,tmnxChassisBaseMacAddress,tmnxChassisIndex,tmnxChassisNotifyHwIndex,tmnxCpmCardNum,tmnxCpmCardSlotNum,tmnxFabricSlotNum,tmnxHwClass,tmnxHwID=mibBuilder.importSymbols(_K,'TmnxSlotNum',_EM,_AQ,_z,_By,_Bz,_EN,_S,_A0)
-timetraSRMIBModules,tmnxSRConfs,tmnxSRNotifyPrefix,tmnxSRObjs=mibBuilder.importSymbols('TIMETRA-GLOBAL-MIB','timetraSRMIBModules','tmnxSRConfs','tmnxSRNotifyPrefix','tmnxSRObjs')
-tmnxEhsHEntryMinDelay,tmnxEhsHEntryMinDelayInterval,tmnxEhsHEntryScriptPlcyName,tmnxEhsHEntryScriptPlcyOwner,tmnxEhsHandlerDescription,tmnxLogExecRollbackOpIndex,tmnxLogExecRollbackOpType=mibBuilder.importSymbols(_T,_EO,_EP,_B_,_C0,_EQ,_AR,_C1)
-IpAddressPrefixLength,TDSCPNameOrEmpty,TItemDescription,TLDisplayString,TLNamedItem,TLNamedItemOrEmpty,TNamedItem,TNamedItemOrEmpty,TTcpUdpPort,TmnxActionType,TmnxAdminState,TmnxAdminStateTruthValue,TmnxCliEngine,TmnxDisplayStringURL,TmnxEnabledDisabled,TmnxEnabledDisabledAdminState,TmnxLongDisplayString,TmnxOperState,TmnxScriptAuthType,TmnxServId,TmnxUuid,TmnxVRtrID,TmnxVRtrIDOrZero=mibBuilder.importSymbols('TIMETRA-TC-MIB',_A1,'TDSCPNameOrEmpty',_Y,'TLDisplayString','TLNamedItem',_AG,'TNamedItem',_A2,_ER,_V,_N,_ES,_C2,_P,_ET,_EU,_C3,'TmnxOperState','TmnxScriptAuthType',_C4,'TmnxUuid',_EV,_An)
-timetraSysMIBModule=ModuleIdentity((1,3,6,1,4,1,6527,1,1,3,1))
-if mibBuilder.loadTexts:timetraSysMIBModule.setRevisions(('2017-01-01 00:00','2016-01-01 00:00','2014-06-01 00:00','2014-01-01 00:00','2011-02-01 00:00','2010-01-01 00:00','2009-02-28 00:00','2008-01-01 00:00','2007-01-01 00:00','2006-03-15 00:00','2005-08-31 00:00','2005-01-24 00:00','2004-01-15 00:00','2003-08-15 00:00','2003-01-20 00:00','2000-08-14 00:00'))
-class TmnxSsiSyncMode(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_O,1),('config',2),('bootEnv',3)))
-class TmnxSsiSyncRollbackMode(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_O,1),('rollbackSingle',2),('rollbackAll',3)))
-class TmnxSysLicenseApplication(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6)));namedValues=NamedValues(*((_O,0),('nat',1),('wlanGw',2),('lns',3),('subMgmt',4),('aa',5),('ipsec',6)))
-class TmnxSysLicenseAppStatsType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,1000,1001,2000,2001,3000,4000,4001,5000,5001,5002,5003)));namedValues=NamedValues(*((_O,0),('lsnSubscribers',1),('lsnBandwidth',2),('wlanGwUserEquipment',1000),('wlanGwGtpBearers',1001),('lnsTunnels',2000),('lnsSessions',2001),('subscriberHosts',3000),('aaSubscribers',4000),('aaBandwidth',4001),('ipsecTunnels',5000),('ipsecTnlBandwidth',5001),('ipTunnels',5002),('ipTnlBandwidth',5003)))
-class TmnxSysLicensingGroup(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6)));namedValues=NamedValues(*((_C5,0),('services',1),('nsp',2),('isa',3),('iom',4),('mda',5),('ports',6)))
-class TmnxSysMonSampleTime(TextualConvention,Unsigned32):status=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1),ValueRangeConstraint(60,60),ValueRangeConstraint(300,300))
-class TmnxSysMonUtilization(TextualConvention,Gauge32):status=_B;subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
-class TmnxSysMgmtIfDstoreLockState(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('locked',1),('unlocked',2)))
-class TmnxSysNeid(TextualConvention,OctetString):status=_B;displayHint='1x:';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(3,3))
-class TmnxConfigFileFormatType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_EW,1),('mdCli',2)))
-class TmnxSchemaPathState(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('ok',0),('errConnection',1),('errTooLong',2),('errInvalid',3)))
-class TmnxSysRmtMgmtLastRegStatus(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,100)));namedValues=NamedValues(*((_r,0),('succeeded',1),('cancelled',2),('unreachable',3),('refused',4),('dnsResolutionFailed',5),('outOfResources',6),('internal',100)))
-class TmnxSysRmtMgmtSrcDefaultPort(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-1,0)));namedValues=NamedValues(*(('grpc',-1),(_O,0)))
-_TmnxSysConformance_ObjectIdentity=ObjectIdentity
-tmnxSysConformance=_TmnxSysConformance_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,1))
-_TmnxSysCompliances_ObjectIdentity=ObjectIdentity
-tmnxSysCompliances=_TmnxSysCompliances_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,1,1))
-_TmnxSysGroups_ObjectIdentity=ObjectIdentity
-tmnxSysGroups=_TmnxSysGroups_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,1,2))
-_TmnxSysV12v0Groups_ObjectIdentity=ObjectIdentity
-tmnxSysV12v0Groups=_TmnxSysV12v0Groups_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,1,2,60))
-_TmnxSysV14v0Groups_ObjectIdentity=ObjectIdentity
-tmnxSysV14v0Groups=_TmnxSysV14v0Groups_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,1,2,72))
-_TmnxSysV15v0Groups_ObjectIdentity=ObjectIdentity
-tmnxSysV15v0Groups=_TmnxSysV15v0Groups_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,1,2,76))
-_TmnxSysV15v1Groups_ObjectIdentity=ObjectIdentity
-tmnxSysV15v1Groups=_TmnxSysV15v1Groups_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,1,2,77))
-_TmnxSysV16v0Groups_ObjectIdentity=ObjectIdentity
-tmnxSysV16v0Groups=_TmnxSysV16v0Groups_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,1,2,78))
-_TmnxSysV19v0Groups_ObjectIdentity=ObjectIdentity
-tmnxSysV19v0Groups=_TmnxSysV19v0Groups_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,1,2,79))
-_TmnxSysV20v0Groups_ObjectIdentity=ObjectIdentity
-tmnxSysV20v0Groups=_TmnxSysV20v0Groups_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,1,2,80))
-_TmnxSysV21v0Groups_ObjectIdentity=ObjectIdentity
-tmnxSysV21v0Groups=_TmnxSysV21v0Groups_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,1,2,81))
-_TmnxSysMGGroups_ObjectIdentity=ObjectIdentity
-tmnxSysMGGroups=_TmnxSysMGGroups_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,1,3))
-_TmnxSysMGCompliances_ObjectIdentity=ObjectIdentity
-tmnxSysMGCompliances=_TmnxSysMGCompliances_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,1,4))
-_TmnxSysDCCompliance_ObjectIdentity=ObjectIdentity
-tmnxSysDCCompliance=_TmnxSysDCCompliance_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,1,5))
-_TmnxSysDCGroups_ObjectIdentity=ObjectIdentity
-tmnxSysDCGroups=_TmnxSysDCGroups_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,1,6))
-_TmnxSysNspProxyCompliances_ObjectIdentity=ObjectIdentity
-tmnxSysNspProxyCompliances=_TmnxSysNspProxyCompliances_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,1,7))
-_TmnxSysNspProxyGroups_ObjectIdentity=ObjectIdentity
-tmnxSysNspProxyGroups=_TmnxSysNspProxyGroups_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,1,8))
-_TmnxSysObjs_ObjectIdentity=ObjectIdentity
-tmnxSysObjs=_TmnxSysObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1))
-_SysGenInfo_ObjectIdentity=ObjectIdentity
-sysGenInfo=_SysGenInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,1))
-class _SgiCpuUsage_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_SgiCpuUsage_Type.__name__=_G
-_SgiCpuUsage_Object=MibScalar
-sgiCpuUsage=_SgiCpuUsage_Object((1,3,6,1,4,1,6527,3,1,2,1,1,1),_SgiCpuUsage_Type())
-sgiCpuUsage.setMaxAccess(_C)
-if mibBuilder.loadTexts:sgiCpuUsage.setStatus(_B)
-if mibBuilder.loadTexts:sgiCpuUsage.setUnits('percent')
-_SgiMemoryUsed_Type=Unsigned32
-_SgiMemoryUsed_Object=MibScalar
-sgiMemoryUsed=_SgiMemoryUsed_Object((1,3,6,1,4,1,6527,3,1,2,1,1,2),_SgiMemoryUsed_Type())
-sgiMemoryUsed.setMaxAccess(_C)
-if mibBuilder.loadTexts:sgiMemoryUsed.setStatus(_B)
-if mibBuilder.loadTexts:sgiMemoryUsed.setUnits(_A3)
-_SgiMemoryAvailable_Type=Unsigned32
-_SgiMemoryAvailable_Object=MibScalar
-sgiMemoryAvailable=_SgiMemoryAvailable_Object((1,3,6,1,4,1,6527,3,1,2,1,1,3),_SgiMemoryAvailable_Type())
-sgiMemoryAvailable.setMaxAccess(_C)
-if mibBuilder.loadTexts:sgiMemoryAvailable.setStatus(_B)
-if mibBuilder.loadTexts:sgiMemoryAvailable.setUnits(_A3)
-_SgiMemoryPoolAllocated_Type=Unsigned32
-_SgiMemoryPoolAllocated_Object=MibScalar
-sgiMemoryPoolAllocated=_SgiMemoryPoolAllocated_Object((1,3,6,1,4,1,6527,3,1,2,1,1,4),_SgiMemoryPoolAllocated_Type())
-sgiMemoryPoolAllocated.setMaxAccess(_C)
-if mibBuilder.loadTexts:sgiMemoryPoolAllocated.setStatus(_B)
-if mibBuilder.loadTexts:sgiMemoryPoolAllocated.setUnits(_A3)
-_SgiSwMajorVersion_Type=Unsigned32
-_SgiSwMajorVersion_Object=MibScalar
-sgiSwMajorVersion=_SgiSwMajorVersion_Object((1,3,6,1,4,1,6527,3,1,2,1,1,5),_SgiSwMajorVersion_Type())
-sgiSwMajorVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:sgiSwMajorVersion.setStatus(_B)
-_SgiSwMinorVersion_Type=Unsigned32
-_SgiSwMinorVersion_Object=MibScalar
-sgiSwMinorVersion=_SgiSwMinorVersion_Object((1,3,6,1,4,1,6527,3,1,2,1,1,6),_SgiSwMinorVersion_Type())
-sgiSwMinorVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:sgiSwMinorVersion.setStatus(_B)
-class _SgiSwVersionModifier_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_SgiSwVersionModifier_Type.__name__=_p
-_SgiSwVersionModifier_Object=MibScalar
-sgiSwVersionModifier=_SgiSwVersionModifier_Object((1,3,6,1,4,1,6527,3,1,2,1,1,7),_SgiSwVersionModifier_Type())
-sgiSwVersionModifier.setMaxAccess(_C)
-if mibBuilder.loadTexts:sgiSwVersionModifier.setStatus(_B)
-_SgiSnmpInGetBulks_Type=Counter32
-_SgiSnmpInGetBulks_Object=MibScalar
-sgiSnmpInGetBulks=_SgiSnmpInGetBulks_Object((1,3,6,1,4,1,6527,3,1,2,1,1,8),_SgiSnmpInGetBulks_Type())
-sgiSnmpInGetBulks.setMaxAccess(_C)
-if mibBuilder.loadTexts:sgiSnmpInGetBulks.setStatus(_B)
-_SgiKbMemoryUsed_Type=Unsigned32
-_SgiKbMemoryUsed_Object=MibScalar
-sgiKbMemoryUsed=_SgiKbMemoryUsed_Object((1,3,6,1,4,1,6527,3,1,2,1,1,9),_SgiKbMemoryUsed_Type())
-sgiKbMemoryUsed.setMaxAccess(_C)
-if mibBuilder.loadTexts:sgiKbMemoryUsed.setStatus(_B)
-if mibBuilder.loadTexts:sgiKbMemoryUsed.setUnits(_AH)
-_SgiKbMemoryAvailable_Type=Unsigned32
-_SgiKbMemoryAvailable_Object=MibScalar
-sgiKbMemoryAvailable=_SgiKbMemoryAvailable_Object((1,3,6,1,4,1,6527,3,1,2,1,1,10),_SgiKbMemoryAvailable_Type())
-sgiKbMemoryAvailable.setMaxAccess(_C)
-if mibBuilder.loadTexts:sgiKbMemoryAvailable.setStatus(_B)
-if mibBuilder.loadTexts:sgiKbMemoryAvailable.setUnits(_AH)
-_SgiKbMemoryPoolAllocated_Type=Unsigned32
-_SgiKbMemoryPoolAllocated_Object=MibScalar
-sgiKbMemoryPoolAllocated=_SgiKbMemoryPoolAllocated_Object((1,3,6,1,4,1,6527,3,1,2,1,1,11),_SgiKbMemoryPoolAllocated_Type())
-sgiKbMemoryPoolAllocated.setMaxAccess(_C)
-if mibBuilder.loadTexts:sgiKbMemoryPoolAllocated.setStatus(_B)
-if mibBuilder.loadTexts:sgiKbMemoryPoolAllocated.setUnits(_AH)
-_TmnxSysCpuMonTable_Object=MibTable
-tmnxSysCpuMonTable=_TmnxSysCpuMonTable_Object((1,3,6,1,4,1,6527,3,1,2,1,1,12))
-if mibBuilder.loadTexts:tmnxSysCpuMonTable.setStatus(_B)
-_TmnxSysCpuMonEntry_Object=MibTableRow
-tmnxSysCpuMonEntry=_TmnxSysCpuMonEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,1,12,1))
-tmnxSysCpuMonEntry.setIndexNames((0,_A,_EX))
-if mibBuilder.loadTexts:tmnxSysCpuMonEntry.setStatus(_B)
-_TmnxSysCpuMonSampleTime_Type=TmnxSysMonSampleTime
-_TmnxSysCpuMonSampleTime_Object=MibTableColumn
-tmnxSysCpuMonSampleTime=_TmnxSysCpuMonSampleTime_Object((1,3,6,1,4,1,6527,3,1,2,1,1,12,1,1),_TmnxSysCpuMonSampleTime_Type())
-tmnxSysCpuMonSampleTime.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysCpuMonSampleTime.setStatus(_B)
-_TmnxSysCpuMonCpuIdle_Type=TmnxSysMonUtilization
-_TmnxSysCpuMonCpuIdle_Object=MibTableColumn
-tmnxSysCpuMonCpuIdle=_TmnxSysCpuMonCpuIdle_Object((1,3,6,1,4,1,6527,3,1,2,1,1,12,1,2),_TmnxSysCpuMonCpuIdle_Type())
-tmnxSysCpuMonCpuIdle.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCpuMonCpuIdle.setStatus(_B)
-_TmnxSysCpuMonBusyCoreUtil_Type=TmnxSysMonUtilization
-_TmnxSysCpuMonBusyCoreUtil_Object=MibTableColumn
-tmnxSysCpuMonBusyCoreUtil=_TmnxSysCpuMonBusyCoreUtil_Object((1,3,6,1,4,1,6527,3,1,2,1,1,12,1,3),_TmnxSysCpuMonBusyCoreUtil_Type())
-tmnxSysCpuMonBusyCoreUtil.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCpuMonBusyCoreUtil.setStatus(_B)
-class _TmnxSysCpuMonBusyGroupName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_TmnxSysCpuMonBusyGroupName_Type.__name__=_p
-_TmnxSysCpuMonBusyGroupName_Object=MibTableColumn
-tmnxSysCpuMonBusyGroupName=_TmnxSysCpuMonBusyGroupName_Object((1,3,6,1,4,1,6527,3,1,2,1,1,12,1,4),_TmnxSysCpuMonBusyGroupName_Type())
-tmnxSysCpuMonBusyGroupName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCpuMonBusyGroupName.setStatus(_B)
-_TmnxSysCpuMonBusyGroupUtil_Type=TmnxSysMonUtilization
-_TmnxSysCpuMonBusyGroupUtil_Object=MibTableColumn
-tmnxSysCpuMonBusyGroupUtil=_TmnxSysCpuMonBusyGroupUtil_Object((1,3,6,1,4,1,6527,3,1,2,1,1,12,1,5),_TmnxSysCpuMonBusyGroupUtil_Type())
-tmnxSysCpuMonBusyGroupUtil.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCpuMonBusyGroupUtil.setStatus(_B)
-_SgiGroupingIDs_ObjectIdentity=ObjectIdentity
-sgiGroupingIDs=_SgiGroupingIDs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,1,13))
-class _SgiSystemGroupID_Type(Unsigned32):defaultValue=0
-_SgiSystemGroupID_Type.__name__=_G
-_SgiSystemGroupID_Object=MibScalar
-sgiSystemGroupID=_SgiSystemGroupID_Object((1,3,6,1,4,1,6527,3,1,2,1,1,13,1),_SgiSystemGroupID_Type())
-sgiSystemGroupID.setMaxAccess(_D)
-if mibBuilder.loadTexts:sgiSystemGroupID.setStatus(_B)
-class _SgiSystemSubGroupID_Type(Unsigned32):defaultValue=0
-_SgiSystemSubGroupID_Type.__name__=_G
-_SgiSystemSubGroupID_Object=MibScalar
-sgiSystemSubGroupID=_SgiSystemSubGroupID_Object((1,3,6,1,4,1,6527,3,1,2,1,1,13,2),_SgiSystemSubGroupID_Type())
-sgiSystemSubGroupID.setMaxAccess(_D)
-if mibBuilder.loadTexts:sgiSystemSubGroupID.setStatus(_B)
-_SgiSnmpFailedSets_Type=Counter32
-_SgiSnmpFailedSets_Object=MibScalar
-sgiSnmpFailedSets=_SgiSnmpFailedSets_Object((1,3,6,1,4,1,6527,3,1,2,1,1,14),_SgiSnmpFailedSets_Type())
-sgiSnmpFailedSets.setMaxAccess(_C)
-if mibBuilder.loadTexts:sgiSnmpFailedSets.setStatus(_B)
-_SgiCryptoModVersion_Type=DisplayString
-_SgiCryptoModVersion_Object=MibScalar
-sgiCryptoModVersion=_SgiCryptoModVersion_Object((1,3,6,1,4,1,6527,3,1,2,1,1,15),_SgiCryptoModVersion_Type())
-sgiCryptoModVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:sgiCryptoModVersion.setStatus(_B)
-_SysTimeInfo_ObjectIdentity=ObjectIdentity
-sysTimeInfo=_SysTimeInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,2))
-class _StiDateAndTime_Type(DateAndTime):subtypeSpec=DateAndTime.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(11,11));fixedLength=11
-_StiDateAndTime_Type.__name__=_j
-_StiDateAndTime_Object=MibScalar
-stiDateAndTime=_StiDateAndTime_Object((1,3,6,1,4,1,6527,3,1,2,1,2,1),_StiDateAndTime_Type())
-stiDateAndTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:stiDateAndTime.setStatus(_B)
-class _StiActiveZone_Type(DisplayString):defaultValue=OctetString('UTC');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,5))
-_StiActiveZone_Type.__name__=_M
-_StiActiveZone_Object=MibScalar
-stiActiveZone=_StiActiveZone_Object((1,3,6,1,4,1,6527,3,1,2,1,2,2),_StiActiveZone_Type())
-stiActiveZone.setMaxAccess(_D)
-if mibBuilder.loadTexts:stiActiveZone.setStatus(_B)
-class _StiHoursOffset_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-11,12))
-_StiHoursOffset_Type.__name__=_F
-_StiHoursOffset_Object=MibScalar
-stiHoursOffset=_StiHoursOffset_Object((1,3,6,1,4,1,6527,3,1,2,1,2,3),_StiHoursOffset_Type())
-stiHoursOffset.setMaxAccess(_D)
-if mibBuilder.loadTexts:stiHoursOffset.setStatus(_B)
-if mibBuilder.loadTexts:stiHoursOffset.setUnits(_C6)
-class _StiMinutesOffset_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,59))
-_StiMinutesOffset_Type.__name__=_F
-_StiMinutesOffset_Object=MibScalar
-stiMinutesOffset=_StiMinutesOffset_Object((1,3,6,1,4,1,6527,3,1,2,1,2,4),_StiMinutesOffset_Type())
-stiMinutesOffset.setMaxAccess(_D)
-if mibBuilder.loadTexts:stiMinutesOffset.setStatus(_B)
-if mibBuilder.loadTexts:stiMinutesOffset.setUnits(_A4)
-class _StiZoneType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_C5,1),('user',2)))
-_StiZoneType_Type.__name__=_F
-_StiZoneType_Object=MibScalar
-stiZoneType=_StiZoneType_Object((1,3,6,1,4,1,6527,3,1,2,1,2,5),_StiZoneType_Type())
-stiZoneType.setMaxAccess(_C)
-if mibBuilder.loadTexts:stiZoneType.setStatus(_B)
-_StiSummerZoneTable_Object=MibTable
-stiSummerZoneTable=_StiSummerZoneTable_Object((1,3,6,1,4,1,6527,3,1,2,1,2,6))
-if mibBuilder.loadTexts:stiSummerZoneTable.setStatus(_B)
-_StiSummerZoneEntry_Object=MibTableRow
-stiSummerZoneEntry=_StiSummerZoneEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,2,6,1))
-stiSummerZoneEntry.setIndexNames((1,_A,_EY))
-if mibBuilder.loadTexts:stiSummerZoneEntry.setStatus(_B)
-class _StiSummerZoneName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,5))
-_StiSummerZoneName_Type.__name__=_p
-_StiSummerZoneName_Object=MibTableColumn
-stiSummerZoneName=_StiSummerZoneName_Object((1,3,6,1,4,1,6527,3,1,2,1,2,6,1,1),_StiSummerZoneName_Type())
-stiSummerZoneName.setMaxAccess(_I)
-if mibBuilder.loadTexts:stiSummerZoneName.setStatus(_B)
-_StiSummerZoneRowStatus_Type=RowStatus
-_StiSummerZoneRowStatus_Object=MibTableColumn
-stiSummerZoneRowStatus=_StiSummerZoneRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,2,6,1,2),_StiSummerZoneRowStatus_Type())
-stiSummerZoneRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:stiSummerZoneRowStatus.setStatus(_B)
-class _StiSummerZoneStartDate_Type(DateAndTime):subtypeSpec=DateAndTime.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
-_StiSummerZoneStartDate_Type.__name__=_j
-_StiSummerZoneStartDate_Object=MibTableColumn
-stiSummerZoneStartDate=_StiSummerZoneStartDate_Object((1,3,6,1,4,1,6527,3,1,2,1,2,6,1,3),_StiSummerZoneStartDate_Type())
-stiSummerZoneStartDate.setMaxAccess(_E)
-if mibBuilder.loadTexts:stiSummerZoneStartDate.setStatus(_L)
-class _StiSummerZoneEndDate_Type(DateAndTime):subtypeSpec=DateAndTime.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
-_StiSummerZoneEndDate_Type.__name__=_j
-_StiSummerZoneEndDate_Object=MibTableColumn
-stiSummerZoneEndDate=_StiSummerZoneEndDate_Object((1,3,6,1,4,1,6527,3,1,2,1,2,6,1,4),_StiSummerZoneEndDate_Type())
-stiSummerZoneEndDate.setMaxAccess(_E)
-if mibBuilder.loadTexts:stiSummerZoneEndDate.setStatus(_L)
-class _StiSummerZoneOffset_Type(Unsigned32):defaultValue=60;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,60))
-_StiSummerZoneOffset_Type.__name__=_G
-_StiSummerZoneOffset_Object=MibTableColumn
-stiSummerZoneOffset=_StiSummerZoneOffset_Object((1,3,6,1,4,1,6527,3,1,2,1,2,6,1,5),_StiSummerZoneOffset_Type())
-stiSummerZoneOffset.setMaxAccess(_E)
-if mibBuilder.loadTexts:stiSummerZoneOffset.setStatus(_B)
-if mibBuilder.loadTexts:stiSummerZoneOffset.setUnits(_A4)
-class _StiSummerZoneStartDay_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6)));namedValues=NamedValues(*(('sunday',0),('monday',1),('tuesday',2),(_EZ,3),('thursday',4),('friday',5),('saturday',6)))
-_StiSummerZoneStartDay_Type.__name__=_F
-_StiSummerZoneStartDay_Object=MibTableColumn
-stiSummerZoneStartDay=_StiSummerZoneStartDay_Object((1,3,6,1,4,1,6527,3,1,2,1,2,6,1,6),_StiSummerZoneStartDay_Type())
-stiSummerZoneStartDay.setMaxAccess(_E)
-if mibBuilder.loadTexts:stiSummerZoneStartDay.setStatus(_B)
-class _StiSummerZoneStartWeek_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*(('first',0),('second',1),('third',2),('fourth',3),('last',4)))
-_StiSummerZoneStartWeek_Type.__name__=_F
-_StiSummerZoneStartWeek_Object=MibTableColumn
-stiSummerZoneStartWeek=_StiSummerZoneStartWeek_Object((1,3,6,1,4,1,6527,3,1,2,1,2,6,1,7),_StiSummerZoneStartWeek_Type())
-stiSummerZoneStartWeek.setMaxAccess(_E)
-if mibBuilder.loadTexts:stiSummerZoneStartWeek.setStatus(_B)
-class _StiSummerZoneStartMonth_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*(('january',0),('february',1),('march',2),('april',3),('may',4),('june',5),('july',6),('august',7),(_Ea,8),('october',9),('november',10),('december',11)))
-_StiSummerZoneStartMonth_Type.__name__=_F
-_StiSummerZoneStartMonth_Object=MibTableColumn
-stiSummerZoneStartMonth=_StiSummerZoneStartMonth_Object((1,3,6,1,4,1,6527,3,1,2,1,2,6,1,8),_StiSummerZoneStartMonth_Type())
-stiSummerZoneStartMonth.setMaxAccess(_E)
-if mibBuilder.loadTexts:stiSummerZoneStartMonth.setStatus(_B)
-class _StiSummerZoneStartHour_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,23))
-_StiSummerZoneStartHour_Type.__name__=_G
-_StiSummerZoneStartHour_Object=MibTableColumn
-stiSummerZoneStartHour=_StiSummerZoneStartHour_Object((1,3,6,1,4,1,6527,3,1,2,1,2,6,1,9),_StiSummerZoneStartHour_Type())
-stiSummerZoneStartHour.setMaxAccess(_E)
-if mibBuilder.loadTexts:stiSummerZoneStartHour.setStatus(_B)
-if mibBuilder.loadTexts:stiSummerZoneStartHour.setUnits(_C6)
-class _StiSummerZoneStartMinute_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,59))
-_StiSummerZoneStartMinute_Type.__name__=_G
-_StiSummerZoneStartMinute_Object=MibTableColumn
-stiSummerZoneStartMinute=_StiSummerZoneStartMinute_Object((1,3,6,1,4,1,6527,3,1,2,1,2,6,1,10),_StiSummerZoneStartMinute_Type())
-stiSummerZoneStartMinute.setMaxAccess(_E)
-if mibBuilder.loadTexts:stiSummerZoneStartMinute.setStatus(_B)
-if mibBuilder.loadTexts:stiSummerZoneStartMinute.setUnits(_A4)
-class _StiSummerZoneEndDay_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6)));namedValues=NamedValues(*(('sunday',0),('monday',1),('tuesday',2),(_EZ,3),('thursday',4),('friday',5),('saturday',6)))
-_StiSummerZoneEndDay_Type.__name__=_F
-_StiSummerZoneEndDay_Object=MibTableColumn
-stiSummerZoneEndDay=_StiSummerZoneEndDay_Object((1,3,6,1,4,1,6527,3,1,2,1,2,6,1,11),_StiSummerZoneEndDay_Type())
-stiSummerZoneEndDay.setMaxAccess(_E)
-if mibBuilder.loadTexts:stiSummerZoneEndDay.setStatus(_B)
-class _StiSummerZoneEndWeek_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*(('first',0),('second',1),('third',2),('fourth',3),('last',4)))
-_StiSummerZoneEndWeek_Type.__name__=_F
-_StiSummerZoneEndWeek_Object=MibTableColumn
-stiSummerZoneEndWeek=_StiSummerZoneEndWeek_Object((1,3,6,1,4,1,6527,3,1,2,1,2,6,1,12),_StiSummerZoneEndWeek_Type())
-stiSummerZoneEndWeek.setMaxAccess(_E)
-if mibBuilder.loadTexts:stiSummerZoneEndWeek.setStatus(_B)
-class _StiSummerZoneEndMonth_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*(('january',0),('february',1),('march',2),('april',3),('may',4),('june',5),('july',6),('august',7),(_Ea,8),('october',9),('november',10),('december',11)))
-_StiSummerZoneEndMonth_Type.__name__=_F
-_StiSummerZoneEndMonth_Object=MibTableColumn
-stiSummerZoneEndMonth=_StiSummerZoneEndMonth_Object((1,3,6,1,4,1,6527,3,1,2,1,2,6,1,13),_StiSummerZoneEndMonth_Type())
-stiSummerZoneEndMonth.setMaxAccess(_E)
-if mibBuilder.loadTexts:stiSummerZoneEndMonth.setStatus(_B)
-class _StiSummerZoneEndHour_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,23))
-_StiSummerZoneEndHour_Type.__name__=_G
-_StiSummerZoneEndHour_Object=MibTableColumn
-stiSummerZoneEndHour=_StiSummerZoneEndHour_Object((1,3,6,1,4,1,6527,3,1,2,1,2,6,1,14),_StiSummerZoneEndHour_Type())
-stiSummerZoneEndHour.setMaxAccess(_E)
-if mibBuilder.loadTexts:stiSummerZoneEndHour.setStatus(_B)
-if mibBuilder.loadTexts:stiSummerZoneEndHour.setUnits(_C6)
-class _StiSummerZoneEndMinute_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,59))
-_StiSummerZoneEndMinute_Type.__name__=_G
-_StiSummerZoneEndMinute_Object=MibTableColumn
-stiSummerZoneEndMinute=_StiSummerZoneEndMinute_Object((1,3,6,1,4,1,6527,3,1,2,1,2,6,1,15),_StiSummerZoneEndMinute_Type())
-stiSummerZoneEndMinute.setMaxAccess(_E)
-if mibBuilder.loadTexts:stiSummerZoneEndMinute.setStatus(_B)
-if mibBuilder.loadTexts:stiSummerZoneEndMinute.setUnits(_A4)
-class _StiPreferLocalTime_Type(TruthValue):defaultValue=2
-_StiPreferLocalTime_Type.__name__=_H
-_StiPreferLocalTime_Object=MibScalar
-stiPreferLocalTime=_StiPreferLocalTime_Object((1,3,6,1,4,1,6527,3,1,2,1,2,7),_StiPreferLocalTime_Type())
-stiPreferLocalTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:stiPreferLocalTime.setStatus(_B)
-_SysSntpInfo_ObjectIdentity=ObjectIdentity
-sysSntpInfo=_SysSntpInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,3))
-class _SntpState_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('unicast',1),('broadcast',2)))
-_SntpState_Type.__name__=_F
-_SntpState_Object=MibScalar
-sntpState=_SntpState_Object((1,3,6,1,4,1,6527,3,1,2,1,3,1),_SntpState_Type())
-sntpState.setMaxAccess(_D)
-if mibBuilder.loadTexts:sntpState.setStatus(_B)
-_SntpServerTable_Object=MibTable
-sntpServerTable=_SntpServerTable_Object((1,3,6,1,4,1,6527,3,1,2,1,3,2))
-if mibBuilder.loadTexts:sntpServerTable.setStatus(_B)
-_SntpServerEntry_Object=MibTableRow
-sntpServerEntry=_SntpServerEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,3,2,1))
-sntpServerEntry.setIndexNames((0,_A,_Eb))
-if mibBuilder.loadTexts:sntpServerEntry.setStatus(_B)
-_SntpServerAddress_Type=IpAddress
-_SntpServerAddress_Object=MibTableColumn
-sntpServerAddress=_SntpServerAddress_Object((1,3,6,1,4,1,6527,3,1,2,1,3,2,1,1),_SntpServerAddress_Type())
-sntpServerAddress.setMaxAccess(_I)
-if mibBuilder.loadTexts:sntpServerAddress.setStatus(_B)
-_SntpServerRowStatus_Type=RowStatus
-_SntpServerRowStatus_Object=MibTableColumn
-sntpServerRowStatus=_SntpServerRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,3,2,1,2),_SntpServerRowStatus_Type())
-sntpServerRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:sntpServerRowStatus.setStatus(_B)
-class _SntpServerVersion_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3))
-_SntpServerVersion_Type.__name__=_F
-_SntpServerVersion_Object=MibTableColumn
-sntpServerVersion=_SntpServerVersion_Object((1,3,6,1,4,1,6527,3,1,2,1,3,2,1,3),_SntpServerVersion_Type())
-sntpServerVersion.setMaxAccess(_E)
-if mibBuilder.loadTexts:sntpServerVersion.setStatus(_B)
-class _SntpServerPreference_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('normal',1),('preferred',2)))
-_SntpServerPreference_Type.__name__=_F
-_SntpServerPreference_Object=MibTableColumn
-sntpServerPreference=_SntpServerPreference_Object((1,3,6,1,4,1,6527,3,1,2,1,3,2,1,4),_SntpServerPreference_Type())
-sntpServerPreference.setMaxAccess(_E)
-if mibBuilder.loadTexts:sntpServerPreference.setStatus(_B)
-class _SntpServerInterval_Type(Unsigned32):defaultValue=64;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(64,1024))
-_SntpServerInterval_Type.__name__=_G
-_SntpServerInterval_Object=MibTableColumn
-sntpServerInterval=_SntpServerInterval_Object((1,3,6,1,4,1,6527,3,1,2,1,3,2,1,5),_SntpServerInterval_Type())
-sntpServerInterval.setMaxAccess(_E)
-if mibBuilder.loadTexts:sntpServerInterval.setStatus(_B)
-if mibBuilder.loadTexts:sntpServerInterval.setUnits(_U)
-class _SntpAdminState_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('noop',1),('inService',2),('outOfService',3)))
-_SntpAdminState_Type.__name__=_F
-_SntpAdminState_Object=MibScalar
-sntpAdminState=_SntpAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,3,3),_SntpAdminState_Type())
-sntpAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:sntpAdminState.setStatus(_B)
-_SntpOperStatus_Type=TmnxOperState
-_SntpOperStatus_Object=MibScalar
-sntpOperStatus=_SntpOperStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,3,4),_SntpOperStatus_Type())
-sntpOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:sntpOperStatus.setStatus(_B)
-_SysSyncInfo_ObjectIdentity=ObjectIdentity
-sysSyncInfo=_SysSyncInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,4))
-class _SsiSaveConfig_Type(TmnxActionType):defaultValue=2
-_SsiSaveConfig_Type.__name__=_V
-_SsiSaveConfig_Object=MibScalar
-ssiSaveConfig=_SsiSaveConfig_Object((1,3,6,1,4,1,6527,3,1,2,1,4,15),_SsiSaveConfig_Type())
-ssiSaveConfig.setMaxAccess(_D)
-if mibBuilder.loadTexts:ssiSaveConfig.setStatus(_B)
-class _SsiSyncMode_Type(TmnxSsiSyncMode):defaultValue=1
-_SsiSyncMode_Type.__name__=_C7
-_SsiSyncMode_Object=MibScalar
-ssiSyncMode=_SsiSyncMode_Object((1,3,6,1,4,1,6527,3,1,2,1,4,16),_SsiSyncMode_Type())
-ssiSyncMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:ssiSyncMode.setStatus(_B)
-class _SsiSyncForce_Type(TmnxSsiSyncMode):defaultValue=1
-_SsiSyncForce_Type.__name__=_C7
-_SsiSyncForce_Object=MibScalar
-ssiSyncForce=_SsiSyncForce_Object((1,3,6,1,4,1,6527,3,1,2,1,4,17),_SsiSyncForce_Type())
-ssiSyncForce.setMaxAccess(_D)
-if mibBuilder.loadTexts:ssiSyncForce.setStatus(_B)
-class _SsiSyncStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6)));namedValues=NamedValues(*((_r,0),('configOnly',1),('bootEnv',2),('configFail',3),('bootEnvFail',4),('configInProgress',5),('bootEnvInProgress',6)))
-_SsiSyncStatus_Type.__name__=_F
-_SsiSyncStatus_Object=MibScalar
-ssiSyncStatus=_SsiSyncStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,4,18),_SsiSyncStatus_Type())
-ssiSyncStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ssiSyncStatus.setStatus(_B)
-_SsiSyncConfigLastTime_Type=TimeStamp
-_SsiSyncConfigLastTime_Object=MibScalar
-ssiSyncConfigLastTime=_SsiSyncConfigLastTime_Object((1,3,6,1,4,1,6527,3,1,2,1,4,19),_SsiSyncConfigLastTime_Type())
-ssiSyncConfigLastTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ssiSyncConfigLastTime.setStatus(_B)
-_SsiSyncBootEnvLastTime_Type=TimeStamp
-_SsiSyncBootEnvLastTime_Object=MibScalar
-ssiSyncBootEnvLastTime=_SsiSyncBootEnvLastTime_Object((1,3,6,1,4,1,6527,3,1,2,1,4,20),_SsiSyncBootEnvLastTime_Type())
-ssiSyncBootEnvLastTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ssiSyncBootEnvLastTime.setStatus(_B)
-class _SsiConfigMaxBackupRevisions_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,200))
-_SsiConfigMaxBackupRevisions_Type.__name__=_G
-_SsiConfigMaxBackupRevisions_Object=MibScalar
-ssiConfigMaxBackupRevisions=_SsiConfigMaxBackupRevisions_Object((1,3,6,1,4,1,6527,3,1,2,1,4,21),_SsiConfigMaxBackupRevisions_Type())
-ssiConfigMaxBackupRevisions.setMaxAccess(_D)
-if mibBuilder.loadTexts:ssiConfigMaxBackupRevisions.setStatus(_B)
-class _SsiSaveConfigResult_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_O,1),(_Z,2),(_Q,3),(_a,4)))
-_SsiSaveConfigResult_Type.__name__=_F
-_SsiSaveConfigResult_Object=MibScalar
-ssiSaveConfigResult=_SsiSaveConfigResult_Object((1,3,6,1,4,1,6527,3,1,2,1,4,22),_SsiSaveConfigResult_Type())
-ssiSaveConfigResult.setMaxAccess(_C)
-if mibBuilder.loadTexts:ssiSaveConfigResult.setStatus(_B)
-class _SsiSaveBof_Type(TmnxActionType):defaultValue=2
-_SsiSaveBof_Type.__name__=_V
-_SsiSaveBof_Object=MibScalar
-ssiSaveBof=_SsiSaveBof_Object((1,3,6,1,4,1,6527,3,1,2,1,4,23),_SsiSaveBof_Type())
-ssiSaveBof.setMaxAccess(_D)
-if mibBuilder.loadTexts:ssiSaveBof.setStatus(_B)
-class _SsiSaveBofResult_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_O,1),(_Z,2),(_Q,3),(_a,4)))
-_SsiSaveBofResult_Type.__name__=_F
-_SsiSaveBofResult_Object=MibScalar
-ssiSaveBofResult=_SsiSaveBofResult_Object((1,3,6,1,4,1,6527,3,1,2,1,4,24),_SsiSaveBofResult_Type())
-ssiSaveBofResult.setMaxAccess(_C)
-if mibBuilder.loadTexts:ssiSaveBofResult.setStatus(_B)
-class _SsiSaveConfigDest_Type(TmnxDisplayStringURL):defaultHexValue=''
-_SsiSaveConfigDest_Type.__name__=_P
-_SsiSaveConfigDest_Object=MibScalar
-ssiSaveConfigDest=_SsiSaveConfigDest_Object((1,3,6,1,4,1,6527,3,1,2,1,4,25),_SsiSaveConfigDest_Type())
-ssiSaveConfigDest.setMaxAccess(_D)
-if mibBuilder.loadTexts:ssiSaveConfigDest.setStatus(_B)
-class _SsiSaveConfigDetail_Type(TruthValue):defaultValue=2
-_SsiSaveConfigDetail_Type.__name__=_H
-_SsiSaveConfigDetail_Object=MibScalar
-ssiSaveConfigDetail=_SsiSaveConfigDetail_Object((1,3,6,1,4,1,6527,3,1,2,1,4,26),_SsiSaveConfigDetail_Type())
-ssiSaveConfigDetail.setMaxAccess(_D)
-if mibBuilder.loadTexts:ssiSaveConfigDetail.setStatus(_B)
-_SsiRedFailoverTime_Type=TimeStamp
-_SsiRedFailoverTime_Object=MibScalar
-ssiRedFailoverTime=_SsiRedFailoverTime_Object((1,3,6,1,4,1,6527,3,1,2,1,4,27),_SsiRedFailoverTime_Type())
-ssiRedFailoverTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ssiRedFailoverTime.setStatus(_B)
-class _SsiRedFailoverReason_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_SsiRedFailoverReason_Type.__name__=_M
-_SsiRedFailoverReason_Object=MibScalar
-ssiRedFailoverReason=_SsiRedFailoverReason_Object((1,3,6,1,4,1,6527,3,1,2,1,4,28),_SsiRedFailoverReason_Type())
-ssiRedFailoverReason.setMaxAccess(_C)
-if mibBuilder.loadTexts:ssiRedFailoverReason.setStatus(_B)
-_SsiSyncRollbackLastTime_Type=TimeStamp
-_SsiSyncRollbackLastTime_Object=MibScalar
-ssiSyncRollbackLastTime=_SsiSyncRollbackLastTime_Object((1,3,6,1,4,1,6527,3,1,2,1,4,29),_SsiSyncRollbackLastTime_Type())
-ssiSyncRollbackLastTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ssiSyncRollbackLastTime.setStatus(_B)
-class _SsiSyncRollbackMode_Type(TmnxSsiSyncRollbackMode):defaultValue=1
-_SsiSyncRollbackMode_Type.__name__=_C8
-_SsiSyncRollbackMode_Object=MibScalar
-ssiSyncRollbackMode=_SsiSyncRollbackMode_Object((1,3,6,1,4,1,6527,3,1,2,1,4,30),_SsiSyncRollbackMode_Type())
-ssiSyncRollbackMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:ssiSyncRollbackMode.setStatus(_B)
-class _SsiSyncRollbackForce_Type(TmnxSsiSyncRollbackMode):defaultValue=1
-_SsiSyncRollbackForce_Type.__name__=_C8
-_SsiSyncRollbackForce_Object=MibScalar
-ssiSyncRollbackForce=_SsiSyncRollbackForce_Object((1,3,6,1,4,1,6527,3,1,2,1,4,31),_SsiSyncRollbackForce_Type())
-ssiSyncRollbackForce.setMaxAccess(_D)
-if mibBuilder.loadTexts:ssiSyncRollbackForce.setStatus(_B)
-class _SsiSyncRollbackStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_r,0),('rollbackFail',1),('rollbackInProgress',2),('rollbackSuccess',3)))
-_SsiSyncRollbackStatus_Type.__name__=_F
-_SsiSyncRollbackStatus_Object=MibScalar
-ssiSyncRollbackStatus=_SsiSyncRollbackStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,4,32),_SsiSyncRollbackStatus_Type())
-ssiSyncRollbackStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ssiSyncRollbackStatus.setStatus(_B)
-_SsiSyncCertLastTime_Type=TimeStamp
-_SsiSyncCertLastTime_Object=MibScalar
-ssiSyncCertLastTime=_SsiSyncCertLastTime_Object((1,3,6,1,4,1,6527,3,1,2,1,4,33),_SsiSyncCertLastTime_Type())
-ssiSyncCertLastTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ssiSyncCertLastTime.setStatus(_B)
-class _SsiSyncCertMode_Type(TruthValue):defaultValue=1
-_SsiSyncCertMode_Type.__name__=_H
-_SsiSyncCertMode_Object=MibScalar
-ssiSyncCertMode=_SsiSyncCertMode_Object((1,3,6,1,4,1,6527,3,1,2,1,4,34),_SsiSyncCertMode_Type())
-ssiSyncCertMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:ssiSyncCertMode.setStatus(_B)
-class _SsiSyncCertForce_Type(TmnxActionType):defaultValue=2
-_SsiSyncCertForce_Type.__name__=_V
-_SsiSyncCertForce_Object=MibScalar
-ssiSyncCertForce=_SsiSyncCertForce_Object((1,3,6,1,4,1,6527,3,1,2,1,4,35),_SsiSyncCertForce_Type())
-ssiSyncCertForce.setMaxAccess(_D)
-if mibBuilder.loadTexts:ssiSyncCertForce.setStatus(_B)
-class _SsiSyncCertStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_r,0),(_AI,1),(_Z,2),(_Q,3)))
-_SsiSyncCertStatus_Type.__name__=_F
-_SsiSyncCertStatus_Object=MibScalar
-ssiSyncCertStatus=_SsiSyncCertStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,4,36),_SsiSyncCertStatus_Type())
-ssiSyncCertStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ssiSyncCertStatus.setStatus(_B)
-_SysBootInfo_ObjectIdentity=ObjectIdentity
-sysBootInfo=_SysBootInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,5))
-class _SbiConfigStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('configRead',1),('configOK',2),('defaultBooted',3),('bootConfigFailed',4),('bootRestoreFailed',5),('auto-provisioning',6)))
-_SbiConfigStatus_Type.__name__=_F
-_SbiConfigStatus_Object=MibScalar
-sbiConfigStatus=_SbiConfigStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,5,1),_SbiConfigStatus_Type())
-sbiConfigStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:sbiConfigStatus.setStatus(_B)
-class _SbiPersistStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('persistOK',1),('noPersistFile',2),('persistMismatch',3),('persistIndexFailure',4),('persistDisabled',5),('persistInvalid',6),('persistBoot',7),('persistInit',8),('persistInProgress',9)))
-_SbiPersistStatus_Type.__name__=_F
-_SbiPersistStatus_Object=MibScalar
-sbiPersistStatus=_SbiPersistStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,5,2),_SbiPersistStatus_Type())
-sbiPersistStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:sbiPersistStatus.setStatus(_B)
-_SbiPersistIndex_Type=TruthValue
-_SbiPersistIndex_Object=MibScalar
-sbiPersistIndex=_SbiPersistIndex_Object((1,3,6,1,4,1,6527,3,1,2,1,5,3),_SbiPersistIndex_Type())
-sbiPersistIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:sbiPersistIndex.setStatus(_B)
-class _SbiSnmpdAdminStatus_Type(TmnxAdminState):defaultValue=2
-_SbiSnmpdAdminStatus_Type.__name__=_N
-_SbiSnmpdAdminStatus_Object=MibScalar
-sbiSnmpdAdminStatus=_SbiSnmpdAdminStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,5,4),_SbiSnmpdAdminStatus_Type())
-sbiSnmpdAdminStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiSnmpdAdminStatus.setStatus(_B)
-_SbiSnmpdOperStatus_Type=TmnxOperState
-_SbiSnmpdOperStatus_Object=MibScalar
-sbiSnmpdOperStatus=_SbiSnmpdOperStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,5,5),_SbiSnmpdOperStatus_Type())
-sbiSnmpdOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:sbiSnmpdOperStatus.setStatus(_B)
-class _SbiSnmpdMaxPktSize_Type(Integer32):defaultValue=1500;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(484,9216))
-_SbiSnmpdMaxPktSize_Type.__name__=_F
-_SbiSnmpdMaxPktSize_Object=MibScalar
-sbiSnmpdMaxPktSize=_SbiSnmpdMaxPktSize_Object((1,3,6,1,4,1,6527,3,1,2,1,5,6),_SbiSnmpdMaxPktSize_Type())
-sbiSnmpdMaxPktSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiSnmpdMaxPktSize.setStatus(_B)
-class _SbiSnmpdPortNum_Type(TTcpUdpPort):defaultValue=161
-_SbiSnmpdPortNum_Type.__name__=_ER
-_SbiSnmpdPortNum_Object=MibScalar
-sbiSnmpdPortNum=_SbiSnmpdPortNum_Object((1,3,6,1,4,1,6527,3,1,2,1,5,7),_SbiSnmpdPortNum_Type())
-sbiSnmpdPortNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiSnmpdPortNum.setStatus(_B)
-class _SbiBootConfigOKScript_Type(DisplayString):defaultHexValue=''
-_SbiBootConfigOKScript_Type.__name__=_M
-_SbiBootConfigOKScript_Object=MibScalar
-sbiBootConfigOKScript=_SbiBootConfigOKScript_Object((1,3,6,1,4,1,6527,3,1,2,1,5,8),_SbiBootConfigOKScript_Type())
-sbiBootConfigOKScript.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiBootConfigOKScript.setStatus(_B)
-class _SbiConfigOKScriptStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_Ao,0),(_Q,1),(_AI,2)))
-_SbiConfigOKScriptStatus_Type.__name__=_F
-_SbiConfigOKScriptStatus_Object=MibScalar
-sbiConfigOKScriptStatus=_SbiConfigOKScriptStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,5,9),_SbiConfigOKScriptStatus_Type())
-sbiConfigOKScriptStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:sbiConfigOKScriptStatus.setStatus(_B)
-class _SbiBootConfigFailScript_Type(DisplayString):defaultHexValue=''
-_SbiBootConfigFailScript_Type.__name__=_M
-_SbiBootConfigFailScript_Object=MibScalar
-sbiBootConfigFailScript=_SbiBootConfigFailScript_Object((1,3,6,1,4,1,6527,3,1,2,1,5,10),_SbiBootConfigFailScript_Type())
-sbiBootConfigFailScript.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiBootConfigFailScript.setStatus(_B)
-class _SbiConfigFailScriptStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_Ao,0),(_Q,1),(_AI,2)))
-_SbiConfigFailScriptStatus_Type.__name__=_F
-_SbiConfigFailScriptStatus_Object=MibScalar
-sbiConfigFailScriptStatus=_SbiConfigFailScriptStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,5,11),_SbiConfigFailScriptStatus_Type())
-sbiConfigFailScriptStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:sbiConfigFailScriptStatus.setStatus(_B)
-class _SbiRedSwitchoverScript_Type(DisplayString):defaultHexValue=''
-_SbiRedSwitchoverScript_Type.__name__=_M
-_SbiRedSwitchoverScript_Object=MibScalar
-sbiRedSwitchoverScript=_SbiRedSwitchoverScript_Object((1,3,6,1,4,1,6527,3,1,2,1,5,12),_SbiRedSwitchoverScript_Type())
-sbiRedSwitchoverScript.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiRedSwitchoverScript.setStatus(_B)
-class _SbiRedSwitchoverScriptStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_Ao,0),(_Q,1),(_AI,2)))
-_SbiRedSwitchoverScriptStatus_Type.__name__=_F
-_SbiRedSwitchoverScriptStatus_Object=MibScalar
-sbiRedSwitchoverScriptStatus=_SbiRedSwitchoverScriptStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,5,13),_SbiRedSwitchoverScriptStatus_Type())
-sbiRedSwitchoverScriptStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:sbiRedSwitchoverScriptStatus.setStatus(_B)
-class _SbiAllowBootLicenseViolations_Type(TruthValue):defaultValue=1
-_SbiAllowBootLicenseViolations_Type.__name__=_H
-_SbiAllowBootLicenseViolations_Object=MibScalar
-sbiAllowBootLicenseViolations=_SbiAllowBootLicenseViolations_Object((1,3,6,1,4,1,6527,3,1,2,1,5,14),_SbiAllowBootLicenseViolations_Type())
-sbiAllowBootLicenseViolations.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAllowBootLicenseViolations.setStatus(_B)
-_SysRadiusInfo_ObjectIdentity=ObjectIdentity
-sysRadiusInfo=_SysRadiusInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,6))
-class _RadiusOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),(_Ap,2)))
-_RadiusOperStatus_Type.__name__=_F
-_RadiusOperStatus_Object=MibScalar
-radiusOperStatus=_RadiusOperStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,6,1),_RadiusOperStatus_Type())
-radiusOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:radiusOperStatus.setStatus(_B)
-_RadiusServerTable_Object=MibTable
-radiusServerTable=_RadiusServerTable_Object((1,3,6,1,4,1,6527,3,1,2,1,6,2))
-if mibBuilder.loadTexts:radiusServerTable.setStatus(_B)
-_RadiusServerEntry_Object=MibTableRow
-radiusServerEntry=_RadiusServerEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,6,2,1))
-radiusServerEntry.setIndexNames((0,_A,_Ec))
-if mibBuilder.loadTexts:radiusServerEntry.setStatus(_B)
-class _RadiusServerIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,5))
-_RadiusServerIndex_Type.__name__=_G
-_RadiusServerIndex_Object=MibTableColumn
-radiusServerIndex=_RadiusServerIndex_Object((1,3,6,1,4,1,6527,3,1,2,1,6,2,1,1),_RadiusServerIndex_Type())
-radiusServerIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:radiusServerIndex.setStatus(_B)
-_RadiusServerAddress_Type=IpAddress
-_RadiusServerAddress_Object=MibTableColumn
-radiusServerAddress=_RadiusServerAddress_Object((1,3,6,1,4,1,6527,3,1,2,1,6,2,1,2),_RadiusServerAddress_Type())
-radiusServerAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:radiusServerAddress.setStatus(_L)
-class _RadiusServerOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),(_Ap,2)))
-_RadiusServerOperStatus_Type.__name__=_F
-_RadiusServerOperStatus_Object=MibTableColumn
-radiusServerOperStatus=_RadiusServerOperStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,6,2,1,3),_RadiusServerOperStatus_Type())
-radiusServerOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:radiusServerOperStatus.setStatus(_B)
-_RadiusServerInetAddressType_Type=InetAddressType
-_RadiusServerInetAddressType_Object=MibTableColumn
-radiusServerInetAddressType=_RadiusServerInetAddressType_Object((1,3,6,1,4,1,6527,3,1,2,1,6,2,1,4),_RadiusServerInetAddressType_Type())
-radiusServerInetAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:radiusServerInetAddressType.setStatus(_B)
-class _RadiusServerInetAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
-_RadiusServerInetAddress_Type.__name__=_R
-_RadiusServerInetAddress_Object=MibTableColumn
-radiusServerInetAddress=_RadiusServerInetAddress_Object((1,3,6,1,4,1,6527,3,1,2,1,6,2,1,5),_RadiusServerInetAddress_Type())
-radiusServerInetAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:radiusServerInetAddress.setStatus(_B)
-_TmnxSysNotifyObjs_ObjectIdentity=ObjectIdentity
-tmnxSysNotifyObjs=_TmnxSysNotifyObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,7))
-_TmnxNotifyRow_Type=RowPointer
-_TmnxNotifyRow_Object=MibScalar
-tmnxNotifyRow=_TmnxNotifyRow_Object((1,3,6,1,4,1,6527,3,1,2,1,7,1),_TmnxNotifyRow_Type())
-tmnxNotifyRow.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxNotifyRow.setStatus(_B)
-_TmnxNotifyRowAdminState_Type=TmnxAdminState
-_TmnxNotifyRowAdminState_Object=MibScalar
-tmnxNotifyRowAdminState=_TmnxNotifyRowAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,7,2),_TmnxNotifyRowAdminState_Type())
-tmnxNotifyRowAdminState.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxNotifyRowAdminState.setStatus(_B)
-_TmnxNotifyRowOperState_Type=TmnxOperState
-_TmnxNotifyRowOperState_Object=MibScalar
-tmnxNotifyRowOperState=_TmnxNotifyRowOperState_Object((1,3,6,1,4,1,6527,3,1,2,1,7,3),_TmnxNotifyRowOperState_Type())
-tmnxNotifyRowOperState.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxNotifyRowOperState.setStatus(_B)
-_TmnxMemoryModule_Type=TNamedItem
-_TmnxMemoryModule_Object=MibScalar
-tmnxMemoryModule=_TmnxMemoryModule_Object((1,3,6,1,4,1,6527,3,1,2,1,7,4),_TmnxMemoryModule_Type())
-tmnxMemoryModule.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxMemoryModule.setStatus(_B)
-_TmnxModuleMallocSize_Type=Unsigned32
-_TmnxModuleMallocSize_Object=MibScalar
-tmnxModuleMallocSize=_TmnxModuleMallocSize_Object((1,3,6,1,4,1,6527,3,1,2,1,7,5),_TmnxModuleMallocSize_Type())
-tmnxModuleMallocSize.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxModuleMallocSize.setStatus(_B)
-if mibBuilder.loadTexts:tmnxModuleMallocSize.setUnits(_A3)
-_TmnxDroppedTrapID_Type=ObjectIdentifier
-_TmnxDroppedTrapID_Object=MibScalar
-tmnxDroppedTrapID=_TmnxDroppedTrapID_Object((1,3,6,1,4,1,6527,3,1,2,1,7,6),_TmnxDroppedTrapID_Type())
-tmnxDroppedTrapID.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxDroppedTrapID.setStatus(_B)
-class _TmnxTrapDroppedReasonCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('frequencyExceeded',1))
-_TmnxTrapDroppedReasonCode_Type.__name__=_F
-_TmnxTrapDroppedReasonCode_Object=MibScalar
-tmnxTrapDroppedReasonCode=_TmnxTrapDroppedReasonCode_Object((1,3,6,1,4,1,6527,3,1,2,1,7,7),_TmnxTrapDroppedReasonCode_Type())
-tmnxTrapDroppedReasonCode.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxTrapDroppedReasonCode.setStatus(_B)
-_TmnxTrapDroppedEntryID_Type=ObjectIdentifier
-_TmnxTrapDroppedEntryID_Object=MibScalar
-tmnxTrapDroppedEntryID=_TmnxTrapDroppedEntryID_Object((1,3,6,1,4,1,6527,3,1,2,1,7,8),_TmnxTrapDroppedEntryID_Type())
-tmnxTrapDroppedEntryID.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxTrapDroppedEntryID.setStatus(_B)
-_TmnxNotifyEntryOID_Type=ObjectIdentifier
-_TmnxNotifyEntryOID_Object=MibScalar
-tmnxNotifyEntryOID=_TmnxNotifyEntryOID_Object((1,3,6,1,4,1,6527,3,1,2,1,7,9),_TmnxNotifyEntryOID_Type())
-tmnxNotifyEntryOID.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxNotifyEntryOID.setStatus(_B)
-_TmnxSnmpdErrorMsg_Type=DisplayString
-_TmnxSnmpdErrorMsg_Object=MibScalar
-tmnxSnmpdErrorMsg=_TmnxSnmpdErrorMsg_Object((1,3,6,1,4,1,6527,3,1,2,1,7,10),_TmnxSnmpdErrorMsg_Type())
-tmnxSnmpdErrorMsg.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxSnmpdErrorMsg.setStatus(_B)
-_TmnxPersistencyClient_Type=DisplayString
-_TmnxPersistencyClient_Object=MibScalar
-tmnxPersistencyClient=_TmnxPersistencyClient_Object((1,3,6,1,4,1,6527,3,1,2,1,7,11),_TmnxPersistencyClient_Type())
-tmnxPersistencyClient.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxPersistencyClient.setStatus(_B)
-_TmnxPersistencyFileLocator_Type=DisplayString
-_TmnxPersistencyFileLocator_Object=MibScalar
-tmnxPersistencyFileLocator=_TmnxPersistencyFileLocator_Object((1,3,6,1,4,1,6527,3,1,2,1,7,12),_TmnxPersistencyFileLocator_Type())
-tmnxPersistencyFileLocator.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxPersistencyFileLocator.setStatus(_B)
-_TmnxPersistencyNotifyMsg_Type=DisplayString
-_TmnxPersistencyNotifyMsg_Object=MibScalar
-tmnxPersistencyNotifyMsg=_TmnxPersistencyNotifyMsg_Object((1,3,6,1,4,1,6527,3,1,2,1,7,13),_TmnxPersistencyNotifyMsg_Type())
-tmnxPersistencyNotifyMsg.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxPersistencyNotifyMsg.setStatus(_B)
-_TmnxPersistenceAffectedCpm_Type=DisplayString
-_TmnxPersistenceAffectedCpm_Object=MibScalar
-tmnxPersistenceAffectedCpm=_TmnxPersistenceAffectedCpm_Object((1,3,6,1,4,1,6527,3,1,2,1,7,14),_TmnxPersistenceAffectedCpm_Type())
-tmnxPersistenceAffectedCpm.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxPersistenceAffectedCpm.setStatus(_B)
-class _TmnxSysTimeSetBy_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('ntp',1),('sntp',2),('snmp',3),('manually',4),('rtc',5)))
-_TmnxSysTimeSetBy_Type.__name__=_F
-_TmnxSysTimeSetBy_Object=MibScalar
-tmnxSysTimeSetBy=_TmnxSysTimeSetBy_Object((1,3,6,1,4,1,6527,3,1,2,1,7,15),_TmnxSysTimeSetBy_Type())
-tmnxSysTimeSetBy.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxSysTimeSetBy.setStatus(_B)
-_TmnxFtpFailureMsg_Type=DisplayString
-_TmnxFtpFailureMsg_Object=MibScalar
-tmnxFtpFailureMsg=_TmnxFtpFailureMsg_Object((1,3,6,1,4,1,6527,3,1,2,1,7,16),_TmnxFtpFailureMsg_Type())
-tmnxFtpFailureMsg.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxFtpFailureMsg.setStatus(_B)
-_TmnxFtpFailureDestAddressType_Type=InetAddressType
-_TmnxFtpFailureDestAddressType_Object=MibScalar
-tmnxFtpFailureDestAddressType=_TmnxFtpFailureDestAddressType_Object((1,3,6,1,4,1,6527,3,1,2,1,7,17),_TmnxFtpFailureDestAddressType_Type())
-tmnxFtpFailureDestAddressType.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxFtpFailureDestAddressType.setStatus(_B)
-class _TmnxFtpFailureDestAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
-_TmnxFtpFailureDestAddress_Type.__name__=_R
-_TmnxFtpFailureDestAddress_Object=MibScalar
-tmnxFtpFailureDestAddress=_TmnxFtpFailureDestAddress_Object((1,3,6,1,4,1,6527,3,1,2,1,7,18),_TmnxFtpFailureDestAddress_Type())
-tmnxFtpFailureDestAddress.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxFtpFailureDestAddress.setStatus(_B)
-_TmnxNotifyObjectName_Type=DisplayString
-_TmnxNotifyObjectName_Object=MibScalar
-tmnxNotifyObjectName=_TmnxNotifyObjectName_Object((1,3,6,1,4,1,6527,3,1,2,1,7,19),_TmnxNotifyObjectName_Type())
-tmnxNotifyObjectName.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxNotifyObjectName.setStatus(_B)
-_TmnxSyncFailureReason_Type=DisplayString
-_TmnxSyncFailureReason_Object=MibScalar
-tmnxSyncFailureReason=_TmnxSyncFailureReason_Object((1,3,6,1,4,1,6527,3,1,2,1,7,20),_TmnxSyncFailureReason_Type())
-tmnxSyncFailureReason.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxSyncFailureReason.setStatus(_B)
-_TmnxSysExecScript_Type=DisplayString
-_TmnxSysExecScript_Object=MibScalar
-tmnxSysExecScript=_TmnxSysExecScript_Object((1,3,6,1,4,1,6527,3,1,2,1,7,21),_TmnxSysExecScript_Type())
-tmnxSysExecScript.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxSysExecScript.setStatus(_B)
-class _TmnxSysExecResult_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_O,0),(_Q,1),(_AI,2)))
-_TmnxSysExecResult_Type.__name__=_F
-_TmnxSysExecResult_Object=MibScalar
-tmnxSysExecResult=_TmnxSysExecResult_Object((1,3,6,1,4,1,6527,3,1,2,1,7,22),_TmnxSysExecResult_Type())
-tmnxSysExecResult.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxSysExecResult.setStatus(_B)
-class _TmnxSysRollbackFileType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('rollback',1),('rescue',2)))
-_TmnxSysRollbackFileType_Type.__name__=_F
-_TmnxSysRollbackFileType_Object=MibScalar
-tmnxSysRollbackFileType=_TmnxSysRollbackFileType_Object((1,3,6,1,4,1,6527,3,1,2,1,7,23),_TmnxSysRollbackFileType_Type())
-tmnxSysRollbackFileType.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxSysRollbackFileType.setStatus(_B)
-class _TmnxSysFileErrorType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('read',1),('write',2)))
-_TmnxSysFileErrorType_Type.__name__=_F
-_TmnxSysFileErrorType_Object=MibScalar
-tmnxSysFileErrorType=_TmnxSysFileErrorType_Object((1,3,6,1,4,1,6527,3,1,2,1,7,24),_TmnxSysFileErrorType_Type())
-tmnxSysFileErrorType.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxSysFileErrorType.setStatus(_B)
-_TmnxTrapDroppedCount_Type=Unsigned32
-_TmnxTrapDroppedCount_Object=MibScalar
-tmnxTrapDroppedCount=_TmnxTrapDroppedCount_Object((1,3,6,1,4,1,6527,3,1,2,1,7,25),_TmnxTrapDroppedCount_Type())
-tmnxTrapDroppedCount.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxTrapDroppedCount.setStatus(_B)
-_TmnxSysDNSSecDomainName_Type=TmnxDisplayStringURL
-_TmnxSysDNSSecDomainName_Object=MibScalar
-tmnxSysDNSSecDomainName=_TmnxSysDNSSecDomainName_Object((1,3,6,1,4,1,6527,3,1,2,1,7,26),_TmnxSysDNSSecDomainName_Type())
-tmnxSysDNSSecDomainName.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxSysDNSSecDomainName.setStatus(_B)
-_TmnxSysLicenseErrorReason_Type=TItemDescription
-_TmnxSysLicenseErrorReason_Object=MibScalar
-tmnxSysLicenseErrorReason=_TmnxSysLicenseErrorReason_Object((1,3,6,1,4,1,6527,3,1,2,1,7,27),_TmnxSysLicenseErrorReason_Type())
-tmnxSysLicenseErrorReason.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxSysLicenseErrorReason.setStatus(_B)
-_TmnxSysLicenseTimeLeft_Type=Unsigned32
-_TmnxSysLicenseTimeLeft_Object=MibScalar
-tmnxSysLicenseTimeLeft=_TmnxSysLicenseTimeLeft_Object((1,3,6,1,4,1,6527,3,1,2,1,7,28),_TmnxSysLicenseTimeLeft_Type())
-tmnxSysLicenseTimeLeft.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxSysLicenseTimeLeft.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysLicenseTimeLeft.setUnits(_A4)
-_TmnxSysNotifVsdServerName_Type=TLDisplayString
-_TmnxSysNotifVsdServerName_Object=MibScalar
-tmnxSysNotifVsdServerName=_TmnxSysNotifVsdServerName_Object((1,3,6,1,4,1,6527,3,1,2,1,7,30),_TmnxSysNotifVsdServerName_Type())
-tmnxSysNotifVsdServerName.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxSysNotifVsdServerName.setStatus(_B)
-class _TmnxSysNotifXmppServerName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_TmnxSysNotifXmppServerName_Type.__name__=_M
-_TmnxSysNotifXmppServerName_Object=MibScalar
-tmnxSysNotifXmppServerName=_TmnxSysNotifXmppServerName_Object((1,3,6,1,4,1,6527,3,1,2,1,7,31),_TmnxSysNotifXmppServerName_Type())
-tmnxSysNotifXmppServerName.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxSysNotifXmppServerName.setStatus(_B)
-_TmnxSysLicenseErrorAction_Type=TItemDescription
-_TmnxSysLicenseErrorAction_Object=MibScalar
-tmnxSysLicenseErrorAction=_TmnxSysLicenseErrorAction_Object((1,3,6,1,4,1,6527,3,1,2,1,7,32),_TmnxSysLicenseErrorAction_Type())
-tmnxSysLicenseErrorAction.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxSysLicenseErrorAction.setStatus(_B)
-_TmnxSysNotifAppStatsApplication_Type=TmnxSysLicenseApplication
-_TmnxSysNotifAppStatsApplication_Object=MibScalar
-tmnxSysNotifAppStatsApplication=_TmnxSysNotifAppStatsApplication_Object((1,3,6,1,4,1,6527,3,1,2,1,7,33),_TmnxSysNotifAppStatsApplication_Type())
-tmnxSysNotifAppStatsApplication.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxSysNotifAppStatsApplication.setStatus(_B)
-_TmnxSysNotifAppStatsType_Type=TmnxSysLicenseAppStatsType
-_TmnxSysNotifAppStatsType_Object=MibScalar
-tmnxSysNotifAppStatsType=_TmnxSysNotifAppStatsType_Object((1,3,6,1,4,1,6527,3,1,2,1,7,34),_TmnxSysNotifAppStatsType_Type())
-tmnxSysNotifAppStatsType.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxSysNotifAppStatsType.setStatus(_B)
-_TmnxSysNotifAppStatsTime_Type=DateAndTime
-_TmnxSysNotifAppStatsTime_Object=MibScalar
-tmnxSysNotifAppStatsTime=_TmnxSysNotifAppStatsTime_Object((1,3,6,1,4,1,6527,3,1,2,1,7,35),_TmnxSysNotifAppStatsTime_Type())
-tmnxSysNotifAppStatsTime.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxSysNotifAppStatsTime.setStatus(_B)
-class _TmnxNotifySysMgmtIfOriginalMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_C9,1),(_CA,2),(_CB,3)))
-_TmnxNotifySysMgmtIfOriginalMode_Type.__name__=_F
-_TmnxNotifySysMgmtIfOriginalMode_Object=MibScalar
-tmnxNotifySysMgmtIfOriginalMode=_TmnxNotifySysMgmtIfOriginalMode_Object((1,3,6,1,4,1,6527,3,1,2,1,7,36),_TmnxNotifySysMgmtIfOriginalMode_Type())
-tmnxNotifySysMgmtIfOriginalMode.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxNotifySysMgmtIfOriginalMode.setStatus(_B)
-_TmnxSysLicensingNotifyGroup_Type=TmnxSysLicensingGroup
-_TmnxSysLicensingNotifyGroup_Object=MibScalar
-tmnxSysLicensingNotifyGroup=_TmnxSysLicensingNotifyGroup_Object((1,3,6,1,4,1,6527,3,1,2,1,7,37),_TmnxSysLicensingNotifyGroup_Type())
-tmnxSysLicensingNotifyGroup.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxSysLicensingNotifyGroup.setStatus(_B)
-_TmnxSysLicensedNotifyAppName_Type=TNamedItem
-_TmnxSysLicensedNotifyAppName_Object=MibScalar
-tmnxSysLicensedNotifyAppName=_TmnxSysLicensedNotifyAppName_Object((1,3,6,1,4,1,6527,3,1,2,1,7,38),_TmnxSysLicensedNotifyAppName_Type())
-tmnxSysLicensedNotifyAppName.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxSysLicensedNotifyAppName.setStatus(_B)
-_TmnxPrimaryConfigFileFormatType_Type=TmnxConfigFileFormatType
-_TmnxPrimaryConfigFileFormatType_Object=MibScalar
-tmnxPrimaryConfigFileFormatType=_TmnxPrimaryConfigFileFormatType_Object((1,3,6,1,4,1,6527,3,1,2,1,7,39),_TmnxPrimaryConfigFileFormatType_Type())
-tmnxPrimaryConfigFileFormatType.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxPrimaryConfigFileFormatType.setStatus(_B)
-_TmnxLiConfigFileFormatType_Type=TmnxConfigFileFormatType
-_TmnxLiConfigFileFormatType_Object=MibScalar
-tmnxLiConfigFileFormatType=_TmnxLiConfigFileFormatType_Object((1,3,6,1,4,1,6527,3,1,2,1,7,40),_TmnxLiConfigFileFormatType_Type())
-tmnxLiConfigFileFormatType.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxLiConfigFileFormatType.setStatus(_B)
-_SysLoginControlInfo_ObjectIdentity=ObjectIdentity
-sysLoginControlInfo=_SysLoginControlInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,8))
-class _SlcFtpInboundMaxSessions_Type(Unsigned32):defaultValue=3;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,5))
-_SlcFtpInboundMaxSessions_Type.__name__=_G
-_SlcFtpInboundMaxSessions_Object=MibScalar
-slcFtpInboundMaxSessions=_SlcFtpInboundMaxSessions_Object((1,3,6,1,4,1,6527,3,1,2,1,8,1),_SlcFtpInboundMaxSessions_Type())
-slcFtpInboundMaxSessions.setMaxAccess(_D)
-if mibBuilder.loadTexts:slcFtpInboundMaxSessions.setStatus(_B)
-class _SlcTelnetInboundMaxSessions_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,50))
-_SlcTelnetInboundMaxSessions_Type.__name__=_G
-_SlcTelnetInboundMaxSessions_Object=MibScalar
-slcTelnetInboundMaxSessions=_SlcTelnetInboundMaxSessions_Object((1,3,6,1,4,1,6527,3,1,2,1,8,2),_SlcTelnetInboundMaxSessions_Type())
-slcTelnetInboundMaxSessions.setMaxAccess(_D)
-if mibBuilder.loadTexts:slcTelnetInboundMaxSessions.setStatus(_B)
-class _SlcTelnetOutboundMaxSessions_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
-_SlcTelnetOutboundMaxSessions_Type.__name__=_G
-_SlcTelnetOutboundMaxSessions_Object=MibScalar
-slcTelnetOutboundMaxSessions=_SlcTelnetOutboundMaxSessions_Object((1,3,6,1,4,1,6527,3,1,2,1,8,3),_SlcTelnetOutboundMaxSessions_Type())
-slcTelnetOutboundMaxSessions.setMaxAccess(_D)
-if mibBuilder.loadTexts:slcTelnetOutboundMaxSessions.setStatus(_B)
-class _SlcPreLoginMessage_Type(TmnxLongDisplayString):defaultHexValue='';subtypeSpec=TmnxLongDisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,900))
-_SlcPreLoginMessage_Type.__name__=_C3
-_SlcPreLoginMessage_Object=MibScalar
-slcPreLoginMessage=_SlcPreLoginMessage_Object((1,3,6,1,4,1,6527,3,1,2,1,8,4),_SlcPreLoginMessage_Type())
-slcPreLoginMessage.setMaxAccess(_D)
-if mibBuilder.loadTexts:slcPreLoginMessage.setStatus(_B)
-class _SlcPreLoginMessageInclName_Type(TruthValue):defaultValue=2
-_SlcPreLoginMessageInclName_Type.__name__=_H
-_SlcPreLoginMessageInclName_Object=MibScalar
-slcPreLoginMessageInclName=_SlcPreLoginMessageInclName_Object((1,3,6,1,4,1,6527,3,1,2,1,8,5),_SlcPreLoginMessageInclName_Type())
-slcPreLoginMessageInclName.setMaxAccess(_D)
-if mibBuilder.loadTexts:slcPreLoginMessageInclName.setStatus(_B)
-class _SlcMessageOfTheDay_Type(TmnxLongDisplayString):defaultHexValue='';subtypeSpec=TmnxLongDisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,900))
-_SlcMessageOfTheDay_Type.__name__=_C3
-_SlcMessageOfTheDay_Object=MibScalar
-slcMessageOfTheDay=_SlcMessageOfTheDay_Object((1,3,6,1,4,1,6527,3,1,2,1,8,6),_SlcMessageOfTheDay_Type())
-slcMessageOfTheDay.setMaxAccess(_D)
-if mibBuilder.loadTexts:slcMessageOfTheDay.setStatus(_B)
-class _SlcMessageOfTheDayType_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('motd-type-none',0),('motd-type-url',1),('motd-type-text',2)))
-_SlcMessageOfTheDayType_Type.__name__=_F
-_SlcMessageOfTheDayType_Object=MibScalar
-slcMessageOfTheDayType=_SlcMessageOfTheDayType_Object((1,3,6,1,4,1,6527,3,1,2,1,8,7),_SlcMessageOfTheDayType_Type())
-slcMessageOfTheDayType.setMaxAccess(_D)
-if mibBuilder.loadTexts:slcMessageOfTheDayType.setStatus(_B)
-class _SlcLoginBanner_Type(TruthValue):defaultValue=2
-_SlcLoginBanner_Type.__name__=_H
-_SlcLoginBanner_Object=MibScalar
-slcLoginBanner=_SlcLoginBanner_Object((1,3,6,1,4,1,6527,3,1,2,1,8,8),_SlcLoginBanner_Type())
-slcLoginBanner.setMaxAccess(_D)
-if mibBuilder.loadTexts:slcLoginBanner.setStatus(_B)
-class _SlcLoginExponentialBackOff_Type(TruthValue):defaultValue=2
-_SlcLoginExponentialBackOff_Type.__name__=_H
-_SlcLoginExponentialBackOff_Object=MibScalar
-slcLoginExponentialBackOff=_SlcLoginExponentialBackOff_Object((1,3,6,1,4,1,6527,3,1,2,1,8,9),_SlcLoginExponentialBackOff_Type())
-slcLoginExponentialBackOff.setMaxAccess(_D)
-if mibBuilder.loadTexts:slcLoginExponentialBackOff.setStatus(_B)
-class _SlcTelnetGracefulShutdown_Type(TruthValue):defaultValue=2
-_SlcTelnetGracefulShutdown_Type.__name__=_H
-_SlcTelnetGracefulShutdown_Object=MibScalar
-slcTelnetGracefulShutdown=_SlcTelnetGracefulShutdown_Object((1,3,6,1,4,1,6527,3,1,2,1,8,10),_SlcTelnetGracefulShutdown_Type())
-slcTelnetGracefulShutdown.setMaxAccess(_D)
-if mibBuilder.loadTexts:slcTelnetGracefulShutdown.setStatus(_B)
-class _SlcSSHGracefulShutdown_Type(TruthValue):defaultValue=1
-_SlcSSHGracefulShutdown_Type.__name__=_H
-_SlcSSHGracefulShutdown_Object=MibScalar
-slcSSHGracefulShutdown=_SlcSSHGracefulShutdown_Object((1,3,6,1,4,1,6527,3,1,2,1,8,11),_SlcSSHGracefulShutdown_Type())
-slcSSHGracefulShutdown.setMaxAccess(_D)
-if mibBuilder.loadTexts:slcSSHGracefulShutdown.setStatus(_B)
-class _SlcTelnetMinTTLValue_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_SlcTelnetMinTTLValue_Type.__name__=_G
-_SlcTelnetMinTTLValue_Object=MibScalar
-slcTelnetMinTTLValue=_SlcTelnetMinTTLValue_Object((1,3,6,1,4,1,6527,3,1,2,1,8,12),_SlcTelnetMinTTLValue_Type())
-slcTelnetMinTTLValue.setMaxAccess(_D)
-if mibBuilder.loadTexts:slcTelnetMinTTLValue.setStatus(_B)
-class _SlcSSHMinTTLValue_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_SlcSSHMinTTLValue_Type.__name__=_G
-_SlcSSHMinTTLValue_Object=MibScalar
-slcSSHMinTTLValue=_SlcSSHMinTTLValue_Object((1,3,6,1,4,1,6527,3,1,2,1,8,13),_SlcSSHMinTTLValue_Type())
-slcSSHMinTTLValue.setMaxAccess(_D)
-if mibBuilder.loadTexts:slcSSHMinTTLValue.setStatus(_B)
-class _SlcSSHInboundMaxSessions_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,50))
-_SlcSSHInboundMaxSessions_Type.__name__=_G
-_SlcSSHInboundMaxSessions_Object=MibScalar
-slcSSHInboundMaxSessions=_SlcSSHInboundMaxSessions_Object((1,3,6,1,4,1,6527,3,1,2,1,8,14),_SlcSSHInboundMaxSessions_Type())
-slcSSHInboundMaxSessions.setMaxAccess(_D)
-if mibBuilder.loadTexts:slcSSHInboundMaxSessions.setStatus(_B)
-class _SlcSSHOutboundMaxSessions_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
-_SlcSSHOutboundMaxSessions_Type.__name__=_G
-_SlcSSHOutboundMaxSessions_Object=MibScalar
-slcSSHOutboundMaxSessions=_SlcSSHOutboundMaxSessions_Object((1,3,6,1,4,1,6527,3,1,2,1,8,15),_SlcSSHOutboundMaxSessions_Type())
-slcSSHOutboundMaxSessions.setMaxAccess(_D)
-if mibBuilder.loadTexts:slcSSHOutboundMaxSessions.setStatus(_B)
-class _SlcIdleTimeout_Type(Unsigned32):defaultValue=30;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1440),ValueRangeConstraint(9999,9999))
-_SlcIdleTimeout_Type.__name__=_G
-_SlcIdleTimeout_Object=MibScalar
-slcIdleTimeout=_SlcIdleTimeout_Object((1,3,6,1,4,1,6527,3,1,2,1,8,16),_SlcIdleTimeout_Type())
-slcIdleTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:slcIdleTimeout.setStatus(_B)
-if mibBuilder.loadTexts:slcIdleTimeout.setUnits(_A4)
-class _SlcLoginScriptGlobal_Type(TmnxDisplayStringURL):defaultHexValue=''
-_SlcLoginScriptGlobal_Type.__name__=_P
-_SlcLoginScriptGlobal_Object=MibScalar
-slcLoginScriptGlobal=_SlcLoginScriptGlobal_Object((1,3,6,1,4,1,6527,3,1,2,1,8,17),_SlcLoginScriptGlobal_Type())
-slcLoginScriptGlobal.setMaxAccess(_D)
-if mibBuilder.loadTexts:slcLoginScriptGlobal.setStatus(_B)
-class _SlcLoginScriptPerUserDirectory_Type(TmnxDisplayStringURL):defaultHexValue=''
-_SlcLoginScriptPerUserDirectory_Type.__name__=_P
-_SlcLoginScriptPerUserDirectory_Object=MibScalar
-slcLoginScriptPerUserDirectory=_SlcLoginScriptPerUserDirectory_Object((1,3,6,1,4,1,6527,3,1,2,1,8,18),_SlcLoginScriptPerUserDirectory_Type())
-slcLoginScriptPerUserDirectory.setMaxAccess(_D)
-if mibBuilder.loadTexts:slcLoginScriptPerUserDirectory.setStatus(_B)
-class _SlcLoginScriptPerUserFilename_Type(DisplayString):defaultHexValue='';subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,180))
-_SlcLoginScriptPerUserFilename_Type.__name__=_M
-_SlcLoginScriptPerUserFilename_Object=MibScalar
-slcLoginScriptPerUserFilename=_SlcLoginScriptPerUserFilename_Object((1,3,6,1,4,1,6527,3,1,2,1,8,19),_SlcLoginScriptPerUserFilename_Type())
-slcLoginScriptPerUserFilename.setMaxAccess(_D)
-if mibBuilder.loadTexts:slcLoginScriptPerUserFilename.setStatus(_B)
-_SysLACPInfo_ObjectIdentity=ObjectIdentity
-sysLACPInfo=_SysLACPInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,9))
-class _SysLACPSystemPriority_Type(Unsigned32):defaultValue=32768;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_SysLACPSystemPriority_Type.__name__=_G
-_SysLACPSystemPriority_Object=MibScalar
-sysLACPSystemPriority=_SysLACPSystemPriority_Object((1,3,6,1,4,1,6527,3,1,2,1,9,1),_SysLACPSystemPriority_Type())
-sysLACPSystemPriority.setMaxAccess(_D)
-if mibBuilder.loadTexts:sysLACPSystemPriority.setStatus(_B)
-_SysTacplusInfo_ObjectIdentity=ObjectIdentity
-sysTacplusInfo=_SysTacplusInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,10))
-class _TacplusOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),(_Ap,2)))
-_TacplusOperStatus_Type.__name__=_F
-_TacplusOperStatus_Object=MibScalar
-tacplusOperStatus=_TacplusOperStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,10,1),_TacplusOperStatus_Type())
-tacplusOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tacplusOperStatus.setStatus(_B)
-_TacplusServerTable_Object=MibTable
-tacplusServerTable=_TacplusServerTable_Object((1,3,6,1,4,1,6527,3,1,2,1,10,2))
-if mibBuilder.loadTexts:tacplusServerTable.setStatus(_B)
-_TacplusServerEntry_Object=MibTableRow
-tacplusServerEntry=_TacplusServerEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,10,2,1))
-tacplusServerEntry.setIndexNames((0,_A,_Ed))
-if mibBuilder.loadTexts:tacplusServerEntry.setStatus(_B)
-class _TacplusServerIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,5))
-_TacplusServerIndex_Type.__name__=_G
-_TacplusServerIndex_Object=MibTableColumn
-tacplusServerIndex=_TacplusServerIndex_Object((1,3,6,1,4,1,6527,3,1,2,1,10,2,1,1),_TacplusServerIndex_Type())
-tacplusServerIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:tacplusServerIndex.setStatus(_B)
-_TacplusServerAddress_Type=IpAddress
-_TacplusServerAddress_Object=MibTableColumn
-tacplusServerAddress=_TacplusServerAddress_Object((1,3,6,1,4,1,6527,3,1,2,1,10,2,1,2),_TacplusServerAddress_Type())
-tacplusServerAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:tacplusServerAddress.setStatus(_L)
-class _TacplusServerOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),(_Ap,2)))
-_TacplusServerOperStatus_Type.__name__=_F
-_TacplusServerOperStatus_Object=MibTableColumn
-tacplusServerOperStatus=_TacplusServerOperStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,10,2,1,3),_TacplusServerOperStatus_Type())
-tacplusServerOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tacplusServerOperStatus.setStatus(_B)
-_TacPlusServerInetAddressType_Type=InetAddressType
-_TacPlusServerInetAddressType_Object=MibTableColumn
-tacPlusServerInetAddressType=_TacPlusServerInetAddressType_Object((1,3,6,1,4,1,6527,3,1,2,1,10,2,1,4),_TacPlusServerInetAddressType_Type())
-tacPlusServerInetAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tacPlusServerInetAddressType.setStatus(_B)
-class _TacPlusServerInetAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
-_TacPlusServerInetAddress_Type.__name__=_R
-_TacPlusServerInetAddress_Object=MibTableColumn
-tacPlusServerInetAddress=_TacPlusServerInetAddress_Object((1,3,6,1,4,1,6527,3,1,2,1,10,2,1,5),_TacPlusServerInetAddress_Type())
-tacPlusServerInetAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:tacPlusServerInetAddress.setStatus(_B)
-_SysBofInfo_ObjectIdentity=ObjectIdentity
-sysBofInfo=_SysBofInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,11))
-_SbiActiveIpAddr_Type=IpAddress
-_SbiActiveIpAddr_Object=MibScalar
-sbiActiveIpAddr=_SbiActiveIpAddr_Object((1,3,6,1,4,1,6527,3,1,2,1,11,1),_SbiActiveIpAddr_Type())
-sbiActiveIpAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiActiveIpAddr.setStatus(_B)
-class _SbiActiveIpMask_Type(IpAddressPrefixLength):defaultValue=0
-_SbiActiveIpMask_Type.__name__=_A1
-_SbiActiveIpMask_Object=MibScalar
-sbiActiveIpMask=_SbiActiveIpMask_Object((1,3,6,1,4,1,6527,3,1,2,1,11,2),_SbiActiveIpMask_Type())
-sbiActiveIpMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiActiveIpMask.setStatus(_B)
-_SbiStandbyIpAddr_Type=IpAddress
-_SbiStandbyIpAddr_Object=MibScalar
-sbiStandbyIpAddr=_SbiStandbyIpAddr_Object((1,3,6,1,4,1,6527,3,1,2,1,11,3),_SbiStandbyIpAddr_Type())
-sbiStandbyIpAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyIpAddr.setStatus(_B)
-class _SbiStandbyIpMask_Type(IpAddressPrefixLength):defaultValue=0
-_SbiStandbyIpMask_Type.__name__=_A1
-_SbiStandbyIpMask_Object=MibScalar
-sbiStandbyIpMask=_SbiStandbyIpMask_Object((1,3,6,1,4,1,6527,3,1,2,1,11,4),_SbiStandbyIpMask_Type())
-sbiStandbyIpMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyIpMask.setStatus(_B)
-class _SbiPrimaryImage_Type(TmnxDisplayStringURL):defaultHexValue=''
-_SbiPrimaryImage_Type.__name__=_P
-_SbiPrimaryImage_Object=MibScalar
-sbiPrimaryImage=_SbiPrimaryImage_Object((1,3,6,1,4,1,6527,3,1,2,1,11,5),_SbiPrimaryImage_Type())
-sbiPrimaryImage.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiPrimaryImage.setStatus(_B)
-class _SbiSecondaryImage_Type(TmnxDisplayStringURL):defaultHexValue=''
-_SbiSecondaryImage_Type.__name__=_P
-_SbiSecondaryImage_Object=MibScalar
-sbiSecondaryImage=_SbiSecondaryImage_Object((1,3,6,1,4,1,6527,3,1,2,1,11,6),_SbiSecondaryImage_Type())
-sbiSecondaryImage.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiSecondaryImage.setStatus(_B)
-class _SbiTertiaryImage_Type(TmnxDisplayStringURL):defaultHexValue=''
-_SbiTertiaryImage_Type.__name__=_P
-_SbiTertiaryImage_Object=MibScalar
-sbiTertiaryImage=_SbiTertiaryImage_Object((1,3,6,1,4,1,6527,3,1,2,1,11,7),_SbiTertiaryImage_Type())
-sbiTertiaryImage.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiTertiaryImage.setStatus(_B)
-class _SbiPrimaryConfigFile_Type(TmnxDisplayStringURL):defaultHexValue=''
-_SbiPrimaryConfigFile_Type.__name__=_P
-_SbiPrimaryConfigFile_Object=MibScalar
-sbiPrimaryConfigFile=_SbiPrimaryConfigFile_Object((1,3,6,1,4,1,6527,3,1,2,1,11,8),_SbiPrimaryConfigFile_Type())
-sbiPrimaryConfigFile.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiPrimaryConfigFile.setStatus(_B)
-class _SbiSecondaryConfigFile_Type(TmnxDisplayStringURL):defaultHexValue=''
-_SbiSecondaryConfigFile_Type.__name__=_P
-_SbiSecondaryConfigFile_Object=MibScalar
-sbiSecondaryConfigFile=_SbiSecondaryConfigFile_Object((1,3,6,1,4,1,6527,3,1,2,1,11,9),_SbiSecondaryConfigFile_Type())
-sbiSecondaryConfigFile.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiSecondaryConfigFile.setStatus(_B)
-class _SbiTertiaryConfigFile_Type(TmnxDisplayStringURL):defaultHexValue=''
-_SbiTertiaryConfigFile_Type.__name__=_P
-_SbiTertiaryConfigFile_Object=MibScalar
-sbiTertiaryConfigFile=_SbiTertiaryConfigFile_Object((1,3,6,1,4,1,6527,3,1,2,1,11,10),_SbiTertiaryConfigFile_Type())
-sbiTertiaryConfigFile.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiTertiaryConfigFile.setStatus(_B)
-class _SbiPersist_Type(TruthValue):defaultValue=2
-_SbiPersist_Type.__name__=_H
-_SbiPersist_Object=MibScalar
-sbiPersist=_SbiPersist_Object((1,3,6,1,4,1,6527,3,1,2,1,11,11),_SbiPersist_Type())
-sbiPersist.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiPersist.setStatus(_B)
-class _SbiConsoleSpeed_Type(Unsigned32):defaultValue=115200;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(9600,9600),ValueRangeConstraint(19200,19200),ValueRangeConstraint(38400,38400),ValueRangeConstraint(57600,57600),ValueRangeConstraint(115200,115200))
-_SbiConsoleSpeed_Type.__name__=_G
-_SbiConsoleSpeed_Object=MibScalar
-sbiConsoleSpeed=_SbiConsoleSpeed_Object((1,3,6,1,4,1,6527,3,1,2,1,11,12),_SbiConsoleSpeed_Type())
-sbiConsoleSpeed.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiConsoleSpeed.setStatus(_B)
-if mibBuilder.loadTexts:sbiConsoleSpeed.setUnits('bps')
-class _SbiAutoNegotiate_Type(TruthValue):defaultValue=1
-_SbiAutoNegotiate_Type.__name__=_H
-_SbiAutoNegotiate_Object=MibScalar
-sbiAutoNegotiate=_SbiAutoNegotiate_Object((1,3,6,1,4,1,6527,3,1,2,1,11,13),_SbiAutoNegotiate_Type())
-sbiAutoNegotiate.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoNegotiate.setStatus(_B)
-class _SbiSpeed_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10,10),ValueRangeConstraint(100,100),ValueRangeConstraint(1000,1000))
-_SbiSpeed_Type.__name__=_G
-_SbiSpeed_Object=MibScalar
-sbiSpeed=_SbiSpeed_Object((1,3,6,1,4,1,6527,3,1,2,1,11,14),_SbiSpeed_Type())
-sbiSpeed.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiSpeed.setStatus(_B)
-if mibBuilder.loadTexts:sbiSpeed.setUnits('megabps')
-class _SbiDuplex_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('full',1),('half',2)))
-_SbiDuplex_Type.__name__=_F
-_SbiDuplex_Object=MibScalar
-sbiDuplex=_SbiDuplex_Object((1,3,6,1,4,1,6527,3,1,2,1,11,15),_SbiDuplex_Type())
-sbiDuplex.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiDuplex.setStatus(_B)
-_SbiPrimaryDns_Type=IpAddress
-_SbiPrimaryDns_Object=MibScalar
-sbiPrimaryDns=_SbiPrimaryDns_Object((1,3,6,1,4,1,6527,3,1,2,1,11,16),_SbiPrimaryDns_Type())
-sbiPrimaryDns.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiPrimaryDns.setStatus(_B)
-_SbiSecondaryDns_Type=IpAddress
-_SbiSecondaryDns_Object=MibScalar
-sbiSecondaryDns=_SbiSecondaryDns_Object((1,3,6,1,4,1,6527,3,1,2,1,11,17),_SbiSecondaryDns_Type())
-sbiSecondaryDns.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiSecondaryDns.setStatus(_B)
-_SbiTertiaryDns_Type=IpAddress
-_SbiTertiaryDns_Object=MibScalar
-sbiTertiaryDns=_SbiTertiaryDns_Object((1,3,6,1,4,1,6527,3,1,2,1,11,18),_SbiTertiaryDns_Type())
-sbiTertiaryDns.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiTertiaryDns.setStatus(_B)
-class _SbiDnsDomain_Type(DisplayString):defaultHexValue='';subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,178))
-_SbiDnsDomain_Type.__name__=_M
-_SbiDnsDomain_Object=MibScalar
-sbiDnsDomain=_SbiDnsDomain_Object((1,3,6,1,4,1,6527,3,1,2,1,11,19),_SbiDnsDomain_Type())
-sbiDnsDomain.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiDnsDomain.setStatus(_B)
-class _SbiWait_Type(Unsigned32):defaultValue=3;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_SbiWait_Type.__name__=_G
-_SbiWait_Object=MibScalar
-sbiWait=_SbiWait_Object((1,3,6,1,4,1,6527,3,1,2,1,11,20),_SbiWait_Type())
-sbiWait.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiWait.setStatus(_B)
-if mibBuilder.loadTexts:sbiWait.setUnits(_U)
-_SbiStaticRouteTable_Object=MibTable
-sbiStaticRouteTable=_SbiStaticRouteTable_Object((1,3,6,1,4,1,6527,3,1,2,1,11,21))
-if mibBuilder.loadTexts:sbiStaticRouteTable.setStatus(_B)
-_SbiStaticRouteEntry_Object=MibTableRow
-sbiStaticRouteEntry=_SbiStaticRouteEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,11,21,1))
-sbiStaticRouteEntry.setIndexNames((0,_A,_Ee),(0,_A,_Ef))
-if mibBuilder.loadTexts:sbiStaticRouteEntry.setStatus(_B)
-_SbiStaticRouteDest_Type=IpAddress
-_SbiStaticRouteDest_Object=MibTableColumn
-sbiStaticRouteDest=_SbiStaticRouteDest_Object((1,3,6,1,4,1,6527,3,1,2,1,11,21,1,1),_SbiStaticRouteDest_Type())
-sbiStaticRouteDest.setMaxAccess(_I)
-if mibBuilder.loadTexts:sbiStaticRouteDest.setStatus(_B)
-_SbiStaticRouteMask_Type=IpAddressPrefixLength
-_SbiStaticRouteMask_Object=MibTableColumn
-sbiStaticRouteMask=_SbiStaticRouteMask_Object((1,3,6,1,4,1,6527,3,1,2,1,11,21,1,2),_SbiStaticRouteMask_Type())
-sbiStaticRouteMask.setMaxAccess(_I)
-if mibBuilder.loadTexts:sbiStaticRouteMask.setStatus(_B)
-_SbiStaticRouteNextHop_Type=IpAddress
-_SbiStaticRouteNextHop_Object=MibTableColumn
-sbiStaticRouteNextHop=_SbiStaticRouteNextHop_Object((1,3,6,1,4,1,6527,3,1,2,1,11,21,1,3),_SbiStaticRouteNextHop_Type())
-sbiStaticRouteNextHop.setMaxAccess(_E)
-if mibBuilder.loadTexts:sbiStaticRouteNextHop.setStatus(_B)
-_SbiStaticRouteRowStatus_Type=RowStatus
-_SbiStaticRouteRowStatus_Object=MibTableColumn
-sbiStaticRouteRowStatus=_SbiStaticRouteRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,11,21,1,4),_SbiStaticRouteRowStatus_Type())
-sbiStaticRouteRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:sbiStaticRouteRowStatus.setStatus(_B)
-class _SbiActiveIPv6Addr_Type(InetAddressIPv6):defaultHexValue=_k
-_SbiActiveIPv6Addr_Type.__name__=_d
-_SbiActiveIPv6Addr_Object=MibScalar
-sbiActiveIPv6Addr=_SbiActiveIPv6Addr_Object((1,3,6,1,4,1,6527,3,1,2,1,11,22),_SbiActiveIPv6Addr_Type())
-sbiActiveIPv6Addr.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiActiveIPv6Addr.setStatus(_B)
-class _SbiActiveIPv6PfxLen_Type(InetAddressPrefixLength):defaultValue=0;subtypeSpec=InetAddressPrefixLength.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
-_SbiActiveIPv6PfxLen_Type.__name__=_q
-_SbiActiveIPv6PfxLen_Object=MibScalar
-sbiActiveIPv6PfxLen=_SbiActiveIPv6PfxLen_Object((1,3,6,1,4,1,6527,3,1,2,1,11,23),_SbiActiveIPv6PfxLen_Type())
-sbiActiveIPv6PfxLen.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiActiveIPv6PfxLen.setStatus(_B)
-class _SbiStandbyIPv6Addr_Type(InetAddressIPv6):defaultHexValue=_k
-_SbiStandbyIPv6Addr_Type.__name__=_d
-_SbiStandbyIPv6Addr_Object=MibScalar
-sbiStandbyIPv6Addr=_SbiStandbyIPv6Addr_Object((1,3,6,1,4,1,6527,3,1,2,1,11,24),_SbiStandbyIPv6Addr_Type())
-sbiStandbyIPv6Addr.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyIPv6Addr.setStatus(_B)
-class _SbiStandbyIPv6PfxLen_Type(InetAddressPrefixLength):defaultValue=0;subtypeSpec=InetAddressPrefixLength.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
-_SbiStandbyIPv6PfxLen_Type.__name__=_q
-_SbiStandbyIPv6PfxLen_Object=MibScalar
-sbiStandbyIPv6PfxLen=_SbiStandbyIPv6PfxLen_Object((1,3,6,1,4,1,6527,3,1,2,1,11,25),_SbiStandbyIPv6PfxLen_Type())
-sbiStandbyIPv6PfxLen.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyIPv6PfxLen.setStatus(_B)
-class _SbiPrimaryDnsIPv6Addr_Type(InetAddressIPv6):defaultHexValue=_k
-_SbiPrimaryDnsIPv6Addr_Type.__name__=_d
-_SbiPrimaryDnsIPv6Addr_Object=MibScalar
-sbiPrimaryDnsIPv6Addr=_SbiPrimaryDnsIPv6Addr_Object((1,3,6,1,4,1,6527,3,1,2,1,11,26),_SbiPrimaryDnsIPv6Addr_Type())
-sbiPrimaryDnsIPv6Addr.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiPrimaryDnsIPv6Addr.setStatus(_B)
-class _SbiSecondaryDnsIPv6Addr_Type(InetAddressIPv6):defaultHexValue=_k
-_SbiSecondaryDnsIPv6Addr_Type.__name__=_d
-_SbiSecondaryDnsIPv6Addr_Object=MibScalar
-sbiSecondaryDnsIPv6Addr=_SbiSecondaryDnsIPv6Addr_Object((1,3,6,1,4,1,6527,3,1,2,1,11,27),_SbiSecondaryDnsIPv6Addr_Type())
-sbiSecondaryDnsIPv6Addr.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiSecondaryDnsIPv6Addr.setStatus(_B)
-class _SbiTertiaryDnsIPv6Addr_Type(InetAddressIPv6):defaultHexValue=_k
-_SbiTertiaryDnsIPv6Addr_Type.__name__=_d
-_SbiTertiaryDnsIPv6Addr_Object=MibScalar
-sbiTertiaryDnsIPv6Addr=_SbiTertiaryDnsIPv6Addr_Object((1,3,6,1,4,1,6527,3,1,2,1,11,28),_SbiTertiaryDnsIPv6Addr_Type())
-sbiTertiaryDnsIPv6Addr.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiTertiaryDnsIPv6Addr.setStatus(_B)
-_SbiStaticRouteIPv6Table_Object=MibTable
-sbiStaticRouteIPv6Table=_SbiStaticRouteIPv6Table_Object((1,3,6,1,4,1,6527,3,1,2,1,11,29))
-if mibBuilder.loadTexts:sbiStaticRouteIPv6Table.setStatus(_B)
-_SbiStaticRouteIPv6Entry_Object=MibTableRow
-sbiStaticRouteIPv6Entry=_SbiStaticRouteIPv6Entry_Object((1,3,6,1,4,1,6527,3,1,2,1,11,29,1))
-sbiStaticRouteIPv6Entry.setIndexNames((0,_A,_Eg),(0,_A,_Eh))
-if mibBuilder.loadTexts:sbiStaticRouteIPv6Entry.setStatus(_B)
-_SbiStaticRouteIPv6Dest_Type=InetAddressIPv6
-_SbiStaticRouteIPv6Dest_Object=MibTableColumn
-sbiStaticRouteIPv6Dest=_SbiStaticRouteIPv6Dest_Object((1,3,6,1,4,1,6527,3,1,2,1,11,29,1,1),_SbiStaticRouteIPv6Dest_Type())
-sbiStaticRouteIPv6Dest.setMaxAccess(_I)
-if mibBuilder.loadTexts:sbiStaticRouteIPv6Dest.setStatus(_B)
-class _SbiStaticRouteIPv6PfxLen_Type(InetAddressPrefixLength):subtypeSpec=InetAddressPrefixLength.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
-_SbiStaticRouteIPv6PfxLen_Type.__name__=_q
-_SbiStaticRouteIPv6PfxLen_Object=MibTableColumn
-sbiStaticRouteIPv6PfxLen=_SbiStaticRouteIPv6PfxLen_Object((1,3,6,1,4,1,6527,3,1,2,1,11,29,1,2),_SbiStaticRouteIPv6PfxLen_Type())
-sbiStaticRouteIPv6PfxLen.setMaxAccess(_I)
-if mibBuilder.loadTexts:sbiStaticRouteIPv6PfxLen.setStatus(_B)
-_SbiStaticRouteIPv6NextHop_Type=InetAddressIPv6
-_SbiStaticRouteIPv6NextHop_Object=MibTableColumn
-sbiStaticRouteIPv6NextHop=_SbiStaticRouteIPv6NextHop_Object((1,3,6,1,4,1,6527,3,1,2,1,11,29,1,3),_SbiStaticRouteIPv6NextHop_Type())
-sbiStaticRouteIPv6NextHop.setMaxAccess(_E)
-if mibBuilder.loadTexts:sbiStaticRouteIPv6NextHop.setStatus(_B)
-_SbiStaticRouteIPv6RowStatus_Type=RowStatus
-_SbiStaticRouteIPv6RowStatus_Object=MibTableColumn
-sbiStaticRouteIPv6RowStatus=_SbiStaticRouteIPv6RowStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,11,29,1,4),_SbiStaticRouteIPv6RowStatus_Type())
-sbiStaticRouteIPv6RowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:sbiStaticRouteIPv6RowStatus.setStatus(_B)
-class _SbiLiSeparate_Type(TruthValue):defaultValue=2
-_SbiLiSeparate_Type.__name__=_H
-_SbiLiSeparate_Object=MibScalar
-sbiLiSeparate=_SbiLiSeparate_Object((1,3,6,1,4,1,6527,3,1,2,1,11,30),_SbiLiSeparate_Type())
-sbiLiSeparate.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiLiSeparate.setStatus(_B)
-class _SbiLiLocalSave_Type(TruthValue):defaultValue=1
-_SbiLiLocalSave_Type.__name__=_H
-_SbiLiLocalSave_Object=MibScalar
-sbiLiLocalSave=_SbiLiLocalSave_Object((1,3,6,1,4,1,6527,3,1,2,1,11,31),_SbiLiLocalSave_Type())
-sbiLiLocalSave.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiLiLocalSave.setStatus(_B)
-class _SbiLicenseFile_Type(TmnxDisplayStringURL):defaultHexValue=''
-_SbiLicenseFile_Type.__name__=_P
-_SbiLicenseFile_Object=MibScalar
-sbiLicenseFile=_SbiLicenseFile_Object((1,3,6,1,4,1,6527,3,1,2,1,11,32),_SbiLicenseFile_Type())
-sbiLicenseFile.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiLicenseFile.setStatus(_B)
-class _SbiFips1402Level1_Type(TruthValue):defaultValue=2
-_SbiFips1402Level1_Type.__name__=_H
-_SbiFips1402Level1_Object=MibScalar
-sbiFips1402Level1=_SbiFips1402Level1_Object((1,3,6,1,4,1,6527,3,1,2,1,11,34),_SbiFips1402Level1_Type())
-sbiFips1402Level1.setMaxAccess(_E)
-if mibBuilder.loadTexts:sbiFips1402Level1.setStatus(_B)
-class _SbiSystemBaseMacAddress_Type(MacAddress):defaultHexValue=_Ei
-_SbiSystemBaseMacAddress_Type.__name__=_Bx
-_SbiSystemBaseMacAddress_Object=MibScalar
-sbiSystemBaseMacAddress=_SbiSystemBaseMacAddress_Object((1,3,6,1,4,1,6527,3,1,2,1,11,35),_SbiSystemBaseMacAddress_Type())
-sbiSystemBaseMacAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiSystemBaseMacAddress.setStatus(_B)
-class _SbiEssSystemType_Type(TruthValue):defaultValue=2
-_SbiEssSystemType_Type.__name__=_H
-_SbiEssSystemType_Object=MibScalar
-sbiEssSystemType=_SbiEssSystemType_Object((1,3,6,1,4,1,6527,3,1,2,1,11,36),_SbiEssSystemType_Type())
-sbiEssSystemType.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiEssSystemType.setStatus(_B)
-class _SbiSystemProfile_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_O,0),('profileA',1),('profileB',2)))
-_SbiSystemProfile_Type.__name__=_F
-_SbiSystemProfile_Object=MibScalar
-sbiSystemProfile=_SbiSystemProfile_Object((1,3,6,1,4,1,6527,3,1,2,1,11,37),_SbiSystemProfile_Type())
-sbiSystemProfile.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiSystemProfile.setStatus(_B)
-class _SbiAutoBoot_Type(TruthValue):defaultValue=2
-_SbiAutoBoot_Type.__name__=_H
-_SbiAutoBoot_Object=MibScalar
-sbiAutoBoot=_SbiAutoBoot_Object((1,3,6,1,4,1,6527,3,1,2,1,11,38),_SbiAutoBoot_Type())
-sbiAutoBoot.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoBoot.setStatus(_B)
-class _SbiAutoBootClientId_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,58))
-_SbiAutoBootClientId_Type.__name__=_p
-_SbiAutoBootClientId_Object=MibScalar
-sbiAutoBootClientId=_SbiAutoBootClientId_Object((1,3,6,1,4,1,6527,3,1,2,1,11,39),_SbiAutoBootClientId_Type())
-sbiAutoBootClientId.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoBootClientId.setStatus(_B)
-class _SbiAutoBootClientIdType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_O,1),(_CC,2),('hex',3),('mac',4)))
-_SbiAutoBootClientIdType_Type.__name__=_F
-_SbiAutoBootClientIdType_Object=MibScalar
-sbiAutoBootClientIdType=_SbiAutoBootClientIdType_Object((1,3,6,1,4,1,6527,3,1,2,1,11,40),_SbiAutoBootClientIdType_Type())
-sbiAutoBootClientIdType.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoBootClientIdType.setStatus(_B)
-class _SbiAutoBootUsingMgmt_Type(TruthValue):defaultValue=2
-_SbiAutoBootUsingMgmt_Type.__name__=_H
-_SbiAutoBootUsingMgmt_Object=MibScalar
-sbiAutoBootUsingMgmt=_SbiAutoBootUsingMgmt_Object((1,3,6,1,4,1,6527,3,1,2,1,11,41),_SbiAutoBootUsingMgmt_Type())
-sbiAutoBootUsingMgmt.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoBootUsingMgmt.setStatus(_B)
-class _SbiAutoBootUsingInband_Type(TruthValue):defaultValue=2
-_SbiAutoBootUsingInband_Type.__name__=_H
-_SbiAutoBootUsingInband_Object=MibScalar
-sbiAutoBootUsingInband=_SbiAutoBootUsingInband_Object((1,3,6,1,4,1,6527,3,1,2,1,11,42),_SbiAutoBootUsingInband_Type())
-sbiAutoBootUsingInband.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoBootUsingInband.setStatus(_B)
-class _SbiAutoBootInbandVlan_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4094))
-_SbiAutoBootInbandVlan_Type.__name__=_G
-_SbiAutoBootInbandVlan_Object=MibScalar
-sbiAutoBootInbandVlan=_SbiAutoBootInbandVlan_Object((1,3,6,1,4,1,6527,3,1,2,1,11,43),_SbiAutoBootInbandVlan_Type())
-sbiAutoBootInbandVlan.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoBootInbandVlan.setStatus(_B)
-class _SbiAutoBootUsingIpv4_Type(TruthValue):defaultValue=2
-_SbiAutoBootUsingIpv4_Type.__name__=_H
-_SbiAutoBootUsingIpv4_Object=MibScalar
-sbiAutoBootUsingIpv4=_SbiAutoBootUsingIpv4_Object((1,3,6,1,4,1,6527,3,1,2,1,11,44),_SbiAutoBootUsingIpv4_Type())
-sbiAutoBootUsingIpv4.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoBootUsingIpv4.setStatus(_B)
-class _SbiAutoBootUsingIpv6_Type(TruthValue):defaultValue=2
-_SbiAutoBootUsingIpv6_Type.__name__=_H
-_SbiAutoBootUsingIpv6_Object=MibScalar
-sbiAutoBootUsingIpv6=_SbiAutoBootUsingIpv6_Object((1,3,6,1,4,1,6527,3,1,2,1,11,45),_SbiAutoBootUsingIpv6_Type())
-sbiAutoBootUsingIpv6.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoBootUsingIpv6.setStatus(_B)
-class _SbiAutoBootIncludeUserClass_Type(TruthValue):defaultValue=2
-_SbiAutoBootIncludeUserClass_Type.__name__=_H
-_SbiAutoBootIncludeUserClass_Object=MibScalar
-sbiAutoBootIncludeUserClass=_SbiAutoBootIncludeUserClass_Object((1,3,6,1,4,1,6527,3,1,2,1,11,46),_SbiAutoBootIncludeUserClass_Type())
-sbiAutoBootIncludeUserClass.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoBootIncludeUserClass.setStatus(_B)
-class _SbiAutoBootVlanDiscovery_Type(TruthValue):defaultValue=2
-_SbiAutoBootVlanDiscovery_Type.__name__=_H
-_SbiAutoBootVlanDiscovery_Object=MibScalar
-sbiAutoBootVlanDiscovery=_SbiAutoBootVlanDiscovery_Object((1,3,6,1,4,1,6527,3,1,2,1,11,47),_SbiAutoBootVlanDiscovery_Type())
-sbiAutoBootVlanDiscovery.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoBootVlanDiscovery.setStatus(_B)
-_SbiAutoBootInfo_ObjectIdentity=ObjectIdentity
-sbiAutoBootInfo=_SbiAutoBootInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,11,49))
-_SbiAutoConfigure_ObjectIdentity=ObjectIdentity
-sbiAutoConfigure=_SbiAutoConfigure_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,11,54))
-_SbiAutoIpv4_ObjectIdentity=ObjectIdentity
-sbiAutoIpv4=_SbiAutoIpv4_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,11,54,1))
-class _SbiAutoIpv4Dhcp_Type(TruthValue):defaultValue=2
-_SbiAutoIpv4Dhcp_Type.__name__=_H
-_SbiAutoIpv4Dhcp_Object=MibScalar
-sbiAutoIpv4Dhcp=_SbiAutoIpv4Dhcp_Object((1,3,6,1,4,1,6527,3,1,2,1,11,54,1,1),_SbiAutoIpv4Dhcp_Type())
-sbiAutoIpv4Dhcp.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoIpv4Dhcp.setStatus(_B)
-class _SbiAutoIpv4DhcpClientIdType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('default',1),(_CC,2),('hex',3)))
-_SbiAutoIpv4DhcpClientIdType_Type.__name__=_F
-_SbiAutoIpv4DhcpClientIdType_Object=MibScalar
-sbiAutoIpv4DhcpClientIdType=_SbiAutoIpv4DhcpClientIdType_Object((1,3,6,1,4,1,6527,3,1,2,1,11,54,1,3),_SbiAutoIpv4DhcpClientIdType_Type())
-sbiAutoIpv4DhcpClientIdType.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoIpv4DhcpClientIdType.setStatus(_B)
-class _SbiAutoIpv4DhcpClientId_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
-_SbiAutoIpv4DhcpClientId_Type.__name__=_p
-_SbiAutoIpv4DhcpClientId_Object=MibScalar
-sbiAutoIpv4DhcpClientId=_SbiAutoIpv4DhcpClientId_Object((1,3,6,1,4,1,6527,3,1,2,1,11,54,1,4),_SbiAutoIpv4DhcpClientId_Type())
-sbiAutoIpv4DhcpClientId.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoIpv4DhcpClientId.setStatus(_B)
-class _SbiAutoIpv4DhcpOptUserClass_Type(TruthValue):defaultValue=2
-_SbiAutoIpv4DhcpOptUserClass_Type.__name__=_H
-_SbiAutoIpv4DhcpOptUserClass_Object=MibScalar
-sbiAutoIpv4DhcpOptUserClass=_SbiAutoIpv4DhcpOptUserClass_Object((1,3,6,1,4,1,6527,3,1,2,1,11,54,1,5),_SbiAutoIpv4DhcpOptUserClass_Type())
-sbiAutoIpv4DhcpOptUserClass.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoIpv4DhcpOptUserClass.setStatus(_B)
-class _SbiAutoIpv4DhcpTimeout_Type(Unsigned32):defaultValue=30;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_SbiAutoIpv4DhcpTimeout_Type.__name__=_G
-_SbiAutoIpv4DhcpTimeout_Object=MibScalar
-sbiAutoIpv4DhcpTimeout=_SbiAutoIpv4DhcpTimeout_Object((1,3,6,1,4,1,6527,3,1,2,1,11,54,1,6),_SbiAutoIpv4DhcpTimeout_Type())
-sbiAutoIpv4DhcpTimeout.setMaxAccess(_E)
-if mibBuilder.loadTexts:sbiAutoIpv4DhcpTimeout.setStatus(_B)
-if mibBuilder.loadTexts:sbiAutoIpv4DhcpTimeout.setUnits(_U)
-_SbiAutoIpv6_ObjectIdentity=ObjectIdentity
-sbiAutoIpv6=_SbiAutoIpv6_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,11,54,2))
-class _SbiAutoIpv6Dhcp_Type(TruthValue):defaultValue=2
-_SbiAutoIpv6Dhcp_Type.__name__=_H
-_SbiAutoIpv6Dhcp_Object=MibScalar
-sbiAutoIpv6Dhcp=_SbiAutoIpv6Dhcp_Object((1,3,6,1,4,1,6527,3,1,2,1,11,54,2,1),_SbiAutoIpv6Dhcp_Type())
-sbiAutoIpv6Dhcp.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoIpv6Dhcp.setStatus(_B)
-class _SbiAutoIpv6DhcpClientIdType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('default',1),('duidEnterprise',2),('duidLinkLocal',3)))
-_SbiAutoIpv6DhcpClientIdType_Type.__name__=_F
-_SbiAutoIpv6DhcpClientIdType_Object=MibScalar
-sbiAutoIpv6DhcpClientIdType=_SbiAutoIpv6DhcpClientIdType_Object((1,3,6,1,4,1,6527,3,1,2,1,11,54,2,2),_SbiAutoIpv6DhcpClientIdType_Type())
-sbiAutoIpv6DhcpClientIdType.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoIpv6DhcpClientIdType.setStatus(_B)
-class _SbiAutoIpv6DhcpClientIdDuidType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_O,1),(_CC,2),('hex',3)))
-_SbiAutoIpv6DhcpClientIdDuidType_Type.__name__=_F
-_SbiAutoIpv6DhcpClientIdDuidType_Object=MibScalar
-sbiAutoIpv6DhcpClientIdDuidType=_SbiAutoIpv6DhcpClientIdDuidType_Object((1,3,6,1,4,1,6527,3,1,2,1,11,54,2,3),_SbiAutoIpv6DhcpClientIdDuidType_Type())
-sbiAutoIpv6DhcpClientIdDuidType.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoIpv6DhcpClientIdDuidType.setStatus(_B)
-class _SbiAutoIpv6DhcpClientIdDuid_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,124))
-_SbiAutoIpv6DhcpClientIdDuid_Type.__name__=_p
-_SbiAutoIpv6DhcpClientIdDuid_Object=MibScalar
-sbiAutoIpv6DhcpClientIdDuid=_SbiAutoIpv6DhcpClientIdDuid_Object((1,3,6,1,4,1,6527,3,1,2,1,11,54,2,4),_SbiAutoIpv6DhcpClientIdDuid_Type())
-sbiAutoIpv6DhcpClientIdDuid.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoIpv6DhcpClientIdDuid.setStatus(_B)
-class _SbiAutoIpv6DhcpOptUserClass_Type(TruthValue):defaultValue=2
-_SbiAutoIpv6DhcpOptUserClass_Type.__name__=_H
-_SbiAutoIpv6DhcpOptUserClass_Object=MibScalar
-sbiAutoIpv6DhcpOptUserClass=_SbiAutoIpv6DhcpOptUserClass_Object((1,3,6,1,4,1,6527,3,1,2,1,11,54,2,5),_SbiAutoIpv6DhcpOptUserClass_Type())
-sbiAutoIpv6DhcpOptUserClass.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiAutoIpv6DhcpOptUserClass.setStatus(_B)
-class _SbiAutoIpv6DhcpTimeout_Type(Unsigned32):defaultValue=30;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_SbiAutoIpv6DhcpTimeout_Type.__name__=_G
-_SbiAutoIpv6DhcpTimeout_Object=MibScalar
-sbiAutoIpv6DhcpTimeout=_SbiAutoIpv6DhcpTimeout_Object((1,3,6,1,4,1,6527,3,1,2,1,11,54,2,6),_SbiAutoIpv6DhcpTimeout_Type())
-sbiAutoIpv6DhcpTimeout.setMaxAccess(_E)
-if mibBuilder.loadTexts:sbiAutoIpv6DhcpTimeout.setStatus(_B)
-if mibBuilder.loadTexts:sbiAutoIpv6DhcpTimeout.setUnits(_U)
-_SbiStandbyAIpAddr_Type=IpAddress
-_SbiStandbyAIpAddr_Object=MibScalar
-sbiStandbyAIpAddr=_SbiStandbyAIpAddr_Object((1,3,6,1,4,1,6527,3,1,2,1,11,55),_SbiStandbyAIpAddr_Type())
-sbiStandbyAIpAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyAIpAddr.setStatus(_B)
-class _SbiStandbyAIpMask_Type(IpAddressPrefixLength):defaultValue=0
-_SbiStandbyAIpMask_Type.__name__=_A1
-_SbiStandbyAIpMask_Object=MibScalar
-sbiStandbyAIpMask=_SbiStandbyAIpMask_Object((1,3,6,1,4,1,6527,3,1,2,1,11,56),_SbiStandbyAIpMask_Type())
-sbiStandbyAIpMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyAIpMask.setStatus(_B)
-class _SbiStandbyAIPv6Addr_Type(InetAddressIPv6):defaultHexValue=_k
-_SbiStandbyAIPv6Addr_Type.__name__=_d
-_SbiStandbyAIPv6Addr_Object=MibScalar
-sbiStandbyAIPv6Addr=_SbiStandbyAIPv6Addr_Object((1,3,6,1,4,1,6527,3,1,2,1,11,57),_SbiStandbyAIPv6Addr_Type())
-sbiStandbyAIPv6Addr.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyAIPv6Addr.setStatus(_B)
-class _SbiStandbyAIPv6PfxLen_Type(InetAddressPrefixLength):defaultValue=0;subtypeSpec=InetAddressPrefixLength.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
-_SbiStandbyAIPv6PfxLen_Type.__name__=_q
-_SbiStandbyAIPv6PfxLen_Object=MibScalar
-sbiStandbyAIPv6PfxLen=_SbiStandbyAIPv6PfxLen_Object((1,3,6,1,4,1,6527,3,1,2,1,11,58),_SbiStandbyAIPv6PfxLen_Type())
-sbiStandbyAIPv6PfxLen.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyAIPv6PfxLen.setStatus(_B)
-_SbiStandbyBIpAddr_Type=IpAddress
-_SbiStandbyBIpAddr_Object=MibScalar
-sbiStandbyBIpAddr=_SbiStandbyBIpAddr_Object((1,3,6,1,4,1,6527,3,1,2,1,11,59),_SbiStandbyBIpAddr_Type())
-sbiStandbyBIpAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyBIpAddr.setStatus(_B)
-class _SbiStandbyBIpMask_Type(IpAddressPrefixLength):defaultValue=0
-_SbiStandbyBIpMask_Type.__name__=_A1
-_SbiStandbyBIpMask_Object=MibScalar
-sbiStandbyBIpMask=_SbiStandbyBIpMask_Object((1,3,6,1,4,1,6527,3,1,2,1,11,60),_SbiStandbyBIpMask_Type())
-sbiStandbyBIpMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyBIpMask.setStatus(_B)
-class _SbiStandbyBIPv6Addr_Type(InetAddressIPv6):defaultHexValue=_k
-_SbiStandbyBIPv6Addr_Type.__name__=_d
-_SbiStandbyBIPv6Addr_Object=MibScalar
-sbiStandbyBIPv6Addr=_SbiStandbyBIPv6Addr_Object((1,3,6,1,4,1,6527,3,1,2,1,11,61),_SbiStandbyBIPv6Addr_Type())
-sbiStandbyBIPv6Addr.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyBIPv6Addr.setStatus(_B)
-class _SbiStandbyBIPv6PfxLen_Type(InetAddressPrefixLength):defaultValue=0;subtypeSpec=InetAddressPrefixLength.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
-_SbiStandbyBIPv6PfxLen_Type.__name__=_q
-_SbiStandbyBIPv6PfxLen_Object=MibScalar
-sbiStandbyBIPv6PfxLen=_SbiStandbyBIPv6PfxLen_Object((1,3,6,1,4,1,6527,3,1,2,1,11,62),_SbiStandbyBIPv6PfxLen_Type())
-sbiStandbyBIPv6PfxLen.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyBIPv6PfxLen.setStatus(_B)
-_SbiStandbyCIpAddr_Type=IpAddress
-_SbiStandbyCIpAddr_Object=MibScalar
-sbiStandbyCIpAddr=_SbiStandbyCIpAddr_Object((1,3,6,1,4,1,6527,3,1,2,1,11,63),_SbiStandbyCIpAddr_Type())
-sbiStandbyCIpAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyCIpAddr.setStatus(_B)
-class _SbiStandbyCIpMask_Type(IpAddressPrefixLength):defaultValue=0
-_SbiStandbyCIpMask_Type.__name__=_A1
-_SbiStandbyCIpMask_Object=MibScalar
-sbiStandbyCIpMask=_SbiStandbyCIpMask_Object((1,3,6,1,4,1,6527,3,1,2,1,11,64),_SbiStandbyCIpMask_Type())
-sbiStandbyCIpMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyCIpMask.setStatus(_B)
-class _SbiStandbyCIPv6Addr_Type(InetAddressIPv6):defaultHexValue=_k
-_SbiStandbyCIPv6Addr_Type.__name__=_d
-_SbiStandbyCIPv6Addr_Object=MibScalar
-sbiStandbyCIPv6Addr=_SbiStandbyCIPv6Addr_Object((1,3,6,1,4,1,6527,3,1,2,1,11,65),_SbiStandbyCIPv6Addr_Type())
-sbiStandbyCIPv6Addr.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyCIPv6Addr.setStatus(_B)
-class _SbiStandbyCIPv6PfxLen_Type(InetAddressPrefixLength):defaultValue=0;subtypeSpec=InetAddressPrefixLength.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
-_SbiStandbyCIPv6PfxLen_Type.__name__=_q
-_SbiStandbyCIPv6PfxLen_Object=MibScalar
-sbiStandbyCIPv6PfxLen=_SbiStandbyCIPv6PfxLen_Object((1,3,6,1,4,1,6527,3,1,2,1,11,66),_SbiStandbyCIPv6PfxLen_Type())
-sbiStandbyCIPv6PfxLen.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyCIPv6PfxLen.setStatus(_B)
-_SbiStandbyDIpAddr_Type=IpAddress
-_SbiStandbyDIpAddr_Object=MibScalar
-sbiStandbyDIpAddr=_SbiStandbyDIpAddr_Object((1,3,6,1,4,1,6527,3,1,2,1,11,67),_SbiStandbyDIpAddr_Type())
-sbiStandbyDIpAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyDIpAddr.setStatus(_B)
-class _SbiStandbyDIpMask_Type(IpAddressPrefixLength):defaultValue=0
-_SbiStandbyDIpMask_Type.__name__=_A1
-_SbiStandbyDIpMask_Object=MibScalar
-sbiStandbyDIpMask=_SbiStandbyDIpMask_Object((1,3,6,1,4,1,6527,3,1,2,1,11,68),_SbiStandbyDIpMask_Type())
-sbiStandbyDIpMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyDIpMask.setStatus(_B)
-class _SbiStandbyDIPv6Addr_Type(InetAddressIPv6):defaultHexValue=_k
-_SbiStandbyDIPv6Addr_Type.__name__=_d
-_SbiStandbyDIPv6Addr_Object=MibScalar
-sbiStandbyDIPv6Addr=_SbiStandbyDIPv6Addr_Object((1,3,6,1,4,1,6527,3,1,2,1,11,69),_SbiStandbyDIPv6Addr_Type())
-sbiStandbyDIPv6Addr.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyDIPv6Addr.setStatus(_B)
-class _SbiStandbyDIPv6PfxLen_Type(InetAddressPrefixLength):defaultValue=0;subtypeSpec=InetAddressPrefixLength.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
-_SbiStandbyDIPv6PfxLen_Type.__name__=_q
-_SbiStandbyDIPv6PfxLen_Object=MibScalar
-sbiStandbyDIPv6PfxLen=_SbiStandbyDIPv6PfxLen_Object((1,3,6,1,4,1,6527,3,1,2,1,11,70),_SbiStandbyDIPv6PfxLen_Type())
-sbiStandbyDIPv6PfxLen.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiStandbyDIPv6PfxLen.setStatus(_B)
-class _SbiMgmtIfIpMtu_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(512,9786))
-_SbiMgmtIfIpMtu_Type.__name__=_G
-_SbiMgmtIfIpMtu_Object=MibScalar
-sbiMgmtIfIpMtu=_SbiMgmtIfIpMtu_Object((1,3,6,1,4,1,6527,3,1,2,1,11,71),_SbiMgmtIfIpMtu_Type())
-sbiMgmtIfIpMtu.setMaxAccess(_D)
-if mibBuilder.loadTexts:sbiMgmtIfIpMtu.setStatus(_B)
-if mibBuilder.loadTexts:sbiMgmtIfIpMtu.setUnits(_A3)
-_SysPersistenceInfo_ObjectIdentity=ObjectIdentity
-sysPersistenceInfo=_SysPersistenceInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,12))
-_SysPersistenceDhcpL2Info_ObjectIdentity=ObjectIdentity
-sysPersistenceDhcpL2Info=_SysPersistenceDhcpL2Info_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,12,1))
-class _SpiDhcpL2PersistenceFileLocation_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_SpiDhcpL2PersistenceFileLocation_Type.__name__=_G
-_SpiDhcpL2PersistenceFileLocation_Object=MibScalar
-spiDhcpL2PersistenceFileLocation=_SpiDhcpL2PersistenceFileLocation_Object((1,3,6,1,4,1,6527,3,1,2,1,12,1,1),_SpiDhcpL2PersistenceFileLocation_Type())
-spiDhcpL2PersistenceFileLocation.setMaxAccess(_D)
-if mibBuilder.loadTexts:spiDhcpL2PersistenceFileLocation.setStatus(_L)
-class _SpiDhcpL2PersistenceDescription_Type(TItemDescription):defaultValue=OctetString('')
-_SpiDhcpL2PersistenceDescription_Type.__name__=_Y
-_SpiDhcpL2PersistenceDescription_Object=MibScalar
-spiDhcpL2PersistenceDescription=_SpiDhcpL2PersistenceDescription_Object((1,3,6,1,4,1,6527,3,1,2,1,12,1,2),_SpiDhcpL2PersistenceDescription_Type())
-spiDhcpL2PersistenceDescription.setMaxAccess(_D)
-if mibBuilder.loadTexts:spiDhcpL2PersistenceDescription.setStatus(_L)
-_SysPersistenceDhcpL3Info_ObjectIdentity=ObjectIdentity
-sysPersistenceDhcpL3Info=_SysPersistenceDhcpL3Info_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,12,2))
-class _SpiDhcpL3PersistenceFileLocation_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_SpiDhcpL3PersistenceFileLocation_Type.__name__=_G
-_SpiDhcpL3PersistenceFileLocation_Object=MibScalar
-spiDhcpL3PersistenceFileLocation=_SpiDhcpL3PersistenceFileLocation_Object((1,3,6,1,4,1,6527,3,1,2,1,12,2,1),_SpiDhcpL3PersistenceFileLocation_Type())
-spiDhcpL3PersistenceFileLocation.setMaxAccess(_D)
-if mibBuilder.loadTexts:spiDhcpL3PersistenceFileLocation.setStatus(_L)
-class _SpiDhcpL3PersistenceDescription_Type(TItemDescription):defaultValue=OctetString('')
-_SpiDhcpL3PersistenceDescription_Type.__name__=_Y
-_SpiDhcpL3PersistenceDescription_Object=MibScalar
-spiDhcpL3PersistenceDescription=_SpiDhcpL3PersistenceDescription_Object((1,3,6,1,4,1,6527,3,1,2,1,12,2,2),_SpiDhcpL3PersistenceDescription_Type())
-spiDhcpL3PersistenceDescription.setMaxAccess(_D)
-if mibBuilder.loadTexts:spiDhcpL3PersistenceDescription.setStatus(_L)
-_SysPersistenceSubMgmtInfo_ObjectIdentity=ObjectIdentity
-sysPersistenceSubMgmtInfo=_SysPersistenceSubMgmtInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,12,3))
-class _SpiSubMgmtPersistenceFileLocation_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_SpiSubMgmtPersistenceFileLocation_Type.__name__=_G
-_SpiSubMgmtPersistenceFileLocation_Object=MibScalar
-spiSubMgmtPersistenceFileLocation=_SpiSubMgmtPersistenceFileLocation_Object((1,3,6,1,4,1,6527,3,1,2,1,12,3,1),_SpiSubMgmtPersistenceFileLocation_Type())
-spiSubMgmtPersistenceFileLocation.setMaxAccess(_D)
-if mibBuilder.loadTexts:spiSubMgmtPersistenceFileLocation.setStatus(_B)
-class _SpiSubMgmtPersistenceDescription_Type(TItemDescription):defaultValue=OctetString('')
-_SpiSubMgmtPersistenceDescription_Type.__name__=_Y
-_SpiSubMgmtPersistenceDescription_Object=MibScalar
-spiSubMgmtPersistenceDescription=_SpiSubMgmtPersistenceDescription_Object((1,3,6,1,4,1,6527,3,1,2,1,12,3,2),_SpiSubMgmtPersistenceDescription_Type())
-spiSubMgmtPersistenceDescription.setMaxAccess(_D)
-if mibBuilder.loadTexts:spiSubMgmtPersistenceDescription.setStatus(_B)
-_SysPersistenceDhcpSrvInfo_ObjectIdentity=ObjectIdentity
-sysPersistenceDhcpSrvInfo=_SysPersistenceDhcpSrvInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,12,4))
-class _SpiDhcpSrvPersistenceFileLoc_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_SpiDhcpSrvPersistenceFileLoc_Type.__name__=_G
-_SpiDhcpSrvPersistenceFileLoc_Object=MibScalar
-spiDhcpSrvPersistenceFileLoc=_SpiDhcpSrvPersistenceFileLoc_Object((1,3,6,1,4,1,6527,3,1,2,1,12,4,1),_SpiDhcpSrvPersistenceFileLoc_Type())
-spiDhcpSrvPersistenceFileLoc.setMaxAccess(_D)
-if mibBuilder.loadTexts:spiDhcpSrvPersistenceFileLoc.setStatus(_B)
-class _SpiDhcpSrvPersistenceDescr_Type(TItemDescription):defaultValue=OctetString('')
-_SpiDhcpSrvPersistenceDescr_Type.__name__=_Y
-_SpiDhcpSrvPersistenceDescr_Object=MibScalar
-spiDhcpSrvPersistenceDescr=_SpiDhcpSrvPersistenceDescr_Object((1,3,6,1,4,1,6527,3,1,2,1,12,4,2),_SpiDhcpSrvPersistenceDescr_Type())
-spiDhcpSrvPersistenceDescr.setMaxAccess(_D)
-if mibBuilder.loadTexts:spiDhcpSrvPersistenceDescr.setStatus(_B)
-_SysPersistenceNatInfo_ObjectIdentity=ObjectIdentity
-sysPersistenceNatInfo=_SysPersistenceNatInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,12,5))
-class _SpiNatFwdPersistenceFileLoc_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_SpiNatFwdPersistenceFileLoc_Type.__name__=_G
-_SpiNatFwdPersistenceFileLoc_Object=MibScalar
-spiNatFwdPersistenceFileLoc=_SpiNatFwdPersistenceFileLoc_Object((1,3,6,1,4,1,6527,3,1,2,1,12,5,1),_SpiNatFwdPersistenceFileLoc_Type())
-spiNatFwdPersistenceFileLoc.setMaxAccess(_D)
-if mibBuilder.loadTexts:spiNatFwdPersistenceFileLoc.setStatus(_B)
-class _SpiNatFwdPersistenceDescr_Type(TItemDescription):defaultValue=OctetString('')
-_SpiNatFwdPersistenceDescr_Type.__name__=_Y
-_SpiNatFwdPersistenceDescr_Object=MibScalar
-spiNatFwdPersistenceDescr=_SpiNatFwdPersistenceDescr_Object((1,3,6,1,4,1,6527,3,1,2,1,12,5,2),_SpiNatFwdPersistenceDescr_Type())
-spiNatFwdPersistenceDescr.setMaxAccess(_D)
-if mibBuilder.loadTexts:spiNatFwdPersistenceDescr.setStatus(_B)
-_SysPersistenceAAInfo_ObjectIdentity=ObjectIdentity
-sysPersistenceAAInfo=_SysPersistenceAAInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,12,6))
-class _SpiAAPersistenceFileLoc_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_SpiAAPersistenceFileLoc_Type.__name__=_G
-_SpiAAPersistenceFileLoc_Object=MibScalar
-spiAAPersistenceFileLoc=_SpiAAPersistenceFileLoc_Object((1,3,6,1,4,1,6527,3,1,2,1,12,6,1),_SpiAAPersistenceFileLoc_Type())
-spiAAPersistenceFileLoc.setMaxAccess(_D)
-if mibBuilder.loadTexts:spiAAPersistenceFileLoc.setStatus(_B)
-class _SpiAAPersistenceDescr_Type(TItemDescription):defaultValue=OctetString('')
-_SpiAAPersistenceDescr_Type.__name__=_Y
-_SpiAAPersistenceDescr_Object=MibScalar
-spiAAPersistenceDescr=_SpiAAPersistenceDescr_Object((1,3,6,1,4,1,6527,3,1,2,1,12,6,2),_SpiAAPersistenceDescr_Type())
-spiAAPersistenceDescr.setMaxAccess(_D)
-if mibBuilder.loadTexts:spiAAPersistenceDescr.setStatus(_B)
-_SysPersistenceAncpInfo_ObjectIdentity=ObjectIdentity
-sysPersistenceAncpInfo=_SysPersistenceAncpInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,12,7))
-class _SpiAncpPersistenceFileLoc_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_SpiAncpPersistenceFileLoc_Type.__name__=_G
-_SpiAncpPersistenceFileLoc_Object=MibScalar
-spiAncpPersistenceFileLoc=_SpiAncpPersistenceFileLoc_Object((1,3,6,1,4,1,6527,3,1,2,1,12,7,1),_SpiAncpPersistenceFileLoc_Type())
-spiAncpPersistenceFileLoc.setMaxAccess(_D)
-if mibBuilder.loadTexts:spiAncpPersistenceFileLoc.setStatus(_B)
-class _SpiAncpPersistenceDescr_Type(TItemDescription):defaultValue=OctetString('')
-_SpiAncpPersistenceDescr_Type.__name__=_Y
-_SpiAncpPersistenceDescr_Object=MibScalar
-spiAncpPersistenceDescr=_SpiAncpPersistenceDescr_Object((1,3,6,1,4,1,6527,3,1,2,1,12,7,2),_SpiAncpPersistenceDescr_Type())
-spiAncpPersistenceDescr.setMaxAccess(_D)
-if mibBuilder.loadTexts:spiAncpPersistenceDescr.setStatus(_B)
-_SysPersistencePythonInfo_ObjectIdentity=ObjectIdentity
-sysPersistencePythonInfo=_SysPersistencePythonInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,12,8))
-class _SpiPythonPersistenceFileLoc_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_SpiPythonPersistenceFileLoc_Type.__name__=_G
-_SpiPythonPersistenceFileLoc_Object=MibScalar
-spiPythonPersistenceFileLoc=_SpiPythonPersistenceFileLoc_Object((1,3,6,1,4,1,6527,3,1,2,1,12,8,1),_SpiPythonPersistenceFileLoc_Type())
-spiPythonPersistenceFileLoc.setMaxAccess(_D)
-if mibBuilder.loadTexts:spiPythonPersistenceFileLoc.setStatus(_B)
-class _SpiPythonPersistenceDescr_Type(TItemDescription):defaultValue=OctetString('')
-_SpiPythonPersistenceDescr_Type.__name__=_Y
-_SpiPythonPersistenceDescr_Object=MibScalar
-spiPythonPersistenceDescr=_SpiPythonPersistenceDescr_Object((1,3,6,1,4,1,6527,3,1,2,1,12,8,2),_SpiPythonPersistenceDescr_Type())
-spiPythonPersistenceDescr.setMaxAccess(_D)
-if mibBuilder.loadTexts:spiPythonPersistenceDescr.setStatus(_B)
-class _TmnxDhcpLeaseTimeModeThreshold_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,631152000))
-_TmnxDhcpLeaseTimeModeThreshold_Type.__name__=_G
-_TmnxDhcpLeaseTimeModeThreshold_Object=MibScalar
-tmnxDhcpLeaseTimeModeThreshold=_TmnxDhcpLeaseTimeModeThreshold_Object((1,3,6,1,4,1,6527,3,1,2,1,12,20),_TmnxDhcpLeaseTimeModeThreshold_Type())
-tmnxDhcpLeaseTimeModeThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxDhcpLeaseTimeModeThreshold.setStatus(_B)
-if mibBuilder.loadTexts:tmnxDhcpLeaseTimeModeThreshold.setUnits(_U)
-_SysLiInfo_ObjectIdentity=ObjectIdentity
-sysLiInfo=_SysLiInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,13))
-class _SliConfigStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_Ao,0),(_Q,1),(_AI,2)))
-_SliConfigStatus_Type.__name__=_F
-_SliConfigStatus_Object=MibScalar
-sliConfigStatus=_SliConfigStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,13,1),_SliConfigStatus_Type())
-sliConfigStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:sliConfigStatus.setStatus(_B)
-class _SliSaveConfig_Type(TmnxActionType):defaultValue=2
-_SliSaveConfig_Type.__name__=_V
-_SliSaveConfig_Object=MibScalar
-sliSaveConfig=_SliSaveConfig_Object((1,3,6,1,4,1,6527,3,1,2,1,13,2),_SliSaveConfig_Type())
-sliSaveConfig.setMaxAccess(_D)
-if mibBuilder.loadTexts:sliSaveConfig.setStatus(_B)
-class _SliSaveConfigResult_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_O,1),(_Z,2),(_Q,3),(_a,4)))
-_SliSaveConfigResult_Type.__name__=_F
-_SliSaveConfigResult_Object=MibScalar
-sliSaveConfigResult=_SliSaveConfigResult_Object((1,3,6,1,4,1,6527,3,1,2,1,13,3),_SliSaveConfigResult_Type())
-sliSaveConfigResult.setMaxAccess(_C)
-if mibBuilder.loadTexts:sliSaveConfigResult.setStatus(_B)
-_SliConfigLastModified_Type=DateAndTime
-_SliConfigLastModified_Object=MibScalar
-sliConfigLastModified=_SliConfigLastModified_Object((1,3,6,1,4,1,6527,3,1,2,1,13,4),_SliConfigLastModified_Type())
-sliConfigLastModified.setMaxAccess(_C)
-if mibBuilder.loadTexts:sliConfigLastModified.setStatus(_B)
-_SliConfigLastSaved_Type=DateAndTime
-_SliConfigLastSaved_Object=MibScalar
-sliConfigLastSaved=_SliConfigLastSaved_Object((1,3,6,1,4,1,6527,3,1,2,1,13,5),_SliConfigLastSaved_Type())
-sliConfigLastSaved.setMaxAccess(_C)
-if mibBuilder.loadTexts:sliConfigLastSaved.setStatus(_B)
-class _SliFilterLock_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('locked',0),('unlockedForLiUsers',1),('unlockedForAll',2)))
-_SliFilterLock_Type.__name__=_F
-_SliFilterLock_Object=MibScalar
-sliFilterLock=_SliFilterLock_Object((1,3,6,1,4,1,6527,3,1,2,1,13,6),_SliFilterLock_Type())
-sliFilterLock.setMaxAccess(_D)
-if mibBuilder.loadTexts:sliFilterLock.setStatus(_B)
-_SysDNSInfo_ObjectIdentity=ObjectIdentity
-sysDNSInfo=_SysDNSInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,14))
-_SysDNSInfoLastChanged_Type=TimeStamp
-_SysDNSInfoLastChanged_Object=MibScalar
-sysDNSInfoLastChanged=_SysDNSInfoLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,1,14,1),_SysDNSInfoLastChanged_Type())
-sysDNSInfoLastChanged.setMaxAccess(_C)
-if mibBuilder.loadTexts:sysDNSInfoLastChanged.setStatus(_B)
-class _SysDNSAddressResolvePref_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ipv4Only',1),('ipv6First',2)))
-_SysDNSAddressResolvePref_Type.__name__=_F
-_SysDNSAddressResolvePref_Object=MibScalar
-sysDNSAddressResolvePref=_SysDNSAddressResolvePref_Object((1,3,6,1,4,1,6527,3,1,2,1,14,2),_SysDNSAddressResolvePref_Type())
-sysDNSAddressResolvePref.setMaxAccess(_D)
-if mibBuilder.loadTexts:sysDNSAddressResolvePref.setStatus(_B)
-class _SysDNSSecAdValidation_Type(TruthValue):defaultValue=2
-_SysDNSSecAdValidation_Type.__name__=_H
-_SysDNSSecAdValidation_Object=MibScalar
-sysDNSSecAdValidation=_SysDNSSecAdValidation_Object((1,3,6,1,4,1,6527,3,1,2,1,14,3),_SysDNSSecAdValidation_Type())
-sysDNSSecAdValidation.setMaxAccess(_D)
-if mibBuilder.loadTexts:sysDNSSecAdValidation.setStatus(_B)
-class _SysDNSSecRespCtrl_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('fallThrough',1),('drop',2)))
-_SysDNSSecRespCtrl_Type.__name__=_F
-_SysDNSSecRespCtrl_Object=MibScalar
-sysDNSSecRespCtrl=_SysDNSSecRespCtrl_Object((1,3,6,1,4,1,6527,3,1,2,1,14,4),_SysDNSSecRespCtrl_Type())
-sysDNSSecRespCtrl.setMaxAccess(_D)
-if mibBuilder.loadTexts:sysDNSSecRespCtrl.setStatus(_B)
-_SysIcmpVSInfo_ObjectIdentity=ObjectIdentity
-sysIcmpVSInfo=_SysIcmpVSInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,15))
-class _SysIcmpVSEnhancement_Type(TmnxEnabledDisabled):defaultValue=2
-_SysIcmpVSEnhancement_Type.__name__=_ET
-_SysIcmpVSEnhancement_Object=MibScalar
-sysIcmpVSEnhancement=_SysIcmpVSEnhancement_Object((1,3,6,1,4,1,6527,3,1,2,1,15,1),_SysIcmpVSEnhancement_Type())
-sysIcmpVSEnhancement.setMaxAccess(_D)
-if mibBuilder.loadTexts:sysIcmpVSEnhancement.setStatus(_B)
-_SysEthInfo_ObjectIdentity=ObjectIdentity
-sysEthInfo=_SysEthInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,16))
-class _SysNewQinqUntaggedSap_Type(TruthValue):defaultValue=2
-_SysNewQinqUntaggedSap_Type.__name__=_H
-_SysNewQinqUntaggedSap_Object=MibScalar
-sysNewQinqUntaggedSap=_SysNewQinqUntaggedSap_Object((1,3,6,1,4,1,6527,3,1,2,1,16,1),_SysNewQinqUntaggedSap_Type())
-sysNewQinqUntaggedSap.setMaxAccess(_D)
-if mibBuilder.loadTexts:sysNewQinqUntaggedSap.setStatus(_B)
-_TmnxSysRollbackInfo_ObjectIdentity=ObjectIdentity
-tmnxSysRollbackInfo=_TmnxSysRollbackInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,17))
-class _TmnxSysRollbackIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,199))
-_TmnxSysRollbackIndex_Type.__name__=_G
-_TmnxSysRollbackIndex_Object=MibScalar
-tmnxSysRollbackIndex=_TmnxSysRollbackIndex_Object((1,3,6,1,4,1,6527,3,1,2,1,17,1),_TmnxSysRollbackIndex_Type())
-tmnxSysRollbackIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRollbackIndex.setStatus(_B)
-class _TmnxSysRollbackStart_Type(TmnxActionType):defaultValue=2
-_TmnxSysRollbackStart_Type.__name__=_V
-_TmnxSysRollbackStart_Object=MibScalar
-tmnxSysRollbackStart=_TmnxSysRollbackStart_Object((1,3,6,1,4,1,6527,3,1,2,1,17,2),_TmnxSysRollbackStart_Type())
-tmnxSysRollbackStart.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRollbackStart.setStatus(_B)
-class _TmnxSysRollbackResult_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_O,1),(_Z,2),(_Q,3),(_a,4),(_Ej,5)))
-_TmnxSysRollbackResult_Type.__name__=_F
-_TmnxSysRollbackResult_Object=MibScalar
-tmnxSysRollbackResult=_TmnxSysRollbackResult_Object((1,3,6,1,4,1,6527,3,1,2,1,17,3),_TmnxSysRollbackResult_Type())
-tmnxSysRollbackResult.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackResult.setStatus(_B)
-class _TmnxSysRollbackSave_Type(TmnxActionType):defaultValue=2
-_TmnxSysRollbackSave_Type.__name__=_V
-_TmnxSysRollbackSave_Object=MibScalar
-tmnxSysRollbackSave=_TmnxSysRollbackSave_Object((1,3,6,1,4,1,6527,3,1,2,1,17,4),_TmnxSysRollbackSave_Type())
-tmnxSysRollbackSave.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRollbackSave.setStatus(_B)
-class _TmnxSysRollbackSaveResult_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_O,1),(_Z,2),(_Q,3),(_a,4)))
-_TmnxSysRollbackSaveResult_Type.__name__=_F
-_TmnxSysRollbackSaveResult_Object=MibScalar
-tmnxSysRollbackSaveResult=_TmnxSysRollbackSaveResult_Object((1,3,6,1,4,1,6527,3,1,2,1,17,5),_TmnxSysRollbackSaveResult_Type())
-tmnxSysRollbackSaveResult.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackSaveResult.setStatus(_B)
-class _TmnxSysRollbackLocation_Type(TmnxDisplayStringURL):defaultHexValue=''
-_TmnxSysRollbackLocation_Type.__name__=_P
-_TmnxSysRollbackLocation_Object=MibScalar
-tmnxSysRollbackLocation=_TmnxSysRollbackLocation_Object((1,3,6,1,4,1,6527,3,1,2,1,17,6),_TmnxSysRollbackLocation_Type())
-tmnxSysRollbackLocation.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRollbackLocation.setStatus(_B)
-class _TmnxSysRollbackRevertIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,199))
-_TmnxSysRollbackRevertIndex_Type.__name__=_G
-_TmnxSysRollbackRevertIndex_Object=MibScalar
-tmnxSysRollbackRevertIndex=_TmnxSysRollbackRevertIndex_Object((1,3,6,1,4,1,6527,3,1,2,1,17,7),_TmnxSysRollbackRevertIndex_Type())
-tmnxSysRollbackRevertIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackRevertIndex.setStatus(_B)
-_TmnxSysRollbackRevertEndTime_Type=DateAndTime
-_TmnxSysRollbackRevertEndTime_Object=MibScalar
-tmnxSysRollbackRevertEndTime=_TmnxSysRollbackRevertEndTime_Object((1,3,6,1,4,1,6527,3,1,2,1,17,8),_TmnxSysRollbackRevertEndTime_Type())
-tmnxSysRollbackRevertEndTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackRevertEndTime.setStatus(_B)
-_TmnxSysRollbackSavedTime_Type=DateAndTime
-_TmnxSysRollbackSavedTime_Object=MibScalar
-tmnxSysRollbackSavedTime=_TmnxSysRollbackSavedTime_Object((1,3,6,1,4,1,6527,3,1,2,1,17,9),_TmnxSysRollbackSavedTime_Type())
-tmnxSysRollbackSavedTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackSavedTime.setStatus(_B)
-_TmnxSysRollbackRevertStartTime_Type=DateAndTime
-_TmnxSysRollbackRevertStartTime_Object=MibScalar
-tmnxSysRollbackRevertStartTime=_TmnxSysRollbackRevertStartTime_Object((1,3,6,1,4,1,6527,3,1,2,1,17,10),_TmnxSysRollbackRevertStartTime_Type())
-tmnxSysRollbackRevertStartTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackRevertStartTime.setStatus(_B)
-class _TmnxSysRollbackRevertUserName_Type(TNamedItemOrEmpty):defaultHexValue=''
-_TmnxSysRollbackRevertUserName_Type.__name__=_A2
-_TmnxSysRollbackRevertUserName_Object=MibScalar
-tmnxSysRollbackRevertUserName=_TmnxSysRollbackRevertUserName_Object((1,3,6,1,4,1,6527,3,1,2,1,17,11),_TmnxSysRollbackRevertUserName_Type())
-tmnxSysRollbackRevertUserName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackRevertUserName.setStatus(_B)
-class _TmnxSysRollbackRevertFilename_Type(TmnxDisplayStringURL):defaultHexValue=''
-_TmnxSysRollbackRevertFilename_Type.__name__=_P
-_TmnxSysRollbackRevertFilename_Object=MibScalar
-tmnxSysRollbackRevertFilename=_TmnxSysRollbackRevertFilename_Object((1,3,6,1,4,1,6527,3,1,2,1,17,12),_TmnxSysRollbackRevertFilename_Type())
-tmnxSysRollbackRevertFilename.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackRevertFilename.setStatus(_B)
-class _TmnxSysRollbackSaveComment_Type(DisplayString):defaultHexValue='';subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_TmnxSysRollbackSaveComment_Type.__name__=_M
-_TmnxSysRollbackSaveComment_Object=MibScalar
-tmnxSysRollbackSaveComment=_TmnxSysRollbackSaveComment_Object((1,3,6,1,4,1,6527,3,1,2,1,17,13),_TmnxSysRollbackSaveComment_Type())
-tmnxSysRollbackSaveComment.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRollbackSaveComment.setStatus(_B)
-class _TmnxSysRollbackFileDelete_Type(TmnxActionType):defaultValue=2
-_TmnxSysRollbackFileDelete_Type.__name__=_V
-_TmnxSysRollbackFileDelete_Object=MibScalar
-tmnxSysRollbackFileDelete=_TmnxSysRollbackFileDelete_Object((1,3,6,1,4,1,6527,3,1,2,1,17,14),_TmnxSysRollbackFileDelete_Type())
-tmnxSysRollbackFileDelete.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRollbackFileDelete.setStatus(_B)
-class _TmnxSysRollbackFileDeleteResult_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_O,1),(_Z,2),(_Q,3),(_a,4)))
-_TmnxSysRollbackFileDeleteResult_Type.__name__=_F
-_TmnxSysRollbackFileDeleteResult_Object=MibScalar
-tmnxSysRollbackFileDeleteResult=_TmnxSysRollbackFileDeleteResult_Object((1,3,6,1,4,1,6527,3,1,2,1,17,15),_TmnxSysRollbackFileDeleteResult_Type())
-tmnxSysRollbackFileDeleteResult.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackFileDeleteResult.setStatus(_B)
-class _TmnxSysRollbackAbortRevert_Type(TmnxActionType):defaultValue=2
-_TmnxSysRollbackAbortRevert_Type.__name__=_V
-_TmnxSysRollbackAbortRevert_Object=MibScalar
-tmnxSysRollbackAbortRevert=_TmnxSysRollbackAbortRevert_Object((1,3,6,1,4,1,6527,3,1,2,1,17,16),_TmnxSysRollbackAbortRevert_Type())
-tmnxSysRollbackAbortRevert.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRollbackAbortRevert.setStatus(_B)
-class _TmnxSysRollbackRescueLocation_Type(TmnxDisplayStringURL):defaultHexValue=''
-_TmnxSysRollbackRescueLocation_Type.__name__=_P
-_TmnxSysRollbackRescueLocation_Object=MibScalar
-tmnxSysRollbackRescueLocation=_TmnxSysRollbackRescueLocation_Object((1,3,6,1,4,1,6527,3,1,2,1,17,17),_TmnxSysRollbackRescueLocation_Type())
-tmnxSysRollbackRescueLocation.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRollbackRescueLocation.setStatus(_B)
-class _TmnxSysRollbackRescueRevert_Type(TmnxActionType):defaultValue=2
-_TmnxSysRollbackRescueRevert_Type.__name__=_V
-_TmnxSysRollbackRescueRevert_Object=MibScalar
-tmnxSysRollbackRescueRevert=_TmnxSysRollbackRescueRevert_Object((1,3,6,1,4,1,6527,3,1,2,1,17,18),_TmnxSysRollbackRescueRevert_Type())
-tmnxSysRollbackRescueRevert.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRollbackRescueRevert.setStatus(_B)
-class _TmnxSysRollbackRescueSave_Type(TmnxActionType):defaultValue=2
-_TmnxSysRollbackRescueSave_Type.__name__=_V
-_TmnxSysRollbackRescueSave_Object=MibScalar
-tmnxSysRollbackRescueSave=_TmnxSysRollbackRescueSave_Object((1,3,6,1,4,1,6527,3,1,2,1,17,19),_TmnxSysRollbackRescueSave_Type())
-tmnxSysRollbackRescueSave.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRollbackRescueSave.setStatus(_B)
-class _TmnxSysRollbackRescueDelete_Type(TmnxActionType):defaultValue=2
-_TmnxSysRollbackRescueDelete_Type.__name__=_V
-_TmnxSysRollbackRescueDelete_Object=MibScalar
-tmnxSysRollbackRescueDelete=_TmnxSysRollbackRescueDelete_Object((1,3,6,1,4,1,6527,3,1,2,1,17,20),_TmnxSysRollbackRescueDelete_Type())
-tmnxSysRollbackRescueDelete.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRollbackRescueDelete.setStatus(_B)
-class _TmnxSysRollbackRescueSaveRes_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_O,1),(_Z,2),(_Q,3),(_a,4)))
-_TmnxSysRollbackRescueSaveRes_Type.__name__=_F
-_TmnxSysRollbackRescueSaveRes_Object=MibScalar
-tmnxSysRollbackRescueSaveRes=_TmnxSysRollbackRescueSaveRes_Object((1,3,6,1,4,1,6527,3,1,2,1,17,21),_TmnxSysRollbackRescueSaveRes_Type())
-tmnxSysRollbackRescueSaveRes.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackRescueSaveRes.setStatus(_B)
-class _TmnxSysRollbackRescueRevertRes_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_O,1),(_Z,2),(_Q,3),(_a,4),(_Ej,5)))
-_TmnxSysRollbackRescueRevertRes_Type.__name__=_F
-_TmnxSysRollbackRescueRevertRes_Object=MibScalar
-tmnxSysRollbackRescueRevertRes=_TmnxSysRollbackRescueRevertRes_Object((1,3,6,1,4,1,6527,3,1,2,1,17,22),_TmnxSysRollbackRescueRevertRes_Type())
-tmnxSysRollbackRescueRevertRes.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackRescueRevertRes.setStatus(_B)
-class _TmnxSysRollbackRescueDeleteRes_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_O,1),(_Z,2),(_Q,3),(_a,4)))
-_TmnxSysRollbackRescueDeleteRes_Type.__name__=_F
-_TmnxSysRollbackRescueDeleteRes_Object=MibScalar
-tmnxSysRollbackRescueDeleteRes=_TmnxSysRollbackRescueDeleteRes_Object((1,3,6,1,4,1,6527,3,1,2,1,17,23),_TmnxSysRollbackRescueDeleteRes_Type())
-tmnxSysRollbackRescueDeleteRes.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackRescueDeleteRes.setStatus(_B)
-_TmnxSysRollbackRescueSavedTime_Type=DateAndTime
-_TmnxSysRollbackRescueSavedTime_Object=MibScalar
-tmnxSysRollbackRescueSavedTime=_TmnxSysRollbackRescueSavedTime_Object((1,3,6,1,4,1,6527,3,1,2,1,17,24),_TmnxSysRollbackRescueSavedTime_Type())
-tmnxSysRollbackRescueSavedTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackRescueSavedTime.setStatus(_B)
-_TmnxSysRollbackRescueRevStTime_Type=DateAndTime
-_TmnxSysRollbackRescueRevStTime_Object=MibScalar
-tmnxSysRollbackRescueRevStTime=_TmnxSysRollbackRescueRevStTime_Object((1,3,6,1,4,1,6527,3,1,2,1,17,25),_TmnxSysRollbackRescueRevStTime_Type())
-tmnxSysRollbackRescueRevStTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackRescueRevStTime.setStatus(_B)
-_TmnxSysRollbackRescueRevEdTime_Type=DateAndTime
-_TmnxSysRollbackRescueRevEdTime_Object=MibScalar
-tmnxSysRollbackRescueRevEdTime=_TmnxSysRollbackRescueRevEdTime_Object((1,3,6,1,4,1,6527,3,1,2,1,17,26),_TmnxSysRollbackRescueRevEdTime_Type())
-tmnxSysRollbackRescueRevEdTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackRescueRevEdTime.setStatus(_B)
-class _TmnxSysRollbackRescueRevUser_Type(TNamedItemOrEmpty):defaultHexValue=''
-_TmnxSysRollbackRescueRevUser_Type.__name__=_A2
-_TmnxSysRollbackRescueRevUser_Object=MibScalar
-tmnxSysRollbackRescueRevUser=_TmnxSysRollbackRescueRevUser_Object((1,3,6,1,4,1,6527,3,1,2,1,17,27),_TmnxSysRollbackRescueRevUser_Type())
-tmnxSysRollbackRescueRevUser.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackRescueRevUser.setStatus(_B)
-class _TmnxSysRollbackRescueSaveComment_Type(DisplayString):defaultHexValue='';subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_TmnxSysRollbackRescueSaveComment_Type.__name__=_M
-_TmnxSysRollbackRescueSaveComment_Object=MibScalar
-tmnxSysRollbackRescueSaveComment=_TmnxSysRollbackRescueSaveComment_Object((1,3,6,1,4,1,6527,3,1,2,1,17,28),_TmnxSysRollbackRescueSaveComment_Type())
-tmnxSysRollbackRescueSaveComment.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRollbackRescueSaveComment.setStatus(_B)
-class _TmnxSysRollbackRescueAbortRevert_Type(TmnxActionType):defaultValue=2
-_TmnxSysRollbackRescueAbortRevert_Type.__name__=_V
-_TmnxSysRollbackRescueAbortRevert_Object=MibScalar
-tmnxSysRollbackRescueAbortRevert=_TmnxSysRollbackRescueAbortRevert_Object((1,3,6,1,4,1,6527,3,1,2,1,17,29),_TmnxSysRollbackRescueAbortRevert_Type())
-tmnxSysRollbackRescueAbortRevert.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRollbackRescueAbortRevert.setStatus(_B)
-class _TmnxSysRollbackRescueFileExists_Type(TruthValue):defaultValue=2
-_TmnxSysRollbackRescueFileExists_Type.__name__=_H
-_TmnxSysRollbackRescueFileExists_Object=MibScalar
-tmnxSysRollbackRescueFileExists=_TmnxSysRollbackRescueFileExists_Object((1,3,6,1,4,1,6527,3,1,2,1,17,30),_TmnxSysRollbackRescueFileExists_Type())
-tmnxSysRollbackRescueFileExists.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackRescueFileExists.setStatus(_B)
-class _TmnxSysRollbackMaxLocalFiles_Type(Unsigned32):defaultValue=10;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,50))
-_TmnxSysRollbackMaxLocalFiles_Type.__name__=_G
-_TmnxSysRollbackMaxLocalFiles_Object=MibScalar
-tmnxSysRollbackMaxLocalFiles=_TmnxSysRollbackMaxLocalFiles_Object((1,3,6,1,4,1,6527,3,1,2,1,17,31),_TmnxSysRollbackMaxLocalFiles_Type())
-tmnxSysRollbackMaxLocalFiles.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRollbackMaxLocalFiles.setStatus(_B)
-class _TmnxSysRollbackMaxRemoteFiles_Type(Unsigned32):defaultValue=10;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,200))
-_TmnxSysRollbackMaxRemoteFiles_Type.__name__=_G
-_TmnxSysRollbackMaxRemoteFiles_Object=MibScalar
-tmnxSysRollbackMaxRemoteFiles=_TmnxSysRollbackMaxRemoteFiles_Object((1,3,6,1,4,1,6527,3,1,2,1,17,32),_TmnxSysRollbackMaxRemoteFiles_Type())
-tmnxSysRollbackMaxRemoteFiles.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRollbackMaxRemoteFiles.setStatus(_B)
-_TmnxSysRollbackTableLastChanged_Type=TimeStamp
-_TmnxSysRollbackTableLastChanged_Object=MibScalar
-tmnxSysRollbackTableLastChanged=_TmnxSysRollbackTableLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,1,18),_TmnxSysRollbackTableLastChanged_Type())
-tmnxSysRollbackTableLastChanged.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackTableLastChanged.setStatus(_B)
-_TmnxSysRollbackFileTable_Object=MibTable
-tmnxSysRollbackFileTable=_TmnxSysRollbackFileTable_Object((1,3,6,1,4,1,6527,3,1,2,1,19))
-if mibBuilder.loadTexts:tmnxSysRollbackFileTable.setStatus(_B)
-_TmnxSysRollbackFileEntry_Object=MibTableRow
-tmnxSysRollbackFileEntry=_TmnxSysRollbackFileEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,19,1))
-tmnxSysRollbackFileEntry.setIndexNames((0,_A,_Ek))
-if mibBuilder.loadTexts:tmnxSysRollbackFileEntry.setStatus(_B)
-class _TmnxSysRollbackFileIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,199))
-_TmnxSysRollbackFileIndex_Type.__name__=_G
-_TmnxSysRollbackFileIndex_Object=MibTableColumn
-tmnxSysRollbackFileIndex=_TmnxSysRollbackFileIndex_Object((1,3,6,1,4,1,6527,3,1,2,1,19,1,1),_TmnxSysRollbackFileIndex_Type())
-tmnxSysRollbackFileIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysRollbackFileIndex.setStatus(_B)
-_TmnxSysRollbackFileCreationTime_Type=DateAndTime
-_TmnxSysRollbackFileCreationTime_Object=MibTableColumn
-tmnxSysRollbackFileCreationTime=_TmnxSysRollbackFileCreationTime_Object((1,3,6,1,4,1,6527,3,1,2,1,19,1,2),_TmnxSysRollbackFileCreationTime_Type())
-tmnxSysRollbackFileCreationTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackFileCreationTime.setStatus(_B)
-class _TmnxSysRollbackFileComment_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_TmnxSysRollbackFileComment_Type.__name__=_M
-_TmnxSysRollbackFileComment_Object=MibTableColumn
-tmnxSysRollbackFileComment=_TmnxSysRollbackFileComment_Object((1,3,6,1,4,1,6527,3,1,2,1,19,1,3),_TmnxSysRollbackFileComment_Type())
-tmnxSysRollbackFileComment.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackFileComment.setStatus(_B)
-_TmnxSysRollbackFileUserName_Type=TNamedItemOrEmpty
-_TmnxSysRollbackFileUserName_Object=MibTableColumn
-tmnxSysRollbackFileUserName=_TmnxSysRollbackFileUserName_Object((1,3,6,1,4,1,6527,3,1,2,1,19,1,4),_TmnxSysRollbackFileUserName_Type())
-tmnxSysRollbackFileUserName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackFileUserName.setStatus(_B)
-class _TmnxSysRollbackFileVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_TmnxSysRollbackFileVersion_Type.__name__=_M
-_TmnxSysRollbackFileVersion_Object=MibTableColumn
-tmnxSysRollbackFileVersion=_TmnxSysRollbackFileVersion_Object((1,3,6,1,4,1,6527,3,1,2,1,19,1,5),_TmnxSysRollbackFileVersion_Type())
-tmnxSysRollbackFileVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRollbackFileVersion.setStatus(_B)
-_SysBootedBofInfo_ObjectIdentity=ObjectIdentity
-sysBootedBofInfo=_SysBootedBofInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,20))
-_SbbiLiSeparate_Type=TruthValue
-_SbbiLiSeparate_Object=MibScalar
-sbbiLiSeparate=_SbbiLiSeparate_Object((1,3,6,1,4,1,6527,3,1,2,1,20,1),_SbbiLiSeparate_Type())
-sbbiLiSeparate.setMaxAccess(_C)
-if mibBuilder.loadTexts:sbbiLiSeparate.setStatus(_B)
-_SbbiLiLocalSave_Type=TruthValue
-_SbbiLiLocalSave_Object=MibScalar
-sbbiLiLocalSave=_SbbiLiLocalSave_Object((1,3,6,1,4,1,6527,3,1,2,1,20,2),_SbbiLiLocalSave_Type())
-sbbiLiLocalSave.setMaxAccess(_C)
-if mibBuilder.loadTexts:sbbiLiLocalSave.setStatus(_B)
-_SysMGMCSwitchOverInfo_ObjectIdentity=ObjectIdentity
-sysMGMCSwitchOverInfo=_SysMGMCSwitchOverInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,21))
-_TmnxSysCandidateCfgInfo_ObjectIdentity=ObjectIdentity
-tmnxSysCandidateCfgInfo=_TmnxSysCandidateCfgInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,22))
-class _TmnxSysCandidateCfgState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('unmodified',0),('modified',1),('unconfirmed',2)))
-_TmnxSysCandidateCfgState_Type.__name__=_F
-_TmnxSysCandidateCfgState_Object=MibScalar
-tmnxSysCandidateCfgState=_TmnxSysCandidateCfgState_Object((1,3,6,1,4,1,6527,3,1,2,1,22,1),_TmnxSysCandidateCfgState_Type())
-tmnxSysCandidateCfgState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCandidateCfgState.setStatus(_B)
-_TmnxSysCandidateCfgEditors_Type=Integer32
-_TmnxSysCandidateCfgEditors_Object=MibScalar
-tmnxSysCandidateCfgEditors=_TmnxSysCandidateCfgEditors_Object((1,3,6,1,4,1,6527,3,1,2,1,22,2),_TmnxSysCandidateCfgEditors_Type())
-tmnxSysCandidateCfgEditors.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCandidateCfgEditors.setStatus(_B)
-class _TmnxSysCandidateCfgCommitState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7)));namedValues=NamedValues(*((_O,0),('in-progress',1),(_Q,2),('revert-pending',3),(_a,4),('revert-in-progress',5),('reverted',6),('revert-failed',7)))
-_TmnxSysCandidateCfgCommitState_Type.__name__=_F
-_TmnxSysCandidateCfgCommitState_Object=MibScalar
-tmnxSysCandidateCfgCommitState=_TmnxSysCandidateCfgCommitState_Object((1,3,6,1,4,1,6527,3,1,2,1,22,3),_TmnxSysCandidateCfgCommitState_Type())
-tmnxSysCandidateCfgCommitState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCandidateCfgCommitState.setStatus(_B)
-_TmnxSysCandidateCfgCommitTime_Type=DateAndTime
-_TmnxSysCandidateCfgCommitTime_Object=MibScalar
-tmnxSysCandidateCfgCommitTime=_TmnxSysCandidateCfgCommitTime_Object((1,3,6,1,4,1,6527,3,1,2,1,22,4),_TmnxSysCandidateCfgCommitTime_Type())
-tmnxSysCandidateCfgCommitTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCandidateCfgCommitTime.setStatus(_B)
-_TmnxSysCandidateCfgRevertTime_Type=DateAndTime
-_TmnxSysCandidateCfgRevertTime_Object=MibScalar
-tmnxSysCandidateCfgRevertTime=_TmnxSysCandidateCfgRevertTime_Object((1,3,6,1,4,1,6527,3,1,2,1,22,5),_TmnxSysCandidateCfgRevertTime_Type())
-tmnxSysCandidateCfgRevertTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCandidateCfgRevertTime.setStatus(_B)
-_TmnxSysCandidateCfgChckptCreated_Type=TruthValue
-_TmnxSysCandidateCfgChckptCreated_Object=MibScalar
-tmnxSysCandidateCfgChckptCreated=_TmnxSysCandidateCfgChckptCreated_Object((1,3,6,1,4,1,6527,3,1,2,1,22,6),_TmnxSysCandidateCfgChckptCreated_Type())
-tmnxSysCandidateCfgChckptCreated.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCandidateCfgChckptCreated.setStatus(_B)
-_TmnxSysCandidateCfgUser_Type=TNamedItemOrEmpty
-_TmnxSysCandidateCfgUser_Object=MibScalar
-tmnxSysCandidateCfgUser=_TmnxSysCandidateCfgUser_Object((1,3,6,1,4,1,6527,3,1,2,1,22,7),_TmnxSysCandidateCfgUser_Type())
-tmnxSysCandidateCfgUser.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCandidateCfgUser.setStatus(_B)
-_TmnxSysCandidateCfgExclusiveUsr_Type=TNamedItemOrEmpty
-_TmnxSysCandidateCfgExclusiveUsr_Object=MibScalar
-tmnxSysCandidateCfgExclusiveUsr=_TmnxSysCandidateCfgExclusiveUsr_Object((1,3,6,1,4,1,6527,3,1,2,1,22,8),_TmnxSysCandidateCfgExclusiveUsr_Type())
-tmnxSysCandidateCfgExclusiveUsr.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCandidateCfgExclusiveUsr.setStatus(_B)
-_TmnxSysNetconfInfo_ObjectIdentity=ObjectIdentity
-tmnxSysNetconfInfo=_TmnxSysNetconfInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,23))
-class _TmnxSysNetconfAdminStatus_Type(TmnxAdminState):defaultValue=3
-_TmnxSysNetconfAdminStatus_Type.__name__=_N
-_TmnxSysNetconfAdminStatus_Object=MibScalar
-tmnxSysNetconfAdminStatus=_TmnxSysNetconfAdminStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,23,1),_TmnxSysNetconfAdminStatus_Type())
-tmnxSysNetconfAdminStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysNetconfAdminStatus.setStatus(_B)
-_TmnxSysNetconfOperStatus_Type=TmnxOperState
-_TmnxSysNetconfOperStatus_Object=MibScalar
-tmnxSysNetconfOperStatus=_TmnxSysNetconfOperStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,23,2),_TmnxSysNetconfOperStatus_Type())
-tmnxSysNetconfOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfOperStatus.setStatus(_B)
-_TmnxSysNetconfRequests_Type=Counter32
-_TmnxSysNetconfRequests_Object=MibScalar
-tmnxSysNetconfRequests=_TmnxSysNetconfRequests_Object((1,3,6,1,4,1,6527,3,1,2,1,23,3),_TmnxSysNetconfRequests_Type())
-tmnxSysNetconfRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfRequests.setStatus(_B)
-_TmnxSysNetconfGetRequests_Type=Counter32
-_TmnxSysNetconfGetRequests_Object=MibScalar
-tmnxSysNetconfGetRequests=_TmnxSysNetconfGetRequests_Object((1,3,6,1,4,1,6527,3,1,2,1,23,4),_TmnxSysNetconfGetRequests_Type())
-tmnxSysNetconfGetRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfGetRequests.setStatus(_B)
-_TmnxSysNetconfGetConfigRequests_Type=Counter32
-_TmnxSysNetconfGetConfigRequests_Object=MibScalar
-tmnxSysNetconfGetConfigRequests=_TmnxSysNetconfGetConfigRequests_Object((1,3,6,1,4,1,6527,3,1,2,1,23,5),_TmnxSysNetconfGetConfigRequests_Type())
-tmnxSysNetconfGetConfigRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfGetConfigRequests.setStatus(_B)
-_TmnxSysNetconfEditConfigRequests_Type=Counter32
-_TmnxSysNetconfEditConfigRequests_Object=MibScalar
-tmnxSysNetconfEditConfigRequests=_TmnxSysNetconfEditConfigRequests_Object((1,3,6,1,4,1,6527,3,1,2,1,23,6),_TmnxSysNetconfEditConfigRequests_Type())
-tmnxSysNetconfEditConfigRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfEditConfigRequests.setStatus(_B)
-_TmnxSysNetconfCloseRequests_Type=Counter32
-_TmnxSysNetconfCloseRequests_Object=MibScalar
-tmnxSysNetconfCloseRequests=_TmnxSysNetconfCloseRequests_Object((1,3,6,1,4,1,6527,3,1,2,1,23,7),_TmnxSysNetconfCloseRequests_Type())
-tmnxSysNetconfCloseRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfCloseRequests.setStatus(_B)
-_TmnxSysNetconfKillRequests_Type=Counter32
-_TmnxSysNetconfKillRequests_Object=MibScalar
-tmnxSysNetconfKillRequests=_TmnxSysNetconfKillRequests_Object((1,3,6,1,4,1,6527,3,1,2,1,23,8),_TmnxSysNetconfKillRequests_Type())
-tmnxSysNetconfKillRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfKillRequests.setStatus(_B)
-_TmnxSysNetconfResponses_Type=Counter32
-_TmnxSysNetconfResponses_Object=MibScalar
-tmnxSysNetconfResponses=_TmnxSysNetconfResponses_Object((1,3,6,1,4,1,6527,3,1,2,1,23,9),_TmnxSysNetconfResponses_Type())
-tmnxSysNetconfResponses.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfResponses.setStatus(_B)
-_TmnxSysNetconfErrorResponses_Type=Counter32
-_TmnxSysNetconfErrorResponses_Object=MibScalar
-tmnxSysNetconfErrorResponses=_TmnxSysNetconfErrorResponses_Object((1,3,6,1,4,1,6527,3,1,2,1,23,10),_TmnxSysNetconfErrorResponses_Type())
-tmnxSysNetconfErrorResponses.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfErrorResponses.setStatus(_B)
-_TmnxSysNetconfCopyConfigRequests_Type=Counter32
-_TmnxSysNetconfCopyConfigRequests_Object=MibScalar
-tmnxSysNetconfCopyConfigRequests=_TmnxSysNetconfCopyConfigRequests_Object((1,3,6,1,4,1,6527,3,1,2,1,23,11),_TmnxSysNetconfCopyConfigRequests_Type())
-tmnxSysNetconfCopyConfigRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfCopyConfigRequests.setStatus(_B)
-_TmnxSysNetconfDelConfigRequests_Type=Counter32
-_TmnxSysNetconfDelConfigRequests_Object=MibScalar
-tmnxSysNetconfDelConfigRequests=_TmnxSysNetconfDelConfigRequests_Object((1,3,6,1,4,1,6527,3,1,2,1,23,12),_TmnxSysNetconfDelConfigRequests_Type())
-tmnxSysNetconfDelConfigRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfDelConfigRequests.setStatus(_B)
-_TmnxSysNetconfValidateRequests_Type=Counter32
-_TmnxSysNetconfValidateRequests_Object=MibScalar
-tmnxSysNetconfValidateRequests=_TmnxSysNetconfValidateRequests_Object((1,3,6,1,4,1,6527,3,1,2,1,23,13),_TmnxSysNetconfValidateRequests_Type())
-tmnxSysNetconfValidateRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfValidateRequests.setStatus(_B)
-_TmnxSysNetconfFailedEditCfgReqs_Type=Counter32
-_TmnxSysNetconfFailedEditCfgReqs_Object=MibScalar
-tmnxSysNetconfFailedEditCfgReqs=_TmnxSysNetconfFailedEditCfgReqs_Object((1,3,6,1,4,1,6527,3,1,2,1,23,14),_TmnxSysNetconfFailedEditCfgReqs_Type())
-tmnxSysNetconfFailedEditCfgReqs.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfFailedEditCfgReqs.setStatus(_B)
-_TmnxSysNetconfFailedLockReqs_Type=Counter32
-_TmnxSysNetconfFailedLockReqs_Object=MibScalar
-tmnxSysNetconfFailedLockReqs=_TmnxSysNetconfFailedLockReqs_Object((1,3,6,1,4,1,6527,3,1,2,1,23,15),_TmnxSysNetconfFailedLockReqs_Type())
-tmnxSysNetconfFailedLockReqs.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfFailedLockReqs.setStatus(_B)
-_TmnxSysNetconfLockRequests_Type=Counter32
-_TmnxSysNetconfLockRequests_Object=MibScalar
-tmnxSysNetconfLockRequests=_TmnxSysNetconfLockRequests_Object((1,3,6,1,4,1,6527,3,1,2,1,23,16),_TmnxSysNetconfLockRequests_Type())
-tmnxSysNetconfLockRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfLockRequests.setStatus(_B)
-_TmnxSysNetconfUnlockRequests_Type=Counter32
-_TmnxSysNetconfUnlockRequests_Object=MibScalar
-tmnxSysNetconfUnlockRequests=_TmnxSysNetconfUnlockRequests_Object((1,3,6,1,4,1,6527,3,1,2,1,23,17),_TmnxSysNetconfUnlockRequests_Type())
-tmnxSysNetconfUnlockRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfUnlockRequests.setStatus(_B)
-_TmnxSysNetconfCommitRequests_Type=Counter32
-_TmnxSysNetconfCommitRequests_Object=MibScalar
-tmnxSysNetconfCommitRequests=_TmnxSysNetconfCommitRequests_Object((1,3,6,1,4,1,6527,3,1,2,1,23,18),_TmnxSysNetconfCommitRequests_Type())
-tmnxSysNetconfCommitRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfCommitRequests.setStatus(_B)
-_TmnxSysNetconfDiscardRequests_Type=Counter32
-_TmnxSysNetconfDiscardRequests_Object=MibScalar
-tmnxSysNetconfDiscardRequests=_TmnxSysNetconfDiscardRequests_Object((1,3,6,1,4,1,6527,3,1,2,1,23,19),_TmnxSysNetconfDiscardRequests_Type())
-tmnxSysNetconfDiscardRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfDiscardRequests.setStatus(_B)
-class _TmnxSysNetconfCapCandidateCfg_Type(TruthValue):defaultValue=1
-_TmnxSysNetconfCapCandidateCfg_Type.__name__=_H
-_TmnxSysNetconfCapCandidateCfg_Object=MibScalar
-tmnxSysNetconfCapCandidateCfg=_TmnxSysNetconfCapCandidateCfg_Object((1,3,6,1,4,1,6527,3,1,2,1,23,20),_TmnxSysNetconfCapCandidateCfg_Type())
-tmnxSysNetconfCapCandidateCfg.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysNetconfCapCandidateCfg.setStatus(_B)
-class _TmnxSysNetconfCapRunningCfg_Type(TruthValue):defaultValue=2
-_TmnxSysNetconfCapRunningCfg_Type.__name__=_H
-_TmnxSysNetconfCapRunningCfg_Object=MibScalar
-tmnxSysNetconfCapRunningCfg=_TmnxSysNetconfCapRunningCfg_Object((1,3,6,1,4,1,6527,3,1,2,1,23,21),_TmnxSysNetconfCapRunningCfg_Type())
-tmnxSysNetconfCapRunningCfg.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysNetconfCapRunningCfg.setStatus(_B)
-class _TmnxSysNetconfYangBaseR13_Type(TruthValue):defaultValue=1
-_TmnxSysNetconfYangBaseR13_Type.__name__=_H
-_TmnxSysNetconfYangBaseR13_Object=MibScalar
-tmnxSysNetconfYangBaseR13=_TmnxSysNetconfYangBaseR13_Object((1,3,6,1,4,1,6527,3,1,2,1,23,22),_TmnxSysNetconfYangBaseR13_Type())
-tmnxSysNetconfYangBaseR13.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysNetconfYangBaseR13.setStatus(_L)
-class _TmnxSysNetconfYangNokia_Type(TruthValue):defaultValue=1
-_TmnxSysNetconfYangNokia_Type.__name__=_H
-_TmnxSysNetconfYangNokia_Object=MibScalar
-tmnxSysNetconfYangNokia=_TmnxSysNetconfYangNokia_Object((1,3,6,1,4,1,6527,3,1,2,1,23,23),_TmnxSysNetconfYangNokia_Type())
-tmnxSysNetconfYangNokia.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysNetconfYangNokia.setStatus(_L)
-_TmnxSysNetconfCreateSubRequests_Type=Counter32
-_TmnxSysNetconfCreateSubRequests_Object=MibScalar
-tmnxSysNetconfCreateSubRequests=_TmnxSysNetconfCreateSubRequests_Object((1,3,6,1,4,1,6527,3,1,2,1,23,24),_TmnxSysNetconfCreateSubRequests_Type())
-tmnxSysNetconfCreateSubRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfCreateSubRequests.setStatus(_B)
-class _TmnxSysNetconfAutoCfgSave_Type(TruthValue):defaultValue=2
-_TmnxSysNetconfAutoCfgSave_Type.__name__=_H
-_TmnxSysNetconfAutoCfgSave_Object=MibScalar
-tmnxSysNetconfAutoCfgSave=_TmnxSysNetconfAutoCfgSave_Object((1,3,6,1,4,1,6527,3,1,2,1,23,25),_TmnxSysNetconfAutoCfgSave_Type())
-tmnxSysNetconfAutoCfgSave.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysNetconfAutoCfgSave.setStatus(_B)
-class _TmnxSysNetconfPort_Type(Unsigned32):defaultValue=830;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(22,22),ValueRangeConstraint(830,830))
-_TmnxSysNetconfPort_Type.__name__=_G
-_TmnxSysNetconfPort_Object=MibScalar
-tmnxSysNetconfPort=_TmnxSysNetconfPort_Object((1,3,6,1,4,1,6527,3,1,2,1,23,26),_TmnxSysNetconfPort_Type())
-tmnxSysNetconfPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysNetconfPort.setStatus(_B)
-_TmnxSysNetconfGetSchemaRequests_Type=Counter32
-_TmnxSysNetconfGetSchemaRequests_Object=MibScalar
-tmnxSysNetconfGetSchemaRequests=_TmnxSysNetconfGetSchemaRequests_Object((1,3,6,1,4,1,6527,3,1,2,1,23,27),_TmnxSysNetconfGetSchemaRequests_Type())
-tmnxSysNetconfGetSchemaRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfGetSchemaRequests.setStatus(_B)
-_TmnxSysNetconfGetDataRequests_Type=Counter32
-_TmnxSysNetconfGetDataRequests_Object=MibScalar
-tmnxSysNetconfGetDataRequests=_TmnxSysNetconfGetDataRequests_Object((1,3,6,1,4,1,6527,3,1,2,1,23,28),_TmnxSysNetconfGetDataRequests_Type())
-tmnxSysNetconfGetDataRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfGetDataRequests.setStatus(_B)
-_TmnxSysNetconfActionRequests_Type=Counter32
-_TmnxSysNetconfActionRequests_Object=MibScalar
-tmnxSysNetconfActionRequests=_TmnxSysNetconfActionRequests_Object((1,3,6,1,4,1,6527,3,1,2,1,23,29),_TmnxSysNetconfActionRequests_Type())
-tmnxSysNetconfActionRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNetconfActionRequests.setStatus(_B)
-_TmnxDCSysObjs_ObjectIdentity=ObjectIdentity
-tmnxDCSysObjs=_TmnxDCSysObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,24))
-_TmnxSysStrmInfo_ObjectIdentity=ObjectIdentity
-tmnxSysStrmInfo=_TmnxSysStrmInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,25))
-class _TmnxSysStrmAdminStatus_Type(TmnxAdminState):defaultValue=3
-_TmnxSysStrmAdminStatus_Type.__name__=_N
-_TmnxSysStrmAdminStatus_Object=MibScalar
-tmnxSysStrmAdminStatus=_TmnxSysStrmAdminStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,25,1),_TmnxSysStrmAdminStatus_Type())
-tmnxSysStrmAdminStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysStrmAdminStatus.setStatus(_B)
-_TmnxSysStrmDumpSnmpRequests_Type=Counter32
-_TmnxSysStrmDumpSnmpRequests_Object=MibScalar
-tmnxSysStrmDumpSnmpRequests=_TmnxSysStrmDumpSnmpRequests_Object((1,3,6,1,4,1,6527,3,1,2,1,25,2),_TmnxSysStrmDumpSnmpRequests_Type())
-tmnxSysStrmDumpSnmpRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysStrmDumpSnmpRequests.setStatus(_B)
-_TmnxSysStrmGetManyRequests_Type=Counter32
-_TmnxSysStrmGetManyRequests_Object=MibScalar
-tmnxSysStrmGetManyRequests=_TmnxSysStrmGetManyRequests_Object((1,3,6,1,4,1,6527,3,1,2,1,25,3),_TmnxSysStrmGetManyRequests_Type())
-tmnxSysStrmGetManyRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysStrmGetManyRequests.setStatus(_B)
-_TmnxSysStrmResponses_Type=Counter32
-_TmnxSysStrmResponses_Object=MibScalar
-tmnxSysStrmResponses=_TmnxSysStrmResponses_Object((1,3,6,1,4,1,6527,3,1,2,1,25,4),_TmnxSysStrmResponses_Type())
-tmnxSysStrmResponses.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysStrmResponses.setStatus(_B)
-_TmnxSysXmppInfo_ObjectIdentity=ObjectIdentity
-tmnxSysXmppInfo=_TmnxSysXmppInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,26))
-_TmnxSysXmppServerTable_Object=MibTable
-tmnxSysXmppServerTable=_TmnxSysXmppServerTable_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1))
-if mibBuilder.loadTexts:tmnxSysXmppServerTable.setStatus(_B)
-_TmnxSysXmppServerEntry_Object=MibTableRow
-tmnxSysXmppServerEntry=_TmnxSysXmppServerEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1))
-tmnxSysXmppServerEntry.setIndexNames((0,_A,_El))
-if mibBuilder.loadTexts:tmnxSysXmppServerEntry.setStatus(_B)
-class _TmnxSysXmppServName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_TmnxSysXmppServName_Type.__name__=_M
-_TmnxSysXmppServName_Object=MibTableColumn
-tmnxSysXmppServName=_TmnxSysXmppServName_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,1),_TmnxSysXmppServName_Type())
-tmnxSysXmppServName.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysXmppServName.setStatus(_B)
-class _TmnxSysXmppServFQDN_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_TmnxSysXmppServFQDN_Type.__name__=_M
-_TmnxSysXmppServFQDN_Object=MibTableColumn
-tmnxSysXmppServFQDN=_TmnxSysXmppServFQDN_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,2),_TmnxSysXmppServFQDN_Type())
-tmnxSysXmppServFQDN.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysXmppServFQDN.setStatus(_B)
-_TmnxSysXmppServRowStatus_Type=RowStatus
-_TmnxSysXmppServRowStatus_Object=MibTableColumn
-tmnxSysXmppServRowStatus=_TmnxSysXmppServRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,3),_TmnxSysXmppServRowStatus_Type())
-tmnxSysXmppServRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysXmppServRowStatus.setStatus(_B)
-_TmnxSysXmppServUserName_Type=TNamedItemOrEmpty
-_TmnxSysXmppServUserName_Object=MibTableColumn
-tmnxSysXmppServUserName=_TmnxSysXmppServUserName_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,4),_TmnxSysXmppServUserName_Type())
-tmnxSysXmppServUserName.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysXmppServUserName.setStatus(_B)
-class _TmnxSysXmppServPassword_Type(DisplayString):defaultValue=OctetString('');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_TmnxSysXmppServPassword_Type.__name__=_M
-_TmnxSysXmppServPassword_Object=MibTableColumn
-tmnxSysXmppServPassword=_TmnxSysXmppServPassword_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,5),_TmnxSysXmppServPassword_Type())
-tmnxSysXmppServPassword.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysXmppServPassword.setStatus(_B)
-_TmnxSysXmppServLastChanged_Type=TimeStamp
-_TmnxSysXmppServLastChanged_Object=MibTableColumn
-tmnxSysXmppServLastChanged=_TmnxSysXmppServLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,6),_TmnxSysXmppServLastChanged_Type())
-tmnxSysXmppServLastChanged.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServLastChanged.setStatus(_B)
-_TmnxSysXmppServUptime_Type=TimeStamp
-_TmnxSysXmppServUptime_Object=MibTableColumn
-tmnxSysXmppServUptime=_TmnxSysXmppServUptime_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,7),_TmnxSysXmppServUptime_Type())
-tmnxSysXmppServUptime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServUptime.setStatus(_B)
-_TmnxSysXmppServIQSent_Type=Counter64
-_TmnxSysXmppServIQSent_Object=MibTableColumn
-tmnxSysXmppServIQSent=_TmnxSysXmppServIQSent_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,8),_TmnxSysXmppServIQSent_Type())
-tmnxSysXmppServIQSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServIQSent.setStatus(_B)
-_TmnxSysXmppServIQRcvd_Type=Counter64
-_TmnxSysXmppServIQRcvd_Object=MibTableColumn
-tmnxSysXmppServIQRcvd=_TmnxSysXmppServIQRcvd_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,9),_TmnxSysXmppServIQRcvd_Type())
-tmnxSysXmppServIQRcvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServIQRcvd.setStatus(_B)
-_TmnxSysXmppServIQError_Type=Counter64
-_TmnxSysXmppServIQError_Object=MibTableColumn
-tmnxSysXmppServIQError=_TmnxSysXmppServIQError_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,10),_TmnxSysXmppServIQError_Type())
-tmnxSysXmppServIQError.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServIQError.setStatus(_B)
-_TmnxSysXmppServIQTimedOut_Type=Counter64
-_TmnxSysXmppServIQTimedOut_Object=MibTableColumn
-tmnxSysXmppServIQTimedOut=_TmnxSysXmppServIQTimedOut_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,11),_TmnxSysXmppServIQTimedOut_Type())
-tmnxSysXmppServIQTimedOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServIQTimedOut.setStatus(_B)
-_TmnxSysXmppServIQAckRcvd_Type=Counter64
-_TmnxSysXmppServIQAckRcvd_Object=MibTableColumn
-tmnxSysXmppServIQAckRcvd=_TmnxSysXmppServIQAckRcvd_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,12),_TmnxSysXmppServIQAckRcvd_Type())
-tmnxSysXmppServIQAckRcvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServIQAckRcvd.setStatus(_B)
-_TmnxSysXmppServIQMinRtt_Type=Counter64
-_TmnxSysXmppServIQMinRtt_Object=MibTableColumn
-tmnxSysXmppServIQMinRtt=_TmnxSysXmppServIQMinRtt_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,13),_TmnxSysXmppServIQMinRtt_Type())
-tmnxSysXmppServIQMinRtt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServIQMinRtt.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysXmppServIQMinRtt.setUnits(_A5)
-_TmnxSysXmppServIQMaxRtt_Type=Counter64
-_TmnxSysXmppServIQMaxRtt_Object=MibTableColumn
-tmnxSysXmppServIQMaxRtt=_TmnxSysXmppServIQMaxRtt_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,14),_TmnxSysXmppServIQMaxRtt_Type())
-tmnxSysXmppServIQMaxRtt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServIQMaxRtt.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysXmppServIQMaxRtt.setUnits(_A5)
-_TmnxSysXmppServVsdUpdatesRcvd_Type=Counter64
-_TmnxSysXmppServVsdUpdatesRcvd_Object=MibTableColumn
-tmnxSysXmppServVsdUpdatesRcvd=_TmnxSysXmppServVsdUpdatesRcvd_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,15),_TmnxSysXmppServVsdUpdatesRcvd_Type())
-tmnxSysXmppServVsdUpdatesRcvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServVsdUpdatesRcvd.setStatus(_B)
-_TmnxSysXmppServUpdatesRcvd_Type=Counter64
-_TmnxSysXmppServUpdatesRcvd_Object=MibTableColumn
-tmnxSysXmppServUpdatesRcvd=_TmnxSysXmppServUpdatesRcvd_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,16),_TmnxSysXmppServUpdatesRcvd_Type())
-tmnxSysXmppServUpdatesRcvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServUpdatesRcvd.setStatus(_B)
-_TmnxSysXmppServMsgSent_Type=Counter64
-_TmnxSysXmppServMsgSent_Object=MibTableColumn
-tmnxSysXmppServMsgSent=_TmnxSysXmppServMsgSent_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,17),_TmnxSysXmppServMsgSent_Type())
-tmnxSysXmppServMsgSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServMsgSent.setStatus(_B)
-_TmnxSysXmppServMsgRcvd_Type=Counter64
-_TmnxSysXmppServMsgRcvd_Object=MibTableColumn
-tmnxSysXmppServMsgRcvd=_TmnxSysXmppServMsgRcvd_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,18),_TmnxSysXmppServMsgRcvd_Type())
-tmnxSysXmppServMsgRcvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServMsgRcvd.setStatus(_B)
-_TmnxSysXmppServMsgAckRcvd_Type=Counter64
-_TmnxSysXmppServMsgAckRcvd_Object=MibTableColumn
-tmnxSysXmppServMsgAckRcvd=_TmnxSysXmppServMsgAckRcvd_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,19),_TmnxSysXmppServMsgAckRcvd_Type())
-tmnxSysXmppServMsgAckRcvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServMsgAckRcvd.setStatus(_B)
-_TmnxSysXmppServMsgError_Type=Counter64
-_TmnxSysXmppServMsgError_Object=MibTableColumn
-tmnxSysXmppServMsgError=_TmnxSysXmppServMsgError_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,20),_TmnxSysXmppServMsgError_Type())
-tmnxSysXmppServMsgError.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServMsgError.setStatus(_B)
-_TmnxSysXmppServMsgTimedOut_Type=Counter64
-_TmnxSysXmppServMsgTimedOut_Object=MibTableColumn
-tmnxSysXmppServMsgTimedOut=_TmnxSysXmppServMsgTimedOut_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,21),_TmnxSysXmppServMsgTimedOut_Type())
-tmnxSysXmppServMsgTimedOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServMsgTimedOut.setStatus(_B)
-_TmnxSysXmppServMsgMinRtt_Type=Counter64
-_TmnxSysXmppServMsgMinRtt_Object=MibTableColumn
-tmnxSysXmppServMsgMinRtt=_TmnxSysXmppServMsgMinRtt_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,22),_TmnxSysXmppServMsgMinRtt_Type())
-tmnxSysXmppServMsgMinRtt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServMsgMinRtt.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysXmppServMsgMinRtt.setUnits(_A5)
-_TmnxSysXmppServMsgMaxRtt_Type=Counter64
-_TmnxSysXmppServMsgMaxRtt_Object=MibTableColumn
-tmnxSysXmppServMsgMaxRtt=_TmnxSysXmppServMsgMaxRtt_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,23),_TmnxSysXmppServMsgMaxRtt_Type())
-tmnxSysXmppServMsgMaxRtt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServMsgMaxRtt.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysXmppServMsgMaxRtt.setUnits(_A5)
-_TmnxSysXmppServSubSent_Type=Counter64
-_TmnxSysXmppServSubSent_Object=MibTableColumn
-tmnxSysXmppServSubSent=_TmnxSysXmppServSubSent_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,24),_TmnxSysXmppServSubSent_Type())
-tmnxSysXmppServSubSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServSubSent.setStatus(_B)
-_TmnxSysXmppServUnSubSent_Type=Counter64
-_TmnxSysXmppServUnSubSent_Object=MibTableColumn
-tmnxSysXmppServUnSubSent=_TmnxSysXmppServUnSubSent_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,25),_TmnxSysXmppServUnSubSent_Type())
-tmnxSysXmppServUnSubSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServUnSubSent.setStatus(_B)
-class _TmnxSysXmppServState_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_TmnxSysXmppServState_Type.__name__=_M
-_TmnxSysXmppServState_Object=MibTableColumn
-tmnxSysXmppServState=_TmnxSysXmppServState_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,26),_TmnxSysXmppServState_Type())
-tmnxSysXmppServState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServState.setStatus(_B)
-class _TmnxSysXmppServAdminState_Type(TmnxAdminState):defaultValue=3
-_TmnxSysXmppServAdminState_Type.__name__=_N
-_TmnxSysXmppServAdminState_Object=MibTableColumn
-tmnxSysXmppServAdminState=_TmnxSysXmppServAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,27),_TmnxSysXmppServAdminState_Type())
-tmnxSysXmppServAdminState.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysXmppServAdminState.setStatus(_B)
-_TmnxSysXmppServOperUserName_Type=TNamedItemOrEmpty
-_TmnxSysXmppServOperUserName_Object=MibTableColumn
-tmnxSysXmppServOperUserName=_TmnxSysXmppServOperUserName_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,28),_TmnxSysXmppServOperUserName_Type())
-tmnxSysXmppServOperUserName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServOperUserName.setStatus(_B)
-_TmnxSysXmppServAuthType_Type=TNamedItemOrEmpty
-_TmnxSysXmppServAuthType_Object=MibTableColumn
-tmnxSysXmppServAuthType=_TmnxSysXmppServAuthType_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,29),_TmnxSysXmppServAuthType_Type())
-tmnxSysXmppServAuthType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServAuthType.setStatus(_B)
-class _TmnxSysXmppServConnMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('inBand',1),('outOfBand',2)))
-_TmnxSysXmppServConnMode_Type.__name__=_F
-_TmnxSysXmppServConnMode_Object=MibTableColumn
-tmnxSysXmppServConnMode=_TmnxSysXmppServConnMode_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,30),_TmnxSysXmppServConnMode_Type())
-tmnxSysXmppServConnMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysXmppServConnMode.setStatus(_B)
-class _TmnxSysXmppServServiceId_Type(TmnxServId):defaultValue=0
-_TmnxSysXmppServServiceId_Type.__name__=_C4
-_TmnxSysXmppServServiceId_Object=MibTableColumn
-tmnxSysXmppServServiceId=_TmnxSysXmppServServiceId_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,31),_TmnxSysXmppServServiceId_Type())
-tmnxSysXmppServServiceId.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysXmppServServiceId.setStatus(_B)
-class _TmnxSysXmppServRouterId_Type(TmnxVRtrIDOrZero):defaultValue=0
-_TmnxSysXmppServRouterId_Type.__name__=_An
-_TmnxSysXmppServRouterId_Object=MibTableColumn
-tmnxSysXmppServRouterId=_TmnxSysXmppServRouterId_Object((1,3,6,1,4,1,6527,3,1,2,1,26,1,1,32),_TmnxSysXmppServRouterId_Type())
-tmnxSysXmppServRouterId.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysXmppServRouterId.setStatus(_B)
-_TmnxSysVsdServerTable_Object=MibTable
-tmnxSysVsdServerTable=_TmnxSysVsdServerTable_Object((1,3,6,1,4,1,6527,3,1,2,1,26,2))
-if mibBuilder.loadTexts:tmnxSysVsdServerTable.setStatus(_B)
-_TmnxSysVsdServerEntry_Object=MibTableRow
-tmnxSysVsdServerEntry=_TmnxSysVsdServerEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,26,2,1))
-tmnxSysVsdServerEntry.setIndexNames((0,_A,_Em))
-if mibBuilder.loadTexts:tmnxSysVsdServerEntry.setStatus(_B)
-_TmnxSysVsdServerInstance_Type=Unsigned32
-_TmnxSysVsdServerInstance_Object=MibTableColumn
-tmnxSysVsdServerInstance=_TmnxSysVsdServerInstance_Object((1,3,6,1,4,1,6527,3,1,2,1,26,2,1,1),_TmnxSysVsdServerInstance_Type())
-tmnxSysVsdServerInstance.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysVsdServerInstance.setStatus(_B)
-_TmnxSysVsdServUptime_Type=TimeStamp
-_TmnxSysVsdServUptime_Object=MibTableColumn
-tmnxSysVsdServUptime=_TmnxSysVsdServUptime_Object((1,3,6,1,4,1,6527,3,1,2,1,26,2,1,2),_TmnxSysVsdServUptime_Type())
-tmnxSysVsdServUptime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysVsdServUptime.setStatus(_B)
-_TmnxSysVsdServUserName_Type=TLDisplayString
-_TmnxSysVsdServUserName_Object=MibTableColumn
-tmnxSysVsdServUserName=_TmnxSysVsdServUserName_Object((1,3,6,1,4,1,6527,3,1,2,1,26,2,1,3),_TmnxSysVsdServUserName_Type())
-tmnxSysVsdServUserName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysVsdServUserName.setStatus(_B)
-class _TmnxSysVsdServerStatus_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_TmnxSysVsdServerStatus_Type.__name__=_M
-_TmnxSysVsdServerStatus_Object=MibTableColumn
-tmnxSysVsdServerStatus=_TmnxSysVsdServerStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,26,2,1,4),_TmnxSysVsdServerStatus_Type())
-tmnxSysVsdServerStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysVsdServerStatus.setStatus(_B)
-_TmnxSysVsdServMsgSent_Type=Counter64
-_TmnxSysVsdServMsgSent_Object=MibTableColumn
-tmnxSysVsdServMsgSent=_TmnxSysVsdServMsgSent_Object((1,3,6,1,4,1,6527,3,1,2,1,26,2,1,5),_TmnxSysVsdServMsgSent_Type())
-tmnxSysVsdServMsgSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysVsdServMsgSent.setStatus(_B)
-_TmnxSysVsdServMsgRcvd_Type=Counter64
-_TmnxSysVsdServMsgRcvd_Object=MibTableColumn
-tmnxSysVsdServMsgRcvd=_TmnxSysVsdServMsgRcvd_Object((1,3,6,1,4,1,6527,3,1,2,1,26,2,1,6),_TmnxSysVsdServMsgRcvd_Type())
-tmnxSysVsdServMsgRcvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysVsdServMsgRcvd.setStatus(_B)
-_TmnxSysVsdServMsgAckRcvd_Type=Counter64
-_TmnxSysVsdServMsgAckRcvd_Object=MibTableColumn
-tmnxSysVsdServMsgAckRcvd=_TmnxSysVsdServMsgAckRcvd_Object((1,3,6,1,4,1,6527,3,1,2,1,26,2,1,7),_TmnxSysVsdServMsgAckRcvd_Type())
-tmnxSysVsdServMsgAckRcvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysVsdServMsgAckRcvd.setStatus(_B)
-_TmnxSysVsdServMsgError_Type=Counter64
-_TmnxSysVsdServMsgError_Object=MibTableColumn
-tmnxSysVsdServMsgError=_TmnxSysVsdServMsgError_Object((1,3,6,1,4,1,6527,3,1,2,1,26,2,1,8),_TmnxSysVsdServMsgError_Type())
-tmnxSysVsdServMsgError.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysVsdServMsgError.setStatus(_B)
-_TmnxSysVsdServMsgTimedOut_Type=Counter64
-_TmnxSysVsdServMsgTimedOut_Object=MibTableColumn
-tmnxSysVsdServMsgTimedOut=_TmnxSysVsdServMsgTimedOut_Object((1,3,6,1,4,1,6527,3,1,2,1,26,2,1,9),_TmnxSysVsdServMsgTimedOut_Type())
-tmnxSysVsdServMsgTimedOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysVsdServMsgTimedOut.setStatus(_B)
-_TmnxSysVsdServMsgMinRtt_Type=Counter64
-_TmnxSysVsdServMsgMinRtt_Object=MibTableColumn
-tmnxSysVsdServMsgMinRtt=_TmnxSysVsdServMsgMinRtt_Object((1,3,6,1,4,1,6527,3,1,2,1,26,2,1,10),_TmnxSysVsdServMsgMinRtt_Type())
-tmnxSysVsdServMsgMinRtt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysVsdServMsgMinRtt.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysVsdServMsgMinRtt.setUnits(_A5)
-_TmnxSysVsdServMsgMaxRtt_Type=Counter64
-_TmnxSysVsdServMsgMaxRtt_Object=MibTableColumn
-tmnxSysVsdServMsgMaxRtt=_TmnxSysVsdServMsgMaxRtt_Object((1,3,6,1,4,1,6527,3,1,2,1,26,2,1,11),_TmnxSysVsdServMsgMaxRtt_Type())
-tmnxSysVsdServMsgMaxRtt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysVsdServMsgMaxRtt.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysVsdServMsgMaxRtt.setUnits(_A5)
-_TmnxSysResInfo_ObjectIdentity=ObjectIdentity
-tmnxSysResInfo=_TmnxSysResInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,27))
-_TmnxSysResCardInfo_ObjectIdentity=ObjectIdentity
-tmnxSysResCardInfo=_TmnxSysResCardInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,27,1))
-_TmnxCardCpuResMonitorTable_Object=MibTable
-tmnxCardCpuResMonitorTable=_TmnxCardCpuResMonitorTable_Object((1,3,6,1,4,1,6527,3,1,2,1,27,1,1))
-if mibBuilder.loadTexts:tmnxCardCpuResMonitorTable.setStatus(_B)
-_TmnxCardCpuResMonitorEntry_Object=MibTableRow
-tmnxCardCpuResMonitorEntry=_TmnxCardCpuResMonitorEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,27,1,1,1))
-tmnxCardCpuResMonitorEntry.setIndexNames((0,_K,_AQ),(0,_A,_CD),(0,_A,_En))
-if mibBuilder.loadTexts:tmnxCardCpuResMonitorEntry.setStatus(_B)
-_TmnxCardResourceSlotNum_Type=TmnxSlotNum
-_TmnxCardResourceSlotNum_Object=MibTableColumn
-tmnxCardResourceSlotNum=_TmnxCardResourceSlotNum_Object((1,3,6,1,4,1,6527,3,1,2,1,27,1,1,1,1),_TmnxCardResourceSlotNum_Type())
-tmnxCardResourceSlotNum.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxCardResourceSlotNum.setStatus(_B)
-_TmnxCardCpuResSampleTime_Type=TmnxSysMonSampleTime
-_TmnxCardCpuResSampleTime_Object=MibTableColumn
-tmnxCardCpuResSampleTime=_TmnxCardCpuResSampleTime_Object((1,3,6,1,4,1,6527,3,1,2,1,27,1,1,1,2),_TmnxCardCpuResSampleTime_Type())
-tmnxCardCpuResSampleTime.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxCardCpuResSampleTime.setStatus(_B)
-_TmnxCardCpuResMonCpuIdle_Type=TmnxSysMonUtilization
-_TmnxCardCpuResMonCpuIdle_Object=MibTableColumn
-tmnxCardCpuResMonCpuIdle=_TmnxCardCpuResMonCpuIdle_Object((1,3,6,1,4,1,6527,3,1,2,1,27,1,1,1,3),_TmnxCardCpuResMonCpuIdle_Type())
-tmnxCardCpuResMonCpuIdle.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCardCpuResMonCpuIdle.setStatus(_B)
-_TmnxCardCpuResMonBusyCoreUtil_Type=TmnxSysMonUtilization
-_TmnxCardCpuResMonBusyCoreUtil_Object=MibTableColumn
-tmnxCardCpuResMonBusyCoreUtil=_TmnxCardCpuResMonBusyCoreUtil_Object((1,3,6,1,4,1,6527,3,1,2,1,27,1,1,1,4),_TmnxCardCpuResMonBusyCoreUtil_Type())
-tmnxCardCpuResMonBusyCoreUtil.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCardCpuResMonBusyCoreUtil.setStatus(_B)
-class _TmnxCardCpuResMonBusyGroupName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_TmnxCardCpuResMonBusyGroupName_Type.__name__=_p
-_TmnxCardCpuResMonBusyGroupName_Object=MibTableColumn
-tmnxCardCpuResMonBusyGroupName=_TmnxCardCpuResMonBusyGroupName_Object((1,3,6,1,4,1,6527,3,1,2,1,27,1,1,1,5),_TmnxCardCpuResMonBusyGroupName_Type())
-tmnxCardCpuResMonBusyGroupName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCardCpuResMonBusyGroupName.setStatus(_B)
-_TmnxCardCpuResMonBusyGroupUtil_Type=TmnxSysMonUtilization
-_TmnxCardCpuResMonBusyGroupUtil_Object=MibTableColumn
-tmnxCardCpuResMonBusyGroupUtil=_TmnxCardCpuResMonBusyGroupUtil_Object((1,3,6,1,4,1,6527,3,1,2,1,27,1,1,1,6),_TmnxCardCpuResMonBusyGroupUtil_Type())
-tmnxCardCpuResMonBusyGroupUtil.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCardCpuResMonBusyGroupUtil.setStatus(_B)
-_TmnxCardMemResMonitorTable_Object=MibTable
-tmnxCardMemResMonitorTable=_TmnxCardMemResMonitorTable_Object((1,3,6,1,4,1,6527,3,1,2,1,27,1,2))
-if mibBuilder.loadTexts:tmnxCardMemResMonitorTable.setStatus(_B)
-_TmnxCardMemResMonitorEntry_Object=MibTableRow
-tmnxCardMemResMonitorEntry=_TmnxCardMemResMonitorEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,27,1,2,1))
-tmnxCardMemResMonitorEntry.setIndexNames((0,_K,_AQ),(0,_A,_CD))
-if mibBuilder.loadTexts:tmnxCardMemResMonitorEntry.setStatus(_B)
-_TmnxCardMemResMemoryUsed_Type=Gauge32
-_TmnxCardMemResMemoryUsed_Object=MibTableColumn
-tmnxCardMemResMemoryUsed=_TmnxCardMemResMemoryUsed_Object((1,3,6,1,4,1,6527,3,1,2,1,27,1,2,1,1),_TmnxCardMemResMemoryUsed_Type())
-tmnxCardMemResMemoryUsed.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCardMemResMemoryUsed.setStatus(_B)
-if mibBuilder.loadTexts:tmnxCardMemResMemoryUsed.setUnits(_AH)
-_TmnxCardMemResMemoryAvailable_Type=Gauge32
-_TmnxCardMemResMemoryAvailable_Object=MibTableColumn
-tmnxCardMemResMemoryAvailable=_TmnxCardMemResMemoryAvailable_Object((1,3,6,1,4,1,6527,3,1,2,1,27,1,2,1,2),_TmnxCardMemResMemoryAvailable_Type())
-tmnxCardMemResMemoryAvailable.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCardMemResMemoryAvailable.setStatus(_B)
-if mibBuilder.loadTexts:tmnxCardMemResMemoryAvailable.setUnits(_AH)
-_TmnxCardMemResPoolsAllocated_Type=Gauge32
-_TmnxCardMemResPoolsAllocated_Object=MibTableColumn
-tmnxCardMemResPoolsAllocated=_TmnxCardMemResPoolsAllocated_Object((1,3,6,1,4,1,6527,3,1,2,1,27,1,2,1,3),_TmnxCardMemResPoolsAllocated_Type())
-tmnxCardMemResPoolsAllocated.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCardMemResPoolsAllocated.setStatus(_B)
-if mibBuilder.loadTexts:tmnxCardMemResPoolsAllocated.setUnits(_AH)
-_TmnxSysResEcmpProfInfo_ObjectIdentity=ObjectIdentity
-tmnxSysResEcmpProfInfo=_TmnxSysResEcmpProfInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,27,2))
-_TmnxSysResEcmpProfTable_Object=MibTable
-tmnxSysResEcmpProfTable=_TmnxSysResEcmpProfTable_Object((1,3,6,1,4,1,6527,3,1,2,1,27,2,1))
-if mibBuilder.loadTexts:tmnxSysResEcmpProfTable.setStatus(_B)
-_TmnxSysResEcmpProfEntry_Object=MibTableRow
-tmnxSysResEcmpProfEntry=_TmnxSysResEcmpProfEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,27,2,1,1))
-tmnxSysResEcmpProfEntry.setIndexNames((0,_A,_Eo))
-if mibBuilder.loadTexts:tmnxSysResEcmpProfEntry.setStatus(_B)
-class _TmnxSysResEcmpProfId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2))
-_TmnxSysResEcmpProfId_Type.__name__=_G
-_TmnxSysResEcmpProfId_Object=MibTableColumn
-tmnxSysResEcmpProfId=_TmnxSysResEcmpProfId_Object((1,3,6,1,4,1,6527,3,1,2,1,27,2,1,1,1),_TmnxSysResEcmpProfId_Type())
-tmnxSysResEcmpProfId.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysResEcmpProfId.setStatus(_B)
-_TmnxSysResEcmpProfRowStatus_Type=RowStatus
-_TmnxSysResEcmpProfRowStatus_Object=MibTableColumn
-tmnxSysResEcmpProfRowStatus=_TmnxSysResEcmpProfRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,27,2,1,1,2),_TmnxSysResEcmpProfRowStatus_Type())
-tmnxSysResEcmpProfRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysResEcmpProfRowStatus.setStatus(_B)
-class _TmnxSysResEcmpProfType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('mpls',1),('ip',2)))
-_TmnxSysResEcmpProfType_Type.__name__=_F
-_TmnxSysResEcmpProfType_Object=MibTableColumn
-tmnxSysResEcmpProfType=_TmnxSysResEcmpProfType_Object((1,3,6,1,4,1,6527,3,1,2,1,27,2,1,1,3),_TmnxSysResEcmpProfType_Type())
-tmnxSysResEcmpProfType.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysResEcmpProfType.setStatus(_B)
-class _TmnxSysResEcmpProfLinksPerGrp_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16))
-_TmnxSysResEcmpProfLinksPerGrp_Type.__name__=_G
-_TmnxSysResEcmpProfLinksPerGrp_Object=MibTableColumn
-tmnxSysResEcmpProfLinksPerGrp=_TmnxSysResEcmpProfLinksPerGrp_Object((1,3,6,1,4,1,6527,3,1,2,1,27,2,1,1,4),_TmnxSysResEcmpProfLinksPerGrp_Type())
-tmnxSysResEcmpProfLinksPerGrp.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysResEcmpProfLinksPerGrp.setStatus(_B)
-class _TmnxSysResEcmpProfNumGrps_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2048))
-_TmnxSysResEcmpProfNumGrps_Type.__name__=_G
-_TmnxSysResEcmpProfNumGrps_Object=MibTableColumn
-tmnxSysResEcmpProfNumGrps=_TmnxSysResEcmpProfNumGrps_Object((1,3,6,1,4,1,6527,3,1,2,1,27,2,1,1,5),_TmnxSysResEcmpProfNumGrps_Type())
-tmnxSysResEcmpProfNumGrps.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysResEcmpProfNumGrps.setStatus(_B)
-_TmnxSysResItCam_ObjectIdentity=ObjectIdentity
-tmnxSysResItCam=_TmnxSysResItCam_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,27,3))
-_TmnxSysResItCamBank_ObjectIdentity=ObjectIdentity
-tmnxSysResItCamBank=_TmnxSysResItCamBank_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,27,3,1))
-class _TmnxSysResItCamBankV6Multicast_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,5))
-_TmnxSysResItCamBankV6Multicast_Type.__name__=_G
-_TmnxSysResItCamBankV6Multicast_Object=MibScalar
-tmnxSysResItCamBankV6Multicast=_TmnxSysResItCamBankV6Multicast_Object((1,3,6,1,4,1,6527,3,1,2,1,27,3,1,1),_TmnxSysResItCamBankV6Multicast_Type())
-tmnxSysResItCamBankV6Multicast.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysResItCamBankV6Multicast.setStatus(_B)
-_TmnxSysFpCam_ObjectIdentity=ObjectIdentity
-tmnxSysFpCam=_TmnxSysFpCam_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,27,4))
-_TmnxSysFpCamAllocation_ObjectIdentity=ObjectIdentity
-tmnxSysFpCamAllocation=_TmnxSysFpCamAllocation_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,27,4,1))
-class _TmnxSysFpCamAllocAdmnV6Multicast_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10240))
-_TmnxSysFpCamAllocAdmnV6Multicast_Type.__name__=_G
-_TmnxSysFpCamAllocAdmnV6Multicast_Object=MibScalar
-tmnxSysFpCamAllocAdmnV6Multicast=_TmnxSysFpCamAllocAdmnV6Multicast_Object((1,3,6,1,4,1,6527,3,1,2,1,27,4,1,1),_TmnxSysFpCamAllocAdmnV6Multicast_Type())
-tmnxSysFpCamAllocAdmnV6Multicast.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysFpCamAllocAdmnV6Multicast.setStatus(_B)
-class _TmnxSysFpCamAllocOperV6Multicast_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10240))
-_TmnxSysFpCamAllocOperV6Multicast_Type.__name__=_G
-_TmnxSysFpCamAllocOperV6Multicast_Object=MibScalar
-tmnxSysFpCamAllocOperV6Multicast=_TmnxSysFpCamAllocOperV6Multicast_Object((1,3,6,1,4,1,6527,3,1,2,1,27,4,1,2),_TmnxSysFpCamAllocOperV6Multicast_Type())
-tmnxSysFpCamAllocOperV6Multicast.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysFpCamAllocOperV6Multicast.setStatus(_B)
-_TmnxSysFpResAlloc_ObjectIdentity=ObjectIdentity
-tmnxSysFpResAlloc=_TmnxSysFpResAlloc_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,27,5))
-_TmnxSysFpResAllocation_ObjectIdentity=ObjectIdentity
-tmnxSysFpResAllocation=_TmnxSysFpResAllocation_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,27,5,1))
-class _TmnxSysFpResAllocG8032Sap_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4096))
-_TmnxSysFpResAllocG8032Sap_Type.__name__=_G
-_TmnxSysFpResAllocG8032Sap_Object=MibScalar
-tmnxSysFpResAllocG8032Sap=_TmnxSysFpResAllocG8032Sap_Object((1,3,6,1,4,1,6527,3,1,2,1,27,5,1,1),_TmnxSysFpResAllocG8032Sap_Type())
-tmnxSysFpResAllocG8032Sap.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysFpResAllocG8032Sap.setStatus(_B)
-class _TmnxSysFpResAllocOperG8032Sap_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4096))
-_TmnxSysFpResAllocOperG8032Sap_Type.__name__=_G
-_TmnxSysFpResAllocOperG8032Sap_Object=MibScalar
-tmnxSysFpResAllocOperG8032Sap=_TmnxSysFpResAllocOperG8032Sap_Object((1,3,6,1,4,1,6527,3,1,2,1,27,5,1,2),_TmnxSysFpResAllocOperG8032Sap_Type())
-tmnxSysFpResAllocOperG8032Sap.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysFpResAllocOperG8032Sap.setStatus(_B)
-_TmnxSysDhcp_ObjectIdentity=ObjectIdentity
-tmnxSysDhcp=_TmnxSysDhcp_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,28))
-class _TmnxSysDhcp6AdvNoaddrsGlobal_Type(Bits):defaultBinValue='0';namedValues=NamedValues(*(('esmProxy',0),('esmRelay',1),('relay',2),('server',3)))
-_TmnxSysDhcp6AdvNoaddrsGlobal_Type.__name__='Bits'
-_TmnxSysDhcp6AdvNoaddrsGlobal_Object=MibScalar
-tmnxSysDhcp6AdvNoaddrsGlobal=_TmnxSysDhcp6AdvNoaddrsGlobal_Object((1,3,6,1,4,1,6527,3,1,2,1,28,1),_TmnxSysDhcp6AdvNoaddrsGlobal_Type())
-tmnxSysDhcp6AdvNoaddrsGlobal.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysDhcp6AdvNoaddrsGlobal.setStatus(_B)
-_TmnxSysVsdInfo_ObjectIdentity=ObjectIdentity
-tmnxSysVsdInfo=_TmnxSysVsdInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,29))
-class _TmnxSysVsdSystemId_Type(TNamedItemOrEmpty):defaultHexValue=''
-_TmnxSysVsdSystemId_Type.__name__=_A2
-_TmnxSysVsdSystemId_Object=MibScalar
-tmnxSysVsdSystemId=_TmnxSysVsdSystemId_Object((1,3,6,1,4,1,6527,3,1,2,1,29,1),_TmnxSysVsdSystemId_Type())
-tmnxSysVsdSystemId.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysVsdSystemId.setStatus(_B)
-_TmnxSysVsdGwPubSubIsSubscrd_Type=TruthValue
-_TmnxSysVsdGwPubSubIsSubscrd_Object=MibScalar
-tmnxSysVsdGwPubSubIsSubscrd=_TmnxSysVsdGwPubSubIsSubscrd_Object((1,3,6,1,4,1,6527,3,1,2,1,29,2),_TmnxSysVsdGwPubSubIsSubscrd_Type())
-tmnxSysVsdGwPubSubIsSubscrd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysVsdGwPubSubIsSubscrd.setStatus(_B)
-_TmnxSysVsdGwPubSubNodeName_Type=DisplayString
-_TmnxSysVsdGwPubSubNodeName_Object=MibScalar
-tmnxSysVsdGwPubSubNodeName=_TmnxSysVsdGwPubSubNodeName_Object((1,3,6,1,4,1,6527,3,1,2,1,29,3),_TmnxSysVsdGwPubSubNodeName_Type())
-tmnxSysVsdGwPubSubNodeName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysVsdGwPubSubNodeName.setStatus(_B)
-_TmnxSysVsdGwPubSubLstSubscrdTime_Type=TimeStamp
-_TmnxSysVsdGwPubSubLstSubscrdTime_Object=MibScalar
-tmnxSysVsdGwPubSubLstSubscrdTime=_TmnxSysVsdGwPubSubLstSubscrdTime_Object((1,3,6,1,4,1,6527,3,1,2,1,29,4),_TmnxSysVsdGwPubSubLstSubscrdTime_Type())
-tmnxSysVsdGwPubSubLstSubscrdTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysVsdGwPubSubLstSubscrdTime.setStatus(_B)
-_TmnxSysVsdGwLastAuditTxTime_Type=TimeStamp
-_TmnxSysVsdGwLastAuditTxTime_Object=MibScalar
-tmnxSysVsdGwLastAuditTxTime=_TmnxSysVsdGwLastAuditTxTime_Object((1,3,6,1,4,1,6527,3,1,2,1,29,5),_TmnxSysVsdGwLastAuditTxTime_Type())
-tmnxSysVsdGwLastAuditTxTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysVsdGwLastAuditTxTime.setStatus(_B)
-_TmnxSysLicense_ObjectIdentity=ObjectIdentity
-tmnxSysLicense=_TmnxSysLicense_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,30))
-_TmnxSysLicenseStatus_Type=TItemDescription
-_TmnxSysLicenseStatus_Object=MibScalar
-tmnxSysLicenseStatus=_TmnxSysLicenseStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,30,1),_TmnxSysLicenseStatus_Type())
-tmnxSysLicenseStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysLicenseStatus.setStatus(_B)
-_TmnxSysLicenseName_Type=TItemDescription
-_TmnxSysLicenseName_Object=MibScalar
-tmnxSysLicenseName=_TmnxSysLicenseName_Object((1,3,6,1,4,1,6527,3,1,2,1,30,2),_TmnxSysLicenseName_Type())
-tmnxSysLicenseName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysLicenseName.setStatus(_B)
-_TmnxSysLicenseUuid_Type=TmnxUuid
-_TmnxSysLicenseUuid_Object=MibScalar
-tmnxSysLicenseUuid=_TmnxSysLicenseUuid_Object((1,3,6,1,4,1,6527,3,1,2,1,30,3),_TmnxSysLicenseUuid_Type())
-tmnxSysLicenseUuid.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysLicenseUuid.setStatus(_B)
-_TmnxSysLicenseDescription_Type=TItemDescription
-_TmnxSysLicenseDescription_Object=MibScalar
-tmnxSysLicenseDescription=_TmnxSysLicenseDescription_Object((1,3,6,1,4,1,6527,3,1,2,1,30,4),_TmnxSysLicenseDescription_Type())
-tmnxSysLicenseDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysLicenseDescription.setStatus(_B)
-_TmnxSysLicenseProduct_Type=TItemDescription
-_TmnxSysLicenseProduct_Object=MibScalar
-tmnxSysLicenseProduct=_TmnxSysLicenseProduct_Object((1,3,6,1,4,1,6527,3,1,2,1,30,5),_TmnxSysLicenseProduct_Type())
-tmnxSysLicenseProduct.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysLicenseProduct.setStatus(_B)
-_TmnxSysLicenseSwVersion_Type=TItemDescription
-_TmnxSysLicenseSwVersion_Object=MibScalar
-tmnxSysLicenseSwVersion=_TmnxSysLicenseSwVersion_Object((1,3,6,1,4,1,6527,3,1,2,1,30,6),_TmnxSysLicenseSwVersion_Type())
-tmnxSysLicenseSwVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysLicenseSwVersion.setStatus(_B)
-_TmnxSysLicenseIssueDateAndTime_Type=DateAndTime
-_TmnxSysLicenseIssueDateAndTime_Object=MibScalar
-tmnxSysLicenseIssueDateAndTime=_TmnxSysLicenseIssueDateAndTime_Object((1,3,6,1,4,1,6527,3,1,2,1,30,7),_TmnxSysLicenseIssueDateAndTime_Type())
-tmnxSysLicenseIssueDateAndTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysLicenseIssueDateAndTime.setStatus(_B)
-_TmnxSysLicenseStartDateAndTime_Type=DateAndTime
-_TmnxSysLicenseStartDateAndTime_Object=MibScalar
-tmnxSysLicenseStartDateAndTime=_TmnxSysLicenseStartDateAndTime_Object((1,3,6,1,4,1,6527,3,1,2,1,30,8),_TmnxSysLicenseStartDateAndTime_Type())
-tmnxSysLicenseStartDateAndTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysLicenseStartDateAndTime.setStatus(_B)
-_TmnxSysLicenseEndDateAndTime_Type=DateAndTime
-_TmnxSysLicenseEndDateAndTime_Object=MibScalar
-tmnxSysLicenseEndDateAndTime=_TmnxSysLicenseEndDateAndTime_Object((1,3,6,1,4,1,6527,3,1,2,1,30,9),_TmnxSysLicenseEndDateAndTime_Type())
-tmnxSysLicenseEndDateAndTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysLicenseEndDateAndTime.setStatus(_B)
-_TmnxSysLicenseVChassisType_Type=TNamedItemOrEmpty
-_TmnxSysLicenseVChassisType_Object=MibScalar
-tmnxSysLicenseVChassisType=_TmnxSysLicenseVChassisType_Object((1,3,6,1,4,1,6527,3,1,2,1,30,10),_TmnxSysLicenseVChassisType_Type())
-tmnxSysLicenseVChassisType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysLicenseVChassisType.setStatus(_B)
-_TmnxSysLicenseMaxNumCPMs_Type=Unsigned32
-_TmnxSysLicenseMaxNumCPMs_Object=MibScalar
-tmnxSysLicenseMaxNumCPMs=_TmnxSysLicenseMaxNumCPMs_Object((1,3,6,1,4,1,6527,3,1,2,1,30,11),_TmnxSysLicenseMaxNumCPMs_Type())
-tmnxSysLicenseMaxNumCPMs.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysLicenseMaxNumCPMs.setStatus(_B)
-_TmnxSysLicenseMaxNumIOMs_Type=Unsigned32
-_TmnxSysLicenseMaxNumIOMs_Object=MibScalar
-tmnxSysLicenseMaxNumIOMs=_TmnxSysLicenseMaxNumIOMs_Object((1,3,6,1,4,1,6527,3,1,2,1,30,12),_TmnxSysLicenseMaxNumIOMs_Type())
-tmnxSysLicenseMaxNumIOMs.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysLicenseMaxNumIOMs.setStatus(_B)
-_TmnxSysCpmCardLicenseTable_Object=MibTable
-tmnxSysCpmCardLicenseTable=_TmnxSysCpmCardLicenseTable_Object((1,3,6,1,4,1,6527,3,1,2,1,30,13))
-if mibBuilder.loadTexts:tmnxSysCpmCardLicenseTable.setStatus(_B)
-_TmnxSysCpmCardLicenseEntry_Object=MibTableRow
-tmnxSysCpmCardLicenseEntry=_TmnxSysCpmCardLicenseEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,30,13,1))
-tmnxSysCpmCardLicenseEntry.setIndexNames((0,_K,_AQ),(0,_K,_Bz),(0,_K,_By))
-if mibBuilder.loadTexts:tmnxSysCpmCardLicenseEntry.setStatus(_B)
-_TmnxSysCpmCardLicStatus_Type=TItemDescription
-_TmnxSysCpmCardLicStatus_Object=MibTableColumn
-tmnxSysCpmCardLicStatus=_TmnxSysCpmCardLicStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,30,13,1,1),_TmnxSysCpmCardLicStatus_Type())
-tmnxSysCpmCardLicStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCpmCardLicStatus.setStatus(_B)
-_TmnxSysCpmCardLicName_Type=TItemDescription
-_TmnxSysCpmCardLicName_Object=MibTableColumn
-tmnxSysCpmCardLicName=_TmnxSysCpmCardLicName_Object((1,3,6,1,4,1,6527,3,1,2,1,30,13,1,2),_TmnxSysCpmCardLicName_Type())
-tmnxSysCpmCardLicName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCpmCardLicName.setStatus(_B)
-_TmnxSysCpmCardLicUuid_Type=TmnxUuid
-_TmnxSysCpmCardLicUuid_Object=MibTableColumn
-tmnxSysCpmCardLicUuid=_TmnxSysCpmCardLicUuid_Object((1,3,6,1,4,1,6527,3,1,2,1,30,13,1,3),_TmnxSysCpmCardLicUuid_Type())
-tmnxSysCpmCardLicUuid.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCpmCardLicUuid.setStatus(_B)
-_TmnxSysCpmCardLicDescription_Type=TItemDescription
-_TmnxSysCpmCardLicDescription_Object=MibTableColumn
-tmnxSysCpmCardLicDescription=_TmnxSysCpmCardLicDescription_Object((1,3,6,1,4,1,6527,3,1,2,1,30,13,1,4),_TmnxSysCpmCardLicDescription_Type())
-tmnxSysCpmCardLicDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCpmCardLicDescription.setStatus(_B)
-_TmnxSysCpmCardLicProduct_Type=TItemDescription
-_TmnxSysCpmCardLicProduct_Object=MibTableColumn
-tmnxSysCpmCardLicProduct=_TmnxSysCpmCardLicProduct_Object((1,3,6,1,4,1,6527,3,1,2,1,30,13,1,5),_TmnxSysCpmCardLicProduct_Type())
-tmnxSysCpmCardLicProduct.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCpmCardLicProduct.setStatus(_B)
-_TmnxSysCpmCardLicSwVersion_Type=TItemDescription
-_TmnxSysCpmCardLicSwVersion_Object=MibTableColumn
-tmnxSysCpmCardLicSwVersion=_TmnxSysCpmCardLicSwVersion_Object((1,3,6,1,4,1,6527,3,1,2,1,30,13,1,6),_TmnxSysCpmCardLicSwVersion_Type())
-tmnxSysCpmCardLicSwVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCpmCardLicSwVersion.setStatus(_B)
-_TmnxSysCpmCardLicIssueDateTime_Type=DateAndTime
-_TmnxSysCpmCardLicIssueDateTime_Object=MibTableColumn
-tmnxSysCpmCardLicIssueDateTime=_TmnxSysCpmCardLicIssueDateTime_Object((1,3,6,1,4,1,6527,3,1,2,1,30,13,1,7),_TmnxSysCpmCardLicIssueDateTime_Type())
-tmnxSysCpmCardLicIssueDateTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCpmCardLicIssueDateTime.setStatus(_B)
-_TmnxSysCpmCardLicStartDateTime_Type=DateAndTime
-_TmnxSysCpmCardLicStartDateTime_Object=MibTableColumn
-tmnxSysCpmCardLicStartDateTime=_TmnxSysCpmCardLicStartDateTime_Object((1,3,6,1,4,1,6527,3,1,2,1,30,13,1,8),_TmnxSysCpmCardLicStartDateTime_Type())
-tmnxSysCpmCardLicStartDateTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCpmCardLicStartDateTime.setStatus(_B)
-_TmnxSysCpmCardLicEndDateTime_Type=DateAndTime
-_TmnxSysCpmCardLicEndDateTime_Object=MibTableColumn
-tmnxSysCpmCardLicEndDateTime=_TmnxSysCpmCardLicEndDateTime_Object((1,3,6,1,4,1,6527,3,1,2,1,30,13,1,9),_TmnxSysCpmCardLicEndDateTime_Type())
-tmnxSysCpmCardLicEndDateTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCpmCardLicEndDateTime.setStatus(_B)
-_TmnxSysCpmCardLicVChassisType_Type=TNamedItemOrEmpty
-_TmnxSysCpmCardLicVChassisType_Object=MibTableColumn
-tmnxSysCpmCardLicVChassisType=_TmnxSysCpmCardLicVChassisType_Object((1,3,6,1,4,1,6527,3,1,2,1,30,13,1,10),_TmnxSysCpmCardLicVChassisType_Type())
-tmnxSysCpmCardLicVChassisType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCpmCardLicVChassisType.setStatus(_B)
-_TmnxSysCpmCardLicMaxNumCPMs_Type=Unsigned32
-_TmnxSysCpmCardLicMaxNumCPMs_Object=MibTableColumn
-tmnxSysCpmCardLicMaxNumCPMs=_TmnxSysCpmCardLicMaxNumCPMs_Object((1,3,6,1,4,1,6527,3,1,2,1,30,13,1,11),_TmnxSysCpmCardLicMaxNumCPMs_Type())
-tmnxSysCpmCardLicMaxNumCPMs.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCpmCardLicMaxNumCPMs.setStatus(_B)
-_TmnxSysCpmCardLicMaxNumIOMs_Type=Unsigned32
-_TmnxSysCpmCardLicMaxNumIOMs_Object=MibTableColumn
-tmnxSysCpmCardLicMaxNumIOMs=_TmnxSysCpmCardLicMaxNumIOMs_Object((1,3,6,1,4,1,6527,3,1,2,1,30,13,1,12),_TmnxSysCpmCardLicMaxNumIOMs_Type())
-tmnxSysCpmCardLicMaxNumIOMs.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCpmCardLicMaxNumIOMs.setStatus(_B)
-_TmnxSysCpmCardLicFeatureTable_Object=MibTable
-tmnxSysCpmCardLicFeatureTable=_TmnxSysCpmCardLicFeatureTable_Object((1,3,6,1,4,1,6527,3,1,2,1,30,14))
-if mibBuilder.loadTexts:tmnxSysCpmCardLicFeatureTable.setStatus(_B)
-_TmnxSysCpmCardLicFeatureEntry_Object=MibTableRow
-tmnxSysCpmCardLicFeatureEntry=_TmnxSysCpmCardLicFeatureEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,30,14,1))
-tmnxSysCpmCardLicFeatureEntry.setIndexNames((0,_K,_AQ),(0,_K,_Bz),(0,_K,_By),(0,_A,_Ep),(0,_A,_Eq))
-if mibBuilder.loadTexts:tmnxSysCpmCardLicFeatureEntry.setStatus(_B)
-_TmnxSysCpmCardLicFeatApplication_Type=TNamedItem
-_TmnxSysCpmCardLicFeatApplication_Object=MibTableColumn
-tmnxSysCpmCardLicFeatApplication=_TmnxSysCpmCardLicFeatApplication_Object((1,3,6,1,4,1,6527,3,1,2,1,30,14,1,1),_TmnxSysCpmCardLicFeatApplication_Type())
-tmnxSysCpmCardLicFeatApplication.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysCpmCardLicFeatApplication.setStatus(_B)
-class _TmnxSysCpmCardLicFeatNumber_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_TmnxSysCpmCardLicFeatNumber_Type.__name__=_G
-_TmnxSysCpmCardLicFeatNumber_Object=MibTableColumn
-tmnxSysCpmCardLicFeatNumber=_TmnxSysCpmCardLicFeatNumber_Object((1,3,6,1,4,1,6527,3,1,2,1,30,14,1,2),_TmnxSysCpmCardLicFeatNumber_Type())
-tmnxSysCpmCardLicFeatNumber.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysCpmCardLicFeatNumber.setStatus(_B)
-_TmnxSysCpmCardLicFeatDescription_Type=TItemDescription
-_TmnxSysCpmCardLicFeatDescription_Object=MibTableColumn
-tmnxSysCpmCardLicFeatDescription=_TmnxSysCpmCardLicFeatDescription_Object((1,3,6,1,4,1,6527,3,1,2,1,30,14,1,3),_TmnxSysCpmCardLicFeatDescription_Type())
-tmnxSysCpmCardLicFeatDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysCpmCardLicFeatDescription.setStatus(_B)
-_TmnxSysLicensingTable_Object=MibTable
-tmnxSysLicensingTable=_TmnxSysLicensingTable_Object((1,3,6,1,4,1,6527,3,1,2,1,30,16))
-if mibBuilder.loadTexts:tmnxSysLicensingTable.setStatus(_B)
-_TmnxSysLicensingEntry_Object=MibTableRow
-tmnxSysLicensingEntry=_TmnxSysLicensingEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,30,16,1))
-tmnxSysLicensingEntry.setIndexNames((0,_A,_Er),(0,_A,_Es))
-if mibBuilder.loadTexts:tmnxSysLicensingEntry.setStatus(_B)
-_TmnxSysLicensingGroup_Type=TmnxSysLicensingGroup
-_TmnxSysLicensingGroup_Object=MibTableColumn
-tmnxSysLicensingGroup=_TmnxSysLicensingGroup_Object((1,3,6,1,4,1,6527,3,1,2,1,30,16,1,1),_TmnxSysLicensingGroup_Type())
-tmnxSysLicensingGroup.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysLicensingGroup.setStatus(_B)
-_TmnxSysLicensedAppName_Type=TNamedItem
-_TmnxSysLicensedAppName_Object=MibTableColumn
-tmnxSysLicensedAppName=_TmnxSysLicensedAppName_Object((1,3,6,1,4,1,6527,3,1,2,1,30,16,1,2),_TmnxSysLicensedAppName_Type())
-tmnxSysLicensedAppName.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysLicensedAppName.setStatus(_B)
-class _TmnxSysAppLicenseDescription_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_TmnxSysAppLicenseDescription_Type.__name__=_M
-_TmnxSysAppLicenseDescription_Object=MibTableColumn
-tmnxSysAppLicenseDescription=_TmnxSysAppLicenseDescription_Object((1,3,6,1,4,1,6527,3,1,2,1,30,16,1,3),_TmnxSysAppLicenseDescription_Type())
-tmnxSysAppLicenseDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAppLicenseDescription.setStatus(_B)
-class _TmnxSysAppLicenseType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_r,0),('pool',1),('rtu',2)))
-_TmnxSysAppLicenseType_Type.__name__=_F
-_TmnxSysAppLicenseType_Object=MibTableColumn
-tmnxSysAppLicenseType=_TmnxSysAppLicenseType_Object((1,3,6,1,4,1,6527,3,1,2,1,30,16,1,4),_TmnxSysAppLicenseType_Type())
-tmnxSysAppLicenseType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAppLicenseType.setStatus(_B)
-_TmnxSysAppLicensePoolSize_Type=Integer32
-_TmnxSysAppLicensePoolSize_Object=MibTableColumn
-tmnxSysAppLicensePoolSize=_TmnxSysAppLicensePoolSize_Object((1,3,6,1,4,1,6527,3,1,2,1,30,16,1,5),_TmnxSysAppLicensePoolSize_Type())
-tmnxSysAppLicensePoolSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAppLicensePoolSize.setStatus(_B)
-_TmnxSysAppLicenseAllocated_Type=Unsigned32
-_TmnxSysAppLicenseAllocated_Object=MibTableColumn
-tmnxSysAppLicenseAllocated=_TmnxSysAppLicenseAllocated_Object((1,3,6,1,4,1,6527,3,1,2,1,30,16,1,6),_TmnxSysAppLicenseAllocated_Type())
-tmnxSysAppLicenseAllocated.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAppLicenseAllocated.setStatus(_B)
-_TmnxSysAppLicensePresent_Type=TruthValue
-_TmnxSysAppLicensePresent_Object=MibTableColumn
-tmnxSysAppLicensePresent=_TmnxSysAppLicensePresent_Object((1,3,6,1,4,1,6527,3,1,2,1,30,16,1,7),_TmnxSysAppLicensePresent_Type())
-tmnxSysAppLicensePresent.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAppLicensePresent.setStatus(_B)
-class _TmnxSysAppLicenseState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_r,0),('valid',1),('error',2),('violation',3)))
-_TmnxSysAppLicenseState_Type.__name__=_F
-_TmnxSysAppLicenseState_Object=MibTableColumn
-tmnxSysAppLicenseState=_TmnxSysAppLicenseState_Object((1,3,6,1,4,1,6527,3,1,2,1,30,16,1,8),_TmnxSysAppLicenseState_Type())
-tmnxSysAppLicenseState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAppLicenseState.setStatus(_B)
-_TmnxSysAvailableLicensesTable_Object=MibTable
-tmnxSysAvailableLicensesTable=_TmnxSysAvailableLicensesTable_Object((1,3,6,1,4,1,6527,3,1,2,1,30,17))
-if mibBuilder.loadTexts:tmnxSysAvailableLicensesTable.setStatus(_B)
-_TmnxSysAvailableLicensesEntry_Object=MibTableRow
-tmnxSysAvailableLicensesEntry=_TmnxSysAvailableLicensesEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,30,17,1))
-tmnxSysAvailableLicensesEntry.setIndexNames((0,_A,_Et))
-if mibBuilder.loadTexts:tmnxSysAvailableLicensesEntry.setStatus(_B)
-_TmnxSysAvailLicenseIndex_Type=Unsigned32
-_TmnxSysAvailLicenseIndex_Object=MibTableColumn
-tmnxSysAvailLicenseIndex=_TmnxSysAvailLicenseIndex_Object((1,3,6,1,4,1,6527,3,1,2,1,30,17,1,1),_TmnxSysAvailLicenseIndex_Type())
-tmnxSysAvailLicenseIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysAvailLicenseIndex.setStatus(_B)
-_TmnxSysAvailLicenseName_Type=TItemDescription
-_TmnxSysAvailLicenseName_Object=MibTableColumn
-tmnxSysAvailLicenseName=_TmnxSysAvailLicenseName_Object((1,3,6,1,4,1,6527,3,1,2,1,30,17,1,2),_TmnxSysAvailLicenseName_Type())
-tmnxSysAvailLicenseName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAvailLicenseName.setStatus(_B)
-_TmnxSysAvailLicenseUuid_Type=TmnxUuid
-_TmnxSysAvailLicenseUuid_Object=MibTableColumn
-tmnxSysAvailLicenseUuid=_TmnxSysAvailLicenseUuid_Object((1,3,6,1,4,1,6527,3,1,2,1,30,17,1,3),_TmnxSysAvailLicenseUuid_Type())
-tmnxSysAvailLicenseUuid.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAvailLicenseUuid.setStatus(_B)
-_TmnxSysAvailLicenseDescription_Type=TItemDescription
-_TmnxSysAvailLicenseDescription_Object=MibTableColumn
-tmnxSysAvailLicenseDescription=_TmnxSysAvailLicenseDescription_Object((1,3,6,1,4,1,6527,3,1,2,1,30,17,1,4),_TmnxSysAvailLicenseDescription_Type())
-tmnxSysAvailLicenseDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAvailLicenseDescription.setStatus(_B)
-_TmnxSysAvailLicenseSwVersion_Type=TItemDescription
-_TmnxSysAvailLicenseSwVersion_Object=MibTableColumn
-tmnxSysAvailLicenseSwVersion=_TmnxSysAvailLicenseSwVersion_Object((1,3,6,1,4,1,6527,3,1,2,1,30,17,1,5),_TmnxSysAvailLicenseSwVersion_Type())
-tmnxSysAvailLicenseSwVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAvailLicenseSwVersion.setStatus(_B)
-_TmnxSysAvailLicIssueDateTime_Type=DateAndTime
-_TmnxSysAvailLicIssueDateTime_Object=MibTableColumn
-tmnxSysAvailLicIssueDateTime=_TmnxSysAvailLicIssueDateTime_Object((1,3,6,1,4,1,6527,3,1,2,1,30,17,1,6),_TmnxSysAvailLicIssueDateTime_Type())
-tmnxSysAvailLicIssueDateTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAvailLicIssueDateTime.setStatus(_B)
-_TmnxSysAvailLicStartDateTime_Type=DateAndTime
-_TmnxSysAvailLicStartDateTime_Object=MibTableColumn
-tmnxSysAvailLicStartDateTime=_TmnxSysAvailLicStartDateTime_Object((1,3,6,1,4,1,6527,3,1,2,1,30,17,1,7),_TmnxSysAvailLicStartDateTime_Type())
-tmnxSysAvailLicStartDateTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAvailLicStartDateTime.setStatus(_B)
-_TmnxSysAvailLicEndDateTime_Type=DateAndTime
-_TmnxSysAvailLicEndDateTime_Object=MibTableColumn
-tmnxSysAvailLicEndDateTime=_TmnxSysAvailLicEndDateTime_Object((1,3,6,1,4,1,6527,3,1,2,1,30,17,1,8),_TmnxSysAvailLicEndDateTime_Type())
-tmnxSysAvailLicEndDateTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAvailLicEndDateTime.setStatus(_B)
-_TmnxSysAvailLicenseProduct_Type=TItemDescription
-_TmnxSysAvailLicenseProduct_Object=MibTableColumn
-tmnxSysAvailLicenseProduct=_TmnxSysAvailLicenseProduct_Object((1,3,6,1,4,1,6527,3,1,2,1,30,17,1,9),_TmnxSysAvailLicenseProduct_Type())
-tmnxSysAvailLicenseProduct.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAvailLicenseProduct.setStatus(_B)
-class _TmnxSysLicensingState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('unlicensed',0),('licensed',1),('invalid-license',2),('expired-license',3)))
-_TmnxSysLicensingState_Type.__name__=_F
-_TmnxSysLicensingState_Object=MibScalar
-tmnxSysLicensingState=_TmnxSysLicensingState_Object((1,3,6,1,4,1,6527,3,1,2,1,30,18),_TmnxSysLicensingState_Type())
-tmnxSysLicensingState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysLicensingState.setStatus(_B)
-_TmnxSysLicensingRebootPending_Type=TruthValue
-_TmnxSysLicensingRebootPending_Object=MibScalar
-tmnxSysLicensingRebootPending=_TmnxSysLicensingRebootPending_Object((1,3,6,1,4,1,6527,3,1,2,1,30,19),_TmnxSysLicensingRebootPending_Type())
-tmnxSysLicensingRebootPending.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysLicensingRebootPending.setStatus(_B)
-_TmnxSysLicenseStatistics_ObjectIdentity=ObjectIdentity
-tmnxSysLicenseStatistics=_TmnxSysLicenseStatistics_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,30,20))
-_TmnxSysAppStats24HrsTable_Object=MibTable
-tmnxSysAppStats24HrsTable=_TmnxSysAppStats24HrsTable_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,1))
-if mibBuilder.loadTexts:tmnxSysAppStats24HrsTable.setStatus(_B)
-_TmnxSysAppStats24HrsEntry_Object=MibTableRow
-tmnxSysAppStats24HrsEntry=_TmnxSysAppStats24HrsEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,1,1))
-tmnxSysAppStats24HrsEntry.setIndexNames((0,_A,_Eu),(0,_A,_Ev),(0,_A,_Ew))
-if mibBuilder.loadTexts:tmnxSysAppStats24HrsEntry.setStatus(_B)
-_TmnxSysAppStats24HrsApplication_Type=TmnxSysLicenseApplication
-_TmnxSysAppStats24HrsApplication_Object=MibTableColumn
-tmnxSysAppStats24HrsApplication=_TmnxSysAppStats24HrsApplication_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,1,1,1),_TmnxSysAppStats24HrsApplication_Type())
-tmnxSysAppStats24HrsApplication.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysAppStats24HrsApplication.setStatus(_B)
-_TmnxSysAppStats24HrsType_Type=TmnxSysLicenseAppStatsType
-_TmnxSysAppStats24HrsType_Object=MibTableColumn
-tmnxSysAppStats24HrsType=_TmnxSysAppStats24HrsType_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,1,1,2),_TmnxSysAppStats24HrsType_Type())
-tmnxSysAppStats24HrsType.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysAppStats24HrsType.setStatus(_B)
-_TmnxSysAppStats24HrsIndex_Type=Unsigned32
-_TmnxSysAppStats24HrsIndex_Object=MibTableColumn
-tmnxSysAppStats24HrsIndex=_TmnxSysAppStats24HrsIndex_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,1,1,3),_TmnxSysAppStats24HrsIndex_Type())
-tmnxSysAppStats24HrsIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysAppStats24HrsIndex.setStatus(_B)
-class _TmnxSysAppStats24HrsName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_TmnxSysAppStats24HrsName_Type.__name__=_M
-_TmnxSysAppStats24HrsName_Object=MibTableColumn
-tmnxSysAppStats24HrsName=_TmnxSysAppStats24HrsName_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,1,1,4),_TmnxSysAppStats24HrsName_Type())
-tmnxSysAppStats24HrsName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAppStats24HrsName.setStatus(_B)
-_TmnxSysAppStats24HrsValue_Type=CounterBasedGauge64
-_TmnxSysAppStats24HrsValue_Object=MibTableColumn
-tmnxSysAppStats24HrsValue=_TmnxSysAppStats24HrsValue_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,1,1,5),_TmnxSysAppStats24HrsValue_Type())
-tmnxSysAppStats24HrsValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAppStats24HrsValue.setStatus(_B)
-class _TmnxSysAppStats24HrsTime_Type(DateAndTime):subtypeSpec=DateAndTime.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(11,11));fixedLength=11
-_TmnxSysAppStats24HrsTime_Type.__name__=_j
-_TmnxSysAppStats24HrsTime_Object=MibTableColumn
-tmnxSysAppStats24HrsTime=_TmnxSysAppStats24HrsTime_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,1,1,6),_TmnxSysAppStats24HrsTime_Type())
-tmnxSysAppStats24HrsTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAppStats24HrsTime.setStatus(_B)
-_TmnxSysAppStatsWeekTable_Object=MibTable
-tmnxSysAppStatsWeekTable=_TmnxSysAppStatsWeekTable_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,2))
-if mibBuilder.loadTexts:tmnxSysAppStatsWeekTable.setStatus(_B)
-_TmnxSysAppStatsWeekEntry_Object=MibTableRow
-tmnxSysAppStatsWeekEntry=_TmnxSysAppStatsWeekEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,2,1))
-tmnxSysAppStatsWeekEntry.setIndexNames((0,_A,_Ex),(0,_A,_Ey),(0,_A,_Ez))
-if mibBuilder.loadTexts:tmnxSysAppStatsWeekEntry.setStatus(_B)
-_TmnxSysAppStatsWeekApplication_Type=TmnxSysLicenseApplication
-_TmnxSysAppStatsWeekApplication_Object=MibTableColumn
-tmnxSysAppStatsWeekApplication=_TmnxSysAppStatsWeekApplication_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,2,1,1),_TmnxSysAppStatsWeekApplication_Type())
-tmnxSysAppStatsWeekApplication.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysAppStatsWeekApplication.setStatus(_B)
-_TmnxSysAppStatsWeekType_Type=TmnxSysLicenseAppStatsType
-_TmnxSysAppStatsWeekType_Object=MibTableColumn
-tmnxSysAppStatsWeekType=_TmnxSysAppStatsWeekType_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,2,1,2),_TmnxSysAppStatsWeekType_Type())
-tmnxSysAppStatsWeekType.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysAppStatsWeekType.setStatus(_B)
-_TmnxSysAppStatsWeekIndex_Type=Unsigned32
-_TmnxSysAppStatsWeekIndex_Object=MibTableColumn
-tmnxSysAppStatsWeekIndex=_TmnxSysAppStatsWeekIndex_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,2,1,3),_TmnxSysAppStatsWeekIndex_Type())
-tmnxSysAppStatsWeekIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysAppStatsWeekIndex.setStatus(_B)
-class _TmnxSysAppStatsWeekName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_TmnxSysAppStatsWeekName_Type.__name__=_M
-_TmnxSysAppStatsWeekName_Object=MibTableColumn
-tmnxSysAppStatsWeekName=_TmnxSysAppStatsWeekName_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,2,1,4),_TmnxSysAppStatsWeekName_Type())
-tmnxSysAppStatsWeekName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAppStatsWeekName.setStatus(_B)
-_TmnxSysAppStatsWeekAverage_Type=CounterBasedGauge64
-_TmnxSysAppStatsWeekAverage_Object=MibTableColumn
-tmnxSysAppStatsWeekAverage=_TmnxSysAppStatsWeekAverage_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,2,1,5),_TmnxSysAppStatsWeekAverage_Type())
-tmnxSysAppStatsWeekAverage.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAppStatsWeekAverage.setStatus(_B)
-_TmnxSysAppStatsWeekPeak_Type=CounterBasedGauge64
-_TmnxSysAppStatsWeekPeak_Object=MibTableColumn
-tmnxSysAppStatsWeekPeak=_TmnxSysAppStatsWeekPeak_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,2,1,6),_TmnxSysAppStatsWeekPeak_Type())
-tmnxSysAppStatsWeekPeak.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAppStatsWeekPeak.setStatus(_B)
-class _TmnxSysAppStatsWeekTime_Type(DateAndTime):subtypeSpec=DateAndTime.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(11,11));fixedLength=11
-_TmnxSysAppStatsWeekTime_Type.__name__=_j
-_TmnxSysAppStatsWeekTime_Object=MibTableColumn
-tmnxSysAppStatsWeekTime=_TmnxSysAppStatsWeekTime_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,2,1,7),_TmnxSysAppStatsWeekTime_Type())
-tmnxSysAppStatsWeekTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAppStatsWeekTime.setStatus(_B)
-_TmnxSysAppStatsPeakTable_Object=MibTable
-tmnxSysAppStatsPeakTable=_TmnxSysAppStatsPeakTable_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,3))
-if mibBuilder.loadTexts:tmnxSysAppStatsPeakTable.setStatus(_B)
-_TmnxSysAppStatsPeakEntry_Object=MibTableRow
-tmnxSysAppStatsPeakEntry=_TmnxSysAppStatsPeakEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,3,1))
-tmnxSysAppStatsPeakEntry.setIndexNames((0,_A,_E_),(0,_A,_F0))
-if mibBuilder.loadTexts:tmnxSysAppStatsPeakEntry.setStatus(_B)
-_TmnxSysAppStatsPeakApplication_Type=TmnxSysLicenseApplication
-_TmnxSysAppStatsPeakApplication_Object=MibTableColumn
-tmnxSysAppStatsPeakApplication=_TmnxSysAppStatsPeakApplication_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,3,1,1),_TmnxSysAppStatsPeakApplication_Type())
-tmnxSysAppStatsPeakApplication.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysAppStatsPeakApplication.setStatus(_B)
-_TmnxSysAppStatsPeakType_Type=TmnxSysLicenseAppStatsType
-_TmnxSysAppStatsPeakType_Object=MibTableColumn
-tmnxSysAppStatsPeakType=_TmnxSysAppStatsPeakType_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,3,1,2),_TmnxSysAppStatsPeakType_Type())
-tmnxSysAppStatsPeakType.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysAppStatsPeakType.setStatus(_B)
-class _TmnxSysAppStatsPeakName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_TmnxSysAppStatsPeakName_Type.__name__=_M
-_TmnxSysAppStatsPeakName_Object=MibTableColumn
-tmnxSysAppStatsPeakName=_TmnxSysAppStatsPeakName_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,3,1,3),_TmnxSysAppStatsPeakName_Type())
-tmnxSysAppStatsPeakName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAppStatsPeakName.setStatus(_B)
-_TmnxSysAppStatsPeakValue_Type=CounterBasedGauge64
-_TmnxSysAppStatsPeakValue_Object=MibTableColumn
-tmnxSysAppStatsPeakValue=_TmnxSysAppStatsPeakValue_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,3,1,4),_TmnxSysAppStatsPeakValue_Type())
-tmnxSysAppStatsPeakValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAppStatsPeakValue.setStatus(_B)
-class _TmnxSysAppStatsPeakTime_Type(DateAndTime):subtypeSpec=DateAndTime.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(11,11));fixedLength=11
-_TmnxSysAppStatsPeakTime_Type.__name__=_j
-_TmnxSysAppStatsPeakTime_Object=MibTableColumn
-tmnxSysAppStatsPeakTime=_TmnxSysAppStatsPeakTime_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,3,1,5),_TmnxSysAppStatsPeakTime_Type())
-tmnxSysAppStatsPeakTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAppStatsPeakTime.setStatus(_B)
-_TmnxSysAppStats48HrsTable_Object=MibTable
-tmnxSysAppStats48HrsTable=_TmnxSysAppStats48HrsTable_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,4))
-if mibBuilder.loadTexts:tmnxSysAppStats48HrsTable.setStatus(_B)
-_TmnxSysAppStats48HrsEntry_Object=MibTableRow
-tmnxSysAppStats48HrsEntry=_TmnxSysAppStats48HrsEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,4,1))
-tmnxSysAppStats48HrsEntry.setIndexNames((0,_A,_F1),(0,_A,_F2),(0,_A,_F3))
-if mibBuilder.loadTexts:tmnxSysAppStats48HrsEntry.setStatus(_B)
-_TmnxSysAppStats48HrsApplication_Type=TmnxSysLicenseApplication
-_TmnxSysAppStats48HrsApplication_Object=MibTableColumn
-tmnxSysAppStats48HrsApplication=_TmnxSysAppStats48HrsApplication_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,4,1,1),_TmnxSysAppStats48HrsApplication_Type())
-tmnxSysAppStats48HrsApplication.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysAppStats48HrsApplication.setStatus(_B)
-_TmnxSysAppStats48HrsType_Type=TmnxSysLicenseAppStatsType
-_TmnxSysAppStats48HrsType_Object=MibTableColumn
-tmnxSysAppStats48HrsType=_TmnxSysAppStats48HrsType_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,4,1,2),_TmnxSysAppStats48HrsType_Type())
-tmnxSysAppStats48HrsType.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysAppStats48HrsType.setStatus(_B)
-_TmnxSysAppStats48HrsIndex_Type=Unsigned32
-_TmnxSysAppStats48HrsIndex_Object=MibTableColumn
-tmnxSysAppStats48HrsIndex=_TmnxSysAppStats48HrsIndex_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,4,1,3),_TmnxSysAppStats48HrsIndex_Type())
-tmnxSysAppStats48HrsIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysAppStats48HrsIndex.setStatus(_B)
-class _TmnxSysAppStats48HrsName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_TmnxSysAppStats48HrsName_Type.__name__=_M
-_TmnxSysAppStats48HrsName_Object=MibTableColumn
-tmnxSysAppStats48HrsName=_TmnxSysAppStats48HrsName_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,4,1,4),_TmnxSysAppStats48HrsName_Type())
-tmnxSysAppStats48HrsName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAppStats48HrsName.setStatus(_B)
-_TmnxSysAppStats48HrsValue_Type=CounterBasedGauge64
-_TmnxSysAppStats48HrsValue_Object=MibTableColumn
-tmnxSysAppStats48HrsValue=_TmnxSysAppStats48HrsValue_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,4,1,5),_TmnxSysAppStats48HrsValue_Type())
-tmnxSysAppStats48HrsValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAppStats48HrsValue.setStatus(_B)
-class _TmnxSysAppStats48HrsTime_Type(DateAndTime):subtypeSpec=DateAndTime.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(11,11));fixedLength=11
-_TmnxSysAppStats48HrsTime_Type.__name__=_j
-_TmnxSysAppStats48HrsTime_Object=MibTableColumn
-tmnxSysAppStats48HrsTime=_TmnxSysAppStats48HrsTime_Object((1,3,6,1,4,1,6527,3,1,2,1,30,20,4,1,6),_TmnxSysAppStats48HrsTime_Type())
-tmnxSysAppStats48HrsTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysAppStats48HrsTime.setStatus(_B)
-_TmnxSysLicensingProduct_Type=TItemDescription
-_TmnxSysLicensingProduct_Object=MibScalar
-tmnxSysLicensingProduct=_TmnxSysLicensingProduct_Object((1,3,6,1,4,1,6527,3,1,2,1,30,21),_TmnxSysLicensingProduct_Type())
-tmnxSysLicensingProduct.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysLicensingProduct.setStatus(_B)
-_TmnxSysLicensingUuid_Type=TmnxUuid
-_TmnxSysLicensingUuid_Object=MibScalar
-tmnxSysLicensingUuid=_TmnxSysLicensingUuid_Object((1,3,6,1,4,1,6527,3,1,2,1,30,22),_TmnxSysLicensingUuid_Type())
-tmnxSysLicensingUuid.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysLicensingUuid.setStatus(_B)
-_TmnxSysFibInfo_ObjectIdentity=ObjectIdentity
-tmnxSysFibInfo=_TmnxSysFibInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,31))
-class _TmnxSysFibSelective_Type(TruthValue):defaultValue=2
-_TmnxSysFibSelective_Type.__name__=_H
-_TmnxSysFibSelective_Object=MibScalar
-tmnxSysFibSelective=_TmnxSysFibSelective_Object((1,3,6,1,4,1,6527,3,1,2,1,31,1),_TmnxSysFibSelective_Type())
-tmnxSysFibSelective.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysFibSelective.setStatus(_B)
-_TmnxSysSnmpSrcAccessObjs_ObjectIdentity=ObjectIdentity
-tmnxSysSnmpSrcAccessObjs=_TmnxSysSnmpSrcAccessObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,32))
-_TmnxSysSnmpConfigObjs_ObjectIdentity=ObjectIdentity
-tmnxSysSnmpConfigObjs=_TmnxSysSnmpConfigObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,32,1))
-_TmnxSysSnmpSrcAccessTblLstChgd_Type=TimeStamp
-_TmnxSysSnmpSrcAccessTblLstChgd_Object=MibScalar
-tmnxSysSnmpSrcAccessTblLstChgd=_TmnxSysSnmpSrcAccessTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,1,32,1,1),_TmnxSysSnmpSrcAccessTblLstChgd_Type())
-tmnxSysSnmpSrcAccessTblLstChgd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysSnmpSrcAccessTblLstChgd.setStatus(_B)
-_TmnxSysSnmpSrcAccessLstTable_Object=MibTable
-tmnxSysSnmpSrcAccessLstTable=_TmnxSysSnmpSrcAccessLstTable_Object((1,3,6,1,4,1,6527,3,1,2,1,32,1,2))
-if mibBuilder.loadTexts:tmnxSysSnmpSrcAccessLstTable.setStatus(_B)
-_TmnxSysSnmpSrcAccessLstEntry_Object=MibTableRow
-tmnxSysSnmpSrcAccessLstEntry=_TmnxSysSnmpSrcAccessLstEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,32,1,2,1))
-tmnxSysSnmpSrcAccessLstEntry.setIndexNames((1,_A,_F4))
-if mibBuilder.loadTexts:tmnxSysSnmpSrcAccessLstEntry.setStatus(_B)
-_TmnxSysSnmpSrcAccessLstName_Type=TNamedItem
-_TmnxSysSnmpSrcAccessLstName_Object=MibTableColumn
-tmnxSysSnmpSrcAccessLstName=_TmnxSysSnmpSrcAccessLstName_Object((1,3,6,1,4,1,6527,3,1,2,1,32,1,2,1,1),_TmnxSysSnmpSrcAccessLstName_Type())
-tmnxSysSnmpSrcAccessLstName.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysSnmpSrcAccessLstName.setStatus(_B)
-_TmnxSysSnmpSrcAccessLstRowStatus_Type=RowStatus
-_TmnxSysSnmpSrcAccessLstRowStatus_Object=MibTableColumn
-tmnxSysSnmpSrcAccessLstRowStatus=_TmnxSysSnmpSrcAccessLstRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,32,1,2,1,2),_TmnxSysSnmpSrcAccessLstRowStatus_Type())
-tmnxSysSnmpSrcAccessLstRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysSnmpSrcAccessLstRowStatus.setStatus(_B)
-_TmnxSysSnmpSrcAccessLstLastChg_Type=TimeStamp
-_TmnxSysSnmpSrcAccessLstLastChg_Object=MibTableColumn
-tmnxSysSnmpSrcAccessLstLastChg=_TmnxSysSnmpSrcAccessLstLastChg_Object((1,3,6,1,4,1,6527,3,1,2,1,32,1,2,1,3),_TmnxSysSnmpSrcAccessLstLastChg_Type())
-tmnxSysSnmpSrcAccessLstLastChg.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysSnmpSrcAccessLstLastChg.setStatus(_B)
-_TmnxSysSnmpStatsObjs_ObjectIdentity=ObjectIdentity
-tmnxSysSnmpStatsObjs=_TmnxSysSnmpStatsObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,32,2))
-_TmnxSysSnmpCommunityStatsTable_Object=MibTable
-tmnxSysSnmpCommunityStatsTable=_TmnxSysSnmpCommunityStatsTable_Object((1,3,6,1,4,1,6527,3,1,2,1,32,2,1))
-if mibBuilder.loadTexts:tmnxSysSnmpCommunityStatsTable.setStatus(_B)
-_TmnxSysSnmpCommunityStatsEntry_Object=MibTableRow
-tmnxSysSnmpCommunityStatsEntry=_TmnxSysSnmpCommunityStatsEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,32,2,1,1))
-if mibBuilder.loadTexts:tmnxSysSnmpCommunityStatsEntry.setStatus(_B)
-_TmnxSysSnmpCommunityPktDropped_Type=Gauge32
-_TmnxSysSnmpCommunityPktDropped_Object=MibTableColumn
-tmnxSysSnmpCommunityPktDropped=_TmnxSysSnmpCommunityPktDropped_Object((1,3,6,1,4,1,6527,3,1,2,1,32,2,1,1,1),_TmnxSysSnmpCommunityPktDropped_Type())
-tmnxSysSnmpCommunityPktDropped.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysSnmpCommunityPktDropped.setStatus(_B)
-_TmnxSysMgmtProtocolObjs_ObjectIdentity=ObjectIdentity
-tmnxSysMgmtProtocolObjs=_TmnxSysMgmtProtocolObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,33))
-_TmnxSysMgmtProtocolTblLstChng_Type=TimeStamp
-_TmnxSysMgmtProtocolTblLstChng_Object=MibScalar
-tmnxSysMgmtProtocolTblLstChng=_TmnxSysMgmtProtocolTblLstChng_Object((1,3,6,1,4,1,6527,3,1,2,1,33,1),_TmnxSysMgmtProtocolTblLstChng_Type())
-tmnxSysMgmtProtocolTblLstChng.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtProtocolTblLstChng.setStatus(_B)
-_TmnxSysMgmtProtocolTable_Object=MibTable
-tmnxSysMgmtProtocolTable=_TmnxSysMgmtProtocolTable_Object((1,3,6,1,4,1,6527,3,1,2,1,33,2))
-if mibBuilder.loadTexts:tmnxSysMgmtProtocolTable.setStatus(_B)
-_TmnxSysMgmtProtocolEntry_Object=MibTableRow
-tmnxSysMgmtProtocolEntry=_TmnxSysMgmtProtocolEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,33,2,1))
-tmnxSysMgmtProtocolEntry.setIndexNames((0,_A,_F5))
-if mibBuilder.loadTexts:tmnxSysMgmtProtocolEntry.setStatus(_B)
-class _TmnxSysMgmtProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('cli',0))
-_TmnxSysMgmtProtocol_Type.__name__=_F
-_TmnxSysMgmtProtocol_Object=MibTableColumn
-tmnxSysMgmtProtocol=_TmnxSysMgmtProtocol_Object((1,3,6,1,4,1,6527,3,1,2,1,33,2,1,1),_TmnxSysMgmtProtocol_Type())
-tmnxSysMgmtProtocol.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysMgmtProtocol.setStatus(_B)
-_TmnxSysMgmtProtLastChange_Type=TimeStamp
-_TmnxSysMgmtProtLastChange_Object=MibTableColumn
-tmnxSysMgmtProtLastChange=_TmnxSysMgmtProtLastChange_Object((1,3,6,1,4,1,6527,3,1,2,1,33,2,1,2),_TmnxSysMgmtProtLastChange_Type())
-tmnxSysMgmtProtLastChange.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtProtLastChange.setStatus(_B)
-class _TmnxSysMgmtAllowImmediateChange_Type(TruthValue):defaultValue=1
-_TmnxSysMgmtAllowImmediateChange_Type.__name__=_H
-_TmnxSysMgmtAllowImmediateChange_Object=MibTableColumn
-tmnxSysMgmtAllowImmediateChange=_TmnxSysMgmtAllowImmediateChange_Object((1,3,6,1,4,1,6527,3,1,2,1,33,2,1,3),_TmnxSysMgmtAllowImmediateChange_Type())
-tmnxSysMgmtAllowImmediateChange.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysMgmtAllowImmediateChange.setStatus(_B)
-class _TmnxSysMgmtCliEngine1_Type(TmnxCliEngine):defaultValue=3
-_TmnxSysMgmtCliEngine1_Type.__name__=_C2
-_TmnxSysMgmtCliEngine1_Object=MibTableColumn
-tmnxSysMgmtCliEngine1=_TmnxSysMgmtCliEngine1_Object((1,3,6,1,4,1,6527,3,1,2,1,33,2,1,4),_TmnxSysMgmtCliEngine1_Type())
-tmnxSysMgmtCliEngine1.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysMgmtCliEngine1.setStatus(_B)
-class _TmnxSysMgmtCliEngine2_Type(TmnxCliEngine):defaultValue=3
-_TmnxSysMgmtCliEngine2_Type.__name__=_C2
-_TmnxSysMgmtCliEngine2_Object=MibTableColumn
-tmnxSysMgmtCliEngine2=_TmnxSysMgmtCliEngine2_Object((1,3,6,1,4,1,6527,3,1,2,1,33,2,1,5),_TmnxSysMgmtCliEngine2_Type())
-tmnxSysMgmtCliEngine2.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysMgmtCliEngine2.setStatus(_B)
-_TmnxSysFileTransProfObjs_ObjectIdentity=ObjectIdentity
-tmnxSysFileTransProfObjs=_TmnxSysFileTransProfObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,34))
-_TmnxSysFileTransProfTableLstChgd_Type=TimeStamp
-_TmnxSysFileTransProfTableLstChgd_Object=MibScalar
-tmnxSysFileTransProfTableLstChgd=_TmnxSysFileTransProfTableLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,1,34,1),_TmnxSysFileTransProfTableLstChgd_Type())
-tmnxSysFileTransProfTableLstChgd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysFileTransProfTableLstChgd.setStatus(_B)
-_TmnxSysFileTransProfTable_Object=MibTable
-tmnxSysFileTransProfTable=_TmnxSysFileTransProfTable_Object((1,3,6,1,4,1,6527,3,1,2,1,34,2))
-if mibBuilder.loadTexts:tmnxSysFileTransProfTable.setStatus(_B)
-_TmnxSysFileTransProfEntry_Object=MibTableRow
-tmnxSysFileTransProfEntry=_TmnxSysFileTransProfEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,34,2,1))
-tmnxSysFileTransProfEntry.setIndexNames((0,_A,_F6))
-if mibBuilder.loadTexts:tmnxSysFileTransProfEntry.setStatus(_B)
-_TmnxSysFileTransProfName_Type=TNamedItem
-_TmnxSysFileTransProfName_Object=MibTableColumn
-tmnxSysFileTransProfName=_TmnxSysFileTransProfName_Object((1,3,6,1,4,1,6527,3,1,2,1,34,2,1,1),_TmnxSysFileTransProfName_Type())
-tmnxSysFileTransProfName.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysFileTransProfName.setStatus(_B)
-_TmnxSysFileTransProfRowStatus_Type=RowStatus
-_TmnxSysFileTransProfRowStatus_Object=MibTableColumn
-tmnxSysFileTransProfRowStatus=_TmnxSysFileTransProfRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,34,2,1,2),_TmnxSysFileTransProfRowStatus_Type())
-tmnxSysFileTransProfRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysFileTransProfRowStatus.setStatus(_B)
-_TmnxSysFileTransProfLastChanged_Type=TimeStamp
-_TmnxSysFileTransProfLastChanged_Object=MibTableColumn
-tmnxSysFileTransProfLastChanged=_TmnxSysFileTransProfLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,1,34,2,1,3),_TmnxSysFileTransProfLastChanged_Type())
-tmnxSysFileTransProfLastChanged.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysFileTransProfLastChanged.setStatus(_B)
-class _TmnxSysFileTransProfRtrId_Type(TmnxVRtrIDOrZero):defaultValue=1
-_TmnxSysFileTransProfRtrId_Type.__name__=_An
-_TmnxSysFileTransProfRtrId_Object=MibTableColumn
-tmnxSysFileTransProfRtrId=_TmnxSysFileTransProfRtrId_Object((1,3,6,1,4,1,6527,3,1,2,1,34,2,1,4),_TmnxSysFileTransProfRtrId_Type())
-tmnxSysFileTransProfRtrId.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysFileTransProfRtrId.setStatus(_B)
-class _TmnxSysFileTransProfSvcId_Type(TmnxServId):defaultValue=0;subtypeSpec=TmnxServId.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_TmnxSysFileTransProfSvcId_Type.__name__=_C4
-_TmnxSysFileTransProfSvcId_Object=MibTableColumn
-tmnxSysFileTransProfSvcId=_TmnxSysFileTransProfSvcId_Object((1,3,6,1,4,1,6527,3,1,2,1,34,2,1,5),_TmnxSysFileTransProfSvcId_Type())
-tmnxSysFileTransProfSvcId.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysFileTransProfSvcId.setStatus(_B)
-class _TmnxSysFileTransProfSrcAddrV4T_Type(InetAddressType):defaultValue=0
-_TmnxSysFileTransProfSrcAddrV4T_Type.__name__=_AP
-_TmnxSysFileTransProfSrcAddrV4T_Object=MibTableColumn
-tmnxSysFileTransProfSrcAddrV4T=_TmnxSysFileTransProfSrcAddrV4T_Object((1,3,6,1,4,1,6527,3,1,2,1,34,2,1,6),_TmnxSysFileTransProfSrcAddrV4T_Type())
-tmnxSysFileTransProfSrcAddrV4T.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysFileTransProfSrcAddrV4T.setStatus(_B)
-class _TmnxSysFileTransProfSrcAddrV4_Type(InetAddress):defaultHexValue='';subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4))
-_TmnxSysFileTransProfSrcAddrV4_Type.__name__=_R
-_TmnxSysFileTransProfSrcAddrV4_Object=MibTableColumn
-tmnxSysFileTransProfSrcAddrV4=_TmnxSysFileTransProfSrcAddrV4_Object((1,3,6,1,4,1,6527,3,1,2,1,34,2,1,7),_TmnxSysFileTransProfSrcAddrV4_Type())
-tmnxSysFileTransProfSrcAddrV4.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysFileTransProfSrcAddrV4.setStatus(_B)
-class _TmnxSysFileTransProfSrcAddrV6T_Type(InetAddressType):defaultValue=0
-_TmnxSysFileTransProfSrcAddrV6T_Type.__name__=_AP
-_TmnxSysFileTransProfSrcAddrV6T_Object=MibTableColumn
-tmnxSysFileTransProfSrcAddrV6T=_TmnxSysFileTransProfSrcAddrV6T_Object((1,3,6,1,4,1,6527,3,1,2,1,34,2,1,8),_TmnxSysFileTransProfSrcAddrV6T_Type())
-tmnxSysFileTransProfSrcAddrV6T.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysFileTransProfSrcAddrV6T.setStatus(_B)
-class _TmnxSysFileTransProfSrcAddrV6_Type(InetAddress):defaultHexValue='';subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(16,16))
-_TmnxSysFileTransProfSrcAddrV6_Type.__name__=_R
-_TmnxSysFileTransProfSrcAddrV6_Object=MibTableColumn
-tmnxSysFileTransProfSrcAddrV6=_TmnxSysFileTransProfSrcAddrV6_Object((1,3,6,1,4,1,6527,3,1,2,1,34,2,1,9),_TmnxSysFileTransProfSrcAddrV6_Type())
-tmnxSysFileTransProfSrcAddrV6.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysFileTransProfSrcAddrV6.setStatus(_B)
-class _TmnxSysFileTransProfTimeout_Type(Unsigned32):defaultValue=60;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3600))
-_TmnxSysFileTransProfTimeout_Type.__name__=_G
-_TmnxSysFileTransProfTimeout_Object=MibTableColumn
-tmnxSysFileTransProfTimeout=_TmnxSysFileTransProfTimeout_Object((1,3,6,1,4,1,6527,3,1,2,1,34,2,1,10),_TmnxSysFileTransProfTimeout_Type())
-tmnxSysFileTransProfTimeout.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysFileTransProfTimeout.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysFileTransProfTimeout.setUnits(_U)
-class _TmnxSysFileTransProfRetry_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,256))
-_TmnxSysFileTransProfRetry_Type.__name__=_G
-_TmnxSysFileTransProfRetry_Object=MibTableColumn
-tmnxSysFileTransProfRetry=_TmnxSysFileTransProfRetry_Object((1,3,6,1,4,1,6527,3,1,2,1,34,2,1,11),_TmnxSysFileTransProfRetry_Type())
-tmnxSysFileTransProfRetry.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysFileTransProfRetry.setStatus(_B)
-class _TmnxSysFileTransProfRedirection_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,8))
-_TmnxSysFileTransProfRedirection_Type.__name__=_G
-_TmnxSysFileTransProfRedirection_Object=MibTableColumn
-tmnxSysFileTransProfRedirection=_TmnxSysFileTransProfRedirection_Object((1,3,6,1,4,1,6527,3,1,2,1,34,2,1,12),_TmnxSysFileTransProfRedirection_Type())
-tmnxSysFileTransProfRedirection.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysFileTransProfRedirection.setStatus(_B)
-class _TmnxSysFileTransProfSvcName_Type(TLNamedItemOrEmpty):defaultHexValue=''
-_TmnxSysFileTransProfSvcName_Type.__name__=_AG
-_TmnxSysFileTransProfSvcName_Object=MibTableColumn
-tmnxSysFileTransProfSvcName=_TmnxSysFileTransProfSvcName_Object((1,3,6,1,4,1,6527,3,1,2,1,34,2,1,13),_TmnxSysFileTransProfSvcName_Type())
-tmnxSysFileTransProfSvcName.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysFileTransProfSvcName.setStatus(_B)
-_TmnxEhsExtObjs_ObjectIdentity=ObjectIdentity
-tmnxEhsExtObjs=_TmnxEhsExtObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,35))
-_TmnxSmLaunchExtTable_Object=MibTable
-tmnxSmLaunchExtTable=_TmnxSmLaunchExtTable_Object((1,3,6,1,4,1,6527,3,1,2,1,35,1))
-if mibBuilder.loadTexts:tmnxSmLaunchExtTable.setStatus(_B)
-_TmnxSmLaunchExtEntry_Object=MibTableRow
-tmnxSmLaunchExtEntry=_TmnxSmLaunchExtEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,35,1,1))
-if mibBuilder.loadTexts:tmnxSmLaunchExtEntry.setStatus(_B)
-_TmnxSmLaunchExtAuthType_Type=TmnxScriptAuthType
-_TmnxSmLaunchExtAuthType_Object=MibTableColumn
-tmnxSmLaunchExtAuthType=_TmnxSmLaunchExtAuthType_Object((1,3,6,1,4,1,6527,3,1,2,1,35,1,1,1),_TmnxSmLaunchExtAuthType_Type())
-tmnxSmLaunchExtAuthType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSmLaunchExtAuthType.setStatus(_B)
-class _TmnxSmLaunchExtLockOverride_Type(TruthValue):defaultValue=2
-_TmnxSmLaunchExtLockOverride_Type.__name__=_H
-_TmnxSmLaunchExtLockOverride_Object=MibTableColumn
-tmnxSmLaunchExtLockOverride=_TmnxSmLaunchExtLockOverride_Object((1,3,6,1,4,1,6527,3,1,2,1,35,1,1,2),_TmnxSmLaunchExtLockOverride_Type())
-tmnxSmLaunchExtLockOverride.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSmLaunchExtLockOverride.setStatus(_B)
-_TmnxSmRunExtTable_Object=MibTable
-tmnxSmRunExtTable=_TmnxSmRunExtTable_Object((1,3,6,1,4,1,6527,3,1,2,1,35,2))
-if mibBuilder.loadTexts:tmnxSmRunExtTable.setStatus(_B)
-_TmnxSmRunExtEntry_Object=MibTableRow
-tmnxSmRunExtEntry=_TmnxSmRunExtEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,35,2,1))
-if mibBuilder.loadTexts:tmnxSmRunExtEntry.setStatus(_B)
-_TmnxSmRunExtAuthType_Type=TmnxScriptAuthType
-_TmnxSmRunExtAuthType_Object=MibTableColumn
-tmnxSmRunExtAuthType=_TmnxSmRunExtAuthType_Object((1,3,6,1,4,1,6527,3,1,2,1,35,2,1,1),_TmnxSmRunExtAuthType_Type())
-tmnxSmRunExtAuthType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSmRunExtAuthType.setStatus(_B)
-_TmnxSmRunExtUserName_Type=TNamedItemOrEmpty
-_TmnxSmRunExtUserName_Object=MibTableColumn
-tmnxSmRunExtUserName=_TmnxSmRunExtUserName_Object((1,3,6,1,4,1,6527,3,1,2,1,35,2,1,2),_TmnxSmRunExtUserName_Type())
-tmnxSmRunExtUserName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSmRunExtUserName.setStatus(_B)
-_TmnxSmRunArgsTable_Object=MibTable
-tmnxSmRunArgsTable=_TmnxSmRunArgsTable_Object((1,3,6,1,4,1,6527,3,1,2,1,35,3))
-if mibBuilder.loadTexts:tmnxSmRunArgsTable.setStatus(_B)
-_TmnxSmRunArgsEntry_Object=MibTableRow
-tmnxSmRunArgsEntry=_TmnxSmRunArgsEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,35,3,1))
-tmnxSmRunArgsEntry.setIndexNames((0,_i,_EK),(0,_i,_EJ),(0,_i,_EL),(0,_A,_F7))
-if mibBuilder.loadTexts:tmnxSmRunArgsEntry.setStatus(_B)
-_TmnxSmRunEventArgIndex_Type=Unsigned32
-_TmnxSmRunEventArgIndex_Object=MibTableColumn
-tmnxSmRunEventArgIndex=_TmnxSmRunEventArgIndex_Object((1,3,6,1,4,1,6527,3,1,2,1,35,3,1,1),_TmnxSmRunEventArgIndex_Type())
-tmnxSmRunEventArgIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSmRunEventArgIndex.setStatus(_B)
-_TmnxSmRunEventArgName_Type=TLNamedItem
-_TmnxSmRunEventArgName_Object=MibTableColumn
-tmnxSmRunEventArgName=_TmnxSmRunEventArgName_Object((1,3,6,1,4,1,6527,3,1,2,1,35,3,1,2),_TmnxSmRunEventArgName_Type())
-tmnxSmRunEventArgName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSmRunEventArgName.setStatus(_B)
-class _TmnxSmRunEventArgValue_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_TmnxSmRunEventArgValue_Type.__name__=_M
-_TmnxSmRunEventArgValue_Object=MibTableColumn
-tmnxSmRunEventArgValue=_TmnxSmRunEventArgValue_Object((1,3,6,1,4,1,6527,3,1,2,1,35,3,1,3),_TmnxSmRunEventArgValue_Type())
-tmnxSmRunEventArgValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSmRunEventArgValue.setStatus(_B)
-_TmnxSysSwReposObjs_ObjectIdentity=ObjectIdentity
-tmnxSysSwReposObjs=_TmnxSysSwReposObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,36))
-_TmnxSysSwReposTableLastChanged_Type=TimeStamp
-_TmnxSysSwReposTableLastChanged_Object=MibScalar
-tmnxSysSwReposTableLastChanged=_TmnxSysSwReposTableLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,1,36,1),_TmnxSysSwReposTableLastChanged_Type())
-tmnxSysSwReposTableLastChanged.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysSwReposTableLastChanged.setStatus(_B)
-_TmnxSysSoftwareRepositoryTable_Object=MibTable
-tmnxSysSoftwareRepositoryTable=_TmnxSysSoftwareRepositoryTable_Object((1,3,6,1,4,1,6527,3,1,2,1,36,2))
-if mibBuilder.loadTexts:tmnxSysSoftwareRepositoryTable.setStatus(_B)
-_TmnxSysSoftwareRepositoryEntry_Object=MibTableRow
-tmnxSysSoftwareRepositoryEntry=_TmnxSysSoftwareRepositoryEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,36,2,1))
-tmnxSysSoftwareRepositoryEntry.setIndexNames((0,_A,_F8))
-if mibBuilder.loadTexts:tmnxSysSoftwareRepositoryEntry.setStatus(_B)
-_TmnxSysSwReposName_Type=TNamedItem
-_TmnxSysSwReposName_Object=MibTableColumn
-tmnxSysSwReposName=_TmnxSysSwReposName_Object((1,3,6,1,4,1,6527,3,1,2,1,36,2,1,1),_TmnxSysSwReposName_Type())
-tmnxSysSwReposName.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysSwReposName.setStatus(_B)
-_TmnxSysSwReposRowStatus_Type=RowStatus
-_TmnxSysSwReposRowStatus_Object=MibTableColumn
-tmnxSysSwReposRowStatus=_TmnxSysSwReposRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,36,2,1,2),_TmnxSysSwReposRowStatus_Type())
-tmnxSysSwReposRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysSwReposRowStatus.setStatus(_B)
-_TmnxSysSwReposLastChanged_Type=TimeStamp
-_TmnxSysSwReposLastChanged_Object=MibTableColumn
-tmnxSysSwReposLastChanged=_TmnxSysSwReposLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,1,36,2,1,3),_TmnxSysSwReposLastChanged_Type())
-tmnxSysSwReposLastChanged.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysSwReposLastChanged.setStatus(_B)
-class _TmnxSysSwReposDescription_Type(TItemDescription):defaultHexValue=''
-_TmnxSysSwReposDescription_Type.__name__=_Y
-_TmnxSysSwReposDescription_Object=MibTableColumn
-tmnxSysSwReposDescription=_TmnxSysSwReposDescription_Object((1,3,6,1,4,1,6527,3,1,2,1,36,2,1,4),_TmnxSysSwReposDescription_Type())
-tmnxSysSwReposDescription.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysSwReposDescription.setStatus(_B)
-class _TmnxSysSwReposPrimaryLocation_Type(TmnxDisplayStringURL):defaultHexValue=''
-_TmnxSysSwReposPrimaryLocation_Type.__name__=_P
-_TmnxSysSwReposPrimaryLocation_Object=MibTableColumn
-tmnxSysSwReposPrimaryLocation=_TmnxSysSwReposPrimaryLocation_Object((1,3,6,1,4,1,6527,3,1,2,1,36,2,1,5),_TmnxSysSwReposPrimaryLocation_Type())
-tmnxSysSwReposPrimaryLocation.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysSwReposPrimaryLocation.setStatus(_B)
-class _TmnxSysSwReposSecondaryLocation_Type(TmnxDisplayStringURL):defaultHexValue=''
-_TmnxSysSwReposSecondaryLocation_Type.__name__=_P
-_TmnxSysSwReposSecondaryLocation_Object=MibTableColumn
-tmnxSysSwReposSecondaryLocation=_TmnxSysSwReposSecondaryLocation_Object((1,3,6,1,4,1,6527,3,1,2,1,36,2,1,6),_TmnxSysSwReposSecondaryLocation_Type())
-tmnxSysSwReposSecondaryLocation.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysSwReposSecondaryLocation.setStatus(_B)
-class _TmnxSysSwReposTertiaryLocation_Type(TmnxDisplayStringURL):defaultHexValue=''
-_TmnxSysSwReposTertiaryLocation_Type.__name__=_P
-_TmnxSysSwReposTertiaryLocation_Object=MibTableColumn
-tmnxSysSwReposTertiaryLocation=_TmnxSysSwReposTertiaryLocation_Object((1,3,6,1,4,1,6527,3,1,2,1,36,2,1,7),_TmnxSysSwReposTertiaryLocation_Type())
-tmnxSysSwReposTertiaryLocation.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysSwReposTertiaryLocation.setStatus(_B)
-_TmnxSysNspProxyInfo_ObjectIdentity=ObjectIdentity
-tmnxSysNspProxyInfo=_TmnxSysNspProxyInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,37))
-_TmnxSysGrpcInfo_ObjectIdentity=ObjectIdentity
-tmnxSysGrpcInfo=_TmnxSysGrpcInfo_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,39))
-class _TmnxSysGrpcAdminState_Type(TmnxAdminState):defaultValue=3
-_TmnxSysGrpcAdminState_Type.__name__=_N
-_TmnxSysGrpcAdminState_Object=MibScalar
-tmnxSysGrpcAdminState=_TmnxSysGrpcAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,39,1),_TmnxSysGrpcAdminState_Type())
-tmnxSysGrpcAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysGrpcAdminState.setStatus(_B)
-_TmnxSysGrpcOperState_Type=TmnxOperState
-_TmnxSysGrpcOperState_Object=MibScalar
-tmnxSysGrpcOperState=_TmnxSysGrpcOperState_Object((1,3,6,1,4,1,6527,3,1,2,1,39,2),_TmnxSysGrpcOperState_Type())
-tmnxSysGrpcOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcOperState.setStatus(_B)
-class _TmnxSysGrpcTlsServerProfile_Type(TNamedItemOrEmpty):defaultHexValue=''
-_TmnxSysGrpcTlsServerProfile_Type.__name__=_A2
-_TmnxSysGrpcTlsServerProfile_Object=MibScalar
-tmnxSysGrpcTlsServerProfile=_TmnxSysGrpcTlsServerProfile_Object((1,3,6,1,4,1,6527,3,1,2,1,39,3),_TmnxSysGrpcTlsServerProfile_Type())
-tmnxSysGrpcTlsServerProfile.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysGrpcTlsServerProfile.setStatus(_B)
-class _TmnxSysGrpcMaxMsgSize_Type(Unsigned32):defaultValue=512;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1024))
-_TmnxSysGrpcMaxMsgSize_Type.__name__=_G
-_TmnxSysGrpcMaxMsgSize_Object=MibScalar
-tmnxSysGrpcMaxMsgSize=_TmnxSysGrpcMaxMsgSize_Object((1,3,6,1,4,1,6527,3,1,2,1,39,4),_TmnxSysGrpcMaxMsgSize_Type())
-tmnxSysGrpcMaxMsgSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysGrpcMaxMsgSize.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysGrpcMaxMsgSize.setUnits('megabytes')
-class _TmnxSysGrpcAutoCfgSave_Type(TruthValue):defaultValue=2
-_TmnxSysGrpcAutoCfgSave_Type.__name__=_H
-_TmnxSysGrpcAutoCfgSave_Object=MibScalar
-tmnxSysGrpcAutoCfgSave=_TmnxSysGrpcAutoCfgSave_Object((1,3,6,1,4,1,6527,3,1,2,1,39,5),_TmnxSysGrpcAutoCfgSave_Type())
-tmnxSysGrpcAutoCfgSave.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysGrpcAutoCfgSave.setStatus(_B)
-class _TmnxSysGrpcGnmiVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,10))
-_TmnxSysGrpcGnmiVersion_Type.__name__=_M
-_TmnxSysGrpcGnmiVersion_Object=MibScalar
-tmnxSysGrpcGnmiVersion=_TmnxSysGrpcGnmiVersion_Object((1,3,6,1,4,1,6527,3,1,2,1,39,6),_TmnxSysGrpcGnmiVersion_Type())
-tmnxSysGrpcGnmiVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcGnmiVersion.setStatus(_B)
-class _TmnxSysGrpcAllowUnsecure_Type(TruthValue):defaultValue=2
-_TmnxSysGrpcAllowUnsecure_Type.__name__=_H
-_TmnxSysGrpcAllowUnsecure_Object=MibScalar
-tmnxSysGrpcAllowUnsecure=_TmnxSysGrpcAllowUnsecure_Object((1,3,6,1,4,1,6527,3,1,2,1,39,7),_TmnxSysGrpcAllowUnsecure_Type())
-tmnxSysGrpcAllowUnsecure.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysGrpcAllowUnsecure.setStatus(_B)
-class _TmnxSysGrpcGnmiAdminState_Type(TmnxAdminState):defaultValue=2
-_TmnxSysGrpcGnmiAdminState_Type.__name__=_N
-_TmnxSysGrpcGnmiAdminState_Object=MibScalar
-tmnxSysGrpcGnmiAdminState=_TmnxSysGrpcGnmiAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,39,8),_TmnxSysGrpcGnmiAdminState_Type())
-tmnxSysGrpcGnmiAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysGrpcGnmiAdminState.setStatus(_B)
-class _TmnxSysGrpcTcpKaAdminState_Type(TmnxAdminState):defaultValue=3
-_TmnxSysGrpcTcpKaAdminState_Type.__name__=_N
-_TmnxSysGrpcTcpKaAdminState_Object=MibScalar
-tmnxSysGrpcTcpKaAdminState=_TmnxSysGrpcTcpKaAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,39,9),_TmnxSysGrpcTcpKaAdminState_Type())
-tmnxSysGrpcTcpKaAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysGrpcTcpKaAdminState.setStatus(_B)
-class _TmnxSysGrpcTcpKaIdle_Type(Unsigned32):defaultValue=600;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100000))
-_TmnxSysGrpcTcpKaIdle_Type.__name__=_G
-_TmnxSysGrpcTcpKaIdle_Object=MibScalar
-tmnxSysGrpcTcpKaIdle=_TmnxSysGrpcTcpKaIdle_Object((1,3,6,1,4,1,6527,3,1,2,1,39,10),_TmnxSysGrpcTcpKaIdle_Type())
-tmnxSysGrpcTcpKaIdle.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysGrpcTcpKaIdle.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysGrpcTcpKaIdle.setUnits(_U)
-class _TmnxSysGrpcTcpKaInterval_Type(Unsigned32):defaultValue=15;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100000))
-_TmnxSysGrpcTcpKaInterval_Type.__name__=_G
-_TmnxSysGrpcTcpKaInterval_Object=MibScalar
-tmnxSysGrpcTcpKaInterval=_TmnxSysGrpcTcpKaInterval_Object((1,3,6,1,4,1,6527,3,1,2,1,39,11),_TmnxSysGrpcTcpKaInterval_Type())
-tmnxSysGrpcTcpKaInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysGrpcTcpKaInterval.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysGrpcTcpKaInterval.setUnits(_U)
-class _TmnxSysGrpcTcpKaCount_Type(Unsigned32):defaultValue=4;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(3,100))
-_TmnxSysGrpcTcpKaCount_Type.__name__=_G
-_TmnxSysGrpcTcpKaCount_Object=MibScalar
-tmnxSysGrpcTcpKaCount=_TmnxSysGrpcTcpKaCount_Object((1,3,6,1,4,1,6527,3,1,2,1,39,12),_TmnxSysGrpcTcpKaCount_Type())
-tmnxSysGrpcTcpKaCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysGrpcTcpKaCount.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysGrpcTcpKaCount.setUnits(_U)
-class _TmnxSysGrpcRibApiAdminState_Type(TmnxAdminState):defaultValue=3
-_TmnxSysGrpcRibApiAdminState_Type.__name__=_N
-_TmnxSysGrpcRibApiAdminState_Object=MibScalar
-tmnxSysGrpcRibApiAdminState=_TmnxSysGrpcRibApiAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,39,13),_TmnxSysGrpcRibApiAdminState_Type())
-tmnxSysGrpcRibApiAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysGrpcRibApiAdminState.setStatus(_B)
-class _TmnxSysGrpcRibApiPurgeTimeout_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100000))
-_TmnxSysGrpcRibApiPurgeTimeout_Type.__name__=_G
-_TmnxSysGrpcRibApiPurgeTimeout_Object=MibScalar
-tmnxSysGrpcRibApiPurgeTimeout=_TmnxSysGrpcRibApiPurgeTimeout_Object((1,3,6,1,4,1,6527,3,1,2,1,39,14),_TmnxSysGrpcRibApiPurgeTimeout_Type())
-tmnxSysGrpcRibApiPurgeTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysGrpcRibApiPurgeTimeout.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysGrpcRibApiPurgeTimeout.setUnits(_U)
-class _TmnxSysGrpcRibApiVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,10))
-_TmnxSysGrpcRibApiVersion_Type.__name__=_M
-_TmnxSysGrpcRibApiVersion_Object=MibScalar
-tmnxSysGrpcRibApiVersion=_TmnxSysGrpcRibApiVersion_Object((1,3,6,1,4,1,6527,3,1,2,1,39,15),_TmnxSysGrpcRibApiVersion_Type())
-tmnxSysGrpcRibApiVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcRibApiVersion.setStatus(_B)
-class _TmnxSysGrpcGnoiCertMgmtAdmnState_Type(TmnxAdminState):defaultValue=3
-_TmnxSysGrpcGnoiCertMgmtAdmnState_Type.__name__=_N
-_TmnxSysGrpcGnoiCertMgmtAdmnState_Object=MibScalar
-tmnxSysGrpcGnoiCertMgmtAdmnState=_TmnxSysGrpcGnoiCertMgmtAdmnState_Object((1,3,6,1,4,1,6527,3,1,2,1,39,16),_TmnxSysGrpcGnoiCertMgmtAdmnState_Type())
-tmnxSysGrpcGnoiCertMgmtAdmnState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysGrpcGnoiCertMgmtAdmnState.setStatus(_B)
-class _TmnxSysGrpcGnoiCertMgmtVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,10))
-_TmnxSysGrpcGnoiCertMgmtVersion_Type.__name__=_M
-_TmnxSysGrpcGnoiCertMgmtVersion_Object=MibScalar
-tmnxSysGrpcGnoiCertMgmtVersion=_TmnxSysGrpcGnoiCertMgmtVersion_Object((1,3,6,1,4,1,6527,3,1,2,1,39,17),_TmnxSysGrpcGnoiCertMgmtVersion_Type())
-tmnxSysGrpcGnoiCertMgmtVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcGnoiCertMgmtVersion.setStatus(_B)
-class _TmnxSysGrpcMdCliAdminState_Type(TmnxAdminState):defaultValue=3
-_TmnxSysGrpcMdCliAdminState_Type.__name__=_N
-_TmnxSysGrpcMdCliAdminState_Object=MibScalar
-tmnxSysGrpcMdCliAdminState=_TmnxSysGrpcMdCliAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,39,18),_TmnxSysGrpcMdCliAdminState_Type())
-tmnxSysGrpcMdCliAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysGrpcMdCliAdminState.setStatus(_B)
-class _TmnxSysGrpcMdCliVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,10))
-_TmnxSysGrpcMdCliVersion_Type.__name__=_M
-_TmnxSysGrpcMdCliVersion_Object=MibScalar
-tmnxSysGrpcMdCliVersion=_TmnxSysGrpcMdCliVersion_Object((1,3,6,1,4,1,6527,3,1,2,1,39,19),_TmnxSysGrpcMdCliVersion_Type())
-tmnxSysGrpcMdCliVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcMdCliVersion.setStatus(_B)
-class _TmnxSysGrpcGnoiSystemAdminState_Type(TmnxAdminState):defaultValue=3
-_TmnxSysGrpcGnoiSystemAdminState_Type.__name__=_N
-_TmnxSysGrpcGnoiSystemAdminState_Object=MibScalar
-tmnxSysGrpcGnoiSystemAdminState=_TmnxSysGrpcGnoiSystemAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,39,22),_TmnxSysGrpcGnoiSystemAdminState_Type())
-tmnxSysGrpcGnoiSystemAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysGrpcGnoiSystemAdminState.setStatus(_B)
-class _TmnxSysGrpcGnoiSystemVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,10))
-_TmnxSysGrpcGnoiSystemVersion_Type.__name__=_M
-_TmnxSysGrpcGnoiSystemVersion_Object=MibScalar
-tmnxSysGrpcGnoiSystemVersion=_TmnxSysGrpcGnoiSystemVersion_Object((1,3,6,1,4,1,6527,3,1,2,1,39,23),_TmnxSysGrpcGnoiSystemVersion_Type())
-tmnxSysGrpcGnoiSystemVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcGnoiSystemVersion.setStatus(_B)
-_TmnxSysMgmtInterfaceMDCli_ObjectIdentity=ObjectIdentity
-tmnxSysMgmtInterfaceMDCli=_TmnxSysMgmtInterfaceMDCli_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,40))
-class _TmnxSysMgmtIfMDCliAutoCfgSave_Type(TruthValue):defaultValue=2
-_TmnxSysMgmtIfMDCliAutoCfgSave_Type.__name__=_H
-_TmnxSysMgmtIfMDCliAutoCfgSave_Object=MibScalar
-tmnxSysMgmtIfMDCliAutoCfgSave=_TmnxSysMgmtIfMDCliAutoCfgSave_Object((1,3,6,1,4,1,6527,3,1,2,1,40,1),_TmnxSysMgmtIfMDCliAutoCfgSave_Type())
-tmnxSysMgmtIfMDCliAutoCfgSave.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfMDCliAutoCfgSave.setStatus(_B)
-class _TmnxSysMgmtIfMDEnvComplEnter_Type(TruthValue):defaultValue=1
-_TmnxSysMgmtIfMDEnvComplEnter_Type.__name__=_H
-_TmnxSysMgmtIfMDEnvComplEnter_Object=MibScalar
-tmnxSysMgmtIfMDEnvComplEnter=_TmnxSysMgmtIfMDEnvComplEnter_Object((1,3,6,1,4,1,6527,3,1,2,1,40,2),_TmnxSysMgmtIfMDEnvComplEnter_Type())
-tmnxSysMgmtIfMDEnvComplEnter.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfMDEnvComplEnter.setStatus(_B)
-class _TmnxSysMgmtIfMDEnvComplSpace_Type(TruthValue):defaultValue=1
-_TmnxSysMgmtIfMDEnvComplSpace_Type.__name__=_H
-_TmnxSysMgmtIfMDEnvComplSpace_Object=MibScalar
-tmnxSysMgmtIfMDEnvComplSpace=_TmnxSysMgmtIfMDEnvComplSpace_Object((1,3,6,1,4,1,6527,3,1,2,1,40,3),_TmnxSysMgmtIfMDEnvComplSpace_Type())
-tmnxSysMgmtIfMDEnvComplSpace.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfMDEnvComplSpace.setStatus(_B)
-class _TmnxSysMgmtIfMDEnvComplTab_Type(TruthValue):defaultValue=1
-_TmnxSysMgmtIfMDEnvComplTab_Type.__name__=_H
-_TmnxSysMgmtIfMDEnvComplTab_Object=MibScalar
-tmnxSysMgmtIfMDEnvComplTab=_TmnxSysMgmtIfMDEnvComplTab_Object((1,3,6,1,4,1,6527,3,1,2,1,40,4),_TmnxSysMgmtIfMDEnvComplTab_Type())
-tmnxSysMgmtIfMDEnvComplTab.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfMDEnvComplTab.setStatus(_B)
-class _TmnxSysMgmtIfMDEnvConsLength_Type(Unsigned32):defaultValue=24;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(24,512))
-_TmnxSysMgmtIfMDEnvConsLength_Type.__name__=_G
-_TmnxSysMgmtIfMDEnvConsLength_Object=MibScalar
-tmnxSysMgmtIfMDEnvConsLength=_TmnxSysMgmtIfMDEnvConsLength_Object((1,3,6,1,4,1,6527,3,1,2,1,40,5),_TmnxSysMgmtIfMDEnvConsLength_Type())
-tmnxSysMgmtIfMDEnvConsLength.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfMDEnvConsLength.setStatus(_B)
-class _TmnxSysMgmtIfMDEnvConsWidth_Type(Unsigned32):defaultValue=80;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(80,512))
-_TmnxSysMgmtIfMDEnvConsWidth_Type.__name__=_G
-_TmnxSysMgmtIfMDEnvConsWidth_Object=MibScalar
-tmnxSysMgmtIfMDEnvConsWidth=_TmnxSysMgmtIfMDEnvConsWidth_Object((1,3,6,1,4,1,6527,3,1,2,1,40,6),_TmnxSysMgmtIfMDEnvConsWidth_Type())
-tmnxSysMgmtIfMDEnvConsWidth.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfMDEnvConsWidth.setStatus(_B)
-class _TmnxSysMgmtIfMDEnvMore_Type(TruthValue):defaultValue=1
-_TmnxSysMgmtIfMDEnvMore_Type.__name__=_H
-_TmnxSysMgmtIfMDEnvMore_Object=MibScalar
-tmnxSysMgmtIfMDEnvMore=_TmnxSysMgmtIfMDEnvMore_Object((1,3,6,1,4,1,6527,3,1,2,1,40,8),_TmnxSysMgmtIfMDEnvMore_Type())
-tmnxSysMgmtIfMDEnvMore.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfMDEnvMore.setStatus(_B)
-class _TmnxSysMgmtIfMDEnvPromptCtx_Type(TruthValue):defaultValue=1
-_TmnxSysMgmtIfMDEnvPromptCtx_Type.__name__=_H
-_TmnxSysMgmtIfMDEnvPromptCtx_Object=MibScalar
-tmnxSysMgmtIfMDEnvPromptCtx=_TmnxSysMgmtIfMDEnvPromptCtx_Object((1,3,6,1,4,1,6527,3,1,2,1,40,9),_TmnxSysMgmtIfMDEnvPromptCtx_Type())
-tmnxSysMgmtIfMDEnvPromptCtx.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfMDEnvPromptCtx.setStatus(_B)
-class _TmnxSysMgmtIfMDEnvPromptNewline_Type(TruthValue):defaultValue=1
-_TmnxSysMgmtIfMDEnvPromptNewline_Type.__name__=_H
-_TmnxSysMgmtIfMDEnvPromptNewline_Object=MibScalar
-tmnxSysMgmtIfMDEnvPromptNewline=_TmnxSysMgmtIfMDEnvPromptNewline_Object((1,3,6,1,4,1,6527,3,1,2,1,40,10),_TmnxSysMgmtIfMDEnvPromptNewline_Type())
-tmnxSysMgmtIfMDEnvPromptNewline.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfMDEnvPromptNewline.setStatus(_B)
-class _TmnxSysMgmtIfMDEnvPromptTime_Type(TruthValue):defaultValue=2
-_TmnxSysMgmtIfMDEnvPromptTime_Type.__name__=_H
-_TmnxSysMgmtIfMDEnvPromptTime_Object=MibScalar
-tmnxSysMgmtIfMDEnvPromptTime=_TmnxSysMgmtIfMDEnvPromptTime_Object((1,3,6,1,4,1,6527,3,1,2,1,40,11),_TmnxSysMgmtIfMDEnvPromptTime_Type())
-tmnxSysMgmtIfMDEnvPromptTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfMDEnvPromptTime.setStatus(_B)
-class _TmnxSysMgmtIfMDEnvPromptIndic_Type(TruthValue):defaultValue=1
-_TmnxSysMgmtIfMDEnvPromptIndic_Type.__name__=_H
-_TmnxSysMgmtIfMDEnvPromptIndic_Object=MibScalar
-tmnxSysMgmtIfMDEnvPromptIndic=_TmnxSysMgmtIfMDEnvPromptIndic_Object((1,3,6,1,4,1,6527,3,1,2,1,40,12),_TmnxSysMgmtIfMDEnvPromptIndic_Type())
-tmnxSysMgmtIfMDEnvPromptIndic.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfMDEnvPromptIndic.setStatus(_B)
-class _TmnxSysMgmtIfMDEnvTimeDisplay_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('local',1),('utc',2)))
-_TmnxSysMgmtIfMDEnvTimeDisplay_Type.__name__=_F
-_TmnxSysMgmtIfMDEnvTimeDisplay_Object=MibScalar
-tmnxSysMgmtIfMDEnvTimeDisplay=_TmnxSysMgmtIfMDEnvTimeDisplay_Object((1,3,6,1,4,1,6527,3,1,2,1,40,13),_TmnxSysMgmtIfMDEnvTimeDisplay_Type())
-tmnxSysMgmtIfMDEnvTimeDisplay.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfMDEnvTimeDisplay.setStatus(_B)
-class _TmnxSysMgmtIfMDEnvMsgCliSvrt_Type(Integer32):defaultValue=7;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(6,7)));namedValues=NamedValues(*(('warning',6),('info',7)))
-_TmnxSysMgmtIfMDEnvMsgCliSvrt_Type.__name__=_F
-_TmnxSysMgmtIfMDEnvMsgCliSvrt_Object=MibScalar
-tmnxSysMgmtIfMDEnvMsgCliSvrt=_TmnxSysMgmtIfMDEnvMsgCliSvrt_Object((1,3,6,1,4,1,6527,3,1,2,1,40,14),_TmnxSysMgmtIfMDEnvMsgCliSvrt_Type())
-tmnxSysMgmtIfMDEnvMsgCliSvrt.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfMDEnvMsgCliSvrt.setStatus(_B)
-class _TmnxSysMgmtIfMDEnvProIndAdminSt_Type(TmnxAdminStateTruthValue):defaultValue=1
-_TmnxSysMgmtIfMDEnvProIndAdminSt_Type.__name__=_ES
-_TmnxSysMgmtIfMDEnvProIndAdminSt_Object=MibScalar
-tmnxSysMgmtIfMDEnvProIndAdminSt=_TmnxSysMgmtIfMDEnvProIndAdminSt_Object((1,3,6,1,4,1,6527,3,1,2,1,40,15),_TmnxSysMgmtIfMDEnvProIndAdminSt_Type())
-tmnxSysMgmtIfMDEnvProIndAdminSt.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfMDEnvProIndAdminSt.setStatus(_B)
-class _TmnxSysMgmtIfMDEnvProIndType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('dots',1))
-_TmnxSysMgmtIfMDEnvProIndType_Type.__name__=_F
-_TmnxSysMgmtIfMDEnvProIndType_Object=MibScalar
-tmnxSysMgmtIfMDEnvProIndType=_TmnxSysMgmtIfMDEnvProIndType_Object((1,3,6,1,4,1,6527,3,1,2,1,40,16),_TmnxSysMgmtIfMDEnvProIndType_Type())
-tmnxSysMgmtIfMDEnvProIndType.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfMDEnvProIndType.setStatus(_B)
-class _TmnxSysMgmtIfMDEnvProIndDelay_Type(Unsigned32):defaultValue=1000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
-_TmnxSysMgmtIfMDEnvProIndDelay_Type.__name__=_G
-_TmnxSysMgmtIfMDEnvProIndDelay_Object=MibScalar
-tmnxSysMgmtIfMDEnvProIndDelay=_TmnxSysMgmtIfMDEnvProIndDelay_Object((1,3,6,1,4,1,6527,3,1,2,1,40,17),_TmnxSysMgmtIfMDEnvProIndDelay_Type())
-tmnxSysMgmtIfMDEnvProIndDelay.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfMDEnvProIndDelay.setStatus(_B)
-class _TmnxSysMgmtIfMDCliCmdAccntLoad_Type(TruthValue):defaultValue=1
-_TmnxSysMgmtIfMDCliCmdAccntLoad_Type.__name__=_H
-_TmnxSysMgmtIfMDCliCmdAccntLoad_Object=MibScalar
-tmnxSysMgmtIfMDCliCmdAccntLoad=_TmnxSysMgmtIfMDCliCmdAccntLoad_Object((1,3,6,1,4,1,6527,3,1,2,1,40,18),_TmnxSysMgmtIfMDCliCmdAccntLoad_Type())
-tmnxSysMgmtIfMDCliCmdAccntLoad.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfMDCliCmdAccntLoad.setStatus(_B)
-class _TmnxSysMgmtIfMDEnvTimeFormat_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('iso-8601',1),('rfc-1123',2),('rfc-3339',3)))
-_TmnxSysMgmtIfMDEnvTimeFormat_Type.__name__=_F
-_TmnxSysMgmtIfMDEnvTimeFormat_Object=MibScalar
-tmnxSysMgmtIfMDEnvTimeFormat=_TmnxSysMgmtIfMDEnvTimeFormat_Object((1,3,6,1,4,1,6527,3,1,2,1,40,19),_TmnxSysMgmtIfMDEnvTimeFormat_Type())
-tmnxSysMgmtIfMDEnvTimeFormat.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfMDEnvTimeFormat.setStatus(_B)
-_TmnxMGSysObjs_ObjectIdentity=ObjectIdentity
-tmnxMGSysObjs=_TmnxMGSysObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,41))
-_TmnxSysMgmtInterfaceYangModules_ObjectIdentity=ObjectIdentity
-tmnxSysMgmtInterfaceYangModules=_TmnxSysMgmtInterfaceYangModules_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,42))
-class _TmnxSysMgmtIfYangBaseR13_Type(TruthValue):defaultValue=2
-_TmnxSysMgmtIfYangBaseR13_Type.__name__=_H
-_TmnxSysMgmtIfYangBaseR13_Object=MibScalar
-tmnxSysMgmtIfYangBaseR13=_TmnxSysMgmtIfYangBaseR13_Object((1,3,6,1,4,1,6527,3,1,2,1,42,1),_TmnxSysMgmtIfYangBaseR13_Type())
-tmnxSysMgmtIfYangBaseR13.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfYangBaseR13.setStatus(_B)
-_TmnxSysMgmtIfYangNokia_Type=TruthValue
-_TmnxSysMgmtIfYangNokia_Object=MibScalar
-tmnxSysMgmtIfYangNokia=_TmnxSysMgmtIfYangNokia_Object((1,3,6,1,4,1,6527,3,1,2,1,42,2),_TmnxSysMgmtIfYangNokia_Type())
-tmnxSysMgmtIfYangNokia.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfYangNokia.setStatus(_B)
-class _TmnxSysMgmtIfYangOpenConfig_Type(TruthValue):defaultValue=2
-_TmnxSysMgmtIfYangOpenConfig_Type.__name__=_H
-_TmnxSysMgmtIfYangOpenConfig_Object=MibScalar
-tmnxSysMgmtIfYangOpenConfig=_TmnxSysMgmtIfYangOpenConfig_Object((1,3,6,1,4,1,6527,3,1,2,1,42,3),_TmnxSysMgmtIfYangOpenConfig_Type())
-tmnxSysMgmtIfYangOpenConfig.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfYangOpenConfig.setStatus(_B)
-_TmnxSysMgmtIfYangNokiaCombined_Type=TruthValue
-_TmnxSysMgmtIfYangNokiaCombined_Object=MibScalar
-tmnxSysMgmtIfYangNokiaCombined=_TmnxSysMgmtIfYangNokiaCombined_Object((1,3,6,1,4,1,6527,3,1,2,1,42,4),_TmnxSysMgmtIfYangNokiaCombined_Type())
-tmnxSysMgmtIfYangNokiaCombined.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfYangNokiaCombined.setStatus(_B)
-class _TmnxSysMgmtIfYangNmdaSupport_Type(TruthValue):defaultValue=2
-_TmnxSysMgmtIfYangNmdaSupport_Type.__name__=_H
-_TmnxSysMgmtIfYangNmdaSupport_Object=MibScalar
-tmnxSysMgmtIfYangNmdaSupport=_TmnxSysMgmtIfYangNmdaSupport_Object((1,3,6,1,4,1,6527,3,1,2,1,42,5),_TmnxSysMgmtIfYangNmdaSupport_Type())
-tmnxSysMgmtIfYangNmdaSupport.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfYangNmdaSupport.setStatus(_B)
-_TmnxSysMgmtInterfaces_ObjectIdentity=ObjectIdentity
-tmnxSysMgmtInterfaces=_TmnxSysMgmtInterfaces_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,43))
-class _TmnxSysMgmtIfWriteMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_C9,1),(_CA,2),(_CB,3)))
-_TmnxSysMgmtIfWriteMode_Type.__name__=_F
-_TmnxSysMgmtIfWriteMode_Object=MibScalar
-tmnxSysMgmtIfWriteMode=_TmnxSysMgmtIfWriteMode_Object((1,3,6,1,4,1,6527,3,1,2,1,43,1),_TmnxSysMgmtIfWriteMode_Type())
-tmnxSysMgmtIfWriteMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfWriteMode.setStatus(_B)
-class _TmnxSysMgmtIfWriteOperMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('syncing',0),(_C9,1),(_CA,2),(_CB,3)))
-_TmnxSysMgmtIfWriteOperMode_Type.__name__=_F
-_TmnxSysMgmtIfWriteOperMode_Object=MibScalar
-tmnxSysMgmtIfWriteOperMode=_TmnxSysMgmtIfWriteOperMode_Object((1,3,6,1,4,1,6527,3,1,2,1,43,2),_TmnxSysMgmtIfWriteOperMode_Type())
-tmnxSysMgmtIfWriteOperMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfWriteOperMode.setStatus(_B)
-class _TmnxSysMgmtIfModeLastSwitchTime_Type(DateAndTime):subtypeSpec=DateAndTime.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(11,11));fixedLength=11
-_TmnxSysMgmtIfModeLastSwitchTime_Type.__name__=_j
-_TmnxSysMgmtIfModeLastSwitchTime_Object=MibScalar
-tmnxSysMgmtIfModeLastSwitchTime=_TmnxSysMgmtIfModeLastSwitchTime_Object((1,3,6,1,4,1,6527,3,1,2,1,43,3),_TmnxSysMgmtIfModeLastSwitchTime_Type())
-tmnxSysMgmtIfModeLastSwitchTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfModeLastSwitchTime.setStatus(_B)
-_TmnxSysMgmtIfModeSwitchDuration_Type=Counter32
-_TmnxSysMgmtIfModeSwitchDuration_Object=MibScalar
-tmnxSysMgmtIfModeSwitchDuration=_TmnxSysMgmtIfModeSwitchDuration_Object((1,3,6,1,4,1,6527,3,1,2,1,43,4),_TmnxSysMgmtIfModeSwitchDuration_Type())
-tmnxSysMgmtIfModeSwitchDuration.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfModeSwitchDuration.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysMgmtIfModeSwitchDuration.setUnits(_A5)
-_TmnxSysMgmtIfDstoreLocksTable_Object=MibTable
-tmnxSysMgmtIfDstoreLocksTable=_TmnxSysMgmtIfDstoreLocksTable_Object((1,3,6,1,4,1,6527,3,1,2,1,43,5))
-if mibBuilder.loadTexts:tmnxSysMgmtIfDstoreLocksTable.setStatus(_B)
-_TmnxSysMgmtIfDstoreLocksEntry_Object=MibTableRow
-tmnxSysMgmtIfDstoreLocksEntry=_TmnxSysMgmtIfDstoreLocksEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,43,5,1))
-tmnxSysMgmtIfDstoreLocksEntry.setIndexNames((0,_A,_CE))
-if mibBuilder.loadTexts:tmnxSysMgmtIfDstoreLocksEntry.setStatus(_B)
-_TmnxSysMgmtIfDsLocksSessionId_Type=Unsigned32
-_TmnxSysMgmtIfDsLocksSessionId_Object=MibTableColumn
-tmnxSysMgmtIfDsLocksSessionId=_TmnxSysMgmtIfDsLocksSessionId_Object((1,3,6,1,4,1,6527,3,1,2,1,43,5,1,1),_TmnxSysMgmtIfDsLocksSessionId_Type())
-tmnxSysMgmtIfDsLocksSessionId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfDsLocksSessionId.setStatus(_B)
-class _TmnxSysMgmtIfDsLocksRmtIpAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxSysMgmtIfDsLocksRmtIpAddress_Type.__name__=_R
-_TmnxSysMgmtIfDsLocksRmtIpAddress_Object=MibTableColumn
-tmnxSysMgmtIfDsLocksRmtIpAddress=_TmnxSysMgmtIfDsLocksRmtIpAddress_Object((1,3,6,1,4,1,6527,3,1,2,1,43,5,1,2),_TmnxSysMgmtIfDsLocksRmtIpAddress_Type())
-tmnxSysMgmtIfDsLocksRmtIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfDsLocksRmtIpAddress.setStatus(_B)
-class _TmnxSysMgmtIfDsLocksConsole_Type(TruthValue):defaultValue=2
-_TmnxSysMgmtIfDsLocksConsole_Type.__name__=_H
-_TmnxSysMgmtIfDsLocksConsole_Object=MibTableColumn
-tmnxSysMgmtIfDsLocksConsole=_TmnxSysMgmtIfDsLocksConsole_Object((1,3,6,1,4,1,6527,3,1,2,1,43,5,1,3),_TmnxSysMgmtIfDsLocksConsole_Type())
-tmnxSysMgmtIfDsLocksConsole.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfDsLocksConsole.setStatus(_B)
-_TmnxSysMgmtIfDsLocksUserName_Type=TNamedItemOrEmpty
-_TmnxSysMgmtIfDsLocksUserName_Object=MibTableColumn
-tmnxSysMgmtIfDsLocksUserName=_TmnxSysMgmtIfDsLocksUserName_Object((1,3,6,1,4,1,6527,3,1,2,1,43,5,1,4),_TmnxSysMgmtIfDsLocksUserName_Type())
-tmnxSysMgmtIfDsLocksUserName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfDsLocksUserName.setStatus(_B)
-class _TmnxSysMgmtIfDsLocksSessionMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('global',1),('exclusive',2),('private',3),('privateExclusive',4),('readOnly',5)))
-_TmnxSysMgmtIfDsLocksSessionMode_Type.__name__=_F
-_TmnxSysMgmtIfDsLocksSessionMode_Object=MibTableColumn
-tmnxSysMgmtIfDsLocksSessionMode=_TmnxSysMgmtIfDsLocksSessionMode_Object((1,3,6,1,4,1,6527,3,1,2,1,43,5,1,5),_TmnxSysMgmtIfDsLocksSessionMode_Type())
-tmnxSysMgmtIfDsLocksSessionMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfDsLocksSessionMode.setStatus(_B)
-class _TmnxSysMgmtIfDsLocksSessionType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_EW,1),('grpc',2),('mdCli',3),('netconf',4),('snmp',5),(_C5,6)))
-_TmnxSysMgmtIfDsLocksSessionType_Type.__name__=_F
-_TmnxSysMgmtIfDsLocksSessionType_Object=MibTableColumn
-tmnxSysMgmtIfDsLocksSessionType=_TmnxSysMgmtIfDsLocksSessionType_Object((1,3,6,1,4,1,6527,3,1,2,1,43,5,1,6),_TmnxSysMgmtIfDsLocksSessionType_Type())
-tmnxSysMgmtIfDsLocksSessionType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfDsLocksSessionType.setStatus(_B)
-_TmnxSysMgmtIfDsLocksRegion_Type=TNamedItem
-_TmnxSysMgmtIfDsLocksRegion_Object=MibTableColumn
-tmnxSysMgmtIfDsLocksRegion=_TmnxSysMgmtIfDsLocksRegion_Object((1,3,6,1,4,1,6527,3,1,2,1,43,5,1,7),_TmnxSysMgmtIfDsLocksRegion_Type())
-tmnxSysMgmtIfDsLocksRegion.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfDsLocksRegion.setStatus(_B)
-_TmnxSysMgmtIfDsLocksRunLock_Type=TmnxSysMgmtIfDstoreLockState
-_TmnxSysMgmtIfDsLocksRunLock_Object=MibTableColumn
-tmnxSysMgmtIfDsLocksRunLock=_TmnxSysMgmtIfDsLocksRunLock_Object((1,3,6,1,4,1,6527,3,1,2,1,43,5,1,8),_TmnxSysMgmtIfDsLocksRunLock_Type())
-tmnxSysMgmtIfDsLocksRunLock.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfDsLocksRunLock.setStatus(_B)
-_TmnxSysMgmtIfDsLocksCndLock_Type=TmnxSysMgmtIfDstoreLockState
-_TmnxSysMgmtIfDsLocksCndLock_Object=MibTableColumn
-tmnxSysMgmtIfDsLocksCndLock=_TmnxSysMgmtIfDsLocksCndLock_Object((1,3,6,1,4,1,6527,3,1,2,1,43,5,1,9),_TmnxSysMgmtIfDsLocksCndLock_Type())
-tmnxSysMgmtIfDsLocksCndLock.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfDsLocksCndLock.setStatus(_B)
-_TmnxSysMgmtIfDsLocksIdleTime_Type=Unsigned32
-_TmnxSysMgmtIfDsLocksIdleTime_Object=MibTableColumn
-tmnxSysMgmtIfDsLocksIdleTime=_TmnxSysMgmtIfDsLocksIdleTime_Object((1,3,6,1,4,1,6527,3,1,2,1,43,5,1,10),_TmnxSysMgmtIfDsLocksIdleTime_Type())
-tmnxSysMgmtIfDsLocksIdleTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfDsLocksIdleTime.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysMgmtIfDsLocksIdleTime.setUnits(_U)
-_TmnxSysMgmtIfDsLocksScratchCnt_Type=Unsigned32
-_TmnxSysMgmtIfDsLocksScratchCnt_Object=MibTableColumn
-tmnxSysMgmtIfDsLocksScratchCnt=_TmnxSysMgmtIfDsLocksScratchCnt_Object((1,3,6,1,4,1,6527,3,1,2,1,43,5,1,11),_TmnxSysMgmtIfDsLocksScratchCnt_Type())
-tmnxSysMgmtIfDsLocksScratchCnt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfDsLocksScratchCnt.setStatus(_B)
-class _TmnxSysMgmtIfDsLocksCronEhs_Type(TruthValue):defaultValue=2
-_TmnxSysMgmtIfDsLocksCronEhs_Type.__name__=_H
-_TmnxSysMgmtIfDsLocksCronEhs_Object=MibTableColumn
-tmnxSysMgmtIfDsLocksCronEhs=_TmnxSysMgmtIfDsLocksCronEhs_Object((1,3,6,1,4,1,6527,3,1,2,1,43,5,1,12),_TmnxSysMgmtIfDsLocksCronEhs_Type())
-tmnxSysMgmtIfDsLocksCronEhs.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfDsLocksCronEhs.setStatus(_B)
-class _TmnxSysMgmtIfSchemaPath_Type(TmnxDisplayStringURL):defaultValue=OctetString('')
-_TmnxSysMgmtIfSchemaPath_Type.__name__=_P
-_TmnxSysMgmtIfSchemaPath_Object=MibScalar
-tmnxSysMgmtIfSchemaPath=_TmnxSysMgmtIfSchemaPath_Object((1,3,6,1,4,1,6527,3,1,2,1,43,6),_TmnxSysMgmtIfSchemaPath_Type())
-tmnxSysMgmtIfSchemaPath.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysMgmtIfSchemaPath.setStatus(_B)
-class _TmnxSysMgmtIfWriteSwitchReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('boot',0),('manual',1),('validation',2)))
-_TmnxSysMgmtIfWriteSwitchReason_Type.__name__=_F
-_TmnxSysMgmtIfWriteSwitchReason_Object=MibScalar
-tmnxSysMgmtIfWriteSwitchReason=_TmnxSysMgmtIfWriteSwitchReason_Object((1,3,6,1,4,1,6527,3,1,2,1,43,7),_TmnxSysMgmtIfWriteSwitchReason_Type())
-tmnxSysMgmtIfWriteSwitchReason.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfWriteSwitchReason.setStatus(_B)
-_TmnxSysMgmtIfPriSchemaPathState_Type=TmnxSchemaPathState
-_TmnxSysMgmtIfPriSchemaPathState_Object=MibScalar
-tmnxSysMgmtIfPriSchemaPathState=_TmnxSysMgmtIfPriSchemaPathState_Object((1,3,6,1,4,1,6527,3,1,2,1,43,8),_TmnxSysMgmtIfPriSchemaPathState_Type())
-tmnxSysMgmtIfPriSchemaPathState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfPriSchemaPathState.setStatus(_B)
-_TmnxSysMgmtIfPriSchemaPathValue_Type=TmnxDisplayStringURL
-_TmnxSysMgmtIfPriSchemaPathValue_Object=MibScalar
-tmnxSysMgmtIfPriSchemaPathValue=_TmnxSysMgmtIfPriSchemaPathValue_Object((1,3,6,1,4,1,6527,3,1,2,1,43,9),_TmnxSysMgmtIfPriSchemaPathValue_Type())
-tmnxSysMgmtIfPriSchemaPathValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfPriSchemaPathValue.setStatus(_B)
-_TmnxSysMgmtIfSecSchemaPathState_Type=TmnxSchemaPathState
-_TmnxSysMgmtIfSecSchemaPathState_Object=MibScalar
-tmnxSysMgmtIfSecSchemaPathState=_TmnxSysMgmtIfSecSchemaPathState_Object((1,3,6,1,4,1,6527,3,1,2,1,43,10),_TmnxSysMgmtIfSecSchemaPathState_Type())
-tmnxSysMgmtIfSecSchemaPathState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfSecSchemaPathState.setStatus(_B)
-_TmnxSysMgmtIfSecSchemaPathValue_Type=TmnxDisplayStringURL
-_TmnxSysMgmtIfSecSchemaPathValue_Object=MibScalar
-tmnxSysMgmtIfSecSchemaPathValue=_TmnxSysMgmtIfSecSchemaPathValue_Object((1,3,6,1,4,1,6527,3,1,2,1,43,11),_TmnxSysMgmtIfSecSchemaPathValue_Type())
-tmnxSysMgmtIfSecSchemaPathValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfSecSchemaPathValue.setStatus(_B)
-_TmnxSysMgmtIfTerSchemaPathState_Type=TmnxSchemaPathState
-_TmnxSysMgmtIfTerSchemaPathState_Object=MibScalar
-tmnxSysMgmtIfTerSchemaPathState=_TmnxSysMgmtIfTerSchemaPathState_Object((1,3,6,1,4,1,6527,3,1,2,1,43,12),_TmnxSysMgmtIfTerSchemaPathState_Type())
-tmnxSysMgmtIfTerSchemaPathState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfTerSchemaPathState.setStatus(_B)
-_TmnxSysMgmtIfTerSchemaPathValue_Type=TmnxDisplayStringURL
-_TmnxSysMgmtIfTerSchemaPathValue_Object=MibScalar
-tmnxSysMgmtIfTerSchemaPathValue=_TmnxSysMgmtIfTerSchemaPathValue_Object((1,3,6,1,4,1,6527,3,1,2,1,43,13),_TmnxSysMgmtIfTerSchemaPathValue_Type())
-tmnxSysMgmtIfTerSchemaPathValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfTerSchemaPathValue.setStatus(_B)
-_TmnxSysMgmtIfOperSchemaPathState_Type=TmnxSchemaPathState
-_TmnxSysMgmtIfOperSchemaPathState_Object=MibScalar
-tmnxSysMgmtIfOperSchemaPathState=_TmnxSysMgmtIfOperSchemaPathState_Object((1,3,6,1,4,1,6527,3,1,2,1,43,14),_TmnxSysMgmtIfOperSchemaPathState_Type())
-tmnxSysMgmtIfOperSchemaPathState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfOperSchemaPathState.setStatus(_B)
-_TmnxSysMgmtIfOperSchemaPathValue_Type=TmnxDisplayStringURL
-_TmnxSysMgmtIfOperSchemaPathValue_Object=MibScalar
-tmnxSysMgmtIfOperSchemaPathValue=_TmnxSysMgmtIfOperSchemaPathValue_Object((1,3,6,1,4,1,6527,3,1,2,1,43,15),_TmnxSysMgmtIfOperSchemaPathValue_Type())
-tmnxSysMgmtIfOperSchemaPathValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysMgmtIfOperSchemaPathValue.setStatus(_B)
-_TmnxSysGrpcConnTable_Object=MibTable
-tmnxSysGrpcConnTable=_TmnxSysGrpcConnTable_Object((1,3,6,1,4,1,6527,3,1,2,1,44))
-if mibBuilder.loadTexts:tmnxSysGrpcConnTable.setStatus(_B)
-_TmnxSysGrpcConnEntry_Object=MibTableRow
-tmnxSysGrpcConnEntry=_TmnxSysGrpcConnEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,44,1))
-tmnxSysGrpcConnEntry.setIndexNames((0,_A,_F9),(0,_A,_FA),(0,_A,_FB))
-if mibBuilder.loadTexts:tmnxSysGrpcConnEntry.setStatus(_B)
-_TmnxSysGrpcConnSrcIpAddType_Type=InetAddressType
-_TmnxSysGrpcConnSrcIpAddType_Object=MibTableColumn
-tmnxSysGrpcConnSrcIpAddType=_TmnxSysGrpcConnSrcIpAddType_Object((1,3,6,1,4,1,6527,3,1,2,1,44,1,1),_TmnxSysGrpcConnSrcIpAddType_Type())
-tmnxSysGrpcConnSrcIpAddType.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysGrpcConnSrcIpAddType.setStatus(_B)
-class _TmnxSysGrpcConnSrcIpAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxSysGrpcConnSrcIpAddress_Type.__name__=_R
-_TmnxSysGrpcConnSrcIpAddress_Object=MibTableColumn
-tmnxSysGrpcConnSrcIpAddress=_TmnxSysGrpcConnSrcIpAddress_Object((1,3,6,1,4,1,6527,3,1,2,1,44,1,2),_TmnxSysGrpcConnSrcIpAddress_Type())
-tmnxSysGrpcConnSrcIpAddress.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysGrpcConnSrcIpAddress.setStatus(_B)
-_TmnxSysGrpcConnSrcPort_Type=InetPortNumber
-_TmnxSysGrpcConnSrcPort_Object=MibTableColumn
-tmnxSysGrpcConnSrcPort=_TmnxSysGrpcConnSrcPort_Object((1,3,6,1,4,1,6527,3,1,2,1,44,1,3),_TmnxSysGrpcConnSrcPort_Type())
-tmnxSysGrpcConnSrcPort.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysGrpcConnSrcPort.setStatus(_B)
-_TmnxSysGrpcConnStartTime_Type=DateAndTime
-_TmnxSysGrpcConnStartTime_Object=MibTableColumn
-tmnxSysGrpcConnStartTime=_TmnxSysGrpcConnStartTime_Object((1,3,6,1,4,1,6527,3,1,2,1,44,1,4),_TmnxSysGrpcConnStartTime_Type())
-tmnxSysGrpcConnStartTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcConnStartTime.setStatus(_B)
-_TmnxSysGrpcConnActRpcCnt_Type=CounterBasedGauge64
-_TmnxSysGrpcConnActRpcCnt_Object=MibTableColumn
-tmnxSysGrpcConnActRpcCnt=_TmnxSysGrpcConnActRpcCnt_Object((1,3,6,1,4,1,6527,3,1,2,1,44,1,5),_TmnxSysGrpcConnActRpcCnt_Type())
-tmnxSysGrpcConnActRpcCnt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcConnActRpcCnt.setStatus(_B)
-_TmnxSysGrpcConnTotRpcCnt_Type=Counter64
-_TmnxSysGrpcConnTotRpcCnt_Object=MibTableColumn
-tmnxSysGrpcConnTotRpcCnt=_TmnxSysGrpcConnTotRpcCnt_Object((1,3,6,1,4,1,6527,3,1,2,1,44,1,6),_TmnxSysGrpcConnTotRpcCnt_Type())
-tmnxSysGrpcConnTotRpcCnt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcConnTotRpcCnt.setStatus(_B)
-_TmnxSysGrpcConnRxBytes_Type=Counter64
-_TmnxSysGrpcConnRxBytes_Object=MibTableColumn
-tmnxSysGrpcConnRxBytes=_TmnxSysGrpcConnRxBytes_Object((1,3,6,1,4,1,6527,3,1,2,1,44,1,7),_TmnxSysGrpcConnRxBytes_Type())
-tmnxSysGrpcConnRxBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcConnRxBytes.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysGrpcConnRxBytes.setUnits(_A3)
-_TmnxSysGrpcConnTxBytes_Type=Counter64
-_TmnxSysGrpcConnTxBytes_Object=MibTableColumn
-tmnxSysGrpcConnTxBytes=_TmnxSysGrpcConnTxBytes_Object((1,3,6,1,4,1,6527,3,1,2,1,44,1,8),_TmnxSysGrpcConnTxBytes_Type())
-tmnxSysGrpcConnTxBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcConnTxBytes.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysGrpcConnTxBytes.setUnits(_A3)
-_TmnxSysGrpcConnQos_Type=TDSCPNameOrEmpty
-_TmnxSysGrpcConnQos_Object=MibTableColumn
-tmnxSysGrpcConnQos=_TmnxSysGrpcConnQos_Object((1,3,6,1,4,1,6527,3,1,2,1,44,1,9),_TmnxSysGrpcConnQos_Type())
-tmnxSysGrpcConnQos.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcConnQos.setStatus(_B)
-_TmnxSysGrpcConnSrcVRtrId_Type=TmnxVRtrID
-_TmnxSysGrpcConnSrcVRtrId_Object=MibTableColumn
-tmnxSysGrpcConnSrcVRtrId=_TmnxSysGrpcConnSrcVRtrId_Object((1,3,6,1,4,1,6527,3,1,2,1,44,1,10),_TmnxSysGrpcConnSrcVRtrId_Type())
-tmnxSysGrpcConnSrcVRtrId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcConnSrcVRtrId.setStatus(_B)
-_TmnxSysHttpRdr_ObjectIdentity=ObjectIdentity
-tmnxSysHttpRdr=_TmnxSysHttpRdr_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,45))
-class _TmnxSysHttpRdrCpmOptimizedMode_Type(TruthValue):defaultValue=1
-_TmnxSysHttpRdrCpmOptimizedMode_Type.__name__=_H
-_TmnxSysHttpRdrCpmOptimizedMode_Object=MibScalar
-tmnxSysHttpRdrCpmOptimizedMode=_TmnxSysHttpRdrCpmOptimizedMode_Object((1,3,6,1,4,1,6527,3,1,2,1,45,1),_TmnxSysHttpRdrCpmOptimizedMode_Type())
-tmnxSysHttpRdrCpmOptimizedMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysHttpRdrCpmOptimizedMode.setStatus(_B)
-_TmnxSysGrpcRpcTable_Object=MibTable
-tmnxSysGrpcRpcTable=_TmnxSysGrpcRpcTable_Object((1,3,6,1,4,1,6527,3,1,2,1,46))
-if mibBuilder.loadTexts:tmnxSysGrpcRpcTable.setStatus(_B)
-_TmnxSysGrpcRpcEntry_Object=MibTableRow
-tmnxSysGrpcRpcEntry=_TmnxSysGrpcRpcEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,46,1))
-tmnxSysGrpcRpcEntry.setIndexNames((0,_A,_FC))
-if mibBuilder.loadTexts:tmnxSysGrpcRpcEntry.setStatus(_B)
-_TmnxSysGrpcRpcId_Type=Unsigned32
-_TmnxSysGrpcRpcId_Object=MibTableColumn
-tmnxSysGrpcRpcId=_TmnxSysGrpcRpcId_Object((1,3,6,1,4,1,6527,3,1,2,1,46,1,1),_TmnxSysGrpcRpcId_Type())
-tmnxSysGrpcRpcId.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysGrpcRpcId.setStatus(_B)
-_TmnxSysGrpcRpcName_Type=TNamedItem
-_TmnxSysGrpcRpcName_Object=MibTableColumn
-tmnxSysGrpcRpcName=_TmnxSysGrpcRpcName_Object((1,3,6,1,4,1,6527,3,1,2,1,46,1,2),_TmnxSysGrpcRpcName_Type())
-tmnxSysGrpcRpcName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcRpcName.setStatus(_B)
-_TmnxSysGrpcRpcServiceName_Type=TNamedItem
-_TmnxSysGrpcRpcServiceName_Object=MibTableColumn
-tmnxSysGrpcRpcServiceName=_TmnxSysGrpcRpcServiceName_Object((1,3,6,1,4,1,6527,3,1,2,1,46,1,3),_TmnxSysGrpcRpcServiceName_Type())
-tmnxSysGrpcRpcServiceName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcRpcServiceName.setStatus(_B)
-_TmnxSysGrpcRpcStartTime_Type=DateAndTime
-_TmnxSysGrpcRpcStartTime_Object=MibTableColumn
-tmnxSysGrpcRpcStartTime=_TmnxSysGrpcRpcStartTime_Object((1,3,6,1,4,1,6527,3,1,2,1,46,1,4),_TmnxSysGrpcRpcStartTime_Type())
-tmnxSysGrpcRpcStartTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcRpcStartTime.setStatus(_B)
-_TmnxSysGrpcRpcSrcIpAddType_Type=InetAddressType
-_TmnxSysGrpcRpcSrcIpAddType_Object=MibTableColumn
-tmnxSysGrpcRpcSrcIpAddType=_TmnxSysGrpcRpcSrcIpAddType_Object((1,3,6,1,4,1,6527,3,1,2,1,46,1,5),_TmnxSysGrpcRpcSrcIpAddType_Type())
-tmnxSysGrpcRpcSrcIpAddType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcRpcSrcIpAddType.setStatus(_B)
-class _TmnxSysGrpcRpcSrcIpAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxSysGrpcRpcSrcIpAddress_Type.__name__=_R
-_TmnxSysGrpcRpcSrcIpAddress_Object=MibTableColumn
-tmnxSysGrpcRpcSrcIpAddress=_TmnxSysGrpcRpcSrcIpAddress_Object((1,3,6,1,4,1,6527,3,1,2,1,46,1,6),_TmnxSysGrpcRpcSrcIpAddress_Type())
-tmnxSysGrpcRpcSrcIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcRpcSrcIpAddress.setStatus(_B)
-_TmnxSysGrpcRpcSrcPort_Type=InetPortNumber
-_TmnxSysGrpcRpcSrcPort_Object=MibTableColumn
-tmnxSysGrpcRpcSrcPort=_TmnxSysGrpcRpcSrcPort_Object((1,3,6,1,4,1,6527,3,1,2,1,46,1,7),_TmnxSysGrpcRpcSrcPort_Type())
-tmnxSysGrpcRpcSrcPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcRpcSrcPort.setStatus(_B)
-_TmnxSysGrpcRpcUserName_Type=TNamedItemOrEmpty
-_TmnxSysGrpcRpcUserName_Object=MibTableColumn
-tmnxSysGrpcRpcUserName=_TmnxSysGrpcRpcUserName_Object((1,3,6,1,4,1,6527,3,1,2,1,46,1,8),_TmnxSysGrpcRpcUserName_Type())
-tmnxSysGrpcRpcUserName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcRpcUserName.setStatus(_B)
-_TmnxSysGrpcRpcSessionId_Type=Unsigned32
-_TmnxSysGrpcRpcSessionId_Object=MibTableColumn
-tmnxSysGrpcRpcSessionId=_TmnxSysGrpcRpcSessionId_Object((1,3,6,1,4,1,6527,3,1,2,1,46,1,9),_TmnxSysGrpcRpcSessionId_Type())
-tmnxSysGrpcRpcSessionId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysGrpcRpcSessionId.setStatus(_B)
-_TmnxSysNetworkElementObjs_ObjectIdentity=ObjectIdentity
-tmnxSysNetworkElementObjs=_TmnxSysNetworkElementObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,47))
-_TmnxSysNEProfTableLstChgd_Type=TimeStamp
-_TmnxSysNEProfTableLstChgd_Object=MibScalar
-tmnxSysNEProfTableLstChgd=_TmnxSysNEProfTableLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,1,47,1),_TmnxSysNEProfTableLstChgd_Type())
-tmnxSysNEProfTableLstChgd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNEProfTableLstChgd.setStatus(_B)
-_TmnxSysNEProfTable_Object=MibTable
-tmnxSysNEProfTable=_TmnxSysNEProfTable_Object((1,3,6,1,4,1,6527,3,1,2,1,47,2))
-if mibBuilder.loadTexts:tmnxSysNEProfTable.setStatus(_B)
-_TmnxSysNEProfEntry_Object=MibTableRow
-tmnxSysNEProfEntry=_TmnxSysNEProfEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,47,2,1))
-tmnxSysNEProfEntry.setIndexNames((0,_A,_FD))
-if mibBuilder.loadTexts:tmnxSysNEProfEntry.setStatus(_B)
-_TmnxSysNEProfName_Type=TNamedItem
-_TmnxSysNEProfName_Object=MibTableColumn
-tmnxSysNEProfName=_TmnxSysNEProfName_Object((1,3,6,1,4,1,6527,3,1,2,1,47,2,1,1),_TmnxSysNEProfName_Type())
-tmnxSysNEProfName.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysNEProfName.setStatus(_B)
-_TmnxSysNEProfRowStatus_Type=RowStatus
-_TmnxSysNEProfRowStatus_Object=MibTableColumn
-tmnxSysNEProfRowStatus=_TmnxSysNEProfRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,47,2,1,2),_TmnxSysNEProfRowStatus_Type())
-tmnxSysNEProfRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysNEProfRowStatus.setStatus(_B)
-_TmnxSysNEProfLastChanged_Type=TimeStamp
-_TmnxSysNEProfLastChanged_Object=MibTableColumn
-tmnxSysNEProfLastChanged=_TmnxSysNEProfLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,1,47,2,1,3),_TmnxSysNEProfLastChanged_Type())
-tmnxSysNEProfLastChanged.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysNEProfLastChanged.setStatus(_B)
-class _TmnxSysNEProfNeid_Type(TmnxSysNeid):defaultHexValue=''
-_TmnxSysNEProfNeid_Type.__name__=_FE
-_TmnxSysNEProfNeid_Object=MibTableColumn
-tmnxSysNEProfNeid=_TmnxSysNEProfNeid_Object((1,3,6,1,4,1,6527,3,1,2,1,47,2,1,4),_TmnxSysNEProfNeid_Type())
-tmnxSysNEProfNeid.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysNEProfNeid.setStatus(_B)
-class _TmnxSysNEProfNeipV4Type_Type(InetAddressType):defaultValue=0
-_TmnxSysNEProfNeipV4Type_Type.__name__=_AP
-_TmnxSysNEProfNeipV4Type_Object=MibTableColumn
-tmnxSysNEProfNeipV4Type=_TmnxSysNEProfNeipV4Type_Object((1,3,6,1,4,1,6527,3,1,2,1,47,2,1,5),_TmnxSysNEProfNeipV4Type_Type())
-tmnxSysNEProfNeipV4Type.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysNEProfNeipV4Type.setStatus(_B)
-class _TmnxSysNEProfNeipV4_Type(InetAddress):defaultHexValue='';subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4))
-_TmnxSysNEProfNeipV4_Type.__name__=_R
-_TmnxSysNEProfNeipV4_Object=MibTableColumn
-tmnxSysNEProfNeipV4=_TmnxSysNEProfNeipV4_Object((1,3,6,1,4,1,6527,3,1,2,1,47,2,1,6),_TmnxSysNEProfNeipV4_Type())
-tmnxSysNEProfNeipV4.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysNEProfNeipV4.setStatus(_B)
-class _TmnxSysNEProfNeipV6Type_Type(InetAddressType):defaultValue=0
-_TmnxSysNEProfNeipV6Type_Type.__name__=_AP
-_TmnxSysNEProfNeipV6Type_Object=MibTableColumn
-tmnxSysNEProfNeipV6Type=_TmnxSysNEProfNeipV6Type_Object((1,3,6,1,4,1,6527,3,1,2,1,47,2,1,7),_TmnxSysNEProfNeipV6Type_Type())
-tmnxSysNEProfNeipV6Type.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysNEProfNeipV6Type.setStatus(_B)
-class _TmnxSysNEProfNeipV6_Type(InetAddress):defaultHexValue='';subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(16,16))
-_TmnxSysNEProfNeipV6_Type.__name__=_R
-_TmnxSysNEProfNeipV6_Object=MibTableColumn
-tmnxSysNEProfNeipV6=_TmnxSysNEProfNeipV6_Object((1,3,6,1,4,1,6527,3,1,2,1,47,2,1,8),_TmnxSysNEProfNeipV6_Type())
-tmnxSysNEProfNeipV6.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysNEProfNeipV6.setStatus(_B)
-class _TmnxSysNEProfSystemMac_Type(MacAddress):defaultHexValue=_Ei
-_TmnxSysNEProfSystemMac_Type.__name__=_Bx
-_TmnxSysNEProfSystemMac_Object=MibTableColumn
-tmnxSysNEProfSystemMac=_TmnxSysNEProfSystemMac_Object((1,3,6,1,4,1,6527,3,1,2,1,47,2,1,9),_TmnxSysNEProfSystemMac_Type())
-tmnxSysNEProfSystemMac.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysNEProfSystemMac.setStatus(_B)
-class _TmnxSysNEProfPlatformType_Type(DisplayString):defaultHexValue=''
-_TmnxSysNEProfPlatformType_Type.__name__=_M
-_TmnxSysNEProfPlatformType_Object=MibTableColumn
-tmnxSysNEProfPlatformType=_TmnxSysNEProfPlatformType_Object((1,3,6,1,4,1,6527,3,1,2,1,47,2,1,10),_TmnxSysNEProfPlatformType_Type())
-tmnxSysNEProfPlatformType.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysNEProfPlatformType.setStatus(_B)
-class _TmnxSysNEProfVendorId_Type(DisplayString):defaultValue=OctetString('Nokia')
-_TmnxSysNEProfVendorId_Type.__name__=_M
-_TmnxSysNEProfVendorId_Object=MibTableColumn
-tmnxSysNEProfVendorId=_TmnxSysNEProfVendorId_Object((1,3,6,1,4,1,6527,3,1,2,1,47,2,1,11),_TmnxSysNEProfVendorId_Type())
-tmnxSysNEProfVendorId.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysNEProfVendorId.setStatus(_B)
-class _TmnxSysNEDiscoveryGenerateTraps_Type(TruthValue):defaultValue=2
-_TmnxSysNEDiscoveryGenerateTraps_Type.__name__=_H
-_TmnxSysNEDiscoveryGenerateTraps_Object=MibScalar
-tmnxSysNEDiscoveryGenerateTraps=_TmnxSysNEDiscoveryGenerateTraps_Object((1,3,6,1,4,1,6527,3,1,2,1,47,3),_TmnxSysNEDiscoveryGenerateTraps_Type())
-tmnxSysNEDiscoveryGenerateTraps.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysNEDiscoveryGenerateTraps.setStatus(_B)
-_TmnxSysFwdPathOptsObjs_ObjectIdentity=ObjectIdentity
-tmnxSysFwdPathOptsObjs=_TmnxSysFwdPathOptsObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,48))
-class _TmnxSysFpoDscpTransAdminState_Type(TmnxAdminState):defaultValue=2
-_TmnxSysFpoDscpTransAdminState_Type.__name__=_N
-_TmnxSysFpoDscpTransAdminState_Object=MibScalar
-tmnxSysFpoDscpTransAdminState=_TmnxSysFpoDscpTransAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,48,1),_TmnxSysFpoDscpTransAdminState_Type())
-tmnxSysFpoDscpTransAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysFpoDscpTransAdminState.setStatus(_B)
-_TmnxSysFpoDscpTransOperState_Type=TmnxOperState
-_TmnxSysFpoDscpTransOperState_Object=MibScalar
-tmnxSysFpoDscpTransOperState=_TmnxSysFpoDscpTransOperState_Object((1,3,6,1,4,1,6527,3,1,2,1,48,2),_TmnxSysFpoDscpTransOperState_Type())
-tmnxSysFpoDscpTransOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysFpoDscpTransOperState.setStatus(_B)
-class _TmnxSysFpoEntropyLabelAdminState_Type(TmnxAdminState):defaultValue=3
-_TmnxSysFpoEntropyLabelAdminState_Type.__name__=_N
-_TmnxSysFpoEntropyLabelAdminState_Object=MibScalar
-tmnxSysFpoEntropyLabelAdminState=_TmnxSysFpoEntropyLabelAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,48,3),_TmnxSysFpoEntropyLabelAdminState_Type())
-tmnxSysFpoEntropyLabelAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysFpoEntropyLabelAdminState.setStatus(_B)
-_TmnxSysFpoEntropyLabelOperState_Type=TmnxOperState
-_TmnxSysFpoEntropyLabelOperState_Object=MibScalar
-tmnxSysFpoEntropyLabelOperState=_TmnxSysFpoEntropyLabelOperState_Object((1,3,6,1,4,1,6527,3,1,2,1,48,4),_TmnxSysFpoEntropyLabelOperState_Type())
-tmnxSysFpoEntropyLabelOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysFpoEntropyLabelOperState.setStatus(_B)
-class _TmnxSysFpoMacFltOutVlanPrioAdmSt_Type(TmnxAdminState):defaultValue=3
-_TmnxSysFpoMacFltOutVlanPrioAdmSt_Type.__name__=_N
-_TmnxSysFpoMacFltOutVlanPrioAdmSt_Object=MibScalar
-tmnxSysFpoMacFltOutVlanPrioAdmSt=_TmnxSysFpoMacFltOutVlanPrioAdmSt_Object((1,3,6,1,4,1,6527,3,1,2,1,48,5),_TmnxSysFpoMacFltOutVlanPrioAdmSt_Type())
-tmnxSysFpoMacFltOutVlanPrioAdmSt.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysFpoMacFltOutVlanPrioAdmSt.setStatus(_B)
-_TmnxSysFpoMacFltOutVlanPrioOprSt_Type=TmnxOperState
-_TmnxSysFpoMacFltOutVlanPrioOprSt_Object=MibScalar
-tmnxSysFpoMacFltOutVlanPrioOprSt=_TmnxSysFpoMacFltOutVlanPrioOprSt_Object((1,3,6,1,4,1,6527,3,1,2,1,48,6),_TmnxSysFpoMacFltOutVlanPrioOprSt_Type())
-tmnxSysFpoMacFltOutVlanPrioOprSt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysFpoMacFltOutVlanPrioOprSt.setStatus(_B)
-class _TmnxSysFpoVplsEvpnMplsAdminState_Type(TmnxAdminState):defaultValue=2
-_TmnxSysFpoVplsEvpnMplsAdminState_Type.__name__=_N
-_TmnxSysFpoVplsEvpnMplsAdminState_Object=MibScalar
-tmnxSysFpoVplsEvpnMplsAdminState=_TmnxSysFpoVplsEvpnMplsAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,48,7),_TmnxSysFpoVplsEvpnMplsAdminState_Type())
-tmnxSysFpoVplsEvpnMplsAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysFpoVplsEvpnMplsAdminState.setStatus(_B)
-_TmnxSysFpoVplsEvpnMplsOperState_Type=TmnxOperState
-_TmnxSysFpoVplsEvpnMplsOperState_Object=MibScalar
-tmnxSysFpoVplsEvpnMplsOperState=_TmnxSysFpoVplsEvpnMplsOperState_Object((1,3,6,1,4,1,6527,3,1,2,1,48,8),_TmnxSysFpoVplsEvpnMplsOperState_Type())
-tmnxSysFpoVplsEvpnMplsOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysFpoVplsEvpnMplsOperState.setStatus(_B)
-class _TmnxSysFpoQosFc4ProfAdminState_Type(TmnxAdminState):defaultValue=3
-_TmnxSysFpoQosFc4ProfAdminState_Type.__name__=_N
-_TmnxSysFpoQosFc4ProfAdminState_Object=MibScalar
-tmnxSysFpoQosFc4ProfAdminState=_TmnxSysFpoQosFc4ProfAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,48,9),_TmnxSysFpoQosFc4ProfAdminState_Type())
-tmnxSysFpoQosFc4ProfAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysFpoQosFc4ProfAdminState.setStatus(_B)
-_TmnxSysFpoQosFc4ProfOperState_Type=TmnxOperState
-_TmnxSysFpoQosFc4ProfOperState_Object=MibScalar
-tmnxSysFpoQosFc4ProfOperState=_TmnxSysFpoQosFc4ProfOperState_Object((1,3,6,1,4,1,6527,3,1,2,1,48,10),_TmnxSysFpoQosFc4ProfOperState_Type())
-tmnxSysFpoQosFc4ProfOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysFpoQosFc4ProfOperState.setStatus(_B)
-class _TmnxSysFpoMplsFastSwOvAdminState_Type(TmnxAdminState):defaultValue=2
-_TmnxSysFpoMplsFastSwOvAdminState_Type.__name__=_N
-_TmnxSysFpoMplsFastSwOvAdminState_Object=MibScalar
-tmnxSysFpoMplsFastSwOvAdminState=_TmnxSysFpoMplsFastSwOvAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,48,11),_TmnxSysFpoMplsFastSwOvAdminState_Type())
-tmnxSysFpoMplsFastSwOvAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysFpoMplsFastSwOvAdminState.setStatus(_B)
-_TmnxSysFpoMplsFastSwOvOperState_Type=TmnxOperState
-_TmnxSysFpoMplsFastSwOvOperState_Object=MibScalar
-tmnxSysFpoMplsFastSwOvOperState=_TmnxSysFpoMplsFastSwOvOperState_Object((1,3,6,1,4,1,6527,3,1,2,1,48,12),_TmnxSysFpoMplsFastSwOvOperState_Type())
-tmnxSysFpoMplsFastSwOvOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysFpoMplsFastSwOvOperState.setStatus(_B)
-class _TmnxSysFpoRouterEcmpAdminState_Type(TmnxAdminState):defaultValue=2
-_TmnxSysFpoRouterEcmpAdminState_Type.__name__=_N
-_TmnxSysFpoRouterEcmpAdminState_Object=MibScalar
-tmnxSysFpoRouterEcmpAdminState=_TmnxSysFpoRouterEcmpAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,48,13),_TmnxSysFpoRouterEcmpAdminState_Type())
-tmnxSysFpoRouterEcmpAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysFpoRouterEcmpAdminState.setStatus(_B)
-_TmnxSysFpoRouterEcmpOperState_Type=TmnxOperState
-_TmnxSysFpoRouterEcmpOperState_Object=MibScalar
-tmnxSysFpoRouterEcmpOperState=_TmnxSysFpoRouterEcmpOperState_Object((1,3,6,1,4,1,6527,3,1,2,1,48,14),_TmnxSysFpoRouterEcmpOperState_Type())
-tmnxSysFpoRouterEcmpOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysFpoRouterEcmpOperState.setStatus(_B)
-class _TmnxSysFpoQosMacCritAdminState_Type(TmnxAdminState):defaultValue=3
-_TmnxSysFpoQosMacCritAdminState_Type.__name__=_N
-_TmnxSysFpoQosMacCritAdminState_Object=MibScalar
-tmnxSysFpoQosMacCritAdminState=_TmnxSysFpoQosMacCritAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,48,15),_TmnxSysFpoQosMacCritAdminState_Type())
-tmnxSysFpoQosMacCritAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysFpoQosMacCritAdminState.setStatus(_B)
-_TmnxSysFpoQosMacCritOperState_Type=TmnxOperState
-_TmnxSysFpoQosMacCritOperState_Object=MibScalar
-tmnxSysFpoQosMacCritOperState=_TmnxSysFpoQosMacCritOperState_Object((1,3,6,1,4,1,6527,3,1,2,1,48,16),_TmnxSysFpoQosMacCritOperState_Type())
-tmnxSysFpoQosMacCritOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysFpoQosMacCritOperState.setStatus(_B)
-class _TmnxSysFpoQosIpv6CritAdminState_Type(TmnxAdminState):defaultValue=3
-_TmnxSysFpoQosIpv6CritAdminState_Type.__name__=_N
-_TmnxSysFpoQosIpv6CritAdminState_Object=MibScalar
-tmnxSysFpoQosIpv6CritAdminState=_TmnxSysFpoQosIpv6CritAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,48,17),_TmnxSysFpoQosIpv6CritAdminState_Type())
-tmnxSysFpoQosIpv6CritAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysFpoQosIpv6CritAdminState.setStatus(_B)
-_TmnxSysFpoQosIpv6CritOperState_Type=TmnxOperState
-_TmnxSysFpoQosIpv6CritOperState_Object=MibScalar
-tmnxSysFpoQosIpv6CritOperState=_TmnxSysFpoQosIpv6CritOperState_Object((1,3,6,1,4,1,6527,3,1,2,1,48,18),_TmnxSysFpoQosIpv6CritOperState_Type())
-tmnxSysFpoQosIpv6CritOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysFpoQosIpv6CritOperState.setStatus(_B)
-class _TmnxSysFpoQosBumPolAdminState_Type(TmnxAdminState):defaultValue=3
-_TmnxSysFpoQosBumPolAdminState_Type.__name__=_N
-_TmnxSysFpoQosBumPolAdminState_Object=MibScalar
-tmnxSysFpoQosBumPolAdminState=_TmnxSysFpoQosBumPolAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,48,19),_TmnxSysFpoQosBumPolAdminState_Type())
-tmnxSysFpoQosBumPolAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysFpoQosBumPolAdminState.setStatus(_B)
-_TmnxSysFpoQosBumPolOperState_Type=TmnxOperState
-_TmnxSysFpoQosBumPolOperState_Object=MibScalar
-tmnxSysFpoQosBumPolOperState=_TmnxSysFpoQosBumPolOperState_Object((1,3,6,1,4,1,6527,3,1,2,1,48,20),_TmnxSysFpoQosBumPolOperState_Type())
-tmnxSysFpoQosBumPolOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysFpoQosBumPolOperState.setStatus(_B)
-_TmnxSysSwitchFabricObjs_ObjectIdentity=ObjectIdentity
-tmnxSysSwitchFabricObjs=_TmnxSysSwitchFabricObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,49))
-class _TmnxSysSwFabSfmLossThresh_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,7))
-_TmnxSysSwFabSfmLossThresh_Type.__name__=_G
-_TmnxSysSwFabSfmLossThresh_Object=MibScalar
-tmnxSysSwFabSfmLossThresh=_TmnxSysSwFabSfmLossThresh_Object((1,3,6,1,4,1,6527,3,1,2,1,49,1),_TmnxSysSwFabSfmLossThresh_Type())
-tmnxSysSwFabSfmLossThresh.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysSwFabSfmLossThresh.setStatus(_B)
-class _TmnxSysSwFabFailRecAdminState_Type(TmnxEnabledDisabledAdminState):defaultValue=2
-_TmnxSysSwFabFailRecAdminState_Type.__name__=_EU
-_TmnxSysSwFabFailRecAdminState_Object=MibScalar
-tmnxSysSwFabFailRecAdminState=_TmnxSysSwFabFailRecAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,49,2),_TmnxSysSwFabFailRecAdminState_Type())
-tmnxSysSwFabFailRecAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysSwFabFailRecAdminState.setStatus(_B)
-class _TmnxSysSwFabFailRecOperState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7)));namedValues=NamedValues(*(('disabled',0),('holdDown',1),('ready',2),('recoveryInProgress',3),('detectedDisabled',4),('detectedHoldDown',5),('detectedXRS40Migration',6),('detectedSFMUpgradePending',7)))
-_TmnxSysSwFabFailRecOperState_Type.__name__=_F
-_TmnxSysSwFabFailRecOperState_Object=MibScalar
-tmnxSysSwFabFailRecOperState=_TmnxSysSwFabFailRecOperState_Object((1,3,6,1,4,1,6527,3,1,2,1,49,3),_TmnxSysSwFabFailRecOperState_Type())
-tmnxSysSwFabFailRecOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysSwFabFailRecOperState.setStatus(_B)
-_TmnxSysRemoteMgmt_ObjectIdentity=ObjectIdentity
-tmnxSysRemoteMgmt=_TmnxSysRemoteMgmt_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,1,52))
-class _TmnxSysRmtMgmtAdminState_Type(TmnxAdminState):defaultValue=3
-_TmnxSysRmtMgmtAdminState_Type.__name__=_N
-_TmnxSysRmtMgmtAdminState_Object=MibScalar
-tmnxSysRmtMgmtAdminState=_TmnxSysRmtMgmtAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,52,1),_TmnxSysRmtMgmtAdminState_Type())
-tmnxSysRmtMgmtAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtAdminState.setStatus(_B)
-_TmnxSysRmtMgmtOperState_Type=TmnxOperState
-_TmnxSysRmtMgmtOperState_Object=MibScalar
-tmnxSysRmtMgmtOperState=_TmnxSysRmtMgmtOperState_Object((1,3,6,1,4,1,6527,3,1,2,1,52,2),_TmnxSysRmtMgmtOperState_Type())
-tmnxSysRmtMgmtOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtOperState.setStatus(_B)
-class _TmnxSysRmtMgmtOperDownReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_r,0),(_FF,1),('noManager',2)))
-_TmnxSysRmtMgmtOperDownReason_Type.__name__=_F
-_TmnxSysRmtMgmtOperDownReason_Object=MibScalar
-tmnxSysRmtMgmtOperDownReason=_TmnxSysRmtMgmtOperDownReason_Object((1,3,6,1,4,1,6527,3,1,2,1,52,3),_TmnxSysRmtMgmtOperDownReason_Type())
-tmnxSysRmtMgmtOperDownReason.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtOperDownReason.setStatus(_B)
-class _TmnxSysRmtMgmtAllowUnsecure_Type(TruthValue):defaultValue=2
-_TmnxSysRmtMgmtAllowUnsecure_Type.__name__=_H
-_TmnxSysRmtMgmtAllowUnsecure_Object=MibScalar
-tmnxSysRmtMgmtAllowUnsecure=_TmnxSysRmtMgmtAllowUnsecure_Object((1,3,6,1,4,1,6527,3,1,2,1,52,4),_TmnxSysRmtMgmtAllowUnsecure_Type())
-tmnxSysRmtMgmtAllowUnsecure.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtAllowUnsecure.setStatus(_B)
-class _TmnxSysRmtMgmtTlsClientProf_Type(TNamedItemOrEmpty):defaultHexValue=''
-_TmnxSysRmtMgmtTlsClientProf_Type.__name__=_A2
-_TmnxSysRmtMgmtTlsClientProf_Object=MibScalar
-tmnxSysRmtMgmtTlsClientProf=_TmnxSysRmtMgmtTlsClientProf_Object((1,3,6,1,4,1,6527,3,1,2,1,52,5),_TmnxSysRmtMgmtTlsClientProf_Type())
-tmnxSysRmtMgmtTlsClientProf.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtTlsClientProf.setStatus(_B)
-class _TmnxSysRmtMgmtTimeout_Type(Unsigned32):defaultValue=60;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3600))
-_TmnxSysRmtMgmtTimeout_Type.__name__=_G
-_TmnxSysRmtMgmtTimeout_Object=MibScalar
-tmnxSysRmtMgmtTimeout=_TmnxSysRmtMgmtTimeout_Object((1,3,6,1,4,1,6527,3,1,2,1,52,6),_TmnxSysRmtMgmtTimeout_Type())
-tmnxSysRmtMgmtTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtTimeout.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtTimeout.setUnits(_U)
-class _TmnxSysRmtMgmtVRtrId_Type(TmnxVRtrID):defaultValue=4095
-_TmnxSysRmtMgmtVRtrId_Type.__name__=_EV
-_TmnxSysRmtMgmtVRtrId_Object=MibScalar
-tmnxSysRmtMgmtVRtrId=_TmnxSysRmtMgmtVRtrId_Object((1,3,6,1,4,1,6527,3,1,2,1,52,7),_TmnxSysRmtMgmtVRtrId_Type())
-tmnxSysRmtMgmtVRtrId.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtVRtrId.setStatus(_B)
-_TmnxSysRmtMgmtSrcIpAddType_Type=InetAddressType
-_TmnxSysRmtMgmtSrcIpAddType_Object=MibScalar
-tmnxSysRmtMgmtSrcIpAddType=_TmnxSysRmtMgmtSrcIpAddType_Object((1,3,6,1,4,1,6527,3,1,2,1,52,8),_TmnxSysRmtMgmtSrcIpAddType_Type())
-tmnxSysRmtMgmtSrcIpAddType.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtSrcIpAddType.setStatus(_B)
-class _TmnxSysRmtMgmtSrcIpAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxSysRmtMgmtSrcIpAddress_Type.__name__=_R
-_TmnxSysRmtMgmtSrcIpAddress_Object=MibScalar
-tmnxSysRmtMgmtSrcIpAddress=_TmnxSysRmtMgmtSrcIpAddress_Object((1,3,6,1,4,1,6527,3,1,2,1,52,9),_TmnxSysRmtMgmtSrcIpAddress_Type())
-tmnxSysRmtMgmtSrcIpAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtSrcIpAddress.setStatus(_B)
-class _TmnxSysRmtMgmtSrcPort_Type(InetPortNumber):defaultValue=0
-_TmnxSysRmtMgmtSrcPort_Type.__name__=_Am
-_TmnxSysRmtMgmtSrcPort_Object=MibScalar
-tmnxSysRmtMgmtSrcPort=_TmnxSysRmtMgmtSrcPort_Object((1,3,6,1,4,1,6527,3,1,2,1,52,10),_TmnxSysRmtMgmtSrcPort_Type())
-tmnxSysRmtMgmtSrcPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtSrcPort.setStatus(_B)
-class _TmnxSysRmtMgmtSrcDefaultPort_Type(TmnxSysRmtMgmtSrcDefaultPort):defaultValue=-1
-_TmnxSysRmtMgmtSrcDefaultPort_Type.__name__=_CF
-_TmnxSysRmtMgmtSrcDefaultPort_Object=MibScalar
-tmnxSysRmtMgmtSrcDefaultPort=_TmnxSysRmtMgmtSrcDefaultPort_Object((1,3,6,1,4,1,6527,3,1,2,1,52,11),_TmnxSysRmtMgmtSrcDefaultPort_Type())
-tmnxSysRmtMgmtSrcDefaultPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtSrcDefaultPort.setStatus(_B)
-class _TmnxSysRmtMgmtDeviceLabel_Type(TLNamedItemOrEmpty):defaultHexValue=''
-_TmnxSysRmtMgmtDeviceLabel_Type.__name__=_AG
-_TmnxSysRmtMgmtDeviceLabel_Object=MibScalar
-tmnxSysRmtMgmtDeviceLabel=_TmnxSysRmtMgmtDeviceLabel_Object((1,3,6,1,4,1,6527,3,1,2,1,52,12),_TmnxSysRmtMgmtDeviceLabel_Type())
-tmnxSysRmtMgmtDeviceLabel.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtDeviceLabel.setStatus(_B)
-class _TmnxSysRmtMgmtDeviceName_Type(TLNamedItemOrEmpty):defaultHexValue=''
-_TmnxSysRmtMgmtDeviceName_Type.__name__=_AG
-_TmnxSysRmtMgmtDeviceName_Object=MibScalar
-tmnxSysRmtMgmtDeviceName=_TmnxSysRmtMgmtDeviceName_Object((1,3,6,1,4,1,6527,3,1,2,1,52,13),_TmnxSysRmtMgmtDeviceName_Type())
-tmnxSysRmtMgmtDeviceName.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtDeviceName.setStatus(_B)
-_TmnxSysRmtMgmtLastRegStatus_Type=TmnxSysRmtMgmtLastRegStatus
-_TmnxSysRmtMgmtLastRegStatus_Object=MibScalar
-tmnxSysRmtMgmtLastRegStatus=_TmnxSysRmtMgmtLastRegStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,52,14),_TmnxSysRmtMgmtLastRegStatus_Type())
-tmnxSysRmtMgmtLastRegStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtLastRegStatus.setStatus(_B)
-_TmnxSysRmtMgmtLastRegTime_Type=DateAndTime
-_TmnxSysRmtMgmtLastRegTime_Object=MibScalar
-tmnxSysRmtMgmtLastRegTime=_TmnxSysRmtMgmtLastRegTime_Object((1,3,6,1,4,1,6527,3,1,2,1,52,15),_TmnxSysRmtMgmtLastRegTime_Type())
-tmnxSysRmtMgmtLastRegTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtLastRegTime.setStatus(_B)
-_TmnxSysRmtMgmtRegsCancelled_Type=Counter64
-_TmnxSysRmtMgmtRegsCancelled_Object=MibScalar
-tmnxSysRmtMgmtRegsCancelled=_TmnxSysRmtMgmtRegsCancelled_Object((1,3,6,1,4,1,6527,3,1,2,1,52,16),_TmnxSysRmtMgmtRegsCancelled_Type())
-tmnxSysRmtMgmtRegsCancelled.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtRegsCancelled.setStatus(_B)
-_TmnxSysRmtMgmtRegsFailed_Type=Counter64
-_TmnxSysRmtMgmtRegsFailed_Object=MibScalar
-tmnxSysRmtMgmtRegsFailed=_TmnxSysRmtMgmtRegsFailed_Object((1,3,6,1,4,1,6527,3,1,2,1,52,17),_TmnxSysRmtMgmtRegsFailed_Type())
-tmnxSysRmtMgmtRegsFailed.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtRegsFailed.setStatus(_B)
-_TmnxSysRmtMgmtRegsSent_Type=Counter64
-_TmnxSysRmtMgmtRegsSent_Object=MibScalar
-tmnxSysRmtMgmtRegsSent=_TmnxSysRmtMgmtRegsSent_Object((1,3,6,1,4,1,6527,3,1,2,1,52,18),_TmnxSysRmtMgmtRegsSent_Type())
-tmnxSysRmtMgmtRegsSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtRegsSent.setStatus(_B)
-class _TmnxSysRmtMgmtHelloInterval_Type(Unsigned32):defaultValue=10;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10,3600))
-_TmnxSysRmtMgmtHelloInterval_Type.__name__=_G
-_TmnxSysRmtMgmtHelloInterval_Object=MibScalar
-tmnxSysRmtMgmtHelloInterval=_TmnxSysRmtMgmtHelloInterval_Object((1,3,6,1,4,1,6527,3,1,2,1,52,19),_TmnxSysRmtMgmtHelloInterval_Type())
-tmnxSysRmtMgmtHelloInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtHelloInterval.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtHelloInterval.setUnits(_A4)
-_TmnxSysRmtMgmtLastHelloTime_Type=DateAndTime
-_TmnxSysRmtMgmtLastHelloTime_Object=MibScalar
-tmnxSysRmtMgmtLastHelloTime=_TmnxSysRmtMgmtLastHelloTime_Object((1,3,6,1,4,1,6527,3,1,2,1,52,20),_TmnxSysRmtMgmtLastHelloTime_Type())
-tmnxSysRmtMgmtLastHelloTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtLastHelloTime.setStatus(_B)
-_TmnxSysRmtMgmtManagerTable_Object=MibTable
-tmnxSysRmtMgmtManagerTable=_TmnxSysRmtMgmtManagerTable_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21))
-if mibBuilder.loadTexts:tmnxSysRmtMgmtManagerTable.setStatus(_B)
-_TmnxSysRmtMgmtManagerEntry_Object=MibTableRow
-tmnxSysRmtMgmtManagerEntry=_TmnxSysRmtMgmtManagerEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1))
-tmnxSysRmtMgmtManagerEntry.setIndexNames((0,_A,_FG))
-if mibBuilder.loadTexts:tmnxSysRmtMgmtManagerEntry.setStatus(_B)
-_TmnxSysRmtMgmtMgrName_Type=TLNamedItem
-_TmnxSysRmtMgmtMgrName_Object=MibTableColumn
-tmnxSysRmtMgmtMgrName=_TmnxSysRmtMgmtMgrName_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,1),_TmnxSysRmtMgmtMgrName_Type())
-tmnxSysRmtMgmtMgrName.setMaxAccess(_I)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrName.setStatus(_B)
-_TmnxSysRmtMgmtMgrRowStatus_Type=RowStatus
-_TmnxSysRmtMgmtMgrRowStatus_Object=MibTableColumn
-tmnxSysRmtMgmtMgrRowStatus=_TmnxSysRmtMgmtMgrRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,2),_TmnxSysRmtMgmtMgrRowStatus_Type())
-tmnxSysRmtMgmtMgrRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrRowStatus.setStatus(_B)
-class _TmnxSysRmtMgmtMgrAdminState_Type(TmnxAdminState):defaultValue=3
-_TmnxSysRmtMgmtMgrAdminState_Type.__name__=_N
-_TmnxSysRmtMgmtMgrAdminState_Object=MibTableColumn
-tmnxSysRmtMgmtMgrAdminState=_TmnxSysRmtMgmtMgrAdminState_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,3),_TmnxSysRmtMgmtMgrAdminState_Type())
-tmnxSysRmtMgmtMgrAdminState.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrAdminState.setStatus(_B)
-_TmnxSysRmtMgmtMgrOperState_Type=TmnxOperState
-_TmnxSysRmtMgmtMgrOperState_Object=MibTableColumn
-tmnxSysRmtMgmtMgrOperState=_TmnxSysRmtMgmtMgrOperState_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,4),_TmnxSysRmtMgmtMgrOperState_Type())
-tmnxSysRmtMgmtMgrOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrOperState.setStatus(_B)
-class _TmnxSysRmtMgmtMgrOperDownReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*((_r,0),(_FF,1),('noTransportType',2),('noSourceAddress',3),('invalidManagerAddress',4),('registration-failed',5)))
-_TmnxSysRmtMgmtMgrOperDownReason_Type.__name__=_F
-_TmnxSysRmtMgmtMgrOperDownReason_Object=MibTableColumn
-tmnxSysRmtMgmtMgrOperDownReason=_TmnxSysRmtMgmtMgrOperDownReason_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,5),_TmnxSysRmtMgmtMgrOperDownReason_Type())
-tmnxSysRmtMgmtMgrOperDownReason.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrOperDownReason.setStatus(_B)
-class _TmnxSysRmtMgmtMgrFQDN_Type(DisplayString):defaultHexValue='';subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_TmnxSysRmtMgmtMgrFQDN_Type.__name__=_M
-_TmnxSysRmtMgmtMgrFQDN_Object=MibTableColumn
-tmnxSysRmtMgmtMgrFQDN=_TmnxSysRmtMgmtMgrFQDN_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,6),_TmnxSysRmtMgmtMgrFQDN_Type())
-tmnxSysRmtMgmtMgrFQDN.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrFQDN.setStatus(_B)
-_TmnxSysRmtMgmtMgrIpAddType_Type=InetAddressType
-_TmnxSysRmtMgmtMgrIpAddType_Object=MibTableColumn
-tmnxSysRmtMgmtMgrIpAddType=_TmnxSysRmtMgmtMgrIpAddType_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,7),_TmnxSysRmtMgmtMgrIpAddType_Type())
-tmnxSysRmtMgmtMgrIpAddType.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrIpAddType.setStatus(_B)
-class _TmnxSysRmtMgmtMgrIpAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxSysRmtMgmtMgrIpAddress_Type.__name__=_R
-_TmnxSysRmtMgmtMgrIpAddress_Object=MibTableColumn
-tmnxSysRmtMgmtMgrIpAddress=_TmnxSysRmtMgmtMgrIpAddress_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,8),_TmnxSysRmtMgmtMgrIpAddress_Type())
-tmnxSysRmtMgmtMgrIpAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrIpAddress.setStatus(_B)
-class _TmnxSysRmtMgmtMgrPort_Type(InetPortNumber):defaultValue=57400
-_TmnxSysRmtMgmtMgrPort_Type.__name__=_Am
-_TmnxSysRmtMgmtMgrPort_Object=MibTableColumn
-tmnxSysRmtMgmtMgrPort=_TmnxSysRmtMgmtMgrPort_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,9),_TmnxSysRmtMgmtMgrPort_Type())
-tmnxSysRmtMgmtMgrPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrPort.setStatus(_B)
-class _TmnxSysRmtMgmtMgrAllowUnsecure_Type(TruthValue):defaultValue=2
-_TmnxSysRmtMgmtMgrAllowUnsecure_Type.__name__=_H
-_TmnxSysRmtMgmtMgrAllowUnsecure_Object=MibTableColumn
-tmnxSysRmtMgmtMgrAllowUnsecure=_TmnxSysRmtMgmtMgrAllowUnsecure_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,10),_TmnxSysRmtMgmtMgrAllowUnsecure_Type())
-tmnxSysRmtMgmtMgrAllowUnsecure.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrAllowUnsecure.setStatus(_B)
-class _TmnxSysRmtMgmtMgrTlsClientProf_Type(TNamedItemOrEmpty):defaultHexValue=''
-_TmnxSysRmtMgmtMgrTlsClientProf_Type.__name__=_A2
-_TmnxSysRmtMgmtMgrTlsClientProf_Object=MibTableColumn
-tmnxSysRmtMgmtMgrTlsClientProf=_TmnxSysRmtMgmtMgrTlsClientProf_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,11),_TmnxSysRmtMgmtMgrTlsClientProf_Type())
-tmnxSysRmtMgmtMgrTlsClientProf.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrTlsClientProf.setStatus(_B)
-class _TmnxSysRmtMgmtMgrDescription_Type(TItemDescription):defaultHexValue=''
-_TmnxSysRmtMgmtMgrDescription_Type.__name__=_Y
-_TmnxSysRmtMgmtMgrDescription_Object=MibTableColumn
-tmnxSysRmtMgmtMgrDescription=_TmnxSysRmtMgmtMgrDescription_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,12),_TmnxSysRmtMgmtMgrDescription_Type())
-tmnxSysRmtMgmtMgrDescription.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrDescription.setStatus(_B)
-class _TmnxSysRmtMgmtMgrTimeout_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,3600))
-_TmnxSysRmtMgmtMgrTimeout_Type.__name__=_G
-_TmnxSysRmtMgmtMgrTimeout_Object=MibTableColumn
-tmnxSysRmtMgmtMgrTimeout=_TmnxSysRmtMgmtMgrTimeout_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,13),_TmnxSysRmtMgmtMgrTimeout_Type())
-tmnxSysRmtMgmtMgrTimeout.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrTimeout.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrTimeout.setUnits(_U)
-class _TmnxSysRmtMgmtMgrVRtrId_Type(TmnxVRtrIDOrZero):defaultValue=0
-_TmnxSysRmtMgmtMgrVRtrId_Type.__name__=_An
-_TmnxSysRmtMgmtMgrVRtrId_Object=MibTableColumn
-tmnxSysRmtMgmtMgrVRtrId=_TmnxSysRmtMgmtMgrVRtrId_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,14),_TmnxSysRmtMgmtMgrVRtrId_Type())
-tmnxSysRmtMgmtMgrVRtrId.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrVRtrId.setStatus(_B)
-_TmnxSysRmtMgmtMgrSrcIpAddType_Type=InetAddressType
-_TmnxSysRmtMgmtMgrSrcIpAddType_Object=MibTableColumn
-tmnxSysRmtMgmtMgrSrcIpAddType=_TmnxSysRmtMgmtMgrSrcIpAddType_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,15),_TmnxSysRmtMgmtMgrSrcIpAddType_Type())
-tmnxSysRmtMgmtMgrSrcIpAddType.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrSrcIpAddType.setStatus(_B)
-class _TmnxSysRmtMgmtMgrSrcIpAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxSysRmtMgmtMgrSrcIpAddress_Type.__name__=_R
-_TmnxSysRmtMgmtMgrSrcIpAddress_Object=MibTableColumn
-tmnxSysRmtMgmtMgrSrcIpAddress=_TmnxSysRmtMgmtMgrSrcIpAddress_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,16),_TmnxSysRmtMgmtMgrSrcIpAddress_Type())
-tmnxSysRmtMgmtMgrSrcIpAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrSrcIpAddress.setStatus(_B)
-class _TmnxSysRmtMgmtMgrSrcPort_Type(InetPortNumber):defaultValue=0
-_TmnxSysRmtMgmtMgrSrcPort_Type.__name__=_Am
-_TmnxSysRmtMgmtMgrSrcPort_Object=MibTableColumn
-tmnxSysRmtMgmtMgrSrcPort=_TmnxSysRmtMgmtMgrSrcPort_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,17),_TmnxSysRmtMgmtMgrSrcPort_Type())
-tmnxSysRmtMgmtMgrSrcPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrSrcPort.setStatus(_B)
-class _TmnxSysRmtMgmtMgrSrcDefaultPort_Type(TmnxSysRmtMgmtSrcDefaultPort):defaultValue=0
-_TmnxSysRmtMgmtMgrSrcDefaultPort_Type.__name__=_CF
-_TmnxSysRmtMgmtMgrSrcDefaultPort_Object=MibTableColumn
-tmnxSysRmtMgmtMgrSrcDefaultPort=_TmnxSysRmtMgmtMgrSrcDefaultPort_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,18),_TmnxSysRmtMgmtMgrSrcDefaultPort_Type())
-tmnxSysRmtMgmtMgrSrcDefaultPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrSrcDefaultPort.setStatus(_B)
-class _TmnxSysRmtMgmtMgrDeviceLabel_Type(TLNamedItemOrEmpty):defaultHexValue=''
-_TmnxSysRmtMgmtMgrDeviceLabel_Type.__name__=_AG
-_TmnxSysRmtMgmtMgrDeviceLabel_Object=MibTableColumn
-tmnxSysRmtMgmtMgrDeviceLabel=_TmnxSysRmtMgmtMgrDeviceLabel_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,19),_TmnxSysRmtMgmtMgrDeviceLabel_Type())
-tmnxSysRmtMgmtMgrDeviceLabel.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrDeviceLabel.setStatus(_B)
-class _TmnxSysRmtMgmtMgrDeviceName_Type(TLNamedItemOrEmpty):defaultHexValue=''
-_TmnxSysRmtMgmtMgrDeviceName_Type.__name__=_AG
-_TmnxSysRmtMgmtMgrDeviceName_Object=MibTableColumn
-tmnxSysRmtMgmtMgrDeviceName=_TmnxSysRmtMgmtMgrDeviceName_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,20),_TmnxSysRmtMgmtMgrDeviceName_Type())
-tmnxSysRmtMgmtMgrDeviceName.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrDeviceName.setStatus(_B)
-_TmnxSysRmtMgmtMgrLastRegStatus_Type=TmnxSysRmtMgmtLastRegStatus
-_TmnxSysRmtMgmtMgrLastRegStatus_Object=MibTableColumn
-tmnxSysRmtMgmtMgrLastRegStatus=_TmnxSysRmtMgmtMgrLastRegStatus_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,21),_TmnxSysRmtMgmtMgrLastRegStatus_Type())
-tmnxSysRmtMgmtMgrLastRegStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrLastRegStatus.setStatus(_B)
-_TmnxSysRmtMgmtMgrLastRegTime_Type=DateAndTime
-_TmnxSysRmtMgmtMgrLastRegTime_Object=MibTableColumn
-tmnxSysRmtMgmtMgrLastRegTime=_TmnxSysRmtMgmtMgrLastRegTime_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,22),_TmnxSysRmtMgmtMgrLastRegTime_Type())
-tmnxSysRmtMgmtMgrLastRegTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrLastRegTime.setStatus(_B)
-_TmnxSysRmtMgmtMgrRegsCancelled_Type=Counter64
-_TmnxSysRmtMgmtMgrRegsCancelled_Object=MibTableColumn
-tmnxSysRmtMgmtMgrRegsCancelled=_TmnxSysRmtMgmtMgrRegsCancelled_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,23),_TmnxSysRmtMgmtMgrRegsCancelled_Type())
-tmnxSysRmtMgmtMgrRegsCancelled.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrRegsCancelled.setStatus(_B)
-_TmnxSysRmtMgmtMgrRegsFailed_Type=Counter64
-_TmnxSysRmtMgmtMgrRegsFailed_Object=MibTableColumn
-tmnxSysRmtMgmtMgrRegsFailed=_TmnxSysRmtMgmtMgrRegsFailed_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,24),_TmnxSysRmtMgmtMgrRegsFailed_Type())
-tmnxSysRmtMgmtMgrRegsFailed.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrRegsFailed.setStatus(_B)
-_TmnxSysRmtMgmtMgrRegsSent_Type=Counter64
-_TmnxSysRmtMgmtMgrRegsSent_Object=MibTableColumn
-tmnxSysRmtMgmtMgrRegsSent=_TmnxSysRmtMgmtMgrRegsSent_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,25),_TmnxSysRmtMgmtMgrRegsSent_Type())
-tmnxSysRmtMgmtMgrRegsSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrRegsSent.setStatus(_B)
-_TmnxSysRmtMgmtMgrOperTlsProf_Type=TNamedItemOrEmpty
-_TmnxSysRmtMgmtMgrOperTlsProf_Object=MibTableColumn
-tmnxSysRmtMgmtMgrOperTlsProf=_TmnxSysRmtMgmtMgrOperTlsProf_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,26),_TmnxSysRmtMgmtMgrOperTlsProf_Type())
-tmnxSysRmtMgmtMgrOperTlsProf.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrOperTlsProf.setStatus(_B)
-class _TmnxSysRmtMgmtMgrOperTranspType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_O,0),('tls',1),('unsecured',2)))
-_TmnxSysRmtMgmtMgrOperTranspType_Type.__name__=_F
-_TmnxSysRmtMgmtMgrOperTranspType_Object=MibTableColumn
-tmnxSysRmtMgmtMgrOperTranspType=_TmnxSysRmtMgmtMgrOperTranspType_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,27),_TmnxSysRmtMgmtMgrOperTranspType_Type())
-tmnxSysRmtMgmtMgrOperTranspType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrOperTranspType.setStatus(_B)
-_TmnxSysRmtMgmtMgrOperTimeout_Type=Unsigned32
-_TmnxSysRmtMgmtMgrOperTimeout_Object=MibTableColumn
-tmnxSysRmtMgmtMgrOperTimeout=_TmnxSysRmtMgmtMgrOperTimeout_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,28),_TmnxSysRmtMgmtMgrOperTimeout_Type())
-tmnxSysRmtMgmtMgrOperTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrOperTimeout.setStatus(_B)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrOperTimeout.setUnits(_U)
-_TmnxSysRmtMgmtMgrOperVRtrId_Type=TmnxVRtrIDOrZero
-_TmnxSysRmtMgmtMgrOperVRtrId_Object=MibTableColumn
-tmnxSysRmtMgmtMgrOperVRtrId=_TmnxSysRmtMgmtMgrOperVRtrId_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,29),_TmnxSysRmtMgmtMgrOperVRtrId_Type())
-tmnxSysRmtMgmtMgrOperVRtrId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrOperVRtrId.setStatus(_B)
-_TmnxSysRmtMgmtMgrOperDevName_Type=TLNamedItemOrEmpty
-_TmnxSysRmtMgmtMgrOperDevName_Object=MibTableColumn
-tmnxSysRmtMgmtMgrOperDevName=_TmnxSysRmtMgmtMgrOperDevName_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,30),_TmnxSysRmtMgmtMgrOperDevName_Type())
-tmnxSysRmtMgmtMgrOperDevName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrOperDevName.setStatus(_B)
-_TmnxSysRmtMgmtMgrOperDevLabel_Type=TLNamedItemOrEmpty
-_TmnxSysRmtMgmtMgrOperDevLabel_Object=MibTableColumn
-tmnxSysRmtMgmtMgrOperDevLabel=_TmnxSysRmtMgmtMgrOperDevLabel_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,31),_TmnxSysRmtMgmtMgrOperDevLabel_Type())
-tmnxSysRmtMgmtMgrOperDevLabel.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrOperDevLabel.setStatus(_B)
-_TmnxSysRmtMgmtMgrOperSrcIpAdType_Type=InetAddressType
-_TmnxSysRmtMgmtMgrOperSrcIpAdType_Object=MibTableColumn
-tmnxSysRmtMgmtMgrOperSrcIpAdType=_TmnxSysRmtMgmtMgrOperSrcIpAdType_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,32),_TmnxSysRmtMgmtMgrOperSrcIpAdType_Type())
-tmnxSysRmtMgmtMgrOperSrcIpAdType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrOperSrcIpAdType.setStatus(_B)
-class _TmnxSysRmtMgmtMgrOperSrcIpAddr_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxSysRmtMgmtMgrOperSrcIpAddr_Type.__name__=_R
-_TmnxSysRmtMgmtMgrOperSrcIpAddr_Object=MibTableColumn
-tmnxSysRmtMgmtMgrOperSrcIpAddr=_TmnxSysRmtMgmtMgrOperSrcIpAddr_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,33),_TmnxSysRmtMgmtMgrOperSrcIpAddr_Type())
-tmnxSysRmtMgmtMgrOperSrcIpAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrOperSrcIpAddr.setStatus(_B)
-_TmnxSysRmtMgmtMgrOperSrcPort_Type=InetPortNumber
-_TmnxSysRmtMgmtMgrOperSrcPort_Object=MibTableColumn
-tmnxSysRmtMgmtMgrOperSrcPort=_TmnxSysRmtMgmtMgrOperSrcPort_Object((1,3,6,1,4,1,6527,3,1,2,1,52,21,1,34),_TmnxSysRmtMgmtMgrOperSrcPort_Type())
-tmnxSysRmtMgmtMgrOperSrcPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysRmtMgmtMgrOperSrcPort.setStatus(_B)
-_TmnxSysSwFabFailRecSfmStatsTable_Object=MibTable
-tmnxSysSwFabFailRecSfmStatsTable=_TmnxSysSwFabFailRecSfmStatsTable_Object((1,3,6,1,4,1,6527,3,1,2,1,54))
-if mibBuilder.loadTexts:tmnxSysSwFabFailRecSfmStatsTable.setStatus(_B)
-_TmnxSysSwFabFailRecSfmStatsEntry_Object=MibTableRow
-tmnxSysSwFabFailRecSfmStatsEntry=_TmnxSysSwFabFailRecSfmStatsEntry_Object((1,3,6,1,4,1,6527,3,1,2,1,54,1))
-tmnxSysSwFabFailRecSfmStatsEntry.setIndexNames((0,_K,_EN))
-if mibBuilder.loadTexts:tmnxSysSwFabFailRecSfmStatsEntry.setStatus(_B)
-class _TmnxSysSwFabFailRecSfmState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*(('complete',0),(_Z,1),('pending',2),('aborted',3),(_a,4)))
-_TmnxSysSwFabFailRecSfmState_Type.__name__=_F
-_TmnxSysSwFabFailRecSfmState_Object=MibTableColumn
-tmnxSysSwFabFailRecSfmState=_TmnxSysSwFabFailRecSfmState_Object((1,3,6,1,4,1,6527,3,1,2,1,54,1,1),_TmnxSysSwFabFailRecSfmState_Type())
-tmnxSysSwFabFailRecSfmState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysSwFabFailRecSfmState.setStatus(_B)
-_TmnxSysSwFabFailRecSfmStateTime_Type=TimeStamp
-_TmnxSysSwFabFailRecSfmStateTime_Object=MibTableColumn
-tmnxSysSwFabFailRecSfmStateTime=_TmnxSysSwFabFailRecSfmStateTime_Object((1,3,6,1,4,1,6527,3,1,2,1,54,1,2),_TmnxSysSwFabFailRecSfmStateTime_Type())
-tmnxSysSwFabFailRecSfmStateTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxSysSwFabFailRecSfmStateTime.setStatus(_B)
-_TmnxSysMIBNotifyPrefix_ObjectIdentity=ObjectIdentity
-tmnxSysMIBNotifyPrefix=_TmnxSysMIBNotifyPrefix_ObjectIdentity((1,3,6,1,4,1,6527,3,1,3,1))
-_TmnxSysNotifications_ObjectIdentity=ObjectIdentity
-tmnxSysNotifications=_TmnxSysNotifications_ObjectIdentity((1,3,6,1,4,1,6527,3,1,3,1,0))
-_TmnxSysMGNotifications_ObjectIdentity=ObjectIdentity
-tmnxSysMGNotifications=_TmnxSysMGNotifications_ObjectIdentity((1,3,6,1,4,1,6527,3,1,3,1,1))
-snmpCommunityEntry.registerAugmentions((_A,_FH))
+#
+# PySNMP MIB module TIMETRA-SYSTEM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TIMETRA-SYSTEM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:20:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+smRunEntry, smLaunchScriptName, smLaunchOwner, smLaunchName, smLaunchScriptOwner, smLaunchEntry, smLaunchError, smRunIndex = mibBuilder.importSymbols("DISMAN-SCRIPT-MIB", "smRunEntry", "smLaunchScriptName", "smLaunchOwner", "smLaunchName", "smLaunchScriptOwner", "smLaunchEntry", "smLaunchError", "smRunIndex")
+CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
+InetAddressPrefixLength, InetAddressType, InetAddressIPv6, InetAddress, InetPortNumber = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressPrefixLength", "InetAddressType", "InetAddressIPv6", "InetAddress", "InetPortNumber")
+snmpCommunityEntry, = mibBuilder.importSymbols("SNMP-COMMUNITY-MIB", "snmpCommunityEntry")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TimeStamp, TruthValue, RowStatus, DateAndTime, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeStamp", "TruthValue", "RowStatus", "DateAndTime", "RowPointer", "TextualConvention")
+tmnxChassisBaseMacAddress, tmnxCpmCardNum, tmnxHwClass, tmnxCpmCardSlotNum, tmnxHwID, TmnxSlotNum, tmnxChassisIndex, tmnxFabricSlotNum, tmnxChassisNotifyHwIndex = mibBuilder.importSymbols("TIMETRA-CHASSIS-MIB", "tmnxChassisBaseMacAddress", "tmnxCpmCardNum", "tmnxHwClass", "tmnxCpmCardSlotNum", "tmnxHwID", "TmnxSlotNum", "tmnxChassisIndex", "tmnxFabricSlotNum", "tmnxChassisNotifyHwIndex")
+tmnxSRConfs, tmnxSRObjs, timetraSRMIBModules, tmnxSRNotifyPrefix = mibBuilder.importSymbols("TIMETRA-GLOBAL-MIB", "tmnxSRConfs", "tmnxSRObjs", "timetraSRMIBModules", "tmnxSRNotifyPrefix")
+tmnxEhsHEntryMinDelay, tmnxLogExecRollbackOpIndex, tmnxEhsHEntryScriptPlcyName, tmnxLogExecRollbackOpType, tmnxEhsHEntryScriptPlcyOwner, tmnxEhsHEntryMinDelayInterval, tmnxEhsHandlerDescription = mibBuilder.importSymbols("TIMETRA-LOG-MIB", "tmnxEhsHEntryMinDelay", "tmnxLogExecRollbackOpIndex", "tmnxEhsHEntryScriptPlcyName", "tmnxLogExecRollbackOpType", "tmnxEhsHEntryScriptPlcyOwner", "tmnxEhsHEntryMinDelayInterval", "tmnxEhsHandlerDescription")
+TmnxCliEngine, TmnxAdminStateTruthValue, TmnxActionType, TLNamedItem, TmnxVRtrIDOrZero, TLNamedItemOrEmpty, TNamedItem, TmnxVRtrID, TmnxUuid, TmnxOperState, TLDisplayString, TItemDescription, TmnxLongDisplayString, TmnxDisplayStringURL, IpAddressPrefixLength, TmnxScriptAuthType, TTcpUdpPort, TDSCPNameOrEmpty, TNamedItemOrEmpty, TmnxServId, TmnxEnabledDisabled, TmnxEnabledDisabledAdminState, TmnxAdminState = mibBuilder.importSymbols("TIMETRA-TC-MIB", "TmnxCliEngine", "TmnxAdminStateTruthValue", "TmnxActionType", "TLNamedItem", "TmnxVRtrIDOrZero", "TLNamedItemOrEmpty", "TNamedItem", "TmnxVRtrID", "TmnxUuid", "TmnxOperState", "TLDisplayString", "TItemDescription", "TmnxLongDisplayString", "TmnxDisplayStringURL", "IpAddressPrefixLength", "TmnxScriptAuthType", "TTcpUdpPort", "TDSCPNameOrEmpty", "TNamedItemOrEmpty", "TmnxServId", "TmnxEnabledDisabled", "TmnxEnabledDisabledAdminState", "TmnxAdminState")
+timetraSysMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 1))
+timetraSysMIBModule.setRevisions(('2017-01-01 00:00', '2016-01-01 00:00', '2014-06-01 00:00', '2014-01-01 00:00', '2011-02-01 00:00', '2010-01-01 00:00', '2009-02-28 00:00', '2008-01-01 00:00', '2007-01-01 00:00', '2006-03-15 00:00', '2005-08-31 00:00', '2005-01-24 00:00', '2004-01-15 00:00', '2003-08-15 00:00', '2003-01-20 00:00', '2000-08-14 00:00',))
+if mibBuilder.loadTexts: timetraSysMIBModule.setLastUpdated('201701010000Z')
+if mibBuilder.loadTexts: timetraSysMIBModule.setOrganization('Nokia')
+class TmnxSsiSyncMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("none", 1), ("config", 2), ("bootEnv", 3))
+
+class TmnxSsiSyncRollbackMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("none", 1), ("rollbackSingle", 2), ("rollbackAll", 3))
+
+class TmnxSysLicenseApplication(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))
+    namedValues = NamedValues(("none", 0), ("nat", 1), ("wlanGw", 2), ("lns", 3), ("subMgmt", 4), ("aa", 5), ("ipsec", 6))
+
+class TmnxSysLicenseAppStatsType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 1000, 1001, 2000, 2001, 3000, 4000, 4001, 5000, 5001, 5002, 5003))
+    namedValues = NamedValues(("none", 0), ("lsnSubscribers", 1), ("lsnBandwidth", 2), ("wlanGwUserEquipment", 1000), ("wlanGwGtpBearers", 1001), ("lnsTunnels", 2000), ("lnsSessions", 2001), ("subscriberHosts", 3000), ("aaSubscribers", 4000), ("aaBandwidth", 4001), ("ipsecTunnels", 5000), ("ipsecTnlBandwidth", 5001), ("ipTunnels", 5002), ("ipTnlBandwidth", 5003))
+
+class TmnxSysLicensingGroup(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))
+    namedValues = NamedValues(("system", 0), ("services", 1), ("nsp", 2), ("isa", 3), ("iom", 4), ("mda", 5), ("ports", 6))
+
+class TmnxSysMonSampleTime(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(1, 1), ValueRangeConstraint(60, 60), ValueRangeConstraint(300, 300), )
+class TmnxSysMonUtilization(TextualConvention, Gauge32):
+    status = 'current'
+    subtypeSpec = Gauge32.subtypeSpec + ValueRangeConstraint(0, 10000)
+
+class TmnxSysMgmtIfDstoreLockState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("locked", 1), ("unlocked", 2))
+
+class TmnxSysNeid(TextualConvention, OctetString):
+    status = 'current'
+    displayHint = '1x:'
+    subtypeSpec = OctetString.subtypeSpec + ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(3, 3), )
+class TmnxConfigFileFormatType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("classicCli", 1), ("mdCli", 2))
+
+class TmnxSchemaPathState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
+    namedValues = NamedValues(("ok", 0), ("errConnection", 1), ("errTooLong", 2), ("errInvalid", 3))
+
+class TmnxSysRmtMgmtLastRegStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 100))
+    namedValues = NamedValues(("unknown", 0), ("succeeded", 1), ("cancelled", 2), ("unreachable", 3), ("refused", 4), ("dnsResolutionFailed", 5), ("outOfResources", 6), ("internal", 100))
+
+class TmnxSysRmtMgmtSrcDefaultPort(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, -1))
+    namedValues = NamedValues(("none", 0), ("grpc", -1))
+
+tmnxSysObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1))
+sysGenInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1))
+sgiCpuUsage = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: sgiCpuUsage.setStatus('current')
+sgiMemoryUsed = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 2), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: sgiMemoryUsed.setStatus('current')
+sgiMemoryAvailable = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 3), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: sgiMemoryAvailable.setStatus('current')
+sgiMemoryPoolAllocated = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 4), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: sgiMemoryPoolAllocated.setStatus('current')
+sgiSwMajorVersion = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sgiSwMajorVersion.setStatus('current')
+sgiSwMinorVersion = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sgiSwMinorVersion.setStatus('current')
+sgiSwVersionModifier = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sgiSwVersionModifier.setStatus('current')
+sgiSnmpInGetBulks = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sgiSnmpInGetBulks.setStatus('current')
+sgiKbMemoryUsed = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 9), Unsigned32()).setUnits('kilobytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: sgiKbMemoryUsed.setStatus('current')
+sgiKbMemoryAvailable = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 10), Unsigned32()).setUnits('kilobytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: sgiKbMemoryAvailable.setStatus('current')
+sgiKbMemoryPoolAllocated = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 11), Unsigned32()).setUnits('kilobytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: sgiKbMemoryPoolAllocated.setStatus('current')
+tmnxSysCpuMonTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 12), )
+if mibBuilder.loadTexts: tmnxSysCpuMonTable.setStatus('current')
+tmnxSysCpuMonEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 12, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tmnxSysCpuMonSampleTime"))
+if mibBuilder.loadTexts: tmnxSysCpuMonEntry.setStatus('current')
+tmnxSysCpuMonSampleTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 12, 1, 1), TmnxSysMonSampleTime())
+if mibBuilder.loadTexts: tmnxSysCpuMonSampleTime.setStatus('current')
+tmnxSysCpuMonCpuIdle = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 12, 1, 2), TmnxSysMonUtilization()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCpuMonCpuIdle.setStatus('current')
+tmnxSysCpuMonBusyCoreUtil = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 12, 1, 3), TmnxSysMonUtilization()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCpuMonBusyCoreUtil.setStatus('current')
+tmnxSysCpuMonBusyGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 12, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCpuMonBusyGroupName.setStatus('current')
+tmnxSysCpuMonBusyGroupUtil = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 12, 1, 5), TmnxSysMonUtilization()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCpuMonBusyGroupUtil.setStatus('current')
+sgiGroupingIDs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 13))
+sgiSystemGroupID = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 13, 1), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sgiSystemGroupID.setStatus('current')
+sgiSystemSubGroupID = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 13, 2), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sgiSystemSubGroupID.setStatus('current')
+sgiSnmpFailedSets = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sgiSnmpFailedSets.setStatus('current')
+sgiCryptoModVersion = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 1, 15), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sgiCryptoModVersion.setStatus('current')
+sysTimeInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2))
+stiDateAndTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 1), DateAndTime().subtype(subtypeSpec=ValueSizeConstraint(11, 11)).setFixedLength(11)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: stiDateAndTime.setStatus('current')
+stiActiveZone = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 5)).clone('UTC')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: stiActiveZone.setStatus('current')
+stiHoursOffset = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-11, 12))).setUnits('hours').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: stiHoursOffset.setStatus('current')
+stiMinutesOffset = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 59))).setUnits('minutes').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: stiMinutesOffset.setStatus('current')
+stiZoneType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("system", 1), ("user", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stiZoneType.setStatus('current')
+stiSummerZoneTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 6), )
+if mibBuilder.loadTexts: stiSummerZoneTable.setStatus('current')
+stiSummerZoneEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 6, 1), ).setIndexNames((1, "TIMETRA-SYSTEM-MIB", "stiSummerZoneName"))
+if mibBuilder.loadTexts: stiSummerZoneEntry.setStatus('current')
+stiSummerZoneName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 6, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 5)))
+if mibBuilder.loadTexts: stiSummerZoneName.setStatus('current')
+stiSummerZoneRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 6, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stiSummerZoneRowStatus.setStatus('current')
+stiSummerZoneStartDate = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 6, 1, 3), DateAndTime().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stiSummerZoneStartDate.setStatus('obsolete')
+stiSummerZoneEndDate = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 6, 1, 4), DateAndTime().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stiSummerZoneEndDate.setStatus('obsolete')
+stiSummerZoneOffset = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 6, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 60)).clone(60)).setUnits('minutes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stiSummerZoneOffset.setStatus('current')
+stiSummerZoneStartDay = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 6, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("sunday", 0), ("monday", 1), ("tuesday", 2), ("wednesday", 3), ("thursday", 4), ("friday", 5), ("saturday", 6))).clone('sunday')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stiSummerZoneStartDay.setStatus('current')
+stiSummerZoneStartWeek = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 6, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("first", 0), ("second", 1), ("third", 2), ("fourth", 3), ("last", 4))).clone('first')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stiSummerZoneStartWeek.setStatus('current')
+stiSummerZoneStartMonth = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 6, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("january", 0), ("february", 1), ("march", 2), ("april", 3), ("may", 4), ("june", 5), ("july", 6), ("august", 7), ("september", 8), ("october", 9), ("november", 10), ("december", 11))).clone('january')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stiSummerZoneStartMonth.setStatus('current')
+stiSummerZoneStartHour = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 6, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 23))).setUnits('hours').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stiSummerZoneStartHour.setStatus('current')
+stiSummerZoneStartMinute = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 6, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 59))).setUnits('minutes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stiSummerZoneStartMinute.setStatus('current')
+stiSummerZoneEndDay = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 6, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("sunday", 0), ("monday", 1), ("tuesday", 2), ("wednesday", 3), ("thursday", 4), ("friday", 5), ("saturday", 6))).clone('sunday')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stiSummerZoneEndDay.setStatus('current')
+stiSummerZoneEndWeek = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 6, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("first", 0), ("second", 1), ("third", 2), ("fourth", 3), ("last", 4))).clone('first')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stiSummerZoneEndWeek.setStatus('current')
+stiSummerZoneEndMonth = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 6, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("january", 0), ("february", 1), ("march", 2), ("april", 3), ("may", 4), ("june", 5), ("july", 6), ("august", 7), ("september", 8), ("october", 9), ("november", 10), ("december", 11))).clone('january')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stiSummerZoneEndMonth.setStatus('current')
+stiSummerZoneEndHour = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 6, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 23))).setUnits('hours').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stiSummerZoneEndHour.setStatus('current')
+stiSummerZoneEndMinute = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 6, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 59))).setUnits('minutes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stiSummerZoneEndMinute.setStatus('current')
+stiPreferLocalTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 2, 7), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: stiPreferLocalTime.setStatus('current')
+sysSntpInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 3))
+sntpState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("unicast", 1), ("broadcast", 2))).clone('unicast')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpState.setStatus('current')
+sntpServerTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 3, 2), )
+if mibBuilder.loadTexts: sntpServerTable.setStatus('current')
+sntpServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 3, 2, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "sntpServerAddress"))
+if mibBuilder.loadTexts: sntpServerEntry.setStatus('current')
+sntpServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 3, 2, 1, 1), IpAddress())
+if mibBuilder.loadTexts: sntpServerAddress.setStatus('current')
+sntpServerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 3, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: sntpServerRowStatus.setStatus('current')
+sntpServerVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 3, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3)).clone(3)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: sntpServerVersion.setStatus('current')
+sntpServerPreference = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 3, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("normal", 1), ("preferred", 2))).clone('normal')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: sntpServerPreference.setStatus('current')
+sntpServerInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 3, 2, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(64, 1024)).clone(64)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: sntpServerInterval.setStatus('current')
+sntpAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 3, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noop", 1), ("inService", 2), ("outOfService", 3))).clone('outOfService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpAdminState.setStatus('current')
+sntpOperStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 3, 4), TmnxOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sntpOperStatus.setStatus('current')
+sysSyncInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4))
+ssiSaveConfig = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 15), TmnxActionType().clone('notApplicable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ssiSaveConfig.setStatus('current')
+ssiSyncMode = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 16), TmnxSsiSyncMode().clone('none')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ssiSyncMode.setStatus('current')
+ssiSyncForce = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 17), TmnxSsiSyncMode().clone('none')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ssiSyncForce.setStatus('current')
+ssiSyncStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("unknown", 0), ("configOnly", 1), ("bootEnv", 2), ("configFail", 3), ("bootEnvFail", 4), ("configInProgress", 5), ("bootEnvInProgress", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ssiSyncStatus.setStatus('current')
+ssiSyncConfigLastTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 19), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ssiSyncConfigLastTime.setStatus('current')
+ssiSyncBootEnvLastTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 20), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ssiSyncBootEnvLastTime.setStatus('current')
+ssiConfigMaxBackupRevisions = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 21), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 200)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ssiConfigMaxBackupRevisions.setStatus('current')
+ssiSaveConfigResult = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("inProgress", 2), ("success", 3), ("failed", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ssiSaveConfigResult.setStatus('current')
+ssiSaveBof = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 23), TmnxActionType().clone('notApplicable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ssiSaveBof.setStatus('current')
+ssiSaveBofResult = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("inProgress", 2), ("success", 3), ("failed", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ssiSaveBofResult.setStatus('current')
+ssiSaveConfigDest = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 25), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ssiSaveConfigDest.setStatus('current')
+ssiSaveConfigDetail = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 26), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ssiSaveConfigDetail.setStatus('current')
+ssiRedFailoverTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 27), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ssiRedFailoverTime.setStatus('current')
+ssiRedFailoverReason = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 28), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ssiRedFailoverReason.setStatus('current')
+ssiSyncRollbackLastTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 29), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ssiSyncRollbackLastTime.setStatus('current')
+ssiSyncRollbackMode = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 30), TmnxSsiSyncRollbackMode().clone('none')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ssiSyncRollbackMode.setStatus('current')
+ssiSyncRollbackForce = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 31), TmnxSsiSyncRollbackMode().clone('none')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ssiSyncRollbackForce.setStatus('current')
+ssiSyncRollbackStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 32), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("unknown", 0), ("rollbackFail", 1), ("rollbackInProgress", 2), ("rollbackSuccess", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ssiSyncRollbackStatus.setStatus('current')
+ssiSyncCertLastTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 33), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ssiSyncCertLastTime.setStatus('current')
+ssiSyncCertMode = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 34), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ssiSyncCertMode.setStatus('current')
+ssiSyncCertForce = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 35), TmnxActionType().clone('notApplicable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ssiSyncCertForce.setStatus('current')
+ssiSyncCertStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 4, 36), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("unknown", 0), ("fail", 1), ("inProgress", 2), ("success", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ssiSyncCertStatus.setStatus('current')
+sysBootInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 5))
+sbiConfigStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 5, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("configRead", 1), ("configOK", 2), ("defaultBooted", 3), ("bootConfigFailed", 4), ("bootRestoreFailed", 5), ("auto-provisioning", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sbiConfigStatus.setStatus('current')
+sbiPersistStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 5, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("persistOK", 1), ("noPersistFile", 2), ("persistMismatch", 3), ("persistIndexFailure", 4), ("persistDisabled", 5), ("persistInvalid", 6), ("persistBoot", 7), ("persistInit", 8), ("persistInProgress", 9)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sbiPersistStatus.setStatus('current')
+sbiPersistIndex = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 5, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sbiPersistIndex.setStatus('current')
+sbiSnmpdAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 5, 4), TmnxAdminState().clone('inService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiSnmpdAdminStatus.setStatus('current')
+sbiSnmpdOperStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 5, 5), TmnxOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sbiSnmpdOperStatus.setStatus('current')
+sbiSnmpdMaxPktSize = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 5, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(484, 9216)).clone(1500)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiSnmpdMaxPktSize.setStatus('current')
+sbiSnmpdPortNum = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 5, 7), TTcpUdpPort().clone(161)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiSnmpdPortNum.setStatus('current')
+sbiBootConfigOKScript = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 5, 8), DisplayString().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiBootConfigOKScript.setStatus('current')
+sbiConfigOKScriptStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 5, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("notRun", 0), ("success", 1), ("fail", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sbiConfigOKScriptStatus.setStatus('current')
+sbiBootConfigFailScript = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 5, 10), DisplayString().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiBootConfigFailScript.setStatus('current')
+sbiConfigFailScriptStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 5, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("notRun", 0), ("success", 1), ("fail", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sbiConfigFailScriptStatus.setStatus('current')
+sbiRedSwitchoverScript = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 5, 12), DisplayString().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiRedSwitchoverScript.setStatus('current')
+sbiRedSwitchoverScriptStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 5, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("notRun", 0), ("success", 1), ("fail", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sbiRedSwitchoverScriptStatus.setStatus('current')
+sbiAllowBootLicenseViolations = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 5, 14), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAllowBootLicenseViolations.setStatus('current')
+sysRadiusInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 6))
+radiusOperStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 6, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: radiusOperStatus.setStatus('current')
+radiusServerTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 6, 2), )
+if mibBuilder.loadTexts: radiusServerTable.setStatus('current')
+radiusServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 6, 2, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "radiusServerIndex"))
+if mibBuilder.loadTexts: radiusServerEntry.setStatus('current')
+radiusServerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 6, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 5)))
+if mibBuilder.loadTexts: radiusServerIndex.setStatus('current')
+radiusServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 6, 2, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: radiusServerAddress.setStatus('obsolete')
+radiusServerOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 6, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: radiusServerOperStatus.setStatus('current')
+radiusServerInetAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 6, 2, 1, 4), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: radiusServerInetAddressType.setStatus('current')
+radiusServerInetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 6, 2, 1, 5), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ValueSizeConstraint(20, 20), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: radiusServerInetAddress.setStatus('current')
+tmnxSysNotifyObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7))
+tmnxNotifyRow = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 1), RowPointer()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxNotifyRow.setStatus('current')
+tmnxNotifyRowAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 2), TmnxAdminState()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxNotifyRowAdminState.setStatus('current')
+tmnxNotifyRowOperState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 3), TmnxOperState()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxNotifyRowOperState.setStatus('current')
+tmnxMemoryModule = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 4), TNamedItem()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxMemoryModule.setStatus('current')
+tmnxModuleMallocSize = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 5), Unsigned32()).setUnits('bytes').setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxModuleMallocSize.setStatus('current')
+tmnxDroppedTrapID = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 6), ObjectIdentifier()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxDroppedTrapID.setStatus('current')
+tmnxTrapDroppedReasonCode = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("frequencyExceeded", 1)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxTrapDroppedReasonCode.setStatus('current')
+tmnxTrapDroppedEntryID = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 8), ObjectIdentifier()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxTrapDroppedEntryID.setStatus('current')
+tmnxNotifyEntryOID = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 9), ObjectIdentifier()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxNotifyEntryOID.setStatus('current')
+tmnxSnmpdErrorMsg = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 10), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxSnmpdErrorMsg.setStatus('current')
+tmnxPersistencyClient = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 11), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxPersistencyClient.setStatus('current')
+tmnxPersistencyFileLocator = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 12), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxPersistencyFileLocator.setStatus('current')
+tmnxPersistencyNotifyMsg = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 13), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxPersistencyNotifyMsg.setStatus('current')
+tmnxPersistenceAffectedCpm = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 14), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxPersistenceAffectedCpm.setStatus('current')
+tmnxSysTimeSetBy = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("ntp", 1), ("sntp", 2), ("snmp", 3), ("manually", 4), ("rtc", 5)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxSysTimeSetBy.setStatus('current')
+tmnxFtpFailureMsg = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 16), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxFtpFailureMsg.setStatus('current')
+tmnxFtpFailureDestAddressType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 17), InetAddressType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxFtpFailureDestAddressType.setStatus('current')
+tmnxFtpFailureDestAddress = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 18), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ValueSizeConstraint(20, 20), ))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxFtpFailureDestAddress.setStatus('current')
+tmnxNotifyObjectName = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 19), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxNotifyObjectName.setStatus('current')
+tmnxSyncFailureReason = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 20), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxSyncFailureReason.setStatus('current')
+tmnxSysExecScript = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 21), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxSysExecScript.setStatus('current')
+tmnxSysExecResult = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("success", 1), ("fail", 2)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxSysExecResult.setStatus('current')
+tmnxSysRollbackFileType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("rollback", 1), ("rescue", 2)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxSysRollbackFileType.setStatus('current')
+tmnxSysFileErrorType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("read", 1), ("write", 2)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxSysFileErrorType.setStatus('current')
+tmnxTrapDroppedCount = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 25), Unsigned32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxTrapDroppedCount.setStatus('current')
+tmnxSysDNSSecDomainName = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 26), TmnxDisplayStringURL()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxSysDNSSecDomainName.setStatus('current')
+tmnxSysLicenseErrorReason = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 27), TItemDescription()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxSysLicenseErrorReason.setStatus('current')
+tmnxSysLicenseTimeLeft = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 28), Unsigned32()).setUnits('minutes').setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxSysLicenseTimeLeft.setStatus('current')
+tmnxSysNotifVsdServerName = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 30), TLDisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxSysNotifVsdServerName.setStatus('current')
+tmnxSysNotifXmppServerName = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 31), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxSysNotifXmppServerName.setStatus('current')
+tmnxSysLicenseErrorAction = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 32), TItemDescription()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxSysLicenseErrorAction.setStatus('current')
+tmnxSysNotifAppStatsApplication = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 33), TmnxSysLicenseApplication()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxSysNotifAppStatsApplication.setStatus('current')
+tmnxSysNotifAppStatsType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 34), TmnxSysLicenseAppStatsType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxSysNotifAppStatsType.setStatus('current')
+tmnxSysNotifAppStatsTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 35), DateAndTime()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxSysNotifAppStatsTime.setStatus('current')
+tmnxNotifySysMgmtIfOriginalMode = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 36), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("classic", 1), ("modelDriven", 2), ("mixed", 3)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxNotifySysMgmtIfOriginalMode.setStatus('current')
+tmnxSysLicensingNotifyGroup = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 37), TmnxSysLicensingGroup()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxSysLicensingNotifyGroup.setStatus('current')
+tmnxSysLicensedNotifyAppName = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 38), TNamedItem()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxSysLicensedNotifyAppName.setStatus('current')
+tmnxPrimaryConfigFileFormatType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 39), TmnxConfigFileFormatType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxPrimaryConfigFileFormatType.setStatus('current')
+tmnxLiConfigFileFormatType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 7, 40), TmnxConfigFileFormatType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxLiConfigFileFormatType.setStatus('current')
+sysLoginControlInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8))
+slcFtpInboundMaxSessions = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 5)).clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slcFtpInboundMaxSessions.setStatus('current')
+slcTelnetInboundMaxSessions = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 50)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slcTelnetInboundMaxSessions.setStatus('current')
+slcTelnetOutboundMaxSessions = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 15)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slcTelnetOutboundMaxSessions.setStatus('current')
+slcPreLoginMessage = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8, 4), TmnxLongDisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 900)).clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slcPreLoginMessage.setStatus('current')
+slcPreLoginMessageInclName = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slcPreLoginMessageInclName.setStatus('current')
+slcMessageOfTheDay = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8, 6), TmnxLongDisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 900)).clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slcMessageOfTheDay.setStatus('current')
+slcMessageOfTheDayType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("motd-type-none", 0), ("motd-type-url", 1), ("motd-type-text", 2))).clone('motd-type-none')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slcMessageOfTheDayType.setStatus('current')
+slcLoginBanner = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8, 8), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slcLoginBanner.setStatus('current')
+slcLoginExponentialBackOff = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8, 9), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slcLoginExponentialBackOff.setStatus('current')
+slcTelnetGracefulShutdown = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8, 10), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slcTelnetGracefulShutdown.setStatus('current')
+slcSSHGracefulShutdown = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8, 11), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slcSSHGracefulShutdown.setStatus('current')
+slcTelnetMinTTLValue = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slcTelnetMinTTLValue.setStatus('current')
+slcSSHMinTTLValue = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slcSSHMinTTLValue.setStatus('current')
+slcSSHInboundMaxSessions = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 50)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slcSSHInboundMaxSessions.setStatus('current')
+slcSSHOutboundMaxSessions = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 15)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slcSSHOutboundMaxSessions.setStatus('current')
+slcIdleTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8, 16), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(1, 1440), ValueRangeConstraint(9999, 9999), )).clone(30)).setUnits('minutes').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slcIdleTimeout.setStatus('current')
+slcLoginScriptGlobal = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8, 17), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slcLoginScriptGlobal.setStatus('current')
+slcLoginScriptPerUserDirectory = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8, 18), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slcLoginScriptPerUserDirectory.setStatus('current')
+slcLoginScriptPerUserFilename = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 8, 19), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 180)).clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slcLoginScriptPerUserFilename.setStatus('current')
+sysLACPInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 9))
+sysLACPSystemPriority = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 9, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(32768)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sysLACPSystemPriority.setStatus('current')
+sysTacplusInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 10))
+tacplusOperStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 10, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tacplusOperStatus.setStatus('current')
+tacplusServerTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 10, 2), )
+if mibBuilder.loadTexts: tacplusServerTable.setStatus('current')
+tacplusServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 10, 2, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tacplusServerIndex"))
+if mibBuilder.loadTexts: tacplusServerEntry.setStatus('current')
+tacplusServerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 10, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 5)))
+if mibBuilder.loadTexts: tacplusServerIndex.setStatus('current')
+tacplusServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 10, 2, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tacplusServerAddress.setStatus('obsolete')
+tacplusServerOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 10, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tacplusServerOperStatus.setStatus('current')
+tacPlusServerInetAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 10, 2, 1, 4), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tacPlusServerInetAddressType.setStatus('current')
+tacPlusServerInetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 10, 2, 1, 5), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ValueSizeConstraint(20, 20), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tacPlusServerInetAddress.setStatus('current')
+sysBofInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11))
+sbiActiveIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 1), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiActiveIpAddr.setStatus('current')
+sbiActiveIpMask = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 2), IpAddressPrefixLength()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiActiveIpMask.setStatus('current')
+sbiStandbyIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyIpAddr.setStatus('current')
+sbiStandbyIpMask = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 4), IpAddressPrefixLength()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyIpMask.setStatus('current')
+sbiPrimaryImage = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 5), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiPrimaryImage.setStatus('current')
+sbiSecondaryImage = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 6), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiSecondaryImage.setStatus('current')
+sbiTertiaryImage = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 7), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiTertiaryImage.setStatus('current')
+sbiPrimaryConfigFile = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 8), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiPrimaryConfigFile.setStatus('current')
+sbiSecondaryConfigFile = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 9), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiSecondaryConfigFile.setStatus('current')
+sbiTertiaryConfigFile = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 10), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiTertiaryConfigFile.setStatus('current')
+sbiPersist = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 11), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiPersist.setStatus('current')
+sbiConsoleSpeed = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 12), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(9600, 9600), ValueRangeConstraint(19200, 19200), ValueRangeConstraint(38400, 38400), ValueRangeConstraint(57600, 57600), ValueRangeConstraint(115200, 115200), )).clone(115200)).setUnits('bps').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiConsoleSpeed.setStatus('current')
+sbiAutoNegotiate = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 13), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoNegotiate.setStatus('current')
+sbiSpeed = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 14), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(10, 10), ValueRangeConstraint(100, 100), ValueRangeConstraint(1000, 1000), ))).setUnits('megabps').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiSpeed.setStatus('current')
+sbiDuplex = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("full", 1), ("half", 2))).clone('full')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiDuplex.setStatus('current')
+sbiPrimaryDns = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 16), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiPrimaryDns.setStatus('current')
+sbiSecondaryDns = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 17), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiSecondaryDns.setStatus('current')
+sbiTertiaryDns = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 18), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiTertiaryDns.setStatus('current')
+sbiDnsDomain = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 19), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 178)).clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiDnsDomain.setStatus('current')
+sbiWait = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 20), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(3)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiWait.setStatus('current')
+sbiStaticRouteTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 21), )
+if mibBuilder.loadTexts: sbiStaticRouteTable.setStatus('current')
+sbiStaticRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 21, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "sbiStaticRouteDest"), (0, "TIMETRA-SYSTEM-MIB", "sbiStaticRouteMask"))
+if mibBuilder.loadTexts: sbiStaticRouteEntry.setStatus('current')
+sbiStaticRouteDest = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 21, 1, 1), IpAddress())
+if mibBuilder.loadTexts: sbiStaticRouteDest.setStatus('current')
+sbiStaticRouteMask = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 21, 1, 2), IpAddressPrefixLength())
+if mibBuilder.loadTexts: sbiStaticRouteMask.setStatus('current')
+sbiStaticRouteNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 21, 1, 3), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: sbiStaticRouteNextHop.setStatus('current')
+sbiStaticRouteRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 21, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: sbiStaticRouteRowStatus.setStatus('current')
+sbiActiveIPv6Addr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 22), InetAddressIPv6().clone(hexValue="00000000000000000000000000000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiActiveIPv6Addr.setStatus('current')
+sbiActiveIPv6PfxLen = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 23), InetAddressPrefixLength().subtype(subtypeSpec=ValueRangeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiActiveIPv6PfxLen.setStatus('current')
+sbiStandbyIPv6Addr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 24), InetAddressIPv6().clone(hexValue="00000000000000000000000000000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyIPv6Addr.setStatus('current')
+sbiStandbyIPv6PfxLen = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 25), InetAddressPrefixLength().subtype(subtypeSpec=ValueRangeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyIPv6PfxLen.setStatus('current')
+sbiPrimaryDnsIPv6Addr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 26), InetAddressIPv6().clone(hexValue="00000000000000000000000000000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiPrimaryDnsIPv6Addr.setStatus('current')
+sbiSecondaryDnsIPv6Addr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 27), InetAddressIPv6().clone(hexValue="00000000000000000000000000000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiSecondaryDnsIPv6Addr.setStatus('current')
+sbiTertiaryDnsIPv6Addr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 28), InetAddressIPv6().clone(hexValue="00000000000000000000000000000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiTertiaryDnsIPv6Addr.setStatus('current')
+sbiStaticRouteIPv6Table = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 29), )
+if mibBuilder.loadTexts: sbiStaticRouteIPv6Table.setStatus('current')
+sbiStaticRouteIPv6Entry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 29, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "sbiStaticRouteIPv6Dest"), (0, "TIMETRA-SYSTEM-MIB", "sbiStaticRouteIPv6PfxLen"))
+if mibBuilder.loadTexts: sbiStaticRouteIPv6Entry.setStatus('current')
+sbiStaticRouteIPv6Dest = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 29, 1, 1), InetAddressIPv6())
+if mibBuilder.loadTexts: sbiStaticRouteIPv6Dest.setStatus('current')
+sbiStaticRouteIPv6PfxLen = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 29, 1, 2), InetAddressPrefixLength().subtype(subtypeSpec=ValueRangeConstraint(0, 128)))
+if mibBuilder.loadTexts: sbiStaticRouteIPv6PfxLen.setStatus('current')
+sbiStaticRouteIPv6NextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 29, 1, 3), InetAddressIPv6()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: sbiStaticRouteIPv6NextHop.setStatus('current')
+sbiStaticRouteIPv6RowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 29, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: sbiStaticRouteIPv6RowStatus.setStatus('current')
+sbiLiSeparate = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 30), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiLiSeparate.setStatus('current')
+sbiLiLocalSave = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 31), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiLiLocalSave.setStatus('current')
+sbiLicenseFile = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 32), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiLicenseFile.setStatus('current')
+sbiFips1402Level1 = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 34), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: sbiFips1402Level1.setStatus('current')
+sbiSystemBaseMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 35), MacAddress().clone(hexValue="000000000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiSystemBaseMacAddress.setStatus('current')
+sbiEssSystemType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 36), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiEssSystemType.setStatus('current')
+sbiSystemProfile = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 37), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("profileA", 1), ("profileB", 2))).clone('none')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiSystemProfile.setStatus('current')
+sbiAutoBoot = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 38), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoBoot.setStatus('current')
+sbiAutoBootClientId = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 39), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 58))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoBootClientId.setStatus('current')
+sbiAutoBootClientIdType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 40), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("ascii", 2), ("hex", 3), ("mac", 4))).clone('none')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoBootClientIdType.setStatus('current')
+sbiAutoBootUsingMgmt = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 41), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoBootUsingMgmt.setStatus('current')
+sbiAutoBootUsingInband = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 42), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoBootUsingInband.setStatus('current')
+sbiAutoBootInbandVlan = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 43), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoBootInbandVlan.setStatus('current')
+sbiAutoBootUsingIpv4 = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 44), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoBootUsingIpv4.setStatus('current')
+sbiAutoBootUsingIpv6 = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 45), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoBootUsingIpv6.setStatus('current')
+sbiAutoBootIncludeUserClass = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 46), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoBootIncludeUserClass.setStatus('current')
+sbiAutoBootVlanDiscovery = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 47), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoBootVlanDiscovery.setStatus('current')
+sbiAutoBootInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 49))
+sbiAutoConfigure = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 54))
+sbiAutoIpv4 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 54, 1))
+sbiAutoIpv4Dhcp = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 54, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoIpv4Dhcp.setStatus('current')
+sbiAutoIpv4DhcpClientIdType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 54, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("default", 1), ("ascii", 2), ("hex", 3))).clone('default')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoIpv4DhcpClientIdType.setStatus('current')
+sbiAutoIpv4DhcpClientId = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 54, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoIpv4DhcpClientId.setStatus('current')
+sbiAutoIpv4DhcpOptUserClass = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 54, 1, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoIpv4DhcpOptUserClass.setStatus('current')
+sbiAutoIpv4DhcpTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 54, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(30)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: sbiAutoIpv4DhcpTimeout.setStatus('current')
+sbiAutoIpv6 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 54, 2))
+sbiAutoIpv6Dhcp = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 54, 2, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoIpv6Dhcp.setStatus('current')
+sbiAutoIpv6DhcpClientIdType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 54, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("default", 1), ("duidEnterprise", 2), ("duidLinkLocal", 3))).clone('default')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoIpv6DhcpClientIdType.setStatus('current')
+sbiAutoIpv6DhcpClientIdDuidType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 54, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("ascii", 2), ("hex", 3))).clone('none')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoIpv6DhcpClientIdDuidType.setStatus('current')
+sbiAutoIpv6DhcpClientIdDuid = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 54, 2, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 124))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoIpv6DhcpClientIdDuid.setStatus('current')
+sbiAutoIpv6DhcpOptUserClass = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 54, 2, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiAutoIpv6DhcpOptUserClass.setStatus('current')
+sbiAutoIpv6DhcpTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 54, 2, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(30)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: sbiAutoIpv6DhcpTimeout.setStatus('current')
+sbiStandbyAIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 55), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyAIpAddr.setStatus('current')
+sbiStandbyAIpMask = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 56), IpAddressPrefixLength()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyAIpMask.setStatus('current')
+sbiStandbyAIPv6Addr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 57), InetAddressIPv6().clone(hexValue="00000000000000000000000000000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyAIPv6Addr.setStatus('current')
+sbiStandbyAIPv6PfxLen = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 58), InetAddressPrefixLength().subtype(subtypeSpec=ValueRangeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyAIPv6PfxLen.setStatus('current')
+sbiStandbyBIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 59), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyBIpAddr.setStatus('current')
+sbiStandbyBIpMask = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 60), IpAddressPrefixLength()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyBIpMask.setStatus('current')
+sbiStandbyBIPv6Addr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 61), InetAddressIPv6().clone(hexValue="00000000000000000000000000000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyBIPv6Addr.setStatus('current')
+sbiStandbyBIPv6PfxLen = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 62), InetAddressPrefixLength().subtype(subtypeSpec=ValueRangeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyBIPv6PfxLen.setStatus('current')
+sbiStandbyCIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 63), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyCIpAddr.setStatus('current')
+sbiStandbyCIpMask = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 64), IpAddressPrefixLength()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyCIpMask.setStatus('current')
+sbiStandbyCIPv6Addr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 65), InetAddressIPv6().clone(hexValue="00000000000000000000000000000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyCIPv6Addr.setStatus('current')
+sbiStandbyCIPv6PfxLen = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 66), InetAddressPrefixLength().subtype(subtypeSpec=ValueRangeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyCIPv6PfxLen.setStatus('current')
+sbiStandbyDIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 67), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyDIpAddr.setStatus('current')
+sbiStandbyDIpMask = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 68), IpAddressPrefixLength()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyDIpMask.setStatus('current')
+sbiStandbyDIPv6Addr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 69), InetAddressIPv6().clone(hexValue="00000000000000000000000000000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyDIPv6Addr.setStatus('current')
+sbiStandbyDIPv6PfxLen = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 70), InetAddressPrefixLength().subtype(subtypeSpec=ValueRangeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiStandbyDIPv6PfxLen.setStatus('current')
+sbiMgmtIfIpMtu = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 11, 71), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(512, 9786), ))).setUnits('bytes').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sbiMgmtIfIpMtu.setStatus('current')
+sysPersistenceInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12))
+sysPersistenceDhcpL2Info = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 1))
+spiDhcpL2PersistenceFileLocation = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spiDhcpL2PersistenceFileLocation.setStatus('obsolete')
+spiDhcpL2PersistenceDescription = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 1, 2), TItemDescription()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spiDhcpL2PersistenceDescription.setStatus('obsolete')
+sysPersistenceDhcpL3Info = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 2))
+spiDhcpL3PersistenceFileLocation = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 2, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spiDhcpL3PersistenceFileLocation.setStatus('obsolete')
+spiDhcpL3PersistenceDescription = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 2, 2), TItemDescription()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spiDhcpL3PersistenceDescription.setStatus('obsolete')
+sysPersistenceSubMgmtInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 3))
+spiSubMgmtPersistenceFileLocation = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 3, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spiSubMgmtPersistenceFileLocation.setStatus('current')
+spiSubMgmtPersistenceDescription = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 3, 2), TItemDescription()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spiSubMgmtPersistenceDescription.setStatus('current')
+sysPersistenceDhcpSrvInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 4))
+spiDhcpSrvPersistenceFileLoc = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 4, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spiDhcpSrvPersistenceFileLoc.setStatus('current')
+spiDhcpSrvPersistenceDescr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 4, 2), TItemDescription()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spiDhcpSrvPersistenceDescr.setStatus('current')
+sysPersistenceNatInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 5))
+spiNatFwdPersistenceFileLoc = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 5, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spiNatFwdPersistenceFileLoc.setStatus('current')
+spiNatFwdPersistenceDescr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 5, 2), TItemDescription()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spiNatFwdPersistenceDescr.setStatus('current')
+sysPersistenceAAInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 6))
+spiAAPersistenceFileLoc = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 6, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spiAAPersistenceFileLoc.setStatus('current')
+spiAAPersistenceDescr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 6, 2), TItemDescription()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spiAAPersistenceDescr.setStatus('current')
+sysPersistenceAncpInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 7))
+spiAncpPersistenceFileLoc = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 7, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spiAncpPersistenceFileLoc.setStatus('current')
+spiAncpPersistenceDescr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 7, 2), TItemDescription()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spiAncpPersistenceDescr.setStatus('current')
+sysPersistencePythonInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 8))
+spiPythonPersistenceFileLoc = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 8, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spiPythonPersistenceFileLoc.setStatus('current')
+spiPythonPersistenceDescr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 8, 2), TItemDescription()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spiPythonPersistenceDescr.setStatus('current')
+tmnxDhcpLeaseTimeModeThreshold = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 12, 20), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 631152000))).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxDhcpLeaseTimeModeThreshold.setStatus('current')
+sysLiInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 13))
+sliConfigStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 13, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("notRun", 0), ("success", 1), ("fail", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sliConfigStatus.setStatus('current')
+sliSaveConfig = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 13, 2), TmnxActionType().clone('notApplicable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sliSaveConfig.setStatus('current')
+sliSaveConfigResult = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 13, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("inProgress", 2), ("success", 3), ("failed", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sliSaveConfigResult.setStatus('current')
+sliConfigLastModified = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 13, 4), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sliConfigLastModified.setStatus('current')
+sliConfigLastSaved = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 13, 5), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sliConfigLastSaved.setStatus('current')
+sliFilterLock = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 13, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("locked", 0), ("unlockedForLiUsers", 1), ("unlockedForAll", 2))).clone('locked')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sliFilterLock.setStatus('current')
+sysDNSInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 14))
+sysDNSInfoLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 14, 1), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sysDNSInfoLastChanged.setStatus('current')
+sysDNSAddressResolvePref = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 14, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ipv4Only", 1), ("ipv6First", 2))).clone('ipv4Only')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sysDNSAddressResolvePref.setStatus('current')
+sysDNSSecAdValidation = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 14, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sysDNSSecAdValidation.setStatus('current')
+sysDNSSecRespCtrl = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 14, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("fallThrough", 1), ("drop", 2))).clone('drop')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sysDNSSecRespCtrl.setStatus('current')
+sysIcmpVSInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 15))
+sysIcmpVSEnhancement = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 15, 1), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sysIcmpVSEnhancement.setStatus('current')
+sysEthInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 16))
+sysNewQinqUntaggedSap = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 16, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sysNewQinqUntaggedSap.setStatus('current')
+tmnxSysRollbackInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17))
+tmnxSysRollbackIndex = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 199))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRollbackIndex.setStatus('current')
+tmnxSysRollbackStart = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 2), TmnxActionType().clone('notApplicable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRollbackStart.setStatus('current')
+tmnxSysRollbackResult = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("none", 1), ("inProgress", 2), ("success", 3), ("failed", 4), ("interrupted", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackResult.setStatus('current')
+tmnxSysRollbackSave = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 4), TmnxActionType().clone('notApplicable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRollbackSave.setStatus('current')
+tmnxSysRollbackSaveResult = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("inProgress", 2), ("success", 3), ("failed", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackSaveResult.setStatus('current')
+tmnxSysRollbackLocation = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 6), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRollbackLocation.setStatus('current')
+tmnxSysRollbackRevertIndex = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 199))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackRevertIndex.setStatus('current')
+tmnxSysRollbackRevertEndTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 8), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackRevertEndTime.setStatus('current')
+tmnxSysRollbackSavedTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 9), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackSavedTime.setStatus('current')
+tmnxSysRollbackRevertStartTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 10), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackRevertStartTime.setStatus('current')
+tmnxSysRollbackRevertUserName = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 11), TNamedItemOrEmpty().clone(hexValue="")).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackRevertUserName.setStatus('current')
+tmnxSysRollbackRevertFilename = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 12), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackRevertFilename.setStatus('current')
+tmnxSysRollbackSaveComment = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255)).clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRollbackSaveComment.setStatus('current')
+tmnxSysRollbackFileDelete = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 14), TmnxActionType().clone('notApplicable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRollbackFileDelete.setStatus('current')
+tmnxSysRollbackFileDeleteResult = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("inProgress", 2), ("success", 3), ("failed", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackFileDeleteResult.setStatus('current')
+tmnxSysRollbackAbortRevert = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 16), TmnxActionType().clone('notApplicable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRollbackAbortRevert.setStatus('current')
+tmnxSysRollbackRescueLocation = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 17), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRollbackRescueLocation.setStatus('current')
+tmnxSysRollbackRescueRevert = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 18), TmnxActionType().clone('notApplicable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRollbackRescueRevert.setStatus('current')
+tmnxSysRollbackRescueSave = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 19), TmnxActionType().clone('notApplicable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRollbackRescueSave.setStatus('current')
+tmnxSysRollbackRescueDelete = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 20), TmnxActionType().clone('notApplicable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRollbackRescueDelete.setStatus('current')
+tmnxSysRollbackRescueSaveRes = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("inProgress", 2), ("success", 3), ("failed", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackRescueSaveRes.setStatus('current')
+tmnxSysRollbackRescueRevertRes = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("none", 1), ("inProgress", 2), ("success", 3), ("failed", 4), ("interrupted", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackRescueRevertRes.setStatus('current')
+tmnxSysRollbackRescueDeleteRes = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("inProgress", 2), ("success", 3), ("failed", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackRescueDeleteRes.setStatus('current')
+tmnxSysRollbackRescueSavedTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 24), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackRescueSavedTime.setStatus('current')
+tmnxSysRollbackRescueRevStTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 25), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackRescueRevStTime.setStatus('current')
+tmnxSysRollbackRescueRevEdTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 26), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackRescueRevEdTime.setStatus('current')
+tmnxSysRollbackRescueRevUser = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 27), TNamedItemOrEmpty().clone(hexValue="")).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackRescueRevUser.setStatus('current')
+tmnxSysRollbackRescueSaveComment = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 28), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255)).clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRollbackRescueSaveComment.setStatus('current')
+tmnxSysRollbackRescueAbortRevert = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 29), TmnxActionType().clone('notApplicable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRollbackRescueAbortRevert.setStatus('current')
+tmnxSysRollbackRescueFileExists = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 30), TruthValue().clone('false')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackRescueFileExists.setStatus('current')
+tmnxSysRollbackMaxLocalFiles = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 31), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 50)).clone(10)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRollbackMaxLocalFiles.setStatus('current')
+tmnxSysRollbackMaxRemoteFiles = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 17, 32), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 200)).clone(10)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRollbackMaxRemoteFiles.setStatus('current')
+tmnxSysRollbackTableLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 18), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackTableLastChanged.setStatus('current')
+tmnxSysRollbackFileTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 19), )
+if mibBuilder.loadTexts: tmnxSysRollbackFileTable.setStatus('current')
+tmnxSysRollbackFileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 19, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tmnxSysRollbackFileIndex"))
+if mibBuilder.loadTexts: tmnxSysRollbackFileEntry.setStatus('current')
+tmnxSysRollbackFileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 19, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 199)))
+if mibBuilder.loadTexts: tmnxSysRollbackFileIndex.setStatus('current')
+tmnxSysRollbackFileCreationTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 19, 1, 2), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackFileCreationTime.setStatus('current')
+tmnxSysRollbackFileComment = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 19, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackFileComment.setStatus('current')
+tmnxSysRollbackFileUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 19, 1, 4), TNamedItemOrEmpty()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackFileUserName.setStatus('current')
+tmnxSysRollbackFileVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 19, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRollbackFileVersion.setStatus('current')
+sysBootedBofInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 20))
+sbbiLiSeparate = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 20, 1), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sbbiLiSeparate.setStatus('current')
+sbbiLiLocalSave = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 20, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sbbiLiLocalSave.setStatus('current')
+sysMGMCSwitchOverInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 21))
+tmnxSysCandidateCfgInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 22))
+tmnxSysCandidateCfgState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 22, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("unmodified", 0), ("modified", 1), ("unconfirmed", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCandidateCfgState.setStatus('current')
+tmnxSysCandidateCfgEditors = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 22, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCandidateCfgEditors.setStatus('current')
+tmnxSysCandidateCfgCommitState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 22, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("none", 0), ("in-progress", 1), ("success", 2), ("revert-pending", 3), ("failed", 4), ("revert-in-progress", 5), ("reverted", 6), ("revert-failed", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCandidateCfgCommitState.setStatus('current')
+tmnxSysCandidateCfgCommitTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 22, 4), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCandidateCfgCommitTime.setStatus('current')
+tmnxSysCandidateCfgRevertTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 22, 5), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCandidateCfgRevertTime.setStatus('current')
+tmnxSysCandidateCfgChckptCreated = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 22, 6), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCandidateCfgChckptCreated.setStatus('current')
+tmnxSysCandidateCfgUser = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 22, 7), TNamedItemOrEmpty()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCandidateCfgUser.setStatus('current')
+tmnxSysCandidateCfgExclusiveUsr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 22, 8), TNamedItemOrEmpty()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCandidateCfgExclusiveUsr.setStatus('current')
+tmnxSysNetconfInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23))
+tmnxSysNetconfAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 1), TmnxAdminState().clone('outOfService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysNetconfAdminStatus.setStatus('current')
+tmnxSysNetconfOperStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 2), TmnxOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfOperStatus.setStatus('current')
+tmnxSysNetconfRequests = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfRequests.setStatus('current')
+tmnxSysNetconfGetRequests = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfGetRequests.setStatus('current')
+tmnxSysNetconfGetConfigRequests = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfGetConfigRequests.setStatus('current')
+tmnxSysNetconfEditConfigRequests = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfEditConfigRequests.setStatus('current')
+tmnxSysNetconfCloseRequests = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfCloseRequests.setStatus('current')
+tmnxSysNetconfKillRequests = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfKillRequests.setStatus('current')
+tmnxSysNetconfResponses = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfResponses.setStatus('current')
+tmnxSysNetconfErrorResponses = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfErrorResponses.setStatus('current')
+tmnxSysNetconfCopyConfigRequests = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfCopyConfigRequests.setStatus('current')
+tmnxSysNetconfDelConfigRequests = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfDelConfigRequests.setStatus('current')
+tmnxSysNetconfValidateRequests = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfValidateRequests.setStatus('current')
+tmnxSysNetconfFailedEditCfgReqs = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfFailedEditCfgReqs.setStatus('current')
+tmnxSysNetconfFailedLockReqs = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfFailedLockReqs.setStatus('current')
+tmnxSysNetconfLockRequests = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfLockRequests.setStatus('current')
+tmnxSysNetconfUnlockRequests = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 17), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfUnlockRequests.setStatus('current')
+tmnxSysNetconfCommitRequests = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 18), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfCommitRequests.setStatus('current')
+tmnxSysNetconfDiscardRequests = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 19), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfDiscardRequests.setStatus('current')
+tmnxSysNetconfCapCandidateCfg = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 20), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysNetconfCapCandidateCfg.setStatus('current')
+tmnxSysNetconfCapRunningCfg = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 21), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysNetconfCapRunningCfg.setStatus('current')
+tmnxSysNetconfYangBaseR13 = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 22), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysNetconfYangBaseR13.setStatus('obsolete')
+tmnxSysNetconfYangNokia = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 23), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysNetconfYangNokia.setStatus('obsolete')
+tmnxSysNetconfCreateSubRequests = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 24), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfCreateSubRequests.setStatus('current')
+tmnxSysNetconfAutoCfgSave = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 25), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysNetconfAutoCfgSave.setStatus('current')
+tmnxSysNetconfPort = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 26), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(22, 22), ValueRangeConstraint(830, 830), )).clone(830)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysNetconfPort.setStatus('current')
+tmnxSysNetconfGetSchemaRequests = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 27), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfGetSchemaRequests.setStatus('current')
+tmnxSysNetconfGetDataRequests = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 28), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfGetDataRequests.setStatus('current')
+tmnxSysNetconfActionRequests = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 23, 29), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNetconfActionRequests.setStatus('current')
+tmnxDCSysObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 24))
+tmnxSysStrmInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 25))
+tmnxSysStrmAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 25, 1), TmnxAdminState().clone('outOfService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysStrmAdminStatus.setStatus('current')
+tmnxSysStrmDumpSnmpRequests = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 25, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysStrmDumpSnmpRequests.setStatus('current')
+tmnxSysStrmGetManyRequests = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 25, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysStrmGetManyRequests.setStatus('current')
+tmnxSysStrmResponses = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 25, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysStrmResponses.setStatus('current')
+tmnxSysXmppInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26))
+tmnxSysXmppServerTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1), )
+if mibBuilder.loadTexts: tmnxSysXmppServerTable.setStatus('current')
+tmnxSysXmppServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tmnxSysXmppServName"))
+if mibBuilder.loadTexts: tmnxSysXmppServerEntry.setStatus('current')
+tmnxSysXmppServName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32)))
+if mibBuilder.loadTexts: tmnxSysXmppServName.setStatus('current')
+tmnxSysXmppServFQDN = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysXmppServFQDN.setStatus('current')
+tmnxSysXmppServRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysXmppServRowStatus.setStatus('current')
+tmnxSysXmppServUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 4), TNamedItemOrEmpty()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysXmppServUserName.setStatus('current')
+tmnxSysXmppServPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysXmppServPassword.setStatus('current')
+tmnxSysXmppServLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 6), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServLastChanged.setStatus('current')
+tmnxSysXmppServUptime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 7), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServUptime.setStatus('current')
+tmnxSysXmppServIQSent = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServIQSent.setStatus('current')
+tmnxSysXmppServIQRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 9), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServIQRcvd.setStatus('current')
+tmnxSysXmppServIQError = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 10), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServIQError.setStatus('current')
+tmnxSysXmppServIQTimedOut = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 11), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServIQTimedOut.setStatus('current')
+tmnxSysXmppServIQAckRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 12), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServIQAckRcvd.setStatus('current')
+tmnxSysXmppServIQMinRtt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 13), Counter64()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServIQMinRtt.setStatus('current')
+tmnxSysXmppServIQMaxRtt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 14), Counter64()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServIQMaxRtt.setStatus('current')
+tmnxSysXmppServVsdUpdatesRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 15), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServVsdUpdatesRcvd.setStatus('current')
+tmnxSysXmppServUpdatesRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 16), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServUpdatesRcvd.setStatus('current')
+tmnxSysXmppServMsgSent = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 17), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServMsgSent.setStatus('current')
+tmnxSysXmppServMsgRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 18), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServMsgRcvd.setStatus('current')
+tmnxSysXmppServMsgAckRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 19), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServMsgAckRcvd.setStatus('current')
+tmnxSysXmppServMsgError = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 20), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServMsgError.setStatus('current')
+tmnxSysXmppServMsgTimedOut = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 21), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServMsgTimedOut.setStatus('current')
+tmnxSysXmppServMsgMinRtt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 22), Counter64()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServMsgMinRtt.setStatus('current')
+tmnxSysXmppServMsgMaxRtt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 23), Counter64()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServMsgMaxRtt.setStatus('current')
+tmnxSysXmppServSubSent = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 24), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServSubSent.setStatus('current')
+tmnxSysXmppServUnSubSent = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 25), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServUnSubSent.setStatus('current')
+tmnxSysXmppServState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 26), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServState.setStatus('current')
+tmnxSysXmppServAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 27), TmnxAdminState().clone('outOfService')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysXmppServAdminState.setStatus('current')
+tmnxSysXmppServOperUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 28), TNamedItemOrEmpty()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServOperUserName.setStatus('current')
+tmnxSysXmppServAuthType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 29), TNamedItemOrEmpty()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServAuthType.setStatus('current')
+tmnxSysXmppServConnMode = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 30), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inBand", 1), ("outOfBand", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysXmppServConnMode.setStatus('current')
+tmnxSysXmppServServiceId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 31), TmnxServId()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysXmppServServiceId.setStatus('current')
+tmnxSysXmppServRouterId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 1, 1, 32), TmnxVRtrIDOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysXmppServRouterId.setStatus('current')
+tmnxSysVsdServerTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 2), )
+if mibBuilder.loadTexts: tmnxSysVsdServerTable.setStatus('current')
+tmnxSysVsdServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 2, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tmnxSysVsdServerInstance"))
+if mibBuilder.loadTexts: tmnxSysVsdServerEntry.setStatus('current')
+tmnxSysVsdServerInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: tmnxSysVsdServerInstance.setStatus('current')
+tmnxSysVsdServUptime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 2, 1, 2), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysVsdServUptime.setStatus('current')
+tmnxSysVsdServUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 2, 1, 3), TLDisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysVsdServUserName.setStatus('current')
+tmnxSysVsdServerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysVsdServerStatus.setStatus('current')
+tmnxSysVsdServMsgSent = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 2, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysVsdServMsgSent.setStatus('current')
+tmnxSysVsdServMsgRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 2, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysVsdServMsgRcvd.setStatus('current')
+tmnxSysVsdServMsgAckRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 2, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysVsdServMsgAckRcvd.setStatus('current')
+tmnxSysVsdServMsgError = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 2, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysVsdServMsgError.setStatus('current')
+tmnxSysVsdServMsgTimedOut = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 2, 1, 9), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysVsdServMsgTimedOut.setStatus('current')
+tmnxSysVsdServMsgMinRtt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 2, 1, 10), Counter64()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysVsdServMsgMinRtt.setStatus('current')
+tmnxSysVsdServMsgMaxRtt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 26, 2, 1, 11), Counter64()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysVsdServMsgMaxRtt.setStatus('current')
+tmnxSysResInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27))
+tmnxSysResCardInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 1))
+tmnxCardCpuResMonitorTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 1, 1), )
+if mibBuilder.loadTexts: tmnxCardCpuResMonitorTable.setStatus('current')
+tmnxCardCpuResMonitorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 1, 1, 1), ).setIndexNames((0, "TIMETRA-CHASSIS-MIB", "tmnxChassisIndex"), (0, "TIMETRA-SYSTEM-MIB", "tmnxCardResourceSlotNum"), (0, "TIMETRA-SYSTEM-MIB", "tmnxCardCpuResSampleTime"))
+if mibBuilder.loadTexts: tmnxCardCpuResMonitorEntry.setStatus('current')
+tmnxCardResourceSlotNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 1, 1, 1, 1), TmnxSlotNum())
+if mibBuilder.loadTexts: tmnxCardResourceSlotNum.setStatus('current')
+tmnxCardCpuResSampleTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 1, 1, 1, 2), TmnxSysMonSampleTime())
+if mibBuilder.loadTexts: tmnxCardCpuResSampleTime.setStatus('current')
+tmnxCardCpuResMonCpuIdle = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 1, 1, 1, 3), TmnxSysMonUtilization()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCardCpuResMonCpuIdle.setStatus('current')
+tmnxCardCpuResMonBusyCoreUtil = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 1, 1, 1, 4), TmnxSysMonUtilization()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCardCpuResMonBusyCoreUtil.setStatus('current')
+tmnxCardCpuResMonBusyGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 1, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCardCpuResMonBusyGroupName.setStatus('current')
+tmnxCardCpuResMonBusyGroupUtil = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 1, 1, 1, 6), TmnxSysMonUtilization()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCardCpuResMonBusyGroupUtil.setStatus('current')
+tmnxCardMemResMonitorTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 1, 2), )
+if mibBuilder.loadTexts: tmnxCardMemResMonitorTable.setStatus('current')
+tmnxCardMemResMonitorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 1, 2, 1), ).setIndexNames((0, "TIMETRA-CHASSIS-MIB", "tmnxChassisIndex"), (0, "TIMETRA-SYSTEM-MIB", "tmnxCardResourceSlotNum"))
+if mibBuilder.loadTexts: tmnxCardMemResMonitorEntry.setStatus('current')
+tmnxCardMemResMemoryUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 1, 2, 1, 1), Gauge32()).setUnits('kilobytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCardMemResMemoryUsed.setStatus('current')
+tmnxCardMemResMemoryAvailable = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 1, 2, 1, 2), Gauge32()).setUnits('kilobytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCardMemResMemoryAvailable.setStatus('current')
+tmnxCardMemResPoolsAllocated = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 1, 2, 1, 3), Gauge32()).setUnits('kilobytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCardMemResPoolsAllocated.setStatus('current')
+tmnxSysResEcmpProfInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 2))
+tmnxSysResEcmpProfTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 2, 1), )
+if mibBuilder.loadTexts: tmnxSysResEcmpProfTable.setStatus('current')
+tmnxSysResEcmpProfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 2, 1, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tmnxSysResEcmpProfId"))
+if mibBuilder.loadTexts: tmnxSysResEcmpProfEntry.setStatus('current')
+tmnxSysResEcmpProfId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 2, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2)))
+if mibBuilder.loadTexts: tmnxSysResEcmpProfId.setStatus('current')
+tmnxSysResEcmpProfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 2, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysResEcmpProfRowStatus.setStatus('current')
+tmnxSysResEcmpProfType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("mpls", 1), ("ip", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysResEcmpProfType.setStatus('current')
+tmnxSysResEcmpProfLinksPerGrp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 2, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysResEcmpProfLinksPerGrp.setStatus('current')
+tmnxSysResEcmpProfNumGrps = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 2, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2048))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysResEcmpProfNumGrps.setStatus('current')
+tmnxSysResItCam = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 3))
+tmnxSysResItCamBank = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 3, 1))
+tmnxSysResItCamBankV6Multicast = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 5))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysResItCamBankV6Multicast.setStatus('current')
+tmnxSysFpCam = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 4))
+tmnxSysFpCamAllocation = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 4, 1))
+tmnxSysFpCamAllocAdmnV6Multicast = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 4, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 10240))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysFpCamAllocAdmnV6Multicast.setStatus('current')
+tmnxSysFpCamAllocOperV6Multicast = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 4, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 10240))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysFpCamAllocOperV6Multicast.setStatus('current')
+tmnxSysFpResAlloc = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 5))
+tmnxSysFpResAllocation = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 5, 1))
+tmnxSysFpResAllocG8032Sap = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 5, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4096))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysFpResAllocG8032Sap.setStatus('current')
+tmnxSysFpResAllocOperG8032Sap = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 27, 5, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4096))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysFpResAllocOperG8032Sap.setStatus('current')
+tmnxSysDhcp = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 28))
+tmnxSysDhcp6AdvNoaddrsGlobal = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 28, 1), Bits().clone(namedValues=NamedValues(("esmProxy", 0), ("esmRelay", 1), ("relay", 2), ("server", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysDhcp6AdvNoaddrsGlobal.setStatus('current')
+tmnxSysVsdInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 29))
+tmnxSysVsdSystemId = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 29, 1), TNamedItemOrEmpty().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysVsdSystemId.setStatus('current')
+tmnxSysVsdGwPubSubIsSubscrd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 29, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysVsdGwPubSubIsSubscrd.setStatus('current')
+tmnxSysVsdGwPubSubNodeName = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 29, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysVsdGwPubSubNodeName.setStatus('current')
+tmnxSysVsdGwPubSubLstSubscrdTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 29, 4), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysVsdGwPubSubLstSubscrdTime.setStatus('current')
+tmnxSysVsdGwLastAuditTxTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 29, 5), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysVsdGwLastAuditTxTime.setStatus('current')
+tmnxSysLicense = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30))
+tmnxSysLicenseStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 1), TItemDescription()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysLicenseStatus.setStatus('current')
+tmnxSysLicenseName = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 2), TItemDescription()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysLicenseName.setStatus('current')
+tmnxSysLicenseUuid = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 3), TmnxUuid()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysLicenseUuid.setStatus('current')
+tmnxSysLicenseDescription = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 4), TItemDescription()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysLicenseDescription.setStatus('current')
+tmnxSysLicenseProduct = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 5), TItemDescription()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysLicenseProduct.setStatus('current')
+tmnxSysLicenseSwVersion = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 6), TItemDescription()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysLicenseSwVersion.setStatus('current')
+tmnxSysLicenseIssueDateAndTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 7), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysLicenseIssueDateAndTime.setStatus('current')
+tmnxSysLicenseStartDateAndTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 8), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysLicenseStartDateAndTime.setStatus('current')
+tmnxSysLicenseEndDateAndTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 9), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysLicenseEndDateAndTime.setStatus('current')
+tmnxSysLicenseVChassisType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 10), TNamedItemOrEmpty()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysLicenseVChassisType.setStatus('current')
+tmnxSysLicenseMaxNumCPMs = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 11), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysLicenseMaxNumCPMs.setStatus('current')
+tmnxSysLicenseMaxNumIOMs = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 12), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysLicenseMaxNumIOMs.setStatus('current')
+tmnxSysCpmCardLicenseTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 13), )
+if mibBuilder.loadTexts: tmnxSysCpmCardLicenseTable.setStatus('current')
+tmnxSysCpmCardLicenseEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 13, 1), ).setIndexNames((0, "TIMETRA-CHASSIS-MIB", "tmnxChassisIndex"), (0, "TIMETRA-CHASSIS-MIB", "tmnxCpmCardSlotNum"), (0, "TIMETRA-CHASSIS-MIB", "tmnxCpmCardNum"))
+if mibBuilder.loadTexts: tmnxSysCpmCardLicenseEntry.setStatus('current')
+tmnxSysCpmCardLicStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 13, 1, 1), TItemDescription()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCpmCardLicStatus.setStatus('current')
+tmnxSysCpmCardLicName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 13, 1, 2), TItemDescription()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCpmCardLicName.setStatus('current')
+tmnxSysCpmCardLicUuid = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 13, 1, 3), TmnxUuid()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCpmCardLicUuid.setStatus('current')
+tmnxSysCpmCardLicDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 13, 1, 4), TItemDescription()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCpmCardLicDescription.setStatus('current')
+tmnxSysCpmCardLicProduct = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 13, 1, 5), TItemDescription()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCpmCardLicProduct.setStatus('current')
+tmnxSysCpmCardLicSwVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 13, 1, 6), TItemDescription()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCpmCardLicSwVersion.setStatus('current')
+tmnxSysCpmCardLicIssueDateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 13, 1, 7), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCpmCardLicIssueDateTime.setStatus('current')
+tmnxSysCpmCardLicStartDateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 13, 1, 8), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCpmCardLicStartDateTime.setStatus('current')
+tmnxSysCpmCardLicEndDateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 13, 1, 9), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCpmCardLicEndDateTime.setStatus('current')
+tmnxSysCpmCardLicVChassisType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 13, 1, 10), TNamedItemOrEmpty()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCpmCardLicVChassisType.setStatus('current')
+tmnxSysCpmCardLicMaxNumCPMs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 13, 1, 11), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCpmCardLicMaxNumCPMs.setStatus('current')
+tmnxSysCpmCardLicMaxNumIOMs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 13, 1, 12), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCpmCardLicMaxNumIOMs.setStatus('current')
+tmnxSysCpmCardLicFeatureTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 14), )
+if mibBuilder.loadTexts: tmnxSysCpmCardLicFeatureTable.setStatus('current')
+tmnxSysCpmCardLicFeatureEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 14, 1), ).setIndexNames((0, "TIMETRA-CHASSIS-MIB", "tmnxChassisIndex"), (0, "TIMETRA-CHASSIS-MIB", "tmnxCpmCardSlotNum"), (0, "TIMETRA-CHASSIS-MIB", "tmnxCpmCardNum"), (0, "TIMETRA-SYSTEM-MIB", "tmnxSysCpmCardLicFeatApplication"), (0, "TIMETRA-SYSTEM-MIB", "tmnxSysCpmCardLicFeatNumber"))
+if mibBuilder.loadTexts: tmnxSysCpmCardLicFeatureEntry.setStatus('current')
+tmnxSysCpmCardLicFeatApplication = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 14, 1, 1), TNamedItem())
+if mibBuilder.loadTexts: tmnxSysCpmCardLicFeatApplication.setStatus('current')
+tmnxSysCpmCardLicFeatNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 14, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: tmnxSysCpmCardLicFeatNumber.setStatus('current')
+tmnxSysCpmCardLicFeatDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 14, 1, 3), TItemDescription()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysCpmCardLicFeatDescription.setStatus('current')
+tmnxSysLicensingTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 16), )
+if mibBuilder.loadTexts: tmnxSysLicensingTable.setStatus('current')
+tmnxSysLicensingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 16, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tmnxSysLicensingGroup"), (0, "TIMETRA-SYSTEM-MIB", "tmnxSysLicensedAppName"))
+if mibBuilder.loadTexts: tmnxSysLicensingEntry.setStatus('current')
+tmnxSysLicensingGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 16, 1, 1), TmnxSysLicensingGroup())
+if mibBuilder.loadTexts: tmnxSysLicensingGroup.setStatus('current')
+tmnxSysLicensedAppName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 16, 1, 2), TNamedItem())
+if mibBuilder.loadTexts: tmnxSysLicensedAppName.setStatus('current')
+tmnxSysAppLicenseDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 16, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAppLicenseDescription.setStatus('current')
+tmnxSysAppLicenseType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 16, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("unknown", 0), ("pool", 1), ("rtu", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAppLicenseType.setStatus('current')
+tmnxSysAppLicensePoolSize = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 16, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAppLicensePoolSize.setStatus('current')
+tmnxSysAppLicenseAllocated = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 16, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAppLicenseAllocated.setStatus('current')
+tmnxSysAppLicensePresent = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 16, 1, 7), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAppLicensePresent.setStatus('current')
+tmnxSysAppLicenseState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 16, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("unknown", 0), ("valid", 1), ("error", 2), ("violation", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAppLicenseState.setStatus('current')
+tmnxSysAvailableLicensesTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 17), )
+if mibBuilder.loadTexts: tmnxSysAvailableLicensesTable.setStatus('current')
+tmnxSysAvailableLicensesEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 17, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tmnxSysAvailLicenseIndex"))
+if mibBuilder.loadTexts: tmnxSysAvailableLicensesEntry.setStatus('current')
+tmnxSysAvailLicenseIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 17, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: tmnxSysAvailLicenseIndex.setStatus('current')
+tmnxSysAvailLicenseName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 17, 1, 2), TItemDescription()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAvailLicenseName.setStatus('current')
+tmnxSysAvailLicenseUuid = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 17, 1, 3), TmnxUuid()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAvailLicenseUuid.setStatus('current')
+tmnxSysAvailLicenseDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 17, 1, 4), TItemDescription()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAvailLicenseDescription.setStatus('current')
+tmnxSysAvailLicenseSwVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 17, 1, 5), TItemDescription()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAvailLicenseSwVersion.setStatus('current')
+tmnxSysAvailLicIssueDateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 17, 1, 6), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAvailLicIssueDateTime.setStatus('current')
+tmnxSysAvailLicStartDateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 17, 1, 7), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAvailLicStartDateTime.setStatus('current')
+tmnxSysAvailLicEndDateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 17, 1, 8), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAvailLicEndDateTime.setStatus('current')
+tmnxSysAvailLicenseProduct = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 17, 1, 9), TItemDescription()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAvailLicenseProduct.setStatus('current')
+tmnxSysLicensingState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("unlicensed", 0), ("licensed", 1), ("invalid-license", 2), ("expired-license", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysLicensingState.setStatus('current')
+tmnxSysLicensingRebootPending = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 19), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysLicensingRebootPending.setStatus('current')
+tmnxSysLicenseStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20))
+tmnxSysAppStats24HrsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 1), )
+if mibBuilder.loadTexts: tmnxSysAppStats24HrsTable.setStatus('current')
+tmnxSysAppStats24HrsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 1, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tmnxSysAppStats24HrsApplication"), (0, "TIMETRA-SYSTEM-MIB", "tmnxSysAppStats24HrsType"), (0, "TIMETRA-SYSTEM-MIB", "tmnxSysAppStats24HrsIndex"))
+if mibBuilder.loadTexts: tmnxSysAppStats24HrsEntry.setStatus('current')
+tmnxSysAppStats24HrsApplication = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 1, 1, 1), TmnxSysLicenseApplication())
+if mibBuilder.loadTexts: tmnxSysAppStats24HrsApplication.setStatus('current')
+tmnxSysAppStats24HrsType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 1, 1, 2), TmnxSysLicenseAppStatsType())
+if mibBuilder.loadTexts: tmnxSysAppStats24HrsType.setStatus('current')
+tmnxSysAppStats24HrsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 1, 1, 3), Unsigned32())
+if mibBuilder.loadTexts: tmnxSysAppStats24HrsIndex.setStatus('current')
+tmnxSysAppStats24HrsName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAppStats24HrsName.setStatus('current')
+tmnxSysAppStats24HrsValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 1, 1, 5), CounterBasedGauge64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAppStats24HrsValue.setStatus('current')
+tmnxSysAppStats24HrsTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 1, 1, 6), DateAndTime().subtype(subtypeSpec=ValueSizeConstraint(11, 11)).setFixedLength(11)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAppStats24HrsTime.setStatus('current')
+tmnxSysAppStatsWeekTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 2), )
+if mibBuilder.loadTexts: tmnxSysAppStatsWeekTable.setStatus('current')
+tmnxSysAppStatsWeekEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 2, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tmnxSysAppStatsWeekApplication"), (0, "TIMETRA-SYSTEM-MIB", "tmnxSysAppStatsWeekType"), (0, "TIMETRA-SYSTEM-MIB", "tmnxSysAppStatsWeekIndex"))
+if mibBuilder.loadTexts: tmnxSysAppStatsWeekEntry.setStatus('current')
+tmnxSysAppStatsWeekApplication = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 2, 1, 1), TmnxSysLicenseApplication())
+if mibBuilder.loadTexts: tmnxSysAppStatsWeekApplication.setStatus('current')
+tmnxSysAppStatsWeekType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 2, 1, 2), TmnxSysLicenseAppStatsType())
+if mibBuilder.loadTexts: tmnxSysAppStatsWeekType.setStatus('current')
+tmnxSysAppStatsWeekIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 2, 1, 3), Unsigned32())
+if mibBuilder.loadTexts: tmnxSysAppStatsWeekIndex.setStatus('current')
+tmnxSysAppStatsWeekName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAppStatsWeekName.setStatus('current')
+tmnxSysAppStatsWeekAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 2, 1, 5), CounterBasedGauge64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAppStatsWeekAverage.setStatus('current')
+tmnxSysAppStatsWeekPeak = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 2, 1, 6), CounterBasedGauge64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAppStatsWeekPeak.setStatus('current')
+tmnxSysAppStatsWeekTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 2, 1, 7), DateAndTime().subtype(subtypeSpec=ValueSizeConstraint(11, 11)).setFixedLength(11)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAppStatsWeekTime.setStatus('current')
+tmnxSysAppStatsPeakTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 3), )
+if mibBuilder.loadTexts: tmnxSysAppStatsPeakTable.setStatus('current')
+tmnxSysAppStatsPeakEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 3, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tmnxSysAppStatsPeakApplication"), (0, "TIMETRA-SYSTEM-MIB", "tmnxSysAppStatsPeakType"))
+if mibBuilder.loadTexts: tmnxSysAppStatsPeakEntry.setStatus('current')
+tmnxSysAppStatsPeakApplication = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 3, 1, 1), TmnxSysLicenseApplication())
+if mibBuilder.loadTexts: tmnxSysAppStatsPeakApplication.setStatus('current')
+tmnxSysAppStatsPeakType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 3, 1, 2), TmnxSysLicenseAppStatsType())
+if mibBuilder.loadTexts: tmnxSysAppStatsPeakType.setStatus('current')
+tmnxSysAppStatsPeakName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAppStatsPeakName.setStatus('current')
+tmnxSysAppStatsPeakValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 3, 1, 4), CounterBasedGauge64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAppStatsPeakValue.setStatus('current')
+tmnxSysAppStatsPeakTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 3, 1, 5), DateAndTime().subtype(subtypeSpec=ValueSizeConstraint(11, 11)).setFixedLength(11)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAppStatsPeakTime.setStatus('current')
+tmnxSysAppStats48HrsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 4), )
+if mibBuilder.loadTexts: tmnxSysAppStats48HrsTable.setStatus('current')
+tmnxSysAppStats48HrsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 4, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tmnxSysAppStats48HrsApplication"), (0, "TIMETRA-SYSTEM-MIB", "tmnxSysAppStats48HrsType"), (0, "TIMETRA-SYSTEM-MIB", "tmnxSysAppStats48HrsIndex"))
+if mibBuilder.loadTexts: tmnxSysAppStats48HrsEntry.setStatus('current')
+tmnxSysAppStats48HrsApplication = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 4, 1, 1), TmnxSysLicenseApplication())
+if mibBuilder.loadTexts: tmnxSysAppStats48HrsApplication.setStatus('current')
+tmnxSysAppStats48HrsType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 4, 1, 2), TmnxSysLicenseAppStatsType())
+if mibBuilder.loadTexts: tmnxSysAppStats48HrsType.setStatus('current')
+tmnxSysAppStats48HrsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 4, 1, 3), Unsigned32())
+if mibBuilder.loadTexts: tmnxSysAppStats48HrsIndex.setStatus('current')
+tmnxSysAppStats48HrsName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 4, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAppStats48HrsName.setStatus('current')
+tmnxSysAppStats48HrsValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 4, 1, 5), CounterBasedGauge64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAppStats48HrsValue.setStatus('current')
+tmnxSysAppStats48HrsTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 20, 4, 1, 6), DateAndTime().subtype(subtypeSpec=ValueSizeConstraint(11, 11)).setFixedLength(11)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysAppStats48HrsTime.setStatus('current')
+tmnxSysLicensingProduct = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 21), TItemDescription()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysLicensingProduct.setStatus('current')
+tmnxSysLicensingUuid = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 30, 22), TmnxUuid()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysLicensingUuid.setStatus('current')
+tmnxSysFibInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 31))
+tmnxSysFibSelective = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 31, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysFibSelective.setStatus('current')
+tmnxSysSnmpSrcAccessObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 32))
+tmnxSysSnmpConfigObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 32, 1))
+tmnxSysSnmpSrcAccessTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 32, 1, 1), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysSnmpSrcAccessTblLstChgd.setStatus('current')
+tmnxSysSnmpSrcAccessLstTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 32, 1, 2), )
+if mibBuilder.loadTexts: tmnxSysSnmpSrcAccessLstTable.setStatus('current')
+tmnxSysSnmpSrcAccessLstEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 32, 1, 2, 1), ).setIndexNames((1, "TIMETRA-SYSTEM-MIB", "tmnxSysSnmpSrcAccessLstName"))
+if mibBuilder.loadTexts: tmnxSysSnmpSrcAccessLstEntry.setStatus('current')
+tmnxSysSnmpSrcAccessLstName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 32, 1, 2, 1, 1), TNamedItem())
+if mibBuilder.loadTexts: tmnxSysSnmpSrcAccessLstName.setStatus('current')
+tmnxSysSnmpSrcAccessLstRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 32, 1, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysSnmpSrcAccessLstRowStatus.setStatus('current')
+tmnxSysSnmpSrcAccessLstLastChg = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 32, 1, 2, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysSnmpSrcAccessLstLastChg.setStatus('current')
+tmnxSysSnmpStatsObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 32, 2))
+tmnxSysSnmpCommunityStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 32, 2, 1), )
+if mibBuilder.loadTexts: tmnxSysSnmpCommunityStatsTable.setStatus('current')
+tmnxSysSnmpCommunityStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 32, 2, 1, 1), )
+snmpCommunityEntry.registerAugmentions(("TIMETRA-SYSTEM-MIB", "tmnxSysSnmpCommunityStatsEntry"))
 tmnxSysSnmpCommunityStatsEntry.setIndexNames(*snmpCommunityEntry.getIndexNames())
-smLaunchEntry.registerAugmentions((_A,_FI))
+if mibBuilder.loadTexts: tmnxSysSnmpCommunityStatsEntry.setStatus('current')
+tmnxSysSnmpCommunityPktDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 32, 2, 1, 1, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysSnmpCommunityPktDropped.setStatus('current')
+tmnxSysMgmtProtocolObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 33))
+tmnxSysMgmtProtocolTblLstChng = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 33, 1), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtProtocolTblLstChng.setStatus('current')
+tmnxSysMgmtProtocolTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 33, 2), )
+if mibBuilder.loadTexts: tmnxSysMgmtProtocolTable.setStatus('current')
+tmnxSysMgmtProtocolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 33, 2, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tmnxSysMgmtProtocol"))
+if mibBuilder.loadTexts: tmnxSysMgmtProtocolEntry.setStatus('current')
+tmnxSysMgmtProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 33, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("cli", 0))))
+if mibBuilder.loadTexts: tmnxSysMgmtProtocol.setStatus('current')
+tmnxSysMgmtProtLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 33, 2, 1, 2), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtProtLastChange.setStatus('current')
+tmnxSysMgmtAllowImmediateChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 33, 2, 1, 3), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysMgmtAllowImmediateChange.setStatus('current')
+tmnxSysMgmtCliEngine1 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 33, 2, 1, 4), TmnxCliEngine().clone('systemDerived')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysMgmtCliEngine1.setStatus('current')
+tmnxSysMgmtCliEngine2 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 33, 2, 1, 5), TmnxCliEngine().clone('systemDerived')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysMgmtCliEngine2.setStatus('current')
+tmnxSysFileTransProfObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 34))
+tmnxSysFileTransProfTableLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 34, 1), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysFileTransProfTableLstChgd.setStatus('current')
+tmnxSysFileTransProfTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 34, 2), )
+if mibBuilder.loadTexts: tmnxSysFileTransProfTable.setStatus('current')
+tmnxSysFileTransProfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 34, 2, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tmnxSysFileTransProfName"))
+if mibBuilder.loadTexts: tmnxSysFileTransProfEntry.setStatus('current')
+tmnxSysFileTransProfName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 34, 2, 1, 1), TNamedItem())
+if mibBuilder.loadTexts: tmnxSysFileTransProfName.setStatus('current')
+tmnxSysFileTransProfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 34, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysFileTransProfRowStatus.setStatus('current')
+tmnxSysFileTransProfLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 34, 2, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysFileTransProfLastChanged.setStatus('current')
+tmnxSysFileTransProfRtrId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 34, 2, 1, 4), TmnxVRtrIDOrZero().clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysFileTransProfRtrId.setStatus('current')
+tmnxSysFileTransProfSvcId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 34, 2, 1, 5), TmnxServId().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysFileTransProfSvcId.setStatus('current')
+tmnxSysFileTransProfSrcAddrV4T = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 34, 2, 1, 6), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysFileTransProfSrcAddrV4T.setStatus('current')
+tmnxSysFileTransProfSrcAddrV4 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 34, 2, 1, 7), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), )).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysFileTransProfSrcAddrV4.setStatus('current')
+tmnxSysFileTransProfSrcAddrV6T = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 34, 2, 1, 8), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysFileTransProfSrcAddrV6T.setStatus('current')
+tmnxSysFileTransProfSrcAddrV6 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 34, 2, 1, 9), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(16, 16), )).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysFileTransProfSrcAddrV6.setStatus('current')
+tmnxSysFileTransProfTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 34, 2, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 3600)).clone(60)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysFileTransProfTimeout.setStatus('current')
+tmnxSysFileTransProfRetry = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 34, 2, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 256))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysFileTransProfRetry.setStatus('current')
+tmnxSysFileTransProfRedirection = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 34, 2, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 8))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysFileTransProfRedirection.setStatus('current')
+tmnxSysFileTransProfSvcName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 34, 2, 1, 13), TLNamedItemOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysFileTransProfSvcName.setStatus('current')
+tmnxEhsExtObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 35))
+tmnxSmLaunchExtTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 35, 1), )
+if mibBuilder.loadTexts: tmnxSmLaunchExtTable.setStatus('current')
+tmnxSmLaunchExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 35, 1, 1), )
+smLaunchEntry.registerAugmentions(("TIMETRA-SYSTEM-MIB", "tmnxSmLaunchExtEntry"))
 tmnxSmLaunchExtEntry.setIndexNames(*smLaunchEntry.getIndexNames())
-smRunEntry.registerAugmentions((_A,_FJ))
+if mibBuilder.loadTexts: tmnxSmLaunchExtEntry.setStatus('current')
+tmnxSmLaunchExtAuthType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 35, 1, 1, 1), TmnxScriptAuthType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSmLaunchExtAuthType.setStatus('current')
+tmnxSmLaunchExtLockOverride = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 35, 1, 1, 2), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSmLaunchExtLockOverride.setStatus('current')
+tmnxSmRunExtTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 35, 2), )
+if mibBuilder.loadTexts: tmnxSmRunExtTable.setStatus('current')
+tmnxSmRunExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 35, 2, 1), )
+smRunEntry.registerAugmentions(("TIMETRA-SYSTEM-MIB", "tmnxSmRunExtEntry"))
 tmnxSmRunExtEntry.setIndexNames(*smRunEntry.getIndexNames())
-tmnxSysRadiusServerGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,4))
-tmnxSysRadiusServerGroup.setObjects(*((_A,_Aq),(_A,_AS),(_A,_AT)))
-if mibBuilder.loadTexts:tmnxSysRadiusServerGroup.setStatus(_L)
-tmnxSysTacPlusServerGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,5))
-tmnxSysTacPlusServerGroup.setObjects(*((_A,_Ar),(_A,_AU),(_A,_AV)))
-if mibBuilder.loadTexts:tmnxSysTacPlusServerGroup.setStatus(_L)
-tmnxSysBofGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,8))
-tmnxSysBofGroup.setObjects(*((_A,_CG),(_A,_CH),(_A,_CI),(_A,_CJ),(_A,_CK),(_A,_CL),(_A,_CM),(_A,_CN),(_A,_CO),(_A,_CP),(_A,_As),(_A,_CQ),(_A,_CR),(_A,_CS),(_A,_CT),(_A,_CU),(_A,_CV),(_A,_CW),(_A,_CX),(_A,_CY),(_A,_CZ),(_A,_Ca)))
-if mibBuilder.loadTexts:tmnxSysBofGroup.setStatus(_L)
-tmnxSysConfigV3v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,12))
-tmnxSysConfigV3v0Group.setObjects(*((_A,_Cb),(_A,_At),(_A,_Cc),(_A,_Cd),(_A,_Ce),(_A,_Cf),(_A,_Cg),(_A,_Ch),(_A,_Ci),(_A,_Cj),(_A,_Ck),(_A,_Cl),(_A,_Au),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_Cm),(_A,_Cn),(_A,_Ay),(_A,_Co),(_A,_Az),(_A,_Cp),(_A,_Cq),(_A,_Cr),(_A,_Cs),(_A,_Ct),(_A,_Cu),(_A,_Cv),(_A,_Cw),(_A,_Cx),(_A,_Cy),(_A,_Cz),(_A,_C_),(_A,_D0)))
-if mibBuilder.loadTexts:tmnxSysConfigV3v0Group.setStatus(_L)
-tmnxSysGeneralV3v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,15))
-tmnxSysGeneralV3v0Group.setObjects(*((_A,_FK),(_A,_FL),(_A,_FM),(_A,_FN),(_A,_FO),(_A,_FP),(_A,_FQ)))
-if mibBuilder.loadTexts:tmnxSysGeneralV3v0Group.setStatus(_B)
-tmnxSysObsoleteGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,17))
-tmnxSysObsoleteGroup.setObjects(*((_A,_D1),(_A,_D2),(_A,_AU),(_A,_AS)))
-if mibBuilder.loadTexts:tmnxSysObsoleteGroup.setStatus(_L)
-tmnxPersistenceV4v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,18))
-tmnxPersistenceV4v0Group.setObjects(*((_A,_D3),(_A,_D4),(_A,_D5),(_A,_D6),(_A,_A6),(_A,_A7)))
-if mibBuilder.loadTexts:tmnxPersistenceV4v0Group.setStatus(_L)
-tmnxSysTimeV4v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,19))
-tmnxSysTimeV4v0Group.setObjects(*((_A,_AZ),(_A,_FR),(_A,_FS),(_A,_FT),(_A,_FU),(_A,_FV),(_A,_FW),(_A,_FX),(_A,_FY),(_A,_FZ),(_A,_Fa),(_A,_Fb),(_A,_Fc),(_A,_Fd),(_A,_Fe),(_A,_Ff),(_A,_Fg),(_A,_Fh),(_A,_Fi),(_A,_Fj),(_A,_Fk),(_A,_Fl),(_A,_D7),(_A,_D8)))
-if mibBuilder.loadTexts:tmnxSysTimeV4v0Group.setStatus(_B)
-tmnxSysNotifyObjsR4r0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,20))
-tmnxSysNotifyObjsR4r0Group.setObjects(*((_A,_l),(_A,_A_),(_A,_Aa),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_m),(_A,_B5),(_A,_B6)))
-if mibBuilder.loadTexts:tmnxSysNotifyObjsR4r0Group.setStatus(_L)
-tmnxSysNotifyObjsV5v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,22))
-tmnxSysNotifyObjsV5v0Group.setObjects(*((_A,_A8),(_A,_AJ),(_A,_s),(_A,_AK),(_A,_l),(_A,_A_),(_A,_Aa),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_m),(_A,_B5),(_A,_B6),(_A,_D9),(_A,_DA),(_A,_DB)))
-if mibBuilder.loadTexts:tmnxSysNotifyObjsV5v0Group.setStatus(_B)
-tmnxSysTacPlusServerV5v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,25))
-tmnxSysTacPlusServerV5v0Group.setObjects(*((_A,_Ar),(_A,_AV),(_A,_DC),(_A,_DD)))
-if mibBuilder.loadTexts:tmnxSysTacPlusServerV5v0Group.setStatus(_B)
-tmnxSysRadiusServerV5v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,26))
-tmnxSysRadiusServerV5v0Group.setObjects(*((_A,_Aq),(_A,_AT),(_A,_DE),(_A,_DF)))
-if mibBuilder.loadTexts:tmnxSysRadiusServerV5v0Group.setStatus(_B)
-tmnxSysObsoleteV5v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,27))
-tmnxSysObsoleteV5v0Group.setObjects(*((_A,_D1),(_A,_D2),(_A,_AU),(_A,_AS),(_A,_D3),(_A,_D4),(_A,_D5),(_A,_D6)))
-if mibBuilder.loadTexts:tmnxSysObsoleteV5v0Group.setStatus(_B)
-tmnxPersistenceV5v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,28))
-tmnxPersistenceV5v0Group.setObjects(*((_A,_A6),(_A,_A7)))
-if mibBuilder.loadTexts:tmnxPersistenceV5v0Group.setStatus(_L)
-tmnxSysIpv6MgmtItfV6v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,29))
-tmnxSysIpv6MgmtItfV6v0Group.setObjects(*((_A,_Fm),(_A,_Fn),(_A,_Fo),(_A,_Fp),(_A,_Fq),(_A,_Fr),(_A,_Fs),(_A,_Ft),(_A,_Fu),(_A,_Fv),(_A,_Fw)))
-if mibBuilder.loadTexts:tmnxSysIpv6MgmtItfV6v0Group.setStatus(_B)
-tmnxPersistenceV6v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,30))
-tmnxPersistenceV6v0Group.setObjects(*((_A,_A6),(_A,_A7),(_A,_Ab),(_A,_Ac)))
-if mibBuilder.loadTexts:tmnxPersistenceV6v0Group.setStatus(_L)
-tmnxSysBofV6v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,31))
-tmnxSysBofV6v0Group.setObjects(*((_A,_CG),(_A,_CH),(_A,_CI),(_A,_CJ),(_A,_CK),(_A,_CL),(_A,_CM),(_A,_CN),(_A,_CO),(_A,_CP),(_A,_As),(_A,_CQ),(_A,_CR),(_A,_CS),(_A,_CT),(_A,_CU),(_A,_CV),(_A,_CW),(_A,_CX),(_A,_CY),(_A,_CZ),(_A,_Ca),(_A,_DG),(_A,_DH)))
-if mibBuilder.loadTexts:tmnxSysBofV6v0Group.setStatus(_B)
-tmnxSysLiV6v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,33))
-tmnxSysLiV6v0Group.setObjects(*((_A,_DI),(_A,_Fx),(_A,_Fy),(_A,_Fz),(_A,_F_)))
-if mibBuilder.loadTexts:tmnxSysLiV6v0Group.setStatus(_B)
-tmnxSysNotifyObjsV6v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,34))
-tmnxSysNotifyObjsV6v0Group.setObjects(*((_A,_t),(_A,_AL)))
-if mibBuilder.loadTexts:tmnxSysNotifyObjsV6v0Group.setStatus(_B)
-tmnxSysGeneralV7v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,35))
-tmnxSysGeneralV7v0Group.setObjects(*((_A,_G0),(_A,_G1),(_A,_G2),(_A,_G3)))
-if mibBuilder.loadTexts:tmnxSysGeneralV7v0Group.setStatus(_B)
-tmnxSysIcmpVSV6v1Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,36))
-tmnxSysIcmpVSV6v1Group.setObjects((_A,_G4))
-if mibBuilder.loadTexts:tmnxSysIcmpVSV6v1Group.setStatus(_B)
-tmnxSysConfigV8v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,37))
-tmnxSysConfigV8v0Group.setObjects(*((_A,_Cb),(_A,_At),(_A,_Cc),(_A,_Cd),(_A,_Ce),(_A,_Cf),(_A,_Cg),(_A,_Ch),(_A,_Ci),(_A,_Cj),(_A,_Ck),(_A,_Cl),(_A,_Au),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_Cm),(_A,_Cn),(_A,_Ay),(_A,_Co),(_A,_Az),(_A,_Cp),(_A,_Cq),(_A,_Cr),(_A,_C_)))
-if mibBuilder.loadTexts:tmnxSysConfigV8v0Group.setStatus(_B)
-tmnxSysLoginControlV8v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,38))
-tmnxSysLoginControlV8v0Group.setObjects(*((_A,_Cs),(_A,_Ct),(_A,_Cu),(_A,_Cv),(_A,_Cw),(_A,_Cx),(_A,_Cy),(_A,_Cz),(_A,_D0),(_A,_G5),(_A,_G6)))
-if mibBuilder.loadTexts:tmnxSysLoginControlV8v0Group.setStatus(_B)
-tmnxSysEthInfoGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,39))
-tmnxSysEthInfoGroup.setObjects((_A,_G7))
-if mibBuilder.loadTexts:tmnxSysEthInfoGroup.setStatus(_B)
-tmnxPersistenceV9v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,40))
-tmnxPersistenceV9v0Group.setObjects(*((_A,_A6),(_A,_A7),(_A,_Ab),(_A,_Ac),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA)))
-if mibBuilder.loadTexts:tmnxPersistenceV9v0Group.setStatus(_L)
-tmnxSysLoginControlSecGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,41))
-tmnxSysLoginControlSecGroup.setObjects(*((_A,_G8),(_A,_G9)))
-if mibBuilder.loadTexts:tmnxSysLoginControlSecGroup.setStatus(_B)
-tmnxSysLiFilterGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,42))
-tmnxSysLiFilterGroup.setObjects((_A,_GA))
-if mibBuilder.loadTexts:tmnxSysLiFilterGroup.setStatus(_B)
-tmnxSysRollbackV9v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,44))
-tmnxSysRollbackV9v0Group.setObjects(*((_A,_AM),(_A,_GB),(_A,_DJ),(_A,_GC),(_A,_DK),(_A,_GD),(_A,_GE),(_A,_GF),(_A,_GG),(_A,_GH),(_A,_GI),(_A,_GJ),(_A,_GK),(_A,_GL),(_A,_GM),(_A,_GN),(_A,_GO),(_A,_GP),(_A,_GQ),(_A,_GR),(_A,_GS),(_A,_DL),(_A,_GT),(_A,_GU),(_A,_GV)))
-if mibBuilder.loadTexts:tmnxSysRollbackV9v0Group.setStatus(_B)
-tmnxSysLoginControlV9v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,45))
-tmnxSysLoginControlV9v0Group.setObjects(*((_A,_GW),(_A,_GX)))
-if mibBuilder.loadTexts:tmnxSysLoginControlV9v0Group.setStatus(_B)
-tmnxSystemCpuMonitorGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,46))
-tmnxSystemCpuMonitorGroup.setObjects(*((_A,_GY),(_A,_GZ),(_A,_Ga),(_A,_Gb)))
-if mibBuilder.loadTexts:tmnxSystemCpuMonitorGroup.setStatus(_B)
-tmnxSysCertGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,47))
-tmnxSysCertGroup.setObjects(*((_A,_Gc),(_A,_Gd),(_A,_Ge),(_A,_Gf)))
-if mibBuilder.loadTexts:tmnxSysCertGroup.setStatus(_B)
-tmnxSysBootedBofGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,48))
-tmnxSysBootedBofGroup.setObjects(*((_A,_Gg),(_A,_Gh)))
-if mibBuilder.loadTexts:tmnxSysBootedBofGroup.setStatus(_B)
-tmnxSysRollbackRescueGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,49))
-tmnxSysRollbackRescueGroup.setObjects(*((_A,_Gi),(_A,_Gj),(_A,_Gk),(_A,_Gl),(_A,_Gm),(_A,_Gn),(_A,_Go),(_A,_Gp),(_A,_Gq),(_A,_Gr),(_A,_Gs),(_A,_Gt),(_A,_Gu),(_A,_Gv),(_A,_Gw),(_A,_Gx)))
-if mibBuilder.loadTexts:tmnxSysRollbackRescueGroup.setStatus(_B)
-tmnxSysNotifyObjsV10v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,51))
-tmnxSysNotifyObjsV10v0Group.setObjects(*((_A,_u),(_A,_BB),(_A,_DM)))
-if mibBuilder.loadTexts:tmnxSysNotifyObjsV10v0Group.setStatus(_B)
-tmnxSysNotifyObjsGenGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,53))
-tmnxSysNotifyObjsGenGroup.setObjects((_A,_DN))
-if mibBuilder.loadTexts:tmnxSysNotifyObjsGenGroup.setStatus(_B)
-tmnxSysGroupingSystemGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,54))
-tmnxSysGroupingSystemGroup.setObjects(*((_A,_Gy),(_A,_Gz)))
-if mibBuilder.loadTexts:tmnxSysGroupingSystemGroup.setStatus(_B)
-tmnxSysCandidateCfgGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,55))
-tmnxSysCandidateCfgGroup.setObjects(*((_A,_G_),(_A,_H0),(_A,_H1),(_A,_H2),(_A,_H3),(_A,_H4),(_A,_H5),(_A,_H6)))
-if mibBuilder.loadTexts:tmnxSysCandidateCfgGroup.setStatus(_B)
-tmnxPersistenceV11v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,56))
-tmnxPersistenceV11v0Group.setObjects(*((_A,_A6),(_A,_A7),(_A,_Ab),(_A,_Ac),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_DO),(_A,_DP)))
-if mibBuilder.loadTexts:tmnxPersistenceV11v0Group.setStatus(_L)
-tmnxSysNetconfV11v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,57))
-tmnxSysNetconfV11v0Group.setObjects(*((_A,_H7),(_A,_H8),(_A,_H9),(_A,_HA),(_A,_HB),(_A,_HC),(_A,_HD),(_A,_HE),(_A,_HF),(_A,_HG)))
-if mibBuilder.loadTexts:tmnxSysNetconfV11v0Group.setStatus(_B)
-tmnxSysStrmV11v0R4Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,58))
-tmnxSysStrmV11v0R4Group.setObjects(*((_A,_HH),(_A,_HI),(_A,_HJ),(_A,_HK)))
-if mibBuilder.loadTexts:tmnxSysStrmV11v0R4Group.setStatus(_B)
-tmnxSysNotifyObjsV11v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,59))
-tmnxSysNotifyObjsV11v0Group.setObjects((_A,_DQ))
-if mibBuilder.loadTexts:tmnxSysNotifyObjsV11v0Group.setStatus(_B)
-tmnxPersistenceV12v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,60,1))
-tmnxPersistenceV12v0Group.setObjects(*((_A,_A6),(_A,_A7),(_A,_Ab),(_A,_Ac),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_DO),(_A,_DP),(_A,_HL),(_A,_HM)))
-if mibBuilder.loadTexts:tmnxPersistenceV12v0Group.setStatus(_B)
-tmnxSysDNSSecV12v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,60,2))
-tmnxSysDNSSecV12v0Group.setObjects(*((_A,_HN),(_A,_DR)))
-if mibBuilder.loadTexts:tmnxSysDNSSecV12v0Group.setStatus(_B)
-tmnxSysXmppV12v4Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,60,5))
-tmnxSysXmppV12v4Group.setObjects(*((_A,_HO),(_A,_HP),(_A,_HQ),(_A,_HR),(_A,_HS),(_A,_HT),(_A,_HU),(_A,_HV),(_A,_HW),(_A,_HX),(_A,_HY),(_A,_HZ),(_A,_Ha),(_A,_Hb),(_A,_Hc),(_A,_Hd),(_A,_He),(_A,_Hf),(_A,_Hg),(_A,_Hh),(_A,_Hi),(_A,_Hj),(_A,_Hk),(_A,_Hl),(_A,_Hm),(_A,_Hn),(_A,_Ho),(_A,_Hp),(_A,_Hq),(_A,_Hr),(_A,_Hs),(_A,_Ht),(_A,_Hu),(_A,_Hv),(_A,_Hw),(_A,_Hx),(_A,_Hy),(_A,_Hz),(_A,_H_),(_A,_I0),(_A,_I1),(_A,_I2),(_A,_I3),(_A,_I4)))
-if mibBuilder.loadTexts:tmnxSysXmppV12v4Group.setStatus(_B)
-tmnxSysCardResourceGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,60,6))
-tmnxSysCardResourceGroup.setObjects(*((_A,_I5),(_A,_I6),(_A,_I7),(_A,_I8),(_A,_I9),(_A,_IA),(_A,_IB)))
-if mibBuilder.loadTexts:tmnxSysCardResourceGroup.setStatus(_B)
-tmnxSysNotifyObjsV12v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,60,7))
-tmnxSysNotifyObjsV12v0Group.setObjects(*((_A,_DS),(_A,_BC),(_A,_BD),(_A,_Ad),(_A,_BE)))
-if mibBuilder.loadTexts:tmnxSysNotifyObjsV12v0Group.setStatus(_B)
-tmnxSysBofV12v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,60,8))
-tmnxSysBofV12v0Group.setObjects((_A,_IC))
-if mibBuilder.loadTexts:tmnxSysBofV12v0Group.setStatus(_B)
-tmnxSysLicenseV12v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,60,9))
-tmnxSysLicenseV12v0Group.setObjects(*((_A,_ID),(_A,_IE),(_A,_IF),(_A,_IG),(_A,_IH),(_A,_II),(_A,_IJ),(_A,_IK),(_A,_IL)))
-if mibBuilder.loadTexts:tmnxSysLicenseV12v0Group.setStatus(_B)
-tmnxSysDhcpGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,61))
-tmnxSysDhcpGroup.setObjects((_A,_IM))
-if mibBuilder.loadTexts:tmnxSysDhcpGroup.setStatus(_B)
-tmnxSysFibV13v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,62))
-tmnxSysFibV13v0Group.setObjects((_A,_IN))
-if mibBuilder.loadTexts:tmnxSysFibV13v0Group.setStatus(_B)
-tmnxSysNetconfV13v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,63))
-tmnxSysNetconfV13v0Group.setObjects(*((_A,_IO),(_A,_IP),(_A,_IQ)))
-if mibBuilder.loadTexts:tmnxSysNetconfV13v0Group.setStatus(_B)
-tmnxSysSnmpSrcAccesLstV13v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,64))
-tmnxSysSnmpSrcAccesLstV13v0Group.setObjects(*((_A,_IR),(_A,_IS),(_A,_IT),(_A,_IU)))
-if mibBuilder.loadTexts:tmnxSysSnmpSrcAccesLstV13v0Group.setStatus(_B)
-tmnxSysMgmtProtocolV13v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,65))
-tmnxSysMgmtProtocolV13v0Group.setObjects(*((_A,_IV),(_A,_IW),(_A,_IX)))
-if mibBuilder.loadTexts:tmnxSysMgmtProtocolV13v0Group.setStatus(_B)
-tmnxSysFileTransProfV13v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,66))
-tmnxSysFileTransProfV13v0Group.setObjects(*((_A,_IY),(_A,_IZ),(_A,_Ia),(_A,_Ib),(_A,_Ic),(_A,_Id),(_A,_Ie),(_A,_If),(_A,_Ig),(_A,_Ih),(_A,_Ii),(_A,_Ij)))
-if mibBuilder.loadTexts:tmnxSysFileTransProfV13v0Group.setStatus(_B)
-tmnxSysEhsV13v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,67))
-tmnxSysEhsV13v0Group.setObjects(*((_A,_DT),(_A,_Ae),(_A,_Af)))
-if mibBuilder.loadTexts:tmnxSysEhsV13v0Group.setStatus(_B)
-tmnxSysLicenseV13v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,68))
-tmnxSysLicenseV13v0Group.setObjects(*((_A,_Ik),(_A,_Il),(_A,_Im),(_A,_In),(_A,_Io),(_A,_Ip),(_A,_Iq),(_A,_Ir),(_A,_Is),(_A,_It),(_A,_Iu),(_A,_Iv),(_A,_Iw),(_A,_Ix),(_A,_Iy),(_A,_Iz)))
-if mibBuilder.loadTexts:tmnxSysLicenseV13v0Group.setStatus(_B)
-tmnxSysSwReposV13v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,70))
-tmnxSysSwReposV13v0Group.setObjects(*((_A,_I_),(_A,_J0),(_A,_J1),(_A,_J2),(_A,_J3),(_A,_J4),(_A,_J5)))
-if mibBuilder.loadTexts:tmnxSysSwReposV13v0Group.setStatus(_B)
-tmnxSysBofV13v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,71))
-tmnxSysBofV13v0Group.setObjects(*((_A,_J6),(_A,_J7)))
-if mibBuilder.loadTexts:tmnxSysBofV13v0Group.setStatus(_B)
-tmnxSysBofV14v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,72,1))
-tmnxSysBofV14v0Group.setObjects((_A,_J8))
-if mibBuilder.loadTexts:tmnxSysBofV14v0Group.setStatus(_B)
-tmnxPersistenceV14v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,72,3))
-tmnxPersistenceV14v0Group.setObjects((_A,_J9))
-if mibBuilder.loadTexts:tmnxPersistenceV14v0Group.setStatus(_B)
-tmnxSysNetconfV14v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,72,4))
-tmnxSysNetconfV14v0Group.setObjects(*((_A,_DU),(_A,_DV),(_A,_DW),(_A,_DX),(_A,_DY),(_A,_DZ),(_A,_Da),(_A,_Db),(_A,_Dc),(_A,_Dd),(_A,_De)))
-if mibBuilder.loadTexts:tmnxSysNetconfV14v0Group.setStatus(_L)
-tmnxSysEhsParameterGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,72,5))
-tmnxSysEhsParameterGroup.setObjects(*((_A,_JA),(_A,_JB)))
-if mibBuilder.loadTexts:tmnxSysEhsParameterGroup.setStatus(_B)
-tmnxSysLicenseApplicationGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,72,6))
-tmnxSysLicenseApplicationGroup.setObjects(*((_A,_JC),(_A,_JD),(_A,_JE),(_A,_JF),(_A,_JG),(_A,_JH),(_A,_JI),(_A,_JJ),(_A,_JK),(_A,_JL)))
-if mibBuilder.loadTexts:tmnxSysLicenseApplicationGroup.setStatus(_B)
-tmnxSysNotifyObjsV14v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,72,7))
-tmnxSysNotifyObjsV14v0Group.setObjects(*((_A,_Df),(_A,_BF),(_A,_Dg),(_A,_Dh)))
-if mibBuilder.loadTexts:tmnxSysNotifyObjsV14v0Group.setStatus(_B)
-tmnxSysTimeV14v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,72,8))
-tmnxSysTimeV14v0Group.setObjects((_A,_JM))
-if mibBuilder.loadTexts:tmnxSysTimeV14v0Group.setStatus(_B)
-tmnxSysLoginControlV15v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,73))
-tmnxSysLoginControlV15v0Group.setObjects(*((_A,_JN),(_A,_JO),(_A,_JP),(_A,_JQ)))
-if mibBuilder.loadTexts:tmnxSysLoginControlV15v0Group.setStatus(_B)
-tmnxSysGrpcV15v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,74))
-tmnxSysGrpcV15v0Group.setObjects(*((_A,_JR),(_A,_JS),(_A,_JT),(_A,_JU),(_A,_JV),(_A,_JW),(_A,_JX),(_A,_JY),(_A,_JZ),(_A,_Ja),(_A,_Jb),(_A,_Jc),(_A,_Jd),(_A,_Je),(_A,_Jf),(_A,_Jg),(_A,_Jh),(_A,_Ji),(_A,_Jj),(_A,_Jk),(_A,_Jl),(_A,_Jm),(_A,_Jn),(_A,_Jo),(_A,_Jp),(_A,_Jq),(_A,_Jr),(_A,_Js),(_A,_Jt),(_A,_Ju),(_A,_Jv),(_A,_Jw),(_A,_Jx),(_A,_Jy),(_A,_Jz)))
-if mibBuilder.loadTexts:tmnxSysGrpcV15v0Group.setStatus(_B)
-tmnxSysXmppMgmtGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,75))
-tmnxSysXmppMgmtGroup.setObjects(*((_A,_J_),(_A,_K0)))
-if mibBuilder.loadTexts:tmnxSysXmppMgmtGroup.setStatus(_B)
-tmnxSysLicenseApp48HrsGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,76,3))
-tmnxSysLicenseApp48HrsGroup.setObjects(*((_A,_K1),(_A,_K2),(_A,_K3)))
-if mibBuilder.loadTexts:tmnxSysLicenseApp48HrsGroup.setStatus(_B)
-tmnxSysNetconfV15v1Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,77,1))
-tmnxSysNetconfV15v1Group.setObjects(*((_A,_DU),(_A,_DV),(_A,_DW),(_A,_DX),(_A,_DY),(_A,_DZ),(_A,_Da),(_A,_Db),(_A,_Dc),(_A,_K4)))
-if mibBuilder.loadTexts:tmnxSysNetconfV15v1Group.setStatus(_B)
-tmnxSysMgmtProtocolV15v1Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,77,2))
-tmnxSysMgmtProtocolV15v1Group.setObjects(*((_A,_K5),(_A,_K6)))
-if mibBuilder.loadTexts:tmnxSysMgmtProtocolV15v1Group.setStatus(_B)
-tmnxSysConfigSaveCtrlV15v1Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,77,3))
-tmnxSysConfigSaveCtrlV15v1Group.setObjects(*((_A,_K7),(_A,_K8),(_A,_K9)))
-if mibBuilder.loadTexts:tmnxSysConfigSaveCtrlV15v1Group.setStatus(_B)
-tmnxSysMgmtIfMdCliGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,77,4))
-tmnxSysMgmtIfMdCliGroup.setObjects(*((_A,_KA),(_A,_KB),(_A,_KC),(_A,_KD),(_A,_KE),(_A,_KF),(_A,_KG),(_A,_KH),(_A,_KI),(_A,_KJ),(_A,_KK),(_A,_KL),(_A,_KM),(_A,_KN),(_A,_KO),(_A,_Ag),(_A,_KP),(_A,_KQ),(_A,_KR),(_A,_KS)))
-if mibBuilder.loadTexts:tmnxSysMgmtIfMdCliGroup.setStatus(_B)
-tmnxSysMgmtIfYangModulesGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,77,5))
-tmnxSysMgmtIfYangModulesGroup.setObjects(*((_A,_KT),(_A,_KU),(_A,_KV),(_A,_KW),(_A,_KX)))
-if mibBuilder.loadTexts:tmnxSysMgmtIfYangModulesGroup.setStatus(_B)
-tmnxSysNetconfV15v1ObsoleteGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,77,6))
-tmnxSysNetconfV15v1ObsoleteGroup.setObjects(*((_A,_Dd),(_A,_De)))
-if mibBuilder.loadTexts:tmnxSysNetconfV15v1ObsoleteGroup.setStatus(_B)
-tmnxSysFileTransProfV15v1Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,77,7))
-tmnxSysFileTransProfV15v1Group.setObjects((_A,_KY))
-if mibBuilder.loadTexts:tmnxSysFileTransProfV15v1Group.setStatus(_B)
-tmnxSysBofV15v1Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,77,8))
-tmnxSysBofV15v1Group.setObjects((_A,_KZ))
-if mibBuilder.loadTexts:tmnxSysBofV15v1Group.setStatus(_B)
-tmnxSysHttpRdrV16v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,78,1))
-tmnxSysHttpRdrV16v0Group.setObjects((_A,_Ka))
-if mibBuilder.loadTexts:tmnxSysHttpRdrV16v0Group.setStatus(_B)
-tmnxSysMgmtIfDsLocksV16v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,78,3))
-tmnxSysMgmtIfDsLocksV16v0Group.setObjects(*((_A,_CE),(_A,_Kb),(_A,_Kc),(_A,_Kd),(_A,_Ke),(_A,_Kf),(_A,_Kg),(_A,_Kh),(_A,_Ki),(_A,_Kj),(_A,_Kk),(_A,_Kl)))
-if mibBuilder.loadTexts:tmnxSysMgmtIfDsLocksV16v0Group.setStatus(_B)
-tmnxSysLicensingV16v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,78,4))
-tmnxSysLicensingV16v0Group.setObjects(*((_A,_Km),(_A,_Kn),(_A,_Ko),(_A,_Kp),(_A,_Kq),(_A,_Di),(_A,_Kr),(_A,_Ks),(_A,_Kt),(_A,_Ku),(_A,_Kv),(_A,_Kw),(_A,_Kx),(_A,_Ky)))
-if mibBuilder.loadTexts:tmnxSysLicensingV16v0Group.setStatus(_B)
-tmnxSysMgmtInterfaceV16v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,78,5))
-tmnxSysMgmtInterfaceV16v0Group.setObjects(*((_A,_Kz),(_A,_Dj)))
-if mibBuilder.loadTexts:tmnxSysMgmtInterfaceV16v0Group.setStatus(_B)
-tmnxSysMgmtIfNotifyObjsGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,78,6))
-tmnxSysMgmtIfNotifyObjsGroup.setObjects((_A,_Dk))
-if mibBuilder.loadTexts:tmnxSysMgmtIfNotifyObjsGroup.setStatus(_B)
-tmnxSysNetworkElementV16v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,78,7))
-tmnxSysNetworkElementV16v0Group.setObjects(*((_A,_Dl),(_A,_Dm),(_A,_Dn),(_A,_Do),(_A,_Dp),(_A,_Dq),(_A,_Dr),(_A,_Ds),(_A,_Dt),(_A,_Du),(_A,_Dv),(_A,_Dw)))
-if mibBuilder.loadTexts:tmnxSysNetworkElementV16v0Group.setStatus(_B)
-tmnxSysSwitchFabricV16v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,78,8))
-tmnxSysSwitchFabricV16v0Group.setObjects(*((_A,_K_),(_A,_L0),(_A,_L1),(_A,_L2)))
-if mibBuilder.loadTexts:tmnxSysSwitchFabricV16v0Group.setStatus(_B)
-tmnxSysLicNotifyObjsV19v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,79,1))
-tmnxSysLicNotifyObjsV19v0Group.setObjects(*((_A,_Dx),(_A,_Dy)))
-if mibBuilder.loadTexts:tmnxSysLicNotifyObjsV19v0Group.setStatus(_B)
-tmnxSysResInfoV19v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,79,3))
-tmnxSysResInfoV19v0Group.setObjects(*((_A,_L3),(_A,_L4),(_A,_L5),(_A,_L6)))
-if mibBuilder.loadTexts:tmnxSysResInfoV19v0Group.setStatus(_B)
-tmnxSysBofV19v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,79,4))
-tmnxSysBofV19v0Group.setObjects(*((_A,_L7),(_A,_L8),(_A,_L9),(_A,_LA),(_A,_LB),(_A,_LC),(_A,_LD),(_A,_LE),(_A,_LF),(_A,_LG),(_A,_LH),(_A,_LI),(_A,_LJ),(_A,_LK),(_A,_LL),(_A,_LM),(_A,_LN),(_A,_LO),(_A,_LP),(_A,_LQ),(_A,_LR),(_A,_LS),(_A,_LT),(_A,_LU),(_A,_LV),(_A,_LW),(_A,_LX),(_A,_LY),(_A,_LZ),(_A,_La),(_A,_Lb),(_A,_Lc),(_A,_Ld),(_A,_Le),(_A,_Lf),(_A,_Lg),(_A,_Lh)))
-if mibBuilder.loadTexts:tmnxSysBofV19v0Group.setStatus(_B)
-tmnxSysNetworkElementV19v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,79,5))
-tmnxSysNetworkElementV19v0Group.setObjects(*((_A,_Dl),(_A,_Dm),(_A,_Dn),(_A,_Do),(_A,_Dp),(_A,_Dq),(_A,_Dr),(_A,_Ds),(_A,_Dt),(_A,_Du),(_A,_Dv),(_A,_Dw)))
-if mibBuilder.loadTexts:tmnxSysNetworkElementV19v0Group.setStatus(_B)
-tmnxSysLicensingV19v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,79,6))
-tmnxSysLicensingV19v0Group.setObjects(*((_A,_Li),(_A,_Lj),(_A,_Lk),(_A,_Ll),(_A,_Lm)))
-if mibBuilder.loadTexts:tmnxSysLicensingV19v0Group.setStatus(_B)
-tmnxSysNetconfV19v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,79,7))
-tmnxSysNetconfV19v0Group.setObjects((_A,_Ln))
-if mibBuilder.loadTexts:tmnxSysNetconfV19v0Group.setStatus(_B)
-tmnxSysEhsV19v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,79,8))
-tmnxSysEhsV19v0Group.setObjects((_A,_Lo))
-if mibBuilder.loadTexts:tmnxSysEhsV19v0Group.setStatus(_B)
-tmnxSysBootConfFmtNotifyObjsGrp=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,79,9))
-tmnxSysBootConfFmtNotifyObjsGrp.setObjects(*((_A,_Dz),(_A,_D_)))
-if mibBuilder.loadTexts:tmnxSysBootConfFmtNotifyObjsGrp.setStatus(_B)
-tmnxSysFwdPathOptsV19v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,79,11))
-tmnxSysFwdPathOptsV19v0Group.setObjects(*((_A,_Lp),(_A,_Lq),(_A,_Lr),(_A,_Ls),(_A,_Lt),(_A,_Lu),(_A,_Lv),(_A,_Lw),(_A,_Lx),(_A,_Ly),(_A,_Lz),(_A,_L_),(_A,_M0),(_A,_M1),(_A,_M2),(_A,_M3)))
-if mibBuilder.loadTexts:tmnxSysFwdPathOptsV19v0Group.setStatus(_B)
-tmnxSysMgmtIfMdCliCmdAccntGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,79,12))
-tmnxSysMgmtIfMdCliCmdAccntGroup.setObjects((_A,_M4))
-if mibBuilder.loadTexts:tmnxSysMgmtIfMdCliCmdAccntGroup.setStatus(_B)
-tmnxSysResItCamV19v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,79,13))
-tmnxSysResItCamV19v0Group.setObjects((_A,_M5))
-if mibBuilder.loadTexts:tmnxSysResItCamV19v0Group.setStatus(_B)
-tmnxSysFpCamAllocV19v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,79,14))
-tmnxSysFpCamAllocV19v0Group.setObjects(*((_A,_M6),(_A,_M7)))
-if mibBuilder.loadTexts:tmnxSysFpCamAllocV19v0Group.setStatus(_B)
-tmnxSysFwdPathOptsV20v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,80,2))
-tmnxSysFwdPathOptsV20v0Group.setObjects(*((_A,_M8),(_A,_M9),(_A,_MA),(_A,_MB)))
-if mibBuilder.loadTexts:tmnxSysFwdPathOptsV20v0Group.setStatus(_B)
-tmnxSysAutoBootV20v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,80,3))
-tmnxSysAutoBootV20v0Group.setObjects((_A,_MC))
-if mibBuilder.loadTexts:tmnxSysAutoBootV20v0Group.setStatus(_B)
-tmnxSysSwitchFabricV20v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,80,4))
-tmnxSysSwitchFabricV20v0Group.setObjects((_A,_MD))
-if mibBuilder.loadTexts:tmnxSysSwitchFabricV20v0Group.setStatus(_B)
-tmnxSysGeneralV20v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,80,7))
-tmnxSysGeneralV20v0Group.setObjects((_A,_ME))
-if mibBuilder.loadTexts:tmnxSysGeneralV20v0Group.setStatus(_B)
-tmnxSysMgmtInterfaceV20v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,80,9))
-tmnxSysMgmtInterfaceV20v0Group.setObjects(*((_A,_MF),(_A,_MG),(_A,_MH),(_A,_MI),(_A,_MJ),(_A,_MK),(_A,_ML),(_A,_MM)))
-if mibBuilder.loadTexts:tmnxSysMgmtInterfaceV20v0Group.setStatus(_B)
-tmnxSysFpResAllocV20v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,80,10))
-tmnxSysFpResAllocV20v0Group.setObjects(*((_A,_MN),(_A,_MO)))
-if mibBuilder.loadTexts:tmnxSysFpResAllocV20v0Group.setStatus(_B)
-tmnxSysRemoteMgmtV20v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,80,13))
-tmnxSysRemoteMgmtV20v0Group.setObjects(*((_A,_MP),(_A,_MQ),(_A,_MR),(_A,_MS),(_A,_MT),(_A,_MU),(_A,_MV),(_A,_MW),(_A,_MX),(_A,_MY),(_A,_MZ),(_A,_Ma),(_A,_Mb),(_A,_Mc),(_A,_Md),(_A,_Me),(_A,_Mf),(_A,_Mg),(_A,_Mh),(_A,_Mi),(_A,_Mj),(_A,_Mk),(_A,_Ml),(_A,_Mm),(_A,_Mn),(_A,_Mo),(_A,_Mp),(_A,_Mq),(_A,_Mr),(_A,_Ms),(_A,_Mt),(_A,_Mu),(_A,_Mv),(_A,_Mw),(_A,_Mx),(_A,_My),(_A,_Mz),(_A,_M_),(_A,_N0),(_A,_N1),(_A,_N2),(_A,_N3),(_A,_N4),(_A,_N5),(_A,_N6),(_A,_N7),(_A,_N8),(_A,_N9),(_A,_NA),(_A,_NB),(_A,_NC),(_A,_ND),(_A,_NE)))
-if mibBuilder.loadTexts:tmnxSysRemoteMgmtV20v0Group.setStatus(_B)
-tmnxSysNetconfCountersExtension=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,1,2,80,14))
-tmnxSysNetconfCountersExtension.setObjects(*((_A,_NF),(_A,_NG),(_A,_NH)))
-if mibBuilder.loadTexts:tmnxSysNetconfCountersExtension.setStatus(_B)
-stiDateAndTimeChanged=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,1))
-stiDateAndTimeChanged.setObjects((_A,_AZ))
-if mibBuilder.loadTexts:stiDateAndTimeChanged.setStatus(_B)
-ssiSaveConfigSucceeded=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,2))
-if mibBuilder.loadTexts:ssiSaveConfigSucceeded.setStatus(_B)
-ssiSaveConfigFailed=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,3))
-if mibBuilder.loadTexts:ssiSaveConfigFailed.setStatus(_B)
-sbiBootConfig=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,4))
-sbiBootConfig.setObjects(*((_A,_Aw),(_A,_Ax),(_A,_AW)))
-if mibBuilder.loadTexts:sbiBootConfig.setStatus(_B)
-sbiBootSnmpd=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,5))
-sbiBootSnmpd.setObjects(*((_A,_AW),(_A,_AX),(_A,_AY)))
-if mibBuilder.loadTexts:sbiBootSnmpd.setStatus(_B)
-radiusServerOperStatusChange=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,6))
-radiusServerOperStatusChange.setObjects(*((_A,_AS),(_A,_AT)))
-if mibBuilder.loadTexts:radiusServerOperStatusChange.setStatus(_L)
-radiusOperStatusChange=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,7))
-radiusOperStatusChange.setObjects((_A,_Aq))
-if mibBuilder.loadTexts:radiusOperStatusChange.setStatus(_B)
-tmnxConfigModify=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,8))
-tmnxConfigModify.setObjects(*((_A,_l),(_A,_m),(_A,_t)))
-if mibBuilder.loadTexts:tmnxConfigModify.setStatus(_B)
-tmnxConfigCreate=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,9))
-tmnxConfigCreate.setObjects(*((_A,_l),(_A,_m),(_A,_t)))
-if mibBuilder.loadTexts:tmnxConfigCreate.setStatus(_B)
-tmnxConfigDelete=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,10))
-tmnxConfigDelete.setObjects(*((_A,_l),(_A,_m),(_A,_t)))
-if mibBuilder.loadTexts:tmnxConfigDelete.setStatus(_B)
-tmnxStateChange=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,11))
-tmnxStateChange.setObjects(*((_A,_l),(_A,_A_),(_A,_Aa),(_A,_m),(_A,_t)))
-if mibBuilder.loadTexts:tmnxStateChange.setStatus(_B)
-tmnxModuleMallocFailed=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,12))
-tmnxModuleMallocFailed.setObjects(*((_A,_B0),(_A,_B1)))
-if mibBuilder.loadTexts:tmnxModuleMallocFailed.setStatus(_B)
-tmnxTrapDropped=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,13))
-tmnxTrapDropped.setObjects(*((_A,_B2),(_A,_B3),(_A,_B4),(_A,_DQ)))
-if mibBuilder.loadTexts:tmnxTrapDropped.setStatus(_B)
-ssiSyncConfigOK=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,14))
-if mibBuilder.loadTexts:ssiSyncConfigOK.setStatus(_B)
-ssiSyncConfigFailed=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,15))
-ssiSyncConfigFailed.setObjects((_A,_AL))
-if mibBuilder.loadTexts:ssiSyncConfigFailed.setStatus(_B)
-ssiSyncBootEnvOK=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,16))
-if mibBuilder.loadTexts:ssiSyncBootEnvOK.setStatus(_B)
-ssiSyncBootEnvFailed=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,17))
-ssiSyncBootEnvFailed.setObjects((_A,_AL))
-if mibBuilder.loadTexts:ssiSyncBootEnvFailed.setStatus(_B)
-sntpTimeDiffExceedsThreshold=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,18))
-sntpTimeDiffExceedsThreshold.setObjects((_A,_D7))
-if mibBuilder.loadTexts:sntpTimeDiffExceedsThreshold.setStatus(_B)
-tacplusServerOperStatusChange=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,19))
-tacplusServerOperStatusChange.setObjects(*((_A,_AU),(_A,_AV)))
-if mibBuilder.loadTexts:tacplusServerOperStatusChange.setStatus(_L)
-tacplusOperStatusChange=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,20))
-tacplusOperStatusChange.setObjects((_A,_Ar))
-if mibBuilder.loadTexts:tacplusOperStatusChange.setStatus(_B)
-tmnxSnmpdError=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,21))
-tmnxSnmpdError.setObjects((_A,_B5))
-if mibBuilder.loadTexts:tmnxSnmpdError.setStatus(_B)
-tmnxSsiMismatch=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,22))
-tmnxSsiMismatch.setObjects(*((_A,_At),(_A,_As)))
-if mibBuilder.loadTexts:tmnxSsiMismatch.setStatus(_B)
-tmnxSnmpdStateChange=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,23))
-tmnxSnmpdStateChange.setObjects(*((_A,_AX),(_A,_AY)))
-if mibBuilder.loadTexts:tmnxSnmpdStateChange.setStatus(_B)
-ssiRedStandbySyncing=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,24))
-ssiRedStandbySyncing.setObjects(*((_K,_z),(_K,_A0),(_K,_S)))
-if mibBuilder.loadTexts:ssiRedStandbySyncing.setStatus(_B)
-ssiRedStandbyReady=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,25))
-ssiRedStandbyReady.setObjects(*((_K,_z),(_K,_A0),(_K,_S)))
-if mibBuilder.loadTexts:ssiRedStandbyReady.setStatus(_B)
-ssiRedStandbySyncLost=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,26))
-ssiRedStandbySyncLost.setObjects(*((_K,_z),(_K,_A0),(_K,_S)))
-if mibBuilder.loadTexts:ssiRedStandbySyncLost.setStatus(_B)
-ssiRedSwitchover=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,27))
-ssiRedSwitchover.setObjects(*((_K,_z),(_K,_A0),(_K,_S),(_A,_Au),(_A,_Av)))
-if mibBuilder.loadTexts:ssiRedSwitchover.setStatus(_B)
-ssiRedCpmActive=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,28))
-ssiRedCpmActive.setObjects(*((_K,_z),(_K,_A0),(_K,_S)))
-if mibBuilder.loadTexts:ssiRedCpmActive.setStatus(_B)
-ssiRedSingleCpm=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,29))
-ssiRedSingleCpm.setObjects(*((_K,_z),(_K,_A0),(_K,_S)))
-if mibBuilder.loadTexts:ssiRedSingleCpm.setStatus(_B)
-persistencyClosedAlarmRaised=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,30))
-persistencyClosedAlarmRaised.setObjects(*((_A,_AK),(_A,_A8),(_A,_AJ),(_A,_s)))
-if mibBuilder.loadTexts:persistencyClosedAlarmRaised.setStatus(_B)
-persistencyClosedAlarmCleared=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,31))
-persistencyClosedAlarmCleared.setObjects(*((_A,_AK),(_A,_A8),(_A,_AJ),(_A,_s)))
-if mibBuilder.loadTexts:persistencyClosedAlarmCleared.setStatus(_B)
-tmnxSntpOperChange=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,32))
-tmnxSntpOperChange.setObjects((_A,_D8))
-if mibBuilder.loadTexts:tmnxSntpOperChange.setStatus(_B)
-tmnxSysTimeSet=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,33))
-tmnxSysTimeSet.setObjects(*((_A,_AZ),(_A,_B6)))
-if mibBuilder.loadTexts:tmnxSysTimeSet.setStatus(_B)
-tmnxFtpClientFailure=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,34))
-tmnxFtpClientFailure.setObjects(*((_A,_D9),(_A,_DA),(_A,_DB)))
-if mibBuilder.loadTexts:tmnxFtpClientFailure.setStatus(_B)
-tacplusInetSrvrOperStatusChange=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,35))
-tacplusInetSrvrOperStatusChange.setObjects(*((_A,_DC),(_A,_DD),(_A,_AV)))
-if mibBuilder.loadTexts:tacplusInetSrvrOperStatusChange.setStatus(_B)
-radiusInetServerOperStatusChange=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,36))
-radiusInetServerOperStatusChange.setObjects(*((_A,_DE),(_A,_DF),(_A,_AT)))
-if mibBuilder.loadTexts:radiusInetServerOperStatusChange.setStatus(_B)
-persistencyEventReport=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,37))
-persistencyEventReport.setObjects((_A,_s))
-if mibBuilder.loadTexts:persistencyEventReport.setStatus(_B)
-sbiBootConfigFailFileError=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,38))
-sbiBootConfigFailFileError.setObjects((_A,_Az))
-if mibBuilder.loadTexts:sbiBootConfigFailFileError.setStatus(_B)
-sbiBootConfigOKFileError=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,39))
-sbiBootConfigOKFileError.setObjects((_A,_Ay))
-if mibBuilder.loadTexts:sbiBootConfigOKFileError.setStatus(_B)
-sbiBootLiConfig=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,40))
-sbiBootLiConfig.setObjects(*((_A,_DI),(_A,_DG),(_A,_DH)))
-if mibBuilder.loadTexts:sbiBootLiConfig.setStatus(_B)
-persistenceRestoreProblem=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,41))
-persistenceRestoreProblem.setObjects(*((_A,_A8),(_A,_s)))
-if mibBuilder.loadTexts:persistenceRestoreProblem.setStatus(_B)
-tmnxSysRollbackStarted=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,42))
-tmnxSysRollbackStarted.setObjects(*((_A,_AM),(_A,_u),(_T,_AR)))
-if mibBuilder.loadTexts:tmnxSysRollbackStarted.setStatus(_B)
-tmnxSysRollbackStatusChange=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,43))
-tmnxSysRollbackStatusChange.setObjects(*((_A,_AM),(_A,_DJ),(_A,_u),(_T,_AR)))
-if mibBuilder.loadTexts:tmnxSysRollbackStatusChange.setStatus(_B)
-tmnxSysRollbackSaveStatusChange=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,44))
-tmnxSysRollbackSaveStatusChange.setObjects(*((_A,_DK),(_A,_u)))
-if mibBuilder.loadTexts:tmnxSysRollbackSaveStatusChange.setStatus(_B)
-tmnxSysRollbackFileDeleteStatus=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,45))
-tmnxSysRollbackFileDeleteStatus.setObjects(*((_A,_AM),(_A,_DL),(_A,_u)))
-if mibBuilder.loadTexts:tmnxSysRollbackFileDeleteStatus.setStatus(_B)
-ssiSyncRollbackOK=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,46))
-if mibBuilder.loadTexts:ssiSyncRollbackOK.setStatus(_B)
-ssiSyncRollbackFailed=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,47))
-ssiSyncRollbackFailed.setObjects((_A,_AL))
-if mibBuilder.loadTexts:ssiSyncRollbackFailed.setStatus(_B)
-ssiSyncCertOK=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,48))
-if mibBuilder.loadTexts:ssiSyncCertOK.setStatus(_B)
-ssiSyncCertFailed=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,49))
-ssiSyncCertFailed.setObjects((_A,_AL))
-if mibBuilder.loadTexts:ssiSyncCertFailed.setStatus(_B)
-persistencyFileSysThresRaised=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,50))
-persistencyFileSysThresRaised.setObjects(*((_A,_AK),(_A,_A8),(_A,_AJ),(_A,_s)))
-if mibBuilder.loadTexts:persistencyFileSysThresRaised.setStatus(_B)
-persistencyFileSysThresCleared=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,51))
-persistencyFileSysThresCleared.setObjects(*((_A,_AK),(_A,_A8),(_A,_AJ),(_A,_s)))
-if mibBuilder.loadTexts:persistencyFileSysThresCleared.setStatus(_B)
-tmnxSysExecStarted=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,52))
-tmnxSysExecStarted.setObjects(*((_A,_BB),(_T,_AR),(_T,_C1)))
-if mibBuilder.loadTexts:tmnxSysExecStarted.setStatus(_B)
-tmnxSysExecFinished=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,53))
-tmnxSysExecFinished.setObjects(*((_A,_BB),(_A,_DM),(_T,_AR),(_T,_C1)))
-if mibBuilder.loadTexts:tmnxSysExecFinished.setStatus(_B)
-tmnxSysRollbackSaveStarted=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,54))
-tmnxSysRollbackSaveStarted.setObjects((_A,_u))
-if mibBuilder.loadTexts:tmnxSysRollbackSaveStarted.setStatus(_B)
-tmnxSysRollbackDeleteStarted=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,55))
-tmnxSysRollbackDeleteStarted.setObjects(*((_A,_AM),(_A,_u)))
-if mibBuilder.loadTexts:tmnxSysRollbackDeleteStarted.setStatus(_B)
-tmnxSysNvsysFileError=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,56))
-tmnxSysNvsysFileError.setObjects((_A,_DN))
-if mibBuilder.loadTexts:tmnxSysNvsysFileError.setStatus(_B)
-sysDNSSecFailedAuthentication=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,57))
-sysDNSSecFailedAuthentication.setObjects(*((_A,_DR),(_A,_DS)))
-if mibBuilder.loadTexts:sysDNSSecFailedAuthentication.setStatus(_B)
-tmnxConfigConflict=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,58))
-tmnxConfigConflict.setObjects(*((_A,_l),(_A,_m),(_A,_t)))
-if mibBuilder.loadTexts:tmnxConfigConflict.setStatus(_B)
-tmnxSysLicenseInvalid=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,59))
-tmnxSysLicenseInvalid.setObjects(*((_K,_S),(_A,_Ad),(_A,_BE),(_A,_Df)))
-if mibBuilder.loadTexts:tmnxSysLicenseInvalid.setStatus(_B)
-tmnxSysLicenseExpiresSoon=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,60))
-tmnxSysLicenseExpiresSoon.setObjects(*((_K,_S),(_A,_BE)))
-if mibBuilder.loadTexts:tmnxSysLicenseExpiresSoon.setStatus(_B)
-tmnxSysVsdServerAvailable=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,63))
-tmnxSysVsdServerAvailable.setObjects((_A,_BC))
-if mibBuilder.loadTexts:tmnxSysVsdServerAvailable.setStatus(_B)
-tmnxSysVsdServerUnavailable=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,64))
-tmnxSysVsdServerUnavailable.setObjects((_A,_BC))
-if mibBuilder.loadTexts:tmnxSysVsdServerUnavailable.setStatus(_B)
-tmnxSysXmppServerFunctional=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,65))
-tmnxSysXmppServerFunctional.setObjects((_A,_BD))
-if mibBuilder.loadTexts:tmnxSysXmppServerFunctional.setStatus(_B)
-tmnxSysXmppServerNotFunctional=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,66))
-tmnxSysXmppServerNotFunctional.setObjects((_A,_BD))
-if mibBuilder.loadTexts:tmnxSysXmppServerNotFunctional.setStatus(_B)
-tmnxSysLicenseValid=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,67))
-tmnxSysLicenseValid.setObjects((_K,_S))
-if mibBuilder.loadTexts:tmnxSysLicenseValid.setStatus(_B)
-tmnxSysBaseMacAddressNotSet=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,68))
-tmnxSysBaseMacAddressNotSet.setObjects((_K,_EM))
-if mibBuilder.loadTexts:tmnxSysBaseMacAddressNotSet.setStatus(_B)
-tmnxSmLaunchStartFailed=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,69))
-tmnxSmLaunchStartFailed.setObjects(*((_T,_C0),(_T,_B_),(_i,_Bw),(_i,_Bv),(_i,_EI),(_A,_DT),(_A,_Ae),(_A,_Af)))
-if mibBuilder.loadTexts:tmnxSmLaunchStartFailed.setStatus(_B)
-tmnxEhsHandlerInvoked=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,70))
-tmnxEhsHandlerInvoked.setObjects(*((_T,_EQ),(_A,_Ae),(_A,_Af)))
-if mibBuilder.loadTexts:tmnxEhsHandlerInvoked.setStatus(_B)
-tmnxEhsDroppedByMinDelay=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,71))
-tmnxEhsDroppedByMinDelay.setObjects(*((_T,_C0),(_T,_B_),(_i,_Bw),(_i,_Bv),(_T,_EO),(_T,_EP),(_A,_Ae),(_A,_Af)))
-if mibBuilder.loadTexts:tmnxEhsDroppedByMinDelay.setStatus(_B)
-tmnxSysAppStats24HrsAvailable=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,72))
-tmnxSysAppStats24HrsAvailable.setObjects(*((_A,_BF),(_A,_Dg),(_A,_Dh)))
-if mibBuilder.loadTexts:tmnxSysAppStats24HrsAvailable.setStatus(_B)
-tmnxSysAppStatsWeekAvailable=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,73))
-tmnxSysAppStatsWeekAvailable.setObjects((_A,_BF))
-if mibBuilder.loadTexts:tmnxSysAppStatsWeekAvailable.setStatus(_B)
-tmnxSysLicenseActivated=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,75))
-tmnxSysLicenseActivated.setObjects((_K,_S))
-if mibBuilder.loadTexts:tmnxSysLicenseActivated.setStatus(_B)
-tmnxSysStandbyLicensingError=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,76))
-tmnxSysStandbyLicensingError.setObjects(*((_K,_S),(_A,_Ad)))
-if mibBuilder.loadTexts:tmnxSysStandbyLicensingError.setStatus(_B)
-tmnxSysStandbyLicensingReady=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,77))
-tmnxSysStandbyLicensingReady.setObjects((_K,_S))
-if mibBuilder.loadTexts:tmnxSysStandbyLicensingReady.setStatus(_B)
-tmnxSysMgmtIfModeChangeStart=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,78))
-tmnxSysMgmtIfModeChangeStart.setObjects(*((_A,_Dk),(_A,_Ag),(_A,_Dj)))
-if mibBuilder.loadTexts:tmnxSysMgmtIfModeChangeStart.setStatus(_B)
-tmnxSysMgmtIfModeChangeComplete=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,79))
-tmnxSysMgmtIfModeChangeComplete.setObjects((_A,_Ag))
-if mibBuilder.loadTexts:tmnxSysMgmtIfModeChangeComplete.setStatus(_B)
-tmnxSysMgmtIfModeChangeFailure=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,80))
-tmnxSysMgmtIfModeChangeFailure.setObjects((_A,_Ag))
-if mibBuilder.loadTexts:tmnxSysMgmtIfModeChangeFailure.setStatus(_B)
-tmnxSysAppLicenseInsufficient=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,81))
-tmnxSysAppLicenseInsufficient.setObjects(*((_A,_Dx),(_A,_Dy),(_A,_Di),(_A,_Ad)))
-if mibBuilder.loadTexts:tmnxSysAppLicenseInsufficient.setStatus(_B)
-tmnxSysMgmtIfLiIncorrectFormat=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,82))
-tmnxSysMgmtIfLiIncorrectFormat.setObjects(*((_A,_Dz),(_A,_D_)))
-if mibBuilder.loadTexts:tmnxSysMgmtIfLiIncorrectFormat.setStatus(_B)
-tmnxSysMgmtIfLiCfgNotEncrypted=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,83))
-if mibBuilder.loadTexts:tmnxSysMgmtIfLiCfgNotEncrypted.setStatus(_B)
-tmnxSysLicenseUpdateRequired=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,84))
-tmnxSysLicenseUpdateRequired.setObjects((_K,_S))
-if mibBuilder.loadTexts:tmnxSysLicenseUpdateRequired.setStatus(_B)
-tmnxEqOperStateChange=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,85))
-tmnxEqOperStateChange.setObjects(*((_A,_l),(_A,_Aa),(_A,_m),(_A,_t)))
-if mibBuilder.loadTexts:tmnxEqOperStateChange.setStatus(_B)
-stiDateAndTimeChanging=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,86))
-stiDateAndTimeChanging.setObjects((_A,_AZ))
-if mibBuilder.loadTexts:stiDateAndTimeChanging.setStatus(_B)
-tmnxSysSwFabFailRecStarted=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,87))
-if mibBuilder.loadTexts:tmnxSysSwFabFailRecStarted.setStatus(_B)
-tmnxSysSwFabFailRecCompleted=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,88))
-if mibBuilder.loadTexts:tmnxSysSwFabFailRecCompleted.setStatus(_B)
-tmnxSysSwFabFailRecAborted=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,89))
-if mibBuilder.loadTexts:tmnxSysSwFabFailRecAborted.setStatus(_B)
-tmnxSysSwFabFailRecDetected=NotificationType((1,3,6,1,4,1,6527,3,1,3,1,0,90))
-if mibBuilder.loadTexts:tmnxSysSwFabFailRecDetected.setStatus(_B)
-tmnxSysNotificationV4v0Group=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,1,2,21))
-tmnxSysNotificationV4v0Group.setObjects(*((_A,_BG),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_E0),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_BQ),(_A,_BR),(_A,_BS),(_A,_BT),(_A,_BU),(_A,_BV),(_A,_BW),(_A,_E1),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd),(_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk)))
-if mibBuilder.loadTexts:tmnxSysNotificationV4v0Group.setStatus(_L)
-tmnxSysNotificationV5v0Group=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,1,2,23))
-tmnxSysNotificationV5v0Group.setObjects(*((_A,_BG),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_BQ),(_A,_BR),(_A,_BS),(_A,_BT),(_A,_BU),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd),(_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk),(_A,_E2),(_A,_E3),(_A,_E4),(_A,_E5)))
-if mibBuilder.loadTexts:tmnxSysNotificationV5v0Group.setStatus(_L)
-tmnxSysObsoleteNotificationV5v0Group=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,1,2,24))
-tmnxSysObsoleteNotificationV5v0Group.setObjects(*((_A,_E1),(_A,_E0)))
-if mibBuilder.loadTexts:tmnxSysObsoleteNotificationV5v0Group.setStatus(_B)
-tmnxSysNotificationV6v0Group=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,1,2,32))
-tmnxSysNotificationV6v0Group.setObjects(*((_A,_BG),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_NI),(_A,_NJ),(_A,_NK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_BQ),(_A,_BR),(_A,_BS),(_A,_BT),(_A,_BU),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd),(_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk),(_A,_E2),(_A,_E3),(_A,_E4),(_A,_E5)))
-if mibBuilder.loadTexts:tmnxSysNotificationV6v0Group.setStatus(_B)
-tmnxSysNotificationV9v0Group=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,1,2,43))
-tmnxSysNotificationV9v0Group.setObjects(*((_A,_NL),(_A,_NM),(_A,_NN),(_A,_NO),(_A,_NP),(_A,_NQ),(_A,_NR),(_A,_NS),(_A,_NT)))
-if mibBuilder.loadTexts:tmnxSysNotificationV9v0Group.setStatus(_B)
-tmnxSysNotificationV10v0Group=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,1,2,50))
-tmnxSysNotificationV10v0Group.setObjects(*((_A,_NU),(_A,_NV),(_A,_NW),(_A,_NX)))
-if mibBuilder.loadTexts:tmnxSysNotificationV10v0Group.setStatus(_B)
-tmnxSysNotificationRBGroup=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,1,2,52))
-tmnxSysNotificationRBGroup.setObjects(*((_A,_NY),(_A,_NZ),(_A,_Na)))
-if mibBuilder.loadTexts:tmnxSysNotificationRBGroup.setStatus(_B)
-tmnxSysDNSSecNotifV12v0Group=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,1,2,60,3))
-tmnxSysDNSSecNotifV12v0Group.setObjects((_A,_Nb))
-if mibBuilder.loadTexts:tmnxSysDNSSecNotifV12v0Group.setStatus(_B)
-tmnxSysNotificationV12v0Group=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,1,2,60,4))
-tmnxSysNotificationV12v0Group.setObjects(*((_A,_Nc),(_A,_Nd),(_A,_Ne),(_A,_Nf),(_A,_Ng),(_A,_Nh),(_A,_Ni)))
-if mibBuilder.loadTexts:tmnxSysNotificationV12v0Group.setStatus(_B)
-tmnxSysLicenseNotifV13v0Group=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,1,2,69))
-tmnxSysLicenseNotifV13v0Group.setObjects((_A,_Nj))
-if mibBuilder.loadTexts:tmnxSysLicenseNotifV13v0Group.setStatus(_B)
-tmnxSysNotificationV14v0Group=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,1,2,72,2))
-tmnxSysNotificationV14v0Group.setObjects(*((_A,_Nk),(_A,_Nl),(_A,_Nm),(_A,_Nn),(_A,_No),(_A,_Np)))
-if mibBuilder.loadTexts:tmnxSysNotificationV14v0Group.setStatus(_B)
-tmnxSysLicenseNotifV16v0Group=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,1,2,78,2))
-tmnxSysLicenseNotifV16v0Group.setObjects(*((_A,_Nq),(_A,_Nr),(_A,_Ns),(_A,_Nt),(_A,_Nu),(_A,_Nv)))
-if mibBuilder.loadTexts:tmnxSysLicenseNotifV16v0Group.setStatus(_B)
-tmnxSysSwFabNotifV16v0Group=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,1,2,78,9))
-tmnxSysSwFabNotifV16v0Group.setObjects(*((_A,_Nw),(_A,_Nx),(_A,_Ny),(_A,_Nz)))
-if mibBuilder.loadTexts:tmnxSysSwFabNotifV16v0Group.setStatus(_B)
-tmnxSysLicenseNotifV19v0Group=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,1,2,79,2))
-tmnxSysLicenseNotifV19v0Group.setObjects(*((_A,_N_),(_A,_O0)))
-if mibBuilder.loadTexts:tmnxSysLicenseNotifV19v0Group.setStatus(_B)
-tmnxSysBootConfFmtNotifyGrp=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,1,2,79,10))
-tmnxSysBootConfFmtNotifyGrp.setObjects(*((_A,_O1),(_A,_O2)))
-if mibBuilder.loadTexts:tmnxSysBootConfFmtNotifyGrp.setStatus(_B)
-tmnxSysNotificationV20v0Group=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,1,2,80,1))
-tmnxSysNotificationV20v0Group.setObjects(*((_A,_O3),(_A,_O4)))
-if mibBuilder.loadTexts:tmnxSysNotificationV20v0Group.setStatus(_B)
-tmnxSysV4v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,1,1,4))
-tmnxSysV4v0Compliance.setObjects(*((_A,_W),(_A,_X),(_A,_Ah),(_A,_O5),(_A,_O6),(_A,_E6),(_A,_O7),(_A,_O8)))
-if mibBuilder.loadTexts:tmnxSysV4v0Compliance.setStatus(_L)
-tmnxSysV5v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,1,1,5))
-tmnxSysV5v0Compliance.setObjects(*((_A,_W),(_A,_X),(_A,_Ah),(_A,_b),(_A,_c),(_A,_E6),(_A,_O9),(_A,_OA)))
-if mibBuilder.loadTexts:tmnxSysV5v0Compliance.setStatus(_L)
-tmnxSysV6v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,1,1,6))
-tmnxSysV6v0Compliance.setObjects(*((_A,_W),(_A,_X),(_A,_Ah),(_A,_b),(_A,_c),(_A,_e),(_A,_f),(_A,_Bl),(_A,_g),(_A,_h)))
-if mibBuilder.loadTexts:tmnxSysV6v0Compliance.setStatus(_L)
-tmnxSysV7v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,1,1,7))
-tmnxSysV7v0Compliance.setObjects(*((_A,_W),(_A,_n),(_A,_X),(_A,_Ah),(_A,_b),(_A,_c),(_A,_e),(_A,_f),(_A,_Bl),(_A,_g),(_A,_h),(_A,_o)))
-if mibBuilder.loadTexts:tmnxSysV7v0Compliance.setStatus(_L)
-tmnxSysV8v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,1,1,8))
-tmnxSysV8v0Compliance.setObjects(*((_A,_W),(_A,_n),(_A,_X),(_A,_v),(_A,_w),(_A,_b),(_A,_c),(_A,_e),(_A,_f),(_A,_Bl),(_A,_g),(_A,_h),(_A,_x),(_A,_y),(_A,_o)))
-if mibBuilder.loadTexts:tmnxSysV8v0Compliance.setStatus(_L)
-tmnxSysV9v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,1,1,9))
-tmnxSysV9v0Compliance.setObjects(*((_A,_E7),(_A,_e),(_A,_v),(_A,_y),(_A,_W),(_A,_n),(_A,_x),(_A,_g),(_A,_A9),(_A,_h),(_A,_AA),(_A,_w),(_A,_AB),(_A,_f),(_A,_AC),(_A,_b),(_A,_AD),(_A,_c),(_A,_X),(_A,_o),(_A,_AE),(_A,_AF)))
-if mibBuilder.loadTexts:tmnxSysV9v0Compliance.setStatus(_L)
-tmnxSysBootedBofCompliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,1,1,10))
-tmnxSysBootedBofCompliance.setObjects((_A,_OB))
-if mibBuilder.loadTexts:tmnxSysBootedBofCompliance.setStatus(_B)
-tmnxSysV10v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,1,1,11))
-tmnxSysV10v0Compliance.setObjects(*((_A,_E7),(_A,_e),(_A,_v),(_A,_y),(_A,_W),(_A,_n),(_A,_x),(_A,_g),(_A,_A9),(_A,_h),(_A,_AA),(_A,_w),(_A,_AB),(_A,_f),(_A,_AC),(_A,_AN),(_A,_b),(_A,_AD),(_A,_c),(_A,_X),(_A,_o),(_A,_AE),(_A,_AO),(_A,_AF)))
-if mibBuilder.loadTexts:tmnxSysV10v0Compliance.setStatus(_L)
-tmnxSysV11v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,1,1,12))
-tmnxSysV11v0Compliance.setObjects(*((_A,_OC),(_A,_e),(_A,_v),(_A,_y),(_A,_W),(_A,_n),(_A,_x),(_A,_g),(_A,_A9),(_A,_h),(_A,_AA),(_A,_w),(_A,_AB),(_A,_f),(_A,_AC),(_A,_AN),(_A,_b),(_A,_AD),(_A,_c),(_A,_X),(_A,_o),(_A,_AE),(_A,_AO),(_A,_AF),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al)))
-if mibBuilder.loadTexts:tmnxSysV11v0Compliance.setStatus(_L)
-tmnxSysV12v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,1,1,13))
-tmnxSysV12v0Compliance.setObjects(*((_A,_Bm),(_A,_e),(_A,_Aj),(_A,_Bn),(_A,_AE),(_A,_v),(_A,_Bo),(_A,_Bp),(_A,_y),(_A,_W),(_A,_n),(_A,_Ai),(_A,_x),(_A,_g),(_A,_A9),(_A,_h),(_A,_AA),(_A,_w),(_A,_AB),(_A,_Ak),(_A,_AF),(_A,_AN),(_A,_Bq),(_A,_f),(_A,_AC),(_A,_b),(_A,_AO),(_A,_AD),(_A,_Br),(_A,_Al),(_A,_c),(_A,_X),(_A,_o),(_A,_Bs),(_A,_Bt),(_A,_Bu)))
-if mibBuilder.loadTexts:tmnxSysV12v0Compliance.setStatus(_L)
-tmnxSysV13v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,1,1,14))
-tmnxSysV13v0Compliance.setObjects(*((_A,_Bm),(_A,_e),(_A,_Aj),(_A,_Bn),(_A,_AE),(_A,_v),(_A,_Bo),(_A,_Bp),(_A,_y),(_A,_W),(_A,_n),(_A,_Ai),(_A,_x),(_A,_g),(_A,_A9),(_A,_h),(_A,_AA),(_A,_w),(_A,_AB),(_A,_Ak),(_A,_AF),(_A,_AN),(_A,_Bq),(_A,_f),(_A,_AC),(_A,_b),(_A,_AO),(_A,_AD),(_A,_Br),(_A,_Al),(_A,_c),(_A,_X),(_A,_o),(_A,_Bs),(_A,_Bt),(_A,_Bu),(_A,_E8),(_A,_E9),(_A,_EA),(_A,_EB),(_A,_EC),(_A,_ED),(_A,_EE),(_A,_EF),(_A,_EG),(_A,_EH)))
-if mibBuilder.loadTexts:tmnxSysV13v0Compliance.setStatus(_L)
-tmnxSysV14v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,1,1,15))
-tmnxSysV14v0Compliance.setObjects(*((_A,_Bm),(_A,_e),(_A,_Aj),(_A,_Bn),(_A,_AE),(_A,_v),(_A,_Bo),(_A,_Bp),(_A,_y),(_A,_W),(_A,_n),(_A,_Ai),(_A,_x),(_A,_g),(_A,_A9),(_A,_h),(_A,_AA),(_A,_w),(_A,_AB),(_A,_Ak),(_A,_AF),(_A,_AN),(_A,_Bq),(_A,_f),(_A,_AC),(_A,_b),(_A,_AO),(_A,_AD),(_A,_Br),(_A,_Al),(_A,_c),(_A,_X),(_A,_o),(_A,_Bs),(_A,_Bt),(_A,_Bu),(_A,_E8),(_A,_E9),(_A,_EA),(_A,_EB),(_A,_EC),(_A,_ED),(_A,_EE),(_A,_EF),(_A,_EG),(_A,_EH),(_A,_OD),(_A,_OE),(_A,_OF),(_A,_OG),(_A,_OH),(_A,_OI),(_A,_OJ)))
-if mibBuilder.loadTexts:tmnxSysV14v0Compliance.setStatus(_B)
-tmnxSysV15v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,1,1,16))
-tmnxSysV15v0Compliance.setObjects(*((_A,_OK),(_A,_OL),(_A,_OM),(_A,_ON)))
-if mibBuilder.loadTexts:tmnxSysV15v0Compliance.setStatus(_B)
-tmnxSysV15v1Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,1,1,17))
-tmnxSysV15v1Compliance.setObjects(*((_A,_OO),(_A,_OP),(_A,_OQ),(_A,_OR),(_A,_OS),(_A,_OT),(_A,_OU)))
-if mibBuilder.loadTexts:tmnxSysV15v1Compliance.setStatus(_B)
-tmnxSysV16v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,1,1,18))
-tmnxSysV16v0Compliance.setObjects(*((_A,_OV),(_A,_OW),(_A,_OX),(_A,_OY),(_A,_OZ),(_A,_Oa),(_A,_Ob),(_A,_Oc),(_A,_Od)))
-if mibBuilder.loadTexts:tmnxSysV16v0Compliance.setStatus(_B)
-tmnxSysV19v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,1,1,19))
-tmnxSysV19v0Compliance.setObjects(*((_A,_Oe),(_A,_Of),(_A,_Og),(_A,_Oh),(_A,_Oi),(_A,_Oj),(_A,_Ok),(_A,_Ol),(_A,_Om),(_A,_On),(_A,_Oo),(_A,_Op),(_A,_Oq),(_A,_Or)))
-if mibBuilder.loadTexts:tmnxSysV19v0Compliance.setStatus(_B)
-tmnxSysV20v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,1,1,20))
-tmnxSysV20v0Compliance.setObjects(*((_A,_Os),(_A,_Ot),(_A,_Ou),(_A,_Ov),(_A,_Ow),(_A,_Ox),(_A,_Oy),(_A,_Oz),(_A,_O_)))
-if mibBuilder.loadTexts:tmnxSysV20v0Compliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{_C7:TmnxSsiSyncMode,_C8:TmnxSsiSyncRollbackMode,'TmnxSysLicenseApplication':TmnxSysLicenseApplication,'TmnxSysLicenseAppStatsType':TmnxSysLicenseAppStatsType,'TmnxSysLicensingGroup':TmnxSysLicensingGroup,'TmnxSysMonSampleTime':TmnxSysMonSampleTime,'TmnxSysMonUtilization':TmnxSysMonUtilization,'TmnxSysMgmtIfDstoreLockState':TmnxSysMgmtIfDstoreLockState,_FE:TmnxSysNeid,'TmnxConfigFileFormatType':TmnxConfigFileFormatType,'TmnxSchemaPathState':TmnxSchemaPathState,'TmnxSysRmtMgmtLastRegStatus':TmnxSysRmtMgmtLastRegStatus,_CF:TmnxSysRmtMgmtSrcDefaultPort,'timetraSysMIBModule':timetraSysMIBModule,'tmnxSysConformance':tmnxSysConformance,'tmnxSysCompliances':tmnxSysCompliances,'tmnxSysV4v0Compliance':tmnxSysV4v0Compliance,'tmnxSysV5v0Compliance':tmnxSysV5v0Compliance,'tmnxSysV6v0Compliance':tmnxSysV6v0Compliance,'tmnxSysV7v0Compliance':tmnxSysV7v0Compliance,'tmnxSysV8v0Compliance':tmnxSysV8v0Compliance,'tmnxSysV9v0Compliance':tmnxSysV9v0Compliance,'tmnxSysBootedBofCompliance':tmnxSysBootedBofCompliance,'tmnxSysV10v0Compliance':tmnxSysV10v0Compliance,'tmnxSysV11v0Compliance':tmnxSysV11v0Compliance,'tmnxSysV12v0Compliance':tmnxSysV12v0Compliance,'tmnxSysV13v0Compliance':tmnxSysV13v0Compliance,'tmnxSysV14v0Compliance':tmnxSysV14v0Compliance,'tmnxSysV15v0Compliance':tmnxSysV15v0Compliance,'tmnxSysV15v1Compliance':tmnxSysV15v1Compliance,'tmnxSysV16v0Compliance':tmnxSysV16v0Compliance,'tmnxSysV19v0Compliance':tmnxSysV19v0Compliance,'tmnxSysV20v0Compliance':tmnxSysV20v0Compliance,'tmnxSysGroups':tmnxSysGroups,_O5:tmnxSysRadiusServerGroup,_O6:tmnxSysTacPlusServerGroup,_E6:tmnxSysBofGroup,_Ah:tmnxSysConfigV3v0Group,_W:tmnxSysGeneralV3v0Group,'tmnxSysObsoleteGroup':tmnxSysObsoleteGroup,_O8:tmnxPersistenceV4v0Group,_X:tmnxSysTimeV4v0Group,'tmnxSysNotifyObjsR4r0Group':tmnxSysNotifyObjsR4r0Group,_O7:tmnxSysNotificationV4v0Group,'tmnxSysNotifyObjsV5v0Group':tmnxSysNotifyObjsV5v0Group,_O9:tmnxSysNotificationV5v0Group,'tmnxSysObsoleteNotificationV5v0Group':tmnxSysObsoleteNotificationV5v0Group,_c:tmnxSysTacPlusServerV5v0Group,_b:tmnxSysRadiusServerV5v0Group,'tmnxSysObsoleteV5v0Group':tmnxSysObsoleteV5v0Group,_OA:tmnxPersistenceV5v0Group,_g:tmnxSysIpv6MgmtItfV6v0Group,_Bl:tmnxPersistenceV6v0Group,_e:tmnxSysBofV6v0Group,_f:tmnxSysNotificationV6v0Group,_h:tmnxSysLiV6v0Group,'tmnxSysNotifyObjsV6v0Group':tmnxSysNotifyObjsV6v0Group,_n:tmnxSysGeneralV7v0Group,_x:tmnxSysIcmpVSV6v1Group,_v:tmnxSysConfigV8v0Group,_w:tmnxSysLoginControlV8v0Group,_y:tmnxSysEthInfoGroup,_E7:tmnxPersistenceV9v0Group,_AA:tmnxSysLoginControlSecGroup,_A9:tmnxSysLiFilterGroup,_AC:tmnxSysNotificationV9v0Group,_AD:tmnxSysRollbackV9v0Group,_AB:tmnxSysLoginControlV9v0Group,_o:tmnxSystemCpuMonitorGroup,_AE:tmnxSysCertGroup,_OB:tmnxSysBootedBofGroup,_AO:tmnxSysRollbackRescueGroup,_AN:tmnxSysNotificationV10v0Group,'tmnxSysNotifyObjsV10v0Group':tmnxSysNotifyObjsV10v0Group,_AF:tmnxSysNotificationRBGroup,'tmnxSysNotifyObjsGenGroup':tmnxSysNotifyObjsGenGroup,_Ai:tmnxSysGroupingSystemGroup,_Aj:tmnxSysCandidateCfgGroup,_OC:tmnxPersistenceV11v0Group,_Ak:tmnxSysNetconfV11v0Group,_Al:tmnxSysStrmV11v0R4Group,'tmnxSysNotifyObjsV11v0Group':tmnxSysNotifyObjsV11v0Group,'tmnxSysV12v0Groups':tmnxSysV12v0Groups,_Bm:tmnxPersistenceV12v0Group,_Bp:tmnxSysDNSSecV12v0Group,_Bo:tmnxSysDNSSecNotifV12v0Group,_Bq:tmnxSysNotificationV12v0Group,_Bs:tmnxSysXmppV12v4Group,_Bn:tmnxSysCardResourceGroup,'tmnxSysNotifyObjsV12v0Group':tmnxSysNotifyObjsV12v0Group,_Bt:tmnxSysBofV12v0Group,_Bu:tmnxSysLicenseV12v0Group,_Br:tmnxSysDhcpGroup,_E8:tmnxSysFibV13v0Group,_E9:tmnxSysNetconfV13v0Group,_EA:tmnxSysSnmpSrcAccesLstV13v0Group,_EB:tmnxSysMgmtProtocolV13v0Group,_EC:tmnxSysFileTransProfV13v0Group,_ED:tmnxSysEhsV13v0Group,_EF:tmnxSysLicenseV13v0Group,_EG:tmnxSysLicenseNotifV13v0Group,_EH:tmnxSysSwReposV13v0Group,_EE:tmnxSysBofV13v0Group,'tmnxSysV14v0Groups':tmnxSysV14v0Groups,_OD:tmnxSysBofV14v0Group,_OE:tmnxSysNotificationV14v0Group,_OF:tmnxPersistenceV14v0Group,'tmnxSysNetconfV14v0Group':tmnxSysNetconfV14v0Group,_OG:tmnxSysEhsParameterGroup,_OH:tmnxSysLicenseApplicationGroup,_OI:tmnxSysNotifyObjsV14v0Group,_OJ:tmnxSysTimeV14v0Group,_OK:tmnxSysLoginControlV15v0Group,_OL:tmnxSysGrpcV15v0Group,_OM:tmnxSysXmppMgmtGroup,'tmnxSysV15v0Groups':tmnxSysV15v0Groups,_ON:tmnxSysLicenseApp48HrsGroup,'tmnxSysV15v1Groups':tmnxSysV15v1Groups,_OO:tmnxSysNetconfV15v1Group,_OP:tmnxSysMgmtProtocolV15v1Group,_OQ:tmnxSysConfigSaveCtrlV15v1Group,_OR:tmnxSysMgmtIfMdCliGroup,_OS:tmnxSysMgmtIfYangModulesGroup,'tmnxSysNetconfV15v1ObsoleteGroup':tmnxSysNetconfV15v1ObsoleteGroup,_OT:tmnxSysFileTransProfV15v1Group,_OU:tmnxSysBofV15v1Group,'tmnxSysV16v0Groups':tmnxSysV16v0Groups,_OV:tmnxSysHttpRdrV16v0Group,_OW:tmnxSysLicenseNotifV16v0Group,_OX:tmnxSysMgmtIfDsLocksV16v0Group,_OY:tmnxSysLicensingV16v0Group,_OZ:tmnxSysMgmtInterfaceV16v0Group,_Oa:tmnxSysMgmtIfNotifyObjsGroup,_Ob:tmnxSysNetworkElementV16v0Group,_Oc:tmnxSysSwitchFabricV16v0Group,_Od:tmnxSysSwFabNotifV16v0Group,'tmnxSysV19v0Groups':tmnxSysV19v0Groups,_Oe:tmnxSysLicNotifyObjsV19v0Group,_Of:tmnxSysLicenseNotifV19v0Group,_Og:tmnxSysResInfoV19v0Group,_Oh:tmnxSysBofV19v0Group,_Oi:tmnxSysNetworkElementV19v0Group,_Oj:tmnxSysLicensingV19v0Group,_Ok:tmnxSysNetconfV19v0Group,_Ol:tmnxSysEhsV19v0Group,_Om:tmnxSysBootConfFmtNotifyObjsGrp,_Oo:tmnxSysBootConfFmtNotifyGrp,_On:tmnxSysFwdPathOptsV19v0Group,_Op:tmnxSysMgmtIfMdCliCmdAccntGroup,_Oq:tmnxSysResItCamV19v0Group,_Or:tmnxSysFpCamAllocV19v0Group,'tmnxSysV20v0Groups':tmnxSysV20v0Groups,_Os:tmnxSysNotificationV20v0Group,_Ot:tmnxSysFwdPathOptsV20v0Group,_Ou:tmnxSysAutoBootV20v0Group,_Ov:tmnxSysSwitchFabricV20v0Group,_Ow:tmnxSysGeneralV20v0Group,_Ox:tmnxSysMgmtInterfaceV20v0Group,_Oy:tmnxSysFpResAllocV20v0Group,_Oz:tmnxSysRemoteMgmtV20v0Group,_O_:tmnxSysNetconfCountersExtension,'tmnxSysV21v0Groups':tmnxSysV21v0Groups,'tmnxSysMGGroups':tmnxSysMGGroups,'tmnxSysMGCompliances':tmnxSysMGCompliances,'tmnxSysDCCompliance':tmnxSysDCCompliance,'tmnxSysDCGroups':tmnxSysDCGroups,'tmnxSysNspProxyCompliances':tmnxSysNspProxyCompliances,'tmnxSysNspProxyGroups':tmnxSysNspProxyGroups,'tmnxSysObjs':tmnxSysObjs,'sysGenInfo':sysGenInfo,_FK:sgiCpuUsage,_FL:sgiMemoryUsed,_FM:sgiMemoryAvailable,_FN:sgiMemoryPoolAllocated,_FO:sgiSwMajorVersion,_FP:sgiSwMinorVersion,_FQ:sgiSwVersionModifier,_G0:sgiSnmpInGetBulks,_G1:sgiKbMemoryUsed,_G2:sgiKbMemoryAvailable,_G3:sgiKbMemoryPoolAllocated,'tmnxSysCpuMonTable':tmnxSysCpuMonTable,'tmnxSysCpuMonEntry':tmnxSysCpuMonEntry,_EX:tmnxSysCpuMonSampleTime,_GY:tmnxSysCpuMonCpuIdle,_GZ:tmnxSysCpuMonBusyCoreUtil,_Ga:tmnxSysCpuMonBusyGroupName,_Gb:tmnxSysCpuMonBusyGroupUtil,'sgiGroupingIDs':sgiGroupingIDs,_Gy:sgiSystemGroupID,_Gz:sgiSystemSubGroupID,_DW:sgiSnmpFailedSets,_ME:sgiCryptoModVersion,'sysTimeInfo':sysTimeInfo,_AZ:stiDateAndTime,_FR:stiActiveZone,_FS:stiHoursOffset,_FT:stiMinutesOffset,_FU:stiZoneType,'stiSummerZoneTable':stiSummerZoneTable,'stiSummerZoneEntry':stiSummerZoneEntry,_EY:stiSummerZoneName,_FV:stiSummerZoneRowStatus,_D1:stiSummerZoneStartDate,_D2:stiSummerZoneEndDate,_FW:stiSummerZoneOffset,_FX:stiSummerZoneStartDay,_FY:stiSummerZoneStartWeek,_FZ:stiSummerZoneStartMonth,_Fa:stiSummerZoneStartHour,_Fb:stiSummerZoneStartMinute,_Fc:stiSummerZoneEndDay,_Fd:stiSummerZoneEndWeek,_Fe:stiSummerZoneEndMonth,_Ff:stiSummerZoneEndHour,_Fg:stiSummerZoneEndMinute,_JM:stiPreferLocalTime,'sysSntpInfo':sysSntpInfo,_Fh:sntpState,'sntpServerTable':sntpServerTable,'sntpServerEntry':sntpServerEntry,_Eb:sntpServerAddress,_Fi:sntpServerRowStatus,_Fj:sntpServerVersion,_Fk:sntpServerPreference,_Fl:sntpServerInterval,_D7:sntpAdminState,_D8:sntpOperStatus,'sysSyncInfo':sysSyncInfo,_Cb:ssiSaveConfig,_At:ssiSyncMode,_Cc:ssiSyncForce,_Cd:ssiSyncStatus,_Ce:ssiSyncConfigLastTime,_Cf:ssiSyncBootEnvLastTime,_Cg:ssiConfigMaxBackupRevisions,_Ch:ssiSaveConfigResult,_Ci:ssiSaveBof,_Cj:ssiSaveBofResult,_Ck:ssiSaveConfigDest,_Cl:ssiSaveConfigDetail,_Au:ssiRedFailoverTime,_Av:ssiRedFailoverReason,_GL:ssiSyncRollbackLastTime,_GT:ssiSyncRollbackMode,_GU:ssiSyncRollbackForce,_GV:ssiSyncRollbackStatus,_Gd:ssiSyncCertLastTime,_Ge:ssiSyncCertMode,_Gc:ssiSyncCertForce,_Gf:ssiSyncCertStatus,'sysBootInfo':sysBootInfo,_Aw:sbiConfigStatus,_Ax:sbiPersistStatus,_AW:sbiPersistIndex,_AX:sbiSnmpdAdminStatus,_AY:sbiSnmpdOperStatus,_Cm:sbiSnmpdMaxPktSize,_Cn:sbiSnmpdPortNum,_Ay:sbiBootConfigOKScript,_Co:sbiConfigOKScriptStatus,_Az:sbiBootConfigFailScript,_Cp:sbiConfigFailScriptStatus,_Cq:sbiRedSwitchoverScript,_Cr:sbiRedSwitchoverScriptStatus,_Ky:sbiAllowBootLicenseViolations,'sysRadiusInfo':sysRadiusInfo,_Aq:radiusOperStatus,'radiusServerTable':radiusServerTable,'radiusServerEntry':radiusServerEntry,_Ec:radiusServerIndex,_AS:radiusServerAddress,_AT:radiusServerOperStatus,_DE:radiusServerInetAddressType,_DF:radiusServerInetAddress,'tmnxSysNotifyObjs':tmnxSysNotifyObjs,_l:tmnxNotifyRow,_A_:tmnxNotifyRowAdminState,_Aa:tmnxNotifyRowOperState,_B0:tmnxMemoryModule,_B1:tmnxModuleMallocSize,_B2:tmnxDroppedTrapID,_B3:tmnxTrapDroppedReasonCode,_B4:tmnxTrapDroppedEntryID,_m:tmnxNotifyEntryOID,_B5:tmnxSnmpdErrorMsg,_A8:tmnxPersistencyClient,_AJ:tmnxPersistencyFileLocator,_s:tmnxPersistencyNotifyMsg,_AK:tmnxPersistenceAffectedCpm,_B6:tmnxSysTimeSetBy,_D9:tmnxFtpFailureMsg,_DA:tmnxFtpFailureDestAddressType,_DB:tmnxFtpFailureDestAddress,_t:tmnxNotifyObjectName,_AL:tmnxSyncFailureReason,_BB:tmnxSysExecScript,_DM:tmnxSysExecResult,_u:tmnxSysRollbackFileType,_DN:tmnxSysFileErrorType,_DQ:tmnxTrapDroppedCount,_DS:tmnxSysDNSSecDomainName,_Ad:tmnxSysLicenseErrorReason,_BE:tmnxSysLicenseTimeLeft,_BC:tmnxSysNotifVsdServerName,_BD:tmnxSysNotifXmppServerName,_Df:tmnxSysLicenseErrorAction,_Dg:tmnxSysNotifAppStatsApplication,_Dh:tmnxSysNotifAppStatsType,_BF:tmnxSysNotifAppStatsTime,_Dk:tmnxNotifySysMgmtIfOriginalMode,_Dx:tmnxSysLicensingNotifyGroup,_Dy:tmnxSysLicensedNotifyAppName,_Dz:tmnxPrimaryConfigFileFormatType,_D_:tmnxLiConfigFileFormatType,'sysLoginControlInfo':sysLoginControlInfo,_Cs:slcFtpInboundMaxSessions,_Ct:slcTelnetInboundMaxSessions,_Cu:slcTelnetOutboundMaxSessions,_Cv:slcPreLoginMessage,_Cw:slcPreLoginMessageInclName,_Cx:slcMessageOfTheDay,_Cy:slcMessageOfTheDayType,_Cz:slcLoginBanner,_D0:slcLoginExponentialBackOff,_G5:slcTelnetGracefulShutdown,_G6:slcSSHGracefulShutdown,_G8:slcTelnetMinTTLValue,_G9:slcSSHMinTTLValue,_GW:slcSSHInboundMaxSessions,_GX:slcSSHOutboundMaxSessions,_JN:slcIdleTimeout,_JO:slcLoginScriptGlobal,_JP:slcLoginScriptPerUserDirectory,_JQ:slcLoginScriptPerUserFilename,'sysLACPInfo':sysLACPInfo,_C_:sysLACPSystemPriority,'sysTacplusInfo':sysTacplusInfo,_Ar:tacplusOperStatus,'tacplusServerTable':tacplusServerTable,'tacplusServerEntry':tacplusServerEntry,_Ed:tacplusServerIndex,_AU:tacplusServerAddress,_AV:tacplusServerOperStatus,_DC:tacPlusServerInetAddressType,_DD:tacPlusServerInetAddress,'sysBofInfo':sysBofInfo,_CG:sbiActiveIpAddr,_CH:sbiActiveIpMask,_CI:sbiStandbyIpAddr,_CJ:sbiStandbyIpMask,_CK:sbiPrimaryImage,_CL:sbiSecondaryImage,_CM:sbiTertiaryImage,_CN:sbiPrimaryConfigFile,_CO:sbiSecondaryConfigFile,_CP:sbiTertiaryConfigFile,_As:sbiPersist,_CQ:sbiConsoleSpeed,_CR:sbiAutoNegotiate,_CS:sbiSpeed,_CT:sbiDuplex,_CU:sbiPrimaryDns,_CV:sbiSecondaryDns,_CW:sbiTertiaryDns,_CX:sbiDnsDomain,_CY:sbiWait,'sbiStaticRouteTable':sbiStaticRouteTable,'sbiStaticRouteEntry':sbiStaticRouteEntry,_Ee:sbiStaticRouteDest,_Ef:sbiStaticRouteMask,_CZ:sbiStaticRouteNextHop,_Ca:sbiStaticRouteRowStatus,_Fm:sbiActiveIPv6Addr,_Fn:sbiActiveIPv6PfxLen,_Fo:sbiStandbyIPv6Addr,_Fp:sbiStandbyIPv6PfxLen,_Fq:sbiPrimaryDnsIPv6Addr,_Fr:sbiSecondaryDnsIPv6Addr,_Fs:sbiTertiaryDnsIPv6Addr,'sbiStaticRouteIPv6Table':sbiStaticRouteIPv6Table,'sbiStaticRouteIPv6Entry':sbiStaticRouteIPv6Entry,_Eg:sbiStaticRouteIPv6Dest,_Eh:sbiStaticRouteIPv6PfxLen,_Ft:sbiStaticRouteIPv6NextHop,_Fu:sbiStaticRouteIPv6RowStatus,_DG:sbiLiSeparate,_DH:sbiLiLocalSave,_IC:sbiLicenseFile,_J6:sbiFips1402Level1,_J8:sbiSystemBaseMacAddress,_J7:sbiEssSystemType,_KZ:sbiSystemProfile,_L7:sbiAutoBoot,_L8:sbiAutoBootClientId,_L9:sbiAutoBootClientIdType,_LA:sbiAutoBootUsingMgmt,_LB:sbiAutoBootUsingInband,_LC:sbiAutoBootInbandVlan,_LD:sbiAutoBootUsingIpv4,_LE:sbiAutoBootUsingIpv6,_LF:sbiAutoBootIncludeUserClass,_MC:sbiAutoBootVlanDiscovery,'sbiAutoBootInfo':sbiAutoBootInfo,'sbiAutoConfigure':sbiAutoConfigure,'sbiAutoIpv4':sbiAutoIpv4,_LG:sbiAutoIpv4Dhcp,_LH:sbiAutoIpv4DhcpClientIdType,_LI:sbiAutoIpv4DhcpClientId,_LJ:sbiAutoIpv4DhcpOptUserClass,_LK:sbiAutoIpv4DhcpTimeout,'sbiAutoIpv6':sbiAutoIpv6,_LL:sbiAutoIpv6Dhcp,_LM:sbiAutoIpv6DhcpClientIdType,_LN:sbiAutoIpv6DhcpClientIdDuidType,_LO:sbiAutoIpv6DhcpClientIdDuid,_LP:sbiAutoIpv6DhcpOptUserClass,_LQ:sbiAutoIpv6DhcpTimeout,_LR:sbiStandbyAIpAddr,_LS:sbiStandbyAIpMask,_LT:sbiStandbyAIPv6Addr,_LU:sbiStandbyAIPv6PfxLen,_LV:sbiStandbyBIpAddr,_LW:sbiStandbyBIpMask,_LX:sbiStandbyBIPv6Addr,_LY:sbiStandbyBIPv6PfxLen,_LZ:sbiStandbyCIpAddr,_La:sbiStandbyCIpMask,_Lb:sbiStandbyCIPv6Addr,_Lc:sbiStandbyCIPv6PfxLen,_Ld:sbiStandbyDIpAddr,_Le:sbiStandbyDIpMask,_Lf:sbiStandbyDIPv6Addr,_Lg:sbiStandbyDIPv6PfxLen,_Lh:sbiMgmtIfIpMtu,'sysPersistenceInfo':sysPersistenceInfo,'sysPersistenceDhcpL2Info':sysPersistenceDhcpL2Info,_D3:spiDhcpL2PersistenceFileLocation,_D4:spiDhcpL2PersistenceDescription,'sysPersistenceDhcpL3Info':sysPersistenceDhcpL3Info,_D5:spiDhcpL3PersistenceFileLocation,_D6:spiDhcpL3PersistenceDescription,'sysPersistenceSubMgmtInfo':sysPersistenceSubMgmtInfo,_A6:spiSubMgmtPersistenceFileLocation,_A7:spiSubMgmtPersistenceDescription,'sysPersistenceDhcpSrvInfo':sysPersistenceDhcpSrvInfo,_Ab:spiDhcpSrvPersistenceFileLoc,_Ac:spiDhcpSrvPersistenceDescr,'sysPersistenceNatInfo':sysPersistenceNatInfo,_B7:spiNatFwdPersistenceFileLoc,_B8:spiNatFwdPersistenceDescr,'sysPersistenceAAInfo':sysPersistenceAAInfo,_B9:spiAAPersistenceFileLoc,_BA:spiAAPersistenceDescr,'sysPersistenceAncpInfo':sysPersistenceAncpInfo,_DO:spiAncpPersistenceFileLoc,_DP:spiAncpPersistenceDescr,'sysPersistencePythonInfo':sysPersistencePythonInfo,_HL:spiPythonPersistenceFileLoc,_HM:spiPythonPersistenceDescr,_J9:tmnxDhcpLeaseTimeModeThreshold,'sysLiInfo':sysLiInfo,_DI:sliConfigStatus,_Fx:sliSaveConfig,_Fy:sliSaveConfigResult,_Fz:sliConfigLastModified,_F_:sliConfigLastSaved,_GA:sliFilterLock,'sysDNSInfo':sysDNSInfo,_Fv:sysDNSInfoLastChanged,_Fw:sysDNSAddressResolvePref,_HN:sysDNSSecAdValidation,_DR:sysDNSSecRespCtrl,'sysIcmpVSInfo':sysIcmpVSInfo,_G4:sysIcmpVSEnhancement,'sysEthInfo':sysEthInfo,_G7:sysNewQinqUntaggedSap,'tmnxSysRollbackInfo':tmnxSysRollbackInfo,_AM:tmnxSysRollbackIndex,_GB:tmnxSysRollbackStart,_DJ:tmnxSysRollbackResult,_GC:tmnxSysRollbackSave,_DK:tmnxSysRollbackSaveResult,_GD:tmnxSysRollbackLocation,_GE:tmnxSysRollbackRevertIndex,_GF:tmnxSysRollbackRevertEndTime,_GK:tmnxSysRollbackSavedTime,_GM:tmnxSysRollbackRevertStartTime,_GN:tmnxSysRollbackRevertUserName,_GO:tmnxSysRollbackRevertFilename,_GP:tmnxSysRollbackSaveComment,_GS:tmnxSysRollbackFileDelete,_DL:tmnxSysRollbackFileDeleteResult,_GQ:tmnxSysRollbackAbortRevert,_Gi:tmnxSysRollbackRescueLocation,_Gk:tmnxSysRollbackRescueRevert,_Gj:tmnxSysRollbackRescueSave,_Gl:tmnxSysRollbackRescueDelete,_Gm:tmnxSysRollbackRescueSaveRes,_Gn:tmnxSysRollbackRescueRevertRes,_Go:tmnxSysRollbackRescueDeleteRes,_Gp:tmnxSysRollbackRescueSavedTime,_Gq:tmnxSysRollbackRescueRevStTime,_Gr:tmnxSysRollbackRescueRevEdTime,_Gs:tmnxSysRollbackRescueRevUser,_Gt:tmnxSysRollbackRescueSaveComment,_Gu:tmnxSysRollbackRescueAbortRevert,_Gv:tmnxSysRollbackRescueFileExists,_Gw:tmnxSysRollbackMaxLocalFiles,_Gx:tmnxSysRollbackMaxRemoteFiles,_GG:tmnxSysRollbackTableLastChanged,'tmnxSysRollbackFileTable':tmnxSysRollbackFileTable,'tmnxSysRollbackFileEntry':tmnxSysRollbackFileEntry,_Ek:tmnxSysRollbackFileIndex,_GH:tmnxSysRollbackFileCreationTime,_GI:tmnxSysRollbackFileComment,_GJ:tmnxSysRollbackFileUserName,_GR:tmnxSysRollbackFileVersion,'sysBootedBofInfo':sysBootedBofInfo,_Gg:sbbiLiSeparate,_Gh:sbbiLiLocalSave,'sysMGMCSwitchOverInfo':sysMGMCSwitchOverInfo,'tmnxSysCandidateCfgInfo':tmnxSysCandidateCfgInfo,_G_:tmnxSysCandidateCfgState,_H0:tmnxSysCandidateCfgEditors,_H1:tmnxSysCandidateCfgCommitState,_H2:tmnxSysCandidateCfgCommitTime,_H3:tmnxSysCandidateCfgRevertTime,_H4:tmnxSysCandidateCfgChckptCreated,_H6:tmnxSysCandidateCfgUser,_H5:tmnxSysCandidateCfgExclusiveUsr,'tmnxSysNetconfInfo':tmnxSysNetconfInfo,_H7:tmnxSysNetconfAdminStatus,_H8:tmnxSysNetconfOperStatus,_H9:tmnxSysNetconfRequests,_HA:tmnxSysNetconfGetRequests,_HB:tmnxSysNetconfGetConfigRequests,_HC:tmnxSysNetconfEditConfigRequests,_HD:tmnxSysNetconfCloseRequests,_HE:tmnxSysNetconfKillRequests,_HF:tmnxSysNetconfResponses,_HG:tmnxSysNetconfErrorResponses,_IO:tmnxSysNetconfCopyConfigRequests,_IP:tmnxSysNetconfDelConfigRequests,_IQ:tmnxSysNetconfValidateRequests,_DU:tmnxSysNetconfFailedEditCfgReqs,_DV:tmnxSysNetconfFailedLockReqs,_DX:tmnxSysNetconfLockRequests,_DY:tmnxSysNetconfUnlockRequests,_DZ:tmnxSysNetconfCommitRequests,_Da:tmnxSysNetconfDiscardRequests,_Db:tmnxSysNetconfCapCandidateCfg,_Dc:tmnxSysNetconfCapRunningCfg,_Dd:tmnxSysNetconfYangBaseR13,_De:tmnxSysNetconfYangNokia,_K4:tmnxSysNetconfCreateSubRequests,_K8:tmnxSysNetconfAutoCfgSave,_Ln:tmnxSysNetconfPort,_NF:tmnxSysNetconfGetSchemaRequests,_NG:tmnxSysNetconfGetDataRequests,_NH:tmnxSysNetconfActionRequests,'tmnxDCSysObjs':tmnxDCSysObjs,'tmnxSysStrmInfo':tmnxSysStrmInfo,_HH:tmnxSysStrmAdminStatus,_HI:tmnxSysStrmDumpSnmpRequests,_HJ:tmnxSysStrmGetManyRequests,_HK:tmnxSysStrmResponses,'tmnxSysXmppInfo':tmnxSysXmppInfo,'tmnxSysXmppServerTable':tmnxSysXmppServerTable,'tmnxSysXmppServerEntry':tmnxSysXmppServerEntry,_El:tmnxSysXmppServName,_HT:tmnxSysXmppServFQDN,_HU:tmnxSysXmppServRowStatus,_HV:tmnxSysXmppServUserName,_HW:tmnxSysXmppServPassword,_HX:tmnxSysXmppServLastChanged,_HY:tmnxSysXmppServUptime,_HZ:tmnxSysXmppServIQSent,_Ha:tmnxSysXmppServIQRcvd,_Hb:tmnxSysXmppServIQError,_Hc:tmnxSysXmppServIQTimedOut,_Hd:tmnxSysXmppServIQAckRcvd,_He:tmnxSysXmppServIQMinRtt,_Hf:tmnxSysXmppServIQMaxRtt,_Hg:tmnxSysXmppServVsdUpdatesRcvd,_Hh:tmnxSysXmppServUpdatesRcvd,_Hi:tmnxSysXmppServMsgSent,_Hj:tmnxSysXmppServMsgRcvd,_Hk:tmnxSysXmppServMsgAckRcvd,_Hl:tmnxSysXmppServMsgError,_Hm:tmnxSysXmppServMsgTimedOut,_Hn:tmnxSysXmppServMsgMinRtt,_Ho:tmnxSysXmppServMsgMaxRtt,_Hp:tmnxSysXmppServSubSent,_Hq:tmnxSysXmppServUnSubSent,_Hr:tmnxSysXmppServState,_Hs:tmnxSysXmppServAdminState,_I2:tmnxSysXmppServOperUserName,_I3:tmnxSysXmppServAuthType,_I4:tmnxSysXmppServConnMode,_J_:tmnxSysXmppServServiceId,_K0:tmnxSysXmppServRouterId,'tmnxSysVsdServerTable':tmnxSysVsdServerTable,'tmnxSysVsdServerEntry':tmnxSysVsdServerEntry,_Em:tmnxSysVsdServerInstance,_Ht:tmnxSysVsdServUptime,_Hu:tmnxSysVsdServUserName,_Hv:tmnxSysVsdServerStatus,_Hw:tmnxSysVsdServMsgSent,_Hx:tmnxSysVsdServMsgRcvd,_Hy:tmnxSysVsdServMsgAckRcvd,_Hz:tmnxSysVsdServMsgError,_H_:tmnxSysVsdServMsgTimedOut,_I0:tmnxSysVsdServMsgMinRtt,_I1:tmnxSysVsdServMsgMaxRtt,'tmnxSysResInfo':tmnxSysResInfo,'tmnxSysResCardInfo':tmnxSysResCardInfo,'tmnxCardCpuResMonitorTable':tmnxCardCpuResMonitorTable,'tmnxCardCpuResMonitorEntry':tmnxCardCpuResMonitorEntry,_CD:tmnxCardResourceSlotNum,_En:tmnxCardCpuResSampleTime,_I5:tmnxCardCpuResMonCpuIdle,_I6:tmnxCardCpuResMonBusyCoreUtil,_I7:tmnxCardCpuResMonBusyGroupName,_I8:tmnxCardCpuResMonBusyGroupUtil,'tmnxCardMemResMonitorTable':tmnxCardMemResMonitorTable,'tmnxCardMemResMonitorEntry':tmnxCardMemResMonitorEntry,_I9:tmnxCardMemResMemoryUsed,_IA:tmnxCardMemResMemoryAvailable,_IB:tmnxCardMemResPoolsAllocated,'tmnxSysResEcmpProfInfo':tmnxSysResEcmpProfInfo,'tmnxSysResEcmpProfTable':tmnxSysResEcmpProfTable,'tmnxSysResEcmpProfEntry':tmnxSysResEcmpProfEntry,_Eo:tmnxSysResEcmpProfId,_L3:tmnxSysResEcmpProfRowStatus,_L4:tmnxSysResEcmpProfType,_L5:tmnxSysResEcmpProfLinksPerGrp,_L6:tmnxSysResEcmpProfNumGrps,'tmnxSysResItCam':tmnxSysResItCam,'tmnxSysResItCamBank':tmnxSysResItCamBank,_M5:tmnxSysResItCamBankV6Multicast,'tmnxSysFpCam':tmnxSysFpCam,'tmnxSysFpCamAllocation':tmnxSysFpCamAllocation,_M6:tmnxSysFpCamAllocAdmnV6Multicast,_M7:tmnxSysFpCamAllocOperV6Multicast,'tmnxSysFpResAlloc':tmnxSysFpResAlloc,'tmnxSysFpResAllocation':tmnxSysFpResAllocation,_MN:tmnxSysFpResAllocG8032Sap,_MO:tmnxSysFpResAllocOperG8032Sap,'tmnxSysDhcp':tmnxSysDhcp,_IM:tmnxSysDhcp6AdvNoaddrsGlobal,'tmnxSysVsdInfo':tmnxSysVsdInfo,_HO:tmnxSysVsdSystemId,_HP:tmnxSysVsdGwPubSubIsSubscrd,_HQ:tmnxSysVsdGwPubSubNodeName,_HR:tmnxSysVsdGwPubSubLstSubscrdTime,_HS:tmnxSysVsdGwLastAuditTxTime,'tmnxSysLicense':tmnxSysLicense,_ID:tmnxSysLicenseStatus,_IE:tmnxSysLicenseName,_IF:tmnxSysLicenseUuid,_IG:tmnxSysLicenseDescription,_IH:tmnxSysLicenseProduct,_II:tmnxSysLicenseSwVersion,_IJ:tmnxSysLicenseIssueDateAndTime,_IK:tmnxSysLicenseStartDateAndTime,_IL:tmnxSysLicenseEndDateAndTime,_Ik:tmnxSysLicenseVChassisType,_Il:tmnxSysLicenseMaxNumCPMs,_Im:tmnxSysLicenseMaxNumIOMs,'tmnxSysCpmCardLicenseTable':tmnxSysCpmCardLicenseTable,'tmnxSysCpmCardLicenseEntry':tmnxSysCpmCardLicenseEntry,_In:tmnxSysCpmCardLicStatus,_Io:tmnxSysCpmCardLicName,_Ip:tmnxSysCpmCardLicUuid,_Iq:tmnxSysCpmCardLicDescription,_Ir:tmnxSysCpmCardLicProduct,_Is:tmnxSysCpmCardLicSwVersion,_It:tmnxSysCpmCardLicIssueDateTime,_Iu:tmnxSysCpmCardLicStartDateTime,_Iv:tmnxSysCpmCardLicEndDateTime,_Iw:tmnxSysCpmCardLicVChassisType,_Ix:tmnxSysCpmCardLicMaxNumCPMs,_Iy:tmnxSysCpmCardLicMaxNumIOMs,'tmnxSysCpmCardLicFeatureTable':tmnxSysCpmCardLicFeatureTable,'tmnxSysCpmCardLicFeatureEntry':tmnxSysCpmCardLicFeatureEntry,_Ep:tmnxSysCpmCardLicFeatApplication,_Eq:tmnxSysCpmCardLicFeatNumber,_Iz:tmnxSysCpmCardLicFeatDescription,'tmnxSysLicensingTable':tmnxSysLicensingTable,'tmnxSysLicensingEntry':tmnxSysLicensingEntry,_Er:tmnxSysLicensingGroup,_Es:tmnxSysLicensedAppName,_Km:tmnxSysAppLicenseDescription,_Kn:tmnxSysAppLicenseType,_Ko:tmnxSysAppLicensePoolSize,_Kp:tmnxSysAppLicenseAllocated,_Kq:tmnxSysAppLicensePresent,_Di:tmnxSysAppLicenseState,'tmnxSysAvailableLicensesTable':tmnxSysAvailableLicensesTable,'tmnxSysAvailableLicensesEntry':tmnxSysAvailableLicensesEntry,_Et:tmnxSysAvailLicenseIndex,_Kr:tmnxSysAvailLicenseName,_Ks:tmnxSysAvailLicenseUuid,_Kt:tmnxSysAvailLicenseDescription,_Ku:tmnxSysAvailLicenseSwVersion,_Kv:tmnxSysAvailLicIssueDateTime,_Kw:tmnxSysAvailLicStartDateTime,_Kx:tmnxSysAvailLicEndDateTime,_Li:tmnxSysAvailLicenseProduct,_Lj:tmnxSysLicensingState,_Lk:tmnxSysLicensingRebootPending,'tmnxSysLicenseStatistics':tmnxSysLicenseStatistics,'tmnxSysAppStats24HrsTable':tmnxSysAppStats24HrsTable,'tmnxSysAppStats24HrsEntry':tmnxSysAppStats24HrsEntry,_Eu:tmnxSysAppStats24HrsApplication,_Ev:tmnxSysAppStats24HrsType,_Ew:tmnxSysAppStats24HrsIndex,_JC:tmnxSysAppStats24HrsName,_JD:tmnxSysAppStats24HrsValue,_JE:tmnxSysAppStats24HrsTime,'tmnxSysAppStatsWeekTable':tmnxSysAppStatsWeekTable,'tmnxSysAppStatsWeekEntry':tmnxSysAppStatsWeekEntry,_Ex:tmnxSysAppStatsWeekApplication,_Ey:tmnxSysAppStatsWeekType,_Ez:tmnxSysAppStatsWeekIndex,_JF:tmnxSysAppStatsWeekName,_JG:tmnxSysAppStatsWeekAverage,_JH:tmnxSysAppStatsWeekPeak,_JI:tmnxSysAppStatsWeekTime,'tmnxSysAppStatsPeakTable':tmnxSysAppStatsPeakTable,'tmnxSysAppStatsPeakEntry':tmnxSysAppStatsPeakEntry,_E_:tmnxSysAppStatsPeakApplication,_F0:tmnxSysAppStatsPeakType,_JJ:tmnxSysAppStatsPeakName,_JK:tmnxSysAppStatsPeakValue,_JL:tmnxSysAppStatsPeakTime,'tmnxSysAppStats48HrsTable':tmnxSysAppStats48HrsTable,'tmnxSysAppStats48HrsEntry':tmnxSysAppStats48HrsEntry,_F1:tmnxSysAppStats48HrsApplication,_F2:tmnxSysAppStats48HrsType,_F3:tmnxSysAppStats48HrsIndex,_K1:tmnxSysAppStats48HrsName,_K2:tmnxSysAppStats48HrsValue,_K3:tmnxSysAppStats48HrsTime,_Ll:tmnxSysLicensingProduct,_Lm:tmnxSysLicensingUuid,'tmnxSysFibInfo':tmnxSysFibInfo,_IN:tmnxSysFibSelective,'tmnxSysSnmpSrcAccessObjs':tmnxSysSnmpSrcAccessObjs,'tmnxSysSnmpConfigObjs':tmnxSysSnmpConfigObjs,_IR:tmnxSysSnmpSrcAccessTblLstChgd,'tmnxSysSnmpSrcAccessLstTable':tmnxSysSnmpSrcAccessLstTable,'tmnxSysSnmpSrcAccessLstEntry':tmnxSysSnmpSrcAccessLstEntry,_F4:tmnxSysSnmpSrcAccessLstName,_IS:tmnxSysSnmpSrcAccessLstRowStatus,_IT:tmnxSysSnmpSrcAccessLstLastChg,'tmnxSysSnmpStatsObjs':tmnxSysSnmpStatsObjs,'tmnxSysSnmpCommunityStatsTable':tmnxSysSnmpCommunityStatsTable,_FH:tmnxSysSnmpCommunityStatsEntry,_IU:tmnxSysSnmpCommunityPktDropped,'tmnxSysMgmtProtocolObjs':tmnxSysMgmtProtocolObjs,_IV:tmnxSysMgmtProtocolTblLstChng,'tmnxSysMgmtProtocolTable':tmnxSysMgmtProtocolTable,'tmnxSysMgmtProtocolEntry':tmnxSysMgmtProtocolEntry,_F5:tmnxSysMgmtProtocol,_IW:tmnxSysMgmtProtLastChange,_IX:tmnxSysMgmtAllowImmediateChange,_K5:tmnxSysMgmtCliEngine1,_K6:tmnxSysMgmtCliEngine2,'tmnxSysFileTransProfObjs':tmnxSysFileTransProfObjs,_IY:tmnxSysFileTransProfTableLstChgd,'tmnxSysFileTransProfTable':tmnxSysFileTransProfTable,'tmnxSysFileTransProfEntry':tmnxSysFileTransProfEntry,_F6:tmnxSysFileTransProfName,_IZ:tmnxSysFileTransProfRowStatus,_Ia:tmnxSysFileTransProfLastChanged,_Ib:tmnxSysFileTransProfRtrId,_Ic:tmnxSysFileTransProfSvcId,_Id:tmnxSysFileTransProfSrcAddrV4T,_Ie:tmnxSysFileTransProfSrcAddrV4,_If:tmnxSysFileTransProfSrcAddrV6T,_Ig:tmnxSysFileTransProfSrcAddrV6,_Ih:tmnxSysFileTransProfTimeout,_Ii:tmnxSysFileTransProfRetry,_Ij:tmnxSysFileTransProfRedirection,_KY:tmnxSysFileTransProfSvcName,'tmnxEhsExtObjs':tmnxEhsExtObjs,'tmnxSmLaunchExtTable':tmnxSmLaunchExtTable,_FI:tmnxSmLaunchExtEntry,_DT:tmnxSmLaunchExtAuthType,_Lo:tmnxSmLaunchExtLockOverride,'tmnxSmRunExtTable':tmnxSmRunExtTable,_FJ:tmnxSmRunExtEntry,_Ae:tmnxSmRunExtAuthType,_Af:tmnxSmRunExtUserName,'tmnxSmRunArgsTable':tmnxSmRunArgsTable,'tmnxSmRunArgsEntry':tmnxSmRunArgsEntry,_F7:tmnxSmRunEventArgIndex,_JA:tmnxSmRunEventArgName,_JB:tmnxSmRunEventArgValue,'tmnxSysSwReposObjs':tmnxSysSwReposObjs,_I_:tmnxSysSwReposTableLastChanged,'tmnxSysSoftwareRepositoryTable':tmnxSysSoftwareRepositoryTable,'tmnxSysSoftwareRepositoryEntry':tmnxSysSoftwareRepositoryEntry,_F8:tmnxSysSwReposName,_J0:tmnxSysSwReposRowStatus,_J1:tmnxSysSwReposLastChanged,_J2:tmnxSysSwReposDescription,_J3:tmnxSysSwReposPrimaryLocation,_J4:tmnxSysSwReposSecondaryLocation,_J5:tmnxSysSwReposTertiaryLocation,'tmnxSysNspProxyInfo':tmnxSysNspProxyInfo,'tmnxSysGrpcInfo':tmnxSysGrpcInfo,_JR:tmnxSysGrpcAdminState,_JS:tmnxSysGrpcOperState,_JT:tmnxSysGrpcTlsServerProfile,_JU:tmnxSysGrpcMaxMsgSize,_K9:tmnxSysGrpcAutoCfgSave,_JV:tmnxSysGrpcGnmiVersion,_JW:tmnxSysGrpcAllowUnsecure,_JX:tmnxSysGrpcGnmiAdminState,_JY:tmnxSysGrpcTcpKaAdminState,_JZ:tmnxSysGrpcTcpKaIdle,_Ja:tmnxSysGrpcTcpKaInterval,_Jb:tmnxSysGrpcTcpKaCount,_Jc:tmnxSysGrpcRibApiAdminState,_Jd:tmnxSysGrpcRibApiPurgeTimeout,_Je:tmnxSysGrpcRibApiVersion,_Jf:tmnxSysGrpcGnoiCertMgmtAdmnState,_Jg:tmnxSysGrpcGnoiCertMgmtVersion,_Jh:tmnxSysGrpcMdCliAdminState,_Ji:tmnxSysGrpcMdCliVersion,_Jj:tmnxSysGrpcGnoiSystemAdminState,_Jk:tmnxSysGrpcGnoiSystemVersion,'tmnxSysMgmtInterfaceMDCli':tmnxSysMgmtInterfaceMDCli,_K7:tmnxSysMgmtIfMDCliAutoCfgSave,_KA:tmnxSysMgmtIfMDEnvComplEnter,_KB:tmnxSysMgmtIfMDEnvComplSpace,_KC:tmnxSysMgmtIfMDEnvComplTab,_KD:tmnxSysMgmtIfMDEnvConsLength,_KE:tmnxSysMgmtIfMDEnvConsWidth,_KF:tmnxSysMgmtIfMDEnvMore,_KG:tmnxSysMgmtIfMDEnvPromptCtx,_KH:tmnxSysMgmtIfMDEnvPromptNewline,_KI:tmnxSysMgmtIfMDEnvPromptTime,_KJ:tmnxSysMgmtIfMDEnvPromptIndic,_KK:tmnxSysMgmtIfMDEnvTimeDisplay,_KL:tmnxSysMgmtIfMDEnvMsgCliSvrt,_KM:tmnxSysMgmtIfMDEnvProIndAdminSt,_KN:tmnxSysMgmtIfMDEnvProIndType,_KO:tmnxSysMgmtIfMDEnvProIndDelay,_M4:tmnxSysMgmtIfMDCliCmdAccntLoad,_KS:tmnxSysMgmtIfMDEnvTimeFormat,'tmnxMGSysObjs':tmnxMGSysObjs,'tmnxSysMgmtInterfaceYangModules':tmnxSysMgmtInterfaceYangModules,_KT:tmnxSysMgmtIfYangBaseR13,_KU:tmnxSysMgmtIfYangNokia,_KV:tmnxSysMgmtIfYangOpenConfig,_KW:tmnxSysMgmtIfYangNokiaCombined,_KX:tmnxSysMgmtIfYangNmdaSupport,'tmnxSysMgmtInterfaces':tmnxSysMgmtInterfaces,_Ag:tmnxSysMgmtIfWriteMode,_KP:tmnxSysMgmtIfWriteOperMode,_KQ:tmnxSysMgmtIfModeLastSwitchTime,_KR:tmnxSysMgmtIfModeSwitchDuration,'tmnxSysMgmtIfDstoreLocksTable':tmnxSysMgmtIfDstoreLocksTable,'tmnxSysMgmtIfDstoreLocksEntry':tmnxSysMgmtIfDstoreLocksEntry,_CE:tmnxSysMgmtIfDsLocksSessionId,_Kb:tmnxSysMgmtIfDsLocksRmtIpAddress,_Kc:tmnxSysMgmtIfDsLocksConsole,_Kd:tmnxSysMgmtIfDsLocksUserName,_Ke:tmnxSysMgmtIfDsLocksSessionMode,_Kf:tmnxSysMgmtIfDsLocksSessionType,_Kg:tmnxSysMgmtIfDsLocksRegion,_Kh:tmnxSysMgmtIfDsLocksRunLock,_Ki:tmnxSysMgmtIfDsLocksCndLock,_Kj:tmnxSysMgmtIfDsLocksIdleTime,_Kk:tmnxSysMgmtIfDsLocksScratchCnt,_Kl:tmnxSysMgmtIfDsLocksCronEhs,_Kz:tmnxSysMgmtIfSchemaPath,_Dj:tmnxSysMgmtIfWriteSwitchReason,_MF:tmnxSysMgmtIfPriSchemaPathState,_MG:tmnxSysMgmtIfPriSchemaPathValue,_MH:tmnxSysMgmtIfSecSchemaPathState,_MI:tmnxSysMgmtIfSecSchemaPathValue,_MJ:tmnxSysMgmtIfTerSchemaPathState,_MK:tmnxSysMgmtIfTerSchemaPathValue,_ML:tmnxSysMgmtIfOperSchemaPathState,_MM:tmnxSysMgmtIfOperSchemaPathValue,'tmnxSysGrpcConnTable':tmnxSysGrpcConnTable,'tmnxSysGrpcConnEntry':tmnxSysGrpcConnEntry,_F9:tmnxSysGrpcConnSrcIpAddType,_FA:tmnxSysGrpcConnSrcIpAddress,_FB:tmnxSysGrpcConnSrcPort,_Jl:tmnxSysGrpcConnStartTime,_Jm:tmnxSysGrpcConnActRpcCnt,_Jn:tmnxSysGrpcConnTotRpcCnt,_Jo:tmnxSysGrpcConnRxBytes,_Jp:tmnxSysGrpcConnTxBytes,_Jq:tmnxSysGrpcConnQos,_Jr:tmnxSysGrpcConnSrcVRtrId,'tmnxSysHttpRdr':tmnxSysHttpRdr,_Ka:tmnxSysHttpRdrCpmOptimizedMode,'tmnxSysGrpcRpcTable':tmnxSysGrpcRpcTable,'tmnxSysGrpcRpcEntry':tmnxSysGrpcRpcEntry,_FC:tmnxSysGrpcRpcId,_Js:tmnxSysGrpcRpcName,_Jt:tmnxSysGrpcRpcServiceName,_Ju:tmnxSysGrpcRpcStartTime,_Jv:tmnxSysGrpcRpcSrcIpAddType,_Jw:tmnxSysGrpcRpcSrcIpAddress,_Jx:tmnxSysGrpcRpcSrcPort,_Jy:tmnxSysGrpcRpcUserName,_Jz:tmnxSysGrpcRpcSessionId,'tmnxSysNetworkElementObjs':tmnxSysNetworkElementObjs,_Dl:tmnxSysNEProfTableLstChgd,'tmnxSysNEProfTable':tmnxSysNEProfTable,'tmnxSysNEProfEntry':tmnxSysNEProfEntry,_FD:tmnxSysNEProfName,_Dm:tmnxSysNEProfRowStatus,_Dn:tmnxSysNEProfLastChanged,_Do:tmnxSysNEProfNeid,_Dp:tmnxSysNEProfNeipV4Type,_Dq:tmnxSysNEProfNeipV4,_Dr:tmnxSysNEProfNeipV6Type,_Ds:tmnxSysNEProfNeipV6,_Dt:tmnxSysNEProfSystemMac,_Du:tmnxSysNEProfPlatformType,_Dv:tmnxSysNEProfVendorId,_Dw:tmnxSysNEDiscoveryGenerateTraps,'tmnxSysFwdPathOptsObjs':tmnxSysFwdPathOptsObjs,_Lp:tmnxSysFpoDscpTransAdminState,_Lq:tmnxSysFpoDscpTransOperState,_Lr:tmnxSysFpoEntropyLabelAdminState,_Ls:tmnxSysFpoEntropyLabelOperState,_Lt:tmnxSysFpoMacFltOutVlanPrioAdmSt,_Lu:tmnxSysFpoMacFltOutVlanPrioOprSt,_Lv:tmnxSysFpoVplsEvpnMplsAdminState,_Lw:tmnxSysFpoVplsEvpnMplsOperState,_Lx:tmnxSysFpoQosFc4ProfAdminState,_Ly:tmnxSysFpoQosFc4ProfOperState,_M8:tmnxSysFpoMplsFastSwOvAdminState,_M9:tmnxSysFpoMplsFastSwOvOperState,_MA:tmnxSysFpoRouterEcmpAdminState,_MB:tmnxSysFpoRouterEcmpOperState,_Lz:tmnxSysFpoQosMacCritAdminState,_L_:tmnxSysFpoQosMacCritOperState,_M0:tmnxSysFpoQosIpv6CritAdminState,_M1:tmnxSysFpoQosIpv6CritOperState,_M2:tmnxSysFpoQosBumPolAdminState,_M3:tmnxSysFpoQosBumPolOperState,'tmnxSysSwitchFabricObjs':tmnxSysSwitchFabricObjs,_MD:tmnxSysSwFabSfmLossThresh,_K_:tmnxSysSwFabFailRecAdminState,_L0:tmnxSysSwFabFailRecOperState,'tmnxSysRemoteMgmt':tmnxSysRemoteMgmt,_MP:tmnxSysRmtMgmtAdminState,_MQ:tmnxSysRmtMgmtOperState,_MY:tmnxSysRmtMgmtOperDownReason,_MR:tmnxSysRmtMgmtAllowUnsecure,_Mh:tmnxSysRmtMgmtTlsClientProf,_Mg:tmnxSysRmtMgmtTimeout,_Mi:tmnxSysRmtMgmtVRtrId,_Mc:tmnxSysRmtMgmtSrcIpAddType,_Md:tmnxSysRmtMgmtSrcIpAddress,_Me:tmnxSysRmtMgmtSrcPort,_Mf:tmnxSysRmtMgmtSrcDefaultPort,_MS:tmnxSysRmtMgmtDeviceLabel,_MT:tmnxSysRmtMgmtDeviceName,_MW:tmnxSysRmtMgmtLastRegStatus,_MX:tmnxSysRmtMgmtLastRegTime,_MZ:tmnxSysRmtMgmtRegsCancelled,_Ma:tmnxSysRmtMgmtRegsFailed,_Mb:tmnxSysRmtMgmtRegsSent,_MU:tmnxSysRmtMgmtHelloInterval,_MV:tmnxSysRmtMgmtLastHelloTime,'tmnxSysRmtMgmtManagerTable':tmnxSysRmtMgmtManagerTable,'tmnxSysRmtMgmtManagerEntry':tmnxSysRmtMgmtManagerEntry,_FG:tmnxSysRmtMgmtMgrName,_Mz:tmnxSysRmtMgmtMgrRowStatus,_Mj:tmnxSysRmtMgmtMgrAdminState,_Mv:tmnxSysRmtMgmtMgrOperState,_Mu:tmnxSysRmtMgmtMgrOperDownReason,_Mo:tmnxSysRmtMgmtMgrFQDN,_Mp:tmnxSysRmtMgmtMgrIpAddType,_Mr:tmnxSysRmtMgmtMgrIpAddress,_Mq:tmnxSysRmtMgmtMgrPort,_Mk:tmnxSysRmtMgmtMgrAllowUnsecure,_N4:tmnxSysRmtMgmtMgrTlsClientProf,_Ml:tmnxSysRmtMgmtMgrDescription,_N3:tmnxSysRmtMgmtMgrTimeout,_N5:tmnxSysRmtMgmtMgrVRtrId,_M_:tmnxSysRmtMgmtMgrSrcIpAddType,_N0:tmnxSysRmtMgmtMgrSrcIpAddress,_N1:tmnxSysRmtMgmtMgrSrcPort,_N2:tmnxSysRmtMgmtMgrSrcDefaultPort,_Mm:tmnxSysRmtMgmtMgrDeviceLabel,_Mn:tmnxSysRmtMgmtMgrDeviceName,_Ms:tmnxSysRmtMgmtMgrLastRegStatus,_Mt:tmnxSysRmtMgmtMgrLastRegTime,_Mw:tmnxSysRmtMgmtMgrRegsCancelled,_Mx:tmnxSysRmtMgmtMgrRegsFailed,_My:tmnxSysRmtMgmtMgrRegsSent,_NC:tmnxSysRmtMgmtMgrOperTlsProf,_NE:tmnxSysRmtMgmtMgrOperTranspType,_NB:tmnxSysRmtMgmtMgrOperTimeout,_ND:tmnxSysRmtMgmtMgrOperVRtrId,_N7:tmnxSysRmtMgmtMgrOperDevName,_N6:tmnxSysRmtMgmtMgrOperDevLabel,_N8:tmnxSysRmtMgmtMgrOperSrcIpAdType,_N9:tmnxSysRmtMgmtMgrOperSrcIpAddr,_NA:tmnxSysRmtMgmtMgrOperSrcPort,'tmnxSysSwFabFailRecSfmStatsTable':tmnxSysSwFabFailRecSfmStatsTable,'tmnxSysSwFabFailRecSfmStatsEntry':tmnxSysSwFabFailRecSfmStatsEntry,_L1:tmnxSysSwFabFailRecSfmState,_L2:tmnxSysSwFabFailRecSfmStateTime,'tmnxSysMIBNotifyPrefix':tmnxSysMIBNotifyPrefix,'tmnxSysNotifications':tmnxSysNotifications,_BG:stiDateAndTimeChanged,_BH:ssiSaveConfigSucceeded,_BI:ssiSaveConfigFailed,_BJ:sbiBootConfig,_BK:sbiBootSnmpd,_E0:radiusServerOperStatusChange,_BL:radiusOperStatusChange,_BM:tmnxConfigModify,_BN:tmnxConfigCreate,_BO:tmnxConfigDelete,_BP:tmnxStateChange,_BQ:tmnxModuleMallocFailed,_BR:tmnxTrapDropped,_BS:ssiSyncConfigOK,_BT:ssiSyncConfigFailed,_BU:ssiSyncBootEnvOK,_BV:ssiSyncBootEnvFailed,_BW:sntpTimeDiffExceedsThreshold,_E1:tacplusServerOperStatusChange,_BX:tacplusOperStatusChange,_BY:tmnxSnmpdError,_BZ:tmnxSsiMismatch,_Ba:tmnxSnmpdStateChange,_Bb:ssiRedStandbySyncing,_Bc:ssiRedStandbyReady,_Bd:ssiRedStandbySyncLost,_Be:ssiRedSwitchover,_Bf:ssiRedCpmActive,_Bg:ssiRedSingleCpm,_Bh:persistencyClosedAlarmRaised,_Bi:persistencyClosedAlarmCleared,_Bj:tmnxSntpOperChange,_Bk:tmnxSysTimeSet,_E2:tmnxFtpClientFailure,_E3:tacplusInetSrvrOperStatusChange,_E4:radiusInetServerOperStatusChange,_E5:persistencyEventReport,_NI:sbiBootConfigFailFileError,_NJ:sbiBootConfigOKFileError,_NK:sbiBootLiConfig,_NL:persistenceRestoreProblem,_NM:tmnxSysRollbackStarted,_NN:tmnxSysRollbackStatusChange,_NO:tmnxSysRollbackSaveStatusChange,_NP:tmnxSysRollbackFileDeleteStatus,_NQ:ssiSyncRollbackOK,_NR:ssiSyncRollbackFailed,_NS:ssiSyncCertOK,_NT:ssiSyncCertFailed,_NU:persistencyFileSysThresRaised,_NV:persistencyFileSysThresCleared,_NW:tmnxSysExecStarted,_NX:tmnxSysExecFinished,_NY:tmnxSysRollbackSaveStarted,_NZ:tmnxSysRollbackDeleteStarted,_Na:tmnxSysNvsysFileError,_Nb:sysDNSSecFailedAuthentication,_Nc:tmnxConfigConflict,_Nd:tmnxSysLicenseInvalid,_Ne:tmnxSysLicenseExpiresSoon,_Nf:tmnxSysVsdServerAvailable,_Ng:tmnxSysVsdServerUnavailable,_Nh:tmnxSysXmppServerFunctional,_Ni:tmnxSysXmppServerNotFunctional,_Nj:tmnxSysLicenseValid,_Nk:tmnxSysBaseMacAddressNotSet,_Nl:tmnxSmLaunchStartFailed,_Nm:tmnxEhsHandlerInvoked,_Nn:tmnxEhsDroppedByMinDelay,_No:tmnxSysAppStats24HrsAvailable,_Np:tmnxSysAppStatsWeekAvailable,_Nq:tmnxSysLicenseActivated,_Nr:tmnxSysStandbyLicensingError,_Ns:tmnxSysStandbyLicensingReady,_Nt:tmnxSysMgmtIfModeChangeStart,_Nu:tmnxSysMgmtIfModeChangeComplete,_Nv:tmnxSysMgmtIfModeChangeFailure,_N_:tmnxSysAppLicenseInsufficient,_O1:tmnxSysMgmtIfLiIncorrectFormat,_O2:tmnxSysMgmtIfLiCfgNotEncrypted,_O0:tmnxSysLicenseUpdateRequired,_O3:tmnxEqOperStateChange,_O4:stiDateAndTimeChanging,_Nw:tmnxSysSwFabFailRecStarted,_Nx:tmnxSysSwFabFailRecCompleted,_Ny:tmnxSysSwFabFailRecAborted,_Nz:tmnxSysSwFabFailRecDetected,'tmnxSysMGNotifications':tmnxSysMGNotifications})
+if mibBuilder.loadTexts: tmnxSmRunExtEntry.setStatus('current')
+tmnxSmRunExtAuthType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 35, 2, 1, 1), TmnxScriptAuthType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSmRunExtAuthType.setStatus('current')
+tmnxSmRunExtUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 35, 2, 1, 2), TNamedItemOrEmpty()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSmRunExtUserName.setStatus('current')
+tmnxSmRunArgsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 35, 3), )
+if mibBuilder.loadTexts: tmnxSmRunArgsTable.setStatus('current')
+tmnxSmRunArgsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 35, 3, 1), ).setIndexNames((0, "DISMAN-SCRIPT-MIB", "smLaunchOwner"), (0, "DISMAN-SCRIPT-MIB", "smLaunchName"), (0, "DISMAN-SCRIPT-MIB", "smRunIndex"), (0, "TIMETRA-SYSTEM-MIB", "tmnxSmRunEventArgIndex"))
+if mibBuilder.loadTexts: tmnxSmRunArgsEntry.setStatus('current')
+tmnxSmRunEventArgIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 35, 3, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: tmnxSmRunEventArgIndex.setStatus('current')
+tmnxSmRunEventArgName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 35, 3, 1, 2), TLNamedItem()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSmRunEventArgName.setStatus('current')
+tmnxSmRunEventArgValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 35, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSmRunEventArgValue.setStatus('current')
+tmnxSysSwReposObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 36))
+tmnxSysSwReposTableLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 36, 1), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysSwReposTableLastChanged.setStatus('current')
+tmnxSysSoftwareRepositoryTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 36, 2), )
+if mibBuilder.loadTexts: tmnxSysSoftwareRepositoryTable.setStatus('current')
+tmnxSysSoftwareRepositoryEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 36, 2, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tmnxSysSwReposName"))
+if mibBuilder.loadTexts: tmnxSysSoftwareRepositoryEntry.setStatus('current')
+tmnxSysSwReposName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 36, 2, 1, 1), TNamedItem())
+if mibBuilder.loadTexts: tmnxSysSwReposName.setStatus('current')
+tmnxSysSwReposRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 36, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysSwReposRowStatus.setStatus('current')
+tmnxSysSwReposLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 36, 2, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysSwReposLastChanged.setStatus('current')
+tmnxSysSwReposDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 36, 2, 1, 4), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysSwReposDescription.setStatus('current')
+tmnxSysSwReposPrimaryLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 36, 2, 1, 5), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysSwReposPrimaryLocation.setStatus('current')
+tmnxSysSwReposSecondaryLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 36, 2, 1, 6), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysSwReposSecondaryLocation.setStatus('current')
+tmnxSysSwReposTertiaryLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 36, 2, 1, 7), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysSwReposTertiaryLocation.setStatus('current')
+tmnxSysNspProxyInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 37))
+tmnxSysGrpcInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39))
+tmnxSysGrpcAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 1), TmnxAdminState().clone('outOfService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysGrpcAdminState.setStatus('current')
+tmnxSysGrpcOperState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 2), TmnxOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcOperState.setStatus('current')
+tmnxSysGrpcTlsServerProfile = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 3), TNamedItemOrEmpty().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysGrpcTlsServerProfile.setStatus('current')
+tmnxSysGrpcMaxMsgSize = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 1024)).clone(512)).setUnits('megabytes').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysGrpcMaxMsgSize.setStatus('current')
+tmnxSysGrpcAutoCfgSave = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysGrpcAutoCfgSave.setStatus('current')
+tmnxSysGrpcGnmiVersion = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 10))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcGnmiVersion.setStatus('current')
+tmnxSysGrpcAllowUnsecure = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 7), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysGrpcAllowUnsecure.setStatus('current')
+tmnxSysGrpcGnmiAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 8), TmnxAdminState().clone('inService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysGrpcGnmiAdminState.setStatus('current')
+tmnxSysGrpcTcpKaAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 9), TmnxAdminState().clone('outOfService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysGrpcTcpKaAdminState.setStatus('current')
+tmnxSysGrpcTcpKaIdle = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 100000)).clone(600)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysGrpcTcpKaIdle.setStatus('current')
+tmnxSysGrpcTcpKaInterval = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 100000)).clone(15)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysGrpcTcpKaInterval.setStatus('current')
+tmnxSysGrpcTcpKaCount = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(3, 100)).clone(4)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysGrpcTcpKaCount.setStatus('current')
+tmnxSysGrpcRibApiAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 13), TmnxAdminState().clone('outOfService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysGrpcRibApiAdminState.setStatus('current')
+tmnxSysGrpcRibApiPurgeTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100000))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysGrpcRibApiPurgeTimeout.setStatus('current')
+tmnxSysGrpcRibApiVersion = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 15), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 10))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcRibApiVersion.setStatus('current')
+tmnxSysGrpcGnoiCertMgmtAdmnState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 16), TmnxAdminState().clone('outOfService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysGrpcGnoiCertMgmtAdmnState.setStatus('current')
+tmnxSysGrpcGnoiCertMgmtVersion = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 17), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 10))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcGnoiCertMgmtVersion.setStatus('current')
+tmnxSysGrpcMdCliAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 18), TmnxAdminState().clone('outOfService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysGrpcMdCliAdminState.setStatus('current')
+tmnxSysGrpcMdCliVersion = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 19), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 10))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcMdCliVersion.setStatus('current')
+tmnxSysGrpcGnoiSystemAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 22), TmnxAdminState().clone('outOfService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysGrpcGnoiSystemAdminState.setStatus('current')
+tmnxSysGrpcGnoiSystemVersion = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 39, 23), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 10))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcGnoiSystemVersion.setStatus('current')
+tmnxSysMgmtInterfaceMDCli = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 40))
+tmnxSysMgmtIfMDCliAutoCfgSave = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 40, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfMDCliAutoCfgSave.setStatus('current')
+tmnxSysMgmtIfMDEnvComplEnter = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 40, 2), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfMDEnvComplEnter.setStatus('current')
+tmnxSysMgmtIfMDEnvComplSpace = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 40, 3), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfMDEnvComplSpace.setStatus('current')
+tmnxSysMgmtIfMDEnvComplTab = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 40, 4), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfMDEnvComplTab.setStatus('current')
+tmnxSysMgmtIfMDEnvConsLength = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 40, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(24, 512)).clone(24)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfMDEnvConsLength.setStatus('current')
+tmnxSysMgmtIfMDEnvConsWidth = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 40, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(80, 512)).clone(80)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfMDEnvConsWidth.setStatus('current')
+tmnxSysMgmtIfMDEnvMore = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 40, 8), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfMDEnvMore.setStatus('current')
+tmnxSysMgmtIfMDEnvPromptCtx = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 40, 9), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfMDEnvPromptCtx.setStatus('current')
+tmnxSysMgmtIfMDEnvPromptNewline = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 40, 10), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfMDEnvPromptNewline.setStatus('current')
+tmnxSysMgmtIfMDEnvPromptTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 40, 11), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfMDEnvPromptTime.setStatus('current')
+tmnxSysMgmtIfMDEnvPromptIndic = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 40, 12), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfMDEnvPromptIndic.setStatus('current')
+tmnxSysMgmtIfMDEnvTimeDisplay = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 40, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("local", 1), ("utc", 2))).clone('local')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfMDEnvTimeDisplay.setStatus('current')
+tmnxSysMgmtIfMDEnvMsgCliSvrt = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 40, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(6, 7))).clone(namedValues=NamedValues(("warning", 6), ("info", 7))).clone('info')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfMDEnvMsgCliSvrt.setStatus('current')
+tmnxSysMgmtIfMDEnvProIndAdminSt = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 40, 15), TmnxAdminStateTruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfMDEnvProIndAdminSt.setStatus('current')
+tmnxSysMgmtIfMDEnvProIndType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 40, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("dots", 1))).clone('dots')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfMDEnvProIndType.setStatus('current')
+tmnxSysMgmtIfMDEnvProIndDelay = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 40, 17), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000)).clone(1000)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfMDEnvProIndDelay.setStatus('current')
+tmnxSysMgmtIfMDCliCmdAccntLoad = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 40, 18), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfMDCliCmdAccntLoad.setStatus('current')
+tmnxSysMgmtIfMDEnvTimeFormat = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 40, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("iso-8601", 1), ("rfc-1123", 2), ("rfc-3339", 3))).clone('rfc-3339')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfMDEnvTimeFormat.setStatus('current')
+tmnxMGSysObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 41))
+tmnxSysMgmtInterfaceYangModules = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 42))
+tmnxSysMgmtIfYangBaseR13 = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 42, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfYangBaseR13.setStatus('current')
+tmnxSysMgmtIfYangNokia = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 42, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfYangNokia.setStatus('current')
+tmnxSysMgmtIfYangOpenConfig = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 42, 3), TruthValue().clone('false')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfYangOpenConfig.setStatus('current')
+tmnxSysMgmtIfYangNokiaCombined = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 42, 4), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfYangNokiaCombined.setStatus('current')
+tmnxSysMgmtIfYangNmdaSupport = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 42, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfYangNmdaSupport.setStatus('current')
+tmnxSysMgmtInterfaces = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43))
+tmnxSysMgmtIfWriteMode = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("classic", 1), ("modelDriven", 2), ("mixed", 3))).clone('classic')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfWriteMode.setStatus('current')
+tmnxSysMgmtIfWriteOperMode = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("syncing", 0), ("classic", 1), ("modelDriven", 2), ("mixed", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfWriteOperMode.setStatus('current')
+tmnxSysMgmtIfModeLastSwitchTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 3), DateAndTime().subtype(subtypeSpec=ValueSizeConstraint(11, 11)).setFixedLength(11)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfModeLastSwitchTime.setStatus('current')
+tmnxSysMgmtIfModeSwitchDuration = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 4), Counter32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfModeSwitchDuration.setStatus('current')
+tmnxSysMgmtIfDstoreLocksTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 5), )
+if mibBuilder.loadTexts: tmnxSysMgmtIfDstoreLocksTable.setStatus('current')
+tmnxSysMgmtIfDstoreLocksEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 5, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfDsLocksSessionId"))
+if mibBuilder.loadTexts: tmnxSysMgmtIfDstoreLocksEntry.setStatus('current')
+tmnxSysMgmtIfDsLocksSessionId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 5, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfDsLocksSessionId.setStatus('current')
+tmnxSysMgmtIfDsLocksRmtIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 5, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfDsLocksRmtIpAddress.setStatus('current')
+tmnxSysMgmtIfDsLocksConsole = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 5, 1, 3), TruthValue().clone('false')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfDsLocksConsole.setStatus('current')
+tmnxSysMgmtIfDsLocksUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 5, 1, 4), TNamedItemOrEmpty()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfDsLocksUserName.setStatus('current')
+tmnxSysMgmtIfDsLocksSessionMode = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 5, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("global", 1), ("exclusive", 2), ("private", 3), ("privateExclusive", 4), ("readOnly", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfDsLocksSessionMode.setStatus('current')
+tmnxSysMgmtIfDsLocksSessionType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 5, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("classicCli", 1), ("grpc", 2), ("mdCli", 3), ("netconf", 4), ("snmp", 5), ("system", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfDsLocksSessionType.setStatus('current')
+tmnxSysMgmtIfDsLocksRegion = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 5, 1, 7), TNamedItem()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfDsLocksRegion.setStatus('current')
+tmnxSysMgmtIfDsLocksRunLock = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 5, 1, 8), TmnxSysMgmtIfDstoreLockState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfDsLocksRunLock.setStatus('current')
+tmnxSysMgmtIfDsLocksCndLock = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 5, 1, 9), TmnxSysMgmtIfDstoreLockState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfDsLocksCndLock.setStatus('current')
+tmnxSysMgmtIfDsLocksIdleTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 5, 1, 10), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfDsLocksIdleTime.setStatus('current')
+tmnxSysMgmtIfDsLocksScratchCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 5, 1, 11), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfDsLocksScratchCnt.setStatus('current')
+tmnxSysMgmtIfDsLocksCronEhs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 5, 1, 12), TruthValue().clone('false')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfDsLocksCronEhs.setStatus('current')
+tmnxSysMgmtIfSchemaPath = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 6), TmnxDisplayStringURL()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysMgmtIfSchemaPath.setStatus('current')
+tmnxSysMgmtIfWriteSwitchReason = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("boot", 0), ("manual", 1), ("validation", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfWriteSwitchReason.setStatus('current')
+tmnxSysMgmtIfPriSchemaPathState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 8), TmnxSchemaPathState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfPriSchemaPathState.setStatus('current')
+tmnxSysMgmtIfPriSchemaPathValue = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 9), TmnxDisplayStringURL()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfPriSchemaPathValue.setStatus('current')
+tmnxSysMgmtIfSecSchemaPathState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 10), TmnxSchemaPathState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfSecSchemaPathState.setStatus('current')
+tmnxSysMgmtIfSecSchemaPathValue = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 11), TmnxDisplayStringURL()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfSecSchemaPathValue.setStatus('current')
+tmnxSysMgmtIfTerSchemaPathState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 12), TmnxSchemaPathState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfTerSchemaPathState.setStatus('current')
+tmnxSysMgmtIfTerSchemaPathValue = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 13), TmnxDisplayStringURL()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfTerSchemaPathValue.setStatus('current')
+tmnxSysMgmtIfOperSchemaPathState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 14), TmnxSchemaPathState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfOperSchemaPathState.setStatus('current')
+tmnxSysMgmtIfOperSchemaPathValue = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 43, 15), TmnxDisplayStringURL()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysMgmtIfOperSchemaPathValue.setStatus('current')
+tmnxSysGrpcConnTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 44), )
+if mibBuilder.loadTexts: tmnxSysGrpcConnTable.setStatus('current')
+tmnxSysGrpcConnEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 44, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tmnxSysGrpcConnSrcIpAddType"), (0, "TIMETRA-SYSTEM-MIB", "tmnxSysGrpcConnSrcIpAddress"), (0, "TIMETRA-SYSTEM-MIB", "tmnxSysGrpcConnSrcPort"))
+if mibBuilder.loadTexts: tmnxSysGrpcConnEntry.setStatus('current')
+tmnxSysGrpcConnSrcIpAddType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 44, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: tmnxSysGrpcConnSrcIpAddType.setStatus('current')
+tmnxSysGrpcConnSrcIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 44, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
+if mibBuilder.loadTexts: tmnxSysGrpcConnSrcIpAddress.setStatus('current')
+tmnxSysGrpcConnSrcPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 44, 1, 3), InetPortNumber())
+if mibBuilder.loadTexts: tmnxSysGrpcConnSrcPort.setStatus('current')
+tmnxSysGrpcConnStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 44, 1, 4), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcConnStartTime.setStatus('current')
+tmnxSysGrpcConnActRpcCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 44, 1, 5), CounterBasedGauge64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcConnActRpcCnt.setStatus('current')
+tmnxSysGrpcConnTotRpcCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 44, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcConnTotRpcCnt.setStatus('current')
+tmnxSysGrpcConnRxBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 44, 1, 7), Counter64()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcConnRxBytes.setStatus('current')
+tmnxSysGrpcConnTxBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 44, 1, 8), Counter64()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcConnTxBytes.setStatus('current')
+tmnxSysGrpcConnQos = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 44, 1, 9), TDSCPNameOrEmpty()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcConnQos.setStatus('current')
+tmnxSysGrpcConnSrcVRtrId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 44, 1, 10), TmnxVRtrID()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcConnSrcVRtrId.setStatus('current')
+tmnxSysHttpRdr = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 45))
+tmnxSysHttpRdrCpmOptimizedMode = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 45, 1), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysHttpRdrCpmOptimizedMode.setStatus('current')
+tmnxSysGrpcRpcTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 46), )
+if mibBuilder.loadTexts: tmnxSysGrpcRpcTable.setStatus('current')
+tmnxSysGrpcRpcEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 46, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tmnxSysGrpcRpcId"))
+if mibBuilder.loadTexts: tmnxSysGrpcRpcEntry.setStatus('current')
+tmnxSysGrpcRpcId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 46, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: tmnxSysGrpcRpcId.setStatus('current')
+tmnxSysGrpcRpcName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 46, 1, 2), TNamedItem()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcRpcName.setStatus('current')
+tmnxSysGrpcRpcServiceName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 46, 1, 3), TNamedItem()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcRpcServiceName.setStatus('current')
+tmnxSysGrpcRpcStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 46, 1, 4), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcRpcStartTime.setStatus('current')
+tmnxSysGrpcRpcSrcIpAddType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 46, 1, 5), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcRpcSrcIpAddType.setStatus('current')
+tmnxSysGrpcRpcSrcIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 46, 1, 6), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcRpcSrcIpAddress.setStatus('current')
+tmnxSysGrpcRpcSrcPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 46, 1, 7), InetPortNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcRpcSrcPort.setStatus('current')
+tmnxSysGrpcRpcUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 46, 1, 8), TNamedItemOrEmpty()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcRpcUserName.setStatus('current')
+tmnxSysGrpcRpcSessionId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 46, 1, 9), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysGrpcRpcSessionId.setStatus('current')
+tmnxSysNetworkElementObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 47))
+tmnxSysNEProfTableLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 47, 1), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNEProfTableLstChgd.setStatus('current')
+tmnxSysNEProfTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 47, 2), )
+if mibBuilder.loadTexts: tmnxSysNEProfTable.setStatus('current')
+tmnxSysNEProfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 47, 2, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tmnxSysNEProfName"))
+if mibBuilder.loadTexts: tmnxSysNEProfEntry.setStatus('current')
+tmnxSysNEProfName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 47, 2, 1, 1), TNamedItem())
+if mibBuilder.loadTexts: tmnxSysNEProfName.setStatus('current')
+tmnxSysNEProfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 47, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysNEProfRowStatus.setStatus('current')
+tmnxSysNEProfLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 47, 2, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysNEProfLastChanged.setStatus('current')
+tmnxSysNEProfNeid = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 47, 2, 1, 4), TmnxSysNeid().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysNEProfNeid.setStatus('current')
+tmnxSysNEProfNeipV4Type = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 47, 2, 1, 5), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysNEProfNeipV4Type.setStatus('current')
+tmnxSysNEProfNeipV4 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 47, 2, 1, 6), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), )).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysNEProfNeipV4.setStatus('current')
+tmnxSysNEProfNeipV6Type = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 47, 2, 1, 7), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysNEProfNeipV6Type.setStatus('current')
+tmnxSysNEProfNeipV6 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 47, 2, 1, 8), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(16, 16), )).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysNEProfNeipV6.setStatus('current')
+tmnxSysNEProfSystemMac = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 47, 2, 1, 9), MacAddress().clone(hexValue="000000000000")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysNEProfSystemMac.setStatus('current')
+tmnxSysNEProfPlatformType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 47, 2, 1, 10), DisplayString().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysNEProfPlatformType.setStatus('current')
+tmnxSysNEProfVendorId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 47, 2, 1, 11), DisplayString().clone('Nokia')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysNEProfVendorId.setStatus('current')
+tmnxSysNEDiscoveryGenerateTraps = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 47, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysNEDiscoveryGenerateTraps.setStatus('current')
+tmnxSysFwdPathOptsObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48))
+tmnxSysFpoDscpTransAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 1), TmnxAdminState().clone('inService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysFpoDscpTransAdminState.setStatus('current')
+tmnxSysFpoDscpTransOperState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 2), TmnxOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysFpoDscpTransOperState.setStatus('current')
+tmnxSysFpoEntropyLabelAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 3), TmnxAdminState().clone('outOfService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysFpoEntropyLabelAdminState.setStatus('current')
+tmnxSysFpoEntropyLabelOperState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 4), TmnxOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysFpoEntropyLabelOperState.setStatus('current')
+tmnxSysFpoMacFltOutVlanPrioAdmSt = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 5), TmnxAdminState().clone('outOfService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysFpoMacFltOutVlanPrioAdmSt.setStatus('current')
+tmnxSysFpoMacFltOutVlanPrioOprSt = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 6), TmnxOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysFpoMacFltOutVlanPrioOprSt.setStatus('current')
+tmnxSysFpoVplsEvpnMplsAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 7), TmnxAdminState().clone('inService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysFpoVplsEvpnMplsAdminState.setStatus('current')
+tmnxSysFpoVplsEvpnMplsOperState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 8), TmnxOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysFpoVplsEvpnMplsOperState.setStatus('current')
+tmnxSysFpoQosFc4ProfAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 9), TmnxAdminState().clone('outOfService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysFpoQosFc4ProfAdminState.setStatus('current')
+tmnxSysFpoQosFc4ProfOperState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 10), TmnxOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysFpoQosFc4ProfOperState.setStatus('current')
+tmnxSysFpoMplsFastSwOvAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 11), TmnxAdminState().clone('inService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysFpoMplsFastSwOvAdminState.setStatus('current')
+tmnxSysFpoMplsFastSwOvOperState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 12), TmnxOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysFpoMplsFastSwOvOperState.setStatus('current')
+tmnxSysFpoRouterEcmpAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 13), TmnxAdminState().clone('inService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysFpoRouterEcmpAdminState.setStatus('current')
+tmnxSysFpoRouterEcmpOperState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 14), TmnxOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysFpoRouterEcmpOperState.setStatus('current')
+tmnxSysFpoQosMacCritAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 15), TmnxAdminState().clone('outOfService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysFpoQosMacCritAdminState.setStatus('current')
+tmnxSysFpoQosMacCritOperState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 16), TmnxOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysFpoQosMacCritOperState.setStatus('current')
+tmnxSysFpoQosIpv6CritAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 17), TmnxAdminState().clone('outOfService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysFpoQosIpv6CritAdminState.setStatus('current')
+tmnxSysFpoQosIpv6CritOperState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 18), TmnxOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysFpoQosIpv6CritOperState.setStatus('current')
+tmnxSysFpoQosBumPolAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 19), TmnxAdminState().clone('outOfService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysFpoQosBumPolAdminState.setStatus('current')
+tmnxSysFpoQosBumPolOperState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 48, 20), TmnxOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysFpoQosBumPolOperState.setStatus('current')
+tmnxSysSwitchFabricObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 49))
+tmnxSysSwFabSfmLossThresh = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 49, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysSwFabSfmLossThresh.setStatus('current')
+tmnxSysSwFabFailRecAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 49, 2), TmnxEnabledDisabledAdminState().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysSwFabFailRecAdminState.setStatus('current')
+tmnxSysSwFabFailRecOperState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 49, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("disabled", 0), ("holdDown", 1), ("ready", 2), ("recoveryInProgress", 3), ("detectedDisabled", 4), ("detectedHoldDown", 5), ("detectedXRS40Migration", 6), ("detectedSFMUpgradePending", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysSwFabFailRecOperState.setStatus('current')
+tmnxSysRemoteMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52))
+tmnxSysRmtMgmtAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 1), TmnxAdminState().clone('outOfService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtAdminState.setStatus('current')
+tmnxSysRmtMgmtOperState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 2), TmnxOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtOperState.setStatus('current')
+tmnxSysRmtMgmtOperDownReason = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("unknown", 0), ("adminDown", 1), ("noManager", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtOperDownReason.setStatus('current')
+tmnxSysRmtMgmtAllowUnsecure = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtAllowUnsecure.setStatus('current')
+tmnxSysRmtMgmtTlsClientProf = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 5), TNamedItemOrEmpty().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtTlsClientProf.setStatus('current')
+tmnxSysRmtMgmtTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 3600)).clone(60)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtTimeout.setStatus('current')
+tmnxSysRmtMgmtVRtrId = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 7), TmnxVRtrID().clone(4095)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtVRtrId.setStatus('current')
+tmnxSysRmtMgmtSrcIpAddType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 8), InetAddressType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtSrcIpAddType.setStatus('current')
+tmnxSysRmtMgmtSrcIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 9), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtSrcIpAddress.setStatus('current')
+tmnxSysRmtMgmtSrcPort = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 10), InetPortNumber()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtSrcPort.setStatus('current')
+tmnxSysRmtMgmtSrcDefaultPort = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 11), TmnxSysRmtMgmtSrcDefaultPort().clone('grpc')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtSrcDefaultPort.setStatus('current')
+tmnxSysRmtMgmtDeviceLabel = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 12), TLNamedItemOrEmpty().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtDeviceLabel.setStatus('current')
+tmnxSysRmtMgmtDeviceName = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 13), TLNamedItemOrEmpty().clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtDeviceName.setStatus('current')
+tmnxSysRmtMgmtLastRegStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 14), TmnxSysRmtMgmtLastRegStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtLastRegStatus.setStatus('current')
+tmnxSysRmtMgmtLastRegTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 15), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtLastRegTime.setStatus('current')
+tmnxSysRmtMgmtRegsCancelled = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 16), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtRegsCancelled.setStatus('current')
+tmnxSysRmtMgmtRegsFailed = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 17), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtRegsFailed.setStatus('current')
+tmnxSysRmtMgmtRegsSent = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 18), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtRegsSent.setStatus('current')
+tmnxSysRmtMgmtHelloInterval = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 19), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(10, 3600)).clone(10)).setUnits('minutes').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtHelloInterval.setStatus('current')
+tmnxSysRmtMgmtLastHelloTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 20), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtLastHelloTime.setStatus('current')
+tmnxSysRmtMgmtManagerTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21), )
+if mibBuilder.loadTexts: tmnxSysRmtMgmtManagerTable.setStatus('current')
+tmnxSysRmtMgmtManagerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1), ).setIndexNames((0, "TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrName"))
+if mibBuilder.loadTexts: tmnxSysRmtMgmtManagerEntry.setStatus('current')
+tmnxSysRmtMgmtMgrName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 1), TLNamedItem())
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrName.setStatus('current')
+tmnxSysRmtMgmtMgrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrRowStatus.setStatus('current')
+tmnxSysRmtMgmtMgrAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 3), TmnxAdminState().clone('outOfService')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrAdminState.setStatus('current')
+tmnxSysRmtMgmtMgrOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 4), TmnxOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrOperState.setStatus('current')
+tmnxSysRmtMgmtMgrOperDownReason = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("unknown", 0), ("adminDown", 1), ("noTransportType", 2), ("noSourceAddress", 3), ("invalidManagerAddress", 4), ("registration-failed", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrOperDownReason.setStatus('current')
+tmnxSysRmtMgmtMgrFQDN = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255)).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrFQDN.setStatus('current')
+tmnxSysRmtMgmtMgrIpAddType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 7), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrIpAddType.setStatus('current')
+tmnxSysRmtMgmtMgrIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 8), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrIpAddress.setStatus('current')
+tmnxSysRmtMgmtMgrPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 9), InetPortNumber().clone(57400)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrPort.setStatus('current')
+tmnxSysRmtMgmtMgrAllowUnsecure = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 10), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrAllowUnsecure.setStatus('current')
+tmnxSysRmtMgmtMgrTlsClientProf = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 11), TNamedItemOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrTlsClientProf.setStatus('current')
+tmnxSysRmtMgmtMgrDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 12), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrDescription.setStatus('current')
+tmnxSysRmtMgmtMgrTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 13), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 3600), ))).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrTimeout.setStatus('current')
+tmnxSysRmtMgmtMgrVRtrId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 14), TmnxVRtrIDOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrVRtrId.setStatus('current')
+tmnxSysRmtMgmtMgrSrcIpAddType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 15), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrSrcIpAddType.setStatus('current')
+tmnxSysRmtMgmtMgrSrcIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 16), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrSrcIpAddress.setStatus('current')
+tmnxSysRmtMgmtMgrSrcPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 17), InetPortNumber()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrSrcPort.setStatus('current')
+tmnxSysRmtMgmtMgrSrcDefaultPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 18), TmnxSysRmtMgmtSrcDefaultPort().clone('none')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrSrcDefaultPort.setStatus('current')
+tmnxSysRmtMgmtMgrDeviceLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 19), TLNamedItemOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrDeviceLabel.setStatus('current')
+tmnxSysRmtMgmtMgrDeviceName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 20), TLNamedItemOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrDeviceName.setStatus('current')
+tmnxSysRmtMgmtMgrLastRegStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 21), TmnxSysRmtMgmtLastRegStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrLastRegStatus.setStatus('current')
+tmnxSysRmtMgmtMgrLastRegTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 22), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrLastRegTime.setStatus('current')
+tmnxSysRmtMgmtMgrRegsCancelled = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 23), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrRegsCancelled.setStatus('current')
+tmnxSysRmtMgmtMgrRegsFailed = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 24), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrRegsFailed.setStatus('current')
+tmnxSysRmtMgmtMgrRegsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 25), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrRegsSent.setStatus('current')
+tmnxSysRmtMgmtMgrOperTlsProf = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 26), TNamedItemOrEmpty()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrOperTlsProf.setStatus('current')
+tmnxSysRmtMgmtMgrOperTranspType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 27), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("tls", 1), ("unsecured", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrOperTranspType.setStatus('current')
+tmnxSysRmtMgmtMgrOperTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 28), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrOperTimeout.setStatus('current')
+tmnxSysRmtMgmtMgrOperVRtrId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 29), TmnxVRtrIDOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrOperVRtrId.setStatus('current')
+tmnxSysRmtMgmtMgrOperDevName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 30), TLNamedItemOrEmpty()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrOperDevName.setStatus('current')
+tmnxSysRmtMgmtMgrOperDevLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 31), TLNamedItemOrEmpty()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrOperDevLabel.setStatus('current')
+tmnxSysRmtMgmtMgrOperSrcIpAdType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 32), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrOperSrcIpAdType.setStatus('current')
+tmnxSysRmtMgmtMgrOperSrcIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 33), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrOperSrcIpAddr.setStatus('current')
+tmnxSysRmtMgmtMgrOperSrcPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 52, 21, 1, 34), InetPortNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysRmtMgmtMgrOperSrcPort.setStatus('current')
+tmnxSysSwFabFailRecSfmStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 54), )
+if mibBuilder.loadTexts: tmnxSysSwFabFailRecSfmStatsTable.setStatus('current')
+tmnxSysSwFabFailRecSfmStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 54, 1), ).setIndexNames((0, "TIMETRA-CHASSIS-MIB", "tmnxFabricSlotNum"))
+if mibBuilder.loadTexts: tmnxSysSwFabFailRecSfmStatsEntry.setStatus('current')
+tmnxSysSwFabFailRecSfmState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 54, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("complete", 0), ("inProgress", 1), ("pending", 2), ("aborted", 3), ("failed", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysSwFabFailRecSfmState.setStatus('current')
+tmnxSysSwFabFailRecSfmStateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 1, 54, 1, 2), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxSysSwFabFailRecSfmStateTime.setStatus('current')
+tmnxSysConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1))
+tmnxSysCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 1))
+tmnxSysV4v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 1, 4)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV3v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTimeV4v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysConfigV3v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRadiusServerGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTacPlusServerGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBofGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV4v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistenceV4v0Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysV4v0Compliance = tmnxSysV4v0Compliance.setStatus('obsolete')
+tmnxSysV5v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 1, 5)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV3v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTimeV4v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysConfigV3v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRadiusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTacPlusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBofGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistenceV5v0Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysV5v0Compliance = tmnxSysV5v0Compliance.setStatus('obsolete')
+tmnxSysV6v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 1, 6)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV3v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTimeV4v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysConfigV3v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRadiusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTacPlusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBofV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistenceV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysIpv6MgmtItfV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLiV6v0Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysV6v0Compliance = tmnxSysV6v0Compliance.setStatus('obsolete')
+tmnxSysV7v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 1, 7)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV3v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV7v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTimeV4v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysConfigV3v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRadiusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTacPlusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBofV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistenceV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysIpv6MgmtItfV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLiV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSystemCpuMonitorGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysV7v0Compliance = tmnxSysV7v0Compliance.setStatus('obsolete')
+tmnxSysV8v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 1, 8)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV3v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV7v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTimeV4v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysConfigV8v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlV8v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRadiusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTacPlusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBofV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistenceV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysIpv6MgmtItfV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLiV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysIcmpVSV6v1Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysEthInfoGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSystemCpuMonitorGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysV8v0Compliance = tmnxSysV8v0Compliance.setStatus('obsolete')
+tmnxSysV9v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 1, 9)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxPersistenceV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBofV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysConfigV8v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysEthInfoGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV3v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV7v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysIcmpVSV6v1Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysIpv6MgmtItfV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLiFilterGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLiV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlSecGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlV8v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRadiusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTacPlusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTimeV4v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSystemCpuMonitorGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCertGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationRBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysV9v0Compliance = tmnxSysV9v0Compliance.setStatus('obsolete')
+tmnxSysBootedBofCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 1, 10)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysBootedBofGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysBootedBofCompliance = tmnxSysBootedBofCompliance.setStatus('current')
+tmnxSysV10v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 1, 11)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxPersistenceV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBofV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysConfigV8v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysEthInfoGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV3v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV7v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysIcmpVSV6v1Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysIpv6MgmtItfV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLiFilterGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLiV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlSecGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlV8v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV10v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRadiusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTacPlusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTimeV4v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSystemCpuMonitorGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCertGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRescueGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationRBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysV10v0Compliance = tmnxSysV10v0Compliance.setStatus('obsolete')
+tmnxSysV11v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 1, 12)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxPersistenceV11v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBofV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysConfigV8v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysEthInfoGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV3v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV7v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysIcmpVSV6v1Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysIpv6MgmtItfV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLiFilterGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLiV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlSecGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlV8v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV10v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRadiusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTacPlusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTimeV4v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSystemCpuMonitorGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCertGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRescueGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationRBGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGroupingSystemGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCandidateCfgGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfV11v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysStrmV11v0R4Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysV11v0Compliance = tmnxSysV11v0Compliance.setStatus('obsolete')
+tmnxSysV12v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 1, 13)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxPersistenceV12v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBofV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCandidateCfgGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCardResourceGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCertGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysConfigV8v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysDNSSecNotifV12v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysDNSSecV12v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysEthInfoGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV3v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV7v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGroupingSystemGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysIcmpVSV6v1Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysIpv6MgmtItfV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLiFilterGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLiV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlSecGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlV8v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfV11v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationRBGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV10v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV12v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRadiusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRescueGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysDhcpGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysStrmV11v0R4Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTacPlusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTimeV4v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSystemCpuMonitorGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppV12v4Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBofV12v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseV12v0Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysV12v0Compliance = tmnxSysV12v0Compliance.setStatus('obsolete')
+tmnxSysV13v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 1, 14)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxPersistenceV12v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBofV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCandidateCfgGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCardResourceGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCertGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysConfigV8v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysDNSSecNotifV12v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysDNSSecV12v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysEthInfoGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV3v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV7v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGroupingSystemGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysIcmpVSV6v1Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysIpv6MgmtItfV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLiFilterGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLiV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlSecGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlV8v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfV11v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationRBGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV10v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV12v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRadiusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRescueGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysDhcpGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysStrmV11v0R4Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTacPlusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTimeV4v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSystemCpuMonitorGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppV12v4Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBofV12v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseV12v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFibV13v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfV13v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSnmpSrcAccesLstV13v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtProtocolV13v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFileTransProfV13v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysEhsV13v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBofV13v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseV13v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseNotifV13v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSwReposV13v0Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysV13v0Compliance = tmnxSysV13v0Compliance.setStatus('obsolete')
+tmnxSysV14v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 1, 15)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxPersistenceV12v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBofV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCandidateCfgGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCardResourceGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCertGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysConfigV8v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysDNSSecNotifV12v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysDNSSecV12v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysEthInfoGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV3v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV7v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGroupingSystemGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysIcmpVSV6v1Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysIpv6MgmtItfV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLiFilterGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLiV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlSecGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlV8v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfV11v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationRBGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV10v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV12v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV6v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRadiusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRescueGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackV9v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysDhcpGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysStrmV11v0R4Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTacPlusServerV5v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTimeV4v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSystemCpuMonitorGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppV12v4Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBofV12v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseV12v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFibV13v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfV13v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSnmpSrcAccesLstV13v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtProtocolV13v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFileTransProfV13v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysEhsV13v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBofV13v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseV13v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseNotifV13v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSwReposV13v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBofV14v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV14v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistenceV14v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysEhsParameterGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseApplicationGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotifyObjsV14v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTimeV14v0Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysV14v0Compliance = tmnxSysV14v0Compliance.setStatus('current')
+tmnxSysV15v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 1, 16)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysLoginControlV15v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcV15v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppMgmtGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseApp48HrsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysV15v0Compliance = tmnxSysV15v0Compliance.setStatus('current')
+tmnxSysV15v1Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 1, 17)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfV15v1Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtProtocolV15v1Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysConfigSaveCtrlV15v1Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMdCliGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfYangModulesGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFileTransProfV15v1Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBofV15v1Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysV15v1Compliance = tmnxSysV15v1Compliance.setStatus('current')
+tmnxSysV16v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 1, 18)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysHttpRdrV16v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseNotifV16v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfDsLocksV16v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicensingV16v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtInterfaceV16v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfNotifyObjsGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetworkElementV16v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSwitchFabricV16v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSwFabNotifV16v0Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysV16v0Compliance = tmnxSysV16v0Compliance.setStatus('current')
+tmnxSysV19v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 1, 19)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysLicNotifyObjsV19v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseNotifV19v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysResInfoV19v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBofV19v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetworkElementV19v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicensingV19v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfV19v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysEhsV19v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBootConfFmtNotifyObjsGrp"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFwdPathOptsV19v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysBootConfFmtNotifyGrp"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMdCliCmdAccntGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysResItCamV19v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpCamAllocV19v0Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysV19v0Compliance = tmnxSysV19v0Compliance.setStatus('current')
+tmnxSysV20v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 1, 20)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysNotificationV20v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFwdPathOptsV20v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAutoBootV20v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSwitchFabricV20v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGeneralV20v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtInterfaceV20v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpResAllocV20v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRemoteMgmtV20v0Group"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfCountersExtension"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysV20v0Compliance = tmnxSysV20v0Compliance.setStatus('current')
+tmnxSysGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2))
+tmnxSysRadiusServerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 4)).setObjects(("TIMETRA-SYSTEM-MIB", "radiusOperStatus"), ("TIMETRA-SYSTEM-MIB", "radiusServerAddress"), ("TIMETRA-SYSTEM-MIB", "radiusServerOperStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysRadiusServerGroup = tmnxSysRadiusServerGroup.setStatus('obsolete')
+tmnxSysTacPlusServerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 5)).setObjects(("TIMETRA-SYSTEM-MIB", "tacplusOperStatus"), ("TIMETRA-SYSTEM-MIB", "tacplusServerAddress"), ("TIMETRA-SYSTEM-MIB", "tacplusServerOperStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysTacPlusServerGroup = tmnxSysTacPlusServerGroup.setStatus('obsolete')
+tmnxSysBofGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 8)).setObjects(("TIMETRA-SYSTEM-MIB", "sbiActiveIpAddr"), ("TIMETRA-SYSTEM-MIB", "sbiActiveIpMask"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyIpAddr"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyIpMask"), ("TIMETRA-SYSTEM-MIB", "sbiPrimaryImage"), ("TIMETRA-SYSTEM-MIB", "sbiSecondaryImage"), ("TIMETRA-SYSTEM-MIB", "sbiTertiaryImage"), ("TIMETRA-SYSTEM-MIB", "sbiPrimaryConfigFile"), ("TIMETRA-SYSTEM-MIB", "sbiSecondaryConfigFile"), ("TIMETRA-SYSTEM-MIB", "sbiTertiaryConfigFile"), ("TIMETRA-SYSTEM-MIB", "sbiPersist"), ("TIMETRA-SYSTEM-MIB", "sbiConsoleSpeed"), ("TIMETRA-SYSTEM-MIB", "sbiAutoNegotiate"), ("TIMETRA-SYSTEM-MIB", "sbiSpeed"), ("TIMETRA-SYSTEM-MIB", "sbiDuplex"), ("TIMETRA-SYSTEM-MIB", "sbiPrimaryDns"), ("TIMETRA-SYSTEM-MIB", "sbiSecondaryDns"), ("TIMETRA-SYSTEM-MIB", "sbiTertiaryDns"), ("TIMETRA-SYSTEM-MIB", "sbiDnsDomain"), ("TIMETRA-SYSTEM-MIB", "sbiWait"), ("TIMETRA-SYSTEM-MIB", "sbiStaticRouteNextHop"), ("TIMETRA-SYSTEM-MIB", "sbiStaticRouteRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysBofGroup = tmnxSysBofGroup.setStatus('obsolete')
+tmnxSysConfigV3v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 12)).setObjects(("TIMETRA-SYSTEM-MIB", "ssiSaveConfig"), ("TIMETRA-SYSTEM-MIB", "ssiSyncMode"), ("TIMETRA-SYSTEM-MIB", "ssiSyncForce"), ("TIMETRA-SYSTEM-MIB", "ssiSyncStatus"), ("TIMETRA-SYSTEM-MIB", "ssiSyncConfigLastTime"), ("TIMETRA-SYSTEM-MIB", "ssiSyncBootEnvLastTime"), ("TIMETRA-SYSTEM-MIB", "ssiConfigMaxBackupRevisions"), ("TIMETRA-SYSTEM-MIB", "ssiSaveConfigResult"), ("TIMETRA-SYSTEM-MIB", "ssiSaveBof"), ("TIMETRA-SYSTEM-MIB", "ssiSaveBofResult"), ("TIMETRA-SYSTEM-MIB", "ssiSaveConfigDest"), ("TIMETRA-SYSTEM-MIB", "ssiSaveConfigDetail"), ("TIMETRA-SYSTEM-MIB", "ssiRedFailoverTime"), ("TIMETRA-SYSTEM-MIB", "ssiRedFailoverReason"), ("TIMETRA-SYSTEM-MIB", "sbiConfigStatus"), ("TIMETRA-SYSTEM-MIB", "sbiPersistStatus"), ("TIMETRA-SYSTEM-MIB", "sbiPersistIndex"), ("TIMETRA-SYSTEM-MIB", "sbiSnmpdAdminStatus"), ("TIMETRA-SYSTEM-MIB", "sbiSnmpdOperStatus"), ("TIMETRA-SYSTEM-MIB", "sbiSnmpdMaxPktSize"), ("TIMETRA-SYSTEM-MIB", "sbiSnmpdPortNum"), ("TIMETRA-SYSTEM-MIB", "sbiBootConfigOKScript"), ("TIMETRA-SYSTEM-MIB", "sbiConfigOKScriptStatus"), ("TIMETRA-SYSTEM-MIB", "sbiBootConfigFailScript"), ("TIMETRA-SYSTEM-MIB", "sbiConfigFailScriptStatus"), ("TIMETRA-SYSTEM-MIB", "sbiRedSwitchoverScript"), ("TIMETRA-SYSTEM-MIB", "sbiRedSwitchoverScriptStatus"), ("TIMETRA-SYSTEM-MIB", "slcFtpInboundMaxSessions"), ("TIMETRA-SYSTEM-MIB", "slcTelnetInboundMaxSessions"), ("TIMETRA-SYSTEM-MIB", "slcTelnetOutboundMaxSessions"), ("TIMETRA-SYSTEM-MIB", "slcPreLoginMessage"), ("TIMETRA-SYSTEM-MIB", "slcPreLoginMessageInclName"), ("TIMETRA-SYSTEM-MIB", "slcMessageOfTheDay"), ("TIMETRA-SYSTEM-MIB", "slcMessageOfTheDayType"), ("TIMETRA-SYSTEM-MIB", "slcLoginBanner"), ("TIMETRA-SYSTEM-MIB", "sysLACPSystemPriority"), ("TIMETRA-SYSTEM-MIB", "slcLoginExponentialBackOff"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysConfigV3v0Group = tmnxSysConfigV3v0Group.setStatus('obsolete')
+tmnxSysGeneralV3v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 15)).setObjects(("TIMETRA-SYSTEM-MIB", "sgiCpuUsage"), ("TIMETRA-SYSTEM-MIB", "sgiMemoryUsed"), ("TIMETRA-SYSTEM-MIB", "sgiMemoryAvailable"), ("TIMETRA-SYSTEM-MIB", "sgiMemoryPoolAllocated"), ("TIMETRA-SYSTEM-MIB", "sgiSwMajorVersion"), ("TIMETRA-SYSTEM-MIB", "sgiSwMinorVersion"), ("TIMETRA-SYSTEM-MIB", "sgiSwVersionModifier"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysGeneralV3v0Group = tmnxSysGeneralV3v0Group.setStatus('current')
+tmnxSysObsoleteGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 17)).setObjects(("TIMETRA-SYSTEM-MIB", "stiSummerZoneStartDate"), ("TIMETRA-SYSTEM-MIB", "stiSummerZoneEndDate"), ("TIMETRA-SYSTEM-MIB", "tacplusServerAddress"), ("TIMETRA-SYSTEM-MIB", "radiusServerAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysObsoleteGroup = tmnxSysObsoleteGroup.setStatus('obsolete')
+tmnxPersistenceV4v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 18)).setObjects(("TIMETRA-SYSTEM-MIB", "spiDhcpL2PersistenceFileLocation"), ("TIMETRA-SYSTEM-MIB", "spiDhcpL2PersistenceDescription"), ("TIMETRA-SYSTEM-MIB", "spiDhcpL3PersistenceFileLocation"), ("TIMETRA-SYSTEM-MIB", "spiDhcpL3PersistenceDescription"), ("TIMETRA-SYSTEM-MIB", "spiSubMgmtPersistenceFileLocation"), ("TIMETRA-SYSTEM-MIB", "spiSubMgmtPersistenceDescription"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxPersistenceV4v0Group = tmnxPersistenceV4v0Group.setStatus('obsolete')
+tmnxSysTimeV4v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 19)).setObjects(("TIMETRA-SYSTEM-MIB", "stiDateAndTime"), ("TIMETRA-SYSTEM-MIB", "stiActiveZone"), ("TIMETRA-SYSTEM-MIB", "stiHoursOffset"), ("TIMETRA-SYSTEM-MIB", "stiMinutesOffset"), ("TIMETRA-SYSTEM-MIB", "stiZoneType"), ("TIMETRA-SYSTEM-MIB", "stiSummerZoneRowStatus"), ("TIMETRA-SYSTEM-MIB", "stiSummerZoneOffset"), ("TIMETRA-SYSTEM-MIB", "stiSummerZoneStartDay"), ("TIMETRA-SYSTEM-MIB", "stiSummerZoneStartWeek"), ("TIMETRA-SYSTEM-MIB", "stiSummerZoneStartMonth"), ("TIMETRA-SYSTEM-MIB", "stiSummerZoneStartHour"), ("TIMETRA-SYSTEM-MIB", "stiSummerZoneStartMinute"), ("TIMETRA-SYSTEM-MIB", "stiSummerZoneEndDay"), ("TIMETRA-SYSTEM-MIB", "stiSummerZoneEndWeek"), ("TIMETRA-SYSTEM-MIB", "stiSummerZoneEndMonth"), ("TIMETRA-SYSTEM-MIB", "stiSummerZoneEndHour"), ("TIMETRA-SYSTEM-MIB", "stiSummerZoneEndMinute"), ("TIMETRA-SYSTEM-MIB", "sntpState"), ("TIMETRA-SYSTEM-MIB", "sntpServerRowStatus"), ("TIMETRA-SYSTEM-MIB", "sntpServerVersion"), ("TIMETRA-SYSTEM-MIB", "sntpServerPreference"), ("TIMETRA-SYSTEM-MIB", "sntpServerInterval"), ("TIMETRA-SYSTEM-MIB", "sntpAdminState"), ("TIMETRA-SYSTEM-MIB", "sntpOperStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysTimeV4v0Group = tmnxSysTimeV4v0Group.setStatus('current')
+tmnxSysNotifyObjsR4r0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 20)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxNotifyRow"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyRowAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyRowOperState"), ("TIMETRA-SYSTEM-MIB", "tmnxMemoryModule"), ("TIMETRA-SYSTEM-MIB", "tmnxModuleMallocSize"), ("TIMETRA-SYSTEM-MIB", "tmnxDroppedTrapID"), ("TIMETRA-SYSTEM-MIB", "tmnxTrapDroppedReasonCode"), ("TIMETRA-SYSTEM-MIB", "tmnxTrapDroppedEntryID"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyEntryOID"), ("TIMETRA-SYSTEM-MIB", "tmnxSnmpdErrorMsg"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTimeSetBy"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNotifyObjsR4r0Group = tmnxSysNotifyObjsR4r0Group.setStatus('obsolete')
+tmnxSysNotificationV4v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 21)).setObjects(("TIMETRA-SYSTEM-MIB", "stiDateAndTimeChanged"), ("TIMETRA-SYSTEM-MIB", "ssiSaveConfigSucceeded"), ("TIMETRA-SYSTEM-MIB", "ssiSaveConfigFailed"), ("TIMETRA-SYSTEM-MIB", "sbiBootConfig"), ("TIMETRA-SYSTEM-MIB", "sbiBootSnmpd"), ("TIMETRA-SYSTEM-MIB", "radiusServerOperStatusChange"), ("TIMETRA-SYSTEM-MIB", "radiusOperStatusChange"), ("TIMETRA-SYSTEM-MIB", "tmnxConfigModify"), ("TIMETRA-SYSTEM-MIB", "tmnxConfigCreate"), ("TIMETRA-SYSTEM-MIB", "tmnxConfigDelete"), ("TIMETRA-SYSTEM-MIB", "tmnxStateChange"), ("TIMETRA-SYSTEM-MIB", "tmnxModuleMallocFailed"), ("TIMETRA-SYSTEM-MIB", "tmnxTrapDropped"), ("TIMETRA-SYSTEM-MIB", "ssiSyncConfigOK"), ("TIMETRA-SYSTEM-MIB", "ssiSyncConfigFailed"), ("TIMETRA-SYSTEM-MIB", "ssiSyncBootEnvOK"), ("TIMETRA-SYSTEM-MIB", "ssiSyncBootEnvFailed"), ("TIMETRA-SYSTEM-MIB", "sntpTimeDiffExceedsThreshold"), ("TIMETRA-SYSTEM-MIB", "tacplusServerOperStatusChange"), ("TIMETRA-SYSTEM-MIB", "tacplusOperStatusChange"), ("TIMETRA-SYSTEM-MIB", "tmnxSnmpdError"), ("TIMETRA-SYSTEM-MIB", "tmnxSsiMismatch"), ("TIMETRA-SYSTEM-MIB", "tmnxSnmpdStateChange"), ("TIMETRA-SYSTEM-MIB", "ssiRedStandbySyncing"), ("TIMETRA-SYSTEM-MIB", "ssiRedStandbyReady"), ("TIMETRA-SYSTEM-MIB", "ssiRedStandbySyncLost"), ("TIMETRA-SYSTEM-MIB", "ssiRedSwitchover"), ("TIMETRA-SYSTEM-MIB", "ssiRedCpmActive"), ("TIMETRA-SYSTEM-MIB", "ssiRedSingleCpm"), ("TIMETRA-SYSTEM-MIB", "persistencyClosedAlarmRaised"), ("TIMETRA-SYSTEM-MIB", "persistencyClosedAlarmCleared"), ("TIMETRA-SYSTEM-MIB", "tmnxSntpOperChange"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTimeSet"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNotificationV4v0Group = tmnxSysNotificationV4v0Group.setStatus('obsolete')
+tmnxSysNotifyObjsV5v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 22)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxPersistencyClient"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistencyFileLocator"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistencyNotifyMsg"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistenceAffectedCpm"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyRow"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyRowAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyRowOperState"), ("TIMETRA-SYSTEM-MIB", "tmnxMemoryModule"), ("TIMETRA-SYSTEM-MIB", "tmnxModuleMallocSize"), ("TIMETRA-SYSTEM-MIB", "tmnxDroppedTrapID"), ("TIMETRA-SYSTEM-MIB", "tmnxTrapDroppedReasonCode"), ("TIMETRA-SYSTEM-MIB", "tmnxTrapDroppedEntryID"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyEntryOID"), ("TIMETRA-SYSTEM-MIB", "tmnxSnmpdErrorMsg"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTimeSetBy"), ("TIMETRA-SYSTEM-MIB", "tmnxFtpFailureMsg"), ("TIMETRA-SYSTEM-MIB", "tmnxFtpFailureDestAddressType"), ("TIMETRA-SYSTEM-MIB", "tmnxFtpFailureDestAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNotifyObjsV5v0Group = tmnxSysNotifyObjsV5v0Group.setStatus('current')
+tmnxSysNotificationV5v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 23)).setObjects(("TIMETRA-SYSTEM-MIB", "stiDateAndTimeChanged"), ("TIMETRA-SYSTEM-MIB", "ssiSaveConfigSucceeded"), ("TIMETRA-SYSTEM-MIB", "ssiSaveConfigFailed"), ("TIMETRA-SYSTEM-MIB", "sbiBootConfig"), ("TIMETRA-SYSTEM-MIB", "sbiBootSnmpd"), ("TIMETRA-SYSTEM-MIB", "radiusOperStatusChange"), ("TIMETRA-SYSTEM-MIB", "tmnxConfigModify"), ("TIMETRA-SYSTEM-MIB", "tmnxConfigCreate"), ("TIMETRA-SYSTEM-MIB", "tmnxConfigDelete"), ("TIMETRA-SYSTEM-MIB", "tmnxStateChange"), ("TIMETRA-SYSTEM-MIB", "tmnxModuleMallocFailed"), ("TIMETRA-SYSTEM-MIB", "tmnxTrapDropped"), ("TIMETRA-SYSTEM-MIB", "ssiSyncConfigOK"), ("TIMETRA-SYSTEM-MIB", "ssiSyncConfigFailed"), ("TIMETRA-SYSTEM-MIB", "ssiSyncBootEnvOK"), ("TIMETRA-SYSTEM-MIB", "ssiSyncBootEnvFailed"), ("TIMETRA-SYSTEM-MIB", "sntpTimeDiffExceedsThreshold"), ("TIMETRA-SYSTEM-MIB", "tacplusOperStatusChange"), ("TIMETRA-SYSTEM-MIB", "tmnxSnmpdError"), ("TIMETRA-SYSTEM-MIB", "tmnxSsiMismatch"), ("TIMETRA-SYSTEM-MIB", "tmnxSnmpdStateChange"), ("TIMETRA-SYSTEM-MIB", "ssiRedStandbySyncing"), ("TIMETRA-SYSTEM-MIB", "ssiRedStandbyReady"), ("TIMETRA-SYSTEM-MIB", "ssiRedStandbySyncLost"), ("TIMETRA-SYSTEM-MIB", "ssiRedSwitchover"), ("TIMETRA-SYSTEM-MIB", "ssiRedCpmActive"), ("TIMETRA-SYSTEM-MIB", "ssiRedSingleCpm"), ("TIMETRA-SYSTEM-MIB", "persistencyClosedAlarmRaised"), ("TIMETRA-SYSTEM-MIB", "persistencyClosedAlarmCleared"), ("TIMETRA-SYSTEM-MIB", "tmnxSntpOperChange"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTimeSet"), ("TIMETRA-SYSTEM-MIB", "tmnxFtpClientFailure"), ("TIMETRA-SYSTEM-MIB", "tacplusInetSrvrOperStatusChange"), ("TIMETRA-SYSTEM-MIB", "radiusInetServerOperStatusChange"), ("TIMETRA-SYSTEM-MIB", "persistencyEventReport"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNotificationV5v0Group = tmnxSysNotificationV5v0Group.setStatus('obsolete')
+tmnxSysObsoleteNotificationV5v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 24)).setObjects(("TIMETRA-SYSTEM-MIB", "tacplusServerOperStatusChange"), ("TIMETRA-SYSTEM-MIB", "radiusServerOperStatusChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysObsoleteNotificationV5v0Group = tmnxSysObsoleteNotificationV5v0Group.setStatus('current')
+tmnxSysTacPlusServerV5v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 25)).setObjects(("TIMETRA-SYSTEM-MIB", "tacplusOperStatus"), ("TIMETRA-SYSTEM-MIB", "tacplusServerOperStatus"), ("TIMETRA-SYSTEM-MIB", "tacPlusServerInetAddressType"), ("TIMETRA-SYSTEM-MIB", "tacPlusServerInetAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysTacPlusServerV5v0Group = tmnxSysTacPlusServerV5v0Group.setStatus('current')
+tmnxSysRadiusServerV5v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 26)).setObjects(("TIMETRA-SYSTEM-MIB", "radiusOperStatus"), ("TIMETRA-SYSTEM-MIB", "radiusServerOperStatus"), ("TIMETRA-SYSTEM-MIB", "radiusServerInetAddressType"), ("TIMETRA-SYSTEM-MIB", "radiusServerInetAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysRadiusServerV5v0Group = tmnxSysRadiusServerV5v0Group.setStatus('current')
+tmnxSysObsoleteV5v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 27)).setObjects(("TIMETRA-SYSTEM-MIB", "stiSummerZoneStartDate"), ("TIMETRA-SYSTEM-MIB", "stiSummerZoneEndDate"), ("TIMETRA-SYSTEM-MIB", "tacplusServerAddress"), ("TIMETRA-SYSTEM-MIB", "radiusServerAddress"), ("TIMETRA-SYSTEM-MIB", "spiDhcpL2PersistenceFileLocation"), ("TIMETRA-SYSTEM-MIB", "spiDhcpL2PersistenceDescription"), ("TIMETRA-SYSTEM-MIB", "spiDhcpL3PersistenceFileLocation"), ("TIMETRA-SYSTEM-MIB", "spiDhcpL3PersistenceDescription"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysObsoleteV5v0Group = tmnxSysObsoleteV5v0Group.setStatus('current')
+tmnxPersistenceV5v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 28)).setObjects(("TIMETRA-SYSTEM-MIB", "spiSubMgmtPersistenceFileLocation"), ("TIMETRA-SYSTEM-MIB", "spiSubMgmtPersistenceDescription"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxPersistenceV5v0Group = tmnxPersistenceV5v0Group.setStatus('obsolete')
+tmnxSysIpv6MgmtItfV6v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 29)).setObjects(("TIMETRA-SYSTEM-MIB", "sbiActiveIPv6Addr"), ("TIMETRA-SYSTEM-MIB", "sbiActiveIPv6PfxLen"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyIPv6Addr"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyIPv6PfxLen"), ("TIMETRA-SYSTEM-MIB", "sbiPrimaryDnsIPv6Addr"), ("TIMETRA-SYSTEM-MIB", "sbiSecondaryDnsIPv6Addr"), ("TIMETRA-SYSTEM-MIB", "sbiTertiaryDnsIPv6Addr"), ("TIMETRA-SYSTEM-MIB", "sbiStaticRouteIPv6NextHop"), ("TIMETRA-SYSTEM-MIB", "sbiStaticRouteIPv6RowStatus"), ("TIMETRA-SYSTEM-MIB", "sysDNSInfoLastChanged"), ("TIMETRA-SYSTEM-MIB", "sysDNSAddressResolvePref"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysIpv6MgmtItfV6v0Group = tmnxSysIpv6MgmtItfV6v0Group.setStatus('current')
+tmnxPersistenceV6v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 30)).setObjects(("TIMETRA-SYSTEM-MIB", "spiSubMgmtPersistenceFileLocation"), ("TIMETRA-SYSTEM-MIB", "spiSubMgmtPersistenceDescription"), ("TIMETRA-SYSTEM-MIB", "spiDhcpSrvPersistenceFileLoc"), ("TIMETRA-SYSTEM-MIB", "spiDhcpSrvPersistenceDescr"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxPersistenceV6v0Group = tmnxPersistenceV6v0Group.setStatus('obsolete')
+tmnxSysBofV6v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 31)).setObjects(("TIMETRA-SYSTEM-MIB", "sbiActiveIpAddr"), ("TIMETRA-SYSTEM-MIB", "sbiActiveIpMask"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyIpAddr"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyIpMask"), ("TIMETRA-SYSTEM-MIB", "sbiPrimaryImage"), ("TIMETRA-SYSTEM-MIB", "sbiSecondaryImage"), ("TIMETRA-SYSTEM-MIB", "sbiTertiaryImage"), ("TIMETRA-SYSTEM-MIB", "sbiPrimaryConfigFile"), ("TIMETRA-SYSTEM-MIB", "sbiSecondaryConfigFile"), ("TIMETRA-SYSTEM-MIB", "sbiTertiaryConfigFile"), ("TIMETRA-SYSTEM-MIB", "sbiPersist"), ("TIMETRA-SYSTEM-MIB", "sbiConsoleSpeed"), ("TIMETRA-SYSTEM-MIB", "sbiAutoNegotiate"), ("TIMETRA-SYSTEM-MIB", "sbiSpeed"), ("TIMETRA-SYSTEM-MIB", "sbiDuplex"), ("TIMETRA-SYSTEM-MIB", "sbiPrimaryDns"), ("TIMETRA-SYSTEM-MIB", "sbiSecondaryDns"), ("TIMETRA-SYSTEM-MIB", "sbiTertiaryDns"), ("TIMETRA-SYSTEM-MIB", "sbiDnsDomain"), ("TIMETRA-SYSTEM-MIB", "sbiWait"), ("TIMETRA-SYSTEM-MIB", "sbiStaticRouteNextHop"), ("TIMETRA-SYSTEM-MIB", "sbiStaticRouteRowStatus"), ("TIMETRA-SYSTEM-MIB", "sbiLiSeparate"), ("TIMETRA-SYSTEM-MIB", "sbiLiLocalSave"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysBofV6v0Group = tmnxSysBofV6v0Group.setStatus('current')
+tmnxSysNotificationV6v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 32)).setObjects(("TIMETRA-SYSTEM-MIB", "stiDateAndTimeChanged"), ("TIMETRA-SYSTEM-MIB", "ssiSaveConfigSucceeded"), ("TIMETRA-SYSTEM-MIB", "ssiSaveConfigFailed"), ("TIMETRA-SYSTEM-MIB", "sbiBootConfig"), ("TIMETRA-SYSTEM-MIB", "sbiBootSnmpd"), ("TIMETRA-SYSTEM-MIB", "sbiBootConfigFailFileError"), ("TIMETRA-SYSTEM-MIB", "sbiBootConfigOKFileError"), ("TIMETRA-SYSTEM-MIB", "sbiBootLiConfig"), ("TIMETRA-SYSTEM-MIB", "radiusOperStatusChange"), ("TIMETRA-SYSTEM-MIB", "tmnxConfigModify"), ("TIMETRA-SYSTEM-MIB", "tmnxConfigCreate"), ("TIMETRA-SYSTEM-MIB", "tmnxConfigDelete"), ("TIMETRA-SYSTEM-MIB", "tmnxStateChange"), ("TIMETRA-SYSTEM-MIB", "tmnxModuleMallocFailed"), ("TIMETRA-SYSTEM-MIB", "tmnxTrapDropped"), ("TIMETRA-SYSTEM-MIB", "ssiSyncConfigOK"), ("TIMETRA-SYSTEM-MIB", "ssiSyncConfigFailed"), ("TIMETRA-SYSTEM-MIB", "ssiSyncBootEnvOK"), ("TIMETRA-SYSTEM-MIB", "ssiSyncBootEnvFailed"), ("TIMETRA-SYSTEM-MIB", "sntpTimeDiffExceedsThreshold"), ("TIMETRA-SYSTEM-MIB", "tacplusOperStatusChange"), ("TIMETRA-SYSTEM-MIB", "tmnxSnmpdError"), ("TIMETRA-SYSTEM-MIB", "tmnxSsiMismatch"), ("TIMETRA-SYSTEM-MIB", "tmnxSnmpdStateChange"), ("TIMETRA-SYSTEM-MIB", "ssiRedStandbySyncing"), ("TIMETRA-SYSTEM-MIB", "ssiRedStandbyReady"), ("TIMETRA-SYSTEM-MIB", "ssiRedStandbySyncLost"), ("TIMETRA-SYSTEM-MIB", "ssiRedSwitchover"), ("TIMETRA-SYSTEM-MIB", "ssiRedCpmActive"), ("TIMETRA-SYSTEM-MIB", "ssiRedSingleCpm"), ("TIMETRA-SYSTEM-MIB", "persistencyClosedAlarmRaised"), ("TIMETRA-SYSTEM-MIB", "persistencyClosedAlarmCleared"), ("TIMETRA-SYSTEM-MIB", "tmnxSntpOperChange"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTimeSet"), ("TIMETRA-SYSTEM-MIB", "tmnxFtpClientFailure"), ("TIMETRA-SYSTEM-MIB", "tacplusInetSrvrOperStatusChange"), ("TIMETRA-SYSTEM-MIB", "radiusInetServerOperStatusChange"), ("TIMETRA-SYSTEM-MIB", "persistencyEventReport"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNotificationV6v0Group = tmnxSysNotificationV6v0Group.setStatus('current')
+tmnxSysLiV6v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 33)).setObjects(("TIMETRA-SYSTEM-MIB", "sliConfigStatus"), ("TIMETRA-SYSTEM-MIB", "sliSaveConfig"), ("TIMETRA-SYSTEM-MIB", "sliSaveConfigResult"), ("TIMETRA-SYSTEM-MIB", "sliConfigLastModified"), ("TIMETRA-SYSTEM-MIB", "sliConfigLastSaved"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysLiV6v0Group = tmnxSysLiV6v0Group.setStatus('current')
+tmnxSysNotifyObjsV6v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 34)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxNotifyObjectName"), ("TIMETRA-SYSTEM-MIB", "tmnxSyncFailureReason"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNotifyObjsV6v0Group = tmnxSysNotifyObjsV6v0Group.setStatus('current')
+tmnxSysGeneralV7v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 35)).setObjects(("TIMETRA-SYSTEM-MIB", "sgiSnmpInGetBulks"), ("TIMETRA-SYSTEM-MIB", "sgiKbMemoryUsed"), ("TIMETRA-SYSTEM-MIB", "sgiKbMemoryAvailable"), ("TIMETRA-SYSTEM-MIB", "sgiKbMemoryPoolAllocated"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysGeneralV7v0Group = tmnxSysGeneralV7v0Group.setStatus('current')
+tmnxSysIcmpVSV6v1Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 36)).setObjects(("TIMETRA-SYSTEM-MIB", "sysIcmpVSEnhancement"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysIcmpVSV6v1Group = tmnxSysIcmpVSV6v1Group.setStatus('current')
+tmnxSysConfigV8v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 37)).setObjects(("TIMETRA-SYSTEM-MIB", "ssiSaveConfig"), ("TIMETRA-SYSTEM-MIB", "ssiSyncMode"), ("TIMETRA-SYSTEM-MIB", "ssiSyncForce"), ("TIMETRA-SYSTEM-MIB", "ssiSyncStatus"), ("TIMETRA-SYSTEM-MIB", "ssiSyncConfigLastTime"), ("TIMETRA-SYSTEM-MIB", "ssiSyncBootEnvLastTime"), ("TIMETRA-SYSTEM-MIB", "ssiConfigMaxBackupRevisions"), ("TIMETRA-SYSTEM-MIB", "ssiSaveConfigResult"), ("TIMETRA-SYSTEM-MIB", "ssiSaveBof"), ("TIMETRA-SYSTEM-MIB", "ssiSaveBofResult"), ("TIMETRA-SYSTEM-MIB", "ssiSaveConfigDest"), ("TIMETRA-SYSTEM-MIB", "ssiSaveConfigDetail"), ("TIMETRA-SYSTEM-MIB", "ssiRedFailoverTime"), ("TIMETRA-SYSTEM-MIB", "ssiRedFailoverReason"), ("TIMETRA-SYSTEM-MIB", "sbiConfigStatus"), ("TIMETRA-SYSTEM-MIB", "sbiPersistStatus"), ("TIMETRA-SYSTEM-MIB", "sbiPersistIndex"), ("TIMETRA-SYSTEM-MIB", "sbiSnmpdAdminStatus"), ("TIMETRA-SYSTEM-MIB", "sbiSnmpdOperStatus"), ("TIMETRA-SYSTEM-MIB", "sbiSnmpdMaxPktSize"), ("TIMETRA-SYSTEM-MIB", "sbiSnmpdPortNum"), ("TIMETRA-SYSTEM-MIB", "sbiBootConfigOKScript"), ("TIMETRA-SYSTEM-MIB", "sbiConfigOKScriptStatus"), ("TIMETRA-SYSTEM-MIB", "sbiBootConfigFailScript"), ("TIMETRA-SYSTEM-MIB", "sbiConfigFailScriptStatus"), ("TIMETRA-SYSTEM-MIB", "sbiRedSwitchoverScript"), ("TIMETRA-SYSTEM-MIB", "sbiRedSwitchoverScriptStatus"), ("TIMETRA-SYSTEM-MIB", "sysLACPSystemPriority"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysConfigV8v0Group = tmnxSysConfigV8v0Group.setStatus('current')
+tmnxSysLoginControlV8v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 38)).setObjects(("TIMETRA-SYSTEM-MIB", "slcFtpInboundMaxSessions"), ("TIMETRA-SYSTEM-MIB", "slcTelnetInboundMaxSessions"), ("TIMETRA-SYSTEM-MIB", "slcTelnetOutboundMaxSessions"), ("TIMETRA-SYSTEM-MIB", "slcPreLoginMessage"), ("TIMETRA-SYSTEM-MIB", "slcPreLoginMessageInclName"), ("TIMETRA-SYSTEM-MIB", "slcMessageOfTheDay"), ("TIMETRA-SYSTEM-MIB", "slcMessageOfTheDayType"), ("TIMETRA-SYSTEM-MIB", "slcLoginBanner"), ("TIMETRA-SYSTEM-MIB", "slcLoginExponentialBackOff"), ("TIMETRA-SYSTEM-MIB", "slcTelnetGracefulShutdown"), ("TIMETRA-SYSTEM-MIB", "slcSSHGracefulShutdown"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysLoginControlV8v0Group = tmnxSysLoginControlV8v0Group.setStatus('current')
+tmnxSysEthInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 39)).setObjects(("TIMETRA-SYSTEM-MIB", "sysNewQinqUntaggedSap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysEthInfoGroup = tmnxSysEthInfoGroup.setStatus('current')
+tmnxPersistenceV9v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 40)).setObjects(("TIMETRA-SYSTEM-MIB", "spiSubMgmtPersistenceFileLocation"), ("TIMETRA-SYSTEM-MIB", "spiSubMgmtPersistenceDescription"), ("TIMETRA-SYSTEM-MIB", "spiDhcpSrvPersistenceFileLoc"), ("TIMETRA-SYSTEM-MIB", "spiDhcpSrvPersistenceDescr"), ("TIMETRA-SYSTEM-MIB", "spiNatFwdPersistenceFileLoc"), ("TIMETRA-SYSTEM-MIB", "spiNatFwdPersistenceDescr"), ("TIMETRA-SYSTEM-MIB", "spiAAPersistenceFileLoc"), ("TIMETRA-SYSTEM-MIB", "spiAAPersistenceDescr"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxPersistenceV9v0Group = tmnxPersistenceV9v0Group.setStatus('obsolete')
+tmnxSysLoginControlSecGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 41)).setObjects(("TIMETRA-SYSTEM-MIB", "slcTelnetMinTTLValue"), ("TIMETRA-SYSTEM-MIB", "slcSSHMinTTLValue"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysLoginControlSecGroup = tmnxSysLoginControlSecGroup.setStatus('current')
+tmnxSysLiFilterGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 42)).setObjects(("TIMETRA-SYSTEM-MIB", "sliFilterLock"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysLiFilterGroup = tmnxSysLiFilterGroup.setStatus('current')
+tmnxSysNotificationV9v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 43)).setObjects(("TIMETRA-SYSTEM-MIB", "persistenceRestoreProblem"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackStarted"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackStatusChange"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackSaveStatusChange"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackFileDeleteStatus"), ("TIMETRA-SYSTEM-MIB", "ssiSyncRollbackOK"), ("TIMETRA-SYSTEM-MIB", "ssiSyncRollbackFailed"), ("TIMETRA-SYSTEM-MIB", "ssiSyncCertOK"), ("TIMETRA-SYSTEM-MIB", "ssiSyncCertFailed"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNotificationV9v0Group = tmnxSysNotificationV9v0Group.setStatus('current')
+tmnxSysRollbackV9v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 44)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackIndex"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackStart"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackResult"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackSave"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackSaveResult"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackLocation"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRevertIndex"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRevertEndTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackTableLastChanged"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackFileCreationTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackFileComment"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackFileUserName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackSavedTime"), ("TIMETRA-SYSTEM-MIB", "ssiSyncRollbackLastTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRevertStartTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRevertUserName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRevertFilename"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackSaveComment"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackAbortRevert"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackFileVersion"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackFileDelete"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackFileDeleteResult"), ("TIMETRA-SYSTEM-MIB", "ssiSyncRollbackMode"), ("TIMETRA-SYSTEM-MIB", "ssiSyncRollbackForce"), ("TIMETRA-SYSTEM-MIB", "ssiSyncRollbackStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysRollbackV9v0Group = tmnxSysRollbackV9v0Group.setStatus('current')
+tmnxSysLoginControlV9v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 45)).setObjects(("TIMETRA-SYSTEM-MIB", "slcSSHInboundMaxSessions"), ("TIMETRA-SYSTEM-MIB", "slcSSHOutboundMaxSessions"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysLoginControlV9v0Group = tmnxSysLoginControlV9v0Group.setStatus('current')
+tmnxSystemCpuMonitorGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 46)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysCpuMonCpuIdle"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCpuMonBusyCoreUtil"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCpuMonBusyGroupName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCpuMonBusyGroupUtil"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSystemCpuMonitorGroup = tmnxSystemCpuMonitorGroup.setStatus('current')
+tmnxSysCertGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 47)).setObjects(("TIMETRA-SYSTEM-MIB", "ssiSyncCertForce"), ("TIMETRA-SYSTEM-MIB", "ssiSyncCertLastTime"), ("TIMETRA-SYSTEM-MIB", "ssiSyncCertMode"), ("TIMETRA-SYSTEM-MIB", "ssiSyncCertStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysCertGroup = tmnxSysCertGroup.setStatus('current')
+tmnxSysBootedBofGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 48)).setObjects(("TIMETRA-SYSTEM-MIB", "sbbiLiSeparate"), ("TIMETRA-SYSTEM-MIB", "sbbiLiLocalSave"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysBootedBofGroup = tmnxSysBootedBofGroup.setStatus('current')
+tmnxSysRollbackRescueGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 49)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRescueLocation"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRescueSave"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRescueRevert"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRescueDelete"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRescueSaveRes"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRescueRevertRes"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRescueDeleteRes"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRescueSavedTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRescueRevStTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRescueRevEdTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRescueRevUser"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRescueSaveComment"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRescueAbortRevert"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackRescueFileExists"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackMaxLocalFiles"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackMaxRemoteFiles"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysRollbackRescueGroup = tmnxSysRollbackRescueGroup.setStatus('current')
+tmnxSysNotificationV10v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 50)).setObjects(("TIMETRA-SYSTEM-MIB", "persistencyFileSysThresRaised"), ("TIMETRA-SYSTEM-MIB", "persistencyFileSysThresCleared"), ("TIMETRA-SYSTEM-MIB", "tmnxSysExecStarted"), ("TIMETRA-SYSTEM-MIB", "tmnxSysExecFinished"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNotificationV10v0Group = tmnxSysNotificationV10v0Group.setStatus('current')
+tmnxSysNotifyObjsV10v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 51)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackFileType"), ("TIMETRA-SYSTEM-MIB", "tmnxSysExecScript"), ("TIMETRA-SYSTEM-MIB", "tmnxSysExecResult"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNotifyObjsV10v0Group = tmnxSysNotifyObjsV10v0Group.setStatus('current')
+tmnxSysNotificationRBGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 52)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackSaveStarted"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackDeleteStarted"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNvsysFileError"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNotificationRBGroup = tmnxSysNotificationRBGroup.setStatus('current')
+tmnxSysNotifyObjsGenGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 53)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysFileErrorType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNotifyObjsGenGroup = tmnxSysNotifyObjsGenGroup.setStatus('current')
+tmnxSysGroupingSystemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 54)).setObjects(("TIMETRA-SYSTEM-MIB", "sgiSystemGroupID"), ("TIMETRA-SYSTEM-MIB", "sgiSystemSubGroupID"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysGroupingSystemGroup = tmnxSysGroupingSystemGroup.setStatus('current')
+tmnxSysCandidateCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 55)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysCandidateCfgState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCandidateCfgEditors"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCandidateCfgCommitState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCandidateCfgCommitTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCandidateCfgRevertTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCandidateCfgChckptCreated"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCandidateCfgExclusiveUsr"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCandidateCfgUser"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysCandidateCfgGroup = tmnxSysCandidateCfgGroup.setStatus('current')
+tmnxPersistenceV11v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 56)).setObjects(("TIMETRA-SYSTEM-MIB", "spiSubMgmtPersistenceFileLocation"), ("TIMETRA-SYSTEM-MIB", "spiSubMgmtPersistenceDescription"), ("TIMETRA-SYSTEM-MIB", "spiDhcpSrvPersistenceFileLoc"), ("TIMETRA-SYSTEM-MIB", "spiDhcpSrvPersistenceDescr"), ("TIMETRA-SYSTEM-MIB", "spiNatFwdPersistenceFileLoc"), ("TIMETRA-SYSTEM-MIB", "spiNatFwdPersistenceDescr"), ("TIMETRA-SYSTEM-MIB", "spiAAPersistenceFileLoc"), ("TIMETRA-SYSTEM-MIB", "spiAAPersistenceDescr"), ("TIMETRA-SYSTEM-MIB", "spiAncpPersistenceFileLoc"), ("TIMETRA-SYSTEM-MIB", "spiAncpPersistenceDescr"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxPersistenceV11v0Group = tmnxPersistenceV11v0Group.setStatus('obsolete')
+tmnxSysNetconfV11v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 57)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfAdminStatus"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfOperStatus"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfGetRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfGetConfigRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfEditConfigRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfCloseRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfKillRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfResponses"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfErrorResponses"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNetconfV11v0Group = tmnxSysNetconfV11v0Group.setStatus('current')
+tmnxSysStrmV11v0R4Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 58)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysStrmAdminStatus"), ("TIMETRA-SYSTEM-MIB", "tmnxSysStrmDumpSnmpRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysStrmGetManyRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysStrmResponses"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysStrmV11v0R4Group = tmnxSysStrmV11v0R4Group.setStatus('current')
+tmnxSysNotifyObjsV11v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 59)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxTrapDroppedCount"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNotifyObjsV11v0Group = tmnxSysNotifyObjsV11v0Group.setStatus('current')
+tmnxSysV12v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 60))
+tmnxPersistenceV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 60, 1)).setObjects(("TIMETRA-SYSTEM-MIB", "spiSubMgmtPersistenceFileLocation"), ("TIMETRA-SYSTEM-MIB", "spiSubMgmtPersistenceDescription"), ("TIMETRA-SYSTEM-MIB", "spiDhcpSrvPersistenceFileLoc"), ("TIMETRA-SYSTEM-MIB", "spiDhcpSrvPersistenceDescr"), ("TIMETRA-SYSTEM-MIB", "spiNatFwdPersistenceFileLoc"), ("TIMETRA-SYSTEM-MIB", "spiNatFwdPersistenceDescr"), ("TIMETRA-SYSTEM-MIB", "spiAAPersistenceFileLoc"), ("TIMETRA-SYSTEM-MIB", "spiAAPersistenceDescr"), ("TIMETRA-SYSTEM-MIB", "spiAncpPersistenceFileLoc"), ("TIMETRA-SYSTEM-MIB", "spiAncpPersistenceDescr"), ("TIMETRA-SYSTEM-MIB", "spiPythonPersistenceFileLoc"), ("TIMETRA-SYSTEM-MIB", "spiPythonPersistenceDescr"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxPersistenceV12v0Group = tmnxPersistenceV12v0Group.setStatus('current')
+tmnxSysDNSSecV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 60, 2)).setObjects(("TIMETRA-SYSTEM-MIB", "sysDNSSecAdValidation"), ("TIMETRA-SYSTEM-MIB", "sysDNSSecRespCtrl"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysDNSSecV12v0Group = tmnxSysDNSSecV12v0Group.setStatus('current')
+tmnxSysDNSSecNotifV12v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 60, 3)).setObjects(("TIMETRA-SYSTEM-MIB", "sysDNSSecFailedAuthentication"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysDNSSecNotifV12v0Group = tmnxSysDNSSecNotifV12v0Group.setStatus('current')
+tmnxSysNotificationV12v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 60, 4)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxConfigConflict"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseInvalid"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseExpiresSoon"), ("TIMETRA-SYSTEM-MIB", "tmnxSysVsdServerAvailable"), ("TIMETRA-SYSTEM-MIB", "tmnxSysVsdServerUnavailable"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServerFunctional"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServerNotFunctional"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNotificationV12v0Group = tmnxSysNotificationV12v0Group.setStatus('current')
+tmnxSysXmppV12v4Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 60, 5)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysVsdSystemId"), ("TIMETRA-SYSTEM-MIB", "tmnxSysVsdGwPubSubIsSubscrd"), ("TIMETRA-SYSTEM-MIB", "tmnxSysVsdGwPubSubNodeName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysVsdGwPubSubLstSubscrdTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysVsdGwLastAuditTxTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServFQDN"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServRowStatus"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServUserName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServPassword"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServLastChanged"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServUptime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServIQSent"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServIQRcvd"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServIQError"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServIQTimedOut"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServIQAckRcvd"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServIQMinRtt"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServIQMaxRtt"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServVsdUpdatesRcvd"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServUpdatesRcvd"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServMsgSent"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServMsgRcvd"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServMsgAckRcvd"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServMsgError"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServMsgTimedOut"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServMsgMinRtt"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServMsgMaxRtt"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServSubSent"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServUnSubSent"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysVsdServUptime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysVsdServUserName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysVsdServerStatus"), ("TIMETRA-SYSTEM-MIB", "tmnxSysVsdServMsgSent"), ("TIMETRA-SYSTEM-MIB", "tmnxSysVsdServMsgRcvd"), ("TIMETRA-SYSTEM-MIB", "tmnxSysVsdServMsgAckRcvd"), ("TIMETRA-SYSTEM-MIB", "tmnxSysVsdServMsgError"), ("TIMETRA-SYSTEM-MIB", "tmnxSysVsdServMsgTimedOut"), ("TIMETRA-SYSTEM-MIB", "tmnxSysVsdServMsgMinRtt"), ("TIMETRA-SYSTEM-MIB", "tmnxSysVsdServMsgMaxRtt"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServOperUserName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServAuthType"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServConnMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysXmppV12v4Group = tmnxSysXmppV12v4Group.setStatus('current')
+tmnxSysCardResourceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 60, 6)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxCardCpuResMonCpuIdle"), ("TIMETRA-SYSTEM-MIB", "tmnxCardCpuResMonBusyCoreUtil"), ("TIMETRA-SYSTEM-MIB", "tmnxCardCpuResMonBusyGroupName"), ("TIMETRA-SYSTEM-MIB", "tmnxCardCpuResMonBusyGroupUtil"), ("TIMETRA-SYSTEM-MIB", "tmnxCardMemResMemoryUsed"), ("TIMETRA-SYSTEM-MIB", "tmnxCardMemResMemoryAvailable"), ("TIMETRA-SYSTEM-MIB", "tmnxCardMemResPoolsAllocated"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysCardResourceGroup = tmnxSysCardResourceGroup.setStatus('current')
+tmnxSysNotifyObjsV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 60, 7)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysDNSSecDomainName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotifVsdServerName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotifXmppServerName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseErrorReason"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseTimeLeft"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNotifyObjsV12v0Group = tmnxSysNotifyObjsV12v0Group.setStatus('current')
+tmnxSysBofV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 60, 8)).setObjects(("TIMETRA-SYSTEM-MIB", "sbiLicenseFile"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysBofV12v0Group = tmnxSysBofV12v0Group.setStatus('current')
+tmnxSysLicenseV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 60, 9)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseStatus"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseUuid"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseDescription"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseProduct"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseSwVersion"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseIssueDateAndTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseStartDateAndTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseEndDateAndTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysLicenseV12v0Group = tmnxSysLicenseV12v0Group.setStatus('current')
+tmnxSysDhcpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 61)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysDhcp6AdvNoaddrsGlobal"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysDhcpGroup = tmnxSysDhcpGroup.setStatus('current')
+tmnxSysFibV13v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 62)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysFibSelective"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysFibV13v0Group = tmnxSysFibV13v0Group.setStatus('current')
+tmnxSysNetconfV13v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 63)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfCopyConfigRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfDelConfigRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfValidateRequests"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNetconfV13v0Group = tmnxSysNetconfV13v0Group.setStatus('current')
+tmnxSysSnmpSrcAccesLstV13v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 64)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysSnmpSrcAccessTblLstChgd"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSnmpSrcAccessLstRowStatus"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSnmpSrcAccessLstLastChg"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSnmpCommunityPktDropped"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysSnmpSrcAccesLstV13v0Group = tmnxSysSnmpSrcAccesLstV13v0Group.setStatus('current')
+tmnxSysMgmtProtocolV13v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 65)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtProtocolTblLstChng"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtProtLastChange"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtAllowImmediateChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysMgmtProtocolV13v0Group = tmnxSysMgmtProtocolV13v0Group.setStatus('current')
+tmnxSysFileTransProfV13v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 66)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysFileTransProfTableLstChgd"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFileTransProfRowStatus"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFileTransProfLastChanged"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFileTransProfRtrId"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFileTransProfSvcId"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFileTransProfSrcAddrV4T"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFileTransProfSrcAddrV4"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFileTransProfSrcAddrV6T"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFileTransProfSrcAddrV6"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFileTransProfTimeout"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFileTransProfRetry"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFileTransProfRedirection"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysFileTransProfV13v0Group = tmnxSysFileTransProfV13v0Group.setStatus('current')
+tmnxSysEhsV13v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 67)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSmLaunchExtAuthType"), ("TIMETRA-SYSTEM-MIB", "tmnxSmRunExtAuthType"), ("TIMETRA-SYSTEM-MIB", "tmnxSmRunExtUserName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysEhsV13v0Group = tmnxSysEhsV13v0Group.setStatus('current')
+tmnxSysLicenseV13v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 68)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseVChassisType"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseMaxNumCPMs"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseMaxNumIOMs"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCpmCardLicStatus"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCpmCardLicName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCpmCardLicUuid"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCpmCardLicDescription"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCpmCardLicProduct"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCpmCardLicSwVersion"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCpmCardLicIssueDateTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCpmCardLicStartDateTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCpmCardLicEndDateTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCpmCardLicVChassisType"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCpmCardLicMaxNumCPMs"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCpmCardLicMaxNumIOMs"), ("TIMETRA-SYSTEM-MIB", "tmnxSysCpmCardLicFeatDescription"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysLicenseV13v0Group = tmnxSysLicenseV13v0Group.setStatus('current')
+tmnxSysLicenseNotifV13v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 69)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseValid"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysLicenseNotifV13v0Group = tmnxSysLicenseNotifV13v0Group.setStatus('current')
+tmnxSysSwReposV13v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 70)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysSwReposTableLastChanged"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSwReposRowStatus"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSwReposLastChanged"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSwReposDescription"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSwReposPrimaryLocation"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSwReposSecondaryLocation"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSwReposTertiaryLocation"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysSwReposV13v0Group = tmnxSysSwReposV13v0Group.setStatus('current')
+tmnxSysBofV13v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 71)).setObjects(("TIMETRA-SYSTEM-MIB", "sbiFips1402Level1"), ("TIMETRA-SYSTEM-MIB", "sbiEssSystemType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysBofV13v0Group = tmnxSysBofV13v0Group.setStatus('current')
+tmnxSysV14v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 72))
+tmnxSysBofV14v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 72, 1)).setObjects(("TIMETRA-SYSTEM-MIB", "sbiSystemBaseMacAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysBofV14v0Group = tmnxSysBofV14v0Group.setStatus('current')
+tmnxSysNotificationV14v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 72, 2)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysBaseMacAddressNotSet"), ("TIMETRA-SYSTEM-MIB", "tmnxSmLaunchStartFailed"), ("TIMETRA-SYSTEM-MIB", "tmnxEhsHandlerInvoked"), ("TIMETRA-SYSTEM-MIB", "tmnxEhsDroppedByMinDelay"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAppStats24HrsAvailable"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAppStatsWeekAvailable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNotificationV14v0Group = tmnxSysNotificationV14v0Group.setStatus('current')
+tmnxPersistenceV14v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 72, 3)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxDhcpLeaseTimeModeThreshold"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxPersistenceV14v0Group = tmnxPersistenceV14v0Group.setStatus('current')
+tmnxSysNetconfV14v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 72, 4)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfFailedEditCfgReqs"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfFailedLockReqs"), ("TIMETRA-SYSTEM-MIB", "sgiSnmpFailedSets"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfLockRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfUnlockRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfCommitRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfDiscardRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfCapCandidateCfg"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfCapRunningCfg"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfYangBaseR13"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfYangNokia"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNetconfV14v0Group = tmnxSysNetconfV14v0Group.setStatus('obsolete')
+tmnxSysEhsParameterGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 72, 5)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSmRunEventArgName"), ("TIMETRA-SYSTEM-MIB", "tmnxSmRunEventArgValue"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysEhsParameterGroup = tmnxSysEhsParameterGroup.setStatus('current')
+tmnxSysLicenseApplicationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 72, 6)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysAppStats24HrsName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAppStats24HrsValue"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAppStats24HrsTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAppStatsWeekName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAppStatsWeekAverage"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAppStatsWeekPeak"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAppStatsWeekTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAppStatsPeakName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAppStatsPeakValue"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAppStatsPeakTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysLicenseApplicationGroup = tmnxSysLicenseApplicationGroup.setStatus('current')
+tmnxSysNotifyObjsV14v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 72, 7)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseErrorAction"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotifAppStatsTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotifAppStatsApplication"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotifAppStatsType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNotifyObjsV14v0Group = tmnxSysNotifyObjsV14v0Group.setStatus('current')
+tmnxSysTimeV14v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 72, 8)).setObjects(("TIMETRA-SYSTEM-MIB", "stiPreferLocalTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysTimeV14v0Group = tmnxSysTimeV14v0Group.setStatus('current')
+tmnxSysLoginControlV15v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 73)).setObjects(("TIMETRA-SYSTEM-MIB", "slcIdleTimeout"), ("TIMETRA-SYSTEM-MIB", "slcLoginScriptGlobal"), ("TIMETRA-SYSTEM-MIB", "slcLoginScriptPerUserDirectory"), ("TIMETRA-SYSTEM-MIB", "slcLoginScriptPerUserFilename"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysLoginControlV15v0Group = tmnxSysLoginControlV15v0Group.setStatus('current')
+tmnxSysGrpcV15v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 74)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcOperState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcTlsServerProfile"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcMaxMsgSize"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcGnmiVersion"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcAllowUnsecure"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcGnmiAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcTcpKaAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcTcpKaIdle"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcTcpKaInterval"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcTcpKaCount"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcRibApiAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcRibApiPurgeTimeout"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcRibApiVersion"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcGnoiCertMgmtAdmnState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcGnoiCertMgmtVersion"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcMdCliAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcMdCliVersion"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcGnoiSystemAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcGnoiSystemVersion"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcConnStartTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcConnActRpcCnt"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcConnTotRpcCnt"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcConnRxBytes"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcConnTxBytes"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcConnQos"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcConnSrcVRtrId"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcRpcName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcRpcServiceName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcRpcStartTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcRpcSrcIpAddType"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcRpcSrcIpAddress"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcRpcSrcPort"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcRpcUserName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcRpcSessionId"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysGrpcV15v0Group = tmnxSysGrpcV15v0Group.setStatus('current')
+tmnxSysXmppMgmtGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 75)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServServiceId"), ("TIMETRA-SYSTEM-MIB", "tmnxSysXmppServRouterId"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysXmppMgmtGroup = tmnxSysXmppMgmtGroup.setStatus('current')
+tmnxSysV15v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 76))
+tmnxSysLicenseApp48HrsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 76, 3)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysAppStats48HrsName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAppStats48HrsValue"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAppStats48HrsTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysLicenseApp48HrsGroup = tmnxSysLicenseApp48HrsGroup.setStatus('current')
+tmnxSysV15v1Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 77))
+tmnxSysNetconfV15v1Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 77, 1)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfFailedEditCfgReqs"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfFailedLockReqs"), ("TIMETRA-SYSTEM-MIB", "sgiSnmpFailedSets"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfLockRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfUnlockRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfCommitRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfDiscardRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfCapCandidateCfg"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfCapRunningCfg"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfCreateSubRequests"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNetconfV15v1Group = tmnxSysNetconfV15v1Group.setStatus('current')
+tmnxSysMgmtProtocolV15v1Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 77, 2)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtCliEngine1"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtCliEngine2"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysMgmtProtocolV15v1Group = tmnxSysMgmtProtocolV15v1Group.setStatus('current')
+tmnxSysConfigSaveCtrlV15v1Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 77, 3)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMDCliAutoCfgSave"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfAutoCfgSave"), ("TIMETRA-SYSTEM-MIB", "tmnxSysGrpcAutoCfgSave"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysConfigSaveCtrlV15v1Group = tmnxSysConfigSaveCtrlV15v1Group.setStatus('current')
+tmnxSysMgmtIfMdCliGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 77, 4)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMDEnvComplEnter"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMDEnvComplSpace"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMDEnvComplTab"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMDEnvConsLength"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMDEnvConsWidth"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMDEnvMore"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMDEnvPromptCtx"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMDEnvPromptNewline"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMDEnvPromptTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMDEnvPromptIndic"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMDEnvTimeDisplay"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMDEnvMsgCliSvrt"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMDEnvProIndAdminSt"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMDEnvProIndType"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMDEnvProIndDelay"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfWriteMode"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfWriteOperMode"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfModeLastSwitchTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfModeSwitchDuration"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMDEnvTimeFormat"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysMgmtIfMdCliGroup = tmnxSysMgmtIfMdCliGroup.setStatus('current')
+tmnxSysMgmtIfYangModulesGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 77, 5)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfYangBaseR13"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfYangNokia"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfYangOpenConfig"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfYangNokiaCombined"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfYangNmdaSupport"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysMgmtIfYangModulesGroup = tmnxSysMgmtIfYangModulesGroup.setStatus('current')
+tmnxSysNetconfV15v1ObsoleteGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 77, 6)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfYangBaseR13"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfYangNokia"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNetconfV15v1ObsoleteGroup = tmnxSysNetconfV15v1ObsoleteGroup.setStatus('current')
+tmnxSysFileTransProfV15v1Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 77, 7)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysFileTransProfSvcName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysFileTransProfV15v1Group = tmnxSysFileTransProfV15v1Group.setStatus('current')
+tmnxSysBofV15v1Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 77, 8)).setObjects(("TIMETRA-SYSTEM-MIB", "sbiSystemProfile"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysBofV15v1Group = tmnxSysBofV15v1Group.setStatus('current')
+tmnxSysV16v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 78))
+tmnxSysHttpRdrV16v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 78, 1)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysHttpRdrCpmOptimizedMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysHttpRdrV16v0Group = tmnxSysHttpRdrV16v0Group.setStatus('current')
+tmnxSysLicenseNotifV16v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 78, 2)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseActivated"), ("TIMETRA-SYSTEM-MIB", "tmnxSysStandbyLicensingError"), ("TIMETRA-SYSTEM-MIB", "tmnxSysStandbyLicensingReady"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfModeChangeStart"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfModeChangeComplete"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfModeChangeFailure"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysLicenseNotifV16v0Group = tmnxSysLicenseNotifV16v0Group.setStatus('current')
+tmnxSysMgmtIfDsLocksV16v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 78, 3)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfDsLocksSessionId"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfDsLocksRmtIpAddress"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfDsLocksConsole"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfDsLocksUserName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfDsLocksSessionMode"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfDsLocksSessionType"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfDsLocksRegion"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfDsLocksRunLock"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfDsLocksCndLock"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfDsLocksIdleTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfDsLocksScratchCnt"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfDsLocksCronEhs"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysMgmtIfDsLocksV16v0Group = tmnxSysMgmtIfDsLocksV16v0Group.setStatus('current')
+tmnxSysLicensingV16v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 78, 4)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysAppLicenseDescription"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAppLicenseType"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAppLicensePoolSize"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAppLicenseAllocated"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAppLicensePresent"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAppLicenseState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAvailLicenseName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAvailLicenseUuid"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAvailLicenseDescription"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAvailLicenseSwVersion"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAvailLicIssueDateTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAvailLicStartDateTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAvailLicEndDateTime"), ("TIMETRA-SYSTEM-MIB", "sbiAllowBootLicenseViolations"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysLicensingV16v0Group = tmnxSysLicensingV16v0Group.setStatus('current')
+tmnxSysMgmtInterfaceV16v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 78, 5)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfSchemaPath"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfWriteSwitchReason"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysMgmtInterfaceV16v0Group = tmnxSysMgmtInterfaceV16v0Group.setStatus('current')
+tmnxSysMgmtIfNotifyObjsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 78, 6)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxNotifySysMgmtIfOriginalMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysMgmtIfNotifyObjsGroup = tmnxSysMgmtIfNotifyObjsGroup.setStatus('current')
+tmnxSysNetworkElementV16v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 78, 7)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfTableLstChgd"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfRowStatus"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfLastChanged"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfNeid"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfNeipV4Type"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfNeipV4"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfNeipV6Type"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfNeipV6"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfSystemMac"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfPlatformType"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfVendorId"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEDiscoveryGenerateTraps"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNetworkElementV16v0Group = tmnxSysNetworkElementV16v0Group.setStatus('current')
+tmnxSysSwitchFabricV16v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 78, 8)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysSwFabFailRecAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSwFabFailRecOperState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSwFabFailRecSfmState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSwFabFailRecSfmStateTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysSwitchFabricV16v0Group = tmnxSysSwitchFabricV16v0Group.setStatus('current')
+tmnxSysSwFabNotifV16v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 78, 9)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysSwFabFailRecStarted"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSwFabFailRecCompleted"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSwFabFailRecAborted"), ("TIMETRA-SYSTEM-MIB", "tmnxSysSwFabFailRecDetected"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysSwFabNotifV16v0Group = tmnxSysSwFabNotifV16v0Group.setStatus('current')
+tmnxSysV19v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 79))
+tmnxSysLicNotifyObjsV19v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 79, 1)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysLicensingNotifyGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicensedNotifyAppName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysLicNotifyObjsV19v0Group = tmnxSysLicNotifyObjsV19v0Group.setStatus('current')
+tmnxSysLicenseNotifV19v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 79, 2)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysAppLicenseInsufficient"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseUpdateRequired"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysLicenseNotifV19v0Group = tmnxSysLicenseNotifV19v0Group.setStatus('current')
+tmnxSysResInfoV19v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 79, 3)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysResEcmpProfRowStatus"), ("TIMETRA-SYSTEM-MIB", "tmnxSysResEcmpProfType"), ("TIMETRA-SYSTEM-MIB", "tmnxSysResEcmpProfLinksPerGrp"), ("TIMETRA-SYSTEM-MIB", "tmnxSysResEcmpProfNumGrps"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysResInfoV19v0Group = tmnxSysResInfoV19v0Group.setStatus('current')
+tmnxSysBofV19v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 79, 4)).setObjects(("TIMETRA-SYSTEM-MIB", "sbiAutoBoot"), ("TIMETRA-SYSTEM-MIB", "sbiAutoBootClientId"), ("TIMETRA-SYSTEM-MIB", "sbiAutoBootClientIdType"), ("TIMETRA-SYSTEM-MIB", "sbiAutoBootUsingMgmt"), ("TIMETRA-SYSTEM-MIB", "sbiAutoBootUsingInband"), ("TIMETRA-SYSTEM-MIB", "sbiAutoBootInbandVlan"), ("TIMETRA-SYSTEM-MIB", "sbiAutoBootUsingIpv4"), ("TIMETRA-SYSTEM-MIB", "sbiAutoBootUsingIpv6"), ("TIMETRA-SYSTEM-MIB", "sbiAutoBootIncludeUserClass"), ("TIMETRA-SYSTEM-MIB", "sbiAutoIpv4Dhcp"), ("TIMETRA-SYSTEM-MIB", "sbiAutoIpv4DhcpClientIdType"), ("TIMETRA-SYSTEM-MIB", "sbiAutoIpv4DhcpClientId"), ("TIMETRA-SYSTEM-MIB", "sbiAutoIpv4DhcpOptUserClass"), ("TIMETRA-SYSTEM-MIB", "sbiAutoIpv4DhcpTimeout"), ("TIMETRA-SYSTEM-MIB", "sbiAutoIpv6Dhcp"), ("TIMETRA-SYSTEM-MIB", "sbiAutoIpv6DhcpClientIdType"), ("TIMETRA-SYSTEM-MIB", "sbiAutoIpv6DhcpClientIdDuidType"), ("TIMETRA-SYSTEM-MIB", "sbiAutoIpv6DhcpClientIdDuid"), ("TIMETRA-SYSTEM-MIB", "sbiAutoIpv6DhcpOptUserClass"), ("TIMETRA-SYSTEM-MIB", "sbiAutoIpv6DhcpTimeout"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyAIpAddr"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyAIpMask"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyAIPv6Addr"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyAIPv6PfxLen"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyBIpAddr"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyBIpMask"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyBIPv6Addr"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyBIPv6PfxLen"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyCIpAddr"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyCIpMask"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyCIPv6Addr"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyCIPv6PfxLen"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyDIpAddr"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyDIpMask"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyDIPv6Addr"), ("TIMETRA-SYSTEM-MIB", "sbiStandbyDIPv6PfxLen"), ("TIMETRA-SYSTEM-MIB", "sbiMgmtIfIpMtu"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysBofV19v0Group = tmnxSysBofV19v0Group.setStatus('current')
+tmnxSysNetworkElementV19v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 79, 5)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfTableLstChgd"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfRowStatus"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfLastChanged"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfNeid"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfNeipV4Type"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfNeipV4"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfNeipV6Type"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfNeipV6"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfSystemMac"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfPlatformType"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEProfVendorId"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNEDiscoveryGenerateTraps"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNetworkElementV19v0Group = tmnxSysNetworkElementV19v0Group.setStatus('current')
+tmnxSysLicensingV19v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 79, 6)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysAvailLicenseProduct"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicensingState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicensingRebootPending"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicensingProduct"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicensingUuid"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysLicensingV19v0Group = tmnxSysLicensingV19v0Group.setStatus('current')
+tmnxSysNetconfV19v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 79, 7)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfPort"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNetconfV19v0Group = tmnxSysNetconfV19v0Group.setStatus('current')
+tmnxSysEhsV19v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 79, 8)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSmLaunchExtLockOverride"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysEhsV19v0Group = tmnxSysEhsV19v0Group.setStatus('current')
+tmnxSysBootConfFmtNotifyObjsGrp = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 79, 9)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxPrimaryConfigFileFormatType"), ("TIMETRA-SYSTEM-MIB", "tmnxLiConfigFileFormatType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysBootConfFmtNotifyObjsGrp = tmnxSysBootConfFmtNotifyObjsGrp.setStatus('current')
+tmnxSysBootConfFmtNotifyGrp = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 79, 10)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfLiIncorrectFormat"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfLiCfgNotEncrypted"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysBootConfFmtNotifyGrp = tmnxSysBootConfFmtNotifyGrp.setStatus('current')
+tmnxSysFwdPathOptsV19v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 79, 11)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysFpoDscpTransAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpoDscpTransOperState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpoEntropyLabelAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpoEntropyLabelOperState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpoMacFltOutVlanPrioAdmSt"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpoMacFltOutVlanPrioOprSt"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpoVplsEvpnMplsAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpoVplsEvpnMplsOperState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpoQosFc4ProfAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpoQosFc4ProfOperState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpoQosMacCritAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpoQosMacCritOperState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpoQosIpv6CritAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpoQosIpv6CritOperState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpoQosBumPolAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpoQosBumPolOperState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysFwdPathOptsV19v0Group = tmnxSysFwdPathOptsV19v0Group.setStatus('current')
+tmnxSysMgmtIfMdCliCmdAccntGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 79, 12)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfMDCliCmdAccntLoad"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysMgmtIfMdCliCmdAccntGroup = tmnxSysMgmtIfMdCliCmdAccntGroup.setStatus('current')
+tmnxSysResItCamV19v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 79, 13)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysResItCamBankV6Multicast"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysResItCamV19v0Group = tmnxSysResItCamV19v0Group.setStatus('current')
+tmnxSysFpCamAllocV19v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 79, 14)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysFpCamAllocAdmnV6Multicast"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpCamAllocOperV6Multicast"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysFpCamAllocV19v0Group = tmnxSysFpCamAllocV19v0Group.setStatus('current')
+tmnxSysV20v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 80))
+tmnxSysNotificationV20v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 80, 1)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxEqOperStateChange"), ("TIMETRA-SYSTEM-MIB", "stiDateAndTimeChanging"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNotificationV20v0Group = tmnxSysNotificationV20v0Group.setStatus('current')
+tmnxSysFwdPathOptsV20v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 80, 2)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysFpoMplsFastSwOvAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpoMplsFastSwOvOperState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpoRouterEcmpAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpoRouterEcmpOperState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysFwdPathOptsV20v0Group = tmnxSysFwdPathOptsV20v0Group.setStatus('current')
+tmnxSysAutoBootV20v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 80, 3)).setObjects(("TIMETRA-SYSTEM-MIB", "sbiAutoBootVlanDiscovery"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysAutoBootV20v0Group = tmnxSysAutoBootV20v0Group.setStatus('current')
+tmnxSysSwitchFabricV20v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 80, 4)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysSwFabSfmLossThresh"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysSwitchFabricV20v0Group = tmnxSysSwitchFabricV20v0Group.setStatus('current')
+tmnxSysGeneralV20v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 80, 7)).setObjects(("TIMETRA-SYSTEM-MIB", "sgiCryptoModVersion"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysGeneralV20v0Group = tmnxSysGeneralV20v0Group.setStatus('current')
+tmnxSysMgmtInterfaceV20v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 80, 9)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfPriSchemaPathState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfPriSchemaPathValue"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfSecSchemaPathState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfSecSchemaPathValue"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfTerSchemaPathState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfTerSchemaPathValue"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfOperSchemaPathState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfOperSchemaPathValue"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysMgmtInterfaceV20v0Group = tmnxSysMgmtInterfaceV20v0Group.setStatus('current')
+tmnxSysFpResAllocV20v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 80, 10)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysFpResAllocG8032Sap"), ("TIMETRA-SYSTEM-MIB", "tmnxSysFpResAllocOperG8032Sap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysFpResAllocV20v0Group = tmnxSysFpResAllocV20v0Group.setStatus('current')
+tmnxSysRemoteMgmtV20v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 80, 13)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtOperState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtAllowUnsecure"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtDeviceLabel"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtDeviceName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtHelloInterval"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtLastHelloTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtLastRegStatus"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtLastRegTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtOperDownReason"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtRegsCancelled"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtRegsFailed"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtRegsSent"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtSrcIpAddType"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtSrcIpAddress"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtSrcPort"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtSrcDefaultPort"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtTimeout"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtTlsClientProf"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtVRtrId"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrAllowUnsecure"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrDescription"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrDeviceLabel"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrDeviceName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrFQDN"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrIpAddType"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrPort"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrIpAddress"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrLastRegStatus"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrLastRegTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrOperDownReason"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrOperState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrRegsCancelled"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrRegsFailed"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrRegsSent"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrRowStatus"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrSrcIpAddType"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrSrcIpAddress"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrSrcPort"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrSrcDefaultPort"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrTimeout"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrTlsClientProf"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrVRtrId"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrOperDevLabel"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrOperDevName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrOperSrcIpAdType"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrOperSrcIpAddr"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrOperSrcPort"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrOperTimeout"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrOperTlsProf"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrOperVRtrId"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRmtMgmtMgrOperTranspType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysRemoteMgmtV20v0Group = tmnxSysRemoteMgmtV20v0Group.setStatus('current')
+tmnxSysNetconfCountersExtension = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 80, 14)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfGetSchemaRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfGetDataRequests"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNetconfActionRequests"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSysNetconfCountersExtension = tmnxSysNetconfCountersExtension.setStatus('current')
+tmnxSysV21v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 2, 81))
+tmnxSysMGGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 3))
+tmnxSysMGCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 4))
+tmnxSysDCCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 5))
+tmnxSysDCGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 6))
+tmnxSysNspProxyCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 7))
+tmnxSysNspProxyGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 1, 8))
+tmnxSysMIBNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1))
+tmnxSysNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0))
+stiDateAndTimeChanged = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 1)).setObjects(("TIMETRA-SYSTEM-MIB", "stiDateAndTime"))
+if mibBuilder.loadTexts: stiDateAndTimeChanged.setStatus('current')
+ssiSaveConfigSucceeded = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 2))
+if mibBuilder.loadTexts: ssiSaveConfigSucceeded.setStatus('current')
+ssiSaveConfigFailed = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 3))
+if mibBuilder.loadTexts: ssiSaveConfigFailed.setStatus('current')
+sbiBootConfig = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 4)).setObjects(("TIMETRA-SYSTEM-MIB", "sbiConfigStatus"), ("TIMETRA-SYSTEM-MIB", "sbiPersistStatus"), ("TIMETRA-SYSTEM-MIB", "sbiPersistIndex"))
+if mibBuilder.loadTexts: sbiBootConfig.setStatus('current')
+sbiBootSnmpd = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 5)).setObjects(("TIMETRA-SYSTEM-MIB", "sbiPersistIndex"), ("TIMETRA-SYSTEM-MIB", "sbiSnmpdAdminStatus"), ("TIMETRA-SYSTEM-MIB", "sbiSnmpdOperStatus"))
+if mibBuilder.loadTexts: sbiBootSnmpd.setStatus('current')
+radiusServerOperStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 6)).setObjects(("TIMETRA-SYSTEM-MIB", "radiusServerAddress"), ("TIMETRA-SYSTEM-MIB", "radiusServerOperStatus"))
+if mibBuilder.loadTexts: radiusServerOperStatusChange.setStatus('obsolete')
+radiusOperStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 7)).setObjects(("TIMETRA-SYSTEM-MIB", "radiusOperStatus"))
+if mibBuilder.loadTexts: radiusOperStatusChange.setStatus('current')
+tmnxConfigModify = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 8)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxNotifyRow"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyEntryOID"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyObjectName"))
+if mibBuilder.loadTexts: tmnxConfigModify.setStatus('current')
+tmnxConfigCreate = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 9)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxNotifyRow"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyEntryOID"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyObjectName"))
+if mibBuilder.loadTexts: tmnxConfigCreate.setStatus('current')
+tmnxConfigDelete = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 10)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxNotifyRow"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyEntryOID"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyObjectName"))
+if mibBuilder.loadTexts: tmnxConfigDelete.setStatus('current')
+tmnxStateChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 11)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxNotifyRow"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyRowAdminState"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyRowOperState"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyEntryOID"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyObjectName"))
+if mibBuilder.loadTexts: tmnxStateChange.setStatus('current')
+tmnxModuleMallocFailed = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 12)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxMemoryModule"), ("TIMETRA-SYSTEM-MIB", "tmnxModuleMallocSize"))
+if mibBuilder.loadTexts: tmnxModuleMallocFailed.setStatus('current')
+tmnxTrapDropped = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 13)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxDroppedTrapID"), ("TIMETRA-SYSTEM-MIB", "tmnxTrapDroppedReasonCode"), ("TIMETRA-SYSTEM-MIB", "tmnxTrapDroppedEntryID"), ("TIMETRA-SYSTEM-MIB", "tmnxTrapDroppedCount"))
+if mibBuilder.loadTexts: tmnxTrapDropped.setStatus('current')
+ssiSyncConfigOK = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 14))
+if mibBuilder.loadTexts: ssiSyncConfigOK.setStatus('current')
+ssiSyncConfigFailed = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 15)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSyncFailureReason"))
+if mibBuilder.loadTexts: ssiSyncConfigFailed.setStatus('current')
+ssiSyncBootEnvOK = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 16))
+if mibBuilder.loadTexts: ssiSyncBootEnvOK.setStatus('current')
+ssiSyncBootEnvFailed = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 17)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSyncFailureReason"))
+if mibBuilder.loadTexts: ssiSyncBootEnvFailed.setStatus('current')
+sntpTimeDiffExceedsThreshold = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 18)).setObjects(("TIMETRA-SYSTEM-MIB", "sntpAdminState"))
+if mibBuilder.loadTexts: sntpTimeDiffExceedsThreshold.setStatus('current')
+tacplusServerOperStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 19)).setObjects(("TIMETRA-SYSTEM-MIB", "tacplusServerAddress"), ("TIMETRA-SYSTEM-MIB", "tacplusServerOperStatus"))
+if mibBuilder.loadTexts: tacplusServerOperStatusChange.setStatus('obsolete')
+tacplusOperStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 20)).setObjects(("TIMETRA-SYSTEM-MIB", "tacplusOperStatus"))
+if mibBuilder.loadTexts: tacplusOperStatusChange.setStatus('current')
+tmnxSnmpdError = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 21)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSnmpdErrorMsg"))
+if mibBuilder.loadTexts: tmnxSnmpdError.setStatus('current')
+tmnxSsiMismatch = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 22)).setObjects(("TIMETRA-SYSTEM-MIB", "ssiSyncMode"), ("TIMETRA-SYSTEM-MIB", "sbiPersist"))
+if mibBuilder.loadTexts: tmnxSsiMismatch.setStatus('current')
+tmnxSnmpdStateChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 23)).setObjects(("TIMETRA-SYSTEM-MIB", "sbiSnmpdAdminStatus"), ("TIMETRA-SYSTEM-MIB", "sbiSnmpdOperStatus"))
+if mibBuilder.loadTexts: tmnxSnmpdStateChange.setStatus('current')
+ssiRedStandbySyncing = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 24)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyHwIndex"), ("TIMETRA-CHASSIS-MIB", "tmnxHwID"), ("TIMETRA-CHASSIS-MIB", "tmnxHwClass"))
+if mibBuilder.loadTexts: ssiRedStandbySyncing.setStatus('current')
+ssiRedStandbyReady = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 25)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyHwIndex"), ("TIMETRA-CHASSIS-MIB", "tmnxHwID"), ("TIMETRA-CHASSIS-MIB", "tmnxHwClass"))
+if mibBuilder.loadTexts: ssiRedStandbyReady.setStatus('current')
+ssiRedStandbySyncLost = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 26)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyHwIndex"), ("TIMETRA-CHASSIS-MIB", "tmnxHwID"), ("TIMETRA-CHASSIS-MIB", "tmnxHwClass"))
+if mibBuilder.loadTexts: ssiRedStandbySyncLost.setStatus('current')
+ssiRedSwitchover = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 27)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyHwIndex"), ("TIMETRA-CHASSIS-MIB", "tmnxHwID"), ("TIMETRA-CHASSIS-MIB", "tmnxHwClass"), ("TIMETRA-SYSTEM-MIB", "ssiRedFailoverTime"), ("TIMETRA-SYSTEM-MIB", "ssiRedFailoverReason"))
+if mibBuilder.loadTexts: ssiRedSwitchover.setStatus('current')
+ssiRedCpmActive = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 28)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyHwIndex"), ("TIMETRA-CHASSIS-MIB", "tmnxHwID"), ("TIMETRA-CHASSIS-MIB", "tmnxHwClass"))
+if mibBuilder.loadTexts: ssiRedCpmActive.setStatus('current')
+ssiRedSingleCpm = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 29)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyHwIndex"), ("TIMETRA-CHASSIS-MIB", "tmnxHwID"), ("TIMETRA-CHASSIS-MIB", "tmnxHwClass"))
+if mibBuilder.loadTexts: ssiRedSingleCpm.setStatus('current')
+persistencyClosedAlarmRaised = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 30)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxPersistenceAffectedCpm"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistencyClient"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistencyFileLocator"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistencyNotifyMsg"))
+if mibBuilder.loadTexts: persistencyClosedAlarmRaised.setStatus('current')
+persistencyClosedAlarmCleared = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 31)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxPersistenceAffectedCpm"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistencyClient"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistencyFileLocator"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistencyNotifyMsg"))
+if mibBuilder.loadTexts: persistencyClosedAlarmCleared.setStatus('current')
+tmnxSntpOperChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 32)).setObjects(("TIMETRA-SYSTEM-MIB", "sntpOperStatus"))
+if mibBuilder.loadTexts: tmnxSntpOperChange.setStatus('current')
+tmnxSysTimeSet = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 33)).setObjects(("TIMETRA-SYSTEM-MIB", "stiDateAndTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysTimeSetBy"))
+if mibBuilder.loadTexts: tmnxSysTimeSet.setStatus('current')
+tmnxFtpClientFailure = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 34)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxFtpFailureMsg"), ("TIMETRA-SYSTEM-MIB", "tmnxFtpFailureDestAddressType"), ("TIMETRA-SYSTEM-MIB", "tmnxFtpFailureDestAddress"))
+if mibBuilder.loadTexts: tmnxFtpClientFailure.setStatus('current')
+tacplusInetSrvrOperStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 35)).setObjects(("TIMETRA-SYSTEM-MIB", "tacPlusServerInetAddressType"), ("TIMETRA-SYSTEM-MIB", "tacPlusServerInetAddress"), ("TIMETRA-SYSTEM-MIB", "tacplusServerOperStatus"))
+if mibBuilder.loadTexts: tacplusInetSrvrOperStatusChange.setStatus('current')
+radiusInetServerOperStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 36)).setObjects(("TIMETRA-SYSTEM-MIB", "radiusServerInetAddressType"), ("TIMETRA-SYSTEM-MIB", "radiusServerInetAddress"), ("TIMETRA-SYSTEM-MIB", "radiusServerOperStatus"))
+if mibBuilder.loadTexts: radiusInetServerOperStatusChange.setStatus('current')
+persistencyEventReport = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 37)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxPersistencyNotifyMsg"))
+if mibBuilder.loadTexts: persistencyEventReport.setStatus('current')
+sbiBootConfigFailFileError = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 38)).setObjects(("TIMETRA-SYSTEM-MIB", "sbiBootConfigFailScript"))
+if mibBuilder.loadTexts: sbiBootConfigFailFileError.setStatus('current')
+sbiBootConfigOKFileError = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 39)).setObjects(("TIMETRA-SYSTEM-MIB", "sbiBootConfigOKScript"))
+if mibBuilder.loadTexts: sbiBootConfigOKFileError.setStatus('current')
+sbiBootLiConfig = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 40)).setObjects(("TIMETRA-SYSTEM-MIB", "sliConfigStatus"), ("TIMETRA-SYSTEM-MIB", "sbiLiSeparate"), ("TIMETRA-SYSTEM-MIB", "sbiLiLocalSave"))
+if mibBuilder.loadTexts: sbiBootLiConfig.setStatus('current')
+persistenceRestoreProblem = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 41)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxPersistencyClient"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistencyNotifyMsg"))
+if mibBuilder.loadTexts: persistenceRestoreProblem.setStatus('current')
+tmnxSysRollbackStarted = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 42)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackIndex"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackFileType"), ("TIMETRA-LOG-MIB", "tmnxLogExecRollbackOpIndex"))
+if mibBuilder.loadTexts: tmnxSysRollbackStarted.setStatus('current')
+tmnxSysRollbackStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 43)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackIndex"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackResult"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackFileType"), ("TIMETRA-LOG-MIB", "tmnxLogExecRollbackOpIndex"))
+if mibBuilder.loadTexts: tmnxSysRollbackStatusChange.setStatus('current')
+tmnxSysRollbackSaveStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 44)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackSaveResult"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackFileType"))
+if mibBuilder.loadTexts: tmnxSysRollbackSaveStatusChange.setStatus('current')
+tmnxSysRollbackFileDeleteStatus = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 45)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackIndex"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackFileDeleteResult"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackFileType"))
+if mibBuilder.loadTexts: tmnxSysRollbackFileDeleteStatus.setStatus('current')
+ssiSyncRollbackOK = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 46))
+if mibBuilder.loadTexts: ssiSyncRollbackOK.setStatus('current')
+ssiSyncRollbackFailed = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 47)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSyncFailureReason"))
+if mibBuilder.loadTexts: ssiSyncRollbackFailed.setStatus('current')
+ssiSyncCertOK = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 48))
+if mibBuilder.loadTexts: ssiSyncCertOK.setStatus('current')
+ssiSyncCertFailed = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 49)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSyncFailureReason"))
+if mibBuilder.loadTexts: ssiSyncCertFailed.setStatus('current')
+persistencyFileSysThresRaised = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 50)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxPersistenceAffectedCpm"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistencyClient"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistencyFileLocator"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistencyNotifyMsg"))
+if mibBuilder.loadTexts: persistencyFileSysThresRaised.setStatus('current')
+persistencyFileSysThresCleared = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 51)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxPersistenceAffectedCpm"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistencyClient"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistencyFileLocator"), ("TIMETRA-SYSTEM-MIB", "tmnxPersistencyNotifyMsg"))
+if mibBuilder.loadTexts: persistencyFileSysThresCleared.setStatus('current')
+tmnxSysExecStarted = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 52)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysExecScript"), ("TIMETRA-LOG-MIB", "tmnxLogExecRollbackOpIndex"), ("TIMETRA-LOG-MIB", "tmnxLogExecRollbackOpType"))
+if mibBuilder.loadTexts: tmnxSysExecStarted.setStatus('current')
+tmnxSysExecFinished = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 53)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysExecScript"), ("TIMETRA-SYSTEM-MIB", "tmnxSysExecResult"), ("TIMETRA-LOG-MIB", "tmnxLogExecRollbackOpIndex"), ("TIMETRA-LOG-MIB", "tmnxLogExecRollbackOpType"))
+if mibBuilder.loadTexts: tmnxSysExecFinished.setStatus('current')
+tmnxSysRollbackSaveStarted = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 54)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackFileType"))
+if mibBuilder.loadTexts: tmnxSysRollbackSaveStarted.setStatus('current')
+tmnxSysRollbackDeleteStarted = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 55)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackIndex"), ("TIMETRA-SYSTEM-MIB", "tmnxSysRollbackFileType"))
+if mibBuilder.loadTexts: tmnxSysRollbackDeleteStarted.setStatus('current')
+tmnxSysNvsysFileError = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 56)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysFileErrorType"))
+if mibBuilder.loadTexts: tmnxSysNvsysFileError.setStatus('current')
+sysDNSSecFailedAuthentication = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 57)).setObjects(("TIMETRA-SYSTEM-MIB", "sysDNSSecRespCtrl"), ("TIMETRA-SYSTEM-MIB", "tmnxSysDNSSecDomainName"))
+if mibBuilder.loadTexts: sysDNSSecFailedAuthentication.setStatus('current')
+tmnxConfigConflict = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 58)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxNotifyRow"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyEntryOID"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyObjectName"))
+if mibBuilder.loadTexts: tmnxConfigConflict.setStatus('current')
+tmnxSysLicenseInvalid = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 59)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseErrorReason"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseTimeLeft"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseErrorAction"))
+if mibBuilder.loadTexts: tmnxSysLicenseInvalid.setStatus('current')
+tmnxSysLicenseExpiresSoon = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 60)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseTimeLeft"))
+if mibBuilder.loadTexts: tmnxSysLicenseExpiresSoon.setStatus('current')
+tmnxSysVsdServerAvailable = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 63)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysNotifVsdServerName"))
+if mibBuilder.loadTexts: tmnxSysVsdServerAvailable.setStatus('current')
+tmnxSysVsdServerUnavailable = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 64)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysNotifVsdServerName"))
+if mibBuilder.loadTexts: tmnxSysVsdServerUnavailable.setStatus('current')
+tmnxSysXmppServerFunctional = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 65)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysNotifXmppServerName"))
+if mibBuilder.loadTexts: tmnxSysXmppServerFunctional.setStatus('current')
+tmnxSysXmppServerNotFunctional = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 66)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysNotifXmppServerName"))
+if mibBuilder.loadTexts: tmnxSysXmppServerNotFunctional.setStatus('current')
+tmnxSysLicenseValid = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 67)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"))
+if mibBuilder.loadTexts: tmnxSysLicenseValid.setStatus('current')
+tmnxSysBaseMacAddressNotSet = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 68)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxChassisBaseMacAddress"))
+if mibBuilder.loadTexts: tmnxSysBaseMacAddressNotSet.setStatus('current')
+tmnxSmLaunchStartFailed = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 69)).setObjects(("TIMETRA-LOG-MIB", "tmnxEhsHEntryScriptPlcyOwner"), ("TIMETRA-LOG-MIB", "tmnxEhsHEntryScriptPlcyName"), ("DISMAN-SCRIPT-MIB", "smLaunchScriptOwner"), ("DISMAN-SCRIPT-MIB", "smLaunchScriptName"), ("DISMAN-SCRIPT-MIB", "smLaunchError"), ("TIMETRA-SYSTEM-MIB", "tmnxSmLaunchExtAuthType"), ("TIMETRA-SYSTEM-MIB", "tmnxSmRunExtAuthType"), ("TIMETRA-SYSTEM-MIB", "tmnxSmRunExtUserName"))
+if mibBuilder.loadTexts: tmnxSmLaunchStartFailed.setStatus('current')
+tmnxEhsHandlerInvoked = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 70)).setObjects(("TIMETRA-LOG-MIB", "tmnxEhsHandlerDescription"), ("TIMETRA-SYSTEM-MIB", "tmnxSmRunExtAuthType"), ("TIMETRA-SYSTEM-MIB", "tmnxSmRunExtUserName"))
+if mibBuilder.loadTexts: tmnxEhsHandlerInvoked.setStatus('current')
+tmnxEhsDroppedByMinDelay = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 71)).setObjects(("TIMETRA-LOG-MIB", "tmnxEhsHEntryScriptPlcyOwner"), ("TIMETRA-LOG-MIB", "tmnxEhsHEntryScriptPlcyName"), ("DISMAN-SCRIPT-MIB", "smLaunchScriptOwner"), ("DISMAN-SCRIPT-MIB", "smLaunchScriptName"), ("TIMETRA-LOG-MIB", "tmnxEhsHEntryMinDelay"), ("TIMETRA-LOG-MIB", "tmnxEhsHEntryMinDelayInterval"), ("TIMETRA-SYSTEM-MIB", "tmnxSmRunExtAuthType"), ("TIMETRA-SYSTEM-MIB", "tmnxSmRunExtUserName"))
+if mibBuilder.loadTexts: tmnxEhsDroppedByMinDelay.setStatus('current')
+tmnxSysAppStats24HrsAvailable = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 72)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysNotifAppStatsTime"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotifAppStatsApplication"), ("TIMETRA-SYSTEM-MIB", "tmnxSysNotifAppStatsType"))
+if mibBuilder.loadTexts: tmnxSysAppStats24HrsAvailable.setStatus('current')
+tmnxSysAppStatsWeekAvailable = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 73)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysNotifAppStatsTime"))
+if mibBuilder.loadTexts: tmnxSysAppStatsWeekAvailable.setStatus('current')
+tmnxSysLicenseActivated = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 75)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"))
+if mibBuilder.loadTexts: tmnxSysLicenseActivated.setStatus('current')
+tmnxSysStandbyLicensingError = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 76)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseErrorReason"))
+if mibBuilder.loadTexts: tmnxSysStandbyLicensingError.setStatus('current')
+tmnxSysStandbyLicensingReady = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 77)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"))
+if mibBuilder.loadTexts: tmnxSysStandbyLicensingReady.setStatus('current')
+tmnxSysMgmtIfModeChangeStart = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 78)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxNotifySysMgmtIfOriginalMode"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfWriteMode"), ("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfWriteSwitchReason"))
+if mibBuilder.loadTexts: tmnxSysMgmtIfModeChangeStart.setStatus('current')
+tmnxSysMgmtIfModeChangeComplete = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 79)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfWriteMode"))
+if mibBuilder.loadTexts: tmnxSysMgmtIfModeChangeComplete.setStatus('current')
+tmnxSysMgmtIfModeChangeFailure = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 80)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysMgmtIfWriteMode"))
+if mibBuilder.loadTexts: tmnxSysMgmtIfModeChangeFailure.setStatus('current')
+tmnxSysAppLicenseInsufficient = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 81)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxSysLicensingNotifyGroup"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicensedNotifyAppName"), ("TIMETRA-SYSTEM-MIB", "tmnxSysAppLicenseState"), ("TIMETRA-SYSTEM-MIB", "tmnxSysLicenseErrorReason"))
+if mibBuilder.loadTexts: tmnxSysAppLicenseInsufficient.setStatus('current')
+tmnxSysMgmtIfLiIncorrectFormat = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 82)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxPrimaryConfigFileFormatType"), ("TIMETRA-SYSTEM-MIB", "tmnxLiConfigFileFormatType"))
+if mibBuilder.loadTexts: tmnxSysMgmtIfLiIncorrectFormat.setStatus('current')
+tmnxSysMgmtIfLiCfgNotEncrypted = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 83))
+if mibBuilder.loadTexts: tmnxSysMgmtIfLiCfgNotEncrypted.setStatus('current')
+tmnxSysLicenseUpdateRequired = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 84)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"))
+if mibBuilder.loadTexts: tmnxSysLicenseUpdateRequired.setStatus('current')
+tmnxEqOperStateChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 85)).setObjects(("TIMETRA-SYSTEM-MIB", "tmnxNotifyRow"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyRowOperState"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyEntryOID"), ("TIMETRA-SYSTEM-MIB", "tmnxNotifyObjectName"))
+if mibBuilder.loadTexts: tmnxEqOperStateChange.setStatus('current')
+stiDateAndTimeChanging = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 86)).setObjects(("TIMETRA-SYSTEM-MIB", "stiDateAndTime"))
+if mibBuilder.loadTexts: stiDateAndTimeChanging.setStatus('current')
+tmnxSysSwFabFailRecStarted = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 87))
+if mibBuilder.loadTexts: tmnxSysSwFabFailRecStarted.setStatus('current')
+tmnxSysSwFabFailRecCompleted = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 88))
+if mibBuilder.loadTexts: tmnxSysSwFabFailRecCompleted.setStatus('current')
+tmnxSysSwFabFailRecAborted = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 89))
+if mibBuilder.loadTexts: tmnxSysSwFabFailRecAborted.setStatus('current')
+tmnxSysSwFabFailRecDetected = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 0, 90))
+if mibBuilder.loadTexts: tmnxSysSwFabFailRecDetected.setStatus('current')
+tmnxSysMGNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 1, 1))
+mibBuilder.exportSymbols("TIMETRA-SYSTEM-MIB", tmnxCardMemResMonitorTable=tmnxCardMemResMonitorTable, tmnxSysDNSSecV12v0Group=tmnxSysDNSSecV12v0Group, tmnxSysAppStats24HrsName=tmnxSysAppStats24HrsName, tmnxSysVsdServMsgTimedOut=tmnxSysVsdServMsgTimedOut, slcLoginScriptGlobal=slcLoginScriptGlobal, tmnxSysXmppServName=tmnxSysXmppServName, tmnxSysXmppServConnMode=tmnxSysXmppServConnMode, sbiConfigFailScriptStatus=sbiConfigFailScriptStatus, sbiPrimaryImage=sbiPrimaryImage, tmnxSysLicensingTable=tmnxSysLicensingTable, sbiAutoConfigure=sbiAutoConfigure, tmnxSysBofV6v0Group=tmnxSysBofV6v0Group, tmnxSysV20v0Compliance=tmnxSysV20v0Compliance, sntpServerTable=sntpServerTable, tmnxConfigModify=tmnxConfigModify, tmnxSysRmtMgmtAdminState=tmnxSysRmtMgmtAdminState, tmnxSysRadiusServerV5v0Group=tmnxSysRadiusServerV5v0Group, tmnxSysNetconfGetRequests=tmnxSysNetconfGetRequests, slcSSHMinTTLValue=slcSSHMinTTLValue, tmnxSysAppStatsWeekPeak=tmnxSysAppStatsWeekPeak, sbiBootConfigFailFileError=sbiBootConfigFailFileError, tmnxSysCpuMonCpuIdle=tmnxSysCpuMonCpuIdle, sbiPrimaryDnsIPv6Addr=sbiPrimaryDnsIPv6Addr, tmnxSysMgmtIfDstoreLocksTable=tmnxSysMgmtIfDstoreLocksTable, tmnxSysSwFabFailRecSfmStatsTable=tmnxSysSwFabFailRecSfmStatsTable, tmnxSysLicensingV16v0Group=tmnxSysLicensingV16v0Group, tmnxSysMgmtIfDsLocksCndLock=tmnxSysMgmtIfDsLocksCndLock, tmnxSysBootConfFmtNotifyObjsGrp=tmnxSysBootConfFmtNotifyObjsGrp, tmnxSysSwFabFailRecCompleted=tmnxSysSwFabFailRecCompleted, ssiSyncCertMode=ssiSyncCertMode, tacplusOperStatusChange=tacplusOperStatusChange, tacplusOperStatus=tacplusOperStatus, radiusServerAddress=radiusServerAddress, tmnxPrimaryConfigFileFormatType=tmnxPrimaryConfigFileFormatType, tmnxSysLicenseProduct=tmnxSysLicenseProduct, tmnxCardCpuResMonitorEntry=tmnxCardCpuResMonitorEntry, tmnxSysNEProfRowStatus=tmnxSysNEProfRowStatus, tmnxSysRmtMgmtMgrFQDN=tmnxSysRmtMgmtMgrFQDN, tmnxSysMgmtProtocol=tmnxSysMgmtProtocol, tmnxSysRmtMgmtMgrAllowUnsecure=tmnxSysRmtMgmtMgrAllowUnsecure, ssiSyncConfigFailed=ssiSyncConfigFailed, tmnxSysNotifyObjsGenGroup=tmnxSysNotifyObjsGenGroup, tmnxSysGrpcConnQos=tmnxSysGrpcConnQos, tmnxSysNetconfAdminStatus=tmnxSysNetconfAdminStatus, tmnxSysCandidateCfgExclusiveUsr=tmnxSysCandidateCfgExclusiveUsr, tmnxSysRollbackSaveStatusChange=tmnxSysRollbackSaveStatusChange, tmnxSysRollbackRescueSave=tmnxSysRollbackRescueSave, tmnxSysFpCamAllocAdmnV6Multicast=tmnxSysFpCamAllocAdmnV6Multicast, tmnxSmRunExtTable=tmnxSmRunExtTable, tmnxCardMemResPoolsAllocated=tmnxCardMemResPoolsAllocated, PYSNMP_MODULE_ID=timetraSysMIBModule, tmnxSysSwReposSecondaryLocation=tmnxSysSwReposSecondaryLocation, radiusOperStatus=radiusOperStatus, sgiGroupingIDs=sgiGroupingIDs, tmnxSysFpResAllocG8032Sap=tmnxSysFpResAllocG8032Sap, sysLACPInfo=sysLACPInfo, tacPlusServerInetAddress=tacPlusServerInetAddress, sbiAutoBootUsingIpv4=sbiAutoBootUsingIpv4, tmnxSysAvailableLicensesTable=tmnxSysAvailableLicensesTable, tmnxSysVsdServerTable=tmnxSysVsdServerTable, tmnxSysLicenseExpiresSoon=tmnxSysLicenseExpiresSoon, TmnxSysLicensingGroup=TmnxSysLicensingGroup, sbiActiveIpMask=sbiActiveIpMask, tmnxSysRmtMgmtMgrIpAddType=tmnxSysRmtMgmtMgrIpAddType, sbiAutoBootUsingInband=sbiAutoBootUsingInband, sgiCpuUsage=sgiCpuUsage, tmnxSysMgmtIfPriSchemaPathState=tmnxSysMgmtIfPriSchemaPathState, tacplusServerEntry=tacplusServerEntry, spiDhcpL3PersistenceDescription=spiDhcpL3PersistenceDescription, tmnxSysExecStarted=tmnxSysExecStarted, tmnxSysRmtMgmtRegsSent=tmnxSysRmtMgmtRegsSent, tmnxSysCpmCardLicMaxNumIOMs=tmnxSysCpmCardLicMaxNumIOMs, tmnxSysGrpcGnoiSystemAdminState=tmnxSysGrpcGnoiSystemAdminState, tmnxPersistenceV11v0Group=tmnxPersistenceV11v0Group, sbiAutoBootClientId=sbiAutoBootClientId, tmnxSysRollbackRescueRevertRes=tmnxSysRollbackRescueRevertRes, tmnxSysXmppServMsgAckRcvd=tmnxSysXmppServMsgAckRcvd, tmnxSysLicenseTimeLeft=tmnxSysLicenseTimeLeft, tmnxSysResEcmpProfEntry=tmnxSysResEcmpProfEntry, stiSummerZoneEndDate=stiSummerZoneEndDate, spiDhcpL2PersistenceDescription=spiDhcpL2PersistenceDescription, tmnxSysNetconfEditConfigRequests=tmnxSysNetconfEditConfigRequests, stiSummerZoneEndMonth=stiSummerZoneEndMonth, sbiStaticRouteIPv6Entry=sbiStaticRouteIPv6Entry, tmnxSysGrpcRpcEntry=tmnxSysGrpcRpcEntry, tmnxSysMgmtIfDsLocksRegion=tmnxSysMgmtIfDsLocksRegion, tmnxSysFpoDscpTransAdminState=tmnxSysFpoDscpTransAdminState, tmnxSysRmtMgmtMgrTimeout=tmnxSysRmtMgmtMgrTimeout, tmnxSysV19v0Compliance=tmnxSysV19v0Compliance, sbiAutoIpv6DhcpTimeout=sbiAutoIpv6DhcpTimeout, tmnxSysNotifyObjsV10v0Group=tmnxSysNotifyObjsV10v0Group, tmnxSysLicensingV19v0Group=tmnxSysLicensingV19v0Group, tmnxSysMgmtIfMDEnvPromptTime=tmnxSysMgmtIfMDEnvPromptTime, tmnxSysRmtMgmtLastRegStatus=tmnxSysRmtMgmtLastRegStatus, tmnxSysCpuMonBusyGroupName=tmnxSysCpuMonBusyGroupName, tmnxSysSnmpConfigObjs=tmnxSysSnmpConfigObjs, tmnxSysMgmtProtocolObjs=tmnxSysMgmtProtocolObjs, tmnxSysLicenseVChassisType=tmnxSysLicenseVChassisType, tmnxSysNetworkElementV19v0Group=tmnxSysNetworkElementV19v0Group, tmnxSysMgmtAllowImmediateChange=tmnxSysMgmtAllowImmediateChange, tmnxSysMIBNotifyPrefix=tmnxSysMIBNotifyPrefix, tmnxSysNetconfCloseRequests=tmnxSysNetconfCloseRequests, tmnxSysNEProfSystemMac=tmnxSysNEProfSystemMac, tacplusServerAddress=tacplusServerAddress, tmnxSysGrpcAllowUnsecure=tmnxSysGrpcAllowUnsecure, tmnxSysFpoRouterEcmpAdminState=tmnxSysFpoRouterEcmpAdminState, tmnxSysRmtMgmtMgrSrcIpAddType=tmnxSysRmtMgmtMgrSrcIpAddType, sbiAutoIpv6=sbiAutoIpv6, tmnxSysV14v0Compliance=tmnxSysV14v0Compliance, tmnxSysMgmtInterfaceYangModules=tmnxSysMgmtInterfaceYangModules, tmnxSysCpmCardLicFeatApplication=tmnxSysCpmCardLicFeatApplication, tmnxSysFileTransProfEntry=tmnxSysFileTransProfEntry, tmnxSysMgmtProtocolV15v1Group=tmnxSysMgmtProtocolV15v1Group, slcTelnetGracefulShutdown=slcTelnetGracefulShutdown, sysIcmpVSEnhancement=sysIcmpVSEnhancement, tmnxSysRollbackFileDeleteStatus=tmnxSysRollbackFileDeleteStatus, tmnxSysLiV6v0Group=tmnxSysLiV6v0Group, tmnxSysCpmCardLicUuid=tmnxSysCpmCardLicUuid, tmnxSysAppStatsWeekName=tmnxSysAppStatsWeekName, ssiRedFailoverReason=ssiRedFailoverReason, tmnxSysAppStats24HrsEntry=tmnxSysAppStats24HrsEntry, tmnxSmRunExtAuthType=tmnxSmRunExtAuthType, tmnxSysMgmtIfYangModulesGroup=tmnxSysMgmtIfYangModulesGroup, sbiSnmpdAdminStatus=sbiSnmpdAdminStatus, tmnxSysNetconfDiscardRequests=tmnxSysNetconfDiscardRequests, tmnxFtpClientFailure=tmnxFtpClientFailure, tmnxSysResEcmpProfNumGrps=tmnxSysResEcmpProfNumGrps, tmnxSysNotifAppStatsTime=tmnxSysNotifAppStatsTime, tmnxSysSwFabFailRecAdminState=tmnxSysSwFabFailRecAdminState, tmnxSysMgmtIfOperSchemaPathState=tmnxSysMgmtIfOperSchemaPathState, sbiStaticRouteIPv6PfxLen=sbiStaticRouteIPv6PfxLen, tmnxSysRmtMgmtMgrRegsSent=tmnxSysRmtMgmtMgrRegsSent, stiZoneType=stiZoneType, tmnxLiConfigFileFormatType=tmnxLiConfigFileFormatType, sbiTertiaryDns=sbiTertiaryDns, sbiActiveIPv6Addr=sbiActiveIPv6Addr, tmnxSysLicenseIssueDateAndTime=tmnxSysLicenseIssueDateAndTime, tmnxSysLicenseDescription=tmnxSysLicenseDescription, tmnxSysRmtMgmtMgrSrcDefaultPort=tmnxSysRmtMgmtMgrSrcDefaultPort, tmnxSysRmtMgmtMgrOperSrcIpAdType=tmnxSysRmtMgmtMgrOperSrcIpAdType, tmnxNotifyRowOperState=tmnxNotifyRowOperState, tmnxTrapDroppedCount=tmnxTrapDroppedCount, tmnxSysXmppServSubSent=tmnxSysXmppServSubSent, tmnxSysLicenseNotifV19v0Group=tmnxSysLicenseNotifV19v0Group, spiPythonPersistenceDescr=spiPythonPersistenceDescr, tmnxSysGeneralV20v0Group=tmnxSysGeneralV20v0Group, sbiStandbyBIpAddr=sbiStandbyBIpAddr, tmnxSysCandidateCfgRevertTime=tmnxSysCandidateCfgRevertTime, tmnxSysAppStats48HrsType=tmnxSysAppStats48HrsType, stiSummerZoneStartDate=stiSummerZoneStartDate, stiSummerZoneEndHour=stiSummerZoneEndHour, sgiSwVersionModifier=sgiSwVersionModifier, tmnxSysRollbackRescueRevStTime=tmnxSysRollbackRescueRevStTime, tmnxSysRollbackAbortRevert=tmnxSysRollbackAbortRevert, tmnxSysDCGroups=tmnxSysDCGroups, tmnxSysGrpcGnmiVersion=tmnxSysGrpcGnmiVersion, tmnxSysNotifAppStatsApplication=tmnxSysNotifAppStatsApplication, tmnxSysRmtMgmtMgrPort=tmnxSysRmtMgmtMgrPort, tmnxSysMgmtIfDsLocksCronEhs=tmnxSysMgmtIfDsLocksCronEhs, spiSubMgmtPersistenceDescription=spiSubMgmtPersistenceDescription, tmnxSysV14v0Groups=tmnxSysV14v0Groups, ssiConfigMaxBackupRevisions=ssiConfigMaxBackupRevisions, tmnxSysNotifyObjsV11v0Group=tmnxSysNotifyObjsV11v0Group, tmnxSysAppStats48HrsEntry=tmnxSysAppStats48HrsEntry, tmnxSysNotifXmppServerName=tmnxSysNotifXmppServerName, sbiSnmpdOperStatus=sbiSnmpdOperStatus, ssiSyncRollbackMode=ssiSyncRollbackMode, tmnxSysLicenseV12v0Group=tmnxSysLicenseV12v0Group, ssiRedStandbySyncing=ssiRedStandbySyncing, tmnxSysAppStatsPeakName=tmnxSysAppStatsPeakName, tmnxSysCpuMonBusyCoreUtil=tmnxSysCpuMonBusyCoreUtil, tmnxSysResEcmpProfType=tmnxSysResEcmpProfType, sysLoginControlInfo=sysLoginControlInfo, tmnxSysResEcmpProfTable=tmnxSysResEcmpProfTable, tmnxSysMgmtIfDsLocksUserName=tmnxSysMgmtIfDsLocksUserName, tmnxSmLaunchExtTable=tmnxSmLaunchExtTable, tmnxSysMgmtIfDstoreLocksEntry=tmnxSysMgmtIfDstoreLocksEntry, tmnxSysSwitchFabricV16v0Group=tmnxSysSwitchFabricV16v0Group, tmnxSysLicenseStatistics=tmnxSysLicenseStatistics, tmnxSmRunExtEntry=tmnxSmRunExtEntry, tmnxSysRmtMgmtMgrDescription=tmnxSysRmtMgmtMgrDescription, tmnxCardCpuResMonBusyCoreUtil=tmnxCardCpuResMonBusyCoreUtil, tmnxSysRmtMgmtMgrLastRegTime=tmnxSysRmtMgmtMgrLastRegTime, tmnxSysGrpcRpcSrcIpAddType=tmnxSysGrpcRpcSrcIpAddType, ssiSaveBof=ssiSaveBof, tmnxSysNetconfPort=tmnxSysNetconfPort, timetraSysMIBModule=timetraSysMIBModule, tmnxSysRadiusServerGroup=tmnxSysRadiusServerGroup, sysIcmpVSInfo=sysIcmpVSInfo, tmnxSysV12v0Groups=tmnxSysV12v0Groups, sbiStaticRouteIPv6Table=sbiStaticRouteIPv6Table, tmnxSysRollbackRescueFileExists=tmnxSysRollbackRescueFileExists, tmnxSysRmtMgmtMgrOperSrcPort=tmnxSysRmtMgmtMgrOperSrcPort, tmnxSysV13v0Compliance=tmnxSysV13v0Compliance, tmnxSysRollbackRescueGroup=tmnxSysRollbackRescueGroup, tmnxSysRollbackFileDelete=tmnxSysRollbackFileDelete, tmnxSysFpoQosFc4ProfAdminState=tmnxSysFpoQosFc4ProfAdminState, stiSummerZoneEndMinute=stiSummerZoneEndMinute, ssiSyncForce=ssiSyncForce, tmnxSysEthInfoGroup=tmnxSysEthInfoGroup, tmnxSysRollbackV9v0Group=tmnxSysRollbackV9v0Group, tmnxSysLicenseMaxNumIOMs=tmnxSysLicenseMaxNumIOMs, tmnxSysFileTransProfLastChanged=tmnxSysFileTransProfLastChanged, sliConfigLastSaved=sliConfigLastSaved, sgiSystemGroupID=sgiSystemGroupID, tmnxSysSwFabFailRecAborted=tmnxSysSwFabFailRecAborted, tmnxDhcpLeaseTimeModeThreshold=tmnxDhcpLeaseTimeModeThreshold, tmnxSysMgmtIfWriteMode=tmnxSysMgmtIfWriteMode, tmnxSysVsdServMsgAckRcvd=tmnxSysVsdServMsgAckRcvd, sbiAutoIpv4DhcpTimeout=sbiAutoIpv4DhcpTimeout, tmnxSysMgmtIfDsLocksSessionType=tmnxSysMgmtIfDsLocksSessionType, radiusOperStatusChange=radiusOperStatusChange, tmnxModuleMallocSize=tmnxModuleMallocSize, tmnxSysMgmtIfTerSchemaPathState=tmnxSysMgmtIfTerSchemaPathState, tmnxSysMgmtIfDsLocksIdleTime=tmnxSysMgmtIfDsLocksIdleTime, tmnxSysLicenseEndDateAndTime=tmnxSysLicenseEndDateAndTime, tmnxSysVsdServMsgMinRtt=tmnxSysVsdServMsgMinRtt, tmnxSysV10v0Compliance=tmnxSysV10v0Compliance, tmnxPersistenceV12v0Group=tmnxPersistenceV12v0Group, radiusServerInetAddress=radiusServerInetAddress, sbiConfigStatus=sbiConfigStatus, sbiSnmpdMaxPktSize=sbiSnmpdMaxPktSize, sbiStaticRouteNextHop=sbiStaticRouteNextHop, tmnxSysMgmtIfLiIncorrectFormat=tmnxSysMgmtIfLiIncorrectFormat, tmnxSysMgmtIfDsLocksScratchCnt=tmnxSysMgmtIfDsLocksScratchCnt, tmnxSysRollbackRescueSaveComment=tmnxSysRollbackRescueSaveComment, tmnxSysVsdServUptime=tmnxSysVsdServUptime, tmnxSysXmppServerTable=tmnxSysXmppServerTable, tmnxSysRmtMgmtMgrRowStatus=tmnxSysRmtMgmtMgrRowStatus, tmnxSysSwFabFailRecStarted=tmnxSysSwFabFailRecStarted, tmnxSysXmppServLastChanged=tmnxSysXmppServLastChanged, radiusServerTable=radiusServerTable, tmnxSysXmppServIQMinRtt=tmnxSysXmppServIQMinRtt, tmnxSysVsdServMsgMaxRtt=tmnxSysVsdServMsgMaxRtt, tmnxSysV12v0Compliance=tmnxSysV12v0Compliance, tmnxSysMGCompliances=tmnxSysMGCompliances, tmnxSysSnmpStatsObjs=tmnxSysSnmpStatsObjs, sbiStaticRouteTable=sbiStaticRouteTable, tmnxSysGrpcV15v0Group=tmnxSysGrpcV15v0Group, tmnxSysNetconfV19v0Group=tmnxSysNetconfV19v0Group, sbiPersistIndex=sbiPersistIndex, tmnxSysSwFabFailRecOperState=tmnxSysSwFabFailRecOperState, ssiSyncBootEnvLastTime=ssiSyncBootEnvLastTime, sgiSnmpFailedSets=sgiSnmpFailedSets, sntpTimeDiffExceedsThreshold=sntpTimeDiffExceedsThreshold, TmnxSysMonSampleTime=TmnxSysMonSampleTime, tmnxSysFileTransProfRetry=tmnxSysFileTransProfRetry, tmnxSysFpoQosMacCritOperState=tmnxSysFpoQosMacCritOperState, sysNewQinqUntaggedSap=sysNewQinqUntaggedSap, ssiSyncRollbackOK=ssiSyncRollbackOK, slcTelnetOutboundMaxSessions=slcTelnetOutboundMaxSessions, sbiTertiaryConfigFile=sbiTertiaryConfigFile, spiSubMgmtPersistenceFileLocation=spiSubMgmtPersistenceFileLocation, tmnxSysXmppServRowStatus=tmnxSysXmppServRowStatus)
+mibBuilder.exportSymbols("TIMETRA-SYSTEM-MIB", tmnxSyncFailureReason=tmnxSyncFailureReason, tmnxSysFpResAllocV20v0Group=tmnxSysFpResAllocV20v0Group, tmnxSysMgmtIfMDEnvPromptIndic=tmnxSysMgmtIfMDEnvPromptIndic, tmnxSysAppStats24HrsTable=tmnxSysAppStats24HrsTable, tmnxMemoryModule=tmnxMemoryModule, sbiSystemBaseMacAddress=sbiSystemBaseMacAddress, tmnxSysMgmtIfTerSchemaPathValue=tmnxSysMgmtIfTerSchemaPathValue, tmnxSysRmtMgmtMgrOperTlsProf=tmnxSysRmtMgmtMgrOperTlsProf, tmnxSysFpoMacFltOutVlanPrioAdmSt=tmnxSysFpoMacFltOutVlanPrioAdmSt, sbiBootConfigOKScript=sbiBootConfigOKScript, tmnxSysGrpcMaxMsgSize=tmnxSysGrpcMaxMsgSize, tmnxSysV19v0Groups=tmnxSysV19v0Groups, spiNatFwdPersistenceDescr=spiNatFwdPersistenceDescr, tmnxSysNetworkElementV16v0Group=tmnxSysNetworkElementV16v0Group, ssiRedCpmActive=ssiRedCpmActive, tmnxTrapDroppedReasonCode=tmnxTrapDroppedReasonCode, tmnxSysLicensedAppName=tmnxSysLicensedAppName, tmnxSysBofV19v0Group=tmnxSysBofV19v0Group, stiSummerZoneEndWeek=stiSummerZoneEndWeek, tmnxSysFpoMplsFastSwOvAdminState=tmnxSysFpoMplsFastSwOvAdminState, slcSSHGracefulShutdown=slcSSHGracefulShutdown, tmnxSysFileErrorType=tmnxSysFileErrorType, tmnxSysMgmtProtocolEntry=tmnxSysMgmtProtocolEntry, tmnxSysMgmtIfDsLocksRunLock=tmnxSysMgmtIfDsLocksRunLock, tmnxSysRmtMgmtMgrLastRegStatus=tmnxSysRmtMgmtMgrLastRegStatus, tmnxSysBaseMacAddressNotSet=tmnxSysBaseMacAddressNotSet, tmnxSysNetconfV14v0Group=tmnxSysNetconfV14v0Group, tmnxDCSysObjs=tmnxDCSysObjs, tmnxSysRmtMgmtMgrDeviceName=tmnxSysRmtMgmtMgrDeviceName, tmnxSysCardResourceGroup=tmnxSysCardResourceGroup, tmnxSysFpCam=tmnxSysFpCam, tmnxSysObsoleteV5v0Group=tmnxSysObsoleteV5v0Group, tmnxSysHttpRdr=tmnxSysHttpRdr, sysPersistenceAAInfo=sysPersistenceAAInfo, tmnxSysMgmtIfOperSchemaPathValue=tmnxSysMgmtIfOperSchemaPathValue, tmnxSysAppStats48HrsTable=tmnxSysAppStats48HrsTable, ssiSaveBofResult=ssiSaveBofResult, tmnxConfigCreate=tmnxConfigCreate, tmnxSysV9v0Compliance=tmnxSysV9v0Compliance, sntpServerVersion=sntpServerVersion, sntpServerEntry=sntpServerEntry, sbiPersist=sbiPersist, tmnxSysLoginControlV8v0Group=tmnxSysLoginControlV8v0Group, tmnxSysLicenseMaxNumCPMs=tmnxSysLicenseMaxNumCPMs, ssiSaveConfigFailed=ssiSaveConfigFailed, tmnxSsiMismatch=tmnxSsiMismatch, tmnxSysRmtMgmtMgrOperTimeout=tmnxSysRmtMgmtMgrOperTimeout, tmnxSysNetconfV13v0Group=tmnxSysNetconfV13v0Group, tmnxSysLicenseInvalid=tmnxSysLicenseInvalid, tmnxSysMgmtInterfaceMDCli=tmnxSysMgmtInterfaceMDCli, tmnxSysLicenseUuid=tmnxSysLicenseUuid, tmnxSysLicenseApplicationGroup=tmnxSysLicenseApplicationGroup, tmnxSysCpmCardLicStartDateTime=tmnxSysCpmCardLicStartDateTime, tmnxPersistencyClient=tmnxPersistencyClient, tmnxSysAvailLicenseIndex=tmnxSysAvailLicenseIndex, tmnxSnmpdError=tmnxSnmpdError, tmnxSysAppLicenseAllocated=tmnxSysAppLicenseAllocated, tmnxSysRollbackStart=tmnxSysRollbackStart, tmnxTrapDropped=tmnxTrapDropped, tmnxSysCandidateCfgInfo=tmnxSysCandidateCfgInfo, sbiAutoBootInbandVlan=sbiAutoBootInbandVlan, tmnxSysBofV12v0Group=tmnxSysBofV12v0Group, tmnxSysAppStats24HrsValue=tmnxSysAppStats24HrsValue, tmnxSysBootConfFmtNotifyGrp=tmnxSysBootConfFmtNotifyGrp, tmnxSysV20v0Groups=tmnxSysV20v0Groups, tmnxSysGroupingSystemGroup=tmnxSysGroupingSystemGroup, sysPersistencePythonInfo=sysPersistencePythonInfo, tmnxSysGrpcOperState=tmnxSysGrpcOperState, tmnxSysNetconfGetSchemaRequests=tmnxSysNetconfGetSchemaRequests, tmnxSysMgmtIfMDEnvProIndDelay=tmnxSysMgmtIfMDEnvProIndDelay, tmnxPersistencyFileLocator=tmnxPersistencyFileLocator, tmnxSysNetconfRequests=tmnxSysNetconfRequests, tmnxSysNotificationV12v0Group=tmnxSysNotificationV12v0Group, sbiSecondaryDns=sbiSecondaryDns, tmnxSysVsdGwPubSubIsSubscrd=tmnxSysVsdGwPubSubIsSubscrd, tmnxSysRollbackSaveStarted=tmnxSysRollbackSaveStarted, tmnxSysVsdInfo=tmnxSysVsdInfo, TmnxSysMgmtIfDstoreLockState=TmnxSysMgmtIfDstoreLockState, sntpServerRowStatus=sntpServerRowStatus, tmnxSysVsdServMsgSent=tmnxSysVsdServMsgSent, sbiStandbyBIPv6Addr=sbiStandbyBIPv6Addr, sbiStandbyAIPv6Addr=sbiStandbyAIPv6Addr, stiSummerZoneStartMinute=stiSummerZoneStartMinute, tmnxSysXmppServMsgMinRtt=tmnxSysXmppServMsgMinRtt, tmnxSysLicenseSwVersion=tmnxSysLicenseSwVersion, tmnxSysLicensingProduct=tmnxSysLicensingProduct, persistencyFileSysThresCleared=persistencyFileSysThresCleared, tmnxSysMgmtIfModeChangeFailure=tmnxSysMgmtIfModeChangeFailure, tmnxSysMgmtIfModeLastSwitchTime=tmnxSysMgmtIfModeLastSwitchTime, tmnxSysAppStatsPeakType=tmnxSysAppStatsPeakType, tmnxSysTacPlusServerGroup=tmnxSysTacPlusServerGroup, tmnxSysSwFabFailRecSfmStatsEntry=tmnxSysSwFabFailRecSfmStatsEntry, tmnxSysMgmtIfNotifyObjsGroup=tmnxSysMgmtIfNotifyObjsGroup, tmnxSysCpmCardLicDescription=tmnxSysCpmCardLicDescription, tmnxSysCpmCardLicIssueDateTime=tmnxSysCpmCardLicIssueDateTime, tmnxSysObsoleteNotificationV5v0Group=tmnxSysObsoleteNotificationV5v0Group, tmnxSysMGGroups=tmnxSysMGGroups, tmnxSysRollbackMaxLocalFiles=tmnxSysRollbackMaxLocalFiles, sbiStandbyDIpMask=sbiStandbyDIpMask, sbiStandbyIPv6Addr=sbiStandbyIPv6Addr, tmnxSysNEProfTable=tmnxSysNEProfTable, sbiConfigOKScriptStatus=sbiConfigOKScriptStatus, tmnxSysNotifVsdServerName=tmnxSysNotifVsdServerName, tmnxSysLicNotifyObjsV19v0Group=tmnxSysLicNotifyObjsV19v0Group, tmnxSysXmppServIQRcvd=tmnxSysXmppServIQRcvd, tmnxSysXmppServServiceId=tmnxSysXmppServServiceId, tmnxSysSwFabFailRecSfmState=tmnxSysSwFabFailRecSfmState, tacplusInetSrvrOperStatusChange=tacplusInetSrvrOperStatusChange, tmnxSysSwFabFailRecSfmStateTime=tmnxSysSwFabFailRecSfmStateTime, tmnxSysCpuMonTable=tmnxSysCpuMonTable, sysLiInfo=sysLiInfo, tmnxSysMgmtIfMDEnvProIndType=tmnxSysMgmtIfMDEnvProIndType, tmnxSysObsoleteGroup=tmnxSysObsoleteGroup, tmnxSysRmtMgmtAllowUnsecure=tmnxSysRmtMgmtAllowUnsecure, tmnxCardCpuResMonCpuIdle=tmnxCardCpuResMonCpuIdle, radiusInetServerOperStatusChange=radiusInetServerOperStatusChange, sbiAutoIpv6DhcpOptUserClass=sbiAutoIpv6DhcpOptUserClass, sbiStandbyCIPv6Addr=sbiStandbyCIPv6Addr, tmnxSysStrmGetManyRequests=tmnxSysStrmGetManyRequests, tmnxSysCpmCardLicVChassisType=tmnxSysCpmCardLicVChassisType, tmnxSysAppStatsPeakValue=tmnxSysAppStatsPeakValue, tmnxNotifyRow=tmnxNotifyRow, tmnxSysRmtMgmtMgrOperState=tmnxSysRmtMgmtMgrOperState, sbiDnsDomain=sbiDnsDomain, tmnxSysNetconfV11v0Group=tmnxSysNetconfV11v0Group, tmnxSysMgmtIfMDEnvConsWidth=tmnxSysMgmtIfMDEnvConsWidth, tmnxSysDNSSecNotifV12v0Group=tmnxSysDNSSecNotifV12v0Group, tmnxSysNetconfV15v1ObsoleteGroup=tmnxSysNetconfV15v1ObsoleteGroup, tmnxSysMgmtIfModeChangeComplete=tmnxSysMgmtIfModeChangeComplete, tmnxSysXmppV12v4Group=tmnxSysXmppV12v4Group, sbiAutoIpv6DhcpClientIdType=sbiAutoIpv6DhcpClientIdType, tmnxSysRollbackStatusChange=tmnxSysRollbackStatusChange, tmnxSysRmtMgmtSrcIpAddType=tmnxSysRmtMgmtSrcIpAddType, tmnxSysGrpcRpcId=tmnxSysGrpcRpcId, tmnxSysRmtMgmtSrcIpAddress=tmnxSysRmtMgmtSrcIpAddress, tmnxSysNetconfAutoCfgSave=tmnxSysNetconfAutoCfgSave, tmnxSysRmtMgmtDeviceLabel=tmnxSysRmtMgmtDeviceLabel, sbiAutoIpv4=sbiAutoIpv4, tmnxSysLicenseStartDateAndTime=tmnxSysLicenseStartDateAndTime, tmnxSysFpCamAllocOperV6Multicast=tmnxSysFpCamAllocOperV6Multicast, tmnxSysMgmtIfYangBaseR13=tmnxSysMgmtIfYangBaseR13, sbiAutoNegotiate=sbiAutoNegotiate, tmnxSysXmppServVsdUpdatesRcvd=tmnxSysXmppServVsdUpdatesRcvd, tmnxSysMgmtIfDsLocksConsole=tmnxSysMgmtIfDsLocksConsole, tmnxCardMemResMonitorEntry=tmnxCardMemResMonitorEntry, sgiMemoryAvailable=sgiMemoryAvailable, tmnxSysRollbackFileDeleteResult=tmnxSysRollbackFileDeleteResult, tmnxSysXmppServMsgMaxRtt=tmnxSysXmppServMsgMaxRtt, spiDhcpL3PersistenceFileLocation=spiDhcpL3PersistenceFileLocation, tmnxSysMgmtIfModeSwitchDuration=tmnxSysMgmtIfModeSwitchDuration, tmnxSysSwFabSfmLossThresh=tmnxSysSwFabSfmLossThresh, tmnxSysFpoQosMacCritAdminState=tmnxSysFpoQosMacCritAdminState, tmnxSysAppStatsWeekApplication=tmnxSysAppStatsWeekApplication, tmnxSysNotifyObjsV12v0Group=tmnxSysNotifyObjsV12v0Group, tmnxSysResInfoV19v0Group=tmnxSysResInfoV19v0Group, tmnxSysLicenseStatus=tmnxSysLicenseStatus, tmnxSysNetconfYangNokia=tmnxSysNetconfYangNokia, tmnxSysXmppMgmtGroup=tmnxSysXmppMgmtGroup, stiSummerZoneName=stiSummerZoneName, sysPersistenceInfo=sysPersistenceInfo, stiSummerZoneStartHour=stiSummerZoneStartHour, tmnxSysV15v0Groups=tmnxSysV15v0Groups, tmnxSysMgmtIfSecSchemaPathValue=tmnxSysMgmtIfSecSchemaPathValue, tmnxSysLicense=tmnxSysLicense, TmnxConfigFileFormatType=TmnxConfigFileFormatType, tmnxSysAppStats48HrsName=tmnxSysAppStats48HrsName, tmnxSysSnmpSrcAccessLstLastChg=tmnxSysSnmpSrcAccessLstLastChg, slcPreLoginMessage=slcPreLoginMessage, tmnxSysStrmResponses=tmnxSysStrmResponses, ssiSaveConfigSucceeded=ssiSaveConfigSucceeded, sbiAutoIpv4DhcpClientId=sbiAutoIpv4DhcpClientId, spiPythonPersistenceFileLoc=spiPythonPersistenceFileLoc, tmnxSysGrpcConnRxBytes=tmnxSysGrpcConnRxBytes, tmnxSysRollbackFileType=tmnxSysRollbackFileType, tmnxSysDhcp=tmnxSysDhcp, sbiSecondaryImage=sbiSecondaryImage, sbiAutoBootIncludeUserClass=sbiAutoBootIncludeUserClass, tmnxSysExecScript=tmnxSysExecScript, tmnxSysRollbackFileEntry=tmnxSysRollbackFileEntry, tmnxSysNetconfUnlockRequests=tmnxSysNetconfUnlockRequests, tmnxSysGrpcGnmiAdminState=tmnxSysGrpcGnmiAdminState, tmnxSysSoftwareRepositoryEntry=tmnxSysSoftwareRepositoryEntry, tmnxSysNEProfLastChanged=tmnxSysNEProfLastChanged, tmnxSysRmtMgmtMgrRegsFailed=tmnxSysRmtMgmtMgrRegsFailed, sbiAutoBootClientIdType=sbiAutoBootClientIdType, tmnxSysAppStatsWeekEntry=tmnxSysAppStatsWeekEntry, radiusServerInetAddressType=radiusServerInetAddressType, tmnxSysCpmCardLicMaxNumCPMs=tmnxSysCpmCardLicMaxNumCPMs, tmnxSysRmtMgmtMgrName=tmnxSysRmtMgmtMgrName, tmnxSysV4v0Compliance=tmnxSysV4v0Compliance, ssiSyncConfigOK=ssiSyncConfigOK, tmnxSysV15v0Compliance=tmnxSysV15v0Compliance, tmnxSysRmtMgmtHelloInterval=tmnxSysRmtMgmtHelloInterval, slcMessageOfTheDayType=slcMessageOfTheDayType, tmnxSysGeneralV7v0Group=tmnxSysGeneralV7v0Group, tmnxSysVsdServerEntry=tmnxSysVsdServerEntry, tmnxSysFileTransProfSrcAddrV4T=tmnxSysFileTransProfSrcAddrV4T, tmnxSysGrpcConnTxBytes=tmnxSysGrpcConnTxBytes, tmnxSysNotifAppStatsType=tmnxSysNotifAppStatsType, sbiStandbyAIPv6PfxLen=sbiStandbyAIPv6PfxLen, tmnxFtpFailureDestAddress=tmnxFtpFailureDestAddress, sgiKbMemoryPoolAllocated=sgiKbMemoryPoolAllocated, tacplusServerIndex=tacplusServerIndex, tmnxSysXmppInfo=tmnxSysXmppInfo, tmnxSysGrpcRpcStartTime=tmnxSysGrpcRpcStartTime, tmnxSysNEProfVendorId=tmnxSysNEProfVendorId, tmnxPersistenceV6v0Group=tmnxPersistenceV6v0Group, tmnxSysResItCamV19v0Group=tmnxSysResItCamV19v0Group, sbiWait=sbiWait, sbiPrimaryDns=sbiPrimaryDns, ssiSyncRollbackFailed=ssiSyncRollbackFailed, tmnxCardResourceSlotNum=tmnxCardResourceSlotNum, tmnxSysMgmtIfMDCliAutoCfgSave=tmnxSysMgmtIfMDCliAutoCfgSave, tmnxSysRollbackRevertEndTime=tmnxSysRollbackRevertEndTime, tmnxSysFileTransProfV15v1Group=tmnxSysFileTransProfV15v1Group, tmnxSysGroups=tmnxSysGroups, tmnxSysSoftwareRepositoryTable=tmnxSysSoftwareRepositoryTable, sbiSnmpdPortNum=sbiSnmpdPortNum, sysTacplusInfo=sysTacplusInfo, sysDNSInfoLastChanged=sysDNSInfoLastChanged, tmnxCardCpuResMonBusyGroupName=tmnxCardCpuResMonBusyGroupName, tmnxSysAvailLicIssueDateTime=tmnxSysAvailLicIssueDateTime, sbiBootConfig=sbiBootConfig, tmnxEhsExtObjs=tmnxEhsExtObjs, sbiAutoIpv6DhcpClientIdDuid=sbiAutoIpv6DhcpClientIdDuid, tmnxSysCpmCardLicSwVersion=tmnxSysCpmCardLicSwVersion, tmnxSysObjs=tmnxSysObjs, tmnxSmRunEventArgIndex=tmnxSmRunEventArgIndex, sgiKbMemoryAvailable=sgiKbMemoryAvailable, ssiSyncBootEnvFailed=ssiSyncBootEnvFailed, sbiFips1402Level1=sbiFips1402Level1, tmnxSysCpmCardLicProduct=tmnxSysCpmCardLicProduct, slcSSHInboundMaxSessions=slcSSHInboundMaxSessions, tmnxSysXmppServMsgTimedOut=tmnxSysXmppServMsgTimedOut, tmnxSysFpResAlloc=tmnxSysFpResAlloc, tmnxSysFpResAllocOperG8032Sap=tmnxSysFpResAllocOperG8032Sap, tmnxSysAppStats48HrsIndex=tmnxSysAppStats48HrsIndex, tmnxSysSnmpSrcAccessLstEntry=tmnxSysSnmpSrcAccessLstEntry, tmnxSysResEcmpProfRowStatus=tmnxSysResEcmpProfRowStatus, tmnxSysFpoMplsFastSwOvOperState=tmnxSysFpoMplsFastSwOvOperState, tmnxSysRollbackStarted=tmnxSysRollbackStarted, tmnxPersistenceV4v0Group=tmnxPersistenceV4v0Group, radiusServerIndex=radiusServerIndex, sbiMgmtIfIpMtu=sbiMgmtIfIpMtu, persistenceRestoreProblem=persistenceRestoreProblem, tmnxSysCpmCardLicEndDateTime=tmnxSysCpmCardLicEndDateTime, tmnxSysRmtMgmtMgrOperVRtrId=tmnxSysRmtMgmtMgrOperVRtrId, tmnxEhsHandlerInvoked=tmnxEhsHandlerInvoked, tmnxSysMgmtIfMDEnvProIndAdminSt=tmnxSysMgmtIfMDEnvProIndAdminSt, tmnxSysVsdServMsgError=tmnxSysVsdServMsgError, tmnxSysFileTransProfSvcName=tmnxSysFileTransProfSvcName, tmnxSysMgmtIfDsLocksV16v0Group=tmnxSysMgmtIfDsLocksV16v0Group, spiAAPersistenceFileLoc=spiAAPersistenceFileLoc, tmnxSysRmtMgmtMgrTlsClientProf=tmnxSysRmtMgmtMgrTlsClientProf)
+mibBuilder.exportSymbols("TIMETRA-SYSTEM-MIB", sbiAutoBoot=sbiAutoBoot, spiDhcpSrvPersistenceFileLoc=spiDhcpSrvPersistenceFileLoc, tmnxSystemCpuMonitorGroup=tmnxSystemCpuMonitorGroup, tmnxSysNotificationV20v0Group=tmnxSysNotificationV20v0Group, tmnxSysV15v1Compliance=tmnxSysV15v1Compliance, sliSaveConfig=sliSaveConfig, tmnxSysXmppServerEntry=tmnxSysXmppServerEntry, ssiSaveConfigDest=ssiSaveConfigDest, sbiBootLiConfig=sbiBootLiConfig, ssiSyncStatus=ssiSyncStatus, TmnxSysRmtMgmtLastRegStatus=TmnxSysRmtMgmtLastRegStatus, tmnxPersistenceV9v0Group=tmnxPersistenceV9v0Group, tmnxSysRmtMgmtTimeout=tmnxSysRmtMgmtTimeout, tmnxSysGrpcConnTable=tmnxSysGrpcConnTable, sbiPersistStatus=sbiPersistStatus, tmnxSysMgmtIfMDEnvComplSpace=tmnxSysMgmtIfMDEnvComplSpace, stiDateAndTimeChanged=stiDateAndTimeChanged, tmnxSysAppStats24HrsTime=tmnxSysAppStats24HrsTime, sysPersistenceAncpInfo=sysPersistenceAncpInfo, tmnxSysGrpcAutoCfgSave=tmnxSysGrpcAutoCfgSave, tmnxSysMgmtInterfaceV16v0Group=tmnxSysMgmtInterfaceV16v0Group, tmnxSysBootedBofCompliance=tmnxSysBootedBofCompliance, tmnxSysIcmpVSV6v1Group=tmnxSysIcmpVSV6v1Group, stiDateAndTime=stiDateAndTime, tmnxSmRunEventArgName=tmnxSmRunEventArgName, tmnxSysV7v0Compliance=tmnxSysV7v0Compliance, tmnxSysLicenseApp48HrsGroup=tmnxSysLicenseApp48HrsGroup, ssiSyncRollbackLastTime=ssiSyncRollbackLastTime, tmnxSysAvailLicStartDateTime=tmnxSysAvailLicStartDateTime, tmnxSysGrpcGnoiCertMgmtVersion=tmnxSysGrpcGnoiCertMgmtVersion, stiDateAndTimeChanging=stiDateAndTimeChanging, tmnxSysXmppServIQTimedOut=tmnxSysXmppServIQTimedOut, ssiSyncCertLastTime=ssiSyncCertLastTime, tmnxSysAvailLicenseDescription=tmnxSysAvailLicenseDescription, ssiSyncRollbackForce=ssiSyncRollbackForce, sysPersistenceNatInfo=sysPersistenceNatInfo, tmnxSysGrpcConnSrcIpAddType=tmnxSysGrpcConnSrcIpAddType, tmnxSysRollbackFileUserName=tmnxSysRollbackFileUserName, tmnxSysFpoEntropyLabelAdminState=tmnxSysFpoEntropyLabelAdminState, tmnxSysSwReposRowStatus=tmnxSysSwReposRowStatus, tmnxSysNotificationV4v0Group=tmnxSysNotificationV4v0Group, tmnxSysLoginControlV9v0Group=tmnxSysLoginControlV9v0Group, radiusServerOperStatusChange=radiusServerOperStatusChange, tmnxNotifyEntryOID=tmnxNotifyEntryOID, tmnxSysAppStatsWeekAverage=tmnxSysAppStatsWeekAverage, tmnxSysMgmtIfDsLocksSessionMode=tmnxSysMgmtIfDsLocksSessionMode, tmnxSysRollbackSavedTime=tmnxSysRollbackSavedTime, tmnxSysSwFabNotifV16v0Group=tmnxSysSwFabNotifV16v0Group, tmnxSysStrmDumpSnmpRequests=tmnxSysStrmDumpSnmpRequests, sbiConsoleSpeed=sbiConsoleSpeed, tmnxSysBofV14v0Group=tmnxSysBofV14v0Group, tmnxSysGrpcConnSrcVRtrId=tmnxSysGrpcConnSrcVRtrId, tmnxSysStrmInfo=tmnxSysStrmInfo, tmnxSysDCCompliance=tmnxSysDCCompliance, sbiStandbyIpMask=sbiStandbyIpMask, tmnxSysNetconfLockRequests=tmnxSysNetconfLockRequests, tmnxSysNotificationV9v0Group=tmnxSysNotificationV9v0Group, tmnxSysCpmCardLicStatus=tmnxSysCpmCardLicStatus, tmnxSysV5v0Compliance=tmnxSysV5v0Compliance, tmnxSysXmppServUserName=tmnxSysXmppServUserName, sysBootedBofInfo=sysBootedBofInfo, tmnxSysSwFabFailRecDetected=tmnxSysSwFabFailRecDetected, tmnxSysGrpcRpcUserName=tmnxSysGrpcRpcUserName, tmnxCardMemResMemoryAvailable=tmnxCardMemResMemoryAvailable, tmnxSysMgmtIfMDEnvMore=tmnxSysMgmtIfMDEnvMore, tmnxSysAppStats48HrsTime=tmnxSysAppStats48HrsTime, tmnxSysCpmCardLicFeatNumber=tmnxSysCpmCardLicFeatNumber, tmnxSysResEcmpProfInfo=tmnxSysResEcmpProfInfo, stiActiveZone=stiActiveZone, tmnxSysStrmV11v0R4Group=tmnxSysStrmV11v0R4Group, sysDNSSecFailedAuthentication=sysDNSSecFailedAuthentication, tmnxSysFpoVplsEvpnMplsOperState=tmnxSysFpoVplsEvpnMplsOperState, sgiMemoryUsed=sgiMemoryUsed, sbiLiSeparate=sbiLiSeparate, tmnxSysRollbackRevertStartTime=tmnxSysRollbackRevertStartTime, tmnxNotifyRowAdminState=tmnxNotifyRowAdminState, tmnxSysXmppServUpdatesRcvd=tmnxSysXmppServUpdatesRcvd, tmnxSysAppLicensePoolSize=tmnxSysAppLicensePoolSize, tmnxSysXmppServerFunctional=tmnxSysXmppServerFunctional, tmnxSysGrpcRibApiAdminState=tmnxSysGrpcRibApiAdminState, sbiStaticRouteMask=sbiStaticRouteMask, tmnxSysRollbackLocation=tmnxSysRollbackLocation, tmnxSysNetconfActionRequests=tmnxSysNetconfActionRequests, sysLACPSystemPriority=sysLACPSystemPriority, tmnxSysFwdPathOptsV20v0Group=tmnxSysFwdPathOptsV20v0Group, tmnxSysDhcpGroup=tmnxSysDhcpGroup, tmnxSysNetconfYangBaseR13=tmnxSysNetconfYangBaseR13, stiSummerZoneOffset=stiSummerZoneOffset, tmnxSysV16v0Compliance=tmnxSysV16v0Compliance, ssiSyncBootEnvOK=ssiSyncBootEnvOK, tmnxSysMgmtIfMDEnvTimeDisplay=tmnxSysMgmtIfMDEnvTimeDisplay, tmnxSysRollbackFileComment=tmnxSysRollbackFileComment, tmnxSysStrmAdminStatus=tmnxSysStrmAdminStatus, tmnxSysFpCamAllocation=tmnxSysFpCamAllocation, sbiLiLocalSave=sbiLiLocalSave, tmnxSysXmppServRouterId=tmnxSysXmppServRouterId, tmnxSysRmtMgmtMgrOperSrcIpAddr=tmnxSysRmtMgmtMgrOperSrcIpAddr, sysSntpInfo=sysSntpInfo, sysPersistenceDhcpL3Info=sysPersistenceDhcpL3Info, tmnxSysHttpRdrCpmOptimizedMode=tmnxSysHttpRdrCpmOptimizedMode, sbiStaticRouteRowStatus=sbiStaticRouteRowStatus, sbiStandbyBIPv6PfxLen=sbiStandbyBIPv6PfxLen, tmnxSysGrpcInfo=tmnxSysGrpcInfo, tmnxSysTacPlusServerV5v0Group=tmnxSysTacPlusServerV5v0Group, persistencyClosedAlarmCleared=persistencyClosedAlarmCleared, sysBofInfo=sysBofInfo, tmnxSysConfigSaveCtrlV15v1Group=tmnxSysConfigSaveCtrlV15v1Group, tmnxSysAppLicenseInsufficient=tmnxSysAppLicenseInsufficient, tmnxSysConformance=tmnxSysConformance, tmnxSysRmtMgmtVRtrId=tmnxSysRmtMgmtVRtrId, tmnxSysRollbackSave=tmnxSysRollbackSave, tmnxSysMgmtIfYangNokiaCombined=tmnxSysMgmtIfYangNokiaCombined, tmnxSysRmtMgmtOperState=tmnxSysRmtMgmtOperState, tmnxSysMgmtIfMDCliCmdAccntLoad=tmnxSysMgmtIfMDCliCmdAccntLoad, tmnxSysRmtMgmtMgrOperDownReason=tmnxSysRmtMgmtMgrOperDownReason, tmnxSysMgmtIfMDEnvPromptNewline=tmnxSysMgmtIfMDEnvPromptNewline, tmnxSysCpuMonBusyGroupUtil=tmnxSysCpuMonBusyGroupUtil, tmnxSysV11v0Compliance=tmnxSysV11v0Compliance, sntpOperStatus=sntpOperStatus, sbiStandbyCIpMask=sbiStandbyCIpMask, spiDhcpL2PersistenceFileLocation=spiDhcpL2PersistenceFileLocation, tmnxSysNetconfCommitRequests=tmnxSysNetconfCommitRequests, tmnxSysVsdGwPubSubLstSubscrdTime=tmnxSysVsdGwPubSubLstSubscrdTime, tmnxSysNetconfGetDataRequests=tmnxSysNetconfGetDataRequests, tmnxSysAppLicensePresent=tmnxSysAppLicensePresent, tmnxSysNetconfCopyConfigRequests=tmnxSysNetconfCopyConfigRequests, tmnxSysFpoRouterEcmpOperState=tmnxSysFpoRouterEcmpOperState, tmnxSysFpoQosIpv6CritAdminState=tmnxSysFpoQosIpv6CritAdminState, tmnxSysRollbackResult=tmnxSysRollbackResult, tmnxSysFileTransProfRowStatus=tmnxSysFileTransProfRowStatus, tacPlusServerInetAddressType=tacPlusServerInetAddressType, tmnxSysMgmtIfMDEnvMsgCliSvrt=tmnxSysMgmtIfMDEnvMsgCliSvrt, tmnxSysGrpcRpcServiceName=tmnxSysGrpcRpcServiceName, tmnxSysGrpcRpcSrcIpAddress=tmnxSysGrpcRpcSrcIpAddress, tmnxSysFpoQosFc4ProfOperState=tmnxSysFpoQosFc4ProfOperState, tmnxEqOperStateChange=tmnxEqOperStateChange, sgiMemoryPoolAllocated=sgiMemoryPoolAllocated, tmnxSysSnmpSrcAccessObjs=tmnxSysSnmpSrcAccessObjs, TmnxSysLicenseAppStatsType=TmnxSysLicenseAppStatsType, slcIdleTimeout=slcIdleTimeout, tmnxSysNetconfCapCandidateCfg=tmnxSysNetconfCapCandidateCfg, tmnxSysGeneralV3v0Group=tmnxSysGeneralV3v0Group, tmnxSysSwitchFabricV20v0Group=tmnxSysSwitchFabricV20v0Group, slcLoginScriptPerUserFilename=slcLoginScriptPerUserFilename, tmnxSysXmppServState=tmnxSysXmppServState, tmnxSysResCardInfo=tmnxSysResCardInfo, tmnxSysFileTransProfSvcId=tmnxSysFileTransProfSvcId, sgiSystemSubGroupID=sgiSystemSubGroupID, tmnxCardCpuResMonBusyGroupUtil=tmnxCardCpuResMonBusyGroupUtil, slcTelnetMinTTLValue=slcTelnetMinTTLValue, sbiRedSwitchoverScript=sbiRedSwitchoverScript, sbiAutoBootInfo=sbiAutoBootInfo, tmnxFtpFailureMsg=tmnxFtpFailureMsg, sbiStandbyDIPv6Addr=sbiStandbyDIPv6Addr, tmnxSysNetconfInfo=tmnxSysNetconfInfo, tmnxSmRunEventArgValue=tmnxSmRunEventArgValue, tmnxSysGrpcGnoiCertMgmtAdmnState=tmnxSysGrpcGnoiCertMgmtAdmnState, tmnxSysNEProfPlatformType=tmnxSysNEProfPlatformType, tmnxSysSwReposV13v0Group=tmnxSysSwReposV13v0Group, stiSummerZoneEndDay=stiSummerZoneEndDay, tmnxSysAppStatsWeekType=tmnxSysAppStatsWeekType, tmnxSysMgmtCliEngine2=tmnxSysMgmtCliEngine2, tmnxSysSwReposObjs=tmnxSysSwReposObjs, tmnxSysRemoteMgmt=tmnxSysRemoteMgmt, ssiSyncConfigLastTime=ssiSyncConfigLastTime, tmnxSysGrpcRibApiPurgeTimeout=tmnxSysGrpcRibApiPurgeTimeout, tmnxSysFileTransProfTimeout=tmnxSysFileTransProfTimeout, tmnxSysNEDiscoveryGenerateTraps=tmnxSysNEDiscoveryGenerateTraps, tmnxSysVsdServUserName=tmnxSysVsdServUserName, tmnxSysRollbackSaveResult=tmnxSysRollbackSaveResult, tmnxSysXmppServUptime=tmnxSysXmppServUptime, stiSummerZoneStartMonth=stiSummerZoneStartMonth, tmnxSysBofGroup=tmnxSysBofGroup, slcLoginScriptPerUserDirectory=slcLoginScriptPerUserDirectory, stiSummerZoneStartDay=stiSummerZoneStartDay, tmnxSysResInfo=tmnxSysResInfo, sgiSwMajorVersion=sgiSwMajorVersion, tmnxSysSnmpCommunityPktDropped=tmnxSysSnmpCommunityPktDropped, tmnxSysNetconfGetConfigRequests=tmnxSysNetconfGetConfigRequests, tmnxSysMgmtIfDsLocksSessionId=tmnxSysMgmtIfDsLocksSessionId, tmnxSysVsdGwLastAuditTxTime=tmnxSysVsdGwLastAuditTxTime, tmnxSysAvailLicEndDateTime=tmnxSysAvailLicEndDateTime, tmnxSysAppStats24HrsIndex=tmnxSysAppStats24HrsIndex, tmnxSysNotificationRBGroup=tmnxSysNotificationRBGroup, tmnxSysNotifyObjsV14v0Group=tmnxSysNotifyObjsV14v0Group, tmnxSysNEProfNeid=tmnxSysNEProfNeid, tmnxSysV16v0Groups=tmnxSysV16v0Groups, tmnxSysV6v0Compliance=tmnxSysV6v0Compliance, tmnxSysAutoBootV20v0Group=tmnxSysAutoBootV20v0Group, sbiBootSnmpd=sbiBootSnmpd, tmnxSmLaunchExtLockOverride=tmnxSmLaunchExtLockOverride, tmnxSysRmtMgmtLastRegTime=tmnxSysRmtMgmtLastRegTime, tmnxSysMgmtIfMdCliCmdAccntGroup=tmnxSysMgmtIfMdCliCmdAccntGroup, tmnxSmRunArgsEntry=tmnxSmRunArgsEntry, tmnxSysMgmtIfWriteSwitchReason=tmnxSysMgmtIfWriteSwitchReason, tmnxSysFpoEntropyLabelOperState=tmnxSysFpoEntropyLabelOperState, tmnxSysRmtMgmtMgrOperDevLabel=tmnxSysRmtMgmtMgrOperDevLabel, stiSummerZoneTable=stiSummerZoneTable, tmnxSysNetworkElementObjs=tmnxSysNetworkElementObjs, tmnxSysExecResult=tmnxSysExecResult, tmnxSysLicensingNotifyGroup=tmnxSysLicensingNotifyGroup, sntpServerInterval=sntpServerInterval, tmnxSysResEcmpProfId=tmnxSysResEcmpProfId, tmnxSysLicenseName=tmnxSysLicenseName, tmnxSysLiFilterGroup=tmnxSysLiFilterGroup, tmnxSysNetconfV15v1Group=tmnxSysNetconfV15v1Group, tmnxSysMgmtCliEngine1=tmnxSysMgmtCliEngine1, tmnxSysXmppServAuthType=tmnxSysXmppServAuthType, tmnxSysBootedBofGroup=tmnxSysBootedBofGroup, tmnxSysAvailLicenseUuid=tmnxSysAvailLicenseUuid, ssiRedStandbySyncLost=ssiRedStandbySyncLost, tmnxSysXmppServerNotFunctional=tmnxSysXmppServerNotFunctional, tmnxSysRmtMgmtRegsFailed=tmnxSysRmtMgmtRegsFailed, tmnxSysMgmtIfMDEnvTimeFormat=tmnxSysMgmtIfMDEnvTimeFormat, persistencyFileSysThresRaised=persistencyFileSysThresRaised, tmnxSysRmtMgmtMgrOperDevName=tmnxSysRmtMgmtMgrOperDevName, tmnxSysRollbackDeleteStarted=tmnxSysRollbackDeleteStarted, tmnxSysDhcp6AdvNoaddrsGlobal=tmnxSysDhcp6AdvNoaddrsGlobal, tmnxSysNotificationV6v0Group=tmnxSysNotificationV6v0Group, tmnxSysXmppServMsgError=tmnxSysXmppServMsgError, ssiSyncMode=ssiSyncMode, tmnxSysLicenseActivated=tmnxSysLicenseActivated, tmnxSysEhsV13v0Group=tmnxSysEhsV13v0Group, tmnxConfigDelete=tmnxConfigDelete, tmnxSysMgmtInterfaces=tmnxSysMgmtInterfaces, tmnxSysRmtMgmtMgrSrcIpAddress=tmnxSysRmtMgmtMgrSrcIpAddress, ssiSyncRollbackStatus=ssiSyncRollbackStatus, tmnxSysRemoteMgmtV20v0Group=tmnxSysRemoteMgmtV20v0Group, tmnxSysVsdServerStatus=tmnxSysVsdServerStatus, sbiStaticRouteIPv6NextHop=sbiStaticRouteIPv6NextHop, tmnxSysResItCamBankV6Multicast=tmnxSysResItCamBankV6Multicast, tmnxSysAppStatsPeakTable=tmnxSysAppStatsPeakTable, tmnxStateChange=tmnxStateChange, tmnxSysGrpcConnStartTime=tmnxSysGrpcConnStartTime, tmnxSysResItCam=tmnxSysResItCam, tmnxSysResItCamBank=tmnxSysResItCamBank, tmnxSysFileTransProfObjs=tmnxSysFileTransProfObjs, tmnxSmLaunchStartFailed=tmnxSmLaunchStartFailed, tmnxSysRmtMgmtOperDownReason=tmnxSysRmtMgmtOperDownReason, sbiDuplex=sbiDuplex, tmnxSysXmppServIQError=tmnxSysXmppServIQError, tmnxSysFpResAllocation=tmnxSysFpResAllocation, sbiSpeed=sbiSpeed, tmnxSysGrpcConnActRpcCnt=tmnxSysGrpcConnActRpcCnt, tmnxSysCpuMonEntry=tmnxSysCpuMonEntry, ssiRedSwitchover=ssiRedSwitchover, sbiStandbyAIpMask=sbiStandbyAIpMask, tmnxSysCandidateCfgChckptCreated=tmnxSysCandidateCfgChckptCreated, sbiTertiaryImage=sbiTertiaryImage, tmnxSysLicensingState=tmnxSysLicensingState, tmnxSysSnmpSrcAccessTblLstChgd=tmnxSysSnmpSrcAccessTblLstChgd, tmnxSysVsdServMsgRcvd=tmnxSysVsdServMsgRcvd, tmnxSmLaunchExtAuthType=tmnxSmLaunchExtAuthType, tmnxSysGrpcRibApiVersion=tmnxSysGrpcRibApiVersion)
+mibBuilder.exportSymbols("TIMETRA-SYSTEM-MIB", tmnxSysConfigV8v0Group=tmnxSysConfigV8v0Group, tmnxSysMgmtIfYangNmdaSupport=tmnxSysMgmtIfYangNmdaSupport, sbiStandbyIpAddr=sbiStandbyIpAddr, sbiRedSwitchoverScriptStatus=sbiRedSwitchoverScriptStatus, tmnxSysFileTransProfTable=tmnxSysFileTransProfTable, tmnxSysMgmtIfMdCliGroup=tmnxSysMgmtIfMdCliGroup, tmnxSysNotifications=tmnxSysNotifications, TmnxSchemaPathState=TmnxSchemaPathState, tmnxSysNetconfErrorResponses=tmnxSysNetconfErrorResponses, tmnxSysStandbyLicensingReady=tmnxSysStandbyLicensingReady, sbiStandbyCIpAddr=sbiStandbyCIpAddr, tmnxSysSwReposTableLastChanged=tmnxSysSwReposTableLastChanged, tmnxSysAppStats24HrsAvailable=tmnxSysAppStats24HrsAvailable, tmnxSysRollbackRescueDeleteRes=tmnxSysRollbackRescueDeleteRes, tmnxSysNetconfCountersExtension=tmnxSysNetconfCountersExtension, tmnxSysSnmpSrcAccesLstV13v0Group=tmnxSysSnmpSrcAccesLstV13v0Group, sysRadiusInfo=sysRadiusInfo, slcSSHOutboundMaxSessions=slcSSHOutboundMaxSessions, slcMessageOfTheDay=slcMessageOfTheDay, tmnxSysVsdServerInstance=tmnxSysVsdServerInstance, sbiAutoBootUsingIpv6=sbiAutoBootUsingIpv6, spiDhcpSrvPersistenceDescr=spiDhcpSrvPersistenceDescr, spiAncpPersistenceFileLoc=spiAncpPersistenceFileLoc, tmnxSysBofV15v1Group=tmnxSysBofV15v1Group, tmnxSysMgmtProtocolV13v0Group=tmnxSysMgmtProtocolV13v0Group, tmnxSysNotificationV14v0Group=tmnxSysNotificationV14v0Group, tmnxSysNspProxyInfo=tmnxSysNspProxyInfo, TmnxSysLicenseApplication=TmnxSysLicenseApplication, tmnxSysSnmpCommunityStatsEntry=tmnxSysSnmpCommunityStatsEntry, tmnxSysNspProxyCompliances=tmnxSysNspProxyCompliances, tmnxSmRunArgsTable=tmnxSmRunArgsTable, tmnxSysMGNotifications=tmnxSysMGNotifications, tmnxSysAvailLicenseName=tmnxSysAvailLicenseName, tmnxSysGrpcRpcSrcPort=tmnxSysGrpcRpcSrcPort, sbiAutoIpv6DhcpClientIdDuidType=sbiAutoIpv6DhcpClientIdDuidType, tmnxSysMgmtIfMDEnvComplTab=tmnxSysMgmtIfMDEnvComplTab, tmnxSysRollbackRescueRevert=tmnxSysRollbackRescueRevert, tmnxEhsDroppedByMinDelay=tmnxEhsDroppedByMinDelay, tmnxSysNotificationV5v0Group=tmnxSysNotificationV5v0Group, tmnxSysRollbackInfo=tmnxSysRollbackInfo, tmnxSysSnmpSrcAccessLstName=tmnxSysSnmpSrcAccessLstName, slcTelnetInboundMaxSessions=slcTelnetInboundMaxSessions, sysBootInfo=sysBootInfo, sysDNSAddressResolvePref=sysDNSAddressResolvePref, sbiPrimaryConfigFile=sbiPrimaryConfigFile, tmnxSysRollbackMaxRemoteFiles=tmnxSysRollbackMaxRemoteFiles, tmnxSysLicensingRebootPending=tmnxSysLicensingRebootPending, tmnxSysMgmtProtocolTblLstChng=tmnxSysMgmtProtocolTblLstChng, tmnxSysCpmCardLicFeatureTable=tmnxSysCpmCardLicFeatureTable, tmnxSysMgmtIfDsLocksRmtIpAddress=tmnxSysMgmtIfDsLocksRmtIpAddress, tmnxSysGrpcConnSrcIpAddress=tmnxSysGrpcConnSrcIpAddress, tmnxSysXmppServIQAckRcvd=tmnxSysXmppServIQAckRcvd, tmnxSysMgmtIfMDEnvPromptCtx=tmnxSysMgmtIfMDEnvPromptCtx, tmnxModuleMallocFailed=tmnxModuleMallocFailed, tmnxSysCandidateCfgState=tmnxSysCandidateCfgState, tmnxSysCandidateCfgCommitTime=tmnxSysCandidateCfgCommitTime, tmnxSysSnmpSrcAccessLstRowStatus=tmnxSysSnmpSrcAccessLstRowStatus, tmnxSysGrpcMdCliAdminState=tmnxSysGrpcMdCliAdminState, tmnxSysRollbackTableLastChanged=tmnxSysRollbackTableLastChanged, tmnxSysSwitchFabricObjs=tmnxSysSwitchFabricObjs, tmnxSysRmtMgmtSrcPort=tmnxSysRmtMgmtSrcPort, tmnxSysAvailableLicensesEntry=tmnxSysAvailableLicensesEntry, tmnxSmRunExtUserName=tmnxSmRunExtUserName, tmnxSysSwReposName=tmnxSysSwReposName, tacplusServerOperStatus=tacplusServerOperStatus, sbiStandbyDIpAddr=sbiStandbyDIpAddr, sliFilterLock=sliFilterLock, tmnxSysGrpcTcpKaCount=tmnxSysGrpcTcpKaCount, tmnxSysRollbackIndex=tmnxSysRollbackIndex, stiSummerZoneRowStatus=stiSummerZoneRowStatus, tmnxSysRmtMgmtLastHelloTime=tmnxSysRmtMgmtLastHelloTime, sbiSystemProfile=sbiSystemProfile, tmnxSysXmppServIQMaxRtt=tmnxSysXmppServIQMaxRtt, sbiActiveIPv6PfxLen=sbiActiveIPv6PfxLen, sgiCryptoModVersion=sgiCryptoModVersion, tmnxSysNEProfNeipV6=tmnxSysNEProfNeipV6, tmnxSysGrpcGnoiSystemVersion=tmnxSysGrpcGnoiSystemVersion, tmnxSysNetconfKillRequests=tmnxSysNetconfKillRequests, sbiEssSystemType=sbiEssSystemType, tmnxSysSwReposDescription=tmnxSysSwReposDescription, tmnxSysMgmtIfWriteOperMode=tmnxSysMgmtIfWriteOperMode, tmnxSysNEProfNeipV4=tmnxSysNEProfNeipV4, tmnxNotifySysMgmtIfOriginalMode=tmnxNotifySysMgmtIfOriginalMode, tmnxSysMgmtIfModeChangeStart=tmnxSysMgmtIfModeChangeStart, sbiAutoBootVlanDiscovery=sbiAutoBootVlanDiscovery, tmnxSysCandidateCfgGroup=tmnxSysCandidateCfgGroup, tmnxMGSysObjs=tmnxMGSysObjs, ssiRedSingleCpm=ssiRedSingleCpm, sbiStandbyBIpMask=sbiStandbyBIpMask, tmnxSysRmtMgmtTlsClientProf=tmnxSysRmtMgmtTlsClientProf, tmnxSysGrpcRpcSessionId=tmnxSysGrpcRpcSessionId, sliConfigStatus=sliConfigStatus, tmnxSysCpmCardLicFeatDescription=tmnxSysCpmCardLicFeatDescription, tmnxSysGrpcRpcTable=tmnxSysGrpcRpcTable, tmnxSysGrpcRpcName=tmnxSysGrpcRpcName, ssiSyncCertFailed=ssiSyncCertFailed, sbiAutoIpv4DhcpClientIdType=sbiAutoIpv4DhcpClientIdType, tmnxSysAppStatsPeakEntry=tmnxSysAppStatsPeakEntry, tmnxSysCompliances=tmnxSysCompliances, sbbiLiSeparate=sbbiLiSeparate, tmnxSysSwReposPrimaryLocation=tmnxSysSwReposPrimaryLocation, tmnxSysRollbackRescueAbortRevert=tmnxSysRollbackRescueAbortRevert, ssiSaveConfig=ssiSaveConfig, tmnxSysCpmCardLicName=tmnxSysCpmCardLicName, tmnxSysSwReposTertiaryLocation=tmnxSysSwReposTertiaryLocation, tmnxSysRmtMgmtMgrVRtrId=tmnxSysRmtMgmtMgrVRtrId, sbiTertiaryDnsIPv6Addr=sbiTertiaryDnsIPv6Addr, tmnxSysFibV13v0Group=tmnxSysFibV13v0Group, tmnxSysLicenseValid=tmnxSysLicenseValid, tmnxSysIpv6MgmtItfV6v0Group=tmnxSysIpv6MgmtItfV6v0Group, tmnxSysFileTransProfV13v0Group=tmnxSysFileTransProfV13v0Group, tacplusServerOperStatusChange=tacplusServerOperStatusChange, sbiStaticRouteEntry=sbiStaticRouteEntry, tmnxSysAppStats24HrsType=tmnxSysAppStats24HrsType, tmnxSysFpoDscpTransOperState=tmnxSysFpoDscpTransOperState, sysEthInfo=sysEthInfo, sbiAutoIpv6Dhcp=sbiAutoIpv6Dhcp, sbiSecondaryDnsIPv6Addr=sbiSecondaryDnsIPv6Addr, sbiStaticRouteIPv6Dest=sbiStaticRouteIPv6Dest, tmnxSysXmppServFQDN=tmnxSysXmppServFQDN, sbiStandbyAIpAddr=sbiStandbyAIpAddr, radiusServerOperStatus=radiusServerOperStatus, tmnxSysRollbackRescueLocation=tmnxSysRollbackRescueLocation, tmnxSysLoginControlV15v0Group=tmnxSysLoginControlV15v0Group, sysGenInfo=sysGenInfo, tmnxSysGrpcConnTotRpcCnt=tmnxSysGrpcConnTotRpcCnt, tmnxSysNotificationV10v0Group=tmnxSysNotificationV10v0Group, spiAncpPersistenceDescr=spiAncpPersistenceDescr, sliConfigLastModified=sliConfigLastModified, tmnxSysMgmtIfYangNokia=tmnxSysMgmtIfYangNokia, tmnxSysEhsV19v0Group=tmnxSysEhsV19v0Group, tmnxSysRmtMgmtMgrDeviceLabel=tmnxSysRmtMgmtMgrDeviceLabel, spiNatFwdPersistenceFileLoc=spiNatFwdPersistenceFileLoc, tmnxSysNetconfCreateSubRequests=tmnxSysNetconfCreateSubRequests, tmnxSysFileTransProfRedirection=tmnxSysFileTransProfRedirection, tmnxNotifyObjectName=tmnxNotifyObjectName, tmnxSysConfigV3v0Group=tmnxSysConfigV3v0Group, tmnxSysLicenseNotifV13v0Group=tmnxSysLicenseNotifV13v0Group, sbiAllowBootLicenseViolations=sbiAllowBootLicenseViolations, tmnxSysTimeSet=tmnxSysTimeSet, tmnxSysRollbackRevertIndex=tmnxSysRollbackRevertIndex, sgiKbMemoryUsed=sgiKbMemoryUsed, ssiSaveConfigResult=ssiSaveConfigResult, tmnxSysNetconfFailedLockReqs=tmnxSysNetconfFailedLockReqs, tmnxSysMgmtIfSecSchemaPathState=tmnxSysMgmtIfSecSchemaPathState, sbiStandbyDIPv6PfxLen=sbiStandbyDIPv6PfxLen, tmnxSysEhsParameterGroup=tmnxSysEhsParameterGroup, sgiSwMinorVersion=sgiSwMinorVersion, stiPreferLocalTime=stiPreferLocalTime, tacplusServerTable=tacplusServerTable, ssiRedFailoverTime=ssiRedFailoverTime, radiusServerEntry=radiusServerEntry, tmnxSysLicenseUpdateRequired=tmnxSysLicenseUpdateRequired, tmnxSysAppLicenseState=tmnxSysAppLicenseState, tmnxSysAppLicenseDescription=tmnxSysAppLicenseDescription, sbiAutoIpv4Dhcp=sbiAutoIpv4Dhcp, tmnxSysNvsysFileError=tmnxSysNvsysFileError, tmnxSysGrpcTlsServerProfile=tmnxSysGrpcTlsServerProfile, slcLoginBanner=slcLoginBanner, tmnxSnmpdErrorMsg=tmnxSnmpdErrorMsg, slcLoginExponentialBackOff=slcLoginExponentialBackOff, sysDNSInfo=sysDNSInfo, tmnxSysRollbackRescueRevEdTime=tmnxSysRollbackRescueRevEdTime, tmnxSysFibSelective=tmnxSysFibSelective, tmnxSysFwdPathOptsObjs=tmnxSysFwdPathOptsObjs, stiHoursOffset=stiHoursOffset, sbiLicenseFile=sbiLicenseFile, tmnxSysXmppServAdminState=tmnxSysXmppServAdminState, sntpState=sntpState, tmnxSysTimeV4v0Group=tmnxSysTimeV4v0Group, tmnxSysMgmtIfMDEnvComplEnter=tmnxSysMgmtIfMDEnvComplEnter, sntpServerAddress=sntpServerAddress, tmnxSysXmppServOperUserName=tmnxSysXmppServOperUserName, tmnxTrapDroppedEntryID=tmnxTrapDroppedEntryID, sysMGMCSwitchOverInfo=sysMGMCSwitchOverInfo, tmnxSysNotifyObjsV6v0Group=tmnxSysNotifyObjsV6v0Group, sysTimeInfo=sysTimeInfo, TmnxSysNeid=TmnxSysNeid, tmnxSysRmtMgmtSrcDefaultPort=tmnxSysRmtMgmtSrcDefaultPort, tmnxSysMgmtIfMDEnvConsLength=tmnxSysMgmtIfMDEnvConsLength, tmnxSysRollbackRevertFilename=tmnxSysRollbackRevertFilename, stiSummerZoneStartWeek=stiSummerZoneStartWeek, tmnxSysVsdServerAvailable=tmnxSysVsdServerAvailable, tmnxSysSwReposLastChanged=tmnxSysSwReposLastChanged, tmnxSysCandidateCfgCommitState=tmnxSysCandidateCfgCommitState, tmnxSysNotifyObjsR4r0Group=tmnxSysNotifyObjsR4r0Group, ssiSyncCertOK=ssiSyncCertOK, tmnxSysGrpcMdCliVersion=tmnxSysGrpcMdCliVersion, tmnxSysNetconfFailedEditCfgReqs=tmnxSysNetconfFailedEditCfgReqs, tmnxSysLicensingEntry=tmnxSysLicensingEntry, tmnxSysFileTransProfSrcAddrV6=tmnxSysFileTransProfSrcAddrV6, sbiStaticRouteDest=sbiStaticRouteDest, spiAAPersistenceDescr=spiAAPersistenceDescr, tmnxSysRmtMgmtMgrOperTranspType=tmnxSysRmtMgmtMgrOperTranspType, tmnxCardMemResMemoryUsed=tmnxCardMemResMemoryUsed, tmnxSysRmtMgmtMgrRegsCancelled=tmnxSysRmtMgmtMgrRegsCancelled, sliSaveConfigResult=sliSaveConfigResult, tmnxSysXmppServMsgRcvd=tmnxSysXmppServMsgRcvd, sbbiLiLocalSave=sbbiLiLocalSave, tmnxSysSnmpCommunityStatsTable=tmnxSysSnmpCommunityStatsTable, sysPersistenceDhcpSrvInfo=sysPersistenceDhcpSrvInfo, tmnxSysTimeSetBy=tmnxSysTimeSetBy, tmnxSysV8v0Compliance=tmnxSysV8v0Compliance, ssiSyncCertStatus=ssiSyncCertStatus, tmnxSysExecFinished=tmnxSysExecFinished, tmnxSnmpdStateChange=tmnxSnmpdStateChange, tmnxDroppedTrapID=tmnxDroppedTrapID, stiMinutesOffset=stiMinutesOffset, tmnxSysLicensedNotifyAppName=tmnxSysLicensedNotifyAppName, sbiAutoIpv4DhcpOptUserClass=sbiAutoIpv4DhcpOptUserClass, tmnxSysSnmpSrcAccessLstTable=tmnxSysSnmpSrcAccessLstTable, tmnxSysTimeV14v0Group=tmnxSysTimeV14v0Group, tmnxSysRollbackFileTable=tmnxSysRollbackFileTable, tmnxSysNetconfDelConfigRequests=tmnxSysNetconfDelConfigRequests, tmnxSysLicenseErrorReason=tmnxSysLicenseErrorReason, tmnxSysAppStats48HrsApplication=tmnxSysAppStats48HrsApplication, tmnxSysMgmtIfPriSchemaPathValue=tmnxSysMgmtIfPriSchemaPathValue, tmnxSysResEcmpProfLinksPerGrp=tmnxSysResEcmpProfLinksPerGrp, tmnxSysGrpcConnEntry=tmnxSysGrpcConnEntry, tmnxSysGrpcAdminState=tmnxSysGrpcAdminState, tmnxSysFileTransProfTableLstChgd=tmnxSysFileTransProfTableLstChgd, tmnxCardCpuResSampleTime=tmnxCardCpuResSampleTime, tmnxConfigConflict=tmnxConfigConflict, tmnxSysNotifyObjsV5v0Group=tmnxSysNotifyObjsV5v0Group, sntpServerPreference=sntpServerPreference, tmnxSysRollbackFileVersion=tmnxSysRollbackFileVersion, tmnxSysAppStatsWeekIndex=tmnxSysAppStatsWeekIndex, tmnxSysLoginControlSecGroup=tmnxSysLoginControlSecGroup, tmnxFtpFailureDestAddressType=tmnxFtpFailureDestAddressType, sbiAutoBootUsingMgmt=sbiAutoBootUsingMgmt, tmnxSysHttpRdrV16v0Group=tmnxSysHttpRdrV16v0Group, tmnxSysAppStatsWeekAvailable=tmnxSysAppStatsWeekAvailable, sysDNSSecAdValidation=sysDNSSecAdValidation, tmnxSysNetconfOperStatus=tmnxSysNetconfOperStatus, tmnxSysRollbackSaveComment=tmnxSysRollbackSaveComment, tmnxCardCpuResMonitorTable=tmnxCardCpuResMonitorTable, tmnxSysFileTransProfName=tmnxSysFileTransProfName, tmnxSysGrpcTcpKaAdminState=tmnxSysGrpcTcpKaAdminState, tmnxSysNEProfNeipV6Type=tmnxSysNEProfNeipV6Type, tmnxSysMgmtInterfaceV20v0Group=tmnxSysMgmtInterfaceV20v0Group, tmnxSysDNSSecDomainName=tmnxSysDNSSecDomainName, tmnxSysCpmCardLicenseEntry=tmnxSysCpmCardLicenseEntry, tmnxSysMgmtProtLastChange=tmnxSysMgmtProtLastChange, sbiStandbyIPv6PfxLen=sbiStandbyIPv6PfxLen, slcPreLoginMessageInclName=slcPreLoginMessageInclName, tmnxSysLicensingGroup=tmnxSysLicensingGroup, tmnxSntpOperChange=tmnxSntpOperChange, tmnxSysRollbackFileCreationTime=tmnxSysRollbackFileCreationTime, tmnxSysGrpcTcpKaIdle=tmnxSysGrpcTcpKaIdle, tmnxSysBofV13v0Group=tmnxSysBofV13v0Group, tmnxSysGrpcTcpKaInterval=tmnxSysGrpcTcpKaInterval, tmnxSysLicenseNotifV16v0Group=tmnxSysLicenseNotifV16v0Group, tmnxSysCpuMonSampleTime=tmnxSysCpuMonSampleTime, tmnxSysRollbackRescueRevUser=tmnxSysRollbackRescueRevUser)
+mibBuilder.exportSymbols("TIMETRA-SYSTEM-MIB", TmnxSsiSyncMode=TmnxSsiSyncMode, sntpAdminState=sntpAdminState, tmnxSysRmtMgmtManagerTable=tmnxSysRmtMgmtManagerTable, tmnxSysV15v1Groups=tmnxSysV15v1Groups, tmnxPersistenceAffectedCpm=tmnxPersistenceAffectedCpm, tmnxSysMgmtIfSchemaPath=tmnxSysMgmtIfSchemaPath, tmnxSysMgmtIfLiCfgNotEncrypted=tmnxSysMgmtIfLiCfgNotEncrypted, tmnxSysFileTransProfSrcAddrV4=tmnxSysFileTransProfSrcAddrV4, tmnxSysFpoQosIpv6CritOperState=tmnxSysFpoQosIpv6CritOperState, sbiStandbyCIPv6PfxLen=sbiStandbyCIPv6PfxLen, tmnxSysRollbackRescueSaveRes=tmnxSysRollbackRescueSaveRes, tmnxSysNetconfCapRunningCfg=tmnxSysNetconfCapRunningCfg, sbiStaticRouteIPv6RowStatus=sbiStaticRouteIPv6RowStatus, tmnxSysXmppServPassword=tmnxSysXmppServPassword, tmnxSysCandidateCfgUser=tmnxSysCandidateCfgUser, tmnxSysFwdPathOptsV19v0Group=tmnxSysFwdPathOptsV19v0Group, sysPersistenceDhcpL2Info=sysPersistenceDhcpL2Info, sbiBootConfigFailScript=sbiBootConfigFailScript, persistencyEventReport=persistencyEventReport, sbiBootConfigOKFileError=sbiBootConfigOKFileError, tmnxSysRollbackRescueSavedTime=tmnxSysRollbackRescueSavedTime, sysPersistenceSubMgmtInfo=sysPersistenceSubMgmtInfo, tmnxSysCertGroup=tmnxSysCertGroup, tmnxSysFpoMacFltOutVlanPrioOprSt=tmnxSysFpoMacFltOutVlanPrioOprSt, tmnxSysCandidateCfgEditors=tmnxSysCandidateCfgEditors, tmnxSysXmppServUnSubSent=tmnxSysXmppServUnSubSent, sysDNSSecRespCtrl=sysDNSSecRespCtrl, TmnxSysMonUtilization=TmnxSysMonUtilization, tmnxSysVsdServerUnavailable=tmnxSysVsdServerUnavailable, tmnxSysNEProfEntry=tmnxSysNEProfEntry, tmnxSysLicensingUuid=tmnxSysLicensingUuid, tmnxSysAppStatsPeakTime=tmnxSysAppStatsPeakTime, tmnxSysAppStatsWeekTime=tmnxSysAppStatsWeekTime, tmnxSysFibInfo=tmnxSysFibInfo, tmnxSysFpoQosBumPolAdminState=tmnxSysFpoQosBumPolAdminState, persistencyClosedAlarmRaised=persistencyClosedAlarmRaised, tmnxSysLicenseV13v0Group=tmnxSysLicenseV13v0Group, tmnxSmLaunchExtEntry=tmnxSmLaunchExtEntry, tmnxSysFpCamAllocV19v0Group=tmnxSysFpCamAllocV19v0Group, tmnxSysNotifyObjs=tmnxSysNotifyObjs, tmnxSysCpmCardLicenseTable=tmnxSysCpmCardLicenseTable, tmnxSysVsdGwPubSubNodeName=tmnxSysVsdGwPubSubNodeName, tmnxSysAvailLicenseSwVersion=tmnxSysAvailLicenseSwVersion, slcFtpInboundMaxSessions=slcFtpInboundMaxSessions, tmnxSysNetconfResponses=tmnxSysNetconfResponses, tmnxSysXmppServMsgSent=tmnxSysXmppServMsgSent, tmnxSysRmtMgmtMgrSrcPort=tmnxSysRmtMgmtMgrSrcPort, sysSyncInfo=sysSyncInfo, tmnxSysGrpcConnSrcPort=tmnxSysGrpcConnSrcPort, tmnxSysV21v0Groups=tmnxSysV21v0Groups, tmnxSysRollbackRescueDelete=tmnxSysRollbackRescueDelete, tmnxSysAppStatsPeakApplication=tmnxSysAppStatsPeakApplication, tmnxSysRmtMgmtDeviceName=tmnxSysRmtMgmtDeviceName, tmnxSysRmtMgmtRegsCancelled=tmnxSysRmtMgmtRegsCancelled, tmnxSysRmtMgmtManagerEntry=tmnxSysRmtMgmtManagerEntry, tmnxSysNEProfName=tmnxSysNEProfName, tmnxSysFileTransProfSrcAddrV6T=tmnxSysFileTransProfSrcAddrV6T, tmnxSysLicenseErrorAction=tmnxSysLicenseErrorAction, sbiSecondaryConfigFile=sbiSecondaryConfigFile, tmnxSysVsdSystemId=tmnxSysVsdSystemId, stiSummerZoneEntry=stiSummerZoneEntry, tmnxSysAppStats24HrsApplication=tmnxSysAppStats24HrsApplication, tmnxSysNEProfTableLstChgd=tmnxSysNEProfTableLstChgd, tmnxSysRmtMgmtMgrAdminState=tmnxSysRmtMgmtMgrAdminState, tmnxSysRmtMgmtMgrIpAddress=tmnxSysRmtMgmtMgrIpAddress, tmnxSysStandbyLicensingError=tmnxSysStandbyLicensingError, TmnxSysRmtMgmtSrcDefaultPort=TmnxSysRmtMgmtSrcDefaultPort, tmnxSysAppStatsWeekTable=tmnxSysAppStatsWeekTable, tmnxSysCpmCardLicFeatureEntry=tmnxSysCpmCardLicFeatureEntry, tmnxSysFpoQosBumPolOperState=tmnxSysFpoQosBumPolOperState, tmnxPersistenceV5v0Group=tmnxPersistenceV5v0Group, tmnxSysNspProxyGroups=tmnxSysNspProxyGroups, tmnxSysNetconfValidateRequests=tmnxSysNetconfValidateRequests, tmnxSysRollbackRevertUserName=tmnxSysRollbackRevertUserName, tmnxSysMgmtProtocolTable=tmnxSysMgmtProtocolTable, tmnxSysAppStats48HrsValue=tmnxSysAppStats48HrsValue, tmnxSysRollbackFileIndex=tmnxSysRollbackFileIndex, tmnxSysMgmtIfYangOpenConfig=tmnxSysMgmtIfYangOpenConfig, tmnxSysAppLicenseType=tmnxSysAppLicenseType, tmnxSysAvailLicenseProduct=tmnxSysAvailLicenseProduct, TmnxSsiSyncRollbackMode=TmnxSsiSyncRollbackMode, ssiSyncCertForce=ssiSyncCertForce, tmnxSysFpoVplsEvpnMplsAdminState=tmnxSysFpoVplsEvpnMplsAdminState, sgiSnmpInGetBulks=sgiSnmpInGetBulks, ssiRedStandbyReady=ssiRedStandbyReady, tmnxPersistenceV14v0Group=tmnxPersistenceV14v0Group, tmnxSysFileTransProfRtrId=tmnxSysFileTransProfRtrId, ssiSaveConfigDetail=ssiSaveConfigDetail, tmnxSysXmppServIQSent=tmnxSysXmppServIQSent, sbiActiveIpAddr=sbiActiveIpAddr, tmnxSysNEProfNeipV4Type=tmnxSysNEProfNeipV4Type, tmnxPersistencyNotifyMsg=tmnxPersistencyNotifyMsg)

@@ -1,92 +1,65 @@
-_M='aristaNexthopGroupCounterGroup'
-_L='aristaNexthopGroupGroup'
-_K='aristaNexthopGroupCounterByteCount'
-_J='aristaNexthopGroupCounterPacketCount'
-_I='aristaNexthopGroupCounterIndex'
-_H='aristaNexthopGroupType'
-_G='aristaNexthopGroupName'
-_F='aristaNexthopGroupEntryIndex'
-_E='not-accessible'
-_D='aristaNexthopGroupId'
-_C='read-only'
-_B='ARISTA-NEXTHOP-GROUP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-aristaMibs,=mibBuilder.importSymbols('ARISTA-SMI-MIB','aristaMibs')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-aristaNexthopGroupMIB=ModuleIdentity((1,3,6,1,4,1,30065,3,21))
-if mibBuilder.loadTexts:aristaNexthopGroupMIB.setRevisions(('2016-04-17 00:00',))
-class NexthopGroupName(TextualConvention,OctetString):status=_A;displayHint='255a';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-class NexthopGroupType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*(('invalid',0),('ipInIp',1),('gre',2),('mpls',3),('ip',4),('mplsOverGre',5)))
-_AristaNexthopGroupMibObjects_ObjectIdentity=ObjectIdentity
-aristaNexthopGroupMibObjects=_AristaNexthopGroupMibObjects_ObjectIdentity((1,3,6,1,4,1,30065,3,21,1))
-_AristaNexthopGroupTable_Object=MibTable
-aristaNexthopGroupTable=_AristaNexthopGroupTable_Object((1,3,6,1,4,1,30065,3,21,1,1))
-if mibBuilder.loadTexts:aristaNexthopGroupTable.setStatus(_A)
-_AristaNexthopGroupEntry_Object=MibTableRow
-aristaNexthopGroupEntry=_AristaNexthopGroupEntry_Object((1,3,6,1,4,1,30065,3,21,1,1,1))
-aristaNexthopGroupEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:aristaNexthopGroupEntry.setStatus(_A)
-_AristaNexthopGroupId_Type=Unsigned32
-_AristaNexthopGroupId_Object=MibTableColumn
-aristaNexthopGroupId=_AristaNexthopGroupId_Object((1,3,6,1,4,1,30065,3,21,1,1,1,1),_AristaNexthopGroupId_Type())
-aristaNexthopGroupId.setMaxAccess(_E)
-if mibBuilder.loadTexts:aristaNexthopGroupId.setStatus(_A)
-_AristaNexthopGroupName_Type=NexthopGroupName
-_AristaNexthopGroupName_Object=MibTableColumn
-aristaNexthopGroupName=_AristaNexthopGroupName_Object((1,3,6,1,4,1,30065,3,21,1,1,1,2),_AristaNexthopGroupName_Type())
-aristaNexthopGroupName.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaNexthopGroupName.setStatus(_A)
-_AristaNexthopGroupType_Type=NexthopGroupType
-_AristaNexthopGroupType_Object=MibTableColumn
-aristaNexthopGroupType=_AristaNexthopGroupType_Object((1,3,6,1,4,1,30065,3,21,1,1,1,3),_AristaNexthopGroupType_Type())
-aristaNexthopGroupType.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaNexthopGroupType.setStatus(_A)
-_AristaNexthopGroupCounterTable_Object=MibTable
-aristaNexthopGroupCounterTable=_AristaNexthopGroupCounterTable_Object((1,3,6,1,4,1,30065,3,21,1,2))
-if mibBuilder.loadTexts:aristaNexthopGroupCounterTable.setStatus(_A)
-_AristaNexthopGroupCounterEntry_Object=MibTableRow
-aristaNexthopGroupCounterEntry=_AristaNexthopGroupCounterEntry_Object((1,3,6,1,4,1,30065,3,21,1,2,1))
-aristaNexthopGroupCounterEntry.setIndexNames((0,_B,_D),(0,_B,_F))
-if mibBuilder.loadTexts:aristaNexthopGroupCounterEntry.setStatus(_A)
-_AristaNexthopGroupEntryIndex_Type=Unsigned32
-_AristaNexthopGroupEntryIndex_Object=MibTableColumn
-aristaNexthopGroupEntryIndex=_AristaNexthopGroupEntryIndex_Object((1,3,6,1,4,1,30065,3,21,1,2,1,1),_AristaNexthopGroupEntryIndex_Type())
-aristaNexthopGroupEntryIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:aristaNexthopGroupEntryIndex.setStatus(_A)
-_AristaNexthopGroupCounterIndex_Type=Unsigned32
-_AristaNexthopGroupCounterIndex_Object=MibTableColumn
-aristaNexthopGroupCounterIndex=_AristaNexthopGroupCounterIndex_Object((1,3,6,1,4,1,30065,3,21,1,2,1,2),_AristaNexthopGroupCounterIndex_Type())
-aristaNexthopGroupCounterIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaNexthopGroupCounterIndex.setStatus(_A)
-_AristaNexthopGroupCounterPacketCount_Type=Counter64
-_AristaNexthopGroupCounterPacketCount_Object=MibTableColumn
-aristaNexthopGroupCounterPacketCount=_AristaNexthopGroupCounterPacketCount_Object((1,3,6,1,4,1,30065,3,21,1,2,1,3),_AristaNexthopGroupCounterPacketCount_Type())
-aristaNexthopGroupCounterPacketCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaNexthopGroupCounterPacketCount.setStatus(_A)
-_AristaNexthopGroupCounterByteCount_Type=Counter64
-_AristaNexthopGroupCounterByteCount_Object=MibTableColumn
-aristaNexthopGroupCounterByteCount=_AristaNexthopGroupCounterByteCount_Object((1,3,6,1,4,1,30065,3,21,1,2,1,4),_AristaNexthopGroupCounterByteCount_Type())
-aristaNexthopGroupCounterByteCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaNexthopGroupCounterByteCount.setStatus(_A)
-_AristaNexthopGroupMibConformance_ObjectIdentity=ObjectIdentity
-aristaNexthopGroupMibConformance=_AristaNexthopGroupMibConformance_ObjectIdentity((1,3,6,1,4,1,30065,3,21,2))
-_AristaNexthopGroupMibCompliances_ObjectIdentity=ObjectIdentity
-aristaNexthopGroupMibCompliances=_AristaNexthopGroupMibCompliances_ObjectIdentity((1,3,6,1,4,1,30065,3,21,2,1))
-_AristaNexthopGroupMibGroups_ObjectIdentity=ObjectIdentity
-aristaNexthopGroupMibGroups=_AristaNexthopGroupMibGroups_ObjectIdentity((1,3,6,1,4,1,30065,3,21,2,2))
-aristaNexthopGroupGroup=ObjectGroup((1,3,6,1,4,1,30065,3,21,2,2,1))
-aristaNexthopGroupGroup.setObjects(*((_B,_G),(_B,_H)))
-if mibBuilder.loadTexts:aristaNexthopGroupGroup.setStatus(_A)
-aristaNexthopGroupCounterGroup=ObjectGroup((1,3,6,1,4,1,30065,3,21,2,2,2))
-aristaNexthopGroupCounterGroup.setObjects(*((_B,_I),(_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:aristaNexthopGroupCounterGroup.setStatus(_A)
-aristaNexthopGroupMibCompliance=ModuleCompliance((1,3,6,1,4,1,30065,3,21,2,1,1))
-aristaNexthopGroupMibCompliance.setObjects(*((_B,_L),(_B,_M)))
-if mibBuilder.loadTexts:aristaNexthopGroupMibCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'NexthopGroupName':NexthopGroupName,'NexthopGroupType':NexthopGroupType,'aristaNexthopGroupMIB':aristaNexthopGroupMIB,'aristaNexthopGroupMibObjects':aristaNexthopGroupMibObjects,'aristaNexthopGroupTable':aristaNexthopGroupTable,'aristaNexthopGroupEntry':aristaNexthopGroupEntry,_D:aristaNexthopGroupId,_G:aristaNexthopGroupName,_H:aristaNexthopGroupType,'aristaNexthopGroupCounterTable':aristaNexthopGroupCounterTable,'aristaNexthopGroupCounterEntry':aristaNexthopGroupCounterEntry,_F:aristaNexthopGroupEntryIndex,_I:aristaNexthopGroupCounterIndex,_J:aristaNexthopGroupCounterPacketCount,_K:aristaNexthopGroupCounterByteCount,'aristaNexthopGroupMibConformance':aristaNexthopGroupMibConformance,'aristaNexthopGroupMibCompliances':aristaNexthopGroupMibCompliances,'aristaNexthopGroupMibCompliance':aristaNexthopGroupMibCompliance,'aristaNexthopGroupMibGroups':aristaNexthopGroupMibGroups,_L:aristaNexthopGroupGroup,_M:aristaNexthopGroupCounterGroup})
+#
+# PySNMP MIB module ARISTA-NEXTHOP-GROUP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/arista/ARISTA-NEXTHOP-GROUP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:26 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+aristaNexthopGroupMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 21))
+aristaNexthopGroupMIB.setRevisions(('2016-04-17 00:00',))
+if mibBuilder.loadTexts: aristaNexthopGroupMIB.setLastUpdated('201604170000Z')
+if mibBuilder.loadTexts: aristaNexthopGroupMIB.setOrganization('Arista Networks, Inc.')
+aristaNexthopGroupMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 21, 1))
+aristaNexthopGroupMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 21, 2))
+class NexthopGroupName(TextualConvention, OctetString):
+    status = 'current'
+    displayHint = '255a'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+
+class NexthopGroupType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))
+    namedValues = NamedValues(("invalid", 0), ("ipInIp", 1), ("gre", 2), ("mpls", 3), ("ip", 4), ("mplsOverGre", 5))
+
+aristaNexthopGroupTable = MibTable((1, 3, 6, 1, 4, 1, 30065, 3, 21, 1, 1), )
+if mibBuilder.loadTexts: aristaNexthopGroupTable.setStatus('current')
+aristaNexthopGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30065, 3, 21, 1, 1, 1), ).setIndexNames((0, "ARISTA-NEXTHOP-GROUP-MIB", "aristaNexthopGroupId"))
+if mibBuilder.loadTexts: aristaNexthopGroupEntry.setStatus('current')
+aristaNexthopGroupId = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 21, 1, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: aristaNexthopGroupId.setStatus('current')
+aristaNexthopGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 21, 1, 1, 1, 2), NexthopGroupName()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaNexthopGroupName.setStatus('current')
+aristaNexthopGroupType = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 21, 1, 1, 1, 3), NexthopGroupType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaNexthopGroupType.setStatus('current')
+aristaNexthopGroupCounterTable = MibTable((1, 3, 6, 1, 4, 1, 30065, 3, 21, 1, 2), )
+if mibBuilder.loadTexts: aristaNexthopGroupCounterTable.setStatus('current')
+aristaNexthopGroupCounterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30065, 3, 21, 1, 2, 1), ).setIndexNames((0, "ARISTA-NEXTHOP-GROUP-MIB", "aristaNexthopGroupId"), (0, "ARISTA-NEXTHOP-GROUP-MIB", "aristaNexthopGroupEntryIndex"))
+if mibBuilder.loadTexts: aristaNexthopGroupCounterEntry.setStatus('current')
+aristaNexthopGroupEntryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 21, 1, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: aristaNexthopGroupEntryIndex.setStatus('current')
+aristaNexthopGroupCounterIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 21, 1, 2, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaNexthopGroupCounterIndex.setStatus('current')
+aristaNexthopGroupCounterPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 21, 1, 2, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaNexthopGroupCounterPacketCount.setStatus('current')
+aristaNexthopGroupCounterByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 21, 1, 2, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaNexthopGroupCounterByteCount.setStatus('current')
+aristaNexthopGroupMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 21, 2, 1))
+aristaNexthopGroupMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 21, 2, 2))
+aristaNexthopGroupMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 30065, 3, 21, 2, 1, 1)).setObjects(("ARISTA-NEXTHOP-GROUP-MIB", "aristaNexthopGroupGroup"), ("ARISTA-NEXTHOP-GROUP-MIB", "aristaNexthopGroupCounterGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aristaNexthopGroupMibCompliance = aristaNexthopGroupMibCompliance.setStatus('current')
+aristaNexthopGroupGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 21, 2, 2, 1)).setObjects(("ARISTA-NEXTHOP-GROUP-MIB", "aristaNexthopGroupName"), ("ARISTA-NEXTHOP-GROUP-MIB", "aristaNexthopGroupType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aristaNexthopGroupGroup = aristaNexthopGroupGroup.setStatus('current')
+aristaNexthopGroupCounterGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 21, 2, 2, 2)).setObjects(("ARISTA-NEXTHOP-GROUP-MIB", "aristaNexthopGroupCounterIndex"), ("ARISTA-NEXTHOP-GROUP-MIB", "aristaNexthopGroupCounterPacketCount"), ("ARISTA-NEXTHOP-GROUP-MIB", "aristaNexthopGroupCounterByteCount"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aristaNexthopGroupCounterGroup = aristaNexthopGroupCounterGroup.setStatus('current')
+mibBuilder.exportSymbols("ARISTA-NEXTHOP-GROUP-MIB", aristaNexthopGroupCounterTable=aristaNexthopGroupCounterTable, aristaNexthopGroupMibGroups=aristaNexthopGroupMibGroups, aristaNexthopGroupGroup=aristaNexthopGroupGroup, aristaNexthopGroupId=aristaNexthopGroupId, NexthopGroupType=NexthopGroupType, aristaNexthopGroupEntryIndex=aristaNexthopGroupEntryIndex, aristaNexthopGroupCounterGroup=aristaNexthopGroupCounterGroup, aristaNexthopGroupType=aristaNexthopGroupType, aristaNexthopGroupTable=aristaNexthopGroupTable, PYSNMP_MODULE_ID=aristaNexthopGroupMIB, aristaNexthopGroupMIB=aristaNexthopGroupMIB, aristaNexthopGroupCounterEntry=aristaNexthopGroupCounterEntry, aristaNexthopGroupCounterByteCount=aristaNexthopGroupCounterByteCount, aristaNexthopGroupMibConformance=aristaNexthopGroupMibConformance, aristaNexthopGroupName=aristaNexthopGroupName, aristaNexthopGroupCounterPacketCount=aristaNexthopGroupCounterPacketCount, aristaNexthopGroupEntry=aristaNexthopGroupEntry, NexthopGroupName=NexthopGroupName, aristaNexthopGroupMibCompliances=aristaNexthopGroupMibCompliances, aristaNexthopGroupMibCompliance=aristaNexthopGroupMibCompliance, aristaNexthopGroupMibObjects=aristaNexthopGroupMibObjects, aristaNexthopGroupCounterIndex=aristaNexthopGroupCounterIndex)

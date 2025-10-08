@@ -1,65 +1,54 @@
-_H='trpzPortConfigGroup'
-_G='trpzPortConfigTrunkMaster'
-_F='trpzPortConfigPoeMode'
-_E='trpzPortConfigPortMode'
-_D='trpzPortConfigPortNumber'
-_C='read-only'
-_B='TRAPEZE-NETWORKS-PORT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-TrpzPhysPortNumber,TrpzPhysPortNumberOrZero=mibBuilder.importSymbols('TRAPEZE-NETWORKS-BASIC-TC','TrpzPhysPortNumber','TrpzPhysPortNumberOrZero')
-trpzMibs,=mibBuilder.importSymbols('TRAPEZE-NETWORKS-ROOT-MIB','trpzMibs')
-trpzPortMib=ModuleIdentity((1,3,6,1,4,1,14525,4,6))
-if mibBuilder.loadTexts:trpzPortMib.setRevisions(('2008-10-23 00:10','2008-05-19 00:04','2006-11-09 00:01','2006-04-06 00:00'))
-class TrpzPortMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('directAttachAP',1),('networkPort',2),('wired',3)))
-class TrpzPortPoeMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('poeEnable',1),('poeDisable',2)))
-_TrpzPortObjects_ObjectIdentity=ObjectIdentity
-trpzPortObjects=_TrpzPortObjects_ObjectIdentity((1,3,6,1,4,1,14525,4,6,1))
-_TrpzPortDataObjects_ObjectIdentity=ObjectIdentity
-trpzPortDataObjects=_TrpzPortDataObjects_ObjectIdentity((1,3,6,1,4,1,14525,4,6,1,1))
-_TrpzPortConfigTable_Object=MibTable
-trpzPortConfigTable=_TrpzPortConfigTable_Object((1,3,6,1,4,1,14525,4,6,1,1,1))
-if mibBuilder.loadTexts:trpzPortConfigTable.setStatus(_A)
-_TrpzPortConfigEntry_Object=MibTableRow
-trpzPortConfigEntry=_TrpzPortConfigEntry_Object((1,3,6,1,4,1,14525,4,6,1,1,1,1))
-trpzPortConfigEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:trpzPortConfigEntry.setStatus(_A)
-_TrpzPortConfigPortNumber_Type=TrpzPhysPortNumber
-_TrpzPortConfigPortNumber_Object=MibTableColumn
-trpzPortConfigPortNumber=_TrpzPortConfigPortNumber_Object((1,3,6,1,4,1,14525,4,6,1,1,1,1,1),_TrpzPortConfigPortNumber_Type())
-trpzPortConfigPortNumber.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:trpzPortConfigPortNumber.setStatus(_A)
-_TrpzPortConfigPortMode_Type=TrpzPortMode
-_TrpzPortConfigPortMode_Object=MibTableColumn
-trpzPortConfigPortMode=_TrpzPortConfigPortMode_Object((1,3,6,1,4,1,14525,4,6,1,1,1,1,2),_TrpzPortConfigPortMode_Type())
-trpzPortConfigPortMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:trpzPortConfigPortMode.setStatus(_A)
-_TrpzPortConfigPoeMode_Type=TrpzPortPoeMode
-_TrpzPortConfigPoeMode_Object=MibTableColumn
-trpzPortConfigPoeMode=_TrpzPortConfigPoeMode_Object((1,3,6,1,4,1,14525,4,6,1,1,1,1,3),_TrpzPortConfigPoeMode_Type())
-trpzPortConfigPoeMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:trpzPortConfigPoeMode.setStatus(_A)
-_TrpzPortConfigTrunkMaster_Type=TrpzPhysPortNumberOrZero
-_TrpzPortConfigTrunkMaster_Object=MibTableColumn
-trpzPortConfigTrunkMaster=_TrpzPortConfigTrunkMaster_Object((1,3,6,1,4,1,14525,4,6,1,1,1,1,4),_TrpzPortConfigTrunkMaster_Type())
-trpzPortConfigTrunkMaster.setMaxAccess(_C)
-if mibBuilder.loadTexts:trpzPortConfigTrunkMaster.setStatus(_A)
-_TrpzPortConformance_ObjectIdentity=ObjectIdentity
-trpzPortConformance=_TrpzPortConformance_ObjectIdentity((1,3,6,1,4,1,14525,4,6,1,2))
-_TrpzPortCompliances_ObjectIdentity=ObjectIdentity
-trpzPortCompliances=_TrpzPortCompliances_ObjectIdentity((1,3,6,1,4,1,14525,4,6,1,2,1))
-_TrpzPortGroups_ObjectIdentity=ObjectIdentity
-trpzPortGroups=_TrpzPortGroups_ObjectIdentity((1,3,6,1,4,1,14525,4,6,1,2,2))
-trpzPortConfigGroup=ObjectGroup((1,3,6,1,4,1,14525,4,6,1,2,2,1))
-trpzPortConfigGroup.setObjects(*((_B,_E),(_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:trpzPortConfigGroup.setStatus(_A)
-trpzPortCompliance=ModuleCompliance((1,3,6,1,4,1,14525,4,6,1,2,1,1))
-trpzPortCompliance.setObjects((_B,_H))
-if mibBuilder.loadTexts:trpzPortCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'TrpzPortMode':TrpzPortMode,'TrpzPortPoeMode':TrpzPortPoeMode,'trpzPortMib':trpzPortMib,'trpzPortObjects':trpzPortObjects,'trpzPortDataObjects':trpzPortDataObjects,'trpzPortConfigTable':trpzPortConfigTable,'trpzPortConfigEntry':trpzPortConfigEntry,_D:trpzPortConfigPortNumber,_E:trpzPortConfigPortMode,_F:trpzPortConfigPoeMode,_G:trpzPortConfigTrunkMaster,'trpzPortConformance':trpzPortConformance,'trpzPortCompliances':trpzPortCompliances,'trpzPortCompliance':trpzPortCompliance,'trpzPortGroups':trpzPortGroups,_H:trpzPortConfigGroup})
+#
+# PySNMP MIB module TRAPEZE-NETWORKS-PORT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/trapeze/TRAPEZE-NETWORKS-PORT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:52 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+TrpzPhysPortNumber, TrpzPhysPortNumberOrZero = mibBuilder.importSymbols("TRAPEZE-NETWORKS-BASIC-TC", "TrpzPhysPortNumber", "TrpzPhysPortNumberOrZero")
+trpzMibs, = mibBuilder.importSymbols("TRAPEZE-NETWORKS-ROOT-MIB", "trpzMibs")
+trpzPortMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 14525, 4, 6))
+trpzPortMib.setRevisions(('2008-10-23 00:10', '2008-05-19 00:04', '2006-11-09 00:01', '2006-04-06 00:00',))
+if mibBuilder.loadTexts: trpzPortMib.setLastUpdated('200810230010Z')
+if mibBuilder.loadTexts: trpzPortMib.setOrganization('Trapeze Networks')
+class TrpzPortMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("directAttachAP", 1), ("networkPort", 2), ("wired", 3))
+
+class TrpzPortPoeMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("poeEnable", 1), ("poeDisable", 2))
+
+trpzPortObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 4, 6, 1))
+trpzPortDataObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 4, 6, 1, 1))
+trpzPortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 14525, 4, 6, 1, 1, 1), )
+if mibBuilder.loadTexts: trpzPortConfigTable.setStatus('current')
+trpzPortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 14525, 4, 6, 1, 1, 1, 1), ).setIndexNames((0, "TRAPEZE-NETWORKS-PORT-MIB", "trpzPortConfigPortNumber"))
+if mibBuilder.loadTexts: trpzPortConfigEntry.setStatus('current')
+trpzPortConfigPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 14525, 4, 6, 1, 1, 1, 1, 1), TrpzPhysPortNumber())
+if mibBuilder.loadTexts: trpzPortConfigPortNumber.setStatus('current')
+trpzPortConfigPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 14525, 4, 6, 1, 1, 1, 1, 2), TrpzPortMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: trpzPortConfigPortMode.setStatus('current')
+trpzPortConfigPoeMode = MibTableColumn((1, 3, 6, 1, 4, 1, 14525, 4, 6, 1, 1, 1, 1, 3), TrpzPortPoeMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: trpzPortConfigPoeMode.setStatus('current')
+trpzPortConfigTrunkMaster = MibTableColumn((1, 3, 6, 1, 4, 1, 14525, 4, 6, 1, 1, 1, 1, 4), TrpzPhysPortNumberOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: trpzPortConfigTrunkMaster.setStatus('current')
+trpzPortConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 4, 6, 1, 2))
+trpzPortCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 4, 6, 1, 2, 1))
+trpzPortGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 4, 6, 1, 2, 2))
+trpzPortCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 14525, 4, 6, 1, 2, 1, 1)).setObjects(("TRAPEZE-NETWORKS-PORT-MIB", "trpzPortConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    trpzPortCompliance = trpzPortCompliance.setStatus('current')
+trpzPortConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 14525, 4, 6, 1, 2, 2, 1)).setObjects(("TRAPEZE-NETWORKS-PORT-MIB", "trpzPortConfigPortMode"), ("TRAPEZE-NETWORKS-PORT-MIB", "trpzPortConfigPoeMode"), ("TRAPEZE-NETWORKS-PORT-MIB", "trpzPortConfigTrunkMaster"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    trpzPortConfigGroup = trpzPortConfigGroup.setStatus('current')
+mibBuilder.exportSymbols("TRAPEZE-NETWORKS-PORT-MIB", trpzPortConfigEntry=trpzPortConfigEntry, trpzPortMib=trpzPortMib, TrpzPortMode=TrpzPortMode, PYSNMP_MODULE_ID=trpzPortMib, trpzPortDataObjects=trpzPortDataObjects, trpzPortObjects=trpzPortObjects, trpzPortConfigTrunkMaster=trpzPortConfigTrunkMaster, trpzPortConfigTable=trpzPortConfigTable, trpzPortConfigPortMode=trpzPortConfigPortMode, trpzPortConfigPoeMode=trpzPortConfigPoeMode, trpzPortConfigGroup=trpzPortConfigGroup, trpzPortConformance=trpzPortConformance, trpzPortGroups=trpzPortGroups, trpzPortCompliance=trpzPortCompliance, trpzPortCompliances=trpzPortCompliances, TrpzPortPoeMode=TrpzPortPoeMode, trpzPortConfigPortNumber=trpzPortConfigPortNumber)

@@ -1,622 +1,277 @@
-_Ao='tmnxCallTraceJob20v0Group'
-_An='tmnxCallTraceScalarCfg20v0Group'
-_Am='tmnxCallTraceJobGroup'
-_Al='tmnxCallTraceLocSizeLimitReached'
-_Ak='tmnxCallTraceMaxFilesNumReached'
-_Aj='tmnxCallTraceJobTraceName'
-_Ai='tmnxCallTraceJobRemoteId'
-_Ah='tmnxCallTraceJobCircuitId'
-_Ag='tmnxCallTraceJobIpoeIeeeAddr'
-_Af='tmnxCallTraceJobSapEncapVal'
-_Ae='tmnxCallTraceJobSapPortId'
-_Ad='tmnxCallTraceJobUserName'
-_Ac='tmnxCallTraceBuffering'
-_Ab='tmnxCallTraceJobDstType'
-_Aa='tmnxCallTraceAvailFilesNumber'
-_AZ='tmnxCallTraceUsedFilesNumber'
-_AY='tmnxCallTraceFileLastDataModif'
-_AX='tmnxCallTraceFileSize'
-_AW='tmnxCallTraceFileDir'
-_AV='tmnxCallTracePrimaryCFlash'
-_AU='tmnxCallTraceLocationAvailSpace'
-_AT='tmnxCallTraceLocationUsedSpace'
-_AS='tmnxCallTraceLocationDisable'
-_AR='tmnxCallTraceLocationLstChgd'
-_AQ='tmnxCallTraceLocationTblLstChgd'
-_AP='tmnxCallTraceProfileEvents'
-_AO='tmnxCallTraceProfileDbgOutput'
-_AN='tmnxCallTraceProfileApplications'
-_AM='tmnxCallTraceProfileVRtrId'
-_AL='tmnxCallTraceProfileDstPort'
-_AK='tmnxCallTraceProfileDstAddr'
-_AJ='tmnxCallTraceProfileDstAddrType'
-_AI='tmnxCallTraceProfileTimeLimit'
-_AH='tmnxCallTraceProfileSizeLimit'
-_AG='tmnxCallTraceProfileDescription'
-_AF='tmnxCallTraceProfileRowStatus'
-_AE='tmnxCallTraceProfileLstChgd'
-_AD='tmnxCallTraceProfileTblLstChgd'
-_AC='tmnxCallTraceLocationStatsEntry'
-_AB='tmnxCallTraceTraceId'
-_AA='tmnxCallTraceFileName'
-_A9='tmnxCallTraceFileCFlashId'
-_A8='tmnxCallTraceFileCpmSlotNum'
-_A7='tmnxCallTraceFileJobStatus'
-_A6='tmnxCallTraceJobId'
-_A5='tmnxCallTraceLocationCFlashId'
-_A4='TmnxCallTraceTimeLimit'
-_A3='TmnxCallTraceSizeLimit'
-_A2='tmnxCallTraceProfileName'
-_A1='TmnxCallTraceCFlashId'
-_A0='2015-02-01 00:00'
-_z='TmnxVRtrID'
-_y='TItemDescription'
-_x='InetAddressType'
-_w='tmnxCallTraceJob15v0Group'
-_v='tmnxCallTraceTraceMaxJobs'
-_u='tmnxCallTraceTraceName'
-_t='tmnxCallTraceTraceRemoteId'
-_s='tmnxCallTraceTraceCircuitId'
-_r='tmnxCallTraceTraceIeeeAddr'
-_q='tmnxCallTraceTraceSapId'
-_p='tmnxCallTraceTraceType'
-_o='tmnxCallTraceJobCaptMsgsSize'
-_n='tmnxCallTraceJobCaptMsgsCnt'
-_m='tmnxCallTraceJobStartTime'
-_l='tmnxCallTraceJobVRtrId'
-_k='tmnxCallTraceJobDstPort'
-_j='tmnxCallTraceJobDstResAddr'
-_i='tmnxCallTraceJobDstResAddrType'
-_h='tmnxCallTraceJobDstAddr'
-_g='tmnxCallTraceJobDstAddrType'
-_f='tmnxCallTraceJobCaptureFormat'
-_e='tmnxCallTraceJobTimeLimit'
-_d='tmnxCallTraceJobSizeLimit'
-_c='tmnxCallTraceJobProfileName'
-_b='tmnxCallTraceJobStatus'
-_a='tmnxCallTraceJobWlanGwUeIeeeAddr'
-_Z='tmnxCallTraceJobType'
-_Y='tmnxCallTraceMaxFilesNumber'
-_X='tmnxCallTraceLocationSizeLimit'
-_W='InetPortNumber'
-_V='tmnxCallTraceIpoeTraceGroup'
-_U='tmnxCallTraceIpoeJobGroup'
-_T='tmnxCallTraceScalarStatsGroup'
-_S='tmnxCallTraceFileGroup'
-_R='tmnxCallTraceNotifyGroup'
-_Q='tmnxCallTraceScalarCfgGroup'
-_P='tmnxCallTraceLocStoreGroup'
-_O='tmnxCallTraceProfileGroup'
-_N='obsolete'
-_M='TruthValue'
-_L='Integer32'
-_K='InetAddress'
-_J='OctetString'
-_I='megabytes'
-_H='read-write'
-_G='DisplayString'
-_F='not-accessible'
-_E='Unsigned32'
-_D='read-create'
-_C='read-only'
-_B='current'
-_A='TIMETRA-CALLTRACE-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_J,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InetAddress,InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB',_K,_x,_W)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_L,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime',_G,'MacAddress','PhysAddress','RowStatus','TextualConvention','TimeStamp',_M)
-TmnxSlotNum,=mibBuilder.importSymbols('TIMETRA-CHASSIS-MIB','TmnxSlotNum')
-timetraSRMIBModules,tmnxSRConfs,tmnxSRNotifyPrefix,tmnxSRObjs=mibBuilder.importSymbols('TIMETRA-GLOBAL-MIB','timetraSRMIBModules','tmnxSRConfs','tmnxSRNotifyPrefix','tmnxSRObjs')
-TItemDescription,TNamedItem,TNamedItemOrEmpty,TmnxEncapVal,TmnxPortID,TmnxVRtrID=mibBuilder.importSymbols('TIMETRA-TC-MIB',_y,'TNamedItem','TNamedItemOrEmpty','TmnxEncapVal','TmnxPortID',_z)
-timetraCallTraceMIBModule=ModuleIdentity((1,3,6,1,4,1,6527,1,1,3,102))
-if mibBuilder.loadTexts:timetraCallTraceMIBModule.setRevisions(('2016-01-01 00:00',_A0,_A0))
-class TmnxCallTraceSizeLimit(TextualConvention,Unsigned32):status=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000))
-class TmnxCallTraceTimeLimit(TextualConvention,Unsigned32):status=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,604800))
-class TmnxCallTraceJobStatus(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('running',0),('finished',1)))
-class TmnxCallTraceCFlashId(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('cf1',1),('cf2',2)))
-class TmnxCallTraceApplications(TextualConvention,Bits):status=_B;namedValues=NamedValues(*(('connectivityManagement',0),('reserved1',1),('reserved2',2),('reserved3',3),('radiusAuth',4),('radiusAcct',5),('python',6),('ludb',7),('msap',8),('reserved9',9),('reserved10',10),('pppEvent',11)))
-class TmnxCallTraceHostType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('ue',1),('ipoe',2),('pppoe',3)))
-_TmnxCallTraceConformance_ObjectIdentity=ObjectIdentity
-tmnxCallTraceConformance=_TmnxCallTraceConformance_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,102))
-_TmnxCallTraceCompliances_ObjectIdentity=ObjectIdentity
-tmnxCallTraceCompliances=_TmnxCallTraceCompliances_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,102,1))
-_TmnxCallTraceGroups_ObjectIdentity=ObjectIdentity
-tmnxCallTraceGroups=_TmnxCallTraceGroups_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,102,2))
-_TmnxCallTraceInitialGroups_ObjectIdentity=ObjectIdentity
-tmnxCallTraceInitialGroups=_TmnxCallTraceInitialGroups_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,102,2,1))
-_TmnxCallTraceIpoeGroups_ObjectIdentity=ObjectIdentity
-tmnxCallTraceIpoeGroups=_TmnxCallTraceIpoeGroups_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,102,2,2))
-_TmnxCallTraceObjs_ObjectIdentity=ObjectIdentity
-tmnxCallTraceObjs=_TmnxCallTraceObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,102))
-_TmnxCallTraceScalarObjs_ObjectIdentity=ObjectIdentity
-tmnxCallTraceScalarObjs=_TmnxCallTraceScalarObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,102,1))
-_TmnxCallTraceLastChangedObjs_ObjectIdentity=ObjectIdentity
-tmnxCallTraceLastChangedObjs=_TmnxCallTraceLastChangedObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,102,1,1))
-_TmnxCallTraceProfileTblLstChgd_Type=TimeStamp
-_TmnxCallTraceProfileTblLstChgd_Object=MibScalar
-tmnxCallTraceProfileTblLstChgd=_TmnxCallTraceProfileTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,102,1,1,1),_TmnxCallTraceProfileTblLstChgd_Type())
-tmnxCallTraceProfileTblLstChgd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceProfileTblLstChgd.setStatus(_B)
-_TmnxCallTraceLocationTblLstChgd_Type=TimeStamp
-_TmnxCallTraceLocationTblLstChgd_Object=MibScalar
-tmnxCallTraceLocationTblLstChgd=_TmnxCallTraceLocationTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,102,1,1,2),_TmnxCallTraceLocationTblLstChgd_Type())
-tmnxCallTraceLocationTblLstChgd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceLocationTblLstChgd.setStatus(_B)
-_TmnxCallTraceScalarConfigObjs_ObjectIdentity=ObjectIdentity
-tmnxCallTraceScalarConfigObjs=_TmnxCallTraceScalarConfigObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,102,1,2))
-class _TmnxCallTraceMaxFilesNumber_Type(Unsigned32):defaultValue=200;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1024))
-_TmnxCallTraceMaxFilesNumber_Type.__name__=_E
-_TmnxCallTraceMaxFilesNumber_Object=MibScalar
-tmnxCallTraceMaxFilesNumber=_TmnxCallTraceMaxFilesNumber_Object((1,3,6,1,4,1,6527,3,1,2,102,1,2,1),_TmnxCallTraceMaxFilesNumber_Type())
-tmnxCallTraceMaxFilesNumber.setMaxAccess(_H)
-if mibBuilder.loadTexts:tmnxCallTraceMaxFilesNumber.setStatus(_B)
-class _TmnxCallTracePrimaryCFlash_Type(TmnxCallTraceCFlashId):defaultValue=1
-_TmnxCallTracePrimaryCFlash_Type.__name__=_A1
-_TmnxCallTracePrimaryCFlash_Object=MibScalar
-tmnxCallTracePrimaryCFlash=_TmnxCallTracePrimaryCFlash_Object((1,3,6,1,4,1,6527,3,1,2,102,1,2,2),_TmnxCallTracePrimaryCFlash_Type())
-tmnxCallTracePrimaryCFlash.setMaxAccess(_H)
-if mibBuilder.loadTexts:tmnxCallTracePrimaryCFlash.setStatus(_B)
-class _TmnxCallTraceBuffering_Type(TruthValue):defaultValue=2
-_TmnxCallTraceBuffering_Type.__name__=_M
-_TmnxCallTraceBuffering_Object=MibScalar
-tmnxCallTraceBuffering=_TmnxCallTraceBuffering_Object((1,3,6,1,4,1,6527,3,1,2,102,1,2,3),_TmnxCallTraceBuffering_Type())
-tmnxCallTraceBuffering.setMaxAccess(_H)
-if mibBuilder.loadTexts:tmnxCallTraceBuffering.setStatus(_B)
-_TmnxCallTraceScalarStatsObjs_ObjectIdentity=ObjectIdentity
-tmnxCallTraceScalarStatsObjs=_TmnxCallTraceScalarStatsObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,102,1,3))
-class _TmnxCallTraceUsedFilesNumber_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1024))
-_TmnxCallTraceUsedFilesNumber_Type.__name__=_E
-_TmnxCallTraceUsedFilesNumber_Object=MibScalar
-tmnxCallTraceUsedFilesNumber=_TmnxCallTraceUsedFilesNumber_Object((1,3,6,1,4,1,6527,3,1,2,102,1,3,1),_TmnxCallTraceUsedFilesNumber_Type())
-tmnxCallTraceUsedFilesNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceUsedFilesNumber.setStatus(_B)
-class _TmnxCallTraceAvailFilesNumber_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1024))
-_TmnxCallTraceAvailFilesNumber_Type.__name__=_E
-_TmnxCallTraceAvailFilesNumber_Object=MibScalar
-tmnxCallTraceAvailFilesNumber=_TmnxCallTraceAvailFilesNumber_Object((1,3,6,1,4,1,6527,3,1,2,102,1,3,2),_TmnxCallTraceAvailFilesNumber_Type())
-tmnxCallTraceAvailFilesNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceAvailFilesNumber.setStatus(_B)
-_TmnxCallTraceConfigObjs_ObjectIdentity=ObjectIdentity
-tmnxCallTraceConfigObjs=_TmnxCallTraceConfigObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,102,2))
-_TmnxCallTraceProfileTable_Object=MibTable
-tmnxCallTraceProfileTable=_TmnxCallTraceProfileTable_Object((1,3,6,1,4,1,6527,3,1,2,102,2,1))
-if mibBuilder.loadTexts:tmnxCallTraceProfileTable.setStatus(_B)
-_TmnxCallTraceProfileEntry_Object=MibTableRow
-tmnxCallTraceProfileEntry=_TmnxCallTraceProfileEntry_Object((1,3,6,1,4,1,6527,3,1,2,102,2,1,1))
-tmnxCallTraceProfileEntry.setIndexNames((1,_A,_A2))
-if mibBuilder.loadTexts:tmnxCallTraceProfileEntry.setStatus(_B)
-_TmnxCallTraceProfileName_Type=TNamedItem
-_TmnxCallTraceProfileName_Object=MibTableColumn
-tmnxCallTraceProfileName=_TmnxCallTraceProfileName_Object((1,3,6,1,4,1,6527,3,1,2,102,2,1,1,1),_TmnxCallTraceProfileName_Type())
-tmnxCallTraceProfileName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxCallTraceProfileName.setStatus(_B)
-_TmnxCallTraceProfileLstChgd_Type=TimeStamp
-_TmnxCallTraceProfileLstChgd_Object=MibTableColumn
-tmnxCallTraceProfileLstChgd=_TmnxCallTraceProfileLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,102,2,1,1,2),_TmnxCallTraceProfileLstChgd_Type())
-tmnxCallTraceProfileLstChgd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceProfileLstChgd.setStatus(_B)
-_TmnxCallTraceProfileRowStatus_Type=RowStatus
-_TmnxCallTraceProfileRowStatus_Object=MibTableColumn
-tmnxCallTraceProfileRowStatus=_TmnxCallTraceProfileRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,102,2,1,1,3),_TmnxCallTraceProfileRowStatus_Type())
-tmnxCallTraceProfileRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxCallTraceProfileRowStatus.setStatus(_B)
-class _TmnxCallTraceProfileDescription_Type(TItemDescription):defaultHexValue=''
-_TmnxCallTraceProfileDescription_Type.__name__=_y
-_TmnxCallTraceProfileDescription_Object=MibTableColumn
-tmnxCallTraceProfileDescription=_TmnxCallTraceProfileDescription_Object((1,3,6,1,4,1,6527,3,1,2,102,2,1,1,4),_TmnxCallTraceProfileDescription_Type())
-tmnxCallTraceProfileDescription.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxCallTraceProfileDescription.setStatus(_B)
-class _TmnxCallTraceProfileSizeLimit_Type(TmnxCallTraceSizeLimit):defaultValue=10
-_TmnxCallTraceProfileSizeLimit_Type.__name__=_A3
-_TmnxCallTraceProfileSizeLimit_Object=MibTableColumn
-tmnxCallTraceProfileSizeLimit=_TmnxCallTraceProfileSizeLimit_Object((1,3,6,1,4,1,6527,3,1,2,102,2,1,1,5),_TmnxCallTraceProfileSizeLimit_Type())
-tmnxCallTraceProfileSizeLimit.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxCallTraceProfileSizeLimit.setStatus(_B)
-if mibBuilder.loadTexts:tmnxCallTraceProfileSizeLimit.setUnits(_I)
-class _TmnxCallTraceProfileTimeLimit_Type(TmnxCallTraceTimeLimit):defaultValue=86400
-_TmnxCallTraceProfileTimeLimit_Type.__name__=_A4
-_TmnxCallTraceProfileTimeLimit_Object=MibTableColumn
-tmnxCallTraceProfileTimeLimit=_TmnxCallTraceProfileTimeLimit_Object((1,3,6,1,4,1,6527,3,1,2,102,2,1,1,6),_TmnxCallTraceProfileTimeLimit_Type())
-tmnxCallTraceProfileTimeLimit.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxCallTraceProfileTimeLimit.setStatus(_B)
-if mibBuilder.loadTexts:tmnxCallTraceProfileTimeLimit.setUnits('sec')
-class _TmnxCallTraceProfileDstAddrType_Type(InetAddressType):defaultValue=0
-_TmnxCallTraceProfileDstAddrType_Type.__name__=_x
-_TmnxCallTraceProfileDstAddrType_Object=MibTableColumn
-tmnxCallTraceProfileDstAddrType=_TmnxCallTraceProfileDstAddrType_Object((1,3,6,1,4,1,6527,3,1,2,102,2,1,1,7),_TmnxCallTraceProfileDstAddrType_Type())
-tmnxCallTraceProfileDstAddrType.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxCallTraceProfileDstAddrType.setStatus(_B)
-class _TmnxCallTraceProfileDstAddr_Type(InetAddress):defaultHexValue='';subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_TmnxCallTraceProfileDstAddr_Type.__name__=_K
-_TmnxCallTraceProfileDstAddr_Object=MibTableColumn
-tmnxCallTraceProfileDstAddr=_TmnxCallTraceProfileDstAddr_Object((1,3,6,1,4,1,6527,3,1,2,102,2,1,1,8),_TmnxCallTraceProfileDstAddr_Type())
-tmnxCallTraceProfileDstAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxCallTraceProfileDstAddr.setStatus(_B)
-class _TmnxCallTraceProfileDstPort_Type(InetPortNumber):defaultValue=29770;subtypeSpec=InetPortNumber.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_TmnxCallTraceProfileDstPort_Type.__name__=_W
-_TmnxCallTraceProfileDstPort_Object=MibTableColumn
-tmnxCallTraceProfileDstPort=_TmnxCallTraceProfileDstPort_Object((1,3,6,1,4,1,6527,3,1,2,102,2,1,1,9),_TmnxCallTraceProfileDstPort_Type())
-tmnxCallTraceProfileDstPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxCallTraceProfileDstPort.setStatus(_B)
-class _TmnxCallTraceProfileVRtrId_Type(TmnxVRtrID):defaultValue=1
-_TmnxCallTraceProfileVRtrId_Type.__name__=_z
-_TmnxCallTraceProfileVRtrId_Object=MibTableColumn
-tmnxCallTraceProfileVRtrId=_TmnxCallTraceProfileVRtrId_Object((1,3,6,1,4,1,6527,3,1,2,102,2,1,1,10),_TmnxCallTraceProfileVRtrId_Type())
-tmnxCallTraceProfileVRtrId.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxCallTraceProfileVRtrId.setStatus(_B)
-_TmnxCallTraceProfileApplications_Type=TmnxCallTraceApplications
-_TmnxCallTraceProfileApplications_Object=MibTableColumn
-tmnxCallTraceProfileApplications=_TmnxCallTraceProfileApplications_Object((1,3,6,1,4,1,6527,3,1,2,102,2,1,1,11),_TmnxCallTraceProfileApplications_Type())
-tmnxCallTraceProfileApplications.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxCallTraceProfileApplications.setStatus(_B)
-class _TmnxCallTraceProfileDbgOutput_Type(TruthValue):defaultValue=2
-_TmnxCallTraceProfileDbgOutput_Type.__name__=_M
-_TmnxCallTraceProfileDbgOutput_Object=MibTableColumn
-tmnxCallTraceProfileDbgOutput=_TmnxCallTraceProfileDbgOutput_Object((1,3,6,1,4,1,6527,3,1,2,102,2,1,1,12),_TmnxCallTraceProfileDbgOutput_Type())
-tmnxCallTraceProfileDbgOutput.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxCallTraceProfileDbgOutput.setStatus(_B)
-class _TmnxCallTraceProfileEvents_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('none',1),('publicOnly',2),('all',3)))
-_TmnxCallTraceProfileEvents_Type.__name__=_L
-_TmnxCallTraceProfileEvents_Object=MibTableColumn
-tmnxCallTraceProfileEvents=_TmnxCallTraceProfileEvents_Object((1,3,6,1,4,1,6527,3,1,2,102,2,1,1,13),_TmnxCallTraceProfileEvents_Type())
-tmnxCallTraceProfileEvents.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxCallTraceProfileEvents.setStatus(_B)
-_TmnxCallTraceLocationTable_Object=MibTable
-tmnxCallTraceLocationTable=_TmnxCallTraceLocationTable_Object((1,3,6,1,4,1,6527,3,1,2,102,2,2))
-if mibBuilder.loadTexts:tmnxCallTraceLocationTable.setStatus(_B)
-_TmnxCallTraceLocationEntry_Object=MibTableRow
-tmnxCallTraceLocationEntry=_TmnxCallTraceLocationEntry_Object((1,3,6,1,4,1,6527,3,1,2,102,2,2,1))
-tmnxCallTraceLocationEntry.setIndexNames((0,_A,_A5))
-if mibBuilder.loadTexts:tmnxCallTraceLocationEntry.setStatus(_B)
-class _TmnxCallTraceLocationCFlashId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2))
-_TmnxCallTraceLocationCFlashId_Type.__name__=_E
-_TmnxCallTraceLocationCFlashId_Object=MibTableColumn
-tmnxCallTraceLocationCFlashId=_TmnxCallTraceLocationCFlashId_Object((1,3,6,1,4,1,6527,3,1,2,102,2,2,1,1),_TmnxCallTraceLocationCFlashId_Type())
-tmnxCallTraceLocationCFlashId.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxCallTraceLocationCFlashId.setStatus(_B)
-_TmnxCallTraceLocationLstChgd_Type=TimeStamp
-_TmnxCallTraceLocationLstChgd_Object=MibTableColumn
-tmnxCallTraceLocationLstChgd=_TmnxCallTraceLocationLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,102,2,2,1,2),_TmnxCallTraceLocationLstChgd_Type())
-tmnxCallTraceLocationLstChgd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceLocationLstChgd.setStatus(_B)
-class _TmnxCallTraceLocationSizeLimit_Type(Unsigned32):defaultValue=1000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65536))
-_TmnxCallTraceLocationSizeLimit_Type.__name__=_E
-_TmnxCallTraceLocationSizeLimit_Object=MibTableColumn
-tmnxCallTraceLocationSizeLimit=_TmnxCallTraceLocationSizeLimit_Object((1,3,6,1,4,1,6527,3,1,2,102,2,2,1,3),_TmnxCallTraceLocationSizeLimit_Type())
-tmnxCallTraceLocationSizeLimit.setMaxAccess(_H)
-if mibBuilder.loadTexts:tmnxCallTraceLocationSizeLimit.setStatus(_B)
-if mibBuilder.loadTexts:tmnxCallTraceLocationSizeLimit.setUnits(_I)
-class _TmnxCallTraceLocationDisable_Type(TruthValue):defaultValue=2
-_TmnxCallTraceLocationDisable_Type.__name__=_M
-_TmnxCallTraceLocationDisable_Object=MibTableColumn
-tmnxCallTraceLocationDisable=_TmnxCallTraceLocationDisable_Object((1,3,6,1,4,1,6527,3,1,2,102,2,2,1,4),_TmnxCallTraceLocationDisable_Type())
-tmnxCallTraceLocationDisable.setMaxAccess(_H)
-if mibBuilder.loadTexts:tmnxCallTraceLocationDisable.setStatus(_B)
-_TmnxCallTraceLocationStatsTable_Object=MibTable
-tmnxCallTraceLocationStatsTable=_TmnxCallTraceLocationStatsTable_Object((1,3,6,1,4,1,6527,3,1,2,102,2,3))
-if mibBuilder.loadTexts:tmnxCallTraceLocationStatsTable.setStatus(_B)
-_TmnxCallTraceLocationStatsEntry_Object=MibTableRow
-tmnxCallTraceLocationStatsEntry=_TmnxCallTraceLocationStatsEntry_Object((1,3,6,1,4,1,6527,3,1,2,102,2,3,1))
-if mibBuilder.loadTexts:tmnxCallTraceLocationStatsEntry.setStatus(_B)
-_TmnxCallTraceLocationUsedSpace_Type=Unsigned32
-_TmnxCallTraceLocationUsedSpace_Object=MibTableColumn
-tmnxCallTraceLocationUsedSpace=_TmnxCallTraceLocationUsedSpace_Object((1,3,6,1,4,1,6527,3,1,2,102,2,3,1,1),_TmnxCallTraceLocationUsedSpace_Type())
-tmnxCallTraceLocationUsedSpace.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceLocationUsedSpace.setStatus(_B)
-if mibBuilder.loadTexts:tmnxCallTraceLocationUsedSpace.setUnits(_I)
-_TmnxCallTraceLocationAvailSpace_Type=Unsigned32
-_TmnxCallTraceLocationAvailSpace_Object=MibTableColumn
-tmnxCallTraceLocationAvailSpace=_TmnxCallTraceLocationAvailSpace_Object((1,3,6,1,4,1,6527,3,1,2,102,2,3,1,2),_TmnxCallTraceLocationAvailSpace_Type())
-tmnxCallTraceLocationAvailSpace.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceLocationAvailSpace.setStatus(_B)
-if mibBuilder.loadTexts:tmnxCallTraceLocationAvailSpace.setUnits(_I)
-_TmnxCallTraceStatsObjs_ObjectIdentity=ObjectIdentity
-tmnxCallTraceStatsObjs=_TmnxCallTraceStatsObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,102,3))
-_TmnxCallTraceJobTable_Object=MibTable
-tmnxCallTraceJobTable=_TmnxCallTraceJobTable_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1))
-if mibBuilder.loadTexts:tmnxCallTraceJobTable.setStatus(_B)
-_TmnxCallTraceJobEntry_Object=MibTableRow
-tmnxCallTraceJobEntry=_TmnxCallTraceJobEntry_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1))
-tmnxCallTraceJobEntry.setIndexNames((0,_A,_A6))
-if mibBuilder.loadTexts:tmnxCallTraceJobEntry.setStatus(_B)
-class _TmnxCallTraceJobId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,254))
-_TmnxCallTraceJobId_Type.__name__=_E
-_TmnxCallTraceJobId_Object=MibTableColumn
-tmnxCallTraceJobId=_TmnxCallTraceJobId_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,1),_TmnxCallTraceJobId_Type())
-tmnxCallTraceJobId.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxCallTraceJobId.setStatus(_B)
-_TmnxCallTraceJobType_Type=TmnxCallTraceHostType
-_TmnxCallTraceJobType_Object=MibTableColumn
-tmnxCallTraceJobType=_TmnxCallTraceJobType_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,2),_TmnxCallTraceJobType_Type())
-tmnxCallTraceJobType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobType.setStatus(_B)
-_TmnxCallTraceJobWlanGwUeIeeeAddr_Type=MacAddress
-_TmnxCallTraceJobWlanGwUeIeeeAddr_Object=MibTableColumn
-tmnxCallTraceJobWlanGwUeIeeeAddr=_TmnxCallTraceJobWlanGwUeIeeeAddr_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,3),_TmnxCallTraceJobWlanGwUeIeeeAddr_Type())
-tmnxCallTraceJobWlanGwUeIeeeAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobWlanGwUeIeeeAddr.setStatus(_B)
-_TmnxCallTraceJobStatus_Type=TmnxCallTraceJobStatus
-_TmnxCallTraceJobStatus_Object=MibTableColumn
-tmnxCallTraceJobStatus=_TmnxCallTraceJobStatus_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,4),_TmnxCallTraceJobStatus_Type())
-tmnxCallTraceJobStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobStatus.setStatus(_B)
-_TmnxCallTraceJobProfileName_Type=TNamedItem
-_TmnxCallTraceJobProfileName_Object=MibTableColumn
-tmnxCallTraceJobProfileName=_TmnxCallTraceJobProfileName_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,5),_TmnxCallTraceJobProfileName_Type())
-tmnxCallTraceJobProfileName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobProfileName.setStatus(_B)
-_TmnxCallTraceJobSizeLimit_Type=TmnxCallTraceSizeLimit
-_TmnxCallTraceJobSizeLimit_Object=MibTableColumn
-tmnxCallTraceJobSizeLimit=_TmnxCallTraceJobSizeLimit_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,6),_TmnxCallTraceJobSizeLimit_Type())
-tmnxCallTraceJobSizeLimit.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobSizeLimit.setStatus(_B)
-if mibBuilder.loadTexts:tmnxCallTraceJobSizeLimit.setUnits(_I)
-_TmnxCallTraceJobTimeLimit_Type=TmnxCallTraceTimeLimit
-_TmnxCallTraceJobTimeLimit_Object=MibTableColumn
-tmnxCallTraceJobTimeLimit=_TmnxCallTraceJobTimeLimit_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,7),_TmnxCallTraceJobTimeLimit_Type())
-tmnxCallTraceJobTimeLimit.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobTimeLimit.setStatus(_B)
-if mibBuilder.loadTexts:tmnxCallTraceJobTimeLimit.setUnits('sec')
-class _TmnxCallTraceJobCaptureFormat_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('pcap',1))
-_TmnxCallTraceJobCaptureFormat_Type.__name__=_L
-_TmnxCallTraceJobCaptureFormat_Object=MibTableColumn
-tmnxCallTraceJobCaptureFormat=_TmnxCallTraceJobCaptureFormat_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,8),_TmnxCallTraceJobCaptureFormat_Type())
-tmnxCallTraceJobCaptureFormat.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobCaptureFormat.setStatus(_N)
-_TmnxCallTraceJobDstAddrType_Type=InetAddressType
-_TmnxCallTraceJobDstAddrType_Object=MibTableColumn
-tmnxCallTraceJobDstAddrType=_TmnxCallTraceJobDstAddrType_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,9),_TmnxCallTraceJobDstAddrType_Type())
-tmnxCallTraceJobDstAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobDstAddrType.setStatus(_B)
-class _TmnxCallTraceJobDstAddr_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_TmnxCallTraceJobDstAddr_Type.__name__=_K
-_TmnxCallTraceJobDstAddr_Object=MibTableColumn
-tmnxCallTraceJobDstAddr=_TmnxCallTraceJobDstAddr_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,10),_TmnxCallTraceJobDstAddr_Type())
-tmnxCallTraceJobDstAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobDstAddr.setStatus(_B)
-_TmnxCallTraceJobDstResAddrType_Type=InetAddressType
-_TmnxCallTraceJobDstResAddrType_Object=MibTableColumn
-tmnxCallTraceJobDstResAddrType=_TmnxCallTraceJobDstResAddrType_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,11),_TmnxCallTraceJobDstResAddrType_Type())
-tmnxCallTraceJobDstResAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobDstResAddrType.setStatus(_B)
-class _TmnxCallTraceJobDstResAddr_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxCallTraceJobDstResAddr_Type.__name__=_K
-_TmnxCallTraceJobDstResAddr_Object=MibTableColumn
-tmnxCallTraceJobDstResAddr=_TmnxCallTraceJobDstResAddr_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,12),_TmnxCallTraceJobDstResAddr_Type())
-tmnxCallTraceJobDstResAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobDstResAddr.setStatus(_B)
-class _TmnxCallTraceJobDstPort_Type(InetPortNumber):subtypeSpec=InetPortNumber.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_TmnxCallTraceJobDstPort_Type.__name__=_W
-_TmnxCallTraceJobDstPort_Object=MibTableColumn
-tmnxCallTraceJobDstPort=_TmnxCallTraceJobDstPort_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,13),_TmnxCallTraceJobDstPort_Type())
-tmnxCallTraceJobDstPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobDstPort.setStatus(_B)
-_TmnxCallTraceJobVRtrId_Type=TmnxVRtrID
-_TmnxCallTraceJobVRtrId_Object=MibTableColumn
-tmnxCallTraceJobVRtrId=_TmnxCallTraceJobVRtrId_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,14),_TmnxCallTraceJobVRtrId_Type())
-tmnxCallTraceJobVRtrId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobVRtrId.setStatus(_B)
-_TmnxCallTraceJobStartTime_Type=DateAndTime
-_TmnxCallTraceJobStartTime_Object=MibTableColumn
-tmnxCallTraceJobStartTime=_TmnxCallTraceJobStartTime_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,15),_TmnxCallTraceJobStartTime_Type())
-tmnxCallTraceJobStartTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobStartTime.setStatus(_B)
-_TmnxCallTraceJobCaptMsgsCnt_Type=Unsigned32
-_TmnxCallTraceJobCaptMsgsCnt_Object=MibTableColumn
-tmnxCallTraceJobCaptMsgsCnt=_TmnxCallTraceJobCaptMsgsCnt_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,16),_TmnxCallTraceJobCaptMsgsCnt_Type())
-tmnxCallTraceJobCaptMsgsCnt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobCaptMsgsCnt.setStatus(_B)
-_TmnxCallTraceJobCaptMsgsSize_Type=Unsigned32
-_TmnxCallTraceJobCaptMsgsSize_Object=MibTableColumn
-tmnxCallTraceJobCaptMsgsSize=_TmnxCallTraceJobCaptMsgsSize_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,17),_TmnxCallTraceJobCaptMsgsSize_Type())
-tmnxCallTraceJobCaptMsgsSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobCaptMsgsSize.setStatus(_B)
-_TmnxCallTraceJobSapPortId_Type=TmnxPortID
-_TmnxCallTraceJobSapPortId_Object=MibTableColumn
-tmnxCallTraceJobSapPortId=_TmnxCallTraceJobSapPortId_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,18),_TmnxCallTraceJobSapPortId_Type())
-tmnxCallTraceJobSapPortId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobSapPortId.setStatus(_B)
-_TmnxCallTraceJobSapEncapVal_Type=TmnxEncapVal
-_TmnxCallTraceJobSapEncapVal_Object=MibTableColumn
-tmnxCallTraceJobSapEncapVal=_TmnxCallTraceJobSapEncapVal_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,19),_TmnxCallTraceJobSapEncapVal_Type())
-tmnxCallTraceJobSapEncapVal.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobSapEncapVal.setStatus(_B)
-_TmnxCallTraceJobIpoeIeeeAddr_Type=MacAddress
-_TmnxCallTraceJobIpoeIeeeAddr_Object=MibTableColumn
-tmnxCallTraceJobIpoeIeeeAddr=_TmnxCallTraceJobIpoeIeeeAddr_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,20),_TmnxCallTraceJobIpoeIeeeAddr_Type())
-tmnxCallTraceJobIpoeIeeeAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobIpoeIeeeAddr.setStatus(_B)
-class _TmnxCallTraceJobCircuitId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_TmnxCallTraceJobCircuitId_Type.__name__=_J
-_TmnxCallTraceJobCircuitId_Object=MibTableColumn
-tmnxCallTraceJobCircuitId=_TmnxCallTraceJobCircuitId_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,21),_TmnxCallTraceJobCircuitId_Type())
-tmnxCallTraceJobCircuitId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobCircuitId.setStatus(_B)
-class _TmnxCallTraceJobRemoteId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_TmnxCallTraceJobRemoteId_Type.__name__=_J
-_TmnxCallTraceJobRemoteId_Object=MibTableColumn
-tmnxCallTraceJobRemoteId=_TmnxCallTraceJobRemoteId_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,22),_TmnxCallTraceJobRemoteId_Type())
-tmnxCallTraceJobRemoteId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobRemoteId.setStatus(_B)
-_TmnxCallTraceJobTraceName_Type=TNamedItemOrEmpty
-_TmnxCallTraceJobTraceName_Object=MibTableColumn
-tmnxCallTraceJobTraceName=_TmnxCallTraceJobTraceName_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,23),_TmnxCallTraceJobTraceName_Type())
-tmnxCallTraceJobTraceName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobTraceName.setStatus(_B)
-class _TmnxCallTraceJobDstType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('cflash',1),('live-output',2),('debug-output',3)))
-_TmnxCallTraceJobDstType_Type.__name__=_L
-_TmnxCallTraceJobDstType_Object=MibTableColumn
-tmnxCallTraceJobDstType=_TmnxCallTraceJobDstType_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,24),_TmnxCallTraceJobDstType_Type())
-tmnxCallTraceJobDstType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobDstType.setStatus(_B)
-class _TmnxCallTraceJobUserName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,253))
-_TmnxCallTraceJobUserName_Type.__name__=_J
-_TmnxCallTraceJobUserName_Object=MibTableColumn
-tmnxCallTraceJobUserName=_TmnxCallTraceJobUserName_Object((1,3,6,1,4,1,6527,3,1,2,102,3,1,1,25),_TmnxCallTraceJobUserName_Type())
-tmnxCallTraceJobUserName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceJobUserName.setStatus(_B)
-_TmnxCallTraceFileTable_Object=MibTable
-tmnxCallTraceFileTable=_TmnxCallTraceFileTable_Object((1,3,6,1,4,1,6527,3,1,2,102,3,2))
-if mibBuilder.loadTexts:tmnxCallTraceFileTable.setStatus(_B)
-_TmnxCallTraceFileEntry_Object=MibTableRow
-tmnxCallTraceFileEntry=_TmnxCallTraceFileEntry_Object((1,3,6,1,4,1,6527,3,1,2,102,3,2,1))
-tmnxCallTraceFileEntry.setIndexNames((0,_A,_A7),(0,_A,_A8),(0,_A,_A9),(0,_A,_AA))
-if mibBuilder.loadTexts:tmnxCallTraceFileEntry.setStatus(_B)
-_TmnxCallTraceFileJobStatus_Type=TmnxCallTraceJobStatus
-_TmnxCallTraceFileJobStatus_Object=MibTableColumn
-tmnxCallTraceFileJobStatus=_TmnxCallTraceFileJobStatus_Object((1,3,6,1,4,1,6527,3,1,2,102,3,2,1,1),_TmnxCallTraceFileJobStatus_Type())
-tmnxCallTraceFileJobStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxCallTraceFileJobStatus.setStatus(_B)
-_TmnxCallTraceFileCpmSlotNum_Type=TmnxSlotNum
-_TmnxCallTraceFileCpmSlotNum_Object=MibTableColumn
-tmnxCallTraceFileCpmSlotNum=_TmnxCallTraceFileCpmSlotNum_Object((1,3,6,1,4,1,6527,3,1,2,102,3,2,1,2),_TmnxCallTraceFileCpmSlotNum_Type())
-tmnxCallTraceFileCpmSlotNum.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxCallTraceFileCpmSlotNum.setStatus(_B)
-_TmnxCallTraceFileCFlashId_Type=TmnxCallTraceCFlashId
-_TmnxCallTraceFileCFlashId_Object=MibTableColumn
-tmnxCallTraceFileCFlashId=_TmnxCallTraceFileCFlashId_Object((1,3,6,1,4,1,6527,3,1,2,102,3,2,1,3),_TmnxCallTraceFileCFlashId_Type())
-tmnxCallTraceFileCFlashId.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxCallTraceFileCFlashId.setStatus(_B)
-class _TmnxCallTraceFileName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(38,83))
-_TmnxCallTraceFileName_Type.__name__=_G
-_TmnxCallTraceFileName_Object=MibTableColumn
-tmnxCallTraceFileName=_TmnxCallTraceFileName_Object((1,3,6,1,4,1,6527,3,1,2,102,3,2,1,4),_TmnxCallTraceFileName_Type())
-tmnxCallTraceFileName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxCallTraceFileName.setStatus(_B)
-class _TmnxCallTraceFileDir_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(18,19))
-_TmnxCallTraceFileDir_Type.__name__=_G
-_TmnxCallTraceFileDir_Object=MibTableColumn
-tmnxCallTraceFileDir=_TmnxCallTraceFileDir_Object((1,3,6,1,4,1,6527,3,1,2,102,3,2,1,5),_TmnxCallTraceFileDir_Type())
-tmnxCallTraceFileDir.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceFileDir.setStatus(_B)
-_TmnxCallTraceFileSize_Type=Unsigned32
-_TmnxCallTraceFileSize_Object=MibTableColumn
-tmnxCallTraceFileSize=_TmnxCallTraceFileSize_Object((1,3,6,1,4,1,6527,3,1,2,102,3,2,1,6),_TmnxCallTraceFileSize_Type())
-tmnxCallTraceFileSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceFileSize.setStatus(_B)
-if mibBuilder.loadTexts:tmnxCallTraceFileSize.setUnits('bytes')
-_TmnxCallTraceFileLastDataModif_Type=DateAndTime
-_TmnxCallTraceFileLastDataModif_Object=MibTableColumn
-tmnxCallTraceFileLastDataModif=_TmnxCallTraceFileLastDataModif_Object((1,3,6,1,4,1,6527,3,1,2,102,3,2,1,7),_TmnxCallTraceFileLastDataModif_Type())
-tmnxCallTraceFileLastDataModif.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceFileLastDataModif.setStatus(_B)
-_TmnxCallTraceTraceTable_Object=MibTable
-tmnxCallTraceTraceTable=_TmnxCallTraceTraceTable_Object((1,3,6,1,4,1,6527,3,1,2,102,3,3))
-if mibBuilder.loadTexts:tmnxCallTraceTraceTable.setStatus(_B)
-_TmnxCallTraceTraceEntry_Object=MibTableRow
-tmnxCallTraceTraceEntry=_TmnxCallTraceTraceEntry_Object((1,3,6,1,4,1,6527,3,1,2,102,3,3,1))
-tmnxCallTraceTraceEntry.setIndexNames((0,_A,_AB))
-if mibBuilder.loadTexts:tmnxCallTraceTraceEntry.setStatus(_B)
-class _TmnxCallTraceTraceId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,254))
-_TmnxCallTraceTraceId_Type.__name__=_E
-_TmnxCallTraceTraceId_Object=MibTableColumn
-tmnxCallTraceTraceId=_TmnxCallTraceTraceId_Object((1,3,6,1,4,1,6527,3,1,2,102,3,3,1,1),_TmnxCallTraceTraceId_Type())
-tmnxCallTraceTraceId.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxCallTraceTraceId.setStatus(_B)
-_TmnxCallTraceTraceType_Type=TmnxCallTraceHostType
-_TmnxCallTraceTraceType_Object=MibTableColumn
-tmnxCallTraceTraceType=_TmnxCallTraceTraceType_Object((1,3,6,1,4,1,6527,3,1,2,102,3,3,1,2),_TmnxCallTraceTraceType_Type())
-tmnxCallTraceTraceType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceTraceType.setStatus(_B)
-class _TmnxCallTraceTraceSapId_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,44))
-_TmnxCallTraceTraceSapId_Type.__name__=_G
-_TmnxCallTraceTraceSapId_Object=MibTableColumn
-tmnxCallTraceTraceSapId=_TmnxCallTraceTraceSapId_Object((1,3,6,1,4,1,6527,3,1,2,102,3,3,1,3),_TmnxCallTraceTraceSapId_Type())
-tmnxCallTraceTraceSapId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceTraceSapId.setStatus(_B)
-class _TmnxCallTraceTraceIeeeAddr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,17))
-_TmnxCallTraceTraceIeeeAddr_Type.__name__=_G
-_TmnxCallTraceTraceIeeeAddr_Object=MibTableColumn
-tmnxCallTraceTraceIeeeAddr=_TmnxCallTraceTraceIeeeAddr_Object((1,3,6,1,4,1,6527,3,1,2,102,3,3,1,4),_TmnxCallTraceTraceIeeeAddr_Type())
-tmnxCallTraceTraceIeeeAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceTraceIeeeAddr.setStatus(_B)
-class _TmnxCallTraceTraceCircuitId_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_TmnxCallTraceTraceCircuitId_Type.__name__=_G
-_TmnxCallTraceTraceCircuitId_Object=MibTableColumn
-tmnxCallTraceTraceCircuitId=_TmnxCallTraceTraceCircuitId_Object((1,3,6,1,4,1,6527,3,1,2,102,3,3,1,5),_TmnxCallTraceTraceCircuitId_Type())
-tmnxCallTraceTraceCircuitId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceTraceCircuitId.setStatus(_B)
-class _TmnxCallTraceTraceRemoteId_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_TmnxCallTraceTraceRemoteId_Type.__name__=_G
-_TmnxCallTraceTraceRemoteId_Object=MibTableColumn
-tmnxCallTraceTraceRemoteId=_TmnxCallTraceTraceRemoteId_Object((1,3,6,1,4,1,6527,3,1,2,102,3,3,1,6),_TmnxCallTraceTraceRemoteId_Type())
-tmnxCallTraceTraceRemoteId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceTraceRemoteId.setStatus(_B)
-_TmnxCallTraceTraceName_Type=TNamedItem
-_TmnxCallTraceTraceName_Object=MibTableColumn
-tmnxCallTraceTraceName=_TmnxCallTraceTraceName_Object((1,3,6,1,4,1,6527,3,1,2,102,3,3,1,7),_TmnxCallTraceTraceName_Type())
-tmnxCallTraceTraceName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceTraceName.setStatus(_B)
-class _TmnxCallTraceTraceMaxJobs_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,50))
-_TmnxCallTraceTraceMaxJobs_Type.__name__=_E
-_TmnxCallTraceTraceMaxJobs_Object=MibTableColumn
-tmnxCallTraceTraceMaxJobs=_TmnxCallTraceTraceMaxJobs_Object((1,3,6,1,4,1,6527,3,1,2,102,3,3,1,8),_TmnxCallTraceTraceMaxJobs_Type())
-tmnxCallTraceTraceMaxJobs.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxCallTraceTraceMaxJobs.setStatus(_B)
-_TmnxCallTraceNotificationObjs_ObjectIdentity=ObjectIdentity
-tmnxCallTraceNotificationObjs=_TmnxCallTraceNotificationObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,102,20))
-_TmnxCallTraceNotifyPrefix_ObjectIdentity=ObjectIdentity
-tmnxCallTraceNotifyPrefix=_TmnxCallTraceNotifyPrefix_ObjectIdentity((1,3,6,1,4,1,6527,3,1,3,102))
-_TmnxCallTraceNotifications_ObjectIdentity=ObjectIdentity
-tmnxCallTraceNotifications=_TmnxCallTraceNotifications_ObjectIdentity((1,3,6,1,4,1,6527,3,1,3,102,0))
-tmnxCallTraceLocationEntry.registerAugmentions((_A,_AC))
+#
+# PySNMP MIB module TIMETRA-CALLTRACE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TIMETRA-CALLTRACE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:18:52 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressType", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TimeStamp, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeStamp", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+TmnxSlotNum, = mibBuilder.importSymbols("TIMETRA-CHASSIS-MIB", "TmnxSlotNum")
+tmnxSRConfs, tmnxSRObjs, timetraSRMIBModules, tmnxSRNotifyPrefix = mibBuilder.importSymbols("TIMETRA-GLOBAL-MIB", "tmnxSRConfs", "tmnxSRObjs", "timetraSRMIBModules", "tmnxSRNotifyPrefix")
+TNamedItem, TmnxVRtrID, TNamedItemOrEmpty, TmnxEncapVal, TItemDescription, TmnxPortID = mibBuilder.importSymbols("TIMETRA-TC-MIB", "TNamedItem", "TmnxVRtrID", "TNamedItemOrEmpty", "TmnxEncapVal", "TItemDescription", "TmnxPortID")
+timetraCallTraceMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 102))
+timetraCallTraceMIBModule.setRevisions(('2016-01-01 00:00', '2015-02-01 00:00', '2015-02-01 00:00',))
+if mibBuilder.loadTexts: timetraCallTraceMIBModule.setLastUpdated('201601010000Z')
+if mibBuilder.loadTexts: timetraCallTraceMIBModule.setOrganization('Nokia')
+class TmnxCallTraceSizeLimit(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 1000)
+
+class TmnxCallTraceTimeLimit(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 604800)
+
+class TmnxCallTraceJobStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
+    namedValues = NamedValues(("running", 0), ("finished", 1))
+
+class TmnxCallTraceCFlashId(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("cf1", 1), ("cf2", 2))
+
+class TmnxCallTraceApplications(TextualConvention, Bits):
+    status = 'current'
+    namedValues = NamedValues(("connectivityManagement", 0), ("reserved1", 1), ("reserved2", 2), ("reserved3", 3), ("radiusAuth", 4), ("radiusAcct", 5), ("python", 6), ("ludb", 7), ("msap", 8), ("reserved9", 9), ("reserved10", 10), ("pppEvent", 11))
+
+class TmnxCallTraceHostType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("ue", 1), ("ipoe", 2), ("pppoe", 3))
+
+tmnxCallTraceObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102))
+tmnxCallTraceScalarObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 1))
+tmnxCallTraceLastChangedObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 1, 1))
+tmnxCallTraceProfileTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 1, 1, 1), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceProfileTblLstChgd.setStatus('current')
+tmnxCallTraceLocationTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 1, 1, 2), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceLocationTblLstChgd.setStatus('current')
+tmnxCallTraceScalarConfigObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 1, 2))
+tmnxCallTraceMaxFilesNumber = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 1, 2, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 1024)).clone(200)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxCallTraceMaxFilesNumber.setStatus('current')
+tmnxCallTracePrimaryCFlash = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 1, 2, 2), TmnxCallTraceCFlashId().clone('cf1')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxCallTracePrimaryCFlash.setStatus('current')
+tmnxCallTraceBuffering = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 1, 2, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxCallTraceBuffering.setStatus('current')
+tmnxCallTraceScalarStatsObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 1, 3))
+tmnxCallTraceUsedFilesNumber = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 1, 3, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 1024))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceUsedFilesNumber.setStatus('current')
+tmnxCallTraceAvailFilesNumber = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 1, 3, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 1024))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceAvailFilesNumber.setStatus('current')
+tmnxCallTraceConfigObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2))
+tmnxCallTraceProfileTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 1), )
+if mibBuilder.loadTexts: tmnxCallTraceProfileTable.setStatus('current')
+tmnxCallTraceProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 1, 1), ).setIndexNames((1, "TIMETRA-CALLTRACE-MIB", "tmnxCallTraceProfileName"))
+if mibBuilder.loadTexts: tmnxCallTraceProfileEntry.setStatus('current')
+tmnxCallTraceProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 1, 1, 1), TNamedItem())
+if mibBuilder.loadTexts: tmnxCallTraceProfileName.setStatus('current')
+tmnxCallTraceProfileLstChgd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 1, 1, 2), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceProfileLstChgd.setStatus('current')
+tmnxCallTraceProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxCallTraceProfileRowStatus.setStatus('current')
+tmnxCallTraceProfileDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 1, 1, 4), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxCallTraceProfileDescription.setStatus('current')
+tmnxCallTraceProfileSizeLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 1, 1, 5), TmnxCallTraceSizeLimit().clone(10)).setUnits('megabytes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxCallTraceProfileSizeLimit.setStatus('current')
+tmnxCallTraceProfileTimeLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 1, 1, 6), TmnxCallTraceTimeLimit().clone(86400)).setUnits('sec').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxCallTraceProfileTimeLimit.setStatus('current')
+tmnxCallTraceProfileDstAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 1, 1, 7), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxCallTraceProfileDstAddrType.setStatus('current')
+tmnxCallTraceProfileDstAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 1, 1, 8), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0, 255)).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxCallTraceProfileDstAddr.setStatus('current')
+tmnxCallTraceProfileDstPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 1, 1, 9), InetPortNumber().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(29770)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxCallTraceProfileDstPort.setStatus('current')
+tmnxCallTraceProfileVRtrId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 1, 1, 10), TmnxVRtrID().clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxCallTraceProfileVRtrId.setStatus('current')
+tmnxCallTraceProfileApplications = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 1, 1, 11), TmnxCallTraceApplications()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxCallTraceProfileApplications.setStatus('current')
+tmnxCallTraceProfileDbgOutput = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 1, 1, 12), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxCallTraceProfileDbgOutput.setStatus('current')
+tmnxCallTraceProfileEvents = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("publicOnly", 2), ("all", 3))).clone('none')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxCallTraceProfileEvents.setStatus('current')
+tmnxCallTraceLocationTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 2), )
+if mibBuilder.loadTexts: tmnxCallTraceLocationTable.setStatus('current')
+tmnxCallTraceLocationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 2, 1), ).setIndexNames((0, "TIMETRA-CALLTRACE-MIB", "tmnxCallTraceLocationCFlashId"))
+if mibBuilder.loadTexts: tmnxCallTraceLocationEntry.setStatus('current')
+tmnxCallTraceLocationCFlashId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2)))
+if mibBuilder.loadTexts: tmnxCallTraceLocationCFlashId.setStatus('current')
+tmnxCallTraceLocationLstChgd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 2, 1, 2), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceLocationLstChgd.setStatus('current')
+tmnxCallTraceLocationSizeLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 2, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65536)).clone(1000)).setUnits('megabytes').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxCallTraceLocationSizeLimit.setStatus('current')
+tmnxCallTraceLocationDisable = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 2, 1, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxCallTraceLocationDisable.setStatus('current')
+tmnxCallTraceLocationStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 3), )
+if mibBuilder.loadTexts: tmnxCallTraceLocationStatsTable.setStatus('current')
+tmnxCallTraceLocationStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 3, 1), )
+tmnxCallTraceLocationEntry.registerAugmentions(("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceLocationStatsEntry"))
 tmnxCallTraceLocationStatsEntry.setIndexNames(*tmnxCallTraceLocationEntry.getIndexNames())
-tmnxCallTraceProfileGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,102,2,1,1))
-tmnxCallTraceProfileGroup.setObjects(*((_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP)))
-if mibBuilder.loadTexts:tmnxCallTraceProfileGroup.setStatus(_B)
-tmnxCallTraceLocStoreGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,102,2,1,2))
-tmnxCallTraceLocStoreGroup.setObjects(*((_A,_AQ),(_A,_AR),(_A,_X),(_A,_AS),(_A,_AT),(_A,_AU)))
-if mibBuilder.loadTexts:tmnxCallTraceLocStoreGroup.setStatus(_B)
-tmnxCallTraceScalarCfgGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,102,2,1,3))
-tmnxCallTraceScalarCfgGroup.setObjects(*((_A,_Y),(_A,_AV)))
-if mibBuilder.loadTexts:tmnxCallTraceScalarCfgGroup.setStatus(_B)
-tmnxCallTraceJobGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,102,2,1,4))
-tmnxCallTraceJobGroup.setObjects(*((_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o)))
-if mibBuilder.loadTexts:tmnxCallTraceJobGroup.setStatus(_N)
-tmnxCallTraceFileGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,102,2,1,6))
-tmnxCallTraceFileGroup.setObjects(*((_A,_AW),(_A,_AX),(_A,_AY)))
-if mibBuilder.loadTexts:tmnxCallTraceFileGroup.setStatus(_B)
-tmnxCallTraceScalarStatsGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,102,2,1,7))
-tmnxCallTraceScalarStatsGroup.setObjects(*((_A,_AZ),(_A,_Aa)))
-if mibBuilder.loadTexts:tmnxCallTraceScalarStatsGroup.setStatus(_B)
-tmnxCallTraceJob15v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,102,2,1,8))
-tmnxCallTraceJob15v0Group.setObjects(*((_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_Ab)))
-if mibBuilder.loadTexts:tmnxCallTraceJob15v0Group.setStatus(_B)
-tmnxCallTraceJobObsoletedGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,102,2,1,9))
-tmnxCallTraceJobObsoletedGroup.setObjects((_A,_f))
-if mibBuilder.loadTexts:tmnxCallTraceJobObsoletedGroup.setStatus(_B)
-tmnxCallTraceScalarCfg20v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,102,2,1,10))
-tmnxCallTraceScalarCfg20v0Group.setObjects((_A,_Ac))
-if mibBuilder.loadTexts:tmnxCallTraceScalarCfg20v0Group.setStatus(_B)
-tmnxCallTraceJob20v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,102,2,1,11))
-tmnxCallTraceJob20v0Group.setObjects((_A,_Ad))
-if mibBuilder.loadTexts:tmnxCallTraceJob20v0Group.setStatus(_B)
-tmnxCallTraceIpoeJobGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,102,2,2,1))
-tmnxCallTraceIpoeJobGroup.setObjects(*((_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v)))
-if mibBuilder.loadTexts:tmnxCallTraceIpoeJobGroup.setStatus(_B)
-tmnxCallTraceIpoeTraceGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,102,2,2,2))
-tmnxCallTraceIpoeTraceGroup.setObjects(*((_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v)))
-if mibBuilder.loadTexts:tmnxCallTraceIpoeTraceGroup.setStatus(_B)
-tmnxCallTraceMaxFilesNumReached=NotificationType((1,3,6,1,4,1,6527,3,1,3,102,0,1))
-tmnxCallTraceMaxFilesNumReached.setObjects((_A,_Y))
-if mibBuilder.loadTexts:tmnxCallTraceMaxFilesNumReached.setStatus(_B)
-tmnxCallTraceLocSizeLimitReached=NotificationType((1,3,6,1,4,1,6527,3,1,3,102,0,2))
-tmnxCallTraceLocSizeLimitReached.setObjects((_A,_X))
-if mibBuilder.loadTexts:tmnxCallTraceLocSizeLimitReached.setStatus(_B)
-tmnxCallTraceNotifyGroup=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,102,2,1,5))
-tmnxCallTraceNotifyGroup.setObjects(*((_A,_Ak),(_A,_Al)))
-if mibBuilder.loadTexts:tmnxCallTraceNotifyGroup.setStatus(_B)
-tmnxCallTraceCompliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,102,1,1))
-tmnxCallTraceCompliance.setObjects(*((_A,_O),(_A,_P),(_A,_Q),(_A,_Am),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V)))
-if mibBuilder.loadTexts:tmnxCallTraceCompliance.setStatus(_N)
-tmnxCallTrace15v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,102,1,2))
-tmnxCallTrace15v0Compliance.setObjects(*((_A,_O),(_A,_P),(_A,_Q),(_A,_w),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V)))
-if mibBuilder.loadTexts:tmnxCallTrace15v0Compliance.setStatus(_N)
-tmnxCallTrace20v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,102,1,3))
-tmnxCallTrace20v0Compliance.setObjects(*((_A,_O),(_A,_P),(_A,_Q),(_A,_w),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_An),(_A,_Ao)))
-if mibBuilder.loadTexts:tmnxCallTrace20v0Compliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{_A3:TmnxCallTraceSizeLimit,_A4:TmnxCallTraceTimeLimit,'TmnxCallTraceJobStatus':TmnxCallTraceJobStatus,_A1:TmnxCallTraceCFlashId,'TmnxCallTraceApplications':TmnxCallTraceApplications,'TmnxCallTraceHostType':TmnxCallTraceHostType,'timetraCallTraceMIBModule':timetraCallTraceMIBModule,'tmnxCallTraceConformance':tmnxCallTraceConformance,'tmnxCallTraceCompliances':tmnxCallTraceCompliances,'tmnxCallTraceCompliance':tmnxCallTraceCompliance,'tmnxCallTrace15v0Compliance':tmnxCallTrace15v0Compliance,'tmnxCallTrace20v0Compliance':tmnxCallTrace20v0Compliance,'tmnxCallTraceGroups':tmnxCallTraceGroups,'tmnxCallTraceInitialGroups':tmnxCallTraceInitialGroups,_O:tmnxCallTraceProfileGroup,_P:tmnxCallTraceLocStoreGroup,_Q:tmnxCallTraceScalarCfgGroup,_Am:tmnxCallTraceJobGroup,_R:tmnxCallTraceNotifyGroup,_S:tmnxCallTraceFileGroup,_T:tmnxCallTraceScalarStatsGroup,_w:tmnxCallTraceJob15v0Group,'tmnxCallTraceJobObsoletedGroup':tmnxCallTraceJobObsoletedGroup,_An:tmnxCallTraceScalarCfg20v0Group,_Ao:tmnxCallTraceJob20v0Group,'tmnxCallTraceIpoeGroups':tmnxCallTraceIpoeGroups,_U:tmnxCallTraceIpoeJobGroup,_V:tmnxCallTraceIpoeTraceGroup,'tmnxCallTraceObjs':tmnxCallTraceObjs,'tmnxCallTraceScalarObjs':tmnxCallTraceScalarObjs,'tmnxCallTraceLastChangedObjs':tmnxCallTraceLastChangedObjs,_AD:tmnxCallTraceProfileTblLstChgd,_AQ:tmnxCallTraceLocationTblLstChgd,'tmnxCallTraceScalarConfigObjs':tmnxCallTraceScalarConfigObjs,_Y:tmnxCallTraceMaxFilesNumber,_AV:tmnxCallTracePrimaryCFlash,_Ac:tmnxCallTraceBuffering,'tmnxCallTraceScalarStatsObjs':tmnxCallTraceScalarStatsObjs,_AZ:tmnxCallTraceUsedFilesNumber,_Aa:tmnxCallTraceAvailFilesNumber,'tmnxCallTraceConfigObjs':tmnxCallTraceConfigObjs,'tmnxCallTraceProfileTable':tmnxCallTraceProfileTable,'tmnxCallTraceProfileEntry':tmnxCallTraceProfileEntry,_A2:tmnxCallTraceProfileName,_AE:tmnxCallTraceProfileLstChgd,_AF:tmnxCallTraceProfileRowStatus,_AG:tmnxCallTraceProfileDescription,_AH:tmnxCallTraceProfileSizeLimit,_AI:tmnxCallTraceProfileTimeLimit,_AJ:tmnxCallTraceProfileDstAddrType,_AK:tmnxCallTraceProfileDstAddr,_AL:tmnxCallTraceProfileDstPort,_AM:tmnxCallTraceProfileVRtrId,_AN:tmnxCallTraceProfileApplications,_AO:tmnxCallTraceProfileDbgOutput,_AP:tmnxCallTraceProfileEvents,'tmnxCallTraceLocationTable':tmnxCallTraceLocationTable,'tmnxCallTraceLocationEntry':tmnxCallTraceLocationEntry,_A5:tmnxCallTraceLocationCFlashId,_AR:tmnxCallTraceLocationLstChgd,_X:tmnxCallTraceLocationSizeLimit,_AS:tmnxCallTraceLocationDisable,'tmnxCallTraceLocationStatsTable':tmnxCallTraceLocationStatsTable,_AC:tmnxCallTraceLocationStatsEntry,_AT:tmnxCallTraceLocationUsedSpace,_AU:tmnxCallTraceLocationAvailSpace,'tmnxCallTraceStatsObjs':tmnxCallTraceStatsObjs,'tmnxCallTraceJobTable':tmnxCallTraceJobTable,'tmnxCallTraceJobEntry':tmnxCallTraceJobEntry,_A6:tmnxCallTraceJobId,_Z:tmnxCallTraceJobType,_a:tmnxCallTraceJobWlanGwUeIeeeAddr,_b:tmnxCallTraceJobStatus,_c:tmnxCallTraceJobProfileName,_d:tmnxCallTraceJobSizeLimit,_e:tmnxCallTraceJobTimeLimit,_f:tmnxCallTraceJobCaptureFormat,_g:tmnxCallTraceJobDstAddrType,_h:tmnxCallTraceJobDstAddr,_i:tmnxCallTraceJobDstResAddrType,_j:tmnxCallTraceJobDstResAddr,_k:tmnxCallTraceJobDstPort,_l:tmnxCallTraceJobVRtrId,_m:tmnxCallTraceJobStartTime,_n:tmnxCallTraceJobCaptMsgsCnt,_o:tmnxCallTraceJobCaptMsgsSize,_Ae:tmnxCallTraceJobSapPortId,_Af:tmnxCallTraceJobSapEncapVal,_Ag:tmnxCallTraceJobIpoeIeeeAddr,_Ah:tmnxCallTraceJobCircuitId,_Ai:tmnxCallTraceJobRemoteId,_Aj:tmnxCallTraceJobTraceName,_Ab:tmnxCallTraceJobDstType,_Ad:tmnxCallTraceJobUserName,'tmnxCallTraceFileTable':tmnxCallTraceFileTable,'tmnxCallTraceFileEntry':tmnxCallTraceFileEntry,_A7:tmnxCallTraceFileJobStatus,_A8:tmnxCallTraceFileCpmSlotNum,_A9:tmnxCallTraceFileCFlashId,_AA:tmnxCallTraceFileName,_AW:tmnxCallTraceFileDir,_AX:tmnxCallTraceFileSize,_AY:tmnxCallTraceFileLastDataModif,'tmnxCallTraceTraceTable':tmnxCallTraceTraceTable,'tmnxCallTraceTraceEntry':tmnxCallTraceTraceEntry,_AB:tmnxCallTraceTraceId,_p:tmnxCallTraceTraceType,_q:tmnxCallTraceTraceSapId,_r:tmnxCallTraceTraceIeeeAddr,_s:tmnxCallTraceTraceCircuitId,_t:tmnxCallTraceTraceRemoteId,_u:tmnxCallTraceTraceName,_v:tmnxCallTraceTraceMaxJobs,'tmnxCallTraceNotificationObjs':tmnxCallTraceNotificationObjs,'tmnxCallTraceNotifyPrefix':tmnxCallTraceNotifyPrefix,'tmnxCallTraceNotifications':tmnxCallTraceNotifications,_Ak:tmnxCallTraceMaxFilesNumReached,_Al:tmnxCallTraceLocSizeLimitReached})
+if mibBuilder.loadTexts: tmnxCallTraceLocationStatsEntry.setStatus('current')
+tmnxCallTraceLocationUsedSpace = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 3, 1, 1), Unsigned32()).setUnits('megabytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceLocationUsedSpace.setStatus('current')
+tmnxCallTraceLocationAvailSpace = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 2, 3, 1, 2), Unsigned32()).setUnits('megabytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceLocationAvailSpace.setStatus('current')
+tmnxCallTraceStatsObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3))
+tmnxCallTraceJobTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1), )
+if mibBuilder.loadTexts: tmnxCallTraceJobTable.setStatus('current')
+tmnxCallTraceJobEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1), ).setIndexNames((0, "TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobId"))
+if mibBuilder.loadTexts: tmnxCallTraceJobEntry.setStatus('current')
+tmnxCallTraceJobId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 254)))
+if mibBuilder.loadTexts: tmnxCallTraceJobId.setStatus('current')
+tmnxCallTraceJobType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 2), TmnxCallTraceHostType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobType.setStatus('current')
+tmnxCallTraceJobWlanGwUeIeeeAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 3), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobWlanGwUeIeeeAddr.setStatus('current')
+tmnxCallTraceJobStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 4), TmnxCallTraceJobStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobStatus.setStatus('current')
+tmnxCallTraceJobProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 5), TNamedItem()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobProfileName.setStatus('current')
+tmnxCallTraceJobSizeLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 6), TmnxCallTraceSizeLimit()).setUnits('megabytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobSizeLimit.setStatus('current')
+tmnxCallTraceJobTimeLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 7), TmnxCallTraceTimeLimit()).setUnits('sec').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobTimeLimit.setStatus('current')
+tmnxCallTraceJobCaptureFormat = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("pcap", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobCaptureFormat.setStatus('obsolete')
+tmnxCallTraceJobDstAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 9), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobDstAddrType.setStatus('current')
+tmnxCallTraceJobDstAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 10), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobDstAddr.setStatus('current')
+tmnxCallTraceJobDstResAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 11), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobDstResAddrType.setStatus('current')
+tmnxCallTraceJobDstResAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 12), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobDstResAddr.setStatus('current')
+tmnxCallTraceJobDstPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 13), InetPortNumber().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobDstPort.setStatus('current')
+tmnxCallTraceJobVRtrId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 14), TmnxVRtrID()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobVRtrId.setStatus('current')
+tmnxCallTraceJobStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 15), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobStartTime.setStatus('current')
+tmnxCallTraceJobCaptMsgsCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 16), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobCaptMsgsCnt.setStatus('current')
+tmnxCallTraceJobCaptMsgsSize = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 17), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobCaptMsgsSize.setStatus('current')
+tmnxCallTraceJobSapPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 18), TmnxPortID()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobSapPortId.setStatus('current')
+tmnxCallTraceJobSapEncapVal = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 19), TmnxEncapVal()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobSapEncapVal.setStatus('current')
+tmnxCallTraceJobIpoeIeeeAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 20), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobIpoeIeeeAddr.setStatus('current')
+tmnxCallTraceJobCircuitId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 21), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobCircuitId.setStatus('current')
+tmnxCallTraceJobRemoteId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 22), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobRemoteId.setStatus('current')
+tmnxCallTraceJobTraceName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 23), TNamedItemOrEmpty()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobTraceName.setStatus('current')
+tmnxCallTraceJobDstType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("cflash", 1), ("live-output", 2), ("debug-output", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobDstType.setStatus('current')
+tmnxCallTraceJobUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 1, 1, 25), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 253))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceJobUserName.setStatus('current')
+tmnxCallTraceFileTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 2), )
+if mibBuilder.loadTexts: tmnxCallTraceFileTable.setStatus('current')
+tmnxCallTraceFileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 2, 1), ).setIndexNames((0, "TIMETRA-CALLTRACE-MIB", "tmnxCallTraceFileJobStatus"), (0, "TIMETRA-CALLTRACE-MIB", "tmnxCallTraceFileCpmSlotNum"), (0, "TIMETRA-CALLTRACE-MIB", "tmnxCallTraceFileCFlashId"), (0, "TIMETRA-CALLTRACE-MIB", "tmnxCallTraceFileName"))
+if mibBuilder.loadTexts: tmnxCallTraceFileEntry.setStatus('current')
+tmnxCallTraceFileJobStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 2, 1, 1), TmnxCallTraceJobStatus())
+if mibBuilder.loadTexts: tmnxCallTraceFileJobStatus.setStatus('current')
+tmnxCallTraceFileCpmSlotNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 2, 1, 2), TmnxSlotNum())
+if mibBuilder.loadTexts: tmnxCallTraceFileCpmSlotNum.setStatus('current')
+tmnxCallTraceFileCFlashId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 2, 1, 3), TmnxCallTraceCFlashId())
+if mibBuilder.loadTexts: tmnxCallTraceFileCFlashId.setStatus('current')
+tmnxCallTraceFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(38, 83)))
+if mibBuilder.loadTexts: tmnxCallTraceFileName.setStatus('current')
+tmnxCallTraceFileDir = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 2, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(18, 19))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceFileDir.setStatus('current')
+tmnxCallTraceFileSize = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 2, 1, 6), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceFileSize.setStatus('current')
+tmnxCallTraceFileLastDataModif = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 2, 1, 7), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceFileLastDataModif.setStatus('current')
+tmnxCallTraceTraceTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 3), )
+if mibBuilder.loadTexts: tmnxCallTraceTraceTable.setStatus('current')
+tmnxCallTraceTraceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 3, 1), ).setIndexNames((0, "TIMETRA-CALLTRACE-MIB", "tmnxCallTraceTraceId"))
+if mibBuilder.loadTexts: tmnxCallTraceTraceEntry.setStatus('current')
+tmnxCallTraceTraceId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 254)))
+if mibBuilder.loadTexts: tmnxCallTraceTraceId.setStatus('current')
+tmnxCallTraceTraceType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 3, 1, 2), TmnxCallTraceHostType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceTraceType.setStatus('current')
+tmnxCallTraceTraceSapId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 44))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceTraceSapId.setStatus('current')
+tmnxCallTraceTraceIeeeAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 3, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 17))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceTraceIeeeAddr.setStatus('current')
+tmnxCallTraceTraceCircuitId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 3, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceTraceCircuitId.setStatus('current')
+tmnxCallTraceTraceRemoteId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 3, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceTraceRemoteId.setStatus('current')
+tmnxCallTraceTraceName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 3, 1, 7), TNamedItem()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceTraceName.setStatus('current')
+tmnxCallTraceTraceMaxJobs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 3, 3, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 50))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxCallTraceTraceMaxJobs.setStatus('current')
+tmnxCallTraceNotificationObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 102, 20))
+tmnxCallTraceConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102))
+tmnxCallTraceCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 1))
+tmnxCallTraceCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 1, 1)).setObjects(("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceProfileGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceLocStoreGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceScalarCfgGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceNotifyGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceFileGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceScalarStatsGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceIpoeJobGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceIpoeTraceGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxCallTraceCompliance = tmnxCallTraceCompliance.setStatus('obsolete')
+tmnxCallTrace15v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 1, 2)).setObjects(("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceProfileGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceLocStoreGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceScalarCfgGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJob15v0Group"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceNotifyGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceFileGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceScalarStatsGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceIpoeJobGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceIpoeTraceGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxCallTrace15v0Compliance = tmnxCallTrace15v0Compliance.setStatus('obsolete')
+tmnxCallTrace20v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 1, 3)).setObjects(("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceProfileGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceLocStoreGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceScalarCfgGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJob15v0Group"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceNotifyGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceFileGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceScalarStatsGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceIpoeJobGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceIpoeTraceGroup"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceScalarCfg20v0Group"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJob20v0Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxCallTrace20v0Compliance = tmnxCallTrace20v0Compliance.setStatus('current')
+tmnxCallTraceGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 2))
+tmnxCallTraceInitialGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 2, 1))
+tmnxCallTraceProfileGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 2, 1, 1)).setObjects(("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceProfileTblLstChgd"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceProfileLstChgd"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceProfileRowStatus"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceProfileDescription"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceProfileSizeLimit"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceProfileTimeLimit"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceProfileDstAddrType"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceProfileDstAddr"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceProfileDstPort"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceProfileVRtrId"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceProfileApplications"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceProfileDbgOutput"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceProfileEvents"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxCallTraceProfileGroup = tmnxCallTraceProfileGroup.setStatus('current')
+tmnxCallTraceLocStoreGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 2, 1, 2)).setObjects(("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceLocationTblLstChgd"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceLocationLstChgd"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceLocationSizeLimit"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceLocationDisable"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceLocationUsedSpace"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceLocationAvailSpace"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxCallTraceLocStoreGroup = tmnxCallTraceLocStoreGroup.setStatus('current')
+tmnxCallTraceScalarCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 2, 1, 3)).setObjects(("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceMaxFilesNumber"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTracePrimaryCFlash"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxCallTraceScalarCfgGroup = tmnxCallTraceScalarCfgGroup.setStatus('current')
+tmnxCallTraceJobGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 2, 1, 4)).setObjects(("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobType"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobWlanGwUeIeeeAddr"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobStatus"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobProfileName"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobSizeLimit"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobTimeLimit"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobCaptureFormat"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobDstAddrType"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobDstAddr"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobDstResAddrType"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobDstResAddr"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobDstPort"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobVRtrId"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobStartTime"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobCaptMsgsCnt"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobCaptMsgsSize"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxCallTraceJobGroup = tmnxCallTraceJobGroup.setStatus('obsolete')
+tmnxCallTraceNotifyGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 2, 1, 5)).setObjects(("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceMaxFilesNumReached"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceLocSizeLimitReached"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxCallTraceNotifyGroup = tmnxCallTraceNotifyGroup.setStatus('current')
+tmnxCallTraceFileGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 2, 1, 6)).setObjects(("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceFileDir"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceFileSize"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceFileLastDataModif"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxCallTraceFileGroup = tmnxCallTraceFileGroup.setStatus('current')
+tmnxCallTraceScalarStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 2, 1, 7)).setObjects(("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceUsedFilesNumber"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceAvailFilesNumber"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxCallTraceScalarStatsGroup = tmnxCallTraceScalarStatsGroup.setStatus('current')
+tmnxCallTraceJob15v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 2, 1, 8)).setObjects(("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobType"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobWlanGwUeIeeeAddr"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobStatus"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobProfileName"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobSizeLimit"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobTimeLimit"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobDstAddrType"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobDstAddr"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobDstResAddrType"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobDstResAddr"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobDstPort"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobVRtrId"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobStartTime"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobCaptMsgsCnt"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobCaptMsgsSize"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobDstType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxCallTraceJob15v0Group = tmnxCallTraceJob15v0Group.setStatus('current')
+tmnxCallTraceJobObsoletedGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 2, 1, 9)).setObjects(("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobCaptureFormat"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxCallTraceJobObsoletedGroup = tmnxCallTraceJobObsoletedGroup.setStatus('current')
+tmnxCallTraceScalarCfg20v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 2, 1, 10)).setObjects(("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceBuffering"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxCallTraceScalarCfg20v0Group = tmnxCallTraceScalarCfg20v0Group.setStatus('current')
+tmnxCallTraceJob20v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 2, 1, 11)).setObjects(("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobUserName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxCallTraceJob20v0Group = tmnxCallTraceJob20v0Group.setStatus('current')
+tmnxCallTraceIpoeGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 2, 2))
+tmnxCallTraceIpoeJobGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 2, 2, 1)).setObjects(("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobSapPortId"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobSapEncapVal"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobIpoeIeeeAddr"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobCircuitId"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobRemoteId"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceJobTraceName"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceTraceType"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceTraceSapId"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceTraceIeeeAddr"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceTraceCircuitId"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceTraceRemoteId"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceTraceName"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceTraceMaxJobs"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxCallTraceIpoeJobGroup = tmnxCallTraceIpoeJobGroup.setStatus('current')
+tmnxCallTraceIpoeTraceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 102, 2, 2, 2)).setObjects(("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceTraceType"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceTraceSapId"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceTraceIeeeAddr"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceTraceCircuitId"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceTraceRemoteId"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceTraceName"), ("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceTraceMaxJobs"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxCallTraceIpoeTraceGroup = tmnxCallTraceIpoeTraceGroup.setStatus('current')
+tmnxCallTraceNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 102))
+tmnxCallTraceNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 102, 0))
+tmnxCallTraceMaxFilesNumReached = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 102, 0, 1)).setObjects(("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceMaxFilesNumber"))
+if mibBuilder.loadTexts: tmnxCallTraceMaxFilesNumReached.setStatus('current')
+tmnxCallTraceLocSizeLimitReached = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 102, 0, 2)).setObjects(("TIMETRA-CALLTRACE-MIB", "tmnxCallTraceLocationSizeLimit"))
+if mibBuilder.loadTexts: tmnxCallTraceLocSizeLimitReached.setStatus('current')
+mibBuilder.exportSymbols("TIMETRA-CALLTRACE-MIB", tmnxCallTraceScalarCfg20v0Group=tmnxCallTraceScalarCfg20v0Group, tmnxCallTraceProfileDbgOutput=tmnxCallTraceProfileDbgOutput, tmnxCallTraceProfileTimeLimit=tmnxCallTraceProfileTimeLimit, tmnxCallTraceProfileEvents=tmnxCallTraceProfileEvents, tmnxCallTraceTraceEntry=tmnxCallTraceTraceEntry, tmnxCallTraceLocationEntry=tmnxCallTraceLocationEntry, tmnxCallTraceIpoeGroups=tmnxCallTraceIpoeGroups, tmnxCallTraceProfileVRtrId=tmnxCallTraceProfileVRtrId, tmnxCallTraceScalarObjs=tmnxCallTraceScalarObjs, tmnxCallTraceJobStartTime=tmnxCallTraceJobStartTime, tmnxCallTraceFileCFlashId=tmnxCallTraceFileCFlashId, tmnxCallTraceFileJobStatus=tmnxCallTraceFileJobStatus, tmnxCallTraceJobUserName=tmnxCallTraceJobUserName, tmnxCallTraceLocationStatsTable=tmnxCallTraceLocationStatsTable, tmnxCallTraceFileCpmSlotNum=tmnxCallTraceFileCpmSlotNum, tmnxCallTraceConformance=tmnxCallTraceConformance, tmnxCallTraceProfileApplications=tmnxCallTraceProfileApplications, tmnxCallTraceJob20v0Group=tmnxCallTraceJob20v0Group, tmnxCallTraceIpoeJobGroup=tmnxCallTraceIpoeJobGroup, tmnxCallTraceJobCaptMsgsSize=tmnxCallTraceJobCaptMsgsSize, tmnxCallTraceGroups=tmnxCallTraceGroups, TmnxCallTraceHostType=TmnxCallTraceHostType, tmnxCallTraceJobProfileName=tmnxCallTraceJobProfileName, TmnxCallTraceSizeLimit=TmnxCallTraceSizeLimit, tmnxCallTraceJobTraceName=tmnxCallTraceJobTraceName, tmnxCallTraceTraceType=tmnxCallTraceTraceType, tmnxCallTraceProfileDstPort=tmnxCallTraceProfileDstPort, tmnxCallTraceTraceMaxJobs=tmnxCallTraceTraceMaxJobs, tmnxCallTracePrimaryCFlash=tmnxCallTracePrimaryCFlash, tmnxCallTraceJobCircuitId=tmnxCallTraceJobCircuitId, tmnxCallTraceProfileSizeLimit=tmnxCallTraceProfileSizeLimit, tmnxCallTraceJobRemoteId=tmnxCallTraceJobRemoteId, tmnxCallTraceFileTable=tmnxCallTraceFileTable, tmnxCallTraceJobGroup=tmnxCallTraceJobGroup, tmnxCallTraceFileLastDataModif=tmnxCallTraceFileLastDataModif, TmnxCallTraceTimeLimit=TmnxCallTraceTimeLimit, tmnxCallTraceJobSizeLimit=tmnxCallTraceJobSizeLimit, tmnxCallTraceNotifyGroup=tmnxCallTraceNotifyGroup, tmnxCallTraceProfileGroup=tmnxCallTraceProfileGroup, tmnxCallTraceStatsObjs=tmnxCallTraceStatsObjs, tmnxCallTraceLocationTable=tmnxCallTraceLocationTable, tmnxCallTraceConfigObjs=tmnxCallTraceConfigObjs, tmnxCallTraceFileDir=tmnxCallTraceFileDir, tmnxCallTraceJobDstType=tmnxCallTraceJobDstType, tmnxCallTraceTraceName=tmnxCallTraceTraceName, tmnxCallTraceJobDstResAddr=tmnxCallTraceJobDstResAddr, TmnxCallTraceJobStatus=TmnxCallTraceJobStatus, TmnxCallTraceApplications=TmnxCallTraceApplications, tmnxCallTraceAvailFilesNumber=tmnxCallTraceAvailFilesNumber, tmnxCallTraceJobEntry=tmnxCallTraceJobEntry, tmnxCallTraceJobWlanGwUeIeeeAddr=tmnxCallTraceJobWlanGwUeIeeeAddr, tmnxCallTraceJobVRtrId=tmnxCallTraceJobVRtrId, tmnxCallTraceJobSapEncapVal=tmnxCallTraceJobSapEncapVal, tmnxCallTraceTraceTable=tmnxCallTraceTraceTable, tmnxCallTraceProfileDescription=tmnxCallTraceProfileDescription, tmnxCallTraceCompliance=tmnxCallTraceCompliance, tmnxCallTraceLocationStatsEntry=tmnxCallTraceLocationStatsEntry, tmnxCallTraceProfileDstAddrType=tmnxCallTraceProfileDstAddrType, tmnxCallTrace15v0Compliance=tmnxCallTrace15v0Compliance, tmnxCallTraceJobCaptMsgsCnt=tmnxCallTraceJobCaptMsgsCnt, tmnxCallTrace20v0Compliance=tmnxCallTrace20v0Compliance, tmnxCallTraceJobDstAddrType=tmnxCallTraceJobDstAddrType, tmnxCallTraceTraceRemoteId=tmnxCallTraceTraceRemoteId, timetraCallTraceMIBModule=timetraCallTraceMIBModule, PYSNMP_MODULE_ID=timetraCallTraceMIBModule, tmnxCallTraceTraceId=tmnxCallTraceTraceId, tmnxCallTraceProfileTable=tmnxCallTraceProfileTable, tmnxCallTraceTraceIeeeAddr=tmnxCallTraceTraceIeeeAddr, tmnxCallTraceJobId=tmnxCallTraceJobId, tmnxCallTraceLocationUsedSpace=tmnxCallTraceLocationUsedSpace, tmnxCallTraceJobDstAddr=tmnxCallTraceJobDstAddr, tmnxCallTraceJobCaptureFormat=tmnxCallTraceJobCaptureFormat, tmnxCallTraceLocSizeLimitReached=tmnxCallTraceLocSizeLimitReached, TmnxCallTraceCFlashId=TmnxCallTraceCFlashId, tmnxCallTraceScalarStatsObjs=tmnxCallTraceScalarStatsObjs, tmnxCallTraceLocStoreGroup=tmnxCallTraceLocStoreGroup, tmnxCallTraceJobObsoletedGroup=tmnxCallTraceJobObsoletedGroup, tmnxCallTraceLastChangedObjs=tmnxCallTraceLastChangedObjs, tmnxCallTraceLocationSizeLimit=tmnxCallTraceLocationSizeLimit, tmnxCallTraceJobSapPortId=tmnxCallTraceJobSapPortId, tmnxCallTraceJobTable=tmnxCallTraceJobTable, tmnxCallTraceLocationLstChgd=tmnxCallTraceLocationLstChgd, tmnxCallTraceLocationAvailSpace=tmnxCallTraceLocationAvailSpace, tmnxCallTraceIpoeTraceGroup=tmnxCallTraceIpoeTraceGroup, tmnxCallTraceCompliances=tmnxCallTraceCompliances, tmnxCallTraceBuffering=tmnxCallTraceBuffering, tmnxCallTraceScalarStatsGroup=tmnxCallTraceScalarStatsGroup, tmnxCallTraceNotifications=tmnxCallTraceNotifications, tmnxCallTraceMaxFilesNumber=tmnxCallTraceMaxFilesNumber, tmnxCallTraceProfileRowStatus=tmnxCallTraceProfileRowStatus, tmnxCallTraceNotificationObjs=tmnxCallTraceNotificationObjs, tmnxCallTraceLocationCFlashId=tmnxCallTraceLocationCFlashId, tmnxCallTraceNotifyPrefix=tmnxCallTraceNotifyPrefix, tmnxCallTraceProfileName=tmnxCallTraceProfileName, tmnxCallTraceScalarConfigObjs=tmnxCallTraceScalarConfigObjs, tmnxCallTraceJobIpoeIeeeAddr=tmnxCallTraceJobIpoeIeeeAddr, tmnxCallTraceJobDstPort=tmnxCallTraceJobDstPort, tmnxCallTraceProfileDstAddr=tmnxCallTraceProfileDstAddr, tmnxCallTraceJobType=tmnxCallTraceJobType, tmnxCallTraceInitialGroups=tmnxCallTraceInitialGroups, tmnxCallTraceProfileTblLstChgd=tmnxCallTraceProfileTblLstChgd, tmnxCallTraceMaxFilesNumReached=tmnxCallTraceMaxFilesNumReached, tmnxCallTraceProfileEntry=tmnxCallTraceProfileEntry, tmnxCallTraceFileName=tmnxCallTraceFileName, tmnxCallTraceJob15v0Group=tmnxCallTraceJob15v0Group, tmnxCallTraceJobStatus=tmnxCallTraceJobStatus, tmnxCallTraceObjs=tmnxCallTraceObjs, tmnxCallTraceLocationDisable=tmnxCallTraceLocationDisable, tmnxCallTraceFileGroup=tmnxCallTraceFileGroup, tmnxCallTraceLocationTblLstChgd=tmnxCallTraceLocationTblLstChgd, tmnxCallTraceUsedFilesNumber=tmnxCallTraceUsedFilesNumber, tmnxCallTraceTraceSapId=tmnxCallTraceTraceSapId, tmnxCallTraceProfileLstChgd=tmnxCallTraceProfileLstChgd, tmnxCallTraceJobTimeLimit=tmnxCallTraceJobTimeLimit, tmnxCallTraceFileSize=tmnxCallTraceFileSize, tmnxCallTraceScalarCfgGroup=tmnxCallTraceScalarCfgGroup, tmnxCallTraceTraceCircuitId=tmnxCallTraceTraceCircuitId, tmnxCallTraceJobDstResAddrType=tmnxCallTraceJobDstResAddrType, tmnxCallTraceFileEntry=tmnxCallTraceFileEntry)

@@ -1,84 +1,46 @@
-_K='tunnelWiFiConfigID'
-_J='tunnelWiFiConfigEncapsMethod'
-_I='tunnelWiFiConfigRemoteAddress'
-_H='tunnelWiFiConfigRemoteAddressType'
-_G='tunnelWiFiConfigLocalAddress'
-_F='tunnelWiFiConfigLocalAddressType'
-_E='read-only'
-_D='Integer32'
-_C='not-accessible'
-_B='ELTEX-TUNNEL-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-eltexLtd,=mibBuilder.importSymbols('ELTEX-SMI-ACTUAL','eltexLtd')
-IANAtunnelType,=mibBuilder.importSymbols('IANAifType-MIB','IANAtunnelType')
-InterfaceIndexOrZero,ifIndex=mibBuilder.importSymbols('IF-MIB','InterfaceIndexOrZero','ifIndex')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,transmission=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','transmission')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-eltexTunnelMIB=ModuleIdentity((1,3,6,1,4,1,35265,21))
-if mibBuilder.loadTexts:eltexTunnelMIB.setRevisions(('2015-12-29 00:00',))
-_TunnelWiFiConfigTable_Object=MibTable
-tunnelWiFiConfigTable=_TunnelWiFiConfigTable_Object((1,3,6,1,4,1,35265,21,1))
-if mibBuilder.loadTexts:tunnelWiFiConfigTable.setStatus(_A)
-_TunnelWiFiConfigEntry_Object=MibTableRow
-tunnelWiFiConfigEntry=_TunnelWiFiConfigEntry_Object((1,3,6,1,4,1,35265,21,1,1))
-tunnelWiFiConfigEntry.setIndexNames((0,_B,_F),(0,_B,_G),(0,_B,_H),(0,_B,_I),(0,_B,_J),(0,_B,_K))
-if mibBuilder.loadTexts:tunnelWiFiConfigEntry.setStatus(_A)
-_TunnelWiFiConfigLocalAddressType_Type=InetAddressType
-_TunnelWiFiConfigLocalAddressType_Object=MibTableColumn
-tunnelWiFiConfigLocalAddressType=_TunnelWiFiConfigLocalAddressType_Object((1,3,6,1,4,1,35265,21,1,1,1),_TunnelWiFiConfigLocalAddressType_Type())
-tunnelWiFiConfigLocalAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tunnelWiFiConfigLocalAddressType.setStatus(_A)
-_TunnelWiFiConfigLocalAddress_Type=InetAddress
-_TunnelWiFiConfigLocalAddress_Object=MibTableColumn
-tunnelWiFiConfigLocalAddress=_TunnelWiFiConfigLocalAddress_Object((1,3,6,1,4,1,35265,21,1,1,2),_TunnelWiFiConfigLocalAddress_Type())
-tunnelWiFiConfigLocalAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:tunnelWiFiConfigLocalAddress.setStatus(_A)
-_TunnelWiFiConfigRemoteAddressType_Type=InetAddressType
-_TunnelWiFiConfigRemoteAddressType_Object=MibTableColumn
-tunnelWiFiConfigRemoteAddressType=_TunnelWiFiConfigRemoteAddressType_Object((1,3,6,1,4,1,35265,21,1,1,3),_TunnelWiFiConfigRemoteAddressType_Type())
-tunnelWiFiConfigRemoteAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tunnelWiFiConfigRemoteAddressType.setStatus(_A)
-_TunnelWiFiConfigRemoteAddress_Type=InetAddress
-_TunnelWiFiConfigRemoteAddress_Object=MibTableColumn
-tunnelWiFiConfigRemoteAddress=_TunnelWiFiConfigRemoteAddress_Object((1,3,6,1,4,1,35265,21,1,1,4),_TunnelWiFiConfigRemoteAddress_Type())
-tunnelWiFiConfigRemoteAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:tunnelWiFiConfigRemoteAddress.setStatus(_A)
-_TunnelWiFiConfigEncapsMethod_Type=IANAtunnelType
-_TunnelWiFiConfigEncapsMethod_Object=MibTableColumn
-tunnelWiFiConfigEncapsMethod=_TunnelWiFiConfigEncapsMethod_Object((1,3,6,1,4,1,35265,21,1,1,5),_TunnelWiFiConfigEncapsMethod_Type())
-tunnelWiFiConfigEncapsMethod.setMaxAccess(_C)
-if mibBuilder.loadTexts:tunnelWiFiConfigEncapsMethod.setStatus(_A)
-class _TunnelWiFiConfigID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_TunnelWiFiConfigID_Type.__name__=_D
-_TunnelWiFiConfigID_Object=MibTableColumn
-tunnelWiFiConfigID=_TunnelWiFiConfigID_Object((1,3,6,1,4,1,35265,21,1,1,6),_TunnelWiFiConfigID_Type())
-tunnelWiFiConfigID.setMaxAccess(_C)
-if mibBuilder.loadTexts:tunnelWiFiConfigID.setStatus(_A)
-_TunnelWiFiConfigIfIndex_Type=InterfaceIndexOrZero
-_TunnelWiFiConfigIfIndex_Object=MibTableColumn
-tunnelWiFiConfigIfIndex=_TunnelWiFiConfigIfIndex_Object((1,3,6,1,4,1,35265,21,1,1,7),_TunnelWiFiConfigIfIndex_Type())
-tunnelWiFiConfigIfIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:tunnelWiFiConfigIfIndex.setStatus(_A)
-_TunnelWiFiConfigStatus_Type=RowStatus
-_TunnelWiFiConfigStatus_Object=MibTableColumn
-tunnelWiFiConfigStatus=_TunnelWiFiConfigStatus_Object((1,3,6,1,4,1,35265,21,1,1,8),_TunnelWiFiConfigStatus_Type())
-tunnelWiFiConfigStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:tunnelWiFiConfigStatus.setStatus(_A)
-class _TunnelWiFiConfigMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('notConfigured',0),('management',1),('data',2)))
-_TunnelWiFiConfigMode_Type.__name__=_D
-_TunnelWiFiConfigMode_Object=MibTableColumn
-tunnelWiFiConfigMode=_TunnelWiFiConfigMode_Object((1,3,6,1,4,1,35265,21,1,1,9),_TunnelWiFiConfigMode_Type())
-tunnelWiFiConfigMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:tunnelWiFiConfigMode.setStatus(_A)
-_TunnelWiFiConfigDefaultProfile_Type=TruthValue
-_TunnelWiFiConfigDefaultProfile_Object=MibTableColumn
-tunnelWiFiConfigDefaultProfile=_TunnelWiFiConfigDefaultProfile_Object((1,3,6,1,4,1,35265,21,1,1,10),_TunnelWiFiConfigDefaultProfile_Type())
-tunnelWiFiConfigDefaultProfile.setMaxAccess(_E)
-if mibBuilder.loadTexts:tunnelWiFiConfigDefaultProfile.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'eltexTunnelMIB':eltexTunnelMIB,'tunnelWiFiConfigTable':tunnelWiFiConfigTable,'tunnelWiFiConfigEntry':tunnelWiFiConfigEntry,_F:tunnelWiFiConfigLocalAddressType,_G:tunnelWiFiConfigLocalAddress,_H:tunnelWiFiConfigRemoteAddressType,_I:tunnelWiFiConfigRemoteAddress,_J:tunnelWiFiConfigEncapsMethod,_K:tunnelWiFiConfigID,'tunnelWiFiConfigIfIndex':tunnelWiFiConfigIfIndex,'tunnelWiFiConfigStatus':tunnelWiFiConfigStatus,'tunnelWiFiConfigMode':tunnelWiFiConfigMode,'tunnelWiFiConfigDefaultProfile':tunnelWiFiConfigDefaultProfile})
+#
+# PySNMP MIB module ELTEX-TUNNEL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-TUNNEL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:54 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+eltexLtd, = mibBuilder.importSymbols("ELTEX-SMI-ACTUAL", "eltexLtd")
+IANAtunnelType, = mibBuilder.importSymbols("IANAifType-MIB", "IANAtunnelType")
+ifIndex, InterfaceIndexOrZero = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndexOrZero")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, transmission, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "transmission", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+eltexTunnelMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 21))
+eltexTunnelMIB.setRevisions(('2015-12-29 00:00',))
+if mibBuilder.loadTexts: eltexTunnelMIB.setLastUpdated('201512290000Z')
+if mibBuilder.loadTexts: eltexTunnelMIB.setOrganization('Eltex')
+tunnelWiFiConfigTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 21, 1), )
+if mibBuilder.loadTexts: tunnelWiFiConfigTable.setStatus('current')
+tunnelWiFiConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 21, 1, 1), ).setIndexNames((0, "ELTEX-TUNNEL-MIB", "tunnelWiFiConfigLocalAddressType"), (0, "ELTEX-TUNNEL-MIB", "tunnelWiFiConfigLocalAddress"), (0, "ELTEX-TUNNEL-MIB", "tunnelWiFiConfigRemoteAddressType"), (0, "ELTEX-TUNNEL-MIB", "tunnelWiFiConfigRemoteAddress"), (0, "ELTEX-TUNNEL-MIB", "tunnelWiFiConfigEncapsMethod"), (0, "ELTEX-TUNNEL-MIB", "tunnelWiFiConfigID"))
+if mibBuilder.loadTexts: tunnelWiFiConfigEntry.setStatus('current')
+tunnelWiFiConfigLocalAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 21, 1, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: tunnelWiFiConfigLocalAddressType.setStatus('current')
+tunnelWiFiConfigLocalAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 21, 1, 1, 2), InetAddress())
+if mibBuilder.loadTexts: tunnelWiFiConfigLocalAddress.setStatus('current')
+tunnelWiFiConfigRemoteAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 21, 1, 1, 3), InetAddressType())
+if mibBuilder.loadTexts: tunnelWiFiConfigRemoteAddressType.setStatus('current')
+tunnelWiFiConfigRemoteAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 21, 1, 1, 4), InetAddress())
+if mibBuilder.loadTexts: tunnelWiFiConfigRemoteAddress.setStatus('current')
+tunnelWiFiConfigEncapsMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 21, 1, 1, 5), IANAtunnelType())
+if mibBuilder.loadTexts: tunnelWiFiConfigEncapsMethod.setStatus('current')
+tunnelWiFiConfigID = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 21, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: tunnelWiFiConfigID.setStatus('current')
+tunnelWiFiConfigIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 21, 1, 1, 7), InterfaceIndexOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tunnelWiFiConfigIfIndex.setStatus('current')
+tunnelWiFiConfigStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 21, 1, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tunnelWiFiConfigStatus.setStatus('current')
+tunnelWiFiConfigMode = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 21, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("notConfigured", 0), ("management", 1), ("data", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tunnelWiFiConfigMode.setStatus('current')
+tunnelWiFiConfigDefaultProfile = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 21, 1, 1, 10), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tunnelWiFiConfigDefaultProfile.setStatus('current')
+mibBuilder.exportSymbols("ELTEX-TUNNEL-MIB", tunnelWiFiConfigMode=tunnelWiFiConfigMode, tunnelWiFiConfigLocalAddressType=tunnelWiFiConfigLocalAddressType, PYSNMP_MODULE_ID=eltexTunnelMIB, tunnelWiFiConfigID=tunnelWiFiConfigID, tunnelWiFiConfigTable=tunnelWiFiConfigTable, tunnelWiFiConfigEntry=tunnelWiFiConfigEntry, tunnelWiFiConfigRemoteAddress=tunnelWiFiConfigRemoteAddress, eltexTunnelMIB=eltexTunnelMIB, tunnelWiFiConfigDefaultProfile=tunnelWiFiConfigDefaultProfile, tunnelWiFiConfigEncapsMethod=tunnelWiFiConfigEncapsMethod, tunnelWiFiConfigStatus=tunnelWiFiConfigStatus, tunnelWiFiConfigIfIndex=tunnelWiFiConfigIfIndex, tunnelWiFiConfigRemoteAddressType=tunnelWiFiConfigRemoteAddressType, tunnelWiFiConfigLocalAddress=tunnelWiFiConfigLocalAddress)

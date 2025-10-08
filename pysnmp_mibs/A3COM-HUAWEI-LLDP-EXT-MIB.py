@@ -1,49 +1,34 @@
-_E='h3clldpPortConfigPortNum'
-_D='A3COM-HUAWEI-LLDP-EXT-MIB'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cCommon,=mibBuilder.importSymbols('A3COM-HUAWEI-OID-MIB','h3cCommon')
-LldpPortNumber,=mibBuilder.importSymbols('LLDP-MIB','LldpPortNumber')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-h3clldp=ModuleIdentity((1,3,6,1,4,1,43,45,1,10,2,100))
-if mibBuilder.loadTexts:h3clldp.setRevisions(('2009-03-21 00:00',))
-_H3clldpObjects_ObjectIdentity=ObjectIdentity
-h3clldpObjects=_H3clldpObjects_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,100,1))
-_H3clldpConfiguration_ObjectIdentity=ObjectIdentity
-h3clldpConfiguration=_H3clldpConfiguration_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,100,1,1))
-_H3clldpAdminStatus_Type=TruthValue
-_H3clldpAdminStatus_Object=MibScalar
-h3clldpAdminStatus=_H3clldpAdminStatus_Object((1,3,6,1,4,1,43,45,1,10,2,100,1,1,1),_H3clldpAdminStatus_Type())
-h3clldpAdminStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3clldpAdminStatus.setStatus(_A)
-_H3clldpComplianceCDPStatus_Type=TruthValue
-_H3clldpComplianceCDPStatus_Object=MibScalar
-h3clldpComplianceCDPStatus=_H3clldpComplianceCDPStatus_Object((1,3,6,1,4,1,43,45,1,10,2,100,1,1,2),_H3clldpComplianceCDPStatus_Type())
-h3clldpComplianceCDPStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3clldpComplianceCDPStatus.setStatus(_A)
-_H3clldpPortConfigTable_Object=MibTable
-h3clldpPortConfigTable=_H3clldpPortConfigTable_Object((1,3,6,1,4,1,43,45,1,10,2,100,1,1,3))
-if mibBuilder.loadTexts:h3clldpPortConfigTable.setStatus(_A)
-_H3clldpPortConfigEntry_Object=MibTableRow
-h3clldpPortConfigEntry=_H3clldpPortConfigEntry_Object((1,3,6,1,4,1,43,45,1,10,2,100,1,1,3,1))
-h3clldpPortConfigEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:h3clldpPortConfigEntry.setStatus(_A)
-_H3clldpPortConfigPortNum_Type=LldpPortNumber
-_H3clldpPortConfigPortNum_Object=MibTableColumn
-h3clldpPortConfigPortNum=_H3clldpPortConfigPortNum_Object((1,3,6,1,4,1,43,45,1,10,2,100,1,1,3,1,1),_H3clldpPortConfigPortNum_Type())
-h3clldpPortConfigPortNum.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:h3clldpPortConfigPortNum.setStatus(_A)
-class _H3clldpPortConfigCDPComplianceStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('txAndRx',1),('disabled',2)))
-_H3clldpPortConfigCDPComplianceStatus_Type.__name__=_C
-_H3clldpPortConfigCDPComplianceStatus_Object=MibTableColumn
-h3clldpPortConfigCDPComplianceStatus=_H3clldpPortConfigCDPComplianceStatus_Object((1,3,6,1,4,1,43,45,1,10,2,100,1,1,3,1,2),_H3clldpPortConfigCDPComplianceStatus_Type())
-h3clldpPortConfigCDPComplianceStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3clldpPortConfigCDPComplianceStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'h3clldp':h3clldp,'h3clldpObjects':h3clldpObjects,'h3clldpConfiguration':h3clldpConfiguration,'h3clldpAdminStatus':h3clldpAdminStatus,'h3clldpComplianceCDPStatus':h3clldpComplianceCDPStatus,'h3clldpPortConfigTable':h3clldpPortConfigTable,'h3clldpPortConfigEntry':h3clldpPortConfigEntry,_E:h3clldpPortConfigPortNum,'h3clldpPortConfigCDPComplianceStatus':h3clldpPortConfigCDPComplianceStatus})
+#
+# PySNMP MIB module A3COM-HUAWEI-LLDP-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-LLDP-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:07 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+h3cCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCommon")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+LldpPortNumber, = mibBuilder.importSymbols("LLDP-MIB", "LldpPortNumber")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+h3clldp = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 100))
+h3clldp.setRevisions(('2009-03-21 00:00',))
+if mibBuilder.loadTexts: h3clldp.setLastUpdated('200903210000Z')
+if mibBuilder.loadTexts: h3clldp.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
+h3clldpObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 100, 1))
+h3clldpConfiguration = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 100, 1, 1))
+h3clldpAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 100, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3clldpAdminStatus.setStatus('current')
+h3clldpComplianceCDPStatus = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 100, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3clldpComplianceCDPStatus.setStatus('current')
+h3clldpPortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 100, 1, 1, 3), )
+if mibBuilder.loadTexts: h3clldpPortConfigTable.setStatus('current')
+h3clldpPortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 100, 1, 1, 3, 1), ).setIndexNames((0, "A3COM-HUAWEI-LLDP-EXT-MIB", "h3clldpPortConfigPortNum"))
+if mibBuilder.loadTexts: h3clldpPortConfigEntry.setStatus('current')
+h3clldpPortConfigPortNum = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 100, 1, 1, 3, 1, 1), LldpPortNumber())
+if mibBuilder.loadTexts: h3clldpPortConfigPortNum.setStatus('current')
+h3clldpPortConfigCDPComplianceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 100, 1, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("txAndRx", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3clldpPortConfigCDPComplianceStatus.setStatus('current')
+mibBuilder.exportSymbols("A3COM-HUAWEI-LLDP-EXT-MIB", h3clldpPortConfigPortNum=h3clldpPortConfigPortNum, PYSNMP_MODULE_ID=h3clldp, h3clldpPortConfigEntry=h3clldpPortConfigEntry, h3clldpPortConfigCDPComplianceStatus=h3clldpPortConfigCDPComplianceStatus, h3clldpAdminStatus=h3clldpAdminStatus, h3clldpObjects=h3clldpObjects, h3clldpComplianceCDPStatus=h3clldpComplianceCDPStatus, h3clldp=h3clldp, h3clldpConfiguration=h3clldpConfiguration, h3clldpPortConfigTable=h3clldpPortConfigTable)

@@ -1,85 +1,50 @@
-_M='dpCableDiagBasicGroup'
-_L='dpCableDiagInterfaceType'
-_K='dpCableDiagLinkStatus'
-_J='dpCableDiagResultCableLength'
-_I='dpCableDiagResultCableStatus'
-_H='dpCableDiagIfAction'
-_G='no_result'
-_F='ifIndex'
-_E='IF-MIB'
-_D='read-only'
-_C='Integer32'
-_B='DLINKPRIME-CABLE-DIAG-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlinkPrimeCommon,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlinkPrimeCommon')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-dlinkPrimeCableDiagMIB=ModuleIdentity((1,3,6,1,4,1,171,15,1))
-if mibBuilder.loadTexts:dlinkPrimeCableDiagMIB.setRevisions(('2014-04-26 00:00',))
-_DpCableDiagNotifications_ObjectIdentity=ObjectIdentity
-dpCableDiagNotifications=_DpCableDiagNotifications_ObjectIdentity((1,3,6,1,4,1,171,15,1,0))
-_DpCableDiagObjects_ObjectIdentity=ObjectIdentity
-dpCableDiagObjects=_DpCableDiagObjects_ObjectIdentity((1,3,6,1,4,1,171,15,1,1))
-_DpCableDiagIfTable_Object=MibTable
-dpCableDiagIfTable=_DpCableDiagIfTable_Object((1,3,6,1,4,1,171,15,1,1,1))
-if mibBuilder.loadTexts:dpCableDiagIfTable.setStatus(_A)
-_DpCableDiagIfEntry_Object=MibTableRow
-dpCableDiagIfEntry=_DpCableDiagIfEntry_Object((1,3,6,1,4,1,171,15,1,1,1,1))
-dpCableDiagIfEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:dpCableDiagIfEntry.setStatus(_A)
-class _DpCableDiagIfAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('noOp',1),('test',2),('clear',3)))
-_DpCableDiagIfAction_Type.__name__=_C
-_DpCableDiagIfAction_Object=MibTableColumn
-dpCableDiagIfAction=_DpCableDiagIfAction_Object((1,3,6,1,4,1,171,15,1,1,1,1,1),_DpCableDiagIfAction_Type())
-dpCableDiagIfAction.setMaxAccess('read-write')
-if mibBuilder.loadTexts:dpCableDiagIfAction.setStatus(_A)
-_DpCableDiagResultTable_Object=MibTable
-dpCableDiagResultTable=_DpCableDiagResultTable_Object((1,3,6,1,4,1,171,15,1,1,2))
-if mibBuilder.loadTexts:dpCableDiagResultTable.setStatus(_A)
-_DpCableDiagResultEntry_Object=MibTableRow
-dpCableDiagResultEntry=_DpCableDiagResultEntry_Object((1,3,6,1,4,1,171,15,1,1,2,1))
-dpCableDiagResultEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:dpCableDiagResultEntry.setStatus(_A)
-class _DpCableDiagResultCableStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6)));namedValues=NamedValues(*((_G,0),('ok',1),('no_cable',2),('open',3),('short',4),('openshort',5),('crosstalk',6)))
-_DpCableDiagResultCableStatus_Type.__name__=_C
-_DpCableDiagResultCableStatus_Object=MibTableColumn
-dpCableDiagResultCableStatus=_DpCableDiagResultCableStatus_Object((1,3,6,1,4,1,171,15,1,1,2,1,1),_DpCableDiagResultCableStatus_Type())
-dpCableDiagResultCableStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:dpCableDiagResultCableStatus.setStatus(_A)
-_DpCableDiagResultCableLength_Type=Integer32
-_DpCableDiagResultCableLength_Object=MibTableColumn
-dpCableDiagResultCableLength=_DpCableDiagResultCableLength_Object((1,3,6,1,4,1,171,15,1,1,2,1,2),_DpCableDiagResultCableLength_Type())
-dpCableDiagResultCableLength.setMaxAccess(_D)
-if mibBuilder.loadTexts:dpCableDiagResultCableLength.setStatus(_A)
-if mibBuilder.loadTexts:dpCableDiagResultCableLength.setUnits('meters')
-class _DpCableDiagLinkStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_G,0),('up',1),('down',2)))
-_DpCableDiagLinkStatus_Type.__name__=_C
-_DpCableDiagLinkStatus_Object=MibTableColumn
-dpCableDiagLinkStatus=_DpCableDiagLinkStatus_Object((1,3,6,1,4,1,171,15,1,1,2,1,3),_DpCableDiagLinkStatus_Type())
-dpCableDiagLinkStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:dpCableDiagLinkStatus.setStatus(_A)
-class _DpCableDiagInterfaceType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_G,0),('type_1000BASET',1),('type_1000BASEX',2)))
-_DpCableDiagInterfaceType_Type.__name__=_C
-_DpCableDiagInterfaceType_Object=MibTableColumn
-dpCableDiagInterfaceType=_DpCableDiagInterfaceType_Object((1,3,6,1,4,1,171,15,1,1,2,1,4),_DpCableDiagInterfaceType_Type())
-dpCableDiagInterfaceType.setMaxAccess(_D)
-if mibBuilder.loadTexts:dpCableDiagInterfaceType.setStatus(_A)
-_DpCableDiagConformance_ObjectIdentity=ObjectIdentity
-dpCableDiagConformance=_DpCableDiagConformance_ObjectIdentity((1,3,6,1,4,1,171,15,1,2))
-_DpCableDiagCompliances_ObjectIdentity=ObjectIdentity
-dpCableDiagCompliances=_DpCableDiagCompliances_ObjectIdentity((1,3,6,1,4,1,171,15,1,2,1))
-_DpCableDiagGroups_ObjectIdentity=ObjectIdentity
-dpCableDiagGroups=_DpCableDiagGroups_ObjectIdentity((1,3,6,1,4,1,171,15,1,2,1,2))
-dpCableDiagBasicGroup=ObjectGroup((1,3,6,1,4,1,171,15,1,2,1,2,1))
-dpCableDiagBasicGroup.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L)))
-if mibBuilder.loadTexts:dpCableDiagBasicGroup.setStatus(_A)
-dpCableDiagCompliance=ModuleCompliance((1,3,6,1,4,1,171,15,1,2,1,1))
-dpCableDiagCompliance.setObjects((_B,_M))
-if mibBuilder.loadTexts:dpCableDiagCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'dlinkPrimeCableDiagMIB':dlinkPrimeCableDiagMIB,'dpCableDiagNotifications':dpCableDiagNotifications,'dpCableDiagObjects':dpCableDiagObjects,'dpCableDiagIfTable':dpCableDiagIfTable,'dpCableDiagIfEntry':dpCableDiagIfEntry,_H:dpCableDiagIfAction,'dpCableDiagResultTable':dpCableDiagResultTable,'dpCableDiagResultEntry':dpCableDiagResultEntry,_I:dpCableDiagResultCableStatus,_J:dpCableDiagResultCableLength,_K:dpCableDiagLinkStatus,_L:dpCableDiagInterfaceType,'dpCableDiagConformance':dpCableDiagConformance,'dpCableDiagCompliances':dpCableDiagCompliances,'dpCableDiagCompliance':dpCableDiagCompliance,'dpCableDiagGroups':dpCableDiagGroups,_M:dpCableDiagBasicGroup})
+#
+# PySNMP MIB module DLINKPRIME-CABLE-DIAG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DLINKPRIME-CABLE-DIAG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:33:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlinkPrimeCommon, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlinkPrimeCommon")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+dlinkPrimeCableDiagMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 15, 1))
+dlinkPrimeCableDiagMIB.setRevisions(('2014-04-26 00:00',))
+if mibBuilder.loadTexts: dlinkPrimeCableDiagMIB.setLastUpdated('201404260000Z')
+if mibBuilder.loadTexts: dlinkPrimeCableDiagMIB.setOrganization('D-Link Corp.')
+dpCableDiagNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 1, 0))
+dpCableDiagObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 1, 1))
+dpCableDiagConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 1, 2))
+dpCableDiagIfTable = MibTable((1, 3, 6, 1, 4, 1, 171, 15, 1, 1, 1), )
+if mibBuilder.loadTexts: dpCableDiagIfTable.setStatus('current')
+dpCableDiagIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 15, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: dpCableDiagIfEntry.setStatus('current')
+dpCableDiagIfAction = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noOp", 1), ("test", 2), ("clear", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpCableDiagIfAction.setStatus('current')
+dpCableDiagResultTable = MibTable((1, 3, 6, 1, 4, 1, 171, 15, 1, 1, 2), )
+if mibBuilder.loadTexts: dpCableDiagResultTable.setStatus('current')
+dpCableDiagResultEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 15, 1, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: dpCableDiagResultEntry.setStatus('current')
+dpCableDiagResultCableStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 1, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("no_result", 0), ("ok", 1), ("no_cable", 2), ("open", 3), ("short", 4), ("openshort", 5), ("crosstalk", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dpCableDiagResultCableStatus.setStatus('current')
+dpCableDiagResultCableLength = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 1, 1, 2, 1, 2), Integer32()).setUnits('meters').setMaxAccess("readonly")
+if mibBuilder.loadTexts: dpCableDiagResultCableLength.setStatus('current')
+dpCableDiagLinkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 1, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("no_result", 0), ("up", 1), ("down", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dpCableDiagLinkStatus.setStatus('current')
+dpCableDiagInterfaceType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 1, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("no_result", 0), ("type_1000BASET", 1), ("type_1000BASEX", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dpCableDiagInterfaceType.setStatus('current')
+dpCableDiagCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 1, 2, 1))
+dpCableDiagCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 171, 15, 1, 2, 1, 1)).setObjects(("DLINKPRIME-CABLE-DIAG-MIB", "dpCableDiagBasicGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dpCableDiagCompliance = dpCableDiagCompliance.setStatus('current')
+dpCableDiagGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 1, 2, 1, 2))
+dpCableDiagBasicGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 15, 1, 2, 1, 2, 1)).setObjects(("DLINKPRIME-CABLE-DIAG-MIB", "dpCableDiagIfAction"), ("DLINKPRIME-CABLE-DIAG-MIB", "dpCableDiagResultCableStatus"), ("DLINKPRIME-CABLE-DIAG-MIB", "dpCableDiagResultCableLength"), ("DLINKPRIME-CABLE-DIAG-MIB", "dpCableDiagLinkStatus"), ("DLINKPRIME-CABLE-DIAG-MIB", "dpCableDiagInterfaceType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dpCableDiagBasicGroup = dpCableDiagBasicGroup.setStatus('current')
+mibBuilder.exportSymbols("DLINKPRIME-CABLE-DIAG-MIB", dlinkPrimeCableDiagMIB=dlinkPrimeCableDiagMIB, dpCableDiagLinkStatus=dpCableDiagLinkStatus, dpCableDiagResultCableStatus=dpCableDiagResultCableStatus, dpCableDiagObjects=dpCableDiagObjects, dpCableDiagResultEntry=dpCableDiagResultEntry, dpCableDiagInterfaceType=dpCableDiagInterfaceType, dpCableDiagBasicGroup=dpCableDiagBasicGroup, dpCableDiagIfEntry=dpCableDiagIfEntry, PYSNMP_MODULE_ID=dlinkPrimeCableDiagMIB, dpCableDiagIfAction=dpCableDiagIfAction, dpCableDiagIfTable=dpCableDiagIfTable, dpCableDiagResultTable=dpCableDiagResultTable, dpCableDiagCompliance=dpCableDiagCompliance, dpCableDiagNotifications=dpCableDiagNotifications, dpCableDiagCompliances=dpCableDiagCompliances, dpCableDiagGroups=dpCableDiagGroups, dpCableDiagResultCableLength=dpCableDiagResultCableLength, dpCableDiagConformance=dpCableDiagConformance)

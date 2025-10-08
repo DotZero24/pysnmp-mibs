@@ -1,116 +1,59 @@
-_M='rcIgmpSnoopStaticMulticastAddress'
-_L='rcIgmpSnoopMrouterPort'
-_K='rcIgmpSnoopMrouterVlan'
-_J='EnableVar'
-_I='dot1qStaticMulticastReceivePort'
-_H='dot1qStaticMulticastAddress'
-_G='not-accessible'
-_F='Integer32'
-_E='dot1qVlanIndex'
-_D='SWITCH-IGMPSNOOP-MIB'
-_C='Q-BRIDGE-MIB'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1qStaticMulticastAddress,dot1qStaticMulticastReceivePort,dot1qVlanIndex=mibBuilder.importSymbols(_C,_H,_I,_E)
-iscomSwitch,=mibBuilder.importSymbols('RAISECOM-BASE-MIB','iscomSwitch')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-EnableVar,PortList,Vlanset=mibBuilder.importSymbols('SWITCH-TC',_J,'PortList','Vlanset')
-rcIgmpSnoop=ModuleIdentity((1,3,6,1,4,1,8886,6,1,11))
-if mibBuilder.loadTexts:rcIgmpSnoop.setRevisions(('1904-12-20 00:00',))
-class _RcIgmpSnoopEnable_Type(EnableVar):defaultValue=1
-_RcIgmpSnoopEnable_Type.__name__=_J
-_RcIgmpSnoopEnable_Object=MibScalar
-rcIgmpSnoopEnable=_RcIgmpSnoopEnable_Object((1,3,6,1,4,1,8886,6,1,11,1),_RcIgmpSnoopEnable_Type())
-rcIgmpSnoopEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcIgmpSnoopEnable.setStatus(_A)
-_RcIgmpSnoopAlerts_Type=TruthValue
-_RcIgmpSnoopAlerts_Object=MibScalar
-rcIgmpSnoopAlerts=_RcIgmpSnoopAlerts_Object((1,3,6,1,4,1,8886,6,1,11,2),_RcIgmpSnoopAlerts_Type())
-rcIgmpSnoopAlerts.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcIgmpSnoopAlerts.setStatus(_A)
-class _RcIgmpSnoopAging_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(30,3600))
-_RcIgmpSnoopAging_Type.__name__=_F
-_RcIgmpSnoopAging_Object=MibScalar
-rcIgmpSnoopAging=_RcIgmpSnoopAging_Object((1,3,6,1,4,1,8886,6,1,11,3),_RcIgmpSnoopAging_Type())
-rcIgmpSnoopAging.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcIgmpSnoopAging.setStatus(_A)
-if mibBuilder.loadTexts:rcIgmpSnoopAging.setUnits('second')
-_RcIgmpSnoopVlan_Type=Vlanset
-_RcIgmpSnoopVlan_Object=MibScalar
-rcIgmpSnoopVlan=_RcIgmpSnoopVlan_Object((1,3,6,1,4,1,8886,6,1,11,4),_RcIgmpSnoopVlan_Type())
-rcIgmpSnoopVlan.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcIgmpSnoopVlan.setStatus(_A)
-_RcIgmpSnoopLeave_Type=Vlanset
-_RcIgmpSnoopLeave_Object=MibScalar
-rcIgmpSnoopLeave=_RcIgmpSnoopLeave_Object((1,3,6,1,4,1,8886,6,1,11,5),_RcIgmpSnoopLeave_Type())
-rcIgmpSnoopLeave.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcIgmpSnoopLeave.setStatus(_A)
-_RcIgmpSnoopFilter_Type=TruthValue
-_RcIgmpSnoopFilter_Object=MibScalar
-rcIgmpSnoopFilter=_RcIgmpSnoopFilter_Object((1,3,6,1,4,1,8886,6,1,11,6),_RcIgmpSnoopFilter_Type())
-rcIgmpSnoopFilter.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcIgmpSnoopFilter.setStatus(_A)
-_RcIgmpSnoopTable_Object=MibTable
-rcIgmpSnoopTable=_RcIgmpSnoopTable_Object((1,3,6,1,4,1,8886,6,1,11,7))
-if mibBuilder.loadTexts:rcIgmpSnoopTable.setStatus(_A)
-_RcIgmpSnoopEntry_Object=MibTableRow
-rcIgmpSnoopEntry=_RcIgmpSnoopEntry_Object((1,3,6,1,4,1,8886,6,1,11,7,1))
-rcIgmpSnoopEntry.setIndexNames((0,_C,_E),(0,_C,_H),(0,_C,_I))
-if mibBuilder.loadTexts:rcIgmpSnoopEntry.setStatus(_A)
-_RcIgmpSnoopEgressPorts_Type=PortList
-_RcIgmpSnoopEgressPorts_Object=MibTableColumn
-rcIgmpSnoopEgressPorts=_RcIgmpSnoopEgressPorts_Object((1,3,6,1,4,1,8886,6,1,11,7,1,1),_RcIgmpSnoopEgressPorts_Type())
-rcIgmpSnoopEgressPorts.setMaxAccess('read-only')
-if mibBuilder.loadTexts:rcIgmpSnoopEgressPorts.setStatus(_A)
-_RcIgmpSnoopMrouterTable_Object=MibTable
-rcIgmpSnoopMrouterTable=_RcIgmpSnoopMrouterTable_Object((1,3,6,1,4,1,8886,6,1,11,8))
-if mibBuilder.loadTexts:rcIgmpSnoopMrouterTable.setStatus(_A)
-_RcIgmpSnoopMrouterEntry_Object=MibTableRow
-rcIgmpSnoopMrouterEntry=_RcIgmpSnoopMrouterEntry_Object((1,3,6,1,4,1,8886,6,1,11,8,1))
-rcIgmpSnoopMrouterEntry.setIndexNames((0,_D,_K),(0,_D,_L))
-if mibBuilder.loadTexts:rcIgmpSnoopMrouterEntry.setStatus(_A)
-_RcIgmpSnoopMrouterVlan_Type=Integer32
-_RcIgmpSnoopMrouterVlan_Object=MibTableColumn
-rcIgmpSnoopMrouterVlan=_RcIgmpSnoopMrouterVlan_Object((1,3,6,1,4,1,8886,6,1,11,8,1,1),_RcIgmpSnoopMrouterVlan_Type())
-rcIgmpSnoopMrouterVlan.setMaxAccess(_G)
-if mibBuilder.loadTexts:rcIgmpSnoopMrouterVlan.setStatus(_A)
-_RcIgmpSnoopMrouterPort_Type=Integer32
-_RcIgmpSnoopMrouterPort_Object=MibTableColumn
-rcIgmpSnoopMrouterPort=_RcIgmpSnoopMrouterPort_Object((1,3,6,1,4,1,8886,6,1,11,8,1,2),_RcIgmpSnoopMrouterPort_Type())
-rcIgmpSnoopMrouterPort.setMaxAccess(_G)
-if mibBuilder.loadTexts:rcIgmpSnoopMrouterPort.setStatus(_A)
-_RcIgmpSnoopMrouterStatus_Type=RowStatus
-_RcIgmpSnoopMrouterStatus_Object=MibTableColumn
-rcIgmpSnoopMrouterStatus=_RcIgmpSnoopMrouterStatus_Object((1,3,6,1,4,1,8886,6,1,11,8,1,3),_RcIgmpSnoopMrouterStatus_Type())
-rcIgmpSnoopMrouterStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:rcIgmpSnoopMrouterStatus.setStatus(_A)
-_RcIgmpSnoopStaticMulticastTable_Object=MibTable
-rcIgmpSnoopStaticMulticastTable=_RcIgmpSnoopStaticMulticastTable_Object((1,3,6,1,4,1,8886,6,1,11,9))
-if mibBuilder.loadTexts:rcIgmpSnoopStaticMulticastTable.setStatus(_A)
-_RcIgmpSnoopStaticMulticastEntry_Object=MibTableRow
-rcIgmpSnoopStaticMulticastEntry=_RcIgmpSnoopStaticMulticastEntry_Object((1,3,6,1,4,1,8886,6,1,11,9,1))
-rcIgmpSnoopStaticMulticastEntry.setIndexNames((0,_C,_E),(0,_D,_M))
-if mibBuilder.loadTexts:rcIgmpSnoopStaticMulticastEntry.setStatus(_A)
-_RcIgmpSnoopStaticMulticastAddress_Type=IpAddress
-_RcIgmpSnoopStaticMulticastAddress_Object=MibTableColumn
-rcIgmpSnoopStaticMulticastAddress=_RcIgmpSnoopStaticMulticastAddress_Object((1,3,6,1,4,1,8886,6,1,11,9,1,1),_RcIgmpSnoopStaticMulticastAddress_Type())
-rcIgmpSnoopStaticMulticastAddress.setMaxAccess(_G)
-if mibBuilder.loadTexts:rcIgmpSnoopStaticMulticastAddress.setStatus(_A)
-_RcIgmpSnoopStaticMulticastStaticEgressPorts_Type=PortList
-_RcIgmpSnoopStaticMulticastStaticEgressPorts_Object=MibTableColumn
-rcIgmpSnoopStaticMulticastStaticEgressPorts=_RcIgmpSnoopStaticMulticastStaticEgressPorts_Object((1,3,6,1,4,1,8886,6,1,11,9,1,2),_RcIgmpSnoopStaticMulticastStaticEgressPorts_Type())
-rcIgmpSnoopStaticMulticastStaticEgressPorts.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcIgmpSnoopStaticMulticastStaticEgressPorts.setStatus(_A)
-class _RcIgmpSnoopStaticMulticastStatus_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('other',1),('invalid',2),('permanent',3),('deleteOnReset',4),('deleteOnTimeout',5)))
-_RcIgmpSnoopStaticMulticastStatus_Type.__name__=_F
-_RcIgmpSnoopStaticMulticastStatus_Object=MibTableColumn
-rcIgmpSnoopStaticMulticastStatus=_RcIgmpSnoopStaticMulticastStatus_Object((1,3,6,1,4,1,8886,6,1,11,9,1,3),_RcIgmpSnoopStaticMulticastStatus_Type())
-rcIgmpSnoopStaticMulticastStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcIgmpSnoopStaticMulticastStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'rcIgmpSnoop':rcIgmpSnoop,'rcIgmpSnoopEnable':rcIgmpSnoopEnable,'rcIgmpSnoopAlerts':rcIgmpSnoopAlerts,'rcIgmpSnoopAging':rcIgmpSnoopAging,'rcIgmpSnoopVlan':rcIgmpSnoopVlan,'rcIgmpSnoopLeave':rcIgmpSnoopLeave,'rcIgmpSnoopFilter':rcIgmpSnoopFilter,'rcIgmpSnoopTable':rcIgmpSnoopTable,'rcIgmpSnoopEntry':rcIgmpSnoopEntry,'rcIgmpSnoopEgressPorts':rcIgmpSnoopEgressPorts,'rcIgmpSnoopMrouterTable':rcIgmpSnoopMrouterTable,'rcIgmpSnoopMrouterEntry':rcIgmpSnoopMrouterEntry,_K:rcIgmpSnoopMrouterVlan,_L:rcIgmpSnoopMrouterPort,'rcIgmpSnoopMrouterStatus':rcIgmpSnoopMrouterStatus,'rcIgmpSnoopStaticMulticastTable':rcIgmpSnoopStaticMulticastTable,'rcIgmpSnoopStaticMulticastEntry':rcIgmpSnoopStaticMulticastEntry,_M:rcIgmpSnoopStaticMulticastAddress,'rcIgmpSnoopStaticMulticastStaticEgressPorts':rcIgmpSnoopStaticMulticastStaticEgressPorts,'rcIgmpSnoopStaticMulticastStatus':rcIgmpSnoopStaticMulticastStatus})
+#
+# PySNMP MIB module SWITCH-IGMPSNOOP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/SWITCH-IGMPSNOOP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:31:01 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1qVlanIndex, dot1qStaticMulticastAddress, dot1qStaticMulticastReceivePort = mibBuilder.importSymbols("Q-BRIDGE-MIB", "dot1qVlanIndex", "dot1qStaticMulticastAddress", "dot1qStaticMulticastReceivePort")
+iscomSwitch, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "iscomSwitch")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+PortList, Vlanset, EnableVar = mibBuilder.importSymbols("SWITCH-TC", "PortList", "Vlanset", "EnableVar")
+rcIgmpSnoop = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11))
+rcIgmpSnoop.setRevisions(('1904-12-20 00:00',))
+if mibBuilder.loadTexts: rcIgmpSnoop.setLastUpdated('0412200000Z')
+if mibBuilder.loadTexts: rcIgmpSnoop.setOrganization('raisecom Group')
+rcIgmpSnoopEnable = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11, 1), EnableVar().clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcIgmpSnoopEnable.setStatus('current')
+rcIgmpSnoopAlerts = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcIgmpSnoopAlerts.setStatus('current')
+rcIgmpSnoopAging = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(30, 3600), ))).setUnits('second').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcIgmpSnoopAging.setStatus('current')
+rcIgmpSnoopVlan = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11, 4), Vlanset()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcIgmpSnoopVlan.setStatus('current')
+rcIgmpSnoopLeave = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11, 5), Vlanset()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcIgmpSnoopLeave.setStatus('current')
+rcIgmpSnoopFilter = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11, 6), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcIgmpSnoopFilter.setStatus('current')
+rcIgmpSnoopTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11, 7), )
+if mibBuilder.loadTexts: rcIgmpSnoopTable.setStatus('current')
+rcIgmpSnoopEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11, 7, 1), ).setIndexNames((0, "Q-BRIDGE-MIB", "dot1qVlanIndex"), (0, "Q-BRIDGE-MIB", "dot1qStaticMulticastAddress"), (0, "Q-BRIDGE-MIB", "dot1qStaticMulticastReceivePort"))
+if mibBuilder.loadTexts: rcIgmpSnoopEntry.setStatus('current')
+rcIgmpSnoopEgressPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11, 7, 1, 1), PortList()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcIgmpSnoopEgressPorts.setStatus('current')
+rcIgmpSnoopMrouterTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11, 8), )
+if mibBuilder.loadTexts: rcIgmpSnoopMrouterTable.setStatus('current')
+rcIgmpSnoopMrouterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11, 8, 1), ).setIndexNames((0, "SWITCH-IGMPSNOOP-MIB", "rcIgmpSnoopMrouterVlan"), (0, "SWITCH-IGMPSNOOP-MIB", "rcIgmpSnoopMrouterPort"))
+if mibBuilder.loadTexts: rcIgmpSnoopMrouterEntry.setStatus('current')
+rcIgmpSnoopMrouterVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11, 8, 1, 1), Integer32())
+if mibBuilder.loadTexts: rcIgmpSnoopMrouterVlan.setStatus('current')
+rcIgmpSnoopMrouterPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11, 8, 1, 2), Integer32())
+if mibBuilder.loadTexts: rcIgmpSnoopMrouterPort.setStatus('current')
+rcIgmpSnoopMrouterStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11, 8, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcIgmpSnoopMrouterStatus.setStatus('current')
+rcIgmpSnoopStaticMulticastTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11, 9), )
+if mibBuilder.loadTexts: rcIgmpSnoopStaticMulticastTable.setStatus('current')
+rcIgmpSnoopStaticMulticastEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11, 9, 1), ).setIndexNames((0, "Q-BRIDGE-MIB", "dot1qVlanIndex"), (0, "SWITCH-IGMPSNOOP-MIB", "rcIgmpSnoopStaticMulticastAddress"))
+if mibBuilder.loadTexts: rcIgmpSnoopStaticMulticastEntry.setStatus('current')
+rcIgmpSnoopStaticMulticastAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11, 9, 1, 1), IpAddress())
+if mibBuilder.loadTexts: rcIgmpSnoopStaticMulticastAddress.setStatus('current')
+rcIgmpSnoopStaticMulticastStaticEgressPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11, 9, 1, 2), PortList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcIgmpSnoopStaticMulticastStaticEgressPorts.setStatus('current')
+rcIgmpSnoopStaticMulticastStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 11, 9, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("other", 1), ("invalid", 2), ("permanent", 3), ("deleteOnReset", 4), ("deleteOnTimeout", 5))).clone('permanent')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcIgmpSnoopStaticMulticastStatus.setStatus('current')
+mibBuilder.exportSymbols("SWITCH-IGMPSNOOP-MIB", rcIgmpSnoopStaticMulticastTable=rcIgmpSnoopStaticMulticastTable, rcIgmpSnoopTable=rcIgmpSnoopTable, rcIgmpSnoopStaticMulticastStaticEgressPorts=rcIgmpSnoopStaticMulticastStaticEgressPorts, rcIgmpSnoopMrouterStatus=rcIgmpSnoopMrouterStatus, rcIgmpSnoopEgressPorts=rcIgmpSnoopEgressPorts, rcIgmpSnoopStaticMulticastEntry=rcIgmpSnoopStaticMulticastEntry, rcIgmpSnoopStaticMulticastStatus=rcIgmpSnoopStaticMulticastStatus, rcIgmpSnoopFilter=rcIgmpSnoopFilter, PYSNMP_MODULE_ID=rcIgmpSnoop, rcIgmpSnoop=rcIgmpSnoop, rcIgmpSnoopMrouterTable=rcIgmpSnoopMrouterTable, rcIgmpSnoopAlerts=rcIgmpSnoopAlerts, rcIgmpSnoopStaticMulticastAddress=rcIgmpSnoopStaticMulticastAddress, rcIgmpSnoopLeave=rcIgmpSnoopLeave, rcIgmpSnoopMrouterPort=rcIgmpSnoopMrouterPort, rcIgmpSnoopEntry=rcIgmpSnoopEntry, rcIgmpSnoopMrouterEntry=rcIgmpSnoopMrouterEntry, rcIgmpSnoopVlan=rcIgmpSnoopVlan, rcIgmpSnoopMrouterVlan=rcIgmpSnoopMrouterVlan, rcIgmpSnoopEnable=rcIgmpSnoopEnable, rcIgmpSnoopAging=rcIgmpSnoopAging)

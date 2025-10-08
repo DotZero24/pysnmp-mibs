@@ -1,64 +1,36 @@
-_D='DisplayString'
-_C='Integer32'
-_B='current'
-_A='read-only'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-netscreenSetting,netscreenSettingMibModule=mibBuilder.importSymbols('NETSCREEN-SMI','netscreenSetting','netscreenSettingMibModule')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','TextualConvention')
-netscreenSetUrlFilterMibModule=ModuleIdentity((1,3,6,1,4,1,3224,7,0,4))
-if mibBuilder.loadTexts:netscreenSetUrlFilterMibModule.setRevisions(('2004-05-03 00:00','2004-03-03 00:00','2003-11-12 00:00','2001-09-28 00:00','2001-05-27 00:00'))
-_NsSetURLFilter_ObjectIdentity=ObjectIdentity
-nsSetURLFilter=_NsSetURLFilter_ObjectIdentity((1,3,6,1,4,1,3224,7,4))
-class _NsSetUrlFilterViaWebsense_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('disable',0),('enabled',1)))
-_NsSetUrlFilterViaWebsense_Type.__name__=_C
-_NsSetUrlFilterViaWebsense_Object=MibScalar
-nsSetUrlFilterViaWebsense=_NsSetUrlFilterViaWebsense_Object((1,3,6,1,4,1,3224,7,4,1),_NsSetUrlFilterViaWebsense_Type())
-nsSetUrlFilterViaWebsense.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetUrlFilterViaWebsense.setStatus(_B)
-class _NsSetUrlServerName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_NsSetUrlServerName_Type.__name__=_D
-_NsSetUrlServerName_Object=MibScalar
-nsSetUrlServerName=_NsSetUrlServerName_Object((1,3,6,1,4,1,3224,7,4,2),_NsSetUrlServerName_Type())
-nsSetUrlServerName.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetUrlServerName.setStatus(_B)
-_NsSetUrlServerPort_Type=Integer32
-_NsSetUrlServerPort_Object=MibScalar
-nsSetUrlServerPort=_NsSetUrlServerPort_Object((1,3,6,1,4,1,3224,7,4,3),_NsSetUrlServerPort_Type())
-nsSetUrlServerPort.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetUrlServerPort.setStatus(_B)
-class _NsSetUrlCommTimeout_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,240))
-_NsSetUrlCommTimeout_Type.__name__=_C
-_NsSetUrlCommTimeout_Object=MibScalar
-nsSetUrlCommTimeout=_NsSetUrlCommTimeout_Object((1,3,6,1,4,1,3224,7,4,4),_NsSetUrlCommTimeout_Type())
-nsSetUrlCommTimeout.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetUrlCommTimeout.setStatus(_B)
-class _NsSetUrlServerStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('not-applicable',0),('running',1),('down',2)))
-_NsSetUrlServerStatus_Type.__name__=_C
-_NsSetUrlServerStatus_Object=MibScalar
-nsSetUrlServerStatus=_NsSetUrlServerStatus_Object((1,3,6,1,4,1,3224,7,4,5),_NsSetUrlServerStatus_Type())
-nsSetUrlServerStatus.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetUrlServerStatus.setStatus(_B)
-class _NsSetUrlSerLostHdlWay_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('block-all',0),('permit-all',1)))
-_NsSetUrlSerLostHdlWay_Type.__name__=_C
-_NsSetUrlSerLostHdlWay_Object=MibScalar
-nsSetUrlSerLostHdlWay=_NsSetUrlSerLostHdlWay_Object((1,3,6,1,4,1,3224,7,4,6),_NsSetUrlSerLostHdlWay_Type())
-nsSetUrlSerLostHdlWay.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetUrlSerLostHdlWay.setStatus(_B)
-class _NsSetUrlBlockMsgType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('websense',0),('netscreen',1)))
-_NsSetUrlBlockMsgType_Type.__name__=_C
-_NsSetUrlBlockMsgType_Object=MibScalar
-nsSetUrlBlockMsgType=_NsSetUrlBlockMsgType_Object((1,3,6,1,4,1,3224,7,4,7),_NsSetUrlBlockMsgType_Type())
-nsSetUrlBlockMsgType.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetUrlBlockMsgType.setStatus(_B)
-class _NsSetUrlNsBlockMsg_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,220))
-_NsSetUrlNsBlockMsg_Type.__name__=_D
-_NsSetUrlNsBlockMsg_Object=MibScalar
-nsSetUrlNsBlockMsg=_NsSetUrlNsBlockMsg_Object((1,3,6,1,4,1,3224,7,4,8),_NsSetUrlNsBlockMsg_Type())
-nsSetUrlNsBlockMsg.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetUrlNsBlockMsg.setStatus(_B)
-mibBuilder.exportSymbols('NETSCREEN-SET-URL-FILTER-MIB',**{'netscreenSetUrlFilterMibModule':netscreenSetUrlFilterMibModule,'nsSetURLFilter':nsSetURLFilter,'nsSetUrlFilterViaWebsense':nsSetUrlFilterViaWebsense,'nsSetUrlServerName':nsSetUrlServerName,'nsSetUrlServerPort':nsSetUrlServerPort,'nsSetUrlCommTimeout':nsSetUrlCommTimeout,'nsSetUrlServerStatus':nsSetUrlServerStatus,'nsSetUrlSerLostHdlWay':nsSetUrlSerLostHdlWay,'nsSetUrlBlockMsgType':nsSetUrlBlockMsgType,'nsSetUrlNsBlockMsg':nsSetUrlNsBlockMsg})
+#
+# PySNMP MIB module NETSCREEN-SET-URL-FILTER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netscreen/NETSCREEN-SET-URL-FILTER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:29 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+netscreenSetting, netscreenSettingMibModule = mibBuilder.importSymbols("NETSCREEN-SMI", "netscreenSetting", "netscreenSettingMibModule")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+netscreenSetUrlFilterMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 3224, 7, 0, 4))
+netscreenSetUrlFilterMibModule.setRevisions(('2004-05-03 00:00', '2004-03-03 00:00', '2003-11-12 00:00', '2001-09-28 00:00', '2001-05-27 00:00',))
+if mibBuilder.loadTexts: netscreenSetUrlFilterMibModule.setLastUpdated('200405032022Z')
+if mibBuilder.loadTexts: netscreenSetUrlFilterMibModule.setOrganization('Juniper Networks, Inc.')
+nsSetURLFilter = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 7, 4))
+nsSetUrlFilterViaWebsense = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 4, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enabled", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetUrlFilterViaWebsense.setStatus('current')
+nsSetUrlServerName = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 4, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetUrlServerName.setStatus('current')
+nsSetUrlServerPort = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 4, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetUrlServerPort.setStatus('current')
+nsSetUrlCommTimeout = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 4, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 240))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetUrlCommTimeout.setStatus('current')
+nsSetUrlServerStatus = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 4, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("not-applicable", 0), ("running", 1), ("down", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetUrlServerStatus.setStatus('current')
+nsSetUrlSerLostHdlWay = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 4, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("block-all", 0), ("permit-all", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetUrlSerLostHdlWay.setStatus('current')
+nsSetUrlBlockMsgType = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 4, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("websense", 0), ("netscreen", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetUrlBlockMsgType.setStatus('current')
+nsSetUrlNsBlockMsg = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 4, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 220))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetUrlNsBlockMsg.setStatus('current')
+mibBuilder.exportSymbols("NETSCREEN-SET-URL-FILTER-MIB", nsSetUrlServerPort=nsSetUrlServerPort, nsSetURLFilter=nsSetURLFilter, nsSetUrlServerStatus=nsSetUrlServerStatus, nsSetUrlNsBlockMsg=nsSetUrlNsBlockMsg, nsSetUrlFilterViaWebsense=nsSetUrlFilterViaWebsense, nsSetUrlServerName=nsSetUrlServerName, nsSetUrlBlockMsgType=nsSetUrlBlockMsgType, PYSNMP_MODULE_ID=netscreenSetUrlFilterMibModule, nsSetUrlCommTimeout=nsSetUrlCommTimeout, netscreenSetUrlFilterMibModule=netscreenSetUrlFilterMibModule, nsSetUrlSerLostHdlWay=nsSetUrlSerLostHdlWay)

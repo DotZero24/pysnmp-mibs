@@ -1,65 +1,43 @@
-_I='bcsiModuleMemUtilizationGroup'
-_H='bcsiModuleMemUtil100thPercent'
-_G='bcsiModuleMemAvailable'
-_F='bcsiModuleMemTotal'
-_E='kilo Bytes'
-_D='read-only'
-_C='bcsiModuleMemUtilSlotNum'
-_B='BROCADE-MODULE-MEM-UTIL-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-bcsiModules,=mibBuilder.importSymbols('Brocade-REG-MIB','bcsiModules')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-brocadeModuleMemUtilMIB=ModuleIdentity((1,3,6,1,4,1,1588,3,1,13))
-if mibBuilder.loadTexts:brocadeModuleMemUtilMIB.setRevisions(('2018-05-29 12:00','2016-11-25 00:00'))
-_BcsiModuleMemUtilNotifications_ObjectIdentity=ObjectIdentity
-bcsiModuleMemUtilNotifications=_BcsiModuleMemUtilNotifications_ObjectIdentity((1,3,6,1,4,1,1588,3,1,13,0))
-_BcsiModuleMemUtilObjects_ObjectIdentity=ObjectIdentity
-bcsiModuleMemUtilObjects=_BcsiModuleMemUtilObjects_ObjectIdentity((1,3,6,1,4,1,1588,3,1,13,1))
-_BcsiModuleMemUtilTable_Object=MibTable
-bcsiModuleMemUtilTable=_BcsiModuleMemUtilTable_Object((1,3,6,1,4,1,1588,3,1,13,1,1))
-if mibBuilder.loadTexts:bcsiModuleMemUtilTable.setStatus(_A)
-_BcsiModuleMemUtilEntry_Object=MibTableRow
-bcsiModuleMemUtilEntry=_BcsiModuleMemUtilEntry_Object((1,3,6,1,4,1,1588,3,1,13,1,1,1))
-bcsiModuleMemUtilEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:bcsiModuleMemUtilEntry.setStatus(_A)
-_BcsiModuleMemUtilSlotNum_Type=Integer32
-_BcsiModuleMemUtilSlotNum_Object=MibTableColumn
-bcsiModuleMemUtilSlotNum=_BcsiModuleMemUtilSlotNum_Object((1,3,6,1,4,1,1588,3,1,13,1,1,1,1),_BcsiModuleMemUtilSlotNum_Type())
-bcsiModuleMemUtilSlotNum.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:bcsiModuleMemUtilSlotNum.setStatus(_A)
-_BcsiModuleMemTotal_Type=Unsigned32
-_BcsiModuleMemTotal_Object=MibTableColumn
-bcsiModuleMemTotal=_BcsiModuleMemTotal_Object((1,3,6,1,4,1,1588,3,1,13,1,1,1,2),_BcsiModuleMemTotal_Type())
-bcsiModuleMemTotal.setMaxAccess(_D)
-if mibBuilder.loadTexts:bcsiModuleMemTotal.setStatus(_A)
-if mibBuilder.loadTexts:bcsiModuleMemTotal.setUnits(_E)
-_BcsiModuleMemAvailable_Type=Gauge32
-_BcsiModuleMemAvailable_Object=MibTableColumn
-bcsiModuleMemAvailable=_BcsiModuleMemAvailable_Object((1,3,6,1,4,1,1588,3,1,13,1,1,1,3),_BcsiModuleMemAvailable_Type())
-bcsiModuleMemAvailable.setMaxAccess(_D)
-if mibBuilder.loadTexts:bcsiModuleMemAvailable.setStatus(_A)
-if mibBuilder.loadTexts:bcsiModuleMemAvailable.setUnits(_E)
-_BcsiModuleMemUtil100thPercent_Type=Gauge32
-_BcsiModuleMemUtil100thPercent_Object=MibTableColumn
-bcsiModuleMemUtil100thPercent=_BcsiModuleMemUtil100thPercent_Object((1,3,6,1,4,1,1588,3,1,13,1,1,1,4),_BcsiModuleMemUtil100thPercent_Type())
-bcsiModuleMemUtil100thPercent.setMaxAccess(_D)
-if mibBuilder.loadTexts:bcsiModuleMemUtil100thPercent.setStatus(_A)
-_BcsiModuleMemUtilConformance_ObjectIdentity=ObjectIdentity
-bcsiModuleMemUtilConformance=_BcsiModuleMemUtilConformance_ObjectIdentity((1,3,6,1,4,1,1588,3,1,13,2))
-_BcsiModuleMemUtilCompliances_ObjectIdentity=ObjectIdentity
-bcsiModuleMemUtilCompliances=_BcsiModuleMemUtilCompliances_ObjectIdentity((1,3,6,1,4,1,1588,3,1,13,2,1))
-_BcsiModuleMemUtilGroups_ObjectIdentity=ObjectIdentity
-bcsiModuleMemUtilGroups=_BcsiModuleMemUtilGroups_ObjectIdentity((1,3,6,1,4,1,1588,3,1,13,2,2))
-bcsiModuleMemUtilizationGroup=ObjectGroup((1,3,6,1,4,1,1588,3,1,13,2,2,1))
-bcsiModuleMemUtilizationGroup.setObjects(*((_B,_C),(_B,_F),(_B,_G),(_B,_H)))
-if mibBuilder.loadTexts:bcsiModuleMemUtilizationGroup.setStatus(_A)
-bcsiModuleMemUtilCompliance=ModuleCompliance((1,3,6,1,4,1,1588,3,1,13,2,1,1))
-bcsiModuleMemUtilCompliance.setObjects((_B,_I))
-if mibBuilder.loadTexts:bcsiModuleMemUtilCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'brocadeModuleMemUtilMIB':brocadeModuleMemUtilMIB,'bcsiModuleMemUtilNotifications':bcsiModuleMemUtilNotifications,'bcsiModuleMemUtilObjects':bcsiModuleMemUtilObjects,'bcsiModuleMemUtilTable':bcsiModuleMemUtilTable,'bcsiModuleMemUtilEntry':bcsiModuleMemUtilEntry,_C:bcsiModuleMemUtilSlotNum,_F:bcsiModuleMemTotal,_G:bcsiModuleMemAvailable,_H:bcsiModuleMemUtil100thPercent,'bcsiModuleMemUtilConformance':bcsiModuleMemUtilConformance,'bcsiModuleMemUtilCompliances':bcsiModuleMemUtilCompliances,'bcsiModuleMemUtilCompliance':bcsiModuleMemUtilCompliance,'bcsiModuleMemUtilGroups':bcsiModuleMemUtilGroups,_I:bcsiModuleMemUtilizationGroup})
+#
+# PySNMP MIB module BROCADE-MODULE-MEM-UTIL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/brocade/BROCADE-MODULE-MEM-UTIL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:09 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+bcsiModules, = mibBuilder.importSymbols("Brocade-REG-MIB", "bcsiModules")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+brocadeModuleMemUtilMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1588, 3, 1, 13))
+brocadeModuleMemUtilMIB.setRevisions(('2018-05-29 12:00', '2016-11-25 00:00',))
+if mibBuilder.loadTexts: brocadeModuleMemUtilMIB.setLastUpdated('201805291200Z')
+if mibBuilder.loadTexts: brocadeModuleMemUtilMIB.setOrganization('Extreme Networks, Inc.')
+bcsiModuleMemUtilNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 1588, 3, 1, 13, 0))
+bcsiModuleMemUtilObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1588, 3, 1, 13, 1))
+bcsiModuleMemUtilConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 1588, 3, 1, 13, 2))
+bcsiModuleMemUtilTable = MibTable((1, 3, 6, 1, 4, 1, 1588, 3, 1, 13, 1, 1), )
+if mibBuilder.loadTexts: bcsiModuleMemUtilTable.setStatus('current')
+bcsiModuleMemUtilEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1588, 3, 1, 13, 1, 1, 1), ).setIndexNames((0, "BROCADE-MODULE-MEM-UTIL-MIB", "bcsiModuleMemUtilSlotNum"))
+if mibBuilder.loadTexts: bcsiModuleMemUtilEntry.setStatus('current')
+bcsiModuleMemUtilSlotNum = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 3, 1, 13, 1, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: bcsiModuleMemUtilSlotNum.setStatus('current')
+bcsiModuleMemTotal = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 3, 1, 13, 1, 1, 1, 2), Unsigned32()).setUnits('kilo Bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: bcsiModuleMemTotal.setStatus('current')
+bcsiModuleMemAvailable = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 3, 1, 13, 1, 1, 1, 3), Gauge32()).setUnits('kilo Bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: bcsiModuleMemAvailable.setStatus('current')
+bcsiModuleMemUtil100thPercent = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 3, 1, 13, 1, 1, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bcsiModuleMemUtil100thPercent.setStatus('current')
+bcsiModuleMemUtilCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 1588, 3, 1, 13, 2, 1))
+bcsiModuleMemUtilGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1588, 3, 1, 13, 2, 2))
+bcsiModuleMemUtilCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 1588, 3, 1, 13, 2, 1, 1)).setObjects(("BROCADE-MODULE-MEM-UTIL-MIB", "bcsiModuleMemUtilizationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bcsiModuleMemUtilCompliance = bcsiModuleMemUtilCompliance.setStatus('current')
+bcsiModuleMemUtilizationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1588, 3, 1, 13, 2, 2, 1)).setObjects(("BROCADE-MODULE-MEM-UTIL-MIB", "bcsiModuleMemUtilSlotNum"), ("BROCADE-MODULE-MEM-UTIL-MIB", "bcsiModuleMemTotal"), ("BROCADE-MODULE-MEM-UTIL-MIB", "bcsiModuleMemAvailable"), ("BROCADE-MODULE-MEM-UTIL-MIB", "bcsiModuleMemUtil100thPercent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bcsiModuleMemUtilizationGroup = bcsiModuleMemUtilizationGroup.setStatus('current')
+mibBuilder.exportSymbols("BROCADE-MODULE-MEM-UTIL-MIB", bcsiModuleMemUtilCompliance=bcsiModuleMemUtilCompliance, PYSNMP_MODULE_ID=brocadeModuleMemUtilMIB, bcsiModuleMemUtilTable=bcsiModuleMemUtilTable, bcsiModuleMemUtilizationGroup=bcsiModuleMemUtilizationGroup, bcsiModuleMemAvailable=bcsiModuleMemAvailable, bcsiModuleMemUtilCompliances=bcsiModuleMemUtilCompliances, bcsiModuleMemUtilNotifications=bcsiModuleMemUtilNotifications, bcsiModuleMemTotal=bcsiModuleMemTotal, bcsiModuleMemUtil100thPercent=bcsiModuleMemUtil100thPercent, brocadeModuleMemUtilMIB=brocadeModuleMemUtilMIB, bcsiModuleMemUtilGroups=bcsiModuleMemUtilGroups, bcsiModuleMemUtilObjects=bcsiModuleMemUtilObjects, bcsiModuleMemUtilSlotNum=bcsiModuleMemUtilSlotNum, bcsiModuleMemUtilEntry=bcsiModuleMemUtilEntry, bcsiModuleMemUtilConformance=bcsiModuleMemUtilConformance)

@@ -1,133 +1,66 @@
-_T='paraGroup'
-_S='paraOutSigChanges'
-_R='paraOutSigState'
-_Q='paraInSigChanges'
-_P='paraInSigState'
-_O='paraPortOutSigNumber'
-_N='paraPortInSigNumber'
-_M='paraPortType'
-_L='paraNumber'
-_K='paperout'
-_J='online'
-_I='paraOutSigName'
-_H='paraOutSigPortIndex'
-_G='paraInSigName'
-_F='paraInSigPortIndex'
-_E='paraPortIndex'
-_D='Integer32'
-_C='read-only'
-_B='PARALLEL-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,transmission=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','transmission')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-para=ModuleIdentity((1,3,6,1,2,1,10,34))
-_ParaNumber_Type=Integer32
-_ParaNumber_Object=MibScalar
-paraNumber=_ParaNumber_Object((1,3,6,1,2,1,10,34,1),_ParaNumber_Type())
-paraNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:paraNumber.setStatus(_A)
-_ParaPortTable_Object=MibTable
-paraPortTable=_ParaPortTable_Object((1,3,6,1,2,1,10,34,2))
-if mibBuilder.loadTexts:paraPortTable.setStatus(_A)
-_ParaPortEntry_Object=MibTableRow
-paraPortEntry=_ParaPortEntry_Object((1,3,6,1,2,1,10,34,2,1))
-paraPortEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:paraPortEntry.setStatus(_A)
-_ParaPortIndex_Type=InterfaceIndex
-_ParaPortIndex_Object=MibTableColumn
-paraPortIndex=_ParaPortIndex_Object((1,3,6,1,2,1,10,34,2,1,1),_ParaPortIndex_Type())
-paraPortIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:paraPortIndex.setStatus(_A)
-class _ParaPortType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('other',1),('centronics',2),('dataproducts',3)))
-_ParaPortType_Type.__name__=_D
-_ParaPortType_Object=MibTableColumn
-paraPortType=_ParaPortType_Object((1,3,6,1,2,1,10,34,2,1,2),_ParaPortType_Type())
-paraPortType.setMaxAccess(_C)
-if mibBuilder.loadTexts:paraPortType.setStatus(_A)
-_ParaPortInSigNumber_Type=Integer32
-_ParaPortInSigNumber_Object=MibTableColumn
-paraPortInSigNumber=_ParaPortInSigNumber_Object((1,3,6,1,2,1,10,34,2,1,3),_ParaPortInSigNumber_Type())
-paraPortInSigNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:paraPortInSigNumber.setStatus(_A)
-_ParaPortOutSigNumber_Type=Integer32
-_ParaPortOutSigNumber_Object=MibTableColumn
-paraPortOutSigNumber=_ParaPortOutSigNumber_Object((1,3,6,1,2,1,10,34,2,1,4),_ParaPortOutSigNumber_Type())
-paraPortOutSigNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:paraPortOutSigNumber.setStatus(_A)
-_ParaInSigTable_Object=MibTable
-paraInSigTable=_ParaInSigTable_Object((1,3,6,1,2,1,10,34,3))
-if mibBuilder.loadTexts:paraInSigTable.setStatus(_A)
-_ParaInSigEntry_Object=MibTableRow
-paraInSigEntry=_ParaInSigEntry_Object((1,3,6,1,2,1,10,34,3,1))
-paraInSigEntry.setIndexNames((0,_B,_F),(0,_B,_G))
-if mibBuilder.loadTexts:paraInSigEntry.setStatus(_A)
-_ParaInSigPortIndex_Type=InterfaceIndex
-_ParaInSigPortIndex_Object=MibTableColumn
-paraInSigPortIndex=_ParaInSigPortIndex_Object((1,3,6,1,2,1,10,34,3,1,1),_ParaInSigPortIndex_Type())
-paraInSigPortIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:paraInSigPortIndex.setStatus(_A)
-class _ParaInSigName_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('power',1),(_J,2),('busy',3),(_K,4),('fault',5)))
-_ParaInSigName_Type.__name__=_D
-_ParaInSigName_Object=MibTableColumn
-paraInSigName=_ParaInSigName_Object((1,3,6,1,2,1,10,34,3,1,2),_ParaInSigName_Type())
-paraInSigName.setMaxAccess(_C)
-if mibBuilder.loadTexts:paraInSigName.setStatus(_A)
-class _ParaInSigState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('none',1),('on',2),('off',3)))
-_ParaInSigState_Type.__name__=_D
-_ParaInSigState_Object=MibTableColumn
-paraInSigState=_ParaInSigState_Object((1,3,6,1,2,1,10,34,3,1,3),_ParaInSigState_Type())
-paraInSigState.setMaxAccess(_C)
-if mibBuilder.loadTexts:paraInSigState.setStatus(_A)
-_ParaInSigChanges_Type=Counter32
-_ParaInSigChanges_Object=MibTableColumn
-paraInSigChanges=_ParaInSigChanges_Object((1,3,6,1,2,1,10,34,3,1,4),_ParaInSigChanges_Type())
-paraInSigChanges.setMaxAccess(_C)
-if mibBuilder.loadTexts:paraInSigChanges.setStatus(_A)
-_ParaOutSigTable_Object=MibTable
-paraOutSigTable=_ParaOutSigTable_Object((1,3,6,1,2,1,10,34,4))
-if mibBuilder.loadTexts:paraOutSigTable.setStatus(_A)
-_ParaOutSigEntry_Object=MibTableRow
-paraOutSigEntry=_ParaOutSigEntry_Object((1,3,6,1,2,1,10,34,4,1))
-paraOutSigEntry.setIndexNames((0,_B,_H),(0,_B,_I))
-if mibBuilder.loadTexts:paraOutSigEntry.setStatus(_A)
-_ParaOutSigPortIndex_Type=InterfaceIndex
-_ParaOutSigPortIndex_Object=MibTableColumn
-paraOutSigPortIndex=_ParaOutSigPortIndex_Object((1,3,6,1,2,1,10,34,4,1,1),_ParaOutSigPortIndex_Type())
-paraOutSigPortIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:paraOutSigPortIndex.setStatus(_A)
-class _ParaOutSigName_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('power',1),(_J,2),('busy',3),(_K,4),('fault',5)))
-_ParaOutSigName_Type.__name__=_D
-_ParaOutSigName_Object=MibTableColumn
-paraOutSigName=_ParaOutSigName_Object((1,3,6,1,2,1,10,34,4,1,2),_ParaOutSigName_Type())
-paraOutSigName.setMaxAccess(_C)
-if mibBuilder.loadTexts:paraOutSigName.setStatus(_A)
-class _ParaOutSigState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('none',1),('on',2),('off',3)))
-_ParaOutSigState_Type.__name__=_D
-_ParaOutSigState_Object=MibTableColumn
-paraOutSigState=_ParaOutSigState_Object((1,3,6,1,2,1,10,34,4,1,3),_ParaOutSigState_Type())
-paraOutSigState.setMaxAccess(_C)
-if mibBuilder.loadTexts:paraOutSigState.setStatus(_A)
-_ParaOutSigChanges_Type=Counter32
-_ParaOutSigChanges_Object=MibTableColumn
-paraOutSigChanges=_ParaOutSigChanges_Object((1,3,6,1,2,1,10,34,4,1,4),_ParaOutSigChanges_Type())
-paraOutSigChanges.setMaxAccess(_C)
-if mibBuilder.loadTexts:paraOutSigChanges.setStatus(_A)
-_ParaConformance_ObjectIdentity=ObjectIdentity
-paraConformance=_ParaConformance_ObjectIdentity((1,3,6,1,2,1,10,34,5))
-_ParaGroups_ObjectIdentity=ObjectIdentity
-paraGroups=_ParaGroups_ObjectIdentity((1,3,6,1,2,1,10,34,5,1))
-_ParaCompliances_ObjectIdentity=ObjectIdentity
-paraCompliances=_ParaCompliances_ObjectIdentity((1,3,6,1,2,1,10,34,5,2))
-paraGroup=ObjectGroup((1,3,6,1,2,1,10,34,5,1,1))
-paraGroup.setObjects(*((_B,_L),(_B,_E),(_B,_M),(_B,_N),(_B,_O),(_B,_F),(_B,_G),(_B,_P),(_B,_Q),(_B,_H),(_B,_I),(_B,_R),(_B,_S)))
-if mibBuilder.loadTexts:paraGroup.setStatus(_A)
-paraCompliance=ModuleCompliance((1,3,6,1,2,1,10,34,5,2,1))
-paraCompliance.setObjects((_B,_T))
-if mibBuilder.loadTexts:paraCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'para':para,_L:paraNumber,'paraPortTable':paraPortTable,'paraPortEntry':paraPortEntry,_E:paraPortIndex,_M:paraPortType,_N:paraPortInSigNumber,_O:paraPortOutSigNumber,'paraInSigTable':paraInSigTable,'paraInSigEntry':paraInSigEntry,_F:paraInSigPortIndex,_G:paraInSigName,_P:paraInSigState,_Q:paraInSigChanges,'paraOutSigTable':paraOutSigTable,'paraOutSigEntry':paraOutSigEntry,_H:paraOutSigPortIndex,_I:paraOutSigName,_R:paraOutSigState,_S:paraOutSigChanges,'paraConformance':paraConformance,'paraGroups':paraGroups,_T:paraGroup,'paraCompliances':paraCompliances,'paraCompliance':paraCompliance})
+#
+# PySNMP MIB module PARALLEL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/PARALLEL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:26:00 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, transmission, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "transmission", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+para = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 34))
+if mibBuilder.loadTexts: para.setLastUpdated('9405261700Z')
+if mibBuilder.loadTexts: para.setOrganization('IETF Character MIB Working Group')
+paraNumber = MibScalar((1, 3, 6, 1, 2, 1, 10, 34, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: paraNumber.setStatus('current')
+paraPortTable = MibTable((1, 3, 6, 1, 2, 1, 10, 34, 2), )
+if mibBuilder.loadTexts: paraPortTable.setStatus('current')
+paraPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 34, 2, 1), ).setIndexNames((0, "PARALLEL-MIB", "paraPortIndex"))
+if mibBuilder.loadTexts: paraPortEntry.setStatus('current')
+paraPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 34, 2, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: paraPortIndex.setStatus('current')
+paraPortType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 34, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("centronics", 2), ("dataproducts", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: paraPortType.setStatus('current')
+paraPortInSigNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 34, 2, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: paraPortInSigNumber.setStatus('current')
+paraPortOutSigNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 34, 2, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: paraPortOutSigNumber.setStatus('current')
+paraInSigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 34, 3), )
+if mibBuilder.loadTexts: paraInSigTable.setStatus('current')
+paraInSigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 34, 3, 1), ).setIndexNames((0, "PARALLEL-MIB", "paraInSigPortIndex"), (0, "PARALLEL-MIB", "paraInSigName"))
+if mibBuilder.loadTexts: paraInSigEntry.setStatus('current')
+paraInSigPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 34, 3, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: paraInSigPortIndex.setStatus('current')
+paraInSigName = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 34, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("power", 1), ("online", 2), ("busy", 3), ("paperout", 4), ("fault", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: paraInSigName.setStatus('current')
+paraInSigState = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 34, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("on", 2), ("off", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: paraInSigState.setStatus('current')
+paraInSigChanges = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 34, 3, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: paraInSigChanges.setStatus('current')
+paraOutSigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 34, 4), )
+if mibBuilder.loadTexts: paraOutSigTable.setStatus('current')
+paraOutSigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 34, 4, 1), ).setIndexNames((0, "PARALLEL-MIB", "paraOutSigPortIndex"), (0, "PARALLEL-MIB", "paraOutSigName"))
+if mibBuilder.loadTexts: paraOutSigEntry.setStatus('current')
+paraOutSigPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 34, 4, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: paraOutSigPortIndex.setStatus('current')
+paraOutSigName = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 34, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("power", 1), ("online", 2), ("busy", 3), ("paperout", 4), ("fault", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: paraOutSigName.setStatus('current')
+paraOutSigState = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 34, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("on", 2), ("off", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: paraOutSigState.setStatus('current')
+paraOutSigChanges = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 34, 4, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: paraOutSigChanges.setStatus('current')
+paraConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 34, 5))
+paraGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 34, 5, 1))
+paraCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 34, 5, 2))
+paraCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 34, 5, 2, 1)).setObjects(("PARALLEL-MIB", "paraGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    paraCompliance = paraCompliance.setStatus('current')
+paraGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 34, 5, 1, 1)).setObjects(("PARALLEL-MIB", "paraNumber"), ("PARALLEL-MIB", "paraPortIndex"), ("PARALLEL-MIB", "paraPortType"), ("PARALLEL-MIB", "paraPortInSigNumber"), ("PARALLEL-MIB", "paraPortOutSigNumber"), ("PARALLEL-MIB", "paraInSigPortIndex"), ("PARALLEL-MIB", "paraInSigName"), ("PARALLEL-MIB", "paraInSigState"), ("PARALLEL-MIB", "paraInSigChanges"), ("PARALLEL-MIB", "paraOutSigPortIndex"), ("PARALLEL-MIB", "paraOutSigName"), ("PARALLEL-MIB", "paraOutSigState"), ("PARALLEL-MIB", "paraOutSigChanges"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    paraGroup = paraGroup.setStatus('current')
+mibBuilder.exportSymbols("PARALLEL-MIB", paraOutSigPortIndex=paraOutSigPortIndex, paraInSigTable=paraInSigTable, paraInSigName=paraInSigName, paraOutSigState=paraOutSigState, paraCompliances=paraCompliances, paraInSigPortIndex=paraInSigPortIndex, paraCompliance=paraCompliance, PYSNMP_MODULE_ID=para, paraOutSigTable=paraOutSigTable, paraPortEntry=paraPortEntry, paraNumber=paraNumber, paraOutSigChanges=paraOutSigChanges, paraGroups=paraGroups, paraOutSigEntry=paraOutSigEntry, paraInSigState=paraInSigState, paraInSigEntry=paraInSigEntry, paraPortTable=paraPortTable, paraPortOutSigNumber=paraPortOutSigNumber, paraConformance=paraConformance, paraOutSigName=paraOutSigName, para=para, paraPortIndex=paraPortIndex, paraGroup=paraGroup, paraPortInSigNumber=paraPortInSigNumber, paraPortType=paraPortType, paraInSigChanges=paraInSigChanges)

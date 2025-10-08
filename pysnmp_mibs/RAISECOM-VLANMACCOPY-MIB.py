@@ -1,47 +1,33 @@
-_F='rcMacCopyTableIndex'
-_E='RAISECOM-VLANMACCOPY-MIB'
-_D='rcPortIndex'
-_C='SWITCH-SYSTEM-MIB'
-_B='read-create'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-iscomSwitch,=mibBuilder.importSymbols('RAISECOM-BASE-MIB','iscomSwitch')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-rcPortIndex,=mibBuilder.importSymbols(_C,_D)
-Vlanset,=mibBuilder.importSymbols('SWITCH-TC','Vlanset')
-rcMacConfig=ModuleIdentity((1,3,6,1,4,1,8886,6,1,3))
-_RcVlanMacCopyMibObjects_ObjectIdentity=ObjectIdentity
-rcVlanMacCopyMibObjects=_RcVlanMacCopyMibObjects_ObjectIdentity((1,3,6,1,4,1,8886,6,1,3,5))
-_RcVlanMacCopyTable_Object=MibTable
-rcVlanMacCopyTable=_RcVlanMacCopyTable_Object((1,3,6,1,4,1,8886,6,1,3,5,1))
-if mibBuilder.loadTexts:rcVlanMacCopyTable.setStatus(_A)
-_RcVlanMacCopyEntry_Object=MibTableRow
-rcVlanMacCopyEntry=_RcVlanMacCopyEntry_Object((1,3,6,1,4,1,8886,6,1,3,5,1,1))
-rcVlanMacCopyEntry.setIndexNames((0,_C,_D),(0,_E,_F))
-if mibBuilder.loadTexts:rcVlanMacCopyEntry.setStatus(_A)
-_RcMacCopyTableIndex_Type=Integer32
-_RcMacCopyTableIndex_Object=MibTableColumn
-rcMacCopyTableIndex=_RcMacCopyTableIndex_Object((1,3,6,1,4,1,8886,6,1,3,5,1,1,1),_RcMacCopyTableIndex_Type())
-rcMacCopyTableIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:rcMacCopyTableIndex.setStatus(_A)
-_RcMacCopyDestVlanList_Type=Vlanset
-_RcMacCopyDestVlanList_Object=MibTableColumn
-rcMacCopyDestVlanList=_RcMacCopyDestVlanList_Object((1,3,6,1,4,1,8886,6,1,3,5,1,1,2),_RcMacCopyDestVlanList_Type())
-rcMacCopyDestVlanList.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcMacCopyDestVlanList.setStatus(_A)
-_RcMacCopySourceVlanList_Type=Vlanset
-_RcMacCopySourceVlanList_Object=MibTableColumn
-rcMacCopySourceVlanList=_RcMacCopySourceVlanList_Object((1,3,6,1,4,1,8886,6,1,3,5,1,1,3),_RcMacCopySourceVlanList_Type())
-rcMacCopySourceVlanList.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcMacCopySourceVlanList.setStatus(_A)
-_RcMacCopyRowStatus_Type=RowStatus
-_RcMacCopyRowStatus_Object=MibTableColumn
-rcMacCopyRowStatus=_RcMacCopyRowStatus_Object((1,3,6,1,4,1,8886,6,1,3,5,1,1,4),_RcMacCopyRowStatus_Type())
-rcMacCopyRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcMacCopyRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'rcMacConfig':rcMacConfig,'rcVlanMacCopyMibObjects':rcVlanMacCopyMibObjects,'rcVlanMacCopyTable':rcVlanMacCopyTable,'rcVlanMacCopyEntry':rcVlanMacCopyEntry,_F:rcMacCopyTableIndex,'rcMacCopyDestVlanList':rcMacCopyDestVlanList,'rcMacCopySourceVlanList':rcMacCopySourceVlanList,'rcMacCopyRowStatus':rcMacCopyRowStatus})
+#
+# PySNMP MIB module RAISECOM-VLANMACCOPY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/RAISECOM-VLANMACCOPY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:40 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+iscomSwitch, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "iscomSwitch")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+rcPortIndex, = mibBuilder.importSymbols("SWITCH-SYSTEM-MIB", "rcPortIndex")
+Vlanset, = mibBuilder.importSymbols("SWITCH-TC", "Vlanset")
+rcMacConfig = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 6, 1, 3))
+if mibBuilder.loadTexts: rcMacConfig.setLastUpdated('200809230000Z')
+if mibBuilder.loadTexts: rcMacConfig.setOrganization('Raisecom, Inc.')
+rcVlanMacCopyMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 6, 1, 3, 5))
+rcVlanMacCopyTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 3, 5, 1), )
+if mibBuilder.loadTexts: rcVlanMacCopyTable.setStatus('current')
+rcVlanMacCopyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 3, 5, 1, 1), ).setIndexNames((0, "SWITCH-SYSTEM-MIB", "rcPortIndex"), (0, "RAISECOM-VLANMACCOPY-MIB", "rcMacCopyTableIndex"))
+if mibBuilder.loadTexts: rcVlanMacCopyEntry.setStatus('current')
+rcMacCopyTableIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 3, 5, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: rcMacCopyTableIndex.setStatus('current')
+rcMacCopyDestVlanList = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 3, 5, 1, 1, 2), Vlanset()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcMacCopyDestVlanList.setStatus('current')
+rcMacCopySourceVlanList = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 3, 5, 1, 1, 3), Vlanset()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcMacCopySourceVlanList.setStatus('current')
+rcMacCopyRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 3, 5, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcMacCopyRowStatus.setStatus('current')
+mibBuilder.exportSymbols("RAISECOM-VLANMACCOPY-MIB", rcVlanMacCopyTable=rcVlanMacCopyTable, rcVlanMacCopyMibObjects=rcVlanMacCopyMibObjects, rcMacConfig=rcMacConfig, rcVlanMacCopyEntry=rcVlanMacCopyEntry, rcMacCopyTableIndex=rcMacCopyTableIndex, PYSNMP_MODULE_ID=rcMacConfig, rcMacCopySourceVlanList=rcMacCopySourceVlanList, rcMacCopyDestVlanList=rcMacCopyDestVlanList, rcMacCopyRowStatus=rcMacCopyRowStatus)

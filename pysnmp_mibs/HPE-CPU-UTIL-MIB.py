@@ -1,50 +1,33 @@
-_G='hpeSwitchMinCPUThreshold'
-_F='hpeSwitchMaxCPUThreshold'
-_E='read-write'
-_D='hpeSwitchAverageCPUUtilization'
-_C='Integer32'
-_B='HPE-CPU-UTIL-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpVCSE_40Gb_F8_Module,=mibBuilder.importSymbols('HPSVRMGMT-OID','hpVCSE-40Gb-F8-Module')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-hpeCpuUtilMIB=ModuleIdentity((1,3,6,1,4,1,11,5,7,5,8,1,4130))
-if mibBuilder.loadTexts:hpeCpuUtilMIB.setRevisions(('2019-12-19 00:00',))
-_HpeSynergyCpuUtilMIBObjects_ObjectIdentity=ObjectIdentity
-hpeSynergyCpuUtilMIBObjects=_HpeSynergyCpuUtilMIBObjects_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,8,1))
-_HpeCpuUtilConfig_ObjectIdentity=ObjectIdentity
-hpeCpuUtilConfig=_HpeCpuUtilConfig_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,8,1,4130,1))
-class _HpeSwitchMaxCPUThreshold_Type(Integer32):defaultValue=95;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_HpeSwitchMaxCPUThreshold_Type.__name__=_C
-_HpeSwitchMaxCPUThreshold_Object=MibScalar
-hpeSwitchMaxCPUThreshold=_HpeSwitchMaxCPUThreshold_Object((1,3,6,1,4,1,11,5,7,5,8,1,4130,1,1),_HpeSwitchMaxCPUThreshold_Type())
-hpeSwitchMaxCPUThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpeSwitchMaxCPUThreshold.setStatus(_A)
-class _HpeSwitchMinCPUThreshold_Type(Integer32):defaultValue=75;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_HpeSwitchMinCPUThreshold_Type.__name__=_C
-_HpeSwitchMinCPUThreshold_Object=MibScalar
-hpeSwitchMinCPUThreshold=_HpeSwitchMinCPUThreshold_Object((1,3,6,1,4,1,11,5,7,5,8,1,4130,1,2),_HpeSwitchMinCPUThreshold_Type())
-hpeSwitchMinCPUThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpeSwitchMinCPUThreshold.setStatus(_A)
-_HpeCpuUtiStatus_ObjectIdentity=ObjectIdentity
-hpeCpuUtiStatus=_HpeCpuUtiStatus_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,8,1,4130,2))
-_HpeSwitchAverageCPUUtilization_Type=Integer32
-_HpeSwitchAverageCPUUtilization_Object=MibScalar
-hpeSwitchAverageCPUUtilization=_HpeSwitchAverageCPUUtilization_Object((1,3,6,1,4,1,11,5,7,5,8,1,4130,2,1),_HpeSwitchAverageCPUUtilization_Type())
-hpeSwitchAverageCPUUtilization.setMaxAccess('read-only')
-if mibBuilder.loadTexts:hpeSwitchAverageCPUUtilization.setStatus(_A)
-if mibBuilder.loadTexts:hpeSwitchAverageCPUUtilization.setUnits('percentage')
-_HpeCpuUtilTraps_ObjectIdentity=ObjectIdentity
-hpeCpuUtilTraps=_HpeCpuUtilTraps_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,8,1,4130,3))
-hpeTrapMaxCPUThreshold=NotificationType((1,3,6,1,4,1,11,5,7,5,8,1,4130,3,1))
-hpeTrapMaxCPUThreshold.setObjects(*((_B,_F),(_B,_D)))
-if mibBuilder.loadTexts:hpeTrapMaxCPUThreshold.setStatus(_A)
-hpeTrapMinCPUThreshold=NotificationType((1,3,6,1,4,1,11,5,7,5,8,1,4130,3,2))
-hpeTrapMinCPUThreshold.setObjects(*((_B,_G),(_B,_D)))
-if mibBuilder.loadTexts:hpeTrapMinCPUThreshold.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'hpeSynergyCpuUtilMIBObjects':hpeSynergyCpuUtilMIBObjects,'hpeCpuUtilMIB':hpeCpuUtilMIB,'hpeCpuUtilConfig':hpeCpuUtilConfig,_F:hpeSwitchMaxCPUThreshold,_G:hpeSwitchMinCPUThreshold,'hpeCpuUtiStatus':hpeCpuUtiStatus,_D:hpeSwitchAverageCPUUtilization,'hpeCpuUtilTraps':hpeCpuUtilTraps,'hpeTrapMaxCPUThreshold':hpeTrapMaxCPUThreshold,'hpeTrapMinCPUThreshold':hpeTrapMinCPUThreshold})
+#
+# PySNMP MIB module HPE-CPU-UTIL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPE-CPU-UTIL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:00 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpVCSE_40Gb_F8_Module, = mibBuilder.importSymbols("HPSVRMGMT-OID", "hpVCSE-40Gb-F8-Module")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hpeCpuUtilMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 8, 1, 4130))
+hpeCpuUtilMIB.setRevisions(('2019-12-19 00:00',))
+if mibBuilder.loadTexts: hpeCpuUtilMIB.setLastUpdated('201912190000Z')
+if mibBuilder.loadTexts: hpeCpuUtilMIB.setOrganization('Hewlett Packard Enterprise')
+hpeSynergyCpuUtilMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 8, 1))
+hpeCpuUtilConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 8, 1, 4130, 1))
+hpeCpuUtiStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 8, 1, 4130, 2))
+hpeCpuUtilTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 8, 1, 4130, 3))
+hpeSwitchMaxCPUThreshold = MibScalar((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 8, 1, 4130, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100)).clone(95)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpeSwitchMaxCPUThreshold.setStatus('current')
+hpeSwitchMinCPUThreshold = MibScalar((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 8, 1, 4130, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100)).clone(75)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpeSwitchMinCPUThreshold.setStatus('current')
+hpeSwitchAverageCPUUtilization = MibScalar((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 8, 1, 4130, 2, 1), Integer32()).setUnits('percentage').setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpeSwitchAverageCPUUtilization.setStatus('current')
+hpeTrapMaxCPUThreshold = NotificationType((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 8, 1, 4130, 3, 1)).setObjects(("HPE-CPU-UTIL-MIB", "hpeSwitchMaxCPUThreshold"), ("HPE-CPU-UTIL-MIB", "hpeSwitchAverageCPUUtilization"))
+if mibBuilder.loadTexts: hpeTrapMaxCPUThreshold.setStatus('current')
+hpeTrapMinCPUThreshold = NotificationType((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 8, 1, 4130, 3, 2)).setObjects(("HPE-CPU-UTIL-MIB", "hpeSwitchMinCPUThreshold"), ("HPE-CPU-UTIL-MIB", "hpeSwitchAverageCPUUtilization"))
+if mibBuilder.loadTexts: hpeTrapMinCPUThreshold.setStatus('current')
+mibBuilder.exportSymbols("HPE-CPU-UTIL-MIB", hpeCpuUtiStatus=hpeCpuUtiStatus, hpeCpuUtilMIB=hpeCpuUtilMIB, hpeSwitchAverageCPUUtilization=hpeSwitchAverageCPUUtilization, hpeCpuUtilConfig=hpeCpuUtilConfig, hpeSwitchMaxCPUThreshold=hpeSwitchMaxCPUThreshold, hpeSynergyCpuUtilMIBObjects=hpeSynergyCpuUtilMIBObjects, hpeSwitchMinCPUThreshold=hpeSwitchMinCPUThreshold, hpeTrapMaxCPUThreshold=hpeTrapMaxCPUThreshold, hpeTrapMinCPUThreshold=hpeTrapMinCPUThreshold, hpeCpuUtilTraps=hpeCpuUtilTraps, PYSNMP_MODULE_ID=hpeCpuUtilMIB)

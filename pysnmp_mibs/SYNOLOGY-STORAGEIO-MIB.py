@@ -1,119 +1,59 @@
-_R='storageIOGroup'
-_Q='storageIODeviceSerial'
-_P='storageIONWrittenX'
-_O='storageIONReadX'
-_N='storageIOLA15'
-_M='storageIOLA5'
-_L='storageIOLA1'
-_K='storageIOLA'
-_J='storageIOWrites'
-_I='storageIOReads'
-_H='storageIONWritten'
-_G='storageIONRead'
-_F='storageIODevice'
-_E='storageIOIndex'
-_D='Integer32'
-_C='read-only'
-_B='SYNOLOGY-STORAGEIO-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-storageIO=ModuleIdentity((1,3,6,1,4,1,6574,101))
-if mibBuilder.loadTexts:storageIO.setRevisions(('2013-09-11 00:00',))
-_Synology_ObjectIdentity=ObjectIdentity
-synology=_Synology_ObjectIdentity((1,3,6,1,4,1,6574))
-_StorageIOTable_Object=MibTable
-storageIOTable=_StorageIOTable_Object((1,3,6,1,4,1,6574,101,1))
-if mibBuilder.loadTexts:storageIOTable.setStatus(_A)
-_StorageIOEntry_Object=MibTableRow
-storageIOEntry=_StorageIOEntry_Object((1,3,6,1,4,1,6574,101,1,1))
-storageIOEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:storageIOEntry.setStatus(_A)
-class _StorageIOIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_StorageIOIndex_Type.__name__=_D
-_StorageIOIndex_Object=MibTableColumn
-storageIOIndex=_StorageIOIndex_Object((1,3,6,1,4,1,6574,101,1,1,1),_StorageIOIndex_Type())
-storageIOIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:storageIOIndex.setStatus(_A)
-_StorageIODevice_Type=DisplayString
-_StorageIODevice_Object=MibTableColumn
-storageIODevice=_StorageIODevice_Object((1,3,6,1,4,1,6574,101,1,1,2),_StorageIODevice_Type())
-storageIODevice.setMaxAccess(_C)
-if mibBuilder.loadTexts:storageIODevice.setStatus(_A)
-_StorageIONRead_Type=Counter32
-_StorageIONRead_Object=MibTableColumn
-storageIONRead=_StorageIONRead_Object((1,3,6,1,4,1,6574,101,1,1,3),_StorageIONRead_Type())
-storageIONRead.setMaxAccess(_C)
-if mibBuilder.loadTexts:storageIONRead.setStatus(_A)
-_StorageIONWritten_Type=Counter32
-_StorageIONWritten_Object=MibTableColumn
-storageIONWritten=_StorageIONWritten_Object((1,3,6,1,4,1,6574,101,1,1,4),_StorageIONWritten_Type())
-storageIONWritten.setMaxAccess(_C)
-if mibBuilder.loadTexts:storageIONWritten.setStatus(_A)
-_StorageIOReads_Type=Counter32
-_StorageIOReads_Object=MibTableColumn
-storageIOReads=_StorageIOReads_Object((1,3,6,1,4,1,6574,101,1,1,5),_StorageIOReads_Type())
-storageIOReads.setMaxAccess(_C)
-if mibBuilder.loadTexts:storageIOReads.setStatus(_A)
-_StorageIOWrites_Type=Counter32
-_StorageIOWrites_Object=MibTableColumn
-storageIOWrites=_StorageIOWrites_Object((1,3,6,1,4,1,6574,101,1,1,6),_StorageIOWrites_Type())
-storageIOWrites.setMaxAccess(_C)
-if mibBuilder.loadTexts:storageIOWrites.setStatus(_A)
-class _StorageIOLA_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_StorageIOLA_Type.__name__=_D
-_StorageIOLA_Object=MibTableColumn
-storageIOLA=_StorageIOLA_Object((1,3,6,1,4,1,6574,101,1,1,8),_StorageIOLA_Type())
-storageIOLA.setMaxAccess(_C)
-if mibBuilder.loadTexts:storageIOLA.setStatus(_A)
-class _StorageIOLA1_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_StorageIOLA1_Type.__name__=_D
-_StorageIOLA1_Object=MibTableColumn
-storageIOLA1=_StorageIOLA1_Object((1,3,6,1,4,1,6574,101,1,1,9),_StorageIOLA1_Type())
-storageIOLA1.setMaxAccess(_C)
-if mibBuilder.loadTexts:storageIOLA1.setStatus(_A)
-class _StorageIOLA5_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_StorageIOLA5_Type.__name__=_D
-_StorageIOLA5_Object=MibTableColumn
-storageIOLA5=_StorageIOLA5_Object((1,3,6,1,4,1,6574,101,1,1,10),_StorageIOLA5_Type())
-storageIOLA5.setMaxAccess(_C)
-if mibBuilder.loadTexts:storageIOLA5.setStatus(_A)
-class _StorageIOLA15_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_StorageIOLA15_Type.__name__=_D
-_StorageIOLA15_Object=MibTableColumn
-storageIOLA15=_StorageIOLA15_Object((1,3,6,1,4,1,6574,101,1,1,11),_StorageIOLA15_Type())
-storageIOLA15.setMaxAccess(_C)
-if mibBuilder.loadTexts:storageIOLA15.setStatus(_A)
-_StorageIONReadX_Type=Counter64
-_StorageIONReadX_Object=MibTableColumn
-storageIONReadX=_StorageIONReadX_Object((1,3,6,1,4,1,6574,101,1,1,12),_StorageIONReadX_Type())
-storageIONReadX.setMaxAccess(_C)
-if mibBuilder.loadTexts:storageIONReadX.setStatus(_A)
-_StorageIONWrittenX_Type=Counter64
-_StorageIONWrittenX_Object=MibTableColumn
-storageIONWrittenX=_StorageIONWrittenX_Object((1,3,6,1,4,1,6574,101,1,1,13),_StorageIONWrittenX_Type())
-storageIONWrittenX.setMaxAccess(_C)
-if mibBuilder.loadTexts:storageIONWrittenX.setStatus(_A)
-_StorageIODeviceSerial_Type=DisplayString
-_StorageIODeviceSerial_Object=MibTableColumn
-storageIODeviceSerial=_StorageIODeviceSerial_Object((1,3,6,1,4,1,6574,101,1,1,14),_StorageIODeviceSerial_Type())
-storageIODeviceSerial.setMaxAccess(_C)
-if mibBuilder.loadTexts:storageIODeviceSerial.setStatus(_A)
-_StorageIOConformance_ObjectIdentity=ObjectIdentity
-storageIOConformance=_StorageIOConformance_ObjectIdentity((1,3,6,1,4,1,6574,101,2))
-_StorageIOCompliances_ObjectIdentity=ObjectIdentity
-storageIOCompliances=_StorageIOCompliances_ObjectIdentity((1,3,6,1,4,1,6574,101,2,1))
-_StorageIOGroups_ObjectIdentity=ObjectIdentity
-storageIOGroups=_StorageIOGroups_ObjectIdentity((1,3,6,1,4,1,6574,101,2,2))
-storageIOGroup=ObjectGroup((1,3,6,1,4,1,6574,101,2,2,1))
-storageIOGroup.setObjects(*((_B,_F),(_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:storageIOGroup.setStatus(_A)
-storageIOCompliance=ModuleCompliance((1,3,6,1,4,1,6574,101,2,1,1))
-storageIOCompliance.setObjects((_B,_R))
-if mibBuilder.loadTexts:storageIOCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'synology':synology,'storageIO':storageIO,'storageIOTable':storageIOTable,'storageIOEntry':storageIOEntry,_E:storageIOIndex,_F:storageIODevice,_G:storageIONRead,_H:storageIONWritten,_I:storageIOReads,_J:storageIOWrites,_K:storageIOLA,_L:storageIOLA1,_M:storageIOLA5,_N:storageIOLA15,_O:storageIONReadX,_P:storageIONWrittenX,_Q:storageIODeviceSerial,'storageIOConformance':storageIOConformance,'storageIOCompliances':storageIOCompliances,'storageIOCompliance':storageIOCompliance,'storageIOGroups':storageIOGroups,_R:storageIOGroup})
+#
+# PySNMP MIB module SYNOLOGY-STORAGEIO-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/synology/SYNOLOGY-STORAGEIO-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+storageIO = ModuleIdentity((1, 3, 6, 1, 4, 1, 6574, 101))
+storageIO.setRevisions(('2013-09-11 00:00',))
+if mibBuilder.loadTexts: storageIO.setLastUpdated('201309110000Z')
+if mibBuilder.loadTexts: storageIO.setOrganization('www.synology.com')
+synology = MibIdentifier((1, 3, 6, 1, 4, 1, 6574))
+storageIOTable = MibTable((1, 3, 6, 1, 4, 1, 6574, 101, 1), )
+if mibBuilder.loadTexts: storageIOTable.setStatus('current')
+storageIOEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6574, 101, 1, 1), ).setIndexNames((0, "SYNOLOGY-STORAGEIO-MIB", "storageIOIndex"))
+if mibBuilder.loadTexts: storageIOEntry.setStatus('current')
+storageIOIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 101, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: storageIOIndex.setStatus('current')
+storageIODevice = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 101, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: storageIODevice.setStatus('current')
+storageIONRead = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 101, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: storageIONRead.setStatus('current')
+storageIONWritten = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 101, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: storageIONWritten.setStatus('current')
+storageIOReads = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 101, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: storageIOReads.setStatus('current')
+storageIOWrites = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 101, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: storageIOWrites.setStatus('current')
+storageIOLA = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 101, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: storageIOLA.setStatus('current')
+storageIOLA1 = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 101, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: storageIOLA1.setStatus('current')
+storageIOLA5 = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 101, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: storageIOLA5.setStatus('current')
+storageIOLA15 = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 101, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: storageIOLA15.setStatus('current')
+storageIONReadX = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 101, 1, 1, 12), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: storageIONReadX.setStatus('current')
+storageIONWrittenX = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 101, 1, 1, 13), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: storageIONWrittenX.setStatus('current')
+storageIODeviceSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 101, 1, 1, 14), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: storageIODeviceSerial.setStatus('current')
+storageIOConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 101, 2))
+storageIOCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 101, 2, 1))
+storageIOGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 101, 2, 2))
+storageIOCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6574, 101, 2, 1, 1)).setObjects(("SYNOLOGY-STORAGEIO-MIB", "storageIOGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    storageIOCompliance = storageIOCompliance.setStatus('current')
+storageIOGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6574, 101, 2, 2, 1)).setObjects(("SYNOLOGY-STORAGEIO-MIB", "storageIODevice"), ("SYNOLOGY-STORAGEIO-MIB", "storageIONRead"), ("SYNOLOGY-STORAGEIO-MIB", "storageIONWritten"), ("SYNOLOGY-STORAGEIO-MIB", "storageIOReads"), ("SYNOLOGY-STORAGEIO-MIB", "storageIOWrites"), ("SYNOLOGY-STORAGEIO-MIB", "storageIOLA"), ("SYNOLOGY-STORAGEIO-MIB", "storageIOLA1"), ("SYNOLOGY-STORAGEIO-MIB", "storageIOLA5"), ("SYNOLOGY-STORAGEIO-MIB", "storageIOLA15"), ("SYNOLOGY-STORAGEIO-MIB", "storageIONReadX"), ("SYNOLOGY-STORAGEIO-MIB", "storageIONWrittenX"), ("SYNOLOGY-STORAGEIO-MIB", "storageIODeviceSerial"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    storageIOGroup = storageIOGroup.setStatus('current')
+mibBuilder.exportSymbols("SYNOLOGY-STORAGEIO-MIB", storageIOEntry=storageIOEntry, storageIOCompliances=storageIOCompliances, storageIO=storageIO, storageIONRead=storageIONRead, storageIOLA5=storageIOLA5, storageIOLA=storageIOLA, storageIOLA1=storageIOLA1, synology=synology, storageIOReads=storageIOReads, storageIODeviceSerial=storageIODeviceSerial, storageIOCompliance=storageIOCompliance, PYSNMP_MODULE_ID=storageIO, storageIOLA15=storageIOLA15, storageIOGroups=storageIOGroups, storageIODevice=storageIODevice, storageIOIndex=storageIOIndex, storageIOWrites=storageIOWrites, storageIONWritten=storageIONWritten, storageIONReadX=storageIONReadX, storageIOConformance=storageIOConformance, storageIONWrittenX=storageIONWrittenX, storageIOGroup=storageIOGroup, storageIOTable=storageIOTable)

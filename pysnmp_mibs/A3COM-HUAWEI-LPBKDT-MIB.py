@@ -1,42 +1,34 @@
-_F='h3cLpbkdtVlanID'
-_E='A3COM-HUAWEI-LPBKDT-MIB'
-_D='current'
-_C='ifIndex'
-_B='ifDescr'
-_A='IF-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cCommon,=mibBuilder.importSymbols('A3COM-HUAWEI-OID-MIB','h3cCommon')
-ifDescr,ifIndex=mibBuilder.importSymbols(_A,_B,_C)
-VlanId,=mibBuilder.importSymbols('Q-BRIDGE-MIB','VlanId')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-h3cLpbkdt=ModuleIdentity((1,3,6,1,4,1,43,45,1,10,2,95))
-if mibBuilder.loadTexts:h3cLpbkdt.setRevisions(('2009-03-30 17:41','2008-09-27 15:04'))
-_H3cLpbkdtNotifications_ObjectIdentity=ObjectIdentity
-h3cLpbkdtNotifications=_H3cLpbkdtNotifications_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,95,1))
-_H3cLpbkdtTrapPrefix_ObjectIdentity=ObjectIdentity
-h3cLpbkdtTrapPrefix=_H3cLpbkdtTrapPrefix_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,95,1,0))
-_H3cLpbkdtObjects_ObjectIdentity=ObjectIdentity
-h3cLpbkdtObjects=_H3cLpbkdtObjects_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,95,2))
-_H3cLpbkdtVlanID_Type=VlanId
-_H3cLpbkdtVlanID_Object=MibScalar
-h3cLpbkdtVlanID=_H3cLpbkdtVlanID_Object((1,3,6,1,4,1,43,45,1,10,2,95,2,1),_H3cLpbkdtVlanID_Type())
-h3cLpbkdtVlanID.setMaxAccess('accessible-for-notify')
-if mibBuilder.loadTexts:h3cLpbkdtVlanID.setStatus(_D)
-h3cLpbkdtTrapLoopbacked=NotificationType((1,3,6,1,4,1,43,45,1,10,2,95,1,0,1))
-h3cLpbkdtTrapLoopbacked.setObjects(*((_A,_C),(_A,_B)))
-if mibBuilder.loadTexts:h3cLpbkdtTrapLoopbacked.setStatus(_D)
-h3cLpbkdtTrapRecovered=NotificationType((1,3,6,1,4,1,43,45,1,10,2,95,1,0,2))
-h3cLpbkdtTrapRecovered.setObjects(*((_A,_C),(_A,_B)))
-if mibBuilder.loadTexts:h3cLpbkdtTrapRecovered.setStatus(_D)
-h3cLpbkdtTrapPerVlanLoopbacked=NotificationType((1,3,6,1,4,1,43,45,1,10,2,95,1,0,3))
-h3cLpbkdtTrapPerVlanLoopbacked.setObjects(*((_A,_C),(_A,_B),(_E,_F)))
-if mibBuilder.loadTexts:h3cLpbkdtTrapPerVlanLoopbacked.setStatus(_D)
-h3cLpbkdtTrapPerVlanRecovered=NotificationType((1,3,6,1,4,1,43,45,1,10,2,95,1,0,4))
-h3cLpbkdtTrapPerVlanRecovered.setObjects(*((_A,_C),(_A,_B),(_E,_F)))
-if mibBuilder.loadTexts:h3cLpbkdtTrapPerVlanRecovered.setStatus(_D)
-mibBuilder.exportSymbols(_E,**{'h3cLpbkdt':h3cLpbkdt,'h3cLpbkdtNotifications':h3cLpbkdtNotifications,'h3cLpbkdtTrapPrefix':h3cLpbkdtTrapPrefix,'h3cLpbkdtTrapLoopbacked':h3cLpbkdtTrapLoopbacked,'h3cLpbkdtTrapRecovered':h3cLpbkdtTrapRecovered,'h3cLpbkdtTrapPerVlanLoopbacked':h3cLpbkdtTrapPerVlanLoopbacked,'h3cLpbkdtTrapPerVlanRecovered':h3cLpbkdtTrapPerVlanRecovered,'h3cLpbkdtObjects':h3cLpbkdtObjects,_F:h3cLpbkdtVlanID})
+#
+# PySNMP MIB module A3COM-HUAWEI-LPBKDT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-LPBKDT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:08 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+h3cCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCommon")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, ifDescr = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifDescr")
+VlanId, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanId")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+h3cLpbkdt = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 95))
+h3cLpbkdt.setRevisions(('2009-03-30 17:41', '2008-09-27 15:04',))
+if mibBuilder.loadTexts: h3cLpbkdt.setLastUpdated('200903301741Z')
+if mibBuilder.loadTexts: h3cLpbkdt.setOrganization('H3C Technologies Co., Ltd.')
+h3cLpbkdtNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 95, 1))
+h3cLpbkdtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 95, 2))
+h3cLpbkdtTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 95, 1, 0))
+h3cLpbkdtTrapLoopbacked = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 95, 1, 0, 1)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifDescr"))
+if mibBuilder.loadTexts: h3cLpbkdtTrapLoopbacked.setStatus('current')
+h3cLpbkdtTrapRecovered = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 95, 1, 0, 2)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifDescr"))
+if mibBuilder.loadTexts: h3cLpbkdtTrapRecovered.setStatus('current')
+h3cLpbkdtTrapPerVlanLoopbacked = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 95, 1, 0, 3)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifDescr"), ("A3COM-HUAWEI-LPBKDT-MIB", "h3cLpbkdtVlanID"))
+if mibBuilder.loadTexts: h3cLpbkdtTrapPerVlanLoopbacked.setStatus('current')
+h3cLpbkdtTrapPerVlanRecovered = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 95, 1, 0, 4)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifDescr"), ("A3COM-HUAWEI-LPBKDT-MIB", "h3cLpbkdtVlanID"))
+if mibBuilder.loadTexts: h3cLpbkdtTrapPerVlanRecovered.setStatus('current')
+h3cLpbkdtVlanID = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 95, 2, 1), VlanId()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cLpbkdtVlanID.setStatus('current')
+mibBuilder.exportSymbols("A3COM-HUAWEI-LPBKDT-MIB", h3cLpbkdtVlanID=h3cLpbkdtVlanID, PYSNMP_MODULE_ID=h3cLpbkdt, h3cLpbkdtTrapRecovered=h3cLpbkdtTrapRecovered, h3cLpbkdtTrapPerVlanRecovered=h3cLpbkdtTrapPerVlanRecovered, h3cLpbkdtNotifications=h3cLpbkdtNotifications, h3cLpbkdtObjects=h3cLpbkdtObjects, h3cLpbkdt=h3cLpbkdt, h3cLpbkdtTrapPrefix=h3cLpbkdtTrapPrefix, h3cLpbkdtTrapPerVlanLoopbacked=h3cLpbkdtTrapPerVlanLoopbacked, h3cLpbkdtTrapLoopbacked=h3cLpbkdtTrapLoopbacked)

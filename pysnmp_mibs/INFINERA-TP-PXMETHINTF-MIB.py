@@ -1,153 +1,73 @@
-_Z='pxmEthIntfGroup'
-_Y='pxmEthIntfCSFAsTDATrigger'
-_X='pxmEthIntfMacAddress'
-_W='pxmEthIntfLoopbackBehavior'
-_V='pxmEthIntfAvailableBW'
-_U='pxmEthIntfMaxReservableBW'
-_T='pxmEthIntfOverBookingFactor'
-_S='pxmEthIntfAcceptableFrameType'
-_R='pxmEthIntfInterfaceRate'
-_Q='pxmEthIntfTerminalTestSignalMon'
-_P='pxmEthIntfTerminalTestSignalGen'
-_O='pxmEthIntfFacTestSignalMon'
-_N='pxmEthIntfFacTestSignalGen'
-_M='pxmEthIntfIngressTrafficClass'
-_L='pxmEthIntfDefaultPriority'
-_K='pxmEthIntfDefaultVLANID'
-_J='pxmEthIntfInnerTPID'
-_I='pxmEthIntfOuterTPID'
-_H='pxmEthIntfInterfaceType'
-_G='pxmEthIntfMTUSize'
-_F='ifIndex'
-_E='IF-MIB'
-_D='read-only'
-_C='read-write'
-_B='INFINERA-TP-PXMETHINTF-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-terminationPoint,=mibBuilder.importSymbols('INFINERA-REG-MIB','terminationPoint')
-FloatHundredths,FloatTenths,InfnAcceptableFrameType,InfnEnableDisableType,InfnLoopbackBehavior,InfnPXMInterfaceType=mibBuilder.importSymbols('INFINERA-TC-MIB','FloatHundredths','FloatTenths','InfnAcceptableFrameType','InfnEnableDisableType','InfnLoopbackBehavior','InfnPXMInterfaceType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-pxmEthIntfMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,2,76))
-if mibBuilder.loadTexts:pxmEthIntfMIB.setRevisions(('2016-05-20 00:00',))
-_PxmEthIntfTable_Object=MibTable
-pxmEthIntfTable=_PxmEthIntfTable_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1))
-if mibBuilder.loadTexts:pxmEthIntfTable.setStatus(_A)
-_PxmEthIntfEntry_Object=MibTableRow
-pxmEthIntfEntry=_PxmEthIntfEntry_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1))
-pxmEthIntfEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:pxmEthIntfEntry.setStatus(_A)
-_PxmEthIntfMTUSize_Type=Integer32
-_PxmEthIntfMTUSize_Object=MibTableColumn
-pxmEthIntfMTUSize=_PxmEthIntfMTUSize_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1,1),_PxmEthIntfMTUSize_Type())
-pxmEthIntfMTUSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:pxmEthIntfMTUSize.setStatus(_A)
-_PxmEthIntfInterfaceType_Type=InfnPXMInterfaceType
-_PxmEthIntfInterfaceType_Object=MibTableColumn
-pxmEthIntfInterfaceType=_PxmEthIntfInterfaceType_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1,2),_PxmEthIntfInterfaceType_Type())
-pxmEthIntfInterfaceType.setMaxAccess(_C)
-if mibBuilder.loadTexts:pxmEthIntfInterfaceType.setStatus(_A)
-_PxmEthIntfOuterTPID_Type=Integer32
-_PxmEthIntfOuterTPID_Object=MibTableColumn
-pxmEthIntfOuterTPID=_PxmEthIntfOuterTPID_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1,3),_PxmEthIntfOuterTPID_Type())
-pxmEthIntfOuterTPID.setMaxAccess(_C)
-if mibBuilder.loadTexts:pxmEthIntfOuterTPID.setStatus(_A)
-_PxmEthIntfInnerTPID_Type=Integer32
-_PxmEthIntfInnerTPID_Object=MibTableColumn
-pxmEthIntfInnerTPID=_PxmEthIntfInnerTPID_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1,4),_PxmEthIntfInnerTPID_Type())
-pxmEthIntfInnerTPID.setMaxAccess(_C)
-if mibBuilder.loadTexts:pxmEthIntfInnerTPID.setStatus(_A)
-_PxmEthIntfDefaultVLANID_Type=Integer32
-_PxmEthIntfDefaultVLANID_Object=MibTableColumn
-pxmEthIntfDefaultVLANID=_PxmEthIntfDefaultVLANID_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1,5),_PxmEthIntfDefaultVLANID_Type())
-pxmEthIntfDefaultVLANID.setMaxAccess(_C)
-if mibBuilder.loadTexts:pxmEthIntfDefaultVLANID.setStatus(_A)
-_PxmEthIntfDefaultPriority_Type=Integer32
-_PxmEthIntfDefaultPriority_Object=MibTableColumn
-pxmEthIntfDefaultPriority=_PxmEthIntfDefaultPriority_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1,6),_PxmEthIntfDefaultPriority_Type())
-pxmEthIntfDefaultPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:pxmEthIntfDefaultPriority.setStatus(_A)
-_PxmEthIntfIngressTrafficClass_Type=Integer32
-_PxmEthIntfIngressTrafficClass_Object=MibTableColumn
-pxmEthIntfIngressTrafficClass=_PxmEthIntfIngressTrafficClass_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1,7),_PxmEthIntfIngressTrafficClass_Type())
-pxmEthIntfIngressTrafficClass.setMaxAccess(_C)
-if mibBuilder.loadTexts:pxmEthIntfIngressTrafficClass.setStatus(_A)
-_PxmEthIntfFacTestSignalGen_Type=InfnEnableDisableType
-_PxmEthIntfFacTestSignalGen_Object=MibTableColumn
-pxmEthIntfFacTestSignalGen=_PxmEthIntfFacTestSignalGen_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1,8),_PxmEthIntfFacTestSignalGen_Type())
-pxmEthIntfFacTestSignalGen.setMaxAccess(_C)
-if mibBuilder.loadTexts:pxmEthIntfFacTestSignalGen.setStatus(_A)
-_PxmEthIntfFacTestSignalMon_Type=InfnEnableDisableType
-_PxmEthIntfFacTestSignalMon_Object=MibTableColumn
-pxmEthIntfFacTestSignalMon=_PxmEthIntfFacTestSignalMon_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1,9),_PxmEthIntfFacTestSignalMon_Type())
-pxmEthIntfFacTestSignalMon.setMaxAccess(_C)
-if mibBuilder.loadTexts:pxmEthIntfFacTestSignalMon.setStatus(_A)
-_PxmEthIntfTerminalTestSignalGen_Type=InfnEnableDisableType
-_PxmEthIntfTerminalTestSignalGen_Object=MibTableColumn
-pxmEthIntfTerminalTestSignalGen=_PxmEthIntfTerminalTestSignalGen_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1,10),_PxmEthIntfTerminalTestSignalGen_Type())
-pxmEthIntfTerminalTestSignalGen.setMaxAccess(_C)
-if mibBuilder.loadTexts:pxmEthIntfTerminalTestSignalGen.setStatus(_A)
-_PxmEthIntfTerminalTestSignalMon_Type=InfnEnableDisableType
-_PxmEthIntfTerminalTestSignalMon_Object=MibTableColumn
-pxmEthIntfTerminalTestSignalMon=_PxmEthIntfTerminalTestSignalMon_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1,11),_PxmEthIntfTerminalTestSignalMon_Type())
-pxmEthIntfTerminalTestSignalMon.setMaxAccess(_C)
-if mibBuilder.loadTexts:pxmEthIntfTerminalTestSignalMon.setStatus(_A)
-_PxmEthIntfInterfaceRate_Type=Integer32
-_PxmEthIntfInterfaceRate_Object=MibTableColumn
-pxmEthIntfInterfaceRate=_PxmEthIntfInterfaceRate_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1,12),_PxmEthIntfInterfaceRate_Type())
-pxmEthIntfInterfaceRate.setMaxAccess(_D)
-if mibBuilder.loadTexts:pxmEthIntfInterfaceRate.setStatus(_A)
-_PxmEthIntfAcceptableFrameType_Type=InfnAcceptableFrameType
-_PxmEthIntfAcceptableFrameType_Object=MibTableColumn
-pxmEthIntfAcceptableFrameType=_PxmEthIntfAcceptableFrameType_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1,13),_PxmEthIntfAcceptableFrameType_Type())
-pxmEthIntfAcceptableFrameType.setMaxAccess(_C)
-if mibBuilder.loadTexts:pxmEthIntfAcceptableFrameType.setStatus(_A)
-_PxmEthIntfOverBookingFactor_Type=FloatTenths
-_PxmEthIntfOverBookingFactor_Object=MibTableColumn
-pxmEthIntfOverBookingFactor=_PxmEthIntfOverBookingFactor_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1,14),_PxmEthIntfOverBookingFactor_Type())
-pxmEthIntfOverBookingFactor.setMaxAccess(_C)
-if mibBuilder.loadTexts:pxmEthIntfOverBookingFactor.setStatus(_A)
-_PxmEthIntfMaxReservableBW_Type=FloatHundredths
-_PxmEthIntfMaxReservableBW_Object=MibTableColumn
-pxmEthIntfMaxReservableBW=_PxmEthIntfMaxReservableBW_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1,15),_PxmEthIntfMaxReservableBW_Type())
-pxmEthIntfMaxReservableBW.setMaxAccess(_D)
-if mibBuilder.loadTexts:pxmEthIntfMaxReservableBW.setStatus(_A)
-_PxmEthIntfAvailableBW_Type=FloatHundredths
-_PxmEthIntfAvailableBW_Object=MibTableColumn
-pxmEthIntfAvailableBW=_PxmEthIntfAvailableBW_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1,16),_PxmEthIntfAvailableBW_Type())
-pxmEthIntfAvailableBW.setMaxAccess(_D)
-if mibBuilder.loadTexts:pxmEthIntfAvailableBW.setStatus(_A)
-_PxmEthIntfLoopbackBehavior_Type=InfnLoopbackBehavior
-_PxmEthIntfLoopbackBehavior_Object=MibTableColumn
-pxmEthIntfLoopbackBehavior=_PxmEthIntfLoopbackBehavior_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1,17),_PxmEthIntfLoopbackBehavior_Type())
-pxmEthIntfLoopbackBehavior.setMaxAccess(_C)
-if mibBuilder.loadTexts:pxmEthIntfLoopbackBehavior.setStatus(_A)
-_PxmEthIntfMacAddress_Type=DisplayString
-_PxmEthIntfMacAddress_Object=MibTableColumn
-pxmEthIntfMacAddress=_PxmEthIntfMacAddress_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1,18),_PxmEthIntfMacAddress_Type())
-pxmEthIntfMacAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:pxmEthIntfMacAddress.setStatus(_A)
-_PxmEthIntfCSFAsTDATrigger_Type=InfnEnableDisableType
-_PxmEthIntfCSFAsTDATrigger_Object=MibTableColumn
-pxmEthIntfCSFAsTDATrigger=_PxmEthIntfCSFAsTDATrigger_Object((1,3,6,1,4,1,21296,2,2,2,2,76,1,1,19),_PxmEthIntfCSFAsTDATrigger_Type())
-pxmEthIntfCSFAsTDATrigger.setMaxAccess(_C)
-if mibBuilder.loadTexts:pxmEthIntfCSFAsTDATrigger.setStatus(_A)
-_PxmEthIntfConformance_ObjectIdentity=ObjectIdentity
-pxmEthIntfConformance=_PxmEthIntfConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,76,3))
-_PxmEthIntfCompliances_ObjectIdentity=ObjectIdentity
-pxmEthIntfCompliances=_PxmEthIntfCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,76,3,1))
-_PxmEthIntfGroups_ObjectIdentity=ObjectIdentity
-pxmEthIntfGroups=_PxmEthIntfGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,76,3,2))
-pxmEthIntfGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,2,76,3,2,1))
-pxmEthIntfGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y)))
-if mibBuilder.loadTexts:pxmEthIntfGroup.setStatus(_A)
-pxmEthIntfCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,2,76,3,1,1))
-pxmEthIntfCompliance.setObjects((_B,_Z))
-if mibBuilder.loadTexts:pxmEthIntfCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'pxmEthIntfMIB':pxmEthIntfMIB,'pxmEthIntfTable':pxmEthIntfTable,'pxmEthIntfEntry':pxmEthIntfEntry,_G:pxmEthIntfMTUSize,_H:pxmEthIntfInterfaceType,_I:pxmEthIntfOuterTPID,_J:pxmEthIntfInnerTPID,_K:pxmEthIntfDefaultVLANID,_L:pxmEthIntfDefaultPriority,_M:pxmEthIntfIngressTrafficClass,_N:pxmEthIntfFacTestSignalGen,_O:pxmEthIntfFacTestSignalMon,_P:pxmEthIntfTerminalTestSignalGen,_Q:pxmEthIntfTerminalTestSignalMon,_R:pxmEthIntfInterfaceRate,_S:pxmEthIntfAcceptableFrameType,_T:pxmEthIntfOverBookingFactor,_U:pxmEthIntfMaxReservableBW,_V:pxmEthIntfAvailableBW,_W:pxmEthIntfLoopbackBehavior,_X:pxmEthIntfMacAddress,_Y:pxmEthIntfCSFAsTDATrigger,'pxmEthIntfConformance':pxmEthIntfConformance,'pxmEthIntfCompliances':pxmEthIntfCompliances,'pxmEthIntfCompliance':pxmEthIntfCompliance,'pxmEthIntfGroups':pxmEthIntfGroups,_Z:pxmEthIntfGroup})
+#
+# PySNMP MIB module INFINERA-TP-PXMETHINTF-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-PXMETHINTF-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:38 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
+InfnLoopbackBehavior, InfnEnableDisableType, InfnAcceptableFrameType, FloatTenths, InfnPXMInterfaceType, FloatHundredths = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnLoopbackBehavior", "InfnEnableDisableType", "InfnAcceptableFrameType", "FloatTenths", "InfnPXMInterfaceType", "FloatHundredths")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+pxmEthIntfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76))
+pxmEthIntfMIB.setRevisions(('2016-05-20 00:00',))
+if mibBuilder.loadTexts: pxmEthIntfMIB.setLastUpdated('201605200000Z')
+if mibBuilder.loadTexts: pxmEthIntfMIB.setOrganization('Infinera')
+pxmEthIntfConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 3))
+pxmEthIntfCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 3, 1))
+pxmEthIntfGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 3, 2))
+pxmEthIntfTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1), )
+if mibBuilder.loadTexts: pxmEthIntfTable.setStatus('current')
+pxmEthIntfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: pxmEthIntfEntry.setStatus('current')
+pxmEthIntfMTUSize = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pxmEthIntfMTUSize.setStatus('current')
+pxmEthIntfInterfaceType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1, 2), InfnPXMInterfaceType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmEthIntfInterfaceType.setStatus('current')
+pxmEthIntfOuterTPID = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmEthIntfOuterTPID.setStatus('current')
+pxmEthIntfInnerTPID = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmEthIntfInnerTPID.setStatus('current')
+pxmEthIntfDefaultVLANID = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmEthIntfDefaultVLANID.setStatus('current')
+pxmEthIntfDefaultPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmEthIntfDefaultPriority.setStatus('current')
+pxmEthIntfIngressTrafficClass = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1, 7), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmEthIntfIngressTrafficClass.setStatus('current')
+pxmEthIntfFacTestSignalGen = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1, 8), InfnEnableDisableType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmEthIntfFacTestSignalGen.setStatus('current')
+pxmEthIntfFacTestSignalMon = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1, 9), InfnEnableDisableType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmEthIntfFacTestSignalMon.setStatus('current')
+pxmEthIntfTerminalTestSignalGen = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1, 10), InfnEnableDisableType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmEthIntfTerminalTestSignalGen.setStatus('current')
+pxmEthIntfTerminalTestSignalMon = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1, 11), InfnEnableDisableType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmEthIntfTerminalTestSignalMon.setStatus('current')
+pxmEthIntfInterfaceRate = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pxmEthIntfInterfaceRate.setStatus('current')
+pxmEthIntfAcceptableFrameType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1, 13), InfnAcceptableFrameType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmEthIntfAcceptableFrameType.setStatus('current')
+pxmEthIntfOverBookingFactor = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1, 14), FloatTenths()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmEthIntfOverBookingFactor.setStatus('current')
+pxmEthIntfMaxReservableBW = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1, 15), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pxmEthIntfMaxReservableBW.setStatus('current')
+pxmEthIntfAvailableBW = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1, 16), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pxmEthIntfAvailableBW.setStatus('current')
+pxmEthIntfLoopbackBehavior = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1, 17), InfnLoopbackBehavior()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmEthIntfLoopbackBehavior.setStatus('current')
+pxmEthIntfMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1, 18), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pxmEthIntfMacAddress.setStatus('current')
+pxmEthIntfCSFAsTDATrigger = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 1, 1, 19), InfnEnableDisableType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmEthIntfCSFAsTDATrigger.setStatus('current')
+pxmEthIntfCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 3, 1, 1)).setObjects(("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pxmEthIntfCompliance = pxmEthIntfCompliance.setStatus('current')
+pxmEthIntfGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 76, 3, 2, 1)).setObjects(("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfMTUSize"), ("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfInterfaceType"), ("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfOuterTPID"), ("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfInnerTPID"), ("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfDefaultVLANID"), ("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfDefaultPriority"), ("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfIngressTrafficClass"), ("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfFacTestSignalGen"), ("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfFacTestSignalMon"), ("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfTerminalTestSignalGen"), ("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfTerminalTestSignalMon"), ("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfInterfaceRate"), ("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfAcceptableFrameType"), ("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfOverBookingFactor"), ("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfMaxReservableBW"), ("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfAvailableBW"), ("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfLoopbackBehavior"), ("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfMacAddress"), ("INFINERA-TP-PXMETHINTF-MIB", "pxmEthIntfCSFAsTDATrigger"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pxmEthIntfGroup = pxmEthIntfGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-TP-PXMETHINTF-MIB", pxmEthIntfTerminalTestSignalGen=pxmEthIntfTerminalTestSignalGen, pxmEthIntfTable=pxmEthIntfTable, pxmEthIntfIngressTrafficClass=pxmEthIntfIngressTrafficClass, pxmEthIntfGroups=pxmEthIntfGroups, pxmEthIntfConformance=pxmEthIntfConformance, pxmEthIntfMacAddress=pxmEthIntfMacAddress, pxmEthIntfFacTestSignalGen=pxmEthIntfFacTestSignalGen, pxmEthIntfInterfaceRate=pxmEthIntfInterfaceRate, pxmEthIntfDefaultPriority=pxmEthIntfDefaultPriority, pxmEthIntfAvailableBW=pxmEthIntfAvailableBW, pxmEthIntfMIB=pxmEthIntfMIB, pxmEthIntfCompliance=pxmEthIntfCompliance, PYSNMP_MODULE_ID=pxmEthIntfMIB, pxmEthIntfMaxReservableBW=pxmEthIntfMaxReservableBW, pxmEthIntfOuterTPID=pxmEthIntfOuterTPID, pxmEthIntfInterfaceType=pxmEthIntfInterfaceType, pxmEthIntfInnerTPID=pxmEthIntfInnerTPID, pxmEthIntfLoopbackBehavior=pxmEthIntfLoopbackBehavior, pxmEthIntfGroup=pxmEthIntfGroup, pxmEthIntfMTUSize=pxmEthIntfMTUSize, pxmEthIntfOverBookingFactor=pxmEthIntfOverBookingFactor, pxmEthIntfCSFAsTDATrigger=pxmEthIntfCSFAsTDATrigger, pxmEthIntfTerminalTestSignalMon=pxmEthIntfTerminalTestSignalMon, pxmEthIntfFacTestSignalMon=pxmEthIntfFacTestSignalMon, pxmEthIntfCompliances=pxmEthIntfCompliances, pxmEthIntfAcceptableFrameType=pxmEthIntfAcceptableFrameType, pxmEthIntfEntry=pxmEthIntfEntry, pxmEthIntfDefaultVLANID=pxmEthIntfDefaultVLANID)

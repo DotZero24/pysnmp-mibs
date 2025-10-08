@@ -1,110 +1,59 @@
-_D='bHttpClientLatencyStatsInterval'
-_C='BENU-HTTP-CLIENT-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-benuWAG,=mibBuilder.importSymbols('BENU-WAG-MIB','benuWAG')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-benuHttpClientMIB=ModuleIdentity((1,3,6,1,4,1,39406,2,1,11))
-if mibBuilder.loadTexts:benuHttpClientMIB.setRevisions(('2015-10-21 00:00',))
-_BHttpClientObjects_ObjectIdentity=ObjectIdentity
-bHttpClientObjects=_BHttpClientObjects_ObjectIdentity((1,3,6,1,4,1,39406,2,1,11,1))
-if mibBuilder.loadTexts:bHttpClientObjects.setStatus(_A)
-_BHttpClientLatencyTable_Object=MibTable
-bHttpClientLatencyTable=_BHttpClientLatencyTable_Object((1,3,6,1,4,1,39406,2,1,11,1,1))
-if mibBuilder.loadTexts:bHttpClientLatencyTable.setStatus(_A)
-_BHttpClientLatencyEntry_Object=MibTableRow
-bHttpClientLatencyEntry=_BHttpClientLatencyEntry_Object((1,3,6,1,4,1,39406,2,1,11,1,1,1))
-bHttpClientLatencyEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:bHttpClientLatencyEntry.setStatus(_A)
-_BHttpClientLatencyStatsInterval_Type=Integer32
-_BHttpClientLatencyStatsInterval_Object=MibTableColumn
-bHttpClientLatencyStatsInterval=_BHttpClientLatencyStatsInterval_Object((1,3,6,1,4,1,39406,2,1,11,1,1,1,1),_BHttpClientLatencyStatsInterval_Type())
-bHttpClientLatencyStatsInterval.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:bHttpClientLatencyStatsInterval.setStatus(_A)
-_BHttpClientLatencyStatsIntervalDuration_Type=Integer32
-_BHttpClientLatencyStatsIntervalDuration_Object=MibTableColumn
-bHttpClientLatencyStatsIntervalDuration=_BHttpClientLatencyStatsIntervalDuration_Object((1,3,6,1,4,1,39406,2,1,11,1,1,1,2),_BHttpClientLatencyStatsIntervalDuration_Type())
-bHttpClientLatencyStatsIntervalDuration.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpClientLatencyStatsIntervalDuration.setStatus(_A)
-_BHttpClientLatencyTotalPktCount_Type=Unsigned32
-_BHttpClientLatencyTotalPktCount_Object=MibTableColumn
-bHttpClientLatencyTotalPktCount=_BHttpClientLatencyTotalPktCount_Object((1,3,6,1,4,1,39406,2,1,11,1,1,1,3),_BHttpClientLatencyTotalPktCount_Type())
-bHttpClientLatencyTotalPktCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpClientLatencyTotalPktCount.setStatus(_A)
-_BHttpClientLatencyMaxProcessingTime_Type=Unsigned32
-_BHttpClientLatencyMaxProcessingTime_Object=MibTableColumn
-bHttpClientLatencyMaxProcessingTime=_BHttpClientLatencyMaxProcessingTime_Object((1,3,6,1,4,1,39406,2,1,11,1,1,1,4),_BHttpClientLatencyMaxProcessingTime_Type())
-bHttpClientLatencyMaxProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpClientLatencyMaxProcessingTime.setStatus(_A)
-_BHttpClientLatencyMinProcessingTime_Type=Unsigned32
-_BHttpClientLatencyMinProcessingTime_Object=MibTableColumn
-bHttpClientLatencyMinProcessingTime=_BHttpClientLatencyMinProcessingTime_Object((1,3,6,1,4,1,39406,2,1,11,1,1,1,5),_BHttpClientLatencyMinProcessingTime_Type())
-bHttpClientLatencyMinProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpClientLatencyMinProcessingTime.setStatus(_A)
-_BHttpClientLatencyAvgProcessingTime_Type=Unsigned32
-_BHttpClientLatencyAvgProcessingTime_Object=MibTableColumn
-bHttpClientLatencyAvgProcessingTime=_BHttpClientLatencyAvgProcessingTime_Object((1,3,6,1,4,1,39406,2,1,11,1,1,1,6),_BHttpClientLatencyAvgProcessingTime_Type())
-bHttpClientLatencyAvgProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpClientLatencyAvgProcessingTime.setStatus(_A)
-_BHttpClientLatencyProcessTimeMorethan10MSPktCount_Type=Unsigned32
-_BHttpClientLatencyProcessTimeMorethan10MSPktCount_Object=MibTableColumn
-bHttpClientLatencyProcessTimeMorethan10MSPktCount=_BHttpClientLatencyProcessTimeMorethan10MSPktCount_Object((1,3,6,1,4,1,39406,2,1,11,1,1,1,7),_BHttpClientLatencyProcessTimeMorethan10MSPktCount_Type())
-bHttpClientLatencyProcessTimeMorethan10MSPktCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpClientLatencyProcessTimeMorethan10MSPktCount.setStatus(_A)
-_BHttpClientServReqLatencyTotalPktCount_Type=Unsigned32
-_BHttpClientServReqLatencyTotalPktCount_Object=MibTableColumn
-bHttpClientServReqLatencyTotalPktCount=_BHttpClientServReqLatencyTotalPktCount_Object((1,3,6,1,4,1,39406,2,1,11,1,1,1,8),_BHttpClientServReqLatencyTotalPktCount_Type())
-bHttpClientServReqLatencyTotalPktCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpClientServReqLatencyTotalPktCount.setStatus(_A)
-_BHttpClientServReqLatencyMaxProcessingTime_Type=Unsigned32
-_BHttpClientServReqLatencyMaxProcessingTime_Object=MibTableColumn
-bHttpClientServReqLatencyMaxProcessingTime=_BHttpClientServReqLatencyMaxProcessingTime_Object((1,3,6,1,4,1,39406,2,1,11,1,1,1,9),_BHttpClientServReqLatencyMaxProcessingTime_Type())
-bHttpClientServReqLatencyMaxProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpClientServReqLatencyMaxProcessingTime.setStatus(_A)
-_BHttpClientServReqLatencyMinProcessingTime_Type=Unsigned32
-_BHttpClientServReqLatencyMinProcessingTime_Object=MibTableColumn
-bHttpClientServReqLatencyMinProcessingTime=_BHttpClientServReqLatencyMinProcessingTime_Object((1,3,6,1,4,1,39406,2,1,11,1,1,1,10),_BHttpClientServReqLatencyMinProcessingTime_Type())
-bHttpClientServReqLatencyMinProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpClientServReqLatencyMinProcessingTime.setStatus(_A)
-_BHttpClientServReqLatencyAvgProcessingTime_Type=Unsigned32
-_BHttpClientServReqLatencyAvgProcessingTime_Object=MibTableColumn
-bHttpClientServReqLatencyAvgProcessingTime=_BHttpClientServReqLatencyAvgProcessingTime_Object((1,3,6,1,4,1,39406,2,1,11,1,1,1,11),_BHttpClientServReqLatencyAvgProcessingTime_Type())
-bHttpClientServReqLatencyAvgProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpClientServReqLatencyAvgProcessingTime.setStatus(_A)
-_BHttpClientServReqLatencyProcessTimeMorethan10MSPktCount_Type=Unsigned32
-_BHttpClientServReqLatencyProcessTimeMorethan10MSPktCount_Object=MibTableColumn
-bHttpClientServReqLatencyProcessTimeMorethan10MSPktCount=_BHttpClientServReqLatencyProcessTimeMorethan10MSPktCount_Object((1,3,6,1,4,1,39406,2,1,11,1,1,1,12),_BHttpClientServReqLatencyProcessTimeMorethan10MSPktCount_Type())
-bHttpClientServReqLatencyProcessTimeMorethan10MSPktCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpClientServReqLatencyProcessTimeMorethan10MSPktCount.setStatus(_A)
-_BHttpClientJsonParsingLatencyTotalPktCount_Type=Unsigned32
-_BHttpClientJsonParsingLatencyTotalPktCount_Object=MibTableColumn
-bHttpClientJsonParsingLatencyTotalPktCount=_BHttpClientJsonParsingLatencyTotalPktCount_Object((1,3,6,1,4,1,39406,2,1,11,1,1,1,13),_BHttpClientJsonParsingLatencyTotalPktCount_Type())
-bHttpClientJsonParsingLatencyTotalPktCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpClientJsonParsingLatencyTotalPktCount.setStatus(_A)
-_BHttpClientJsonParsingLatencyMaxProcessingTime_Type=Unsigned32
-_BHttpClientJsonParsingLatencyMaxProcessingTime_Object=MibTableColumn
-bHttpClientJsonParsingLatencyMaxProcessingTime=_BHttpClientJsonParsingLatencyMaxProcessingTime_Object((1,3,6,1,4,1,39406,2,1,11,1,1,1,14),_BHttpClientJsonParsingLatencyMaxProcessingTime_Type())
-bHttpClientJsonParsingLatencyMaxProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpClientJsonParsingLatencyMaxProcessingTime.setStatus(_A)
-_BHttpClientJsonParsingLatencyMinProcessingTime_Type=Unsigned32
-_BHttpClientJsonParsingLatencyMinProcessingTime_Object=MibTableColumn
-bHttpClientJsonParsingLatencyMinProcessingTime=_BHttpClientJsonParsingLatencyMinProcessingTime_Object((1,3,6,1,4,1,39406,2,1,11,1,1,1,15),_BHttpClientJsonParsingLatencyMinProcessingTime_Type())
-bHttpClientJsonParsingLatencyMinProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpClientJsonParsingLatencyMinProcessingTime.setStatus(_A)
-_BHttpClientJsonParsingLatencyAvgProcessingTime_Type=Unsigned32
-_BHttpClientJsonParsingLatencyAvgProcessingTime_Object=MibTableColumn
-bHttpClientJsonParsingLatencyAvgProcessingTime=_BHttpClientJsonParsingLatencyAvgProcessingTime_Object((1,3,6,1,4,1,39406,2,1,11,1,1,1,16),_BHttpClientJsonParsingLatencyAvgProcessingTime_Type())
-bHttpClientJsonParsingLatencyAvgProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpClientJsonParsingLatencyAvgProcessingTime.setStatus(_A)
-_BHttpClientJsonParsingLatencyProcessTimeMorethan10MS_Type=Unsigned32
-_BHttpClientJsonParsingLatencyProcessTimeMorethan10MS_Object=MibTableColumn
-bHttpClientJsonParsingLatencyProcessTimeMorethan10MS=_BHttpClientJsonParsingLatencyProcessTimeMorethan10MS_Object((1,3,6,1,4,1,39406,2,1,11,1,1,1,17),_BHttpClientJsonParsingLatencyProcessTimeMorethan10MS_Type())
-bHttpClientJsonParsingLatencyProcessTimeMorethan10MS.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpClientJsonParsingLatencyProcessTimeMorethan10MS.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'benuHttpClientMIB':benuHttpClientMIB,'bHttpClientObjects':bHttpClientObjects,'bHttpClientLatencyTable':bHttpClientLatencyTable,'bHttpClientLatencyEntry':bHttpClientLatencyEntry,_D:bHttpClientLatencyStatsInterval,'bHttpClientLatencyStatsIntervalDuration':bHttpClientLatencyStatsIntervalDuration,'bHttpClientLatencyTotalPktCount':bHttpClientLatencyTotalPktCount,'bHttpClientLatencyMaxProcessingTime':bHttpClientLatencyMaxProcessingTime,'bHttpClientLatencyMinProcessingTime':bHttpClientLatencyMinProcessingTime,'bHttpClientLatencyAvgProcessingTime':bHttpClientLatencyAvgProcessingTime,'bHttpClientLatencyProcessTimeMorethan10MSPktCount':bHttpClientLatencyProcessTimeMorethan10MSPktCount,'bHttpClientServReqLatencyTotalPktCount':bHttpClientServReqLatencyTotalPktCount,'bHttpClientServReqLatencyMaxProcessingTime':bHttpClientServReqLatencyMaxProcessingTime,'bHttpClientServReqLatencyMinProcessingTime':bHttpClientServReqLatencyMinProcessingTime,'bHttpClientServReqLatencyAvgProcessingTime':bHttpClientServReqLatencyAvgProcessingTime,'bHttpClientServReqLatencyProcessTimeMorethan10MSPktCount':bHttpClientServReqLatencyProcessTimeMorethan10MSPktCount,'bHttpClientJsonParsingLatencyTotalPktCount':bHttpClientJsonParsingLatencyTotalPktCount,'bHttpClientJsonParsingLatencyMaxProcessingTime':bHttpClientJsonParsingLatencyMaxProcessingTime,'bHttpClientJsonParsingLatencyMinProcessingTime':bHttpClientJsonParsingLatencyMinProcessingTime,'bHttpClientJsonParsingLatencyAvgProcessingTime':bHttpClientJsonParsingLatencyAvgProcessingTime,'bHttpClientJsonParsingLatencyProcessTimeMorethan10MS':bHttpClientJsonParsingLatencyProcessTimeMorethan10MS})
+#
+# PySNMP MIB module BENU-HTTP-CLIENT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/benu/BENU-HTTP-CLIENT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:50 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+benuWAG, = mibBuilder.importSymbols("BENU-WAG-MIB", "benuWAG")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+benuHttpClientMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11))
+benuHttpClientMIB.setRevisions(('2015-10-21 00:00',))
+if mibBuilder.loadTexts: benuHttpClientMIB.setLastUpdated('201510210000Z')
+if mibBuilder.loadTexts: benuHttpClientMIB.setOrganization('Benu Networks,Inc')
+bHttpClientObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1))
+if mibBuilder.loadTexts: bHttpClientObjects.setStatus('current')
+bHttpClientLatencyTable = MibTable((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1, 1), )
+if mibBuilder.loadTexts: bHttpClientLatencyTable.setStatus('current')
+bHttpClientLatencyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1, 1, 1), ).setIndexNames((0, "BENU-HTTP-CLIENT-MIB", "bHttpClientLatencyStatsInterval"))
+if mibBuilder.loadTexts: bHttpClientLatencyEntry.setStatus('current')
+bHttpClientLatencyStatsInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: bHttpClientLatencyStatsInterval.setStatus('current')
+bHttpClientLatencyStatsIntervalDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpClientLatencyStatsIntervalDuration.setStatus('current')
+bHttpClientLatencyTotalPktCount = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpClientLatencyTotalPktCount.setStatus('current')
+bHttpClientLatencyMaxProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpClientLatencyMaxProcessingTime.setStatus('current')
+bHttpClientLatencyMinProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpClientLatencyMinProcessingTime.setStatus('current')
+bHttpClientLatencyAvgProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1, 1, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpClientLatencyAvgProcessingTime.setStatus('current')
+bHttpClientLatencyProcessTimeMorethan10MSPktCount = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1, 1, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpClientLatencyProcessTimeMorethan10MSPktCount.setStatus('current')
+bHttpClientServReqLatencyTotalPktCount = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1, 1, 1, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpClientServReqLatencyTotalPktCount.setStatus('current')
+bHttpClientServReqLatencyMaxProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1, 1, 1, 9), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpClientServReqLatencyMaxProcessingTime.setStatus('current')
+bHttpClientServReqLatencyMinProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1, 1, 1, 10), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpClientServReqLatencyMinProcessingTime.setStatus('current')
+bHttpClientServReqLatencyAvgProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1, 1, 1, 11), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpClientServReqLatencyAvgProcessingTime.setStatus('current')
+bHttpClientServReqLatencyProcessTimeMorethan10MSPktCount = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1, 1, 1, 12), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpClientServReqLatencyProcessTimeMorethan10MSPktCount.setStatus('current')
+bHttpClientJsonParsingLatencyTotalPktCount = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1, 1, 1, 13), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpClientJsonParsingLatencyTotalPktCount.setStatus('current')
+bHttpClientJsonParsingLatencyMaxProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1, 1, 1, 14), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpClientJsonParsingLatencyMaxProcessingTime.setStatus('current')
+bHttpClientJsonParsingLatencyMinProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1, 1, 1, 15), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpClientJsonParsingLatencyMinProcessingTime.setStatus('current')
+bHttpClientJsonParsingLatencyAvgProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1, 1, 1, 16), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpClientJsonParsingLatencyAvgProcessingTime.setStatus('current')
+bHttpClientJsonParsingLatencyProcessTimeMorethan10MS = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 11, 1, 1, 1, 17), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpClientJsonParsingLatencyProcessTimeMorethan10MS.setStatus('current')
+mibBuilder.exportSymbols("BENU-HTTP-CLIENT-MIB", PYSNMP_MODULE_ID=benuHttpClientMIB, bHttpClientLatencyEntry=bHttpClientLatencyEntry, benuHttpClientMIB=benuHttpClientMIB, bHttpClientServReqLatencyAvgProcessingTime=bHttpClientServReqLatencyAvgProcessingTime, bHttpClientLatencyMinProcessingTime=bHttpClientLatencyMinProcessingTime, bHttpClientLatencyMaxProcessingTime=bHttpClientLatencyMaxProcessingTime, bHttpClientJsonParsingLatencyAvgProcessingTime=bHttpClientJsonParsingLatencyAvgProcessingTime, bHttpClientServReqLatencyProcessTimeMorethan10MSPktCount=bHttpClientServReqLatencyProcessTimeMorethan10MSPktCount, bHttpClientJsonParsingLatencyProcessTimeMorethan10MS=bHttpClientJsonParsingLatencyProcessTimeMorethan10MS, bHttpClientJsonParsingLatencyMaxProcessingTime=bHttpClientJsonParsingLatencyMaxProcessingTime, bHttpClientLatencyStatsInterval=bHttpClientLatencyStatsInterval, bHttpClientLatencyTotalPktCount=bHttpClientLatencyTotalPktCount, bHttpClientLatencyProcessTimeMorethan10MSPktCount=bHttpClientLatencyProcessTimeMorethan10MSPktCount, bHttpClientLatencyTable=bHttpClientLatencyTable, bHttpClientObjects=bHttpClientObjects, bHttpClientServReqLatencyTotalPktCount=bHttpClientServReqLatencyTotalPktCount, bHttpClientLatencyAvgProcessingTime=bHttpClientLatencyAvgProcessingTime, bHttpClientJsonParsingLatencyTotalPktCount=bHttpClientJsonParsingLatencyTotalPktCount, bHttpClientServReqLatencyMinProcessingTime=bHttpClientServReqLatencyMinProcessingTime, bHttpClientServReqLatencyMaxProcessingTime=bHttpClientServReqLatencyMaxProcessingTime, bHttpClientLatencyStatsIntervalDuration=bHttpClientLatencyStatsIntervalDuration, bHttpClientJsonParsingLatencyMinProcessingTime=bHttpClientJsonParsingLatencyMinProcessingTime)

@@ -1,146 +1,70 @@
-_G='read-write'
-_F='TruthValue'
-_E='ifIndex'
-_D='IF-MIB'
-_C='uSec'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-rnd,=mibBuilder.importSymbols('Dell-MIB','rnd')
-ifIndex,ifOperStatus=mibBuilder.importSymbols(_D,_E,'ifOperStatus')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_F)
-rlEee=ModuleIdentity((1,3,6,1,4,1,89,149))
-if mibBuilder.loadTexts:rlEee.setRevisions(('2010-05-15 00:00',))
-class _RlEeeEnable_Type(TruthValue):defaultValue=2
-_RlEeeEnable_Type.__name__=_F
-_RlEeeEnable_Object=MibScalar
-rlEeeEnable=_RlEeeEnable_Object((1,3,6,1,4,1,89,149,1),_RlEeeEnable_Type())
-rlEeeEnable.setMaxAccess(_G)
-if mibBuilder.loadTexts:rlEeeEnable.setStatus(_A)
-_RlEeePortTable_Object=MibTable
-rlEeePortTable=_RlEeePortTable_Object((1,3,6,1,4,1,89,149,2))
-if mibBuilder.loadTexts:rlEeePortTable.setStatus(_A)
-_RlEeePortEntry_Object=MibTableRow
-rlEeePortEntry=_RlEeePortEntry_Object((1,3,6,1,4,1,89,149,2,1))
-rlEeePortEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:rlEeePortEntry.setStatus(_A)
-class _RlEeePortAdminStatus_Type(TruthValue):defaultValue=2
-_RlEeePortAdminStatus_Type.__name__=_F
-_RlEeePortAdminStatus_Object=MibTableColumn
-rlEeePortAdminStatus=_RlEeePortAdminStatus_Object((1,3,6,1,4,1,89,149,2,1,1),_RlEeePortAdminStatus_Type())
-rlEeePortAdminStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:rlEeePortAdminStatus.setStatus(_A)
-class _RlEeePortSupported_Type(Bits):namedValues=NamedValues(*(('rlEeePortSupported10M',0),('rlEeePortSupported100M',1),('rlEeePortSupported1G',2),('rlEeePortSupported10G',3)))
-_RlEeePortSupported_Type.__name__='Bits'
-_RlEeePortSupported_Object=MibTableColumn
-rlEeePortSupported=_RlEeePortSupported_Object((1,3,6,1,4,1,89,149,2,1,2),_RlEeePortSupported_Type())
-rlEeePortSupported.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlEeePortSupported.setStatus(_A)
-_RlEeePortRemoteStatus_Type=TruthValue
-_RlEeePortRemoteStatus_Object=MibTableColumn
-rlEeePortRemoteStatus=_RlEeePortRemoteStatus_Object((1,3,6,1,4,1,89,149,2,1,3),_RlEeePortRemoteStatus_Type())
-rlEeePortRemoteStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlEeePortRemoteStatus.setStatus(_A)
-_RlEeePortOperStatus_Type=TruthValue
-_RlEeePortOperStatus_Object=MibTableColumn
-rlEeePortOperStatus=_RlEeePortOperStatus_Object((1,3,6,1,4,1,89,149,2,1,4),_RlEeePortOperStatus_Type())
-rlEeePortOperStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlEeePortOperStatus.setStatus(_A)
-_RlEeePortLldpTable_Object=MibTable
-rlEeePortLldpTable=_RlEeePortLldpTable_Object((1,3,6,1,4,1,89,149,3))
-if mibBuilder.loadTexts:rlEeePortLldpTable.setStatus(_A)
-_RlEeePortLldpEntry_Object=MibTableRow
-rlEeePortLldpEntry=_RlEeePortLldpEntry_Object((1,3,6,1,4,1,89,149,3,1))
-rlEeePortLldpEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:rlEeePortLldpEntry.setStatus(_A)
-class _RlEeePortLldpAdminStatus_Type(TruthValue):defaultValue=2
-_RlEeePortLldpAdminStatus_Type.__name__=_F
-_RlEeePortLldpAdminStatus_Object=MibTableColumn
-rlEeePortLldpAdminStatus=_RlEeePortLldpAdminStatus_Object((1,3,6,1,4,1,89,149,3,1,1),_RlEeePortLldpAdminStatus_Type())
-rlEeePortLldpAdminStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:rlEeePortLldpAdminStatus.setStatus(_A)
-_RlEeePortLldpOperStatus_Type=TruthValue
-_RlEeePortLldpOperStatus_Object=MibTableColumn
-rlEeePortLldpOperStatus=_RlEeePortLldpOperStatus_Object((1,3,6,1,4,1,89,149,3,1,2),_RlEeePortLldpOperStatus_Type())
-rlEeePortLldpOperStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlEeePortLldpOperStatus.setStatus(_A)
-_RlEeePortLldpLocalTable_Object=MibTable
-rlEeePortLldpLocalTable=_RlEeePortLldpLocalTable_Object((1,3,6,1,4,1,89,149,4))
-if mibBuilder.loadTexts:rlEeePortLldpLocalTable.setStatus(_A)
-_RlEeePortLldpLocalEntry_Object=MibTableRow
-rlEeePortLldpLocalEntry=_RlEeePortLldpLocalEntry_Object((1,3,6,1,4,1,89,149,4,1))
-rlEeePortLldpLocalEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:rlEeePortLldpLocalEntry.setStatus(_A)
-_RlEeePortLldpLocalResolvedTx_Type=Unsigned32
-_RlEeePortLldpLocalResolvedTx_Object=MibTableColumn
-rlEeePortLldpLocalResolvedTx=_RlEeePortLldpLocalResolvedTx_Object((1,3,6,1,4,1,89,149,4,1,1),_RlEeePortLldpLocalResolvedTx_Type())
-rlEeePortLldpLocalResolvedTx.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlEeePortLldpLocalResolvedTx.setStatus(_A)
-if mibBuilder.loadTexts:rlEeePortLldpLocalResolvedTx.setUnits(_C)
-_RlEeePortLldpLocalTx_Type=Unsigned32
-_RlEeePortLldpLocalTx_Object=MibTableColumn
-rlEeePortLldpLocalTx=_RlEeePortLldpLocalTx_Object((1,3,6,1,4,1,89,149,4,1,2),_RlEeePortLldpLocalTx_Type())
-rlEeePortLldpLocalTx.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlEeePortLldpLocalTx.setStatus(_A)
-if mibBuilder.loadTexts:rlEeePortLldpLocalTx.setUnits(_C)
-_RlEeePortLldpLocalTxEcho_Type=Unsigned32
-_RlEeePortLldpLocalTxEcho_Object=MibTableColumn
-rlEeePortLldpLocalTxEcho=_RlEeePortLldpLocalTxEcho_Object((1,3,6,1,4,1,89,149,4,1,3),_RlEeePortLldpLocalTxEcho_Type())
-rlEeePortLldpLocalTxEcho.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlEeePortLldpLocalTxEcho.setStatus(_A)
-if mibBuilder.loadTexts:rlEeePortLldpLocalTxEcho.setUnits(_C)
-_RlEeePortLldpLocalResolvedRx_Type=Unsigned32
-_RlEeePortLldpLocalResolvedRx_Object=MibTableColumn
-rlEeePortLldpLocalResolvedRx=_RlEeePortLldpLocalResolvedRx_Object((1,3,6,1,4,1,89,149,4,1,4),_RlEeePortLldpLocalResolvedRx_Type())
-rlEeePortLldpLocalResolvedRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlEeePortLldpLocalResolvedRx.setStatus(_A)
-if mibBuilder.loadTexts:rlEeePortLldpLocalResolvedRx.setUnits(_C)
-_RlEeePortLldpLocalRx_Type=Unsigned32
-_RlEeePortLldpLocalRx_Object=MibTableColumn
-rlEeePortLldpLocalRx=_RlEeePortLldpLocalRx_Object((1,3,6,1,4,1,89,149,4,1,5),_RlEeePortLldpLocalRx_Type())
-rlEeePortLldpLocalRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlEeePortLldpLocalRx.setStatus(_A)
-if mibBuilder.loadTexts:rlEeePortLldpLocalRx.setUnits(_C)
-_RlEeePortLldpLocalRxEcho_Type=Unsigned32
-_RlEeePortLldpLocalRxEcho_Object=MibTableColumn
-rlEeePortLldpLocalRxEcho=_RlEeePortLldpLocalRxEcho_Object((1,3,6,1,4,1,89,149,4,1,6),_RlEeePortLldpLocalRxEcho_Type())
-rlEeePortLldpLocalRxEcho.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlEeePortLldpLocalRxEcho.setStatus(_A)
-if mibBuilder.loadTexts:rlEeePortLldpLocalRxEcho.setUnits(_C)
-_RlEeePortLldpRemoteTable_Object=MibTable
-rlEeePortLldpRemoteTable=_RlEeePortLldpRemoteTable_Object((1,3,6,1,4,1,89,149,5))
-if mibBuilder.loadTexts:rlEeePortLldpRemoteTable.setStatus(_A)
-_RlEeePortLldpRemoteEntry_Object=MibTableRow
-rlEeePortLldpRemoteEntry=_RlEeePortLldpRemoteEntry_Object((1,3,6,1,4,1,89,149,5,1))
-rlEeePortLldpRemoteEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:rlEeePortLldpRemoteEntry.setStatus(_A)
-_RlEeePortLldpRemoteTx_Type=Unsigned32
-_RlEeePortLldpRemoteTx_Object=MibTableColumn
-rlEeePortLldpRemoteTx=_RlEeePortLldpRemoteTx_Object((1,3,6,1,4,1,89,149,5,1,1),_RlEeePortLldpRemoteTx_Type())
-rlEeePortLldpRemoteTx.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlEeePortLldpRemoteTx.setStatus(_A)
-if mibBuilder.loadTexts:rlEeePortLldpRemoteTx.setUnits(_C)
-_RlEeePortLldpRemoteRx_Type=Unsigned32
-_RlEeePortLldpRemoteRx_Object=MibTableColumn
-rlEeePortLldpRemoteRx=_RlEeePortLldpRemoteRx_Object((1,3,6,1,4,1,89,149,5,1,2),_RlEeePortLldpRemoteRx_Type())
-rlEeePortLldpRemoteRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlEeePortLldpRemoteRx.setStatus(_A)
-if mibBuilder.loadTexts:rlEeePortLldpRemoteRx.setUnits(_C)
-_RlEeePortLldpRemoteTxEcho_Type=Unsigned32
-_RlEeePortLldpRemoteTxEcho_Object=MibTableColumn
-rlEeePortLldpRemoteTxEcho=_RlEeePortLldpRemoteTxEcho_Object((1,3,6,1,4,1,89,149,5,1,3),_RlEeePortLldpRemoteTxEcho_Type())
-rlEeePortLldpRemoteTxEcho.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlEeePortLldpRemoteTxEcho.setStatus(_A)
-if mibBuilder.loadTexts:rlEeePortLldpRemoteTxEcho.setUnits(_C)
-_RlEeePortLldpRemoteRxEcho_Type=Unsigned32
-_RlEeePortLldpRemoteRxEcho_Object=MibTableColumn
-rlEeePortLldpRemoteRxEcho=_RlEeePortLldpRemoteRxEcho_Object((1,3,6,1,4,1,89,149,5,1,4),_RlEeePortLldpRemoteRxEcho_Type())
-rlEeePortLldpRemoteRxEcho.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlEeePortLldpRemoteRxEcho.setStatus(_A)
-if mibBuilder.loadTexts:rlEeePortLldpRemoteRxEcho.setUnits(_C)
-mibBuilder.exportSymbols('Dell-EEE-MIB',**{'rlEee':rlEee,'rlEeeEnable':rlEeeEnable,'rlEeePortTable':rlEeePortTable,'rlEeePortEntry':rlEeePortEntry,'rlEeePortAdminStatus':rlEeePortAdminStatus,'rlEeePortSupported':rlEeePortSupported,'rlEeePortRemoteStatus':rlEeePortRemoteStatus,'rlEeePortOperStatus':rlEeePortOperStatus,'rlEeePortLldpTable':rlEeePortLldpTable,'rlEeePortLldpEntry':rlEeePortLldpEntry,'rlEeePortLldpAdminStatus':rlEeePortLldpAdminStatus,'rlEeePortLldpOperStatus':rlEeePortLldpOperStatus,'rlEeePortLldpLocalTable':rlEeePortLldpLocalTable,'rlEeePortLldpLocalEntry':rlEeePortLldpLocalEntry,'rlEeePortLldpLocalResolvedTx':rlEeePortLldpLocalResolvedTx,'rlEeePortLldpLocalTx':rlEeePortLldpLocalTx,'rlEeePortLldpLocalTxEcho':rlEeePortLldpLocalTxEcho,'rlEeePortLldpLocalResolvedRx':rlEeePortLldpLocalResolvedRx,'rlEeePortLldpLocalRx':rlEeePortLldpLocalRx,'rlEeePortLldpLocalRxEcho':rlEeePortLldpLocalRxEcho,'rlEeePortLldpRemoteTable':rlEeePortLldpRemoteTable,'rlEeePortLldpRemoteEntry':rlEeePortLldpRemoteEntry,'rlEeePortLldpRemoteTx':rlEeePortLldpRemoteTx,'rlEeePortLldpRemoteRx':rlEeePortLldpRemoteRx,'rlEeePortLldpRemoteTxEcho':rlEeePortLldpRemoteTxEcho,'rlEeePortLldpRemoteRxEcho':rlEeePortLldpRemoteRxEcho})
+#
+# PySNMP MIB module Dell-EEE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/dell/Dell-EEE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:23:47 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+rnd, = mibBuilder.importSymbols("Dell-MIB", "rnd")
+ifIndex, ifOperStatus = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifOperStatus")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+rlEee = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 149))
+rlEee.setRevisions(('2010-05-15 00:00',))
+if mibBuilder.loadTexts: rlEee.setLastUpdated('201003150000Z')
+if mibBuilder.loadTexts: rlEee.setOrganization('Dell')
+rlEeeEnable = MibScalar((1, 3, 6, 1, 4, 1, 89, 149, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlEeeEnable.setStatus('current')
+rlEeePortTable = MibTable((1, 3, 6, 1, 4, 1, 89, 149, 2), )
+if mibBuilder.loadTexts: rlEeePortTable.setStatus('current')
+rlEeePortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 149, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: rlEeePortEntry.setStatus('current')
+rlEeePortAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 149, 2, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlEeePortAdminStatus.setStatus('current')
+rlEeePortSupported = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 149, 2, 1, 2), Bits().clone(namedValues=NamedValues(("rlEeePortSupported10M", 0), ("rlEeePortSupported100M", 1), ("rlEeePortSupported1G", 2), ("rlEeePortSupported10G", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlEeePortSupported.setStatus('current')
+rlEeePortRemoteStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 149, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlEeePortRemoteStatus.setStatus('current')
+rlEeePortOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 149, 2, 1, 4), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlEeePortOperStatus.setStatus('current')
+rlEeePortLldpTable = MibTable((1, 3, 6, 1, 4, 1, 89, 149, 3), )
+if mibBuilder.loadTexts: rlEeePortLldpTable.setStatus('current')
+rlEeePortLldpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 149, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: rlEeePortLldpEntry.setStatus('current')
+rlEeePortLldpAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 149, 3, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlEeePortLldpAdminStatus.setStatus('current')
+rlEeePortLldpOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 149, 3, 1, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlEeePortLldpOperStatus.setStatus('current')
+rlEeePortLldpLocalTable = MibTable((1, 3, 6, 1, 4, 1, 89, 149, 4), )
+if mibBuilder.loadTexts: rlEeePortLldpLocalTable.setStatus('current')
+rlEeePortLldpLocalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 149, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: rlEeePortLldpLocalEntry.setStatus('current')
+rlEeePortLldpLocalResolvedTx = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 149, 4, 1, 1), Unsigned32()).setUnits('uSec').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlEeePortLldpLocalResolvedTx.setStatus('current')
+rlEeePortLldpLocalTx = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 149, 4, 1, 2), Unsigned32()).setUnits('uSec').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlEeePortLldpLocalTx.setStatus('current')
+rlEeePortLldpLocalTxEcho = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 149, 4, 1, 3), Unsigned32()).setUnits('uSec').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlEeePortLldpLocalTxEcho.setStatus('current')
+rlEeePortLldpLocalResolvedRx = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 149, 4, 1, 4), Unsigned32()).setUnits('uSec').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlEeePortLldpLocalResolvedRx.setStatus('current')
+rlEeePortLldpLocalRx = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 149, 4, 1, 5), Unsigned32()).setUnits('uSec').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlEeePortLldpLocalRx.setStatus('current')
+rlEeePortLldpLocalRxEcho = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 149, 4, 1, 6), Unsigned32()).setUnits('uSec').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlEeePortLldpLocalRxEcho.setStatus('current')
+rlEeePortLldpRemoteTable = MibTable((1, 3, 6, 1, 4, 1, 89, 149, 5), )
+if mibBuilder.loadTexts: rlEeePortLldpRemoteTable.setStatus('current')
+rlEeePortLldpRemoteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 149, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: rlEeePortLldpRemoteEntry.setStatus('current')
+rlEeePortLldpRemoteTx = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 149, 5, 1, 1), Unsigned32()).setUnits('uSec').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlEeePortLldpRemoteTx.setStatus('current')
+rlEeePortLldpRemoteRx = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 149, 5, 1, 2), Unsigned32()).setUnits('uSec').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlEeePortLldpRemoteRx.setStatus('current')
+rlEeePortLldpRemoteTxEcho = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 149, 5, 1, 3), Unsigned32()).setUnits('uSec').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlEeePortLldpRemoteTxEcho.setStatus('current')
+rlEeePortLldpRemoteRxEcho = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 149, 5, 1, 4), Unsigned32()).setUnits('uSec').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlEeePortLldpRemoteRxEcho.setStatus('current')
+mibBuilder.exportSymbols("Dell-EEE-MIB", rlEeePortLldpEntry=rlEeePortLldpEntry, rlEeePortOperStatus=rlEeePortOperStatus, rlEeePortLldpLocalTxEcho=rlEeePortLldpLocalTxEcho, rlEeePortLldpLocalResolvedRx=rlEeePortLldpLocalResolvedRx, rlEeePortLldpLocalTx=rlEeePortLldpLocalTx, rlEeePortLldpAdminStatus=rlEeePortLldpAdminStatus, rlEeePortLldpTable=rlEeePortLldpTable, rlEeePortEntry=rlEeePortEntry, rlEeePortLldpLocalRx=rlEeePortLldpLocalRx, rlEeePortAdminStatus=rlEeePortAdminStatus, rlEeePortLldpLocalRxEcho=rlEeePortLldpLocalRxEcho, rlEeePortLldpLocalResolvedTx=rlEeePortLldpLocalResolvedTx, rlEeePortLldpRemoteRx=rlEeePortLldpRemoteRx, rlEeePortLldpLocalEntry=rlEeePortLldpLocalEntry, rlEeePortLldpRemoteRxEcho=rlEeePortLldpRemoteRxEcho, rlEeePortLldpRemoteTx=rlEeePortLldpRemoteTx, rlEeePortTable=rlEeePortTable, rlEeePortLldpRemoteTxEcho=rlEeePortLldpRemoteTxEcho, rlEeePortLldpOperStatus=rlEeePortLldpOperStatus, rlEeePortRemoteStatus=rlEeePortRemoteStatus, PYSNMP_MODULE_ID=rlEee, rlEeeEnable=rlEeeEnable, rlEeePortSupported=rlEeePortSupported, rlEee=rlEee, rlEeePortLldpLocalTable=rlEeePortLldpLocalTable, rlEeePortLldpRemoteTable=rlEeePortLldpRemoteTable, rlEeePortLldpRemoteEntry=rlEeePortLldpRemoteEntry)

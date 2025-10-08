@@ -1,142 +1,72 @@
-_V='ccpcPerfGrp'
-_U='ccpcSystemGrp'
-_T='ccpcPcfSentZlbs'
-_S='ccpcPcfRcvdZlbs'
-_R='ccpcPcfDroppedCdns'
-_Q='ccpcPcfSentCdns'
-_P='ccpcPcfRcvdCdns'
-_O='ccpcPcfDroppedIccns'
-_N='ccpcPcfAcptdIccns'
-_M='ccpcPcfRcvdIccns'
-_L='ccpcPcfSentIcrps'
-_K='ccpcPcfDroppedIcrqs'
-_J='ccpcPcfAcptdIcrqs'
-_I='ccpcPcfRcvdIcrqs'
-_H='ccpcSessionTotal'
-_G='ccpcEnabled'
-_F='not-accessible'
-_E='ccpcPcfIpAddress'
-_D='ccpcPcfIpAddressType'
-_C='read-only'
-_B='CISCO-CDMA-PDSN-CRP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-ciscoCdmaPdsnCrpMIB=ModuleIdentity((1,3,6,1,4,1,9,9,957))
-if mibBuilder.loadTexts:ciscoCdmaPdsnCrpMIB.setRevisions(('2004-07-27 00:00',))
-_CcpcMIBObjects_ObjectIdentity=ObjectIdentity
-ccpcMIBObjects=_CcpcMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,957,1))
-_CcpcSystemInfo_ObjectIdentity=ObjectIdentity
-ccpcSystemInfo=_CcpcSystemInfo_ObjectIdentity((1,3,6,1,4,1,9,9,957,1,1))
-_CcpcEnabled_Type=TruthValue
-_CcpcEnabled_Object=MibScalar
-ccpcEnabled=_CcpcEnabled_Object((1,3,6,1,4,1,9,9,957,1,1,1),_CcpcEnabled_Type())
-ccpcEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccpcEnabled.setStatus(_A)
-_CcpcSessionTotal_Type=Gauge32
-_CcpcSessionTotal_Object=MibScalar
-ccpcSessionTotal=_CcpcSessionTotal_Object((1,3,6,1,4,1,9,9,957,1,1,2),_CcpcSessionTotal_Type())
-ccpcSessionTotal.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccpcSessionTotal.setStatus(_A)
-_CcpcPerfStats_ObjectIdentity=ObjectIdentity
-ccpcPerfStats=_CcpcPerfStats_ObjectIdentity((1,3,6,1,4,1,9,9,957,1,2))
-_CcpcPcfPerfStatsTable_Object=MibTable
-ccpcPcfPerfStatsTable=_CcpcPcfPerfStatsTable_Object((1,3,6,1,4,1,9,9,957,1,2,1))
-if mibBuilder.loadTexts:ccpcPcfPerfStatsTable.setStatus(_A)
-_CcpcPcfPerfStatsEntry_Object=MibTableRow
-ccpcPcfPerfStatsEntry=_CcpcPcfPerfStatsEntry_Object((1,3,6,1,4,1,9,9,957,1,2,1,1))
-ccpcPcfPerfStatsEntry.setIndexNames((0,_B,_D),(0,_B,_E))
-if mibBuilder.loadTexts:ccpcPcfPerfStatsEntry.setStatus(_A)
-_CcpcPcfIpAddressType_Type=InetAddressType
-_CcpcPcfIpAddressType_Object=MibTableColumn
-ccpcPcfIpAddressType=_CcpcPcfIpAddressType_Object((1,3,6,1,4,1,9,9,957,1,2,1,1,1),_CcpcPcfIpAddressType_Type())
-ccpcPcfIpAddressType.setMaxAccess(_F)
-if mibBuilder.loadTexts:ccpcPcfIpAddressType.setStatus(_A)
-_CcpcPcfIpAddress_Type=InetAddress
-_CcpcPcfIpAddress_Object=MibTableColumn
-ccpcPcfIpAddress=_CcpcPcfIpAddress_Object((1,3,6,1,4,1,9,9,957,1,2,1,1,2),_CcpcPcfIpAddress_Type())
-ccpcPcfIpAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:ccpcPcfIpAddress.setStatus(_A)
-_CcpcPcfRcvdIcrqs_Type=Counter32
-_CcpcPcfRcvdIcrqs_Object=MibTableColumn
-ccpcPcfRcvdIcrqs=_CcpcPcfRcvdIcrqs_Object((1,3,6,1,4,1,9,9,957,1,2,1,1,3),_CcpcPcfRcvdIcrqs_Type())
-ccpcPcfRcvdIcrqs.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccpcPcfRcvdIcrqs.setStatus(_A)
-_CcpcPcfAcptdIcrqs_Type=Counter32
-_CcpcPcfAcptdIcrqs_Object=MibTableColumn
-ccpcPcfAcptdIcrqs=_CcpcPcfAcptdIcrqs_Object((1,3,6,1,4,1,9,9,957,1,2,1,1,4),_CcpcPcfAcptdIcrqs_Type())
-ccpcPcfAcptdIcrqs.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccpcPcfAcptdIcrqs.setStatus(_A)
-_CcpcPcfDroppedIcrqs_Type=Counter32
-_CcpcPcfDroppedIcrqs_Object=MibTableColumn
-ccpcPcfDroppedIcrqs=_CcpcPcfDroppedIcrqs_Object((1,3,6,1,4,1,9,9,957,1,2,1,1,5),_CcpcPcfDroppedIcrqs_Type())
-ccpcPcfDroppedIcrqs.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccpcPcfDroppedIcrqs.setStatus(_A)
-_CcpcPcfSentIcrps_Type=Counter32
-_CcpcPcfSentIcrps_Object=MibTableColumn
-ccpcPcfSentIcrps=_CcpcPcfSentIcrps_Object((1,3,6,1,4,1,9,9,957,1,2,1,1,6),_CcpcPcfSentIcrps_Type())
-ccpcPcfSentIcrps.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccpcPcfSentIcrps.setStatus(_A)
-_CcpcPcfRcvdIccns_Type=Counter32
-_CcpcPcfRcvdIccns_Object=MibTableColumn
-ccpcPcfRcvdIccns=_CcpcPcfRcvdIccns_Object((1,3,6,1,4,1,9,9,957,1,2,1,1,7),_CcpcPcfRcvdIccns_Type())
-ccpcPcfRcvdIccns.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccpcPcfRcvdIccns.setStatus(_A)
-_CcpcPcfAcptdIccns_Type=Counter32
-_CcpcPcfAcptdIccns_Object=MibTableColumn
-ccpcPcfAcptdIccns=_CcpcPcfAcptdIccns_Object((1,3,6,1,4,1,9,9,957,1,2,1,1,8),_CcpcPcfAcptdIccns_Type())
-ccpcPcfAcptdIccns.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccpcPcfAcptdIccns.setStatus(_A)
-_CcpcPcfDroppedIccns_Type=Counter32
-_CcpcPcfDroppedIccns_Object=MibTableColumn
-ccpcPcfDroppedIccns=_CcpcPcfDroppedIccns_Object((1,3,6,1,4,1,9,9,957,1,2,1,1,9),_CcpcPcfDroppedIccns_Type())
-ccpcPcfDroppedIccns.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccpcPcfDroppedIccns.setStatus(_A)
-_CcpcPcfRcvdCdns_Type=Counter32
-_CcpcPcfRcvdCdns_Object=MibTableColumn
-ccpcPcfRcvdCdns=_CcpcPcfRcvdCdns_Object((1,3,6,1,4,1,9,9,957,1,2,1,1,10),_CcpcPcfRcvdCdns_Type())
-ccpcPcfRcvdCdns.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccpcPcfRcvdCdns.setStatus(_A)
-_CcpcPcfSentCdns_Type=Counter32
-_CcpcPcfSentCdns_Object=MibTableColumn
-ccpcPcfSentCdns=_CcpcPcfSentCdns_Object((1,3,6,1,4,1,9,9,957,1,2,1,1,11),_CcpcPcfSentCdns_Type())
-ccpcPcfSentCdns.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccpcPcfSentCdns.setStatus(_A)
-_CcpcPcfDroppedCdns_Type=Counter32
-_CcpcPcfDroppedCdns_Object=MibTableColumn
-ccpcPcfDroppedCdns=_CcpcPcfDroppedCdns_Object((1,3,6,1,4,1,9,9,957,1,2,1,1,12),_CcpcPcfDroppedCdns_Type())
-ccpcPcfDroppedCdns.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccpcPcfDroppedCdns.setStatus(_A)
-_CcpcPcfRcvdZlbs_Type=Counter32
-_CcpcPcfRcvdZlbs_Object=MibTableColumn
-ccpcPcfRcvdZlbs=_CcpcPcfRcvdZlbs_Object((1,3,6,1,4,1,9,9,957,1,2,1,1,13),_CcpcPcfRcvdZlbs_Type())
-ccpcPcfRcvdZlbs.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccpcPcfRcvdZlbs.setStatus(_A)
-_CcpcPcfSentZlbs_Type=Counter32
-_CcpcPcfSentZlbs_Object=MibTableColumn
-ccpcPcfSentZlbs=_CcpcPcfSentZlbs_Object((1,3,6,1,4,1,9,9,957,1,2,1,1,14),_CcpcPcfSentZlbs_Type())
-ccpcPcfSentZlbs.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccpcPcfSentZlbs.setStatus(_A)
-_CcpcMIBConformance_ObjectIdentity=ObjectIdentity
-ccpcMIBConformance=_CcpcMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,957,2))
-_CcpcMIBCompliances_ObjectIdentity=ObjectIdentity
-ccpcMIBCompliances=_CcpcMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,957,2,1))
-_CcpcMIBGroups_ObjectIdentity=ObjectIdentity
-ccpcMIBGroups=_CcpcMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,957,2,2))
-ccpcSystemGrp=ObjectGroup((1,3,6,1,4,1,9,9,957,2,2,1))
-ccpcSystemGrp.setObjects(*((_B,_G),(_B,_H)))
-if mibBuilder.loadTexts:ccpcSystemGrp.setStatus(_A)
-ccpcPerfGrp=ObjectGroup((1,3,6,1,4,1,9,9,957,2,2,2))
-ccpcPerfGrp.setObjects(*((_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T)))
-if mibBuilder.loadTexts:ccpcPerfGrp.setStatus(_A)
-ccpcMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,957,2,1,1))
-ccpcMIBCompliance.setObjects(*((_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:ccpcMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoCdmaPdsnCrpMIB':ciscoCdmaPdsnCrpMIB,'ccpcMIBObjects':ccpcMIBObjects,'ccpcSystemInfo':ccpcSystemInfo,_G:ccpcEnabled,_H:ccpcSessionTotal,'ccpcPerfStats':ccpcPerfStats,'ccpcPcfPerfStatsTable':ccpcPcfPerfStatsTable,'ccpcPcfPerfStatsEntry':ccpcPcfPerfStatsEntry,_D:ccpcPcfIpAddressType,_E:ccpcPcfIpAddress,_I:ccpcPcfRcvdIcrqs,_J:ccpcPcfAcptdIcrqs,_K:ccpcPcfDroppedIcrqs,_L:ccpcPcfSentIcrps,_M:ccpcPcfRcvdIccns,_N:ccpcPcfAcptdIccns,_O:ccpcPcfDroppedIccns,_P:ccpcPcfRcvdCdns,_Q:ccpcPcfSentCdns,_R:ccpcPcfDroppedCdns,_S:ccpcPcfRcvdZlbs,_T:ccpcPcfSentZlbs,'ccpcMIBConformance':ccpcMIBConformance,'ccpcMIBCompliances':ccpcMIBCompliances,'ccpcMIBCompliance':ccpcMIBCompliance,'ccpcMIBGroups':ccpcMIBGroups,_U:ccpcSystemGrp,_V:ccpcPerfGrp})
+#
+# PySNMP MIB module CISCO-CDMA-PDSN-CRP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-CDMA-PDSN-CRP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:18 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ciscoCdmaPdsnCrpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 957))
+ciscoCdmaPdsnCrpMIB.setRevisions(('2004-07-27 00:00',))
+if mibBuilder.loadTexts: ciscoCdmaPdsnCrpMIB.setLastUpdated('200407270000Z')
+if mibBuilder.loadTexts: ciscoCdmaPdsnCrpMIB.setOrganization('Cisco Systems, Inc.')
+ccpcMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 957, 1))
+ccpcSystemInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 1))
+ccpcPerfStats = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 2))
+ccpcEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 1, 1), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccpcEnabled.setStatus('current')
+ccpcSessionTotal = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 1, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccpcSessionTotal.setStatus('current')
+ccpcPcfPerfStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 2, 1), )
+if mibBuilder.loadTexts: ccpcPcfPerfStatsTable.setStatus('current')
+ccpcPcfPerfStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 2, 1, 1), ).setIndexNames((0, "CISCO-CDMA-PDSN-CRP-MIB", "ccpcPcfIpAddressType"), (0, "CISCO-CDMA-PDSN-CRP-MIB", "ccpcPcfIpAddress"))
+if mibBuilder.loadTexts: ccpcPcfPerfStatsEntry.setStatus('current')
+ccpcPcfIpAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 2, 1, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: ccpcPcfIpAddressType.setStatus('current')
+ccpcPcfIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 2, 1, 1, 2), InetAddress())
+if mibBuilder.loadTexts: ccpcPcfIpAddress.setStatus('current')
+ccpcPcfRcvdIcrqs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 2, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccpcPcfRcvdIcrqs.setStatus('current')
+ccpcPcfAcptdIcrqs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 2, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccpcPcfAcptdIcrqs.setStatus('current')
+ccpcPcfDroppedIcrqs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 2, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccpcPcfDroppedIcrqs.setStatus('current')
+ccpcPcfSentIcrps = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 2, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccpcPcfSentIcrps.setStatus('current')
+ccpcPcfRcvdIccns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 2, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccpcPcfRcvdIccns.setStatus('current')
+ccpcPcfAcptdIccns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 2, 1, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccpcPcfAcptdIccns.setStatus('current')
+ccpcPcfDroppedIccns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 2, 1, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccpcPcfDroppedIccns.setStatus('current')
+ccpcPcfRcvdCdns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 2, 1, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccpcPcfRcvdCdns.setStatus('current')
+ccpcPcfSentCdns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 2, 1, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccpcPcfSentCdns.setStatus('current')
+ccpcPcfDroppedCdns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 2, 1, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccpcPcfDroppedCdns.setStatus('current')
+ccpcPcfRcvdZlbs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 2, 1, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccpcPcfRcvdZlbs.setStatus('current')
+ccpcPcfSentZlbs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 957, 1, 2, 1, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccpcPcfSentZlbs.setStatus('current')
+ccpcMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 957, 2))
+ccpcMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 957, 2, 1))
+ccpcMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 957, 2, 2))
+ccpcMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 957, 2, 1, 1)).setObjects(("CISCO-CDMA-PDSN-CRP-MIB", "ccpcSystemGrp"), ("CISCO-CDMA-PDSN-CRP-MIB", "ccpcPerfGrp"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ccpcMIBCompliance = ccpcMIBCompliance.setStatus('current')
+ccpcSystemGrp = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 957, 2, 2, 1)).setObjects(("CISCO-CDMA-PDSN-CRP-MIB", "ccpcEnabled"), ("CISCO-CDMA-PDSN-CRP-MIB", "ccpcSessionTotal"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ccpcSystemGrp = ccpcSystemGrp.setStatus('current')
+ccpcPerfGrp = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 957, 2, 2, 2)).setObjects(("CISCO-CDMA-PDSN-CRP-MIB", "ccpcPcfRcvdIcrqs"), ("CISCO-CDMA-PDSN-CRP-MIB", "ccpcPcfAcptdIcrqs"), ("CISCO-CDMA-PDSN-CRP-MIB", "ccpcPcfDroppedIcrqs"), ("CISCO-CDMA-PDSN-CRP-MIB", "ccpcPcfSentIcrps"), ("CISCO-CDMA-PDSN-CRP-MIB", "ccpcPcfRcvdIccns"), ("CISCO-CDMA-PDSN-CRP-MIB", "ccpcPcfAcptdIccns"), ("CISCO-CDMA-PDSN-CRP-MIB", "ccpcPcfDroppedIccns"), ("CISCO-CDMA-PDSN-CRP-MIB", "ccpcPcfRcvdCdns"), ("CISCO-CDMA-PDSN-CRP-MIB", "ccpcPcfSentCdns"), ("CISCO-CDMA-PDSN-CRP-MIB", "ccpcPcfDroppedCdns"), ("CISCO-CDMA-PDSN-CRP-MIB", "ccpcPcfRcvdZlbs"), ("CISCO-CDMA-PDSN-CRP-MIB", "ccpcPcfSentZlbs"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ccpcPerfGrp = ccpcPerfGrp.setStatus('current')
+mibBuilder.exportSymbols("CISCO-CDMA-PDSN-CRP-MIB", PYSNMP_MODULE_ID=ciscoCdmaPdsnCrpMIB, ccpcEnabled=ccpcEnabled, ccpcPcfSentCdns=ccpcPcfSentCdns, ccpcPerfGrp=ccpcPerfGrp, ciscoCdmaPdsnCrpMIB=ciscoCdmaPdsnCrpMIB, ccpcPcfRcvdIcrqs=ccpcPcfRcvdIcrqs, ccpcPcfAcptdIcrqs=ccpcPcfAcptdIcrqs, ccpcMIBObjects=ccpcMIBObjects, ccpcMIBGroups=ccpcMIBGroups, ccpcSystemGrp=ccpcSystemGrp, ccpcMIBConformance=ccpcMIBConformance, ccpcMIBCompliances=ccpcMIBCompliances, ccpcPcfPerfStatsEntry=ccpcPcfPerfStatsEntry, ccpcPcfDroppedCdns=ccpcPcfDroppedCdns, ccpcPcfSentZlbs=ccpcPcfSentZlbs, ccpcPcfSentIcrps=ccpcPcfSentIcrps, ccpcPcfIpAddress=ccpcPcfIpAddress, ccpcSystemInfo=ccpcSystemInfo, ccpcPcfPerfStatsTable=ccpcPcfPerfStatsTable, ccpcSessionTotal=ccpcSessionTotal, ccpcPcfRcvdZlbs=ccpcPcfRcvdZlbs, ccpcPerfStats=ccpcPerfStats, ccpcPcfIpAddressType=ccpcPcfIpAddressType, ccpcPcfDroppedIccns=ccpcPcfDroppedIccns, ccpcMIBCompliance=ccpcMIBCompliance, ccpcPcfRcvdIccns=ccpcPcfRcvdIccns, ccpcPcfAcptdIccns=ccpcPcfAcptdIccns, ccpcPcfDroppedIcrqs=ccpcPcfDroppedIcrqs, ccpcPcfRcvdCdns=ccpcPcfRcvdCdns)

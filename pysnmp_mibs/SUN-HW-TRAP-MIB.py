@@ -1,642 +1,340 @@
-_BD='sunHwTrapFaultDiagnosed'
-_BC='sunHwTrapStorageVolumeError'
-_BB='sunHwTrapStorageVolumeFaultCleared'
-_BA='sunHwTrapStorageVolumeFault'
-_B9='sunHwTrapDriveControllerError'
-_B8='sunHwTrapDriveControllerFaultCleared'
-_B7='sunHwTrapDriveControllerFault'
-_B6='sunHwTrapPowerConsumptionThresholdDeasserted'
-_B5='sunHwTrapPowerConsumptionThresholdExceeded'
-_B4='sunHwTrapTestTrap'
-_B3='sunHwTrapHardDriveStatus'
-_B2='sunHwTrapSecurityIntrusion'
-_B1='sunHwTrapHAStateChange'
-_B0='sunHwTrapPreOSError'
-_A_='sunHwTrapComponentEnabled'
-_Az='sunHwTrapComponentDisabled'
-_Ay='sunHwTrapFruRemoved'
-_Ax='sunHwTrapFruInserted'
-_Aw='sunHwTrapComponentOk'
-_Av='sunHwTrapComponentError'
-_Au='sunHwTrapComponentFaultCleared'
-_At='sunHwTrapComponentFault'
-_As='sunHwTrapSlotOrConnectorOk'
-_Ar='sunHwTrapSlotOrConnectorError'
-_Aq='sunHwTrapSlotOrConnectorFaultCleared'
-_Ap='sunHwTrapSlotOrConnectorFault'
-_Ao='sunHwTrapIOOk'
-_An='sunHwTrapIOError'
-_Am='sunHwTrapIOFaultCleared'
-_Al='sunHwTrapIOFault'
-_Ak='sunHwTrapHardDriveOk'
-_Aj='sunHwTrapHardDriveError'
-_Ai='sunHwTrapHardDriveFaultCleared'
-_Ah='sunHwTrapHardDriveFault'
-_Ag='sunHwTrapMemoryOk'
-_Af='sunHwTrapMemoryError'
-_Ae='sunHwTrapMemoryFaultCleared'
-_Ad='sunHwTrapMemoryFault'
-_Ac='sunHwTrapProcessorOk'
-_Ab='sunHwTrapProcessorError'
-_Aa='sunHwTrapProcessorFaultCleared'
-_AZ='sunHwTrapProcessorFault'
-_AY='sunHwTrapFanOk'
-_AX='sunHwTrapFanError'
-_AW='sunHwTrapFanFaultCleared'
-_AV='sunHwTrapFanFault'
-_AU='sunHwTrapPowerSupplyOk'
-_AT='sunHwTrapPowerSupplyError'
-_AS='sunHwTrapPowerSupplyFaultCleared'
-_AR='sunHwTrapPowerSupplyFault'
-_AQ='sunHwTrapSensorThresholdOk'
-_AP='sunHwTrapSensorNonCritThresholdExceeded'
-_AO='sunHwTrapSensorCritThresholdDeasserted'
-_AN='sunHwTrapSensorCritThresholdExceeded'
-_AM='sunHwTrapSensorFatalThresholdDeasserted'
-_AL='sunHwTrapSensorFatalThresholdExceeded'
-_AK='sunHwTrapFanSpeedOk'
-_AJ='sunHwTrapFanSpeedNonCritThresholdExceeded'
-_AI='sunHwTrapFanSpeedCritThresholdDeasserted'
-_AH='sunHwTrapFanSpeedCritThresholdExceeded'
-_AG='sunHwTrapFanSpeedFatalThresholdDeasserted'
-_AF='sunHwTrapFanSpeedFatalThresholdExceeded'
-_AE='sunHwTrapElectricalCurrentOk'
-_AD='sunHwTrapElectricalCurrentNonCritThresholdExceeded'
-_AC='sunHwTrapElectricalCurrentCritThresholdDeasserted'
-_AB='sunHwTrapElectricalCurrentCritThresholdExceeded'
-_AA='sunHwTrapElectricalCurrentFatalThresholdDeasserted'
-_A9='sunHwTrapElectricalCurrentFatalThresholdExceeded'
-_A8='sunHwTrapTempOk'
-_A7='sunHwTrapTempNonCritThresholdExceeded'
-_A6='sunHwTrapTempCritThresholdDeasserted'
-_A5='sunHwTrapTempCritThresholdExceeded'
-_A4='sunHwTrapTempFatalThresholdDeasserted'
-_A3='sunHwTrapTempFatalThresholdExceeded'
-_A2='sunHwTrapVoltageOk'
-_A1='sunHwTrapVoltageNonCritThresholdExceeded'
-_A0='sunHwTrapVoltageCritThresholdDeasserted'
-_z='sunHwTrapVoltageCritThresholdExceeded'
-_y='sunHwTrapVoltageFatalThresholdDeasserted'
-_x='sunHwTrapVoltageFatalThresholdExceeded'
-_w='sunHwTrapSuspectFruIndex'
-_v='badblocklogfull'
-_u='sunHwTrapSuspectCnt'
-_t='sunHwTrapProductSn'
-_s='sunHwTrapProductManufacturer'
-_r='sunHwTrapHostname'
-_q='sunHwTrapFaultDescription'
-_p='sunHwTrapKaUrl'
-_o='sunHwTrapDiagEntity'
-_n='sunHwTrapEventTime'
-_m='sunHwTrapTestMessage'
-_l='sunHwTrapDisableReason'
-_k='sunHwTrapHardDriveState'
-_j='sunHwTrapOldHAState'
-_i='sunHwTrapNewHAState'
-_h='sunHwTrapStorageVolumeProbableCause'
-_g='sunHwTrapDriveControllerProbableCause'
-_f='sunHwTrapHardDriveProbableCause'
-_e='Integer32'
-_d='other'
-_c='unknown'
-_b='sunHwTrapSuspectFruStatus'
-_a='sunHwTrapSuspectFruRevision'
-_Z='sunHwTrapSuspectFruSn'
-_Y='sunHwTrapSuspectFruPn'
-_X='sunHwTrapSuspectFruManufacturer'
-_W='sunHwTrapSuspectFruChassisId'
-_V='sunHwTrapSuspectFruLocation'
-_U='sunHwTrapSuspectFruName'
-_T='sunHwTrapSuspectFruFaultClass'
-_S='sunHwTrapSuspectFruFaultCertainty'
-_R='sunHwTrapFaultCertainty'
-_Q='sunHwTrapFaultClass'
-_P='sunHwTrapSuspectComponentName'
-_O='sunHwTrapFaultUUID'
-_N='sunHwTrapFaultMessageID'
-_M='sunHwTrapSensorValue'
-_L='sunHwTrapThresholdValue'
-_K='sunHwTrapThresholdType'
-_J='sunHwTrapSeverity'
-_I='accessible-for-notify'
-_H='sunHwTrapComponentName'
-_G='sunHwTrapAssocObjectId'
-_F='sunHwTrapAdditionalInfo'
-_E='sunHwTrapChassisId'
-_D='sunHwTrapProductName'
-_C='sunHwTrapSystemIdentifier'
-_B='current'
-_A='SUN-HW-TRAP-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_e,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,RowPointer,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowPointer','TextualConvention')
-sunHwTrapMIB=ModuleIdentity((1,3,6,1,4,1,42,2,175,103))
-if mibBuilder.loadTexts:sunHwTrapMIB.setRevisions(('2010-05-05 00:00','2009-12-04 00:00','2009-09-09 00:00','2009-04-17 00:00','2008-10-29 00:00','2007-02-06 00:00'))
-class SunHwTrapThresholdTypeTC(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('upper',1),('lower',2),(_c,3)))
-class SunHwTrapSeverityTC(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_d,1),('fatal',2),('critical',3),('nonCritical',4),('ok',5)))
-class SunHwTrapHAStateTC(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_d,1),('initializing',2),('standalone',3),('standby',4),('master',5)))
-class SunHwTrapHardDriveStatesTC(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_d,1),('present',2),('fault',3),('predictiveFailure',4),('hotSpare',5),('consistencyCheckInProgress',6),('inCriticalArray',7),('inFailedArray',8),('rebuildInProgress',9),('rebuildAborted',10)))
-class SunHwTrapDisableReasonsTC(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_c,1),('faultOrError',2),('configuration',3)))
-class SunHwTrapFloatingPointValueTC(TextualConvention,OctetString):status=_B;displayHint='255a';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-class SunHwTrapHardDriveProbableCauseTC(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,10,11,12,13,14)));namedValues=NamedValues(*((_c,1),('reassignwriteoperationfailed',2),('unrecoverablemediumerrorduringrebuild',3),(_v,4),('badblocklogalmostfull',5),('rebuildfailed',6),('globalsparecoverage',7),('uncorrectederror',10),('nonmediumerror',11),('selftestfailed',12),('smarthealthstatusfailed',13),('startstopmax',14)))
-class SunHwTrapDriveControllerProbableCauseTC(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,6)));namedValues=NamedValues(*((_c,1),('fatalflasherror',2),('batterybackuperror',3),('fatalcacheerror',4),('controllerfailed',6)))
-class SunHwTrapStorageVolumeProbableCauseTC(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,6,8)));namedValues=NamedValues(*((_c,1),('raidfailed',2),('raidmissing',3),('raiddegraded',4),(_v,6),('raiderror',8)))
-class SunHwTrapDiagEntityTC(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('fdd',1),('alomfm',2),('solarisfma',3),(_d,4)))
-class SunHwTrapSuspectFruStatusTC(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_d,1),('suspected',2),('faulted',3),('repaired',4),('replaced',5),('acquitted',6)))
-_Sun_ObjectIdentity=ObjectIdentity
-sun=_Sun_ObjectIdentity((1,3,6,1,4,1,42))
-_Products_ObjectIdentity=ObjectIdentity
-products=_Products_ObjectIdentity((1,3,6,1,4,1,42,2))
-_Ilom_ObjectIdentity=ObjectIdentity
-ilom=_Ilom_ObjectIdentity((1,3,6,1,4,1,42,2,175))
-_SunHwTrapObjects_ObjectIdentity=ObjectIdentity
-sunHwTrapObjects=_SunHwTrapObjects_ObjectIdentity((1,3,6,1,4,1,42,2,175,103,1))
-_SunHwTraps_ObjectIdentity=ObjectIdentity
-sunHwTraps=_SunHwTraps_ObjectIdentity((1,3,6,1,4,1,42,2,175,103,2))
-_SunHwTrapPrefix_ObjectIdentity=ObjectIdentity
-sunHwTrapPrefix=_SunHwTrapPrefix_ObjectIdentity((1,3,6,1,4,1,42,2,175,103,2,0))
-_SunHwTrapData_ObjectIdentity=ObjectIdentity
-sunHwTrapData=_SunHwTrapData_ObjectIdentity((1,3,6,1,4,1,42,2,175,103,2,1))
-_SunHwTrapSystemIdentifier_Type=DisplayString
-_SunHwTrapSystemIdentifier_Object=MibScalar
-sunHwTrapSystemIdentifier=_SunHwTrapSystemIdentifier_Object((1,3,6,1,4,1,42,2,175,103,2,1,1),_SunHwTrapSystemIdentifier_Type())
-sunHwTrapSystemIdentifier.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapSystemIdentifier.setStatus(_B)
-_SunHwTrapComponentName_Type=DisplayString
-_SunHwTrapComponentName_Object=MibScalar
-sunHwTrapComponentName=_SunHwTrapComponentName_Object((1,3,6,1,4,1,42,2,175,103,2,1,2),_SunHwTrapComponentName_Type())
-sunHwTrapComponentName.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapComponentName.setStatus(_B)
-_SunHwTrapThresholdType_Type=SunHwTrapThresholdTypeTC
-_SunHwTrapThresholdType_Object=MibScalar
-sunHwTrapThresholdType=_SunHwTrapThresholdType_Object((1,3,6,1,4,1,42,2,175,103,2,1,3),_SunHwTrapThresholdType_Type())
-sunHwTrapThresholdType.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapThresholdType.setStatus(_B)
-_SunHwTrapThresholdValue_Type=SunHwTrapFloatingPointValueTC
-_SunHwTrapThresholdValue_Object=MibScalar
-sunHwTrapThresholdValue=_SunHwTrapThresholdValue_Object((1,3,6,1,4,1,42,2,175,103,2,1,4),_SunHwTrapThresholdValue_Type())
-sunHwTrapThresholdValue.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapThresholdValue.setStatus(_B)
-_SunHwTrapSensorValue_Type=SunHwTrapFloatingPointValueTC
-_SunHwTrapSensorValue_Object=MibScalar
-sunHwTrapSensorValue=_SunHwTrapSensorValue_Object((1,3,6,1,4,1,42,2,175,103,2,1,5),_SunHwTrapSensorValue_Type())
-sunHwTrapSensorValue.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapSensorValue.setStatus(_B)
-_SunHwTrapSuspectComponentName_Type=DisplayString
-_SunHwTrapSuspectComponentName_Object=MibScalar
-sunHwTrapSuspectComponentName=_SunHwTrapSuspectComponentName_Object((1,3,6,1,4,1,42,2,175,103,2,1,6),_SunHwTrapSuspectComponentName_Type())
-sunHwTrapSuspectComponentName.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapSuspectComponentName.setStatus(_B)
-_SunHwTrapFaultClass_Type=DisplayString
-_SunHwTrapFaultClass_Object=MibScalar
-sunHwTrapFaultClass=_SunHwTrapFaultClass_Object((1,3,6,1,4,1,42,2,175,103,2,1,7),_SunHwTrapFaultClass_Type())
-sunHwTrapFaultClass.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapFaultClass.setStatus(_B)
-class _SunHwTrapFaultCertainty_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_SunHwTrapFaultCertainty_Type.__name__=_e
-_SunHwTrapFaultCertainty_Object=MibScalar
-sunHwTrapFaultCertainty=_SunHwTrapFaultCertainty_Object((1,3,6,1,4,1,42,2,175,103,2,1,8),_SunHwTrapFaultCertainty_Type())
-sunHwTrapFaultCertainty.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapFaultCertainty.setStatus(_B)
-_SunHwTrapAdditionalInfo_Type=DisplayString
-_SunHwTrapAdditionalInfo_Object=MibScalar
-sunHwTrapAdditionalInfo=_SunHwTrapAdditionalInfo_Object((1,3,6,1,4,1,42,2,175,103,2,1,9),_SunHwTrapAdditionalInfo_Type())
-sunHwTrapAdditionalInfo.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapAdditionalInfo.setStatus(_B)
-_SunHwTrapAssocObjectId_Type=RowPointer
-_SunHwTrapAssocObjectId_Object=MibScalar
-sunHwTrapAssocObjectId=_SunHwTrapAssocObjectId_Object((1,3,6,1,4,1,42,2,175,103,2,1,10),_SunHwTrapAssocObjectId_Type())
-sunHwTrapAssocObjectId.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapAssocObjectId.setStatus(_B)
-_SunHwTrapNewHAState_Type=SunHwTrapHAStateTC
-_SunHwTrapNewHAState_Object=MibScalar
-sunHwTrapNewHAState=_SunHwTrapNewHAState_Object((1,3,6,1,4,1,42,2,175,103,2,1,11),_SunHwTrapNewHAState_Type())
-sunHwTrapNewHAState.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapNewHAState.setStatus(_B)
-_SunHwTrapOldHAState_Type=SunHwTrapHAStateTC
-_SunHwTrapOldHAState_Object=MibScalar
-sunHwTrapOldHAState=_SunHwTrapOldHAState_Object((1,3,6,1,4,1,42,2,175,103,2,1,12),_SunHwTrapOldHAState_Type())
-sunHwTrapOldHAState.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapOldHAState.setStatus(_B)
-_SunHwTrapSeverity_Type=SunHwTrapSeverityTC
-_SunHwTrapSeverity_Object=MibScalar
-sunHwTrapSeverity=_SunHwTrapSeverity_Object((1,3,6,1,4,1,42,2,175,103,2,1,13),_SunHwTrapSeverity_Type())
-sunHwTrapSeverity.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapSeverity.setStatus(_B)
-_SunHwTrapChassisId_Type=DisplayString
-_SunHwTrapChassisId_Object=MibScalar
-sunHwTrapChassisId=_SunHwTrapChassisId_Object((1,3,6,1,4,1,42,2,175,103,2,1,14),_SunHwTrapChassisId_Type())
-sunHwTrapChassisId.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapChassisId.setStatus(_B)
-_SunHwTrapProductName_Type=DisplayString
-_SunHwTrapProductName_Object=MibScalar
-sunHwTrapProductName=_SunHwTrapProductName_Object((1,3,6,1,4,1,42,2,175,103,2,1,15),_SunHwTrapProductName_Type())
-sunHwTrapProductName.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapProductName.setStatus(_B)
-_SunHwTrapHardDriveState_Type=SunHwTrapHardDriveStatesTC
-_SunHwTrapHardDriveState_Object=MibScalar
-sunHwTrapHardDriveState=_SunHwTrapHardDriveState_Object((1,3,6,1,4,1,42,2,175,103,2,1,16),_SunHwTrapHardDriveState_Type())
-sunHwTrapHardDriveState.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapHardDriveState.setStatus(_B)
-_SunHwTrapFaultMessageID_Type=DisplayString
-_SunHwTrapFaultMessageID_Object=MibScalar
-sunHwTrapFaultMessageID=_SunHwTrapFaultMessageID_Object((1,3,6,1,4,1,42,2,175,103,2,1,17),_SunHwTrapFaultMessageID_Type())
-sunHwTrapFaultMessageID.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapFaultMessageID.setStatus(_B)
-_SunHwTrapFaultUUID_Type=DisplayString
-_SunHwTrapFaultUUID_Object=MibScalar
-sunHwTrapFaultUUID=_SunHwTrapFaultUUID_Object((1,3,6,1,4,1,42,2,175,103,2,1,18),_SunHwTrapFaultUUID_Type())
-sunHwTrapFaultUUID.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapFaultUUID.setStatus(_B)
-_SunHwTrapDisableReason_Type=SunHwTrapDisableReasonsTC
-_SunHwTrapDisableReason_Object=MibScalar
-sunHwTrapDisableReason=_SunHwTrapDisableReason_Object((1,3,6,1,4,1,42,2,175,103,2,1,19),_SunHwTrapDisableReason_Type())
-sunHwTrapDisableReason.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapDisableReason.setStatus(_B)
-_SunHwTrapTestMessage_Type=DisplayString
-_SunHwTrapTestMessage_Object=MibScalar
-sunHwTrapTestMessage=_SunHwTrapTestMessage_Object((1,3,6,1,4,1,42,2,175,103,2,1,20),_SunHwTrapTestMessage_Type())
-sunHwTrapTestMessage.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapTestMessage.setStatus(_B)
-_SunHwTrapHardDriveProbableCause_Type=SunHwTrapHardDriveProbableCauseTC
-_SunHwTrapHardDriveProbableCause_Object=MibScalar
-sunHwTrapHardDriveProbableCause=_SunHwTrapHardDriveProbableCause_Object((1,3,6,1,4,1,42,2,175,103,2,1,21),_SunHwTrapHardDriveProbableCause_Type())
-sunHwTrapHardDriveProbableCause.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapHardDriveProbableCause.setStatus(_B)
-_SunHwTrapDriveControllerProbableCause_Type=SunHwTrapDriveControllerProbableCauseTC
-_SunHwTrapDriveControllerProbableCause_Object=MibScalar
-sunHwTrapDriveControllerProbableCause=_SunHwTrapDriveControllerProbableCause_Object((1,3,6,1,4,1,42,2,175,103,2,1,22),_SunHwTrapDriveControllerProbableCause_Type())
-sunHwTrapDriveControllerProbableCause.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapDriveControllerProbableCause.setStatus(_B)
-_SunHwTrapStorageVolumeProbableCause_Type=SunHwTrapStorageVolumeProbableCauseTC
-_SunHwTrapStorageVolumeProbableCause_Object=MibScalar
-sunHwTrapStorageVolumeProbableCause=_SunHwTrapStorageVolumeProbableCause_Object((1,3,6,1,4,1,42,2,175,103,2,1,23),_SunHwTrapStorageVolumeProbableCause_Type())
-sunHwTrapStorageVolumeProbableCause.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapStorageVolumeProbableCause.setStatus(_B)
-_SunHwTrapEventTime_Type=DisplayString
-_SunHwTrapEventTime_Object=MibScalar
-sunHwTrapEventTime=_SunHwTrapEventTime_Object((1,3,6,1,4,1,42,2,175,103,2,1,24),_SunHwTrapEventTime_Type())
-sunHwTrapEventTime.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapEventTime.setStatus(_B)
-_SunHwTrapDiagEntity_Type=SunHwTrapDiagEntityTC
-_SunHwTrapDiagEntity_Object=MibScalar
-sunHwTrapDiagEntity=_SunHwTrapDiagEntity_Object((1,3,6,1,4,1,42,2,175,103,2,1,25),_SunHwTrapDiagEntity_Type())
-sunHwTrapDiagEntity.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapDiagEntity.setStatus(_B)
-_SunHwTrapFaultDescription_Type=DisplayString
-_SunHwTrapFaultDescription_Object=MibScalar
-sunHwTrapFaultDescription=_SunHwTrapFaultDescription_Object((1,3,6,1,4,1,42,2,175,103,2,1,26),_SunHwTrapFaultDescription_Type())
-sunHwTrapFaultDescription.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapFaultDescription.setStatus(_B)
-_SunHwTrapKaUrl_Type=DisplayString
-_SunHwTrapKaUrl_Object=MibScalar
-sunHwTrapKaUrl=_SunHwTrapKaUrl_Object((1,3,6,1,4,1,42,2,175,103,2,1,27),_SunHwTrapKaUrl_Type())
-sunHwTrapKaUrl.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapKaUrl.setStatus(_B)
-_SunHwTrapSuspectCnt_Type=Integer32
-_SunHwTrapSuspectCnt_Object=MibScalar
-sunHwTrapSuspectCnt=_SunHwTrapSuspectCnt_Object((1,3,6,1,4,1,42,2,175,103,2,1,28),_SunHwTrapSuspectCnt_Type())
-sunHwTrapSuspectCnt.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapSuspectCnt.setStatus(_B)
-_SunHwTrapHostname_Type=DisplayString
-_SunHwTrapHostname_Object=MibScalar
-sunHwTrapHostname=_SunHwTrapHostname_Object((1,3,6,1,4,1,42,2,175,103,2,1,29),_SunHwTrapHostname_Type())
-sunHwTrapHostname.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapHostname.setStatus(_B)
-_SunHwTrapProductManufacturer_Type=DisplayString
-_SunHwTrapProductManufacturer_Object=MibScalar
-sunHwTrapProductManufacturer=_SunHwTrapProductManufacturer_Object((1,3,6,1,4,1,42,2,175,103,2,1,30),_SunHwTrapProductManufacturer_Type())
-sunHwTrapProductManufacturer.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapProductManufacturer.setStatus(_B)
-_SunHwTrapProductSn_Type=DisplayString
-_SunHwTrapProductSn_Object=MibScalar
-sunHwTrapProductSn=_SunHwTrapProductSn_Object((1,3,6,1,4,1,42,2,175,103,2,1,31),_SunHwTrapProductSn_Type())
-sunHwTrapProductSn.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapProductSn.setStatus(_B)
-_SunHwTrapDataTables_ObjectIdentity=ObjectIdentity
-sunHwTrapDataTables=_SunHwTrapDataTables_ObjectIdentity((1,3,6,1,4,1,42,2,175,103,2,2))
-_SunHwTrapSuspectTable_Object=MibTable
-sunHwTrapSuspectTable=_SunHwTrapSuspectTable_Object((1,3,6,1,4,1,42,2,175,103,2,2,1))
-if mibBuilder.loadTexts:sunHwTrapSuspectTable.setStatus(_B)
-_SunHwTrapSuspectEntry_Object=MibTableRow
-sunHwTrapSuspectEntry=_SunHwTrapSuspectEntry_Object((1,3,6,1,4,1,42,2,175,103,2,2,1,1))
-sunHwTrapSuspectEntry.setIndexNames((0,_A,_w))
-if mibBuilder.loadTexts:sunHwTrapSuspectEntry.setStatus(_B)
-class _SunHwTrapSuspectFruIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_SunHwTrapSuspectFruIndex_Type.__name__=_e
-_SunHwTrapSuspectFruIndex_Object=MibTableColumn
-sunHwTrapSuspectFruIndex=_SunHwTrapSuspectFruIndex_Object((1,3,6,1,4,1,42,2,175,103,2,2,1,1,1),_SunHwTrapSuspectFruIndex_Type())
-sunHwTrapSuspectFruIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:sunHwTrapSuspectFruIndex.setStatus(_B)
-class _SunHwTrapSuspectFruFaultCertainty_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_SunHwTrapSuspectFruFaultCertainty_Type.__name__=_e
-_SunHwTrapSuspectFruFaultCertainty_Object=MibTableColumn
-sunHwTrapSuspectFruFaultCertainty=_SunHwTrapSuspectFruFaultCertainty_Object((1,3,6,1,4,1,42,2,175,103,2,2,1,1,2),_SunHwTrapSuspectFruFaultCertainty_Type())
-sunHwTrapSuspectFruFaultCertainty.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapSuspectFruFaultCertainty.setStatus(_B)
-_SunHwTrapSuspectFruFaultClass_Type=DisplayString
-_SunHwTrapSuspectFruFaultClass_Object=MibTableColumn
-sunHwTrapSuspectFruFaultClass=_SunHwTrapSuspectFruFaultClass_Object((1,3,6,1,4,1,42,2,175,103,2,2,1,1,3),_SunHwTrapSuspectFruFaultClass_Type())
-sunHwTrapSuspectFruFaultClass.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapSuspectFruFaultClass.setStatus(_B)
-_SunHwTrapSuspectFruName_Type=DisplayString
-_SunHwTrapSuspectFruName_Object=MibTableColumn
-sunHwTrapSuspectFruName=_SunHwTrapSuspectFruName_Object((1,3,6,1,4,1,42,2,175,103,2,2,1,1,4),_SunHwTrapSuspectFruName_Type())
-sunHwTrapSuspectFruName.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapSuspectFruName.setStatus(_B)
-_SunHwTrapSuspectFruLocation_Type=DisplayString
-_SunHwTrapSuspectFruLocation_Object=MibTableColumn
-sunHwTrapSuspectFruLocation=_SunHwTrapSuspectFruLocation_Object((1,3,6,1,4,1,42,2,175,103,2,2,1,1,5),_SunHwTrapSuspectFruLocation_Type())
-sunHwTrapSuspectFruLocation.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapSuspectFruLocation.setStatus(_B)
-_SunHwTrapSuspectFruChassisId_Type=DisplayString
-_SunHwTrapSuspectFruChassisId_Object=MibTableColumn
-sunHwTrapSuspectFruChassisId=_SunHwTrapSuspectFruChassisId_Object((1,3,6,1,4,1,42,2,175,103,2,2,1,1,6),_SunHwTrapSuspectFruChassisId_Type())
-sunHwTrapSuspectFruChassisId.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapSuspectFruChassisId.setStatus(_B)
-_SunHwTrapSuspectFruManufacturer_Type=DisplayString
-_SunHwTrapSuspectFruManufacturer_Object=MibTableColumn
-sunHwTrapSuspectFruManufacturer=_SunHwTrapSuspectFruManufacturer_Object((1,3,6,1,4,1,42,2,175,103,2,2,1,1,7),_SunHwTrapSuspectFruManufacturer_Type())
-sunHwTrapSuspectFruManufacturer.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapSuspectFruManufacturer.setStatus(_B)
-_SunHwTrapSuspectFruPn_Type=DisplayString
-_SunHwTrapSuspectFruPn_Object=MibTableColumn
-sunHwTrapSuspectFruPn=_SunHwTrapSuspectFruPn_Object((1,3,6,1,4,1,42,2,175,103,2,2,1,1,8),_SunHwTrapSuspectFruPn_Type())
-sunHwTrapSuspectFruPn.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapSuspectFruPn.setStatus(_B)
-_SunHwTrapSuspectFruSn_Type=DisplayString
-_SunHwTrapSuspectFruSn_Object=MibTableColumn
-sunHwTrapSuspectFruSn=_SunHwTrapSuspectFruSn_Object((1,3,6,1,4,1,42,2,175,103,2,2,1,1,9),_SunHwTrapSuspectFruSn_Type())
-sunHwTrapSuspectFruSn.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapSuspectFruSn.setStatus(_B)
-_SunHwTrapSuspectFruRevision_Type=DisplayString
-_SunHwTrapSuspectFruRevision_Object=MibTableColumn
-sunHwTrapSuspectFruRevision=_SunHwTrapSuspectFruRevision_Object((1,3,6,1,4,1,42,2,175,103,2,2,1,1,10),_SunHwTrapSuspectFruRevision_Type())
-sunHwTrapSuspectFruRevision.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapSuspectFruRevision.setStatus(_B)
-_SunHwTrapSuspectFruStatus_Type=SunHwTrapSuspectFruStatusTC
-_SunHwTrapSuspectFruStatus_Object=MibTableColumn
-sunHwTrapSuspectFruStatus=_SunHwTrapSuspectFruStatus_Object((1,3,6,1,4,1,42,2,175,103,2,2,1,1,11),_SunHwTrapSuspectFruStatus_Type())
-sunHwTrapSuspectFruStatus.setMaxAccess(_I)
-if mibBuilder.loadTexts:sunHwTrapSuspectFruStatus.setStatus(_B)
-_SunHwTrapConformances_ObjectIdentity=ObjectIdentity
-sunHwTrapConformances=_SunHwTrapConformances_ObjectIdentity((1,3,6,1,4,1,42,2,175,103,3))
-_SunHwTrapCompliances_ObjectIdentity=ObjectIdentity
-sunHwTrapCompliances=_SunHwTrapCompliances_ObjectIdentity((1,3,6,1,4,1,42,2,175,103,3,1))
-_SunHwTrapGroups_ObjectIdentity=ObjectIdentity
-sunHwTrapGroups=_SunHwTrapGroups_ObjectIdentity((1,3,6,1,4,1,42,2,175,103,3,2))
-_SunHwTrapObjectGroups_ObjectIdentity=ObjectIdentity
-sunHwTrapObjectGroups=_SunHwTrapObjectGroups_ObjectIdentity((1,3,6,1,4,1,42,2,175,103,3,2,1))
-_SunHwTrapNotifGroups_ObjectIdentity=ObjectIdentity
-sunHwTrapNotifGroups=_SunHwTrapNotifGroups_ObjectIdentity((1,3,6,1,4,1,42,2,175,103,3,2,2))
-sunHwTrapNotificationObjectGroup=ObjectGroup((1,3,6,1,4,1,42,2,175,103,3,2,1,2))
-sunHwTrapNotificationObjectGroup.setObjects(*((_A,_C),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_P),(_A,_Q),(_A,_R),(_A,_F),(_A,_G),(_A,_i),(_A,_j),(_A,_J),(_A,_E),(_A,_D),(_A,_k),(_A,_N),(_A,_O),(_A,_l),(_A,_m),(_A,_f),(_A,_g),(_A,_h),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b)))
-if mibBuilder.loadTexts:sunHwTrapNotificationObjectGroup.setStatus(_B)
-sunHwTrapVoltageFatalThresholdExceeded=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,1))
-sunHwTrapVoltageFatalThresholdExceeded.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapVoltageFatalThresholdExceeded.setStatus(_B)
-sunHwTrapVoltageFatalThresholdDeasserted=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,2))
-sunHwTrapVoltageFatalThresholdDeasserted.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapVoltageFatalThresholdDeasserted.setStatus(_B)
-sunHwTrapVoltageCritThresholdExceeded=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,3))
-sunHwTrapVoltageCritThresholdExceeded.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapVoltageCritThresholdExceeded.setStatus(_B)
-sunHwTrapVoltageCritThresholdDeasserted=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,4))
-sunHwTrapVoltageCritThresholdDeasserted.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapVoltageCritThresholdDeasserted.setStatus(_B)
-sunHwTrapVoltageNonCritThresholdExceeded=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,5))
-sunHwTrapVoltageNonCritThresholdExceeded.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapVoltageNonCritThresholdExceeded.setStatus(_B)
-sunHwTrapVoltageOk=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,6))
-sunHwTrapVoltageOk.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapVoltageOk.setStatus(_B)
-sunHwTrapTempFatalThresholdExceeded=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,7))
-sunHwTrapTempFatalThresholdExceeded.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapTempFatalThresholdExceeded.setStatus(_B)
-sunHwTrapTempFatalThresholdDeasserted=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,8))
-sunHwTrapTempFatalThresholdDeasserted.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapTempFatalThresholdDeasserted.setStatus(_B)
-sunHwTrapTempCritThresholdExceeded=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,9))
-sunHwTrapTempCritThresholdExceeded.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapTempCritThresholdExceeded.setStatus(_B)
-sunHwTrapTempCritThresholdDeasserted=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,10))
-sunHwTrapTempCritThresholdDeasserted.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapTempCritThresholdDeasserted.setStatus(_B)
-sunHwTrapTempNonCritThresholdExceeded=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,11))
-sunHwTrapTempNonCritThresholdExceeded.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapTempNonCritThresholdExceeded.setStatus(_B)
-sunHwTrapTempOk=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,12))
-sunHwTrapTempOk.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapTempOk.setStatus(_B)
-sunHwTrapElectricalCurrentFatalThresholdExceeded=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,13))
-sunHwTrapElectricalCurrentFatalThresholdExceeded.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapElectricalCurrentFatalThresholdExceeded.setStatus(_B)
-sunHwTrapElectricalCurrentFatalThresholdDeasserted=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,14))
-sunHwTrapElectricalCurrentFatalThresholdDeasserted.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapElectricalCurrentFatalThresholdDeasserted.setStatus(_B)
-sunHwTrapElectricalCurrentCritThresholdExceeded=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,15))
-sunHwTrapElectricalCurrentCritThresholdExceeded.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapElectricalCurrentCritThresholdExceeded.setStatus(_B)
-sunHwTrapElectricalCurrentCritThresholdDeasserted=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,16))
-sunHwTrapElectricalCurrentCritThresholdDeasserted.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapElectricalCurrentCritThresholdDeasserted.setStatus(_B)
-sunHwTrapElectricalCurrentNonCritThresholdExceeded=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,17))
-sunHwTrapElectricalCurrentNonCritThresholdExceeded.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapElectricalCurrentNonCritThresholdExceeded.setStatus(_B)
-sunHwTrapElectricalCurrentOk=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,18))
-sunHwTrapElectricalCurrentOk.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapElectricalCurrentOk.setStatus(_B)
-sunHwTrapFanSpeedFatalThresholdExceeded=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,19))
-sunHwTrapFanSpeedFatalThresholdExceeded.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapFanSpeedFatalThresholdExceeded.setStatus(_B)
-sunHwTrapFanSpeedFatalThresholdDeasserted=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,20))
-sunHwTrapFanSpeedFatalThresholdDeasserted.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapFanSpeedFatalThresholdDeasserted.setStatus(_B)
-sunHwTrapFanSpeedCritThresholdExceeded=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,21))
-sunHwTrapFanSpeedCritThresholdExceeded.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapFanSpeedCritThresholdExceeded.setStatus(_B)
-sunHwTrapFanSpeedCritThresholdDeasserted=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,22))
-sunHwTrapFanSpeedCritThresholdDeasserted.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapFanSpeedCritThresholdDeasserted.setStatus(_B)
-sunHwTrapFanSpeedNonCritThresholdExceeded=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,23))
-sunHwTrapFanSpeedNonCritThresholdExceeded.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapFanSpeedNonCritThresholdExceeded.setStatus(_B)
-sunHwTrapFanSpeedOk=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,24))
-sunHwTrapFanSpeedOk.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapFanSpeedOk.setStatus(_B)
-sunHwTrapSensorFatalThresholdExceeded=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,25))
-sunHwTrapSensorFatalThresholdExceeded.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapSensorFatalThresholdExceeded.setStatus(_B)
-sunHwTrapSensorFatalThresholdDeasserted=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,26))
-sunHwTrapSensorFatalThresholdDeasserted.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapSensorFatalThresholdDeasserted.setStatus(_B)
-sunHwTrapSensorCritThresholdExceeded=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,27))
-sunHwTrapSensorCritThresholdExceeded.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapSensorCritThresholdExceeded.setStatus(_B)
-sunHwTrapSensorCritThresholdDeasserted=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,28))
-sunHwTrapSensorCritThresholdDeasserted.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapSensorCritThresholdDeasserted.setStatus(_B)
-sunHwTrapSensorNonCritThresholdExceeded=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,29))
-sunHwTrapSensorNonCritThresholdExceeded.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapSensorNonCritThresholdExceeded.setStatus(_B)
-sunHwTrapSensorThresholdOk=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,30))
-sunHwTrapSensorThresholdOk.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapSensorThresholdOk.setStatus(_B)
-sunHwTrapPowerSupplyFault=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,31))
-sunHwTrapPowerSupplyFault.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_P),(_A,_Q),(_A,_R),(_A,_N),(_A,_O),(_A,_G),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapPowerSupplyFault.setStatus(_B)
-sunHwTrapPowerSupplyError=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,32))
-sunHwTrapPowerSupplyError.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:sunHwTrapPowerSupplyError.setStatus(_B)
-sunHwTrapPowerSupplyOk=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,33))
-sunHwTrapPowerSupplyOk.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:sunHwTrapPowerSupplyOk.setStatus(_B)
-sunHwTrapFanFault=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,34))
-sunHwTrapFanFault.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_P),(_A,_Q),(_A,_R),(_A,_N),(_A,_O),(_A,_G),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapFanFault.setStatus(_B)
-sunHwTrapFanError=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,35))
-sunHwTrapFanError.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:sunHwTrapFanError.setStatus(_B)
-sunHwTrapFanOk=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,36))
-sunHwTrapFanOk.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:sunHwTrapFanOk.setStatus(_B)
-sunHwTrapProcessorFault=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,37))
-sunHwTrapProcessorFault.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_P),(_A,_Q),(_A,_R),(_A,_N),(_A,_O),(_A,_G),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapProcessorFault.setStatus(_B)
-sunHwTrapProcessorError=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,38))
-sunHwTrapProcessorError.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:sunHwTrapProcessorError.setStatus(_B)
-sunHwTrapProcessorOk=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,39))
-sunHwTrapProcessorOk.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:sunHwTrapProcessorOk.setStatus(_B)
-sunHwTrapMemoryFault=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,40))
-sunHwTrapMemoryFault.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_P),(_A,_Q),(_A,_R),(_A,_N),(_A,_O),(_A,_G),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapMemoryFault.setStatus(_B)
-sunHwTrapMemoryError=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,41))
-sunHwTrapMemoryError.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:sunHwTrapMemoryError.setStatus(_B)
-sunHwTrapMemoryOk=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,42))
-sunHwTrapMemoryOk.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:sunHwTrapMemoryOk.setStatus(_B)
-sunHwTrapHardDriveFault=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,43))
-sunHwTrapHardDriveFault.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_P),(_A,_Q),(_A,_R),(_A,_N),(_A,_O),(_A,_G),(_A,_F),(_A,_f)))
-if mibBuilder.loadTexts:sunHwTrapHardDriveFault.setStatus(_B)
-sunHwTrapHardDriveError=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,44))
-sunHwTrapHardDriveError.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_F),(_A,_G),(_A,_f)))
-if mibBuilder.loadTexts:sunHwTrapHardDriveError.setStatus(_B)
-sunHwTrapHardDriveOk=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,45))
-sunHwTrapHardDriveOk.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:sunHwTrapHardDriveOk.setStatus(_B)
-sunHwTrapIOFault=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,46))
-sunHwTrapIOFault.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_P),(_A,_Q),(_A,_R),(_A,_N),(_A,_O),(_A,_G),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapIOFault.setStatus(_B)
-sunHwTrapIOError=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,47))
-sunHwTrapIOError.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:sunHwTrapIOError.setStatus(_B)
-sunHwTrapIOOk=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,48))
-sunHwTrapIOOk.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:sunHwTrapIOOk.setStatus(_B)
-sunHwTrapSlotOrConnectorFault=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,49))
-sunHwTrapSlotOrConnectorFault.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_P),(_A,_Q),(_A,_R),(_A,_N),(_A,_O),(_A,_G),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapSlotOrConnectorFault.setStatus(_B)
-sunHwTrapSlotOrConnectorError=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,50))
-sunHwTrapSlotOrConnectorError.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:sunHwTrapSlotOrConnectorError.setStatus(_B)
-sunHwTrapSlotOrConnectorOk=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,51))
-sunHwTrapSlotOrConnectorOk.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:sunHwTrapSlotOrConnectorOk.setStatus(_B)
-sunHwTrapComponentFault=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,52))
-sunHwTrapComponentFault.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_P),(_A,_Q),(_A,_R),(_A,_N),(_A,_O),(_A,_G),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapComponentFault.setStatus(_B)
-sunHwTrapComponentError=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,53))
-sunHwTrapComponentError.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:sunHwTrapComponentError.setStatus(_B)
-sunHwTrapComponentOk=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,54))
-sunHwTrapComponentOk.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:sunHwTrapComponentOk.setStatus(_B)
-sunHwTrapFruInserted=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,55))
-sunHwTrapFruInserted.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_G)))
-if mibBuilder.loadTexts:sunHwTrapFruInserted.setStatus(_B)
-sunHwTrapFruRemoved=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,56))
-sunHwTrapFruRemoved.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_G)))
-if mibBuilder.loadTexts:sunHwTrapFruRemoved.setStatus(_B)
-sunHwTrapComponentDisabled=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,57))
-sunHwTrapComponentDisabled.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_l),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:sunHwTrapComponentDisabled.setStatus(_B)
-sunHwTrapComponentEnabled=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,58))
-sunHwTrapComponentEnabled.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:sunHwTrapComponentEnabled.setStatus(_B)
-sunHwTrapPreOSError=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,59))
-sunHwTrapPreOSError.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapPreOSError.setStatus(_B)
-sunHwTrapHAStateChange=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,60))
-sunHwTrapHAStateChange.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_i),(_A,_j),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapHAStateChange.setStatus(_B)
-sunHwTrapSecurityIntrusion=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,61))
-sunHwTrapSecurityIntrusion.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapSecurityIntrusion.setStatus(_B)
-sunHwTrapHardDriveStatus=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,62))
-sunHwTrapHardDriveStatus.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_k)))
-if mibBuilder.loadTexts:sunHwTrapHardDriveStatus.setStatus(_B)
-sunHwTrapTestTrap=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,63))
-sunHwTrapTestTrap.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_m)))
-if mibBuilder.loadTexts:sunHwTrapTestTrap.setStatus(_B)
-sunHwTrapPowerSupplyFaultCleared=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,64))
-sunHwTrapPowerSupplyFaultCleared.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_G),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapPowerSupplyFaultCleared.setStatus(_B)
-sunHwTrapFanFaultCleared=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,65))
-sunHwTrapFanFaultCleared.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_G),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapFanFaultCleared.setStatus(_B)
-sunHwTrapProcessorFaultCleared=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,66))
-sunHwTrapProcessorFaultCleared.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_G),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapProcessorFaultCleared.setStatus(_B)
-sunHwTrapMemoryFaultCleared=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,67))
-sunHwTrapMemoryFaultCleared.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_G),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapMemoryFaultCleared.setStatus(_B)
-sunHwTrapHardDriveFaultCleared=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,68))
-sunHwTrapHardDriveFaultCleared.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_G),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapHardDriveFaultCleared.setStatus(_B)
-sunHwTrapIOFaultCleared=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,69))
-sunHwTrapIOFaultCleared.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_G),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapIOFaultCleared.setStatus(_B)
-sunHwTrapSlotOrConnectorFaultCleared=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,70))
-sunHwTrapSlotOrConnectorFaultCleared.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_G),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapSlotOrConnectorFaultCleared.setStatus(_B)
-sunHwTrapComponentFaultCleared=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,71))
-sunHwTrapComponentFaultCleared.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_G),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapComponentFaultCleared.setStatus(_B)
-sunHwTrapPowerConsumptionThresholdExceeded=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,72))
-sunHwTrapPowerConsumptionThresholdExceeded.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapPowerConsumptionThresholdExceeded.setStatus(_B)
-sunHwTrapPowerConsumptionThresholdDeasserted=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,73))
-sunHwTrapPowerConsumptionThresholdDeasserted.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_F),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:sunHwTrapPowerConsumptionThresholdDeasserted.setStatus(_B)
-sunHwTrapDriveControllerFault=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,74))
-sunHwTrapDriveControllerFault.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_P),(_A,_Q),(_A,_R),(_A,_N),(_A,_O),(_A,_G),(_A,_F),(_A,_g)))
-if mibBuilder.loadTexts:sunHwTrapDriveControllerFault.setStatus(_B)
-sunHwTrapDriveControllerFaultCleared=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,75))
-sunHwTrapDriveControllerFaultCleared.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_G),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapDriveControllerFaultCleared.setStatus(_B)
-sunHwTrapDriveControllerError=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,76))
-sunHwTrapDriveControllerError.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_F),(_A,_G),(_A,_g)))
-if mibBuilder.loadTexts:sunHwTrapDriveControllerError.setStatus(_B)
-sunHwTrapStorageVolumeFault=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,77))
-sunHwTrapStorageVolumeFault.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_P),(_A,_Q),(_A,_R),(_A,_N),(_A,_O),(_A,_G),(_A,_F),(_A,_h)))
-if mibBuilder.loadTexts:sunHwTrapStorageVolumeFault.setStatus(_B)
-sunHwTrapStorageVolumeFaultCleared=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,78))
-sunHwTrapStorageVolumeFaultCleared.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_G),(_A,_F)))
-if mibBuilder.loadTexts:sunHwTrapStorageVolumeFaultCleared.setStatus(_B)
-sunHwTrapStorageVolumeError=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,79))
-sunHwTrapStorageVolumeError.setObjects(*((_A,_C),(_A,_E),(_A,_D),(_A,_H),(_A,_F),(_A,_G),(_A,_h)))
-if mibBuilder.loadTexts:sunHwTrapStorageVolumeError.setStatus(_B)
-sunHwTrapFaultDiagnosed=NotificationType((1,3,6,1,4,1,42,2,175,103,2,0,80))
-sunHwTrapFaultDiagnosed.setObjects(*((_A,_n),(_A,_N),(_A,_O),(_A,_p),(_A,_q),(_A,_J),(_A,_s),(_A,_D),(_A,_t),(_A,_o),(_A,_C),(_A,_r),(_A,_u),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b)))
-if mibBuilder.loadTexts:sunHwTrapFaultDiagnosed.setStatus(_B)
-sunHwTrapNotificationsGroup=NotificationGroup((1,3,6,1,4,1,42,2,175,103,3,2,2,1))
-sunHwTrapNotificationsGroup.setObjects(*((_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD)))
-if mibBuilder.loadTexts:sunHwTrapNotificationsGroup.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'SunHwTrapThresholdTypeTC':SunHwTrapThresholdTypeTC,'SunHwTrapSeverityTC':SunHwTrapSeverityTC,'SunHwTrapHAStateTC':SunHwTrapHAStateTC,'SunHwTrapHardDriveStatesTC':SunHwTrapHardDriveStatesTC,'SunHwTrapDisableReasonsTC':SunHwTrapDisableReasonsTC,'SunHwTrapFloatingPointValueTC':SunHwTrapFloatingPointValueTC,'SunHwTrapHardDriveProbableCauseTC':SunHwTrapHardDriveProbableCauseTC,'SunHwTrapDriveControllerProbableCauseTC':SunHwTrapDriveControllerProbableCauseTC,'SunHwTrapStorageVolumeProbableCauseTC':SunHwTrapStorageVolumeProbableCauseTC,'SunHwTrapDiagEntityTC':SunHwTrapDiagEntityTC,'SunHwTrapSuspectFruStatusTC':SunHwTrapSuspectFruStatusTC,'sun':sun,'products':products,'ilom':ilom,'sunHwTrapMIB':sunHwTrapMIB,'sunHwTrapObjects':sunHwTrapObjects,'sunHwTraps':sunHwTraps,'sunHwTrapPrefix':sunHwTrapPrefix,_x:sunHwTrapVoltageFatalThresholdExceeded,_y:sunHwTrapVoltageFatalThresholdDeasserted,_z:sunHwTrapVoltageCritThresholdExceeded,_A0:sunHwTrapVoltageCritThresholdDeasserted,_A1:sunHwTrapVoltageNonCritThresholdExceeded,_A2:sunHwTrapVoltageOk,_A3:sunHwTrapTempFatalThresholdExceeded,_A4:sunHwTrapTempFatalThresholdDeasserted,_A5:sunHwTrapTempCritThresholdExceeded,_A6:sunHwTrapTempCritThresholdDeasserted,_A7:sunHwTrapTempNonCritThresholdExceeded,_A8:sunHwTrapTempOk,_A9:sunHwTrapElectricalCurrentFatalThresholdExceeded,_AA:sunHwTrapElectricalCurrentFatalThresholdDeasserted,_AB:sunHwTrapElectricalCurrentCritThresholdExceeded,_AC:sunHwTrapElectricalCurrentCritThresholdDeasserted,_AD:sunHwTrapElectricalCurrentNonCritThresholdExceeded,_AE:sunHwTrapElectricalCurrentOk,_AF:sunHwTrapFanSpeedFatalThresholdExceeded,_AG:sunHwTrapFanSpeedFatalThresholdDeasserted,_AH:sunHwTrapFanSpeedCritThresholdExceeded,_AI:sunHwTrapFanSpeedCritThresholdDeasserted,_AJ:sunHwTrapFanSpeedNonCritThresholdExceeded,_AK:sunHwTrapFanSpeedOk,_AL:sunHwTrapSensorFatalThresholdExceeded,_AM:sunHwTrapSensorFatalThresholdDeasserted,_AN:sunHwTrapSensorCritThresholdExceeded,_AO:sunHwTrapSensorCritThresholdDeasserted,_AP:sunHwTrapSensorNonCritThresholdExceeded,_AQ:sunHwTrapSensorThresholdOk,_AR:sunHwTrapPowerSupplyFault,_AT:sunHwTrapPowerSupplyError,_AU:sunHwTrapPowerSupplyOk,_AV:sunHwTrapFanFault,_AX:sunHwTrapFanError,_AY:sunHwTrapFanOk,_AZ:sunHwTrapProcessorFault,_Ab:sunHwTrapProcessorError,_Ac:sunHwTrapProcessorOk,_Ad:sunHwTrapMemoryFault,_Af:sunHwTrapMemoryError,_Ag:sunHwTrapMemoryOk,_Ah:sunHwTrapHardDriveFault,_Aj:sunHwTrapHardDriveError,_Ak:sunHwTrapHardDriveOk,_Al:sunHwTrapIOFault,_An:sunHwTrapIOError,_Ao:sunHwTrapIOOk,_Ap:sunHwTrapSlotOrConnectorFault,_Ar:sunHwTrapSlotOrConnectorError,_As:sunHwTrapSlotOrConnectorOk,_At:sunHwTrapComponentFault,_Av:sunHwTrapComponentError,_Aw:sunHwTrapComponentOk,_Ax:sunHwTrapFruInserted,_Ay:sunHwTrapFruRemoved,_Az:sunHwTrapComponentDisabled,_A_:sunHwTrapComponentEnabled,_B0:sunHwTrapPreOSError,_B1:sunHwTrapHAStateChange,_B2:sunHwTrapSecurityIntrusion,_B3:sunHwTrapHardDriveStatus,_B4:sunHwTrapTestTrap,_AS:sunHwTrapPowerSupplyFaultCleared,_AW:sunHwTrapFanFaultCleared,_Aa:sunHwTrapProcessorFaultCleared,_Ae:sunHwTrapMemoryFaultCleared,_Ai:sunHwTrapHardDriveFaultCleared,_Am:sunHwTrapIOFaultCleared,_Aq:sunHwTrapSlotOrConnectorFaultCleared,_Au:sunHwTrapComponentFaultCleared,_B5:sunHwTrapPowerConsumptionThresholdExceeded,_B6:sunHwTrapPowerConsumptionThresholdDeasserted,_B7:sunHwTrapDriveControllerFault,_B8:sunHwTrapDriveControllerFaultCleared,_B9:sunHwTrapDriveControllerError,_BA:sunHwTrapStorageVolumeFault,_BB:sunHwTrapStorageVolumeFaultCleared,_BC:sunHwTrapStorageVolumeError,_BD:sunHwTrapFaultDiagnosed,'sunHwTrapData':sunHwTrapData,_C:sunHwTrapSystemIdentifier,_H:sunHwTrapComponentName,_K:sunHwTrapThresholdType,_L:sunHwTrapThresholdValue,_M:sunHwTrapSensorValue,_P:sunHwTrapSuspectComponentName,_Q:sunHwTrapFaultClass,_R:sunHwTrapFaultCertainty,_F:sunHwTrapAdditionalInfo,_G:sunHwTrapAssocObjectId,_i:sunHwTrapNewHAState,_j:sunHwTrapOldHAState,_J:sunHwTrapSeverity,_E:sunHwTrapChassisId,_D:sunHwTrapProductName,_k:sunHwTrapHardDriveState,_N:sunHwTrapFaultMessageID,_O:sunHwTrapFaultUUID,_l:sunHwTrapDisableReason,_m:sunHwTrapTestMessage,_f:sunHwTrapHardDriveProbableCause,_g:sunHwTrapDriveControllerProbableCause,_h:sunHwTrapStorageVolumeProbableCause,_n:sunHwTrapEventTime,_o:sunHwTrapDiagEntity,_q:sunHwTrapFaultDescription,_p:sunHwTrapKaUrl,_u:sunHwTrapSuspectCnt,_r:sunHwTrapHostname,_s:sunHwTrapProductManufacturer,_t:sunHwTrapProductSn,'sunHwTrapDataTables':sunHwTrapDataTables,'sunHwTrapSuspectTable':sunHwTrapSuspectTable,'sunHwTrapSuspectEntry':sunHwTrapSuspectEntry,_w:sunHwTrapSuspectFruIndex,_S:sunHwTrapSuspectFruFaultCertainty,_T:sunHwTrapSuspectFruFaultClass,_U:sunHwTrapSuspectFruName,_V:sunHwTrapSuspectFruLocation,_W:sunHwTrapSuspectFruChassisId,_X:sunHwTrapSuspectFruManufacturer,_Y:sunHwTrapSuspectFruPn,_Z:sunHwTrapSuspectFruSn,_a:sunHwTrapSuspectFruRevision,_b:sunHwTrapSuspectFruStatus,'sunHwTrapConformances':sunHwTrapConformances,'sunHwTrapCompliances':sunHwTrapCompliances,'sunHwTrapGroups':sunHwTrapGroups,'sunHwTrapObjectGroups':sunHwTrapObjectGroups,'sunHwTrapNotificationObjectGroup':sunHwTrapNotificationObjectGroup,'sunHwTrapNotifGroups':sunHwTrapNotifGroups,'sunHwTrapNotificationsGroup':sunHwTrapNotificationsGroup})
+#
+# PySNMP MIB module SUN-HW-TRAP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/oracle/SUN-HW-TRAP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:08 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowPointer", "TextualConvention")
+sun = MibIdentifier((1, 3, 6, 1, 4, 1, 42))
+products = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2))
+ilom = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 175))
+sunHwTrapMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 42, 2, 175, 103))
+sunHwTrapMIB.setRevisions(('2010-05-05 00:00', '2009-12-04 00:00', '2009-09-09 00:00', '2009-04-17 00:00', '2008-10-29 00:00', '2007-02-06 00:00',))
+if mibBuilder.loadTexts: sunHwTrapMIB.setLastUpdated('201005050000Z')
+if mibBuilder.loadTexts: sunHwTrapMIB.setOrganization('Oracle Corporation')
+sunHwTrapObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 1))
+sunHwTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2))
+sunHwTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0))
+sunHwTrapData = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1))
+sunHwTrapDataTables = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 2))
+sunHwTrapConformances = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 3))
+sunHwTrapCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 3, 1))
+sunHwTrapGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 3, 2))
+sunHwTrapObjectGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 3, 2, 1))
+sunHwTrapNotifGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 3, 2, 2))
+class SunHwTrapThresholdTypeTC(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("upper", 1), ("lower", 2), ("unknown", 3))
+
+class SunHwTrapSeverityTC(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("other", 1), ("fatal", 2), ("critical", 3), ("nonCritical", 4), ("ok", 5))
+
+class SunHwTrapHAStateTC(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("other", 1), ("initializing", 2), ("standalone", 3), ("standby", 4), ("master", 5))
+
+class SunHwTrapHardDriveStatesTC(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+    namedValues = NamedValues(("other", 1), ("present", 2), ("fault", 3), ("predictiveFailure", 4), ("hotSpare", 5), ("consistencyCheckInProgress", 6), ("inCriticalArray", 7), ("inFailedArray", 8), ("rebuildInProgress", 9), ("rebuildAborted", 10))
+
+class SunHwTrapDisableReasonsTC(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("unknown", 1), ("faultOrError", 2), ("configuration", 3))
+
+class SunHwTrapFloatingPointValueTC(TextualConvention, OctetString):
+    status = 'current'
+    displayHint = '255a'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+
+class SunHwTrapHardDriveProbableCauseTC(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14))
+    namedValues = NamedValues(("unknown", 1), ("reassignwriteoperationfailed", 2), ("unrecoverablemediumerrorduringrebuild", 3), ("badblocklogfull", 4), ("badblocklogalmostfull", 5), ("rebuildfailed", 6), ("globalsparecoverage", 7), ("uncorrectederror", 10), ("nonmediumerror", 11), ("selftestfailed", 12), ("smarthealthstatusfailed", 13), ("startstopmax", 14))
+
+class SunHwTrapDriveControllerProbableCauseTC(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 6))
+    namedValues = NamedValues(("unknown", 1), ("fatalflasherror", 2), ("batterybackuperror", 3), ("fatalcacheerror", 4), ("controllerfailed", 6))
+
+class SunHwTrapStorageVolumeProbableCauseTC(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 6, 8))
+    namedValues = NamedValues(("unknown", 1), ("raidfailed", 2), ("raidmissing", 3), ("raiddegraded", 4), ("badblocklogfull", 6), ("raiderror", 8))
+
+class SunHwTrapDiagEntityTC(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("fdd", 1), ("alomfm", 2), ("solarisfma", 3), ("other", 4))
+
+class SunHwTrapSuspectFruStatusTC(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
+    namedValues = NamedValues(("other", 1), ("suspected", 2), ("faulted", 3), ("repaired", 4), ("replaced", 5), ("acquitted", 6))
+
+sunHwTrapSystemIdentifier = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 1), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapSystemIdentifier.setStatus('current')
+sunHwTrapComponentName = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 2), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapComponentName.setStatus('current')
+sunHwTrapThresholdType = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 3), SunHwTrapThresholdTypeTC()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapThresholdType.setStatus('current')
+sunHwTrapThresholdValue = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 4), SunHwTrapFloatingPointValueTC()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapThresholdValue.setStatus('current')
+sunHwTrapSensorValue = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 5), SunHwTrapFloatingPointValueTC()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapSensorValue.setStatus('current')
+sunHwTrapSuspectComponentName = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 6), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapSuspectComponentName.setStatus('current')
+sunHwTrapFaultClass = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 7), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapFaultClass.setStatus('current')
+sunHwTrapFaultCertainty = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapFaultCertainty.setStatus('current')
+sunHwTrapAdditionalInfo = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 9), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapAdditionalInfo.setStatus('current')
+sunHwTrapAssocObjectId = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 10), RowPointer()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapAssocObjectId.setStatus('current')
+sunHwTrapNewHAState = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 11), SunHwTrapHAStateTC()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapNewHAState.setStatus('current')
+sunHwTrapOldHAState = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 12), SunHwTrapHAStateTC()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapOldHAState.setStatus('current')
+sunHwTrapSeverity = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 13), SunHwTrapSeverityTC()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapSeverity.setStatus('current')
+sunHwTrapChassisId = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 14), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapChassisId.setStatus('current')
+sunHwTrapProductName = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 15), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapProductName.setStatus('current')
+sunHwTrapHardDriveState = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 16), SunHwTrapHardDriveStatesTC()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapHardDriveState.setStatus('current')
+sunHwTrapFaultMessageID = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 17), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapFaultMessageID.setStatus('current')
+sunHwTrapFaultUUID = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 18), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapFaultUUID.setStatus('current')
+sunHwTrapDisableReason = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 19), SunHwTrapDisableReasonsTC()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapDisableReason.setStatus('current')
+sunHwTrapTestMessage = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 20), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapTestMessage.setStatus('current')
+sunHwTrapHardDriveProbableCause = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 21), SunHwTrapHardDriveProbableCauseTC()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapHardDriveProbableCause.setStatus('current')
+sunHwTrapDriveControllerProbableCause = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 22), SunHwTrapDriveControllerProbableCauseTC()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapDriveControllerProbableCause.setStatus('current')
+sunHwTrapStorageVolumeProbableCause = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 23), SunHwTrapStorageVolumeProbableCauseTC()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapStorageVolumeProbableCause.setStatus('current')
+sunHwTrapEventTime = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 24), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapEventTime.setStatus('current')
+sunHwTrapDiagEntity = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 25), SunHwTrapDiagEntityTC()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapDiagEntity.setStatus('current')
+sunHwTrapFaultDescription = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 26), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapFaultDescription.setStatus('current')
+sunHwTrapKaUrl = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 27), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapKaUrl.setStatus('current')
+sunHwTrapSuspectCnt = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 28), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapSuspectCnt.setStatus('current')
+sunHwTrapHostname = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 29), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapHostname.setStatus('current')
+sunHwTrapProductManufacturer = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 30), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapProductManufacturer.setStatus('current')
+sunHwTrapProductSn = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 1, 31), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapProductSn.setStatus('current')
+sunHwTrapSuspectTable = MibTable((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 2, 1), )
+if mibBuilder.loadTexts: sunHwTrapSuspectTable.setStatus('current')
+sunHwTrapSuspectEntry = MibTableRow((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 2, 1, 1), ).setIndexNames((0, "SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruIndex"))
+if mibBuilder.loadTexts: sunHwTrapSuspectEntry.setStatus('current')
+sunHwTrapSuspectFruIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100)))
+if mibBuilder.loadTexts: sunHwTrapSuspectFruIndex.setStatus('current')
+sunHwTrapSuspectFruFaultCertainty = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapSuspectFruFaultCertainty.setStatus('current')
+sunHwTrapSuspectFruFaultClass = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 2, 1, 1, 3), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapSuspectFruFaultClass.setStatus('current')
+sunHwTrapSuspectFruName = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 2, 1, 1, 4), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapSuspectFruName.setStatus('current')
+sunHwTrapSuspectFruLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 2, 1, 1, 5), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapSuspectFruLocation.setStatus('current')
+sunHwTrapSuspectFruChassisId = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 2, 1, 1, 6), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapSuspectFruChassisId.setStatus('current')
+sunHwTrapSuspectFruManufacturer = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 2, 1, 1, 7), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapSuspectFruManufacturer.setStatus('current')
+sunHwTrapSuspectFruPn = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 2, 1, 1, 8), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapSuspectFruPn.setStatus('current')
+sunHwTrapSuspectFruSn = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 2, 1, 1, 9), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapSuspectFruSn.setStatus('current')
+sunHwTrapSuspectFruRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 2, 1, 1, 10), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapSuspectFruRevision.setStatus('current')
+sunHwTrapSuspectFruStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 2, 1, 1, 11), SunHwTrapSuspectFruStatusTC()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: sunHwTrapSuspectFruStatus.setStatus('current')
+sunHwTrapVoltageFatalThresholdExceeded = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 1)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapVoltageFatalThresholdExceeded.setStatus('current')
+sunHwTrapVoltageFatalThresholdDeasserted = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 2)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapVoltageFatalThresholdDeasserted.setStatus('current')
+sunHwTrapVoltageCritThresholdExceeded = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 3)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapVoltageCritThresholdExceeded.setStatus('current')
+sunHwTrapVoltageCritThresholdDeasserted = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 4)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapVoltageCritThresholdDeasserted.setStatus('current')
+sunHwTrapVoltageNonCritThresholdExceeded = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 5)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapVoltageNonCritThresholdExceeded.setStatus('current')
+sunHwTrapVoltageOk = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 6)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapVoltageOk.setStatus('current')
+sunHwTrapTempFatalThresholdExceeded = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 7)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapTempFatalThresholdExceeded.setStatus('current')
+sunHwTrapTempFatalThresholdDeasserted = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 8)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapTempFatalThresholdDeasserted.setStatus('current')
+sunHwTrapTempCritThresholdExceeded = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 9)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapTempCritThresholdExceeded.setStatus('current')
+sunHwTrapTempCritThresholdDeasserted = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 10)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapTempCritThresholdDeasserted.setStatus('current')
+sunHwTrapTempNonCritThresholdExceeded = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 11)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapTempNonCritThresholdExceeded.setStatus('current')
+sunHwTrapTempOk = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 12)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapTempOk.setStatus('current')
+sunHwTrapElectricalCurrentFatalThresholdExceeded = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 13)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapElectricalCurrentFatalThresholdExceeded.setStatus('current')
+sunHwTrapElectricalCurrentFatalThresholdDeasserted = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 14)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapElectricalCurrentFatalThresholdDeasserted.setStatus('current')
+sunHwTrapElectricalCurrentCritThresholdExceeded = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 15)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapElectricalCurrentCritThresholdExceeded.setStatus('current')
+sunHwTrapElectricalCurrentCritThresholdDeasserted = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 16)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapElectricalCurrentCritThresholdDeasserted.setStatus('current')
+sunHwTrapElectricalCurrentNonCritThresholdExceeded = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 17)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapElectricalCurrentNonCritThresholdExceeded.setStatus('current')
+sunHwTrapElectricalCurrentOk = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 18)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapElectricalCurrentOk.setStatus('current')
+sunHwTrapFanSpeedFatalThresholdExceeded = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 19)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapFanSpeedFatalThresholdExceeded.setStatus('current')
+sunHwTrapFanSpeedFatalThresholdDeasserted = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 20)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapFanSpeedFatalThresholdDeasserted.setStatus('current')
+sunHwTrapFanSpeedCritThresholdExceeded = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 21)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapFanSpeedCritThresholdExceeded.setStatus('current')
+sunHwTrapFanSpeedCritThresholdDeasserted = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 22)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapFanSpeedCritThresholdDeasserted.setStatus('current')
+sunHwTrapFanSpeedNonCritThresholdExceeded = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 23)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapFanSpeedNonCritThresholdExceeded.setStatus('current')
+sunHwTrapFanSpeedOk = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 24)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapFanSpeedOk.setStatus('current')
+sunHwTrapSensorFatalThresholdExceeded = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 25)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapSensorFatalThresholdExceeded.setStatus('current')
+sunHwTrapSensorFatalThresholdDeasserted = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 26)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapSensorFatalThresholdDeasserted.setStatus('current')
+sunHwTrapSensorCritThresholdExceeded = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 27)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapSensorCritThresholdExceeded.setStatus('current')
+sunHwTrapSensorCritThresholdDeasserted = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 28)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapSensorCritThresholdDeasserted.setStatus('current')
+sunHwTrapSensorNonCritThresholdExceeded = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 29)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapSensorNonCritThresholdExceeded.setStatus('current')
+sunHwTrapSensorThresholdOk = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 30)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapSensorThresholdOk.setStatus('current')
+sunHwTrapPowerSupplyFault = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 31)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultClass"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultCertainty"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultMessageID"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultUUID"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapPowerSupplyFault.setStatus('current')
+sunHwTrapPowerSupplyFaultCleared = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 64)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapPowerSupplyFaultCleared.setStatus('current')
+sunHwTrapPowerSupplyError = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 32)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"))
+if mibBuilder.loadTexts: sunHwTrapPowerSupplyError.setStatus('current')
+sunHwTrapPowerSupplyOk = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 33)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"))
+if mibBuilder.loadTexts: sunHwTrapPowerSupplyOk.setStatus('current')
+sunHwTrapFanFault = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 34)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultClass"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultCertainty"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultMessageID"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultUUID"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapFanFault.setStatus('current')
+sunHwTrapFanFaultCleared = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 65)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapFanFaultCleared.setStatus('current')
+sunHwTrapFanError = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 35)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"))
+if mibBuilder.loadTexts: sunHwTrapFanError.setStatus('current')
+sunHwTrapFanOk = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 36)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"))
+if mibBuilder.loadTexts: sunHwTrapFanOk.setStatus('current')
+sunHwTrapProcessorFault = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 37)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultClass"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultCertainty"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultMessageID"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultUUID"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapProcessorFault.setStatus('current')
+sunHwTrapProcessorFaultCleared = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 66)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapProcessorFaultCleared.setStatus('current')
+sunHwTrapProcessorError = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 38)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"))
+if mibBuilder.loadTexts: sunHwTrapProcessorError.setStatus('current')
+sunHwTrapProcessorOk = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 39)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"))
+if mibBuilder.loadTexts: sunHwTrapProcessorOk.setStatus('current')
+sunHwTrapMemoryFault = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 40)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultClass"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultCertainty"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultMessageID"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultUUID"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapMemoryFault.setStatus('current')
+sunHwTrapMemoryFaultCleared = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 67)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapMemoryFaultCleared.setStatus('current')
+sunHwTrapMemoryError = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 41)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"))
+if mibBuilder.loadTexts: sunHwTrapMemoryError.setStatus('current')
+sunHwTrapMemoryOk = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 42)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"))
+if mibBuilder.loadTexts: sunHwTrapMemoryOk.setStatus('current')
+sunHwTrapHardDriveFault = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 43)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultClass"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultCertainty"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultMessageID"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultUUID"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapHardDriveProbableCause"))
+if mibBuilder.loadTexts: sunHwTrapHardDriveFault.setStatus('current')
+sunHwTrapHardDriveFaultCleared = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 68)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapHardDriveFaultCleared.setStatus('current')
+sunHwTrapHardDriveError = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 44)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapHardDriveProbableCause"))
+if mibBuilder.loadTexts: sunHwTrapHardDriveError.setStatus('current')
+sunHwTrapHardDriveOk = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 45)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"))
+if mibBuilder.loadTexts: sunHwTrapHardDriveOk.setStatus('current')
+sunHwTrapIOFault = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 46)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultClass"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultCertainty"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultMessageID"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultUUID"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapIOFault.setStatus('current')
+sunHwTrapIOFaultCleared = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 69)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapIOFaultCleared.setStatus('current')
+sunHwTrapIOError = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 47)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"))
+if mibBuilder.loadTexts: sunHwTrapIOError.setStatus('current')
+sunHwTrapIOOk = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 48)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"))
+if mibBuilder.loadTexts: sunHwTrapIOOk.setStatus('current')
+sunHwTrapSlotOrConnectorFault = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 49)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultClass"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultCertainty"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultMessageID"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultUUID"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapSlotOrConnectorFault.setStatus('current')
+sunHwTrapSlotOrConnectorFaultCleared = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 70)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapSlotOrConnectorFaultCleared.setStatus('current')
+sunHwTrapSlotOrConnectorError = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 50)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"))
+if mibBuilder.loadTexts: sunHwTrapSlotOrConnectorError.setStatus('current')
+sunHwTrapSlotOrConnectorOk = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 51)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"))
+if mibBuilder.loadTexts: sunHwTrapSlotOrConnectorOk.setStatus('current')
+sunHwTrapComponentFault = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 52)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultClass"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultCertainty"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultMessageID"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultUUID"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapComponentFault.setStatus('current')
+sunHwTrapComponentFaultCleared = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 71)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapComponentFaultCleared.setStatus('current')
+sunHwTrapComponentError = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 53)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"))
+if mibBuilder.loadTexts: sunHwTrapComponentError.setStatus('current')
+sunHwTrapComponentOk = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 54)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"))
+if mibBuilder.loadTexts: sunHwTrapComponentOk.setStatus('current')
+sunHwTrapFruInserted = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 55)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"))
+if mibBuilder.loadTexts: sunHwTrapFruInserted.setStatus('current')
+sunHwTrapFruRemoved = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 56)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"))
+if mibBuilder.loadTexts: sunHwTrapFruRemoved.setStatus('current')
+sunHwTrapComponentDisabled = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 57)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapDisableReason"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"))
+if mibBuilder.loadTexts: sunHwTrapComponentDisabled.setStatus('current')
+sunHwTrapComponentEnabled = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 58)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"))
+if mibBuilder.loadTexts: sunHwTrapComponentEnabled.setStatus('current')
+sunHwTrapPreOSError = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 59)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapPreOSError.setStatus('current')
+sunHwTrapHAStateChange = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 60)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapNewHAState"), ("SUN-HW-TRAP-MIB", "sunHwTrapOldHAState"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapHAStateChange.setStatus('current')
+sunHwTrapSecurityIntrusion = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 61)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapSecurityIntrusion.setStatus('current')
+sunHwTrapHardDriveStatus = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 62)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapHardDriveState"))
+if mibBuilder.loadTexts: sunHwTrapHardDriveStatus.setStatus('current')
+sunHwTrapTestTrap = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 63)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapTestMessage"))
+if mibBuilder.loadTexts: sunHwTrapTestTrap.setStatus('current')
+sunHwTrapPowerConsumptionThresholdExceeded = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 72)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapPowerConsumptionThresholdExceeded.setStatus('current')
+sunHwTrapPowerConsumptionThresholdDeasserted = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 73)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"))
+if mibBuilder.loadTexts: sunHwTrapPowerConsumptionThresholdDeasserted.setStatus('current')
+sunHwTrapDriveControllerFault = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 74)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultClass"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultCertainty"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultMessageID"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultUUID"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapDriveControllerProbableCause"))
+if mibBuilder.loadTexts: sunHwTrapDriveControllerFault.setStatus('current')
+sunHwTrapDriveControllerFaultCleared = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 75)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapDriveControllerFaultCleared.setStatus('current')
+sunHwTrapDriveControllerError = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 76)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapDriveControllerProbableCause"))
+if mibBuilder.loadTexts: sunHwTrapDriveControllerError.setStatus('current')
+sunHwTrapStorageVolumeFault = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 77)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultClass"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultCertainty"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultMessageID"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultUUID"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapStorageVolumeProbableCause"))
+if mibBuilder.loadTexts: sunHwTrapStorageVolumeFault.setStatus('current')
+sunHwTrapStorageVolumeFaultCleared = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 78)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"))
+if mibBuilder.loadTexts: sunHwTrapStorageVolumeFaultCleared.setStatus('current')
+sunHwTrapStorageVolumeError = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 79)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapStorageVolumeProbableCause"))
+if mibBuilder.loadTexts: sunHwTrapStorageVolumeError.setStatus('current')
+sunHwTrapFaultDiagnosed = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 2, 0, 80)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapEventTime"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultMessageID"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultUUID"), ("SUN-HW-TRAP-MIB", "sunHwTrapKaUrl"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultDescription"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductManufacturer"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductSn"), ("SUN-HW-TRAP-MIB", "sunHwTrapDiagEntity"), ("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapHostname"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectCnt"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruFaultCertainty"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruFaultClass"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruName"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruLocation"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruManufacturer"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruPn"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruSn"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruRevision"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruStatus"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruFaultCertainty"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruFaultClass"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruName"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruLocation"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruManufacturer"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruPn"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruSn"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruRevision"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruStatus"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruFaultCertainty"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruFaultClass"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruName"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruLocation"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruManufacturer"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruPn"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruSn"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruRevision"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruStatus"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruFaultCertainty"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruFaultClass"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruName"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruLocation"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruManufacturer"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruPn"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruSn"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruRevision"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruStatus"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruFaultCertainty"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruFaultClass"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruName"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruLocation"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruManufacturer"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruPn"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruSn"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruRevision"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruStatus"))
+if mibBuilder.loadTexts: sunHwTrapFaultDiagnosed.setStatus('current')
+sunHwTrapNotificationObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 3, 2, 1, 2)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapSystemIdentifier"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdType"), ("SUN-HW-TRAP-MIB", "sunHwTrapThresholdValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorValue"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectComponentName"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultClass"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultCertainty"), ("SUN-HW-TRAP-MIB", "sunHwTrapAdditionalInfo"), ("SUN-HW-TRAP-MIB", "sunHwTrapAssocObjectId"), ("SUN-HW-TRAP-MIB", "sunHwTrapNewHAState"), ("SUN-HW-TRAP-MIB", "sunHwTrapOldHAState"), ("SUN-HW-TRAP-MIB", "sunHwTrapSeverity"), ("SUN-HW-TRAP-MIB", "sunHwTrapChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductName"), ("SUN-HW-TRAP-MIB", "sunHwTrapHardDriveState"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultMessageID"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultUUID"), ("SUN-HW-TRAP-MIB", "sunHwTrapDisableReason"), ("SUN-HW-TRAP-MIB", "sunHwTrapTestMessage"), ("SUN-HW-TRAP-MIB", "sunHwTrapHardDriveProbableCause"), ("SUN-HW-TRAP-MIB", "sunHwTrapDriveControllerProbableCause"), ("SUN-HW-TRAP-MIB", "sunHwTrapStorageVolumeProbableCause"), ("SUN-HW-TRAP-MIB", "sunHwTrapEventTime"), ("SUN-HW-TRAP-MIB", "sunHwTrapDiagEntity"), ("SUN-HW-TRAP-MIB", "sunHwTrapKaUrl"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultDescription"), ("SUN-HW-TRAP-MIB", "sunHwTrapHostname"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductManufacturer"), ("SUN-HW-TRAP-MIB", "sunHwTrapProductSn"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectCnt"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruFaultCertainty"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruFaultClass"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruName"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruLocation"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruChassisId"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruManufacturer"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruPn"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruSn"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruRevision"), ("SUN-HW-TRAP-MIB", "sunHwTrapSuspectFruStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    sunHwTrapNotificationObjectGroup = sunHwTrapNotificationObjectGroup.setStatus('current')
+sunHwTrapNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 42, 2, 175, 103, 3, 2, 2, 1)).setObjects(("SUN-HW-TRAP-MIB", "sunHwTrapVoltageFatalThresholdExceeded"), ("SUN-HW-TRAP-MIB", "sunHwTrapVoltageFatalThresholdDeasserted"), ("SUN-HW-TRAP-MIB", "sunHwTrapVoltageCritThresholdExceeded"), ("SUN-HW-TRAP-MIB", "sunHwTrapVoltageCritThresholdDeasserted"), ("SUN-HW-TRAP-MIB", "sunHwTrapVoltageNonCritThresholdExceeded"), ("SUN-HW-TRAP-MIB", "sunHwTrapVoltageOk"), ("SUN-HW-TRAP-MIB", "sunHwTrapTempFatalThresholdExceeded"), ("SUN-HW-TRAP-MIB", "sunHwTrapTempFatalThresholdDeasserted"), ("SUN-HW-TRAP-MIB", "sunHwTrapTempCritThresholdExceeded"), ("SUN-HW-TRAP-MIB", "sunHwTrapTempCritThresholdDeasserted"), ("SUN-HW-TRAP-MIB", "sunHwTrapTempNonCritThresholdExceeded"), ("SUN-HW-TRAP-MIB", "sunHwTrapTempOk"), ("SUN-HW-TRAP-MIB", "sunHwTrapElectricalCurrentFatalThresholdExceeded"), ("SUN-HW-TRAP-MIB", "sunHwTrapElectricalCurrentFatalThresholdDeasserted"), ("SUN-HW-TRAP-MIB", "sunHwTrapElectricalCurrentCritThresholdExceeded"), ("SUN-HW-TRAP-MIB", "sunHwTrapElectricalCurrentCritThresholdDeasserted"), ("SUN-HW-TRAP-MIB", "sunHwTrapElectricalCurrentNonCritThresholdExceeded"), ("SUN-HW-TRAP-MIB", "sunHwTrapElectricalCurrentOk"), ("SUN-HW-TRAP-MIB", "sunHwTrapFanSpeedFatalThresholdExceeded"), ("SUN-HW-TRAP-MIB", "sunHwTrapFanSpeedFatalThresholdDeasserted"), ("SUN-HW-TRAP-MIB", "sunHwTrapFanSpeedCritThresholdExceeded"), ("SUN-HW-TRAP-MIB", "sunHwTrapFanSpeedCritThresholdDeasserted"), ("SUN-HW-TRAP-MIB", "sunHwTrapFanSpeedNonCritThresholdExceeded"), ("SUN-HW-TRAP-MIB", "sunHwTrapFanSpeedOk"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorFatalThresholdExceeded"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorFatalThresholdDeasserted"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorCritThresholdExceeded"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorCritThresholdDeasserted"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorNonCritThresholdExceeded"), ("SUN-HW-TRAP-MIB", "sunHwTrapSensorThresholdOk"), ("SUN-HW-TRAP-MIB", "sunHwTrapPowerSupplyFault"), ("SUN-HW-TRAP-MIB", "sunHwTrapPowerSupplyFaultCleared"), ("SUN-HW-TRAP-MIB", "sunHwTrapPowerSupplyError"), ("SUN-HW-TRAP-MIB", "sunHwTrapPowerSupplyOk"), ("SUN-HW-TRAP-MIB", "sunHwTrapFanFault"), ("SUN-HW-TRAP-MIB", "sunHwTrapFanFaultCleared"), ("SUN-HW-TRAP-MIB", "sunHwTrapFanError"), ("SUN-HW-TRAP-MIB", "sunHwTrapFanOk"), ("SUN-HW-TRAP-MIB", "sunHwTrapProcessorFault"), ("SUN-HW-TRAP-MIB", "sunHwTrapProcessorFaultCleared"), ("SUN-HW-TRAP-MIB", "sunHwTrapProcessorError"), ("SUN-HW-TRAP-MIB", "sunHwTrapProcessorOk"), ("SUN-HW-TRAP-MIB", "sunHwTrapMemoryFault"), ("SUN-HW-TRAP-MIB", "sunHwTrapMemoryFaultCleared"), ("SUN-HW-TRAP-MIB", "sunHwTrapMemoryError"), ("SUN-HW-TRAP-MIB", "sunHwTrapMemoryOk"), ("SUN-HW-TRAP-MIB", "sunHwTrapHardDriveFault"), ("SUN-HW-TRAP-MIB", "sunHwTrapHardDriveFaultCleared"), ("SUN-HW-TRAP-MIB", "sunHwTrapHardDriveError"), ("SUN-HW-TRAP-MIB", "sunHwTrapHardDriveOk"), ("SUN-HW-TRAP-MIB", "sunHwTrapIOFault"), ("SUN-HW-TRAP-MIB", "sunHwTrapIOFaultCleared"), ("SUN-HW-TRAP-MIB", "sunHwTrapIOError"), ("SUN-HW-TRAP-MIB", "sunHwTrapIOOk"), ("SUN-HW-TRAP-MIB", "sunHwTrapSlotOrConnectorFault"), ("SUN-HW-TRAP-MIB", "sunHwTrapSlotOrConnectorFaultCleared"), ("SUN-HW-TRAP-MIB", "sunHwTrapSlotOrConnectorError"), ("SUN-HW-TRAP-MIB", "sunHwTrapSlotOrConnectorOk"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentFault"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentFaultCleared"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentError"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentOk"), ("SUN-HW-TRAP-MIB", "sunHwTrapFruInserted"), ("SUN-HW-TRAP-MIB", "sunHwTrapFruRemoved"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentDisabled"), ("SUN-HW-TRAP-MIB", "sunHwTrapComponentEnabled"), ("SUN-HW-TRAP-MIB", "sunHwTrapPreOSError"), ("SUN-HW-TRAP-MIB", "sunHwTrapHAStateChange"), ("SUN-HW-TRAP-MIB", "sunHwTrapSecurityIntrusion"), ("SUN-HW-TRAP-MIB", "sunHwTrapHardDriveStatus"), ("SUN-HW-TRAP-MIB", "sunHwTrapTestTrap"), ("SUN-HW-TRAP-MIB", "sunHwTrapPowerConsumptionThresholdExceeded"), ("SUN-HW-TRAP-MIB", "sunHwTrapPowerConsumptionThresholdDeasserted"), ("SUN-HW-TRAP-MIB", "sunHwTrapDriveControllerFault"), ("SUN-HW-TRAP-MIB", "sunHwTrapDriveControllerFaultCleared"), ("SUN-HW-TRAP-MIB", "sunHwTrapDriveControllerError"), ("SUN-HW-TRAP-MIB", "sunHwTrapStorageVolumeFault"), ("SUN-HW-TRAP-MIB", "sunHwTrapStorageVolumeFaultCleared"), ("SUN-HW-TRAP-MIB", "sunHwTrapStorageVolumeError"), ("SUN-HW-TRAP-MIB", "sunHwTrapFaultDiagnosed"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    sunHwTrapNotificationsGroup = sunHwTrapNotificationsGroup.setStatus('current')
+mibBuilder.exportSymbols("SUN-HW-TRAP-MIB", sunHwTrapNotifGroups=sunHwTrapNotifGroups, sunHwTrapElectricalCurrentOk=sunHwTrapElectricalCurrentOk, SunHwTrapDiagEntityTC=SunHwTrapDiagEntityTC, sunHwTrapOldHAState=sunHwTrapOldHAState, SunHwTrapHardDriveStatesTC=SunHwTrapHardDriveStatesTC, sunHwTrapSuspectFruPn=sunHwTrapSuspectFruPn, SunHwTrapHardDriveProbableCauseTC=SunHwTrapHardDriveProbableCauseTC, sunHwTrapComponentEnabled=sunHwTrapComponentEnabled, sunHwTrapFanSpeedFatalThresholdDeasserted=sunHwTrapFanSpeedFatalThresholdDeasserted, sunHwTrapDataTables=sunHwTrapDataTables, sunHwTrapSuspectFruName=sunHwTrapSuspectFruName, sunHwTrapStorageVolumeFaultCleared=sunHwTrapStorageVolumeFaultCleared, SunHwTrapDriveControllerProbableCauseTC=SunHwTrapDriveControllerProbableCauseTC, sunHwTrapPowerSupplyFault=sunHwTrapPowerSupplyFault, sunHwTrapFanFault=sunHwTrapFanFault, sunHwTrapDriveControllerFault=sunHwTrapDriveControllerFault, sunHwTrapProductManufacturer=sunHwTrapProductManufacturer, SunHwTrapSeverityTC=SunHwTrapSeverityTC, sunHwTrapSensorNonCritThresholdExceeded=sunHwTrapSensorNonCritThresholdExceeded, sunHwTrapFaultMessageID=sunHwTrapFaultMessageID, sunHwTrapPreOSError=sunHwTrapPreOSError, sunHwTrapFanSpeedNonCritThresholdExceeded=sunHwTrapFanSpeedNonCritThresholdExceeded, sunHwTrapTempNonCritThresholdExceeded=sunHwTrapTempNonCritThresholdExceeded, SunHwTrapFloatingPointValueTC=SunHwTrapFloatingPointValueTC, sunHwTrapObjectGroups=sunHwTrapObjectGroups, sunHwTrapFanOk=sunHwTrapFanOk, sunHwTrapElectricalCurrentCritThresholdExceeded=sunHwTrapElectricalCurrentCritThresholdExceeded, sunHwTrapTempFatalThresholdDeasserted=sunHwTrapTempFatalThresholdDeasserted, sunHwTrapConformances=sunHwTrapConformances, sunHwTrapFaultClass=sunHwTrapFaultClass, sunHwTrapElectricalCurrentNonCritThresholdExceeded=sunHwTrapElectricalCurrentNonCritThresholdExceeded, sunHwTrapNotificationObjectGroup=sunHwTrapNotificationObjectGroup, sunHwTrapProcessorFaultCleared=sunHwTrapProcessorFaultCleared, sunHwTrapTestTrap=sunHwTrapTestTrap, sunHwTrapSeverity=sunHwTrapSeverity, sunHwTrapHardDriveState=sunHwTrapHardDriveState, sunHwTrapTempOk=sunHwTrapTempOk, sunHwTrapComponentFaultCleared=sunHwTrapComponentFaultCleared, sunHwTrapAdditionalInfo=sunHwTrapAdditionalInfo, sunHwTrapCompliances=sunHwTrapCompliances, sunHwTrapAssocObjectId=sunHwTrapAssocObjectId, sunHwTrapThresholdType=sunHwTrapThresholdType, sunHwTraps=sunHwTraps, sunHwTrapSensorThresholdOk=sunHwTrapSensorThresholdOk, sunHwTrapDriveControllerError=sunHwTrapDriveControllerError, sunHwTrapProcessorFault=sunHwTrapProcessorFault, sunHwTrapHostname=sunHwTrapHostname, sunHwTrapNewHAState=sunHwTrapNewHAState, sunHwTrapPowerSupplyError=sunHwTrapPowerSupplyError, sunHwTrapThresholdValue=sunHwTrapThresholdValue, sunHwTrapSlotOrConnectorOk=sunHwTrapSlotOrConnectorOk, sunHwTrapHAStateChange=sunHwTrapHAStateChange, sunHwTrapSuspectCnt=sunHwTrapSuspectCnt, sunHwTrapSuspectFruFaultCertainty=sunHwTrapSuspectFruFaultCertainty, sunHwTrapObjects=sunHwTrapObjects, sunHwTrapHardDriveProbableCause=sunHwTrapHardDriveProbableCause, sunHwTrapFanError=sunHwTrapFanError, sunHwTrapGroups=sunHwTrapGroups, sunHwTrapSuspectFruRevision=sunHwTrapSuspectFruRevision, sunHwTrapElectricalCurrentFatalThresholdExceeded=sunHwTrapElectricalCurrentFatalThresholdExceeded, sunHwTrapFanSpeedCritThresholdDeasserted=sunHwTrapFanSpeedCritThresholdDeasserted, sunHwTrapFaultDescription=sunHwTrapFaultDescription, sunHwTrapVoltageCritThresholdExceeded=sunHwTrapVoltageCritThresholdExceeded, sunHwTrapHardDriveStatus=sunHwTrapHardDriveStatus, sunHwTrapSuspectFruFaultClass=sunHwTrapSuspectFruFaultClass, sunHwTrapSensorValue=sunHwTrapSensorValue, sunHwTrapComponentName=sunHwTrapComponentName, sunHwTrapDiagEntity=sunHwTrapDiagEntity, sunHwTrapFanSpeedCritThresholdExceeded=sunHwTrapFanSpeedCritThresholdExceeded, sunHwTrapMemoryFaultCleared=sunHwTrapMemoryFaultCleared, sunHwTrapFanSpeedFatalThresholdExceeded=sunHwTrapFanSpeedFatalThresholdExceeded, sunHwTrapNotificationsGroup=sunHwTrapNotificationsGroup, sunHwTrapTestMessage=sunHwTrapTestMessage, sunHwTrapFruRemoved=sunHwTrapFruRemoved, sunHwTrapDisableReason=sunHwTrapDisableReason, sunHwTrapHardDriveFaultCleared=sunHwTrapHardDriveFaultCleared, sunHwTrapProcessorError=sunHwTrapProcessorError, sunHwTrapElectricalCurrentCritThresholdDeasserted=sunHwTrapElectricalCurrentCritThresholdDeasserted, sunHwTrapIOError=sunHwTrapIOError, sunHwTrapSensorFatalThresholdExceeded=sunHwTrapSensorFatalThresholdExceeded, sunHwTrapSensorCritThresholdExceeded=sunHwTrapSensorCritThresholdExceeded, sunHwTrapChassisId=sunHwTrapChassisId, sunHwTrapFruInserted=sunHwTrapFruInserted, sunHwTrapProductName=sunHwTrapProductName, SunHwTrapThresholdTypeTC=SunHwTrapThresholdTypeTC, sunHwTrapSuspectFruManufacturer=sunHwTrapSuspectFruManufacturer, sunHwTrapComponentOk=sunHwTrapComponentOk, sunHwTrapHardDriveError=sunHwTrapHardDriveError, SunHwTrapSuspectFruStatusTC=SunHwTrapSuspectFruStatusTC, sunHwTrapVoltageOk=sunHwTrapVoltageOk, sunHwTrapSensorFatalThresholdDeasserted=sunHwTrapSensorFatalThresholdDeasserted, sun=sun, sunHwTrapFaultDiagnosed=sunHwTrapFaultDiagnosed, sunHwTrapMemoryFault=sunHwTrapMemoryFault, sunHwTrapSensorCritThresholdDeasserted=sunHwTrapSensorCritThresholdDeasserted, sunHwTrapSuspectFruIndex=sunHwTrapSuspectFruIndex, sunHwTrapTempCritThresholdExceeded=sunHwTrapTempCritThresholdExceeded, sunHwTrapPowerSupplyOk=sunHwTrapPowerSupplyOk, sunHwTrapElectricalCurrentFatalThresholdDeasserted=sunHwTrapElectricalCurrentFatalThresholdDeasserted, sunHwTrapSlotOrConnectorFault=sunHwTrapSlotOrConnectorFault, sunHwTrapComponentError=sunHwTrapComponentError, SunHwTrapDisableReasonsTC=SunHwTrapDisableReasonsTC, sunHwTrapEventTime=sunHwTrapEventTime, sunHwTrapKaUrl=sunHwTrapKaUrl, sunHwTrapStorageVolumeProbableCause=sunHwTrapStorageVolumeProbableCause, sunHwTrapVoltageCritThresholdDeasserted=sunHwTrapVoltageCritThresholdDeasserted, sunHwTrapDriveControllerFaultCleared=sunHwTrapDriveControllerFaultCleared, sunHwTrapMemoryOk=sunHwTrapMemoryOk, sunHwTrapSuspectFruSn=sunHwTrapSuspectFruSn, sunHwTrapIOFault=sunHwTrapIOFault, sunHwTrapPrefix=sunHwTrapPrefix, sunHwTrapSuspectTable=sunHwTrapSuspectTable, sunHwTrapVoltageNonCritThresholdExceeded=sunHwTrapVoltageNonCritThresholdExceeded, sunHwTrapProcessorOk=sunHwTrapProcessorOk, sunHwTrapSuspectFruLocation=sunHwTrapSuspectFruLocation, sunHwTrapComponentFault=sunHwTrapComponentFault, sunHwTrapSuspectFruChassisId=sunHwTrapSuspectFruChassisId, sunHwTrapStorageVolumeError=sunHwTrapStorageVolumeError, sunHwTrapTempCritThresholdDeasserted=sunHwTrapTempCritThresholdDeasserted, sunHwTrapHardDriveFault=sunHwTrapHardDriveFault, sunHwTrapVoltageFatalThresholdExceeded=sunHwTrapVoltageFatalThresholdExceeded, sunHwTrapFaultUUID=sunHwTrapFaultUUID, sunHwTrapComponentDisabled=sunHwTrapComponentDisabled, ilom=ilom, sunHwTrapSecurityIntrusion=sunHwTrapSecurityIntrusion, sunHwTrapTempFatalThresholdExceeded=sunHwTrapTempFatalThresholdExceeded, sunHwTrapStorageVolumeFault=sunHwTrapStorageVolumeFault, sunHwTrapProductSn=sunHwTrapProductSn, sunHwTrapVoltageFatalThresholdDeasserted=sunHwTrapVoltageFatalThresholdDeasserted, sunHwTrapSuspectComponentName=sunHwTrapSuspectComponentName, sunHwTrapPowerConsumptionThresholdDeasserted=sunHwTrapPowerConsumptionThresholdDeasserted, sunHwTrapSlotOrConnectorError=sunHwTrapSlotOrConnectorError, sunHwTrapSystemIdentifier=sunHwTrapSystemIdentifier, sunHwTrapDriveControllerProbableCause=sunHwTrapDriveControllerProbableCause, sunHwTrapIOFaultCleared=sunHwTrapIOFaultCleared, sunHwTrapSuspectFruStatus=sunHwTrapSuspectFruStatus, sunHwTrapHardDriveOk=sunHwTrapHardDriveOk, sunHwTrapFanSpeedOk=sunHwTrapFanSpeedOk, sunHwTrapIOOk=sunHwTrapIOOk, sunHwTrapData=sunHwTrapData, sunHwTrapFanFaultCleared=sunHwTrapFanFaultCleared, PYSNMP_MODULE_ID=sunHwTrapMIB, sunHwTrapSlotOrConnectorFaultCleared=sunHwTrapSlotOrConnectorFaultCleared, sunHwTrapPowerSupplyFaultCleared=sunHwTrapPowerSupplyFaultCleared, SunHwTrapStorageVolumeProbableCauseTC=SunHwTrapStorageVolumeProbableCauseTC, sunHwTrapSuspectEntry=sunHwTrapSuspectEntry, products=products, sunHwTrapMemoryError=sunHwTrapMemoryError, sunHwTrapFaultCertainty=sunHwTrapFaultCertainty, sunHwTrapPowerConsumptionThresholdExceeded=sunHwTrapPowerConsumptionThresholdExceeded, sunHwTrapMIB=sunHwTrapMIB, SunHwTrapHAStateTC=SunHwTrapHAStateTC)

@@ -1,78 +1,46 @@
-_J='VlanIdOrAnyOrNone'
-_I='zxPwEnetPwInstance'
-_H='ZXPW-ENET-STD-MIB'
-_G='zxPwIndex'
-_F='ZXPW-STD-MIB'
-_E='StorageType'
-_D='Integer32'
-_C='InterfaceIndexOrZero'
-_B='read-create'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndexOrZero,=mibBuilder.importSymbols('IF-MIB',_C)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_E,'TextualConvention')
-zxAnCesMib,=mibBuilder.importSymbols('ZTE-MASTER-MIB','zxAnCesMib')
-zxPwIndex,=mibBuilder.importSymbols(_F,_G)
-zxPwEnetStdMIB=ModuleIdentity((1,3,6,1,4,1,3902,1015,1013,23))
-class VlanIdOrAnyOrNone(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,4094),ValueRangeConstraint(4095,4095))
-_ZxPwEnetObjects_ObjectIdentity=ObjectIdentity
-zxPwEnetObjects=_ZxPwEnetObjects_ObjectIdentity((1,3,6,1,4,1,3902,1015,1013,23,1))
-_ZxPwEnetTable_Object=MibTable
-zxPwEnetTable=_ZxPwEnetTable_Object((1,3,6,1,4,1,3902,1015,1013,23,1,1))
-if mibBuilder.loadTexts:zxPwEnetTable.setStatus(_A)
-_ZxPwEnetEntry_Object=MibTableRow
-zxPwEnetEntry=_ZxPwEnetEntry_Object((1,3,6,1,4,1,3902,1015,1013,23,1,1,1))
-zxPwEnetEntry.setIndexNames((0,_F,_G),(0,_H,_I))
-if mibBuilder.loadTexts:zxPwEnetEntry.setStatus(_A)
-_ZxPwEnetPwInstance_Type=Unsigned32
-_ZxPwEnetPwInstance_Object=MibTableColumn
-zxPwEnetPwInstance=_ZxPwEnetPwInstance_Object((1,3,6,1,4,1,3902,1015,1013,23,1,1,1,1),_ZxPwEnetPwInstance_Type())
-zxPwEnetPwInstance.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:zxPwEnetPwInstance.setStatus(_A)
-_ZxPwEnetPwVlan_Type=VlanIdOrAnyOrNone
-_ZxPwEnetPwVlan_Object=MibTableColumn
-zxPwEnetPwVlan=_ZxPwEnetPwVlan_Object((1,3,6,1,4,1,3902,1015,1013,23,1,1,1,2),_ZxPwEnetPwVlan_Type())
-zxPwEnetPwVlan.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxPwEnetPwVlan.setStatus(_A)
-class _ZxPwEnetVlanMode_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*(('other',0),('portBased',1),('noChange',2),('changeVlan',3),('addVlan',4),('removeVlan',5)))
-_ZxPwEnetVlanMode_Type.__name__=_D
-_ZxPwEnetVlanMode_Object=MibTableColumn
-zxPwEnetVlanMode=_ZxPwEnetVlanMode_Object((1,3,6,1,4,1,3902,1015,1013,23,1,1,1,3),_ZxPwEnetVlanMode_Type())
-zxPwEnetVlanMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxPwEnetVlanMode.setStatus(_A)
-class _ZxPwEnetPortVlan_Type(VlanIdOrAnyOrNone):defaultValue=4095
-_ZxPwEnetPortVlan_Type.__name__=_J
-_ZxPwEnetPortVlan_Object=MibTableColumn
-zxPwEnetPortVlan=_ZxPwEnetPortVlan_Object((1,3,6,1,4,1,3902,1015,1013,23,1,1,1,4),_ZxPwEnetPortVlan_Type())
-zxPwEnetPortVlan.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxPwEnetPortVlan.setStatus(_A)
-_ZxPwEnetPortIfIndex_Type=InterfaceIndexOrZero
-_ZxPwEnetPortIfIndex_Object=MibTableColumn
-zxPwEnetPortIfIndex=_ZxPwEnetPortIfIndex_Object((1,3,6,1,4,1,3902,1015,1013,23,1,1,1,5),_ZxPwEnetPortIfIndex_Type())
-zxPwEnetPortIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxPwEnetPortIfIndex.setStatus(_A)
-class _ZxPwEnetPwIfIndex_Type(InterfaceIndexOrZero):defaultValue=0
-_ZxPwEnetPwIfIndex_Type.__name__=_C
-_ZxPwEnetPwIfIndex_Object=MibTableColumn
-zxPwEnetPwIfIndex=_ZxPwEnetPwIfIndex_Object((1,3,6,1,4,1,3902,1015,1013,23,1,1,1,6),_ZxPwEnetPwIfIndex_Type())
-zxPwEnetPwIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxPwEnetPwIfIndex.setStatus(_A)
-_ZxPwEnetRowStatus_Type=RowStatus
-_ZxPwEnetRowStatus_Object=MibTableColumn
-zxPwEnetRowStatus=_ZxPwEnetRowStatus_Object((1,3,6,1,4,1,3902,1015,1013,23,1,1,1,7),_ZxPwEnetRowStatus_Type())
-zxPwEnetRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxPwEnetRowStatus.setStatus(_A)
-class _ZxPwEnetStorageType_Type(StorageType):defaultValue=3
-_ZxPwEnetStorageType_Type.__name__=_E
-_ZxPwEnetStorageType_Object=MibTableColumn
-zxPwEnetStorageType=_ZxPwEnetStorageType_Object((1,3,6,1,4,1,3902,1015,1013,23,1,1,1,8),_ZxPwEnetStorageType_Type())
-zxPwEnetStorageType.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxPwEnetStorageType.setStatus(_A)
-_ZxPwEnetConformance_ObjectIdentity=ObjectIdentity
-zxPwEnetConformance=_ZxPwEnetConformance_ObjectIdentity((1,3,6,1,4,1,3902,1015,1013,23,2))
-mibBuilder.exportSymbols(_H,**{_J:VlanIdOrAnyOrNone,'zxPwEnetStdMIB':zxPwEnetStdMIB,'zxPwEnetObjects':zxPwEnetObjects,'zxPwEnetTable':zxPwEnetTable,'zxPwEnetEntry':zxPwEnetEntry,_I:zxPwEnetPwInstance,'zxPwEnetPwVlan':zxPwEnetPwVlan,'zxPwEnetVlanMode':zxPwEnetVlanMode,'zxPwEnetPortVlan':zxPwEnetPortVlan,'zxPwEnetPortIfIndex':zxPwEnetPortIfIndex,'zxPwEnetPwIfIndex':zxPwEnetPwIfIndex,'zxPwEnetRowStatus':zxPwEnetRowStatus,'zxPwEnetStorageType':zxPwEnetStorageType,'zxPwEnetConformance':zxPwEnetConformance})
+#
+# PySNMP MIB module ZXPW-ENET-STD-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZXPW-ENET-STD-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:45 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention, RowStatus, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus", "StorageType")
+zxAnCesMib, = mibBuilder.importSymbols("ZTE-MASTER-MIB", "zxAnCesMib")
+zxPwIndex, = mibBuilder.importSymbols("ZXPW-STD-MIB", "zxPwIndex")
+zxPwEnetStdMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 23))
+if mibBuilder.loadTexts: zxPwEnetStdMIB.setLastUpdated('200905150000Z')
+if mibBuilder.loadTexts: zxPwEnetStdMIB.setOrganization('Zhongxing Telcom Co. Ltd.')
+zxPwEnetObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 23, 1))
+zxPwEnetConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 23, 2))
+class VlanIdOrAnyOrNone(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 4094), ValueRangeConstraint(4095, 4095), )
+zxPwEnetTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 23, 1, 1), )
+if mibBuilder.loadTexts: zxPwEnetTable.setStatus('current')
+zxPwEnetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 23, 1, 1, 1), ).setIndexNames((0, "ZXPW-STD-MIB", "zxPwIndex"), (0, "ZXPW-ENET-STD-MIB", "zxPwEnetPwInstance"))
+if mibBuilder.loadTexts: zxPwEnetEntry.setStatus('current')
+zxPwEnetPwInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 23, 1, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: zxPwEnetPwInstance.setStatus('current')
+zxPwEnetPwVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 23, 1, 1, 1, 2), VlanIdOrAnyOrNone()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxPwEnetPwVlan.setStatus('current')
+zxPwEnetVlanMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 23, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("other", 0), ("portBased", 1), ("noChange", 2), ("changeVlan", 3), ("addVlan", 4), ("removeVlan", 5))).clone('noChange')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxPwEnetVlanMode.setStatus('current')
+zxPwEnetPortVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 23, 1, 1, 1, 4), VlanIdOrAnyOrNone().clone(4095)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxPwEnetPortVlan.setStatus('current')
+zxPwEnetPortIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 23, 1, 1, 1, 5), InterfaceIndexOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxPwEnetPortIfIndex.setStatus('current')
+zxPwEnetPwIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 23, 1, 1, 1, 6), InterfaceIndexOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxPwEnetPwIfIndex.setStatus('current')
+zxPwEnetRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 23, 1, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxPwEnetRowStatus.setStatus('current')
+zxPwEnetStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 23, 1, 1, 1, 8), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxPwEnetStorageType.setStatus('current')
+mibBuilder.exportSymbols("ZXPW-ENET-STD-MIB", zxPwEnetObjects=zxPwEnetObjects, zxPwEnetEntry=zxPwEnetEntry, PYSNMP_MODULE_ID=zxPwEnetStdMIB, zxPwEnetConformance=zxPwEnetConformance, zxPwEnetPwIfIndex=zxPwEnetPwIfIndex, zxPwEnetRowStatus=zxPwEnetRowStatus, zxPwEnetPwInstance=zxPwEnetPwInstance, zxPwEnetStdMIB=zxPwEnetStdMIB, zxPwEnetStorageType=zxPwEnetStorageType, zxPwEnetVlanMode=zxPwEnetVlanMode, zxPwEnetPortIfIndex=zxPwEnetPortIfIndex, VlanIdOrAnyOrNone=VlanIdOrAnyOrNone, zxPwEnetPwVlan=zxPwEnetPwVlan, zxPwEnetPortVlan=zxPwEnetPortVlan, zxPwEnetTable=zxPwEnetTable)

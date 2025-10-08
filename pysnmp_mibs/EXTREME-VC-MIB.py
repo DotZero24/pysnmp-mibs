@@ -1,37 +1,29 @@
-_D='ifIndex'
-_C='IF-MIB'
-_B='read-only'
-_A='deprecated'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-extremeAgent,=mibBuilder.importSymbols('EXTREME-BASE-MIB','extremeAgent')
-ifIndex,=mibBuilder.importSymbols(_C,_D)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-extremeVC=ModuleIdentity((1,3,6,1,4,1,1916,1,5))
-_ExtremeVCLinkTable_Object=MibTable
-extremeVCLinkTable=_ExtremeVCLinkTable_Object((1,3,6,1,4,1,1916,1,5,1))
-if mibBuilder.loadTexts:extremeVCLinkTable.setStatus(_A)
-_ExtremeVCLinkEntry_Object=MibTableRow
-extremeVCLinkEntry=_ExtremeVCLinkEntry_Object((1,3,6,1,4,1,1916,1,5,1,1))
-extremeVCLinkEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:extremeVCLinkEntry.setStatus(_A)
-_ExtremeVCLinkValid_Type=TruthValue
-_ExtremeVCLinkValid_Object=MibTableColumn
-extremeVCLinkValid=_ExtremeVCLinkValid_Object((1,3,6,1,4,1,1916,1,5,1,1,1),_ExtremeVCLinkValid_Type())
-extremeVCLinkValid.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeVCLinkValid.setStatus(_A)
-_ExtremeVCLinkDeviceId_Type=Integer32
-_ExtremeVCLinkDeviceId_Object=MibTableColumn
-extremeVCLinkDeviceId=_ExtremeVCLinkDeviceId_Object((1,3,6,1,4,1,1916,1,5,1,1,2),_ExtremeVCLinkDeviceId_Type())
-extremeVCLinkDeviceId.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeVCLinkDeviceId.setStatus(_A)
-_ExtremeVCLinkPortIndex_Type=Integer32
-_ExtremeVCLinkPortIndex_Object=MibTableColumn
-extremeVCLinkPortIndex=_ExtremeVCLinkPortIndex_Object((1,3,6,1,4,1,1916,1,5,1,1,3),_ExtremeVCLinkPortIndex_Type())
-extremeVCLinkPortIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeVCLinkPortIndex.setStatus(_A)
-mibBuilder.exportSymbols('EXTREME-VC-MIB',**{'extremeVC':extremeVC,'extremeVCLinkTable':extremeVCLinkTable,'extremeVCLinkEntry':extremeVCLinkEntry,'extremeVCLinkValid':extremeVCLinkValid,'extremeVCLinkDeviceId':extremeVCLinkDeviceId,'extremeVCLinkPortIndex':extremeVCLinkPortIndex})
+#
+# PySNMP MIB module EXTREME-VC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/extreme/EXTREME-VC-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:55 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+extremeAgent, = mibBuilder.importSymbols("EXTREME-BASE-MIB", "extremeAgent")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+extremeVC = ModuleIdentity((1, 3, 6, 1, 4, 1, 1916, 1, 5))
+if mibBuilder.loadTexts: extremeVC.setLastUpdated('9801090000Z')
+if mibBuilder.loadTexts: extremeVC.setOrganization('Extreme Networks, Inc.')
+extremeVCLinkTable = MibTable((1, 3, 6, 1, 4, 1, 1916, 1, 5, 1), )
+if mibBuilder.loadTexts: extremeVCLinkTable.setStatus('deprecated')
+extremeVCLinkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1916, 1, 5, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: extremeVCLinkEntry.setStatus('deprecated')
+extremeVCLinkValid = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 5, 1, 1, 1), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeVCLinkValid.setStatus('deprecated')
+extremeVCLinkDeviceId = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 5, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeVCLinkDeviceId.setStatus('deprecated')
+extremeVCLinkPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 5, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeVCLinkPortIndex.setStatus('deprecated')
+mibBuilder.exportSymbols("EXTREME-VC-MIB", extremeVCLinkPortIndex=extremeVCLinkPortIndex, extremeVCLinkValid=extremeVCLinkValid, extremeVCLinkTable=extremeVCLinkTable, extremeVC=extremeVC, extremeVCLinkDeviceId=extremeVCLinkDeviceId, PYSNMP_MODULE_ID=extremeVC, extremeVCLinkEntry=extremeVCLinkEntry)

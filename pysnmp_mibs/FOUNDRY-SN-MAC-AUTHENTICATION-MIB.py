@@ -1,126 +1,60 @@
-_P='snMacAuthClearMacSessionMac'
-_O='snMacAuthClearMacSessionIfIndex'
-_N='snMacAuthMac'
-_M='snMacAuthVlanId'
-_L='snMacAuthIfIndex'
-_K='snMacAuthClearIfCmdIfIndex'
-_J='enabled'
-_I='disabled'
-_H='clear'
-_G='valid'
-_F='read-only'
-_E='read-write'
-_D='not-accessible'
-_C='FOUNDRY-SN-MAC-AUTHENTICATION-MIB'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention','TimeStamp')
-snMacAuth=ModuleIdentity((1,3,6,1,4,1,1991,1,1,3,28))
-if mibBuilder.loadTexts:snMacAuth.setRevisions(('2007-06-25 00:00','2017-08-07 00:00'))
-_SnMacAuthGlobal_ObjectIdentity=ObjectIdentity
-snMacAuthGlobal=_SnMacAuthGlobal_ObjectIdentity((1,3,6,1,4,1,1991,1,1,3,28,1))
-class _SnMacAuthClearGlobalCmd_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_H,1)))
-_SnMacAuthClearGlobalCmd_Type.__name__=_B
-_SnMacAuthClearGlobalCmd_Object=MibScalar
-snMacAuthClearGlobalCmd=_SnMacAuthClearGlobalCmd_Object((1,3,6,1,4,1,1991,1,1,3,28,1,1),_SnMacAuthClearGlobalCmd_Type())
-snMacAuthClearGlobalCmd.setMaxAccess(_E)
-if mibBuilder.loadTexts:snMacAuthClearGlobalCmd.setStatus(_A)
-class _SnMacAuthGlobalConfigState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_SnMacAuthGlobalConfigState_Type.__name__=_B
-_SnMacAuthGlobalConfigState_Object=MibScalar
-snMacAuthGlobalConfigState=_SnMacAuthGlobalConfigState_Object((1,3,6,1,4,1,1991,1,1,3,28,1,2),_SnMacAuthGlobalConfigState_Type())
-snMacAuthGlobalConfigState.setMaxAccess(_E)
-if mibBuilder.loadTexts:snMacAuthGlobalConfigState.setStatus(_A)
-_SnMacAuthClearIfCmdTable_Object=MibTable
-snMacAuthClearIfCmdTable=_SnMacAuthClearIfCmdTable_Object((1,3,6,1,4,1,1991,1,1,3,28,2))
-if mibBuilder.loadTexts:snMacAuthClearIfCmdTable.setStatus(_A)
-_SnMacAuthClearIfCmdEntry_Object=MibTableRow
-snMacAuthClearIfCmdEntry=_SnMacAuthClearIfCmdEntry_Object((1,3,6,1,4,1,1991,1,1,3,28,2,1))
-snMacAuthClearIfCmdEntry.setIndexNames((0,_C,_K))
-if mibBuilder.loadTexts:snMacAuthClearIfCmdEntry.setStatus(_A)
-_SnMacAuthClearIfCmdIfIndex_Type=InterfaceIndex
-_SnMacAuthClearIfCmdIfIndex_Object=MibTableColumn
-snMacAuthClearIfCmdIfIndex=_SnMacAuthClearIfCmdIfIndex_Object((1,3,6,1,4,1,1991,1,1,3,28,2,1,1),_SnMacAuthClearIfCmdIfIndex_Type())
-snMacAuthClearIfCmdIfIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:snMacAuthClearIfCmdIfIndex.setStatus(_A)
-class _SnMacAuthClearIfCmdAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_H,1)))
-_SnMacAuthClearIfCmdAction_Type.__name__=_B
-_SnMacAuthClearIfCmdAction_Object=MibTableColumn
-snMacAuthClearIfCmdAction=_SnMacAuthClearIfCmdAction_Object((1,3,6,1,4,1,1991,1,1,3,28,2,1,2),_SnMacAuthClearIfCmdAction_Type())
-snMacAuthClearIfCmdAction.setMaxAccess(_E)
-if mibBuilder.loadTexts:snMacAuthClearIfCmdAction.setStatus(_A)
-_SnMacAuthTable_Object=MibTable
-snMacAuthTable=_SnMacAuthTable_Object((1,3,6,1,4,1,1991,1,1,3,28,3))
-if mibBuilder.loadTexts:snMacAuthTable.setStatus(_A)
-_SnMacAuthEntry_Object=MibTableRow
-snMacAuthEntry=_SnMacAuthEntry_Object((1,3,6,1,4,1,1991,1,1,3,28,3,1))
-snMacAuthEntry.setIndexNames((0,_C,_L),(0,_C,_M),(0,_C,_N))
-if mibBuilder.loadTexts:snMacAuthEntry.setStatus(_A)
-_SnMacAuthIfIndex_Type=InterfaceIndex
-_SnMacAuthIfIndex_Object=MibTableColumn
-snMacAuthIfIndex=_SnMacAuthIfIndex_Object((1,3,6,1,4,1,1991,1,1,3,28,3,1,1),_SnMacAuthIfIndex_Type())
-snMacAuthIfIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:snMacAuthIfIndex.setStatus(_A)
-_SnMacAuthVlanId_Type=Integer32
-_SnMacAuthVlanId_Object=MibTableColumn
-snMacAuthVlanId=_SnMacAuthVlanId_Object((1,3,6,1,4,1,1991,1,1,3,28,3,1,2),_SnMacAuthVlanId_Type())
-snMacAuthVlanId.setMaxAccess(_D)
-if mibBuilder.loadTexts:snMacAuthVlanId.setStatus(_A)
-_SnMacAuthMac_Type=MacAddress
-_SnMacAuthMac_Object=MibTableColumn
-snMacAuthMac=_SnMacAuthMac_Object((1,3,6,1,4,1,1991,1,1,3,28,3,1,3),_SnMacAuthMac_Type())
-snMacAuthMac.setMaxAccess(_D)
-if mibBuilder.loadTexts:snMacAuthMac.setStatus(_A)
-class _SnMacAuthState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('authenticate',1),('unauthenticate',2)))
-_SnMacAuthState_Type.__name__=_B
-_SnMacAuthState_Object=MibTableColumn
-snMacAuthState=_SnMacAuthState_Object((1,3,6,1,4,1,1991,1,1,3,28,3,1,4),_SnMacAuthState_Type())
-snMacAuthState.setMaxAccess(_F)
-if mibBuilder.loadTexts:snMacAuthState.setStatus(_A)
-_SnMacAuthTimeStamp_Type=TimeStamp
-_SnMacAuthTimeStamp_Object=MibTableColumn
-snMacAuthTimeStamp=_SnMacAuthTimeStamp_Object((1,3,6,1,4,1,1991,1,1,3,28,3,1,5),_SnMacAuthTimeStamp_Type())
-snMacAuthTimeStamp.setMaxAccess(_F)
-if mibBuilder.loadTexts:snMacAuthTimeStamp.setStatus(_A)
-_SnMacAuthAge_Type=Integer32
-_SnMacAuthAge_Object=MibTableColumn
-snMacAuthAge=_SnMacAuthAge_Object((1,3,6,1,4,1,1991,1,1,3,28,3,1,6),_SnMacAuthAge_Type())
-snMacAuthAge.setMaxAccess(_F)
-if mibBuilder.loadTexts:snMacAuthAge.setStatus(_A)
-class _SnMacAuthDot1x_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_SnMacAuthDot1x_Type.__name__=_B
-_SnMacAuthDot1x_Object=MibTableColumn
-snMacAuthDot1x=_SnMacAuthDot1x_Object((1,3,6,1,4,1,1991,1,1,3,28,3,1,7),_SnMacAuthDot1x_Type())
-snMacAuthDot1x.setMaxAccess(_F)
-if mibBuilder.loadTexts:snMacAuthDot1x.setStatus(_A)
-_SnMacAuthClearMacSessionTable_Object=MibTable
-snMacAuthClearMacSessionTable=_SnMacAuthClearMacSessionTable_Object((1,3,6,1,4,1,1991,1,1,3,28,4))
-if mibBuilder.loadTexts:snMacAuthClearMacSessionTable.setStatus(_A)
-_SnMacAuthClearMacSessionEntry_Object=MibTableRow
-snMacAuthClearMacSessionEntry=_SnMacAuthClearMacSessionEntry_Object((1,3,6,1,4,1,1991,1,1,3,28,4,1))
-snMacAuthClearMacSessionEntry.setIndexNames((0,_C,_O),(0,_C,_P))
-if mibBuilder.loadTexts:snMacAuthClearMacSessionEntry.setStatus(_A)
-_SnMacAuthClearMacSessionIfIndex_Type=InterfaceIndex
-_SnMacAuthClearMacSessionIfIndex_Object=MibTableColumn
-snMacAuthClearMacSessionIfIndex=_SnMacAuthClearMacSessionIfIndex_Object((1,3,6,1,4,1,1991,1,1,3,28,4,1,1),_SnMacAuthClearMacSessionIfIndex_Type())
-snMacAuthClearMacSessionIfIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:snMacAuthClearMacSessionIfIndex.setStatus(_A)
-_SnMacAuthClearMacSessionMac_Type=MacAddress
-_SnMacAuthClearMacSessionMac_Object=MibTableColumn
-snMacAuthClearMacSessionMac=_SnMacAuthClearMacSessionMac_Object((1,3,6,1,4,1,1991,1,1,3,28,4,1,2),_SnMacAuthClearMacSessionMac_Type())
-snMacAuthClearMacSessionMac.setMaxAccess(_D)
-if mibBuilder.loadTexts:snMacAuthClearMacSessionMac.setStatus(_A)
-class _SnMacAuthClearMacSessionAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_H,1)))
-_SnMacAuthClearMacSessionAction_Type.__name__=_B
-_SnMacAuthClearMacSessionAction_Object=MibTableColumn
-snMacAuthClearMacSessionAction=_SnMacAuthClearMacSessionAction_Object((1,3,6,1,4,1,1991,1,1,3,28,4,1,3),_SnMacAuthClearMacSessionAction_Type())
-snMacAuthClearMacSessionAction.setMaxAccess(_E)
-if mibBuilder.loadTexts:snMacAuthClearMacSessionAction.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'snMacAuth':snMacAuth,'snMacAuthGlobal':snMacAuthGlobal,'snMacAuthClearGlobalCmd':snMacAuthClearGlobalCmd,'snMacAuthGlobalConfigState':snMacAuthGlobalConfigState,'snMacAuthClearIfCmdTable':snMacAuthClearIfCmdTable,'snMacAuthClearIfCmdEntry':snMacAuthClearIfCmdEntry,_K:snMacAuthClearIfCmdIfIndex,'snMacAuthClearIfCmdAction':snMacAuthClearIfCmdAction,'snMacAuthTable':snMacAuthTable,'snMacAuthEntry':snMacAuthEntry,_L:snMacAuthIfIndex,_M:snMacAuthVlanId,_N:snMacAuthMac,'snMacAuthState':snMacAuthState,'snMacAuthTimeStamp':snMacAuthTimeStamp,'snMacAuthAge':snMacAuthAge,'snMacAuthDot1x':snMacAuthDot1x,'snMacAuthClearMacSessionTable':snMacAuthClearMacSessionTable,'snMacAuthClearMacSessionEntry':snMacAuthClearMacSessionEntry,_O:snMacAuthClearMacSessionIfIndex,_P:snMacAuthClearMacSessionMac,'snMacAuthClearMacSessionAction':snMacAuthClearMacSessionAction})
+#
+# PySNMP MIB module FOUNDRY-SN-MAC-AUTHENTICATION-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/brocade/FOUNDRY-SN-MAC-AUTHENTICATION-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:59 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "MacAddress", "TextualConvention")
+snMacAuth = ModuleIdentity((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28))
+snMacAuth.setRevisions(('2007-06-25 00:00', '2017-08-07 00:00',))
+if mibBuilder.loadTexts: snMacAuth.setLastUpdated('200706250000Z')
+if mibBuilder.loadTexts: snMacAuth.setOrganization('Ruckus Wireless, Inc.')
+snMacAuthGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 1))
+snMacAuthClearGlobalCmd = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("valid", 0), ("clear", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: snMacAuthClearGlobalCmd.setStatus('current')
+snMacAuthGlobalConfigState = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: snMacAuthGlobalConfigState.setStatus('current')
+snMacAuthClearIfCmdTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 2), )
+if mibBuilder.loadTexts: snMacAuthClearIfCmdTable.setStatus('current')
+snMacAuthClearIfCmdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 2, 1), ).setIndexNames((0, "FOUNDRY-SN-MAC-AUTHENTICATION-MIB", "snMacAuthClearIfCmdIfIndex"))
+if mibBuilder.loadTexts: snMacAuthClearIfCmdEntry.setStatus('current')
+snMacAuthClearIfCmdIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 2, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: snMacAuthClearIfCmdIfIndex.setStatus('current')
+snMacAuthClearIfCmdAction = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("valid", 0), ("clear", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: snMacAuthClearIfCmdAction.setStatus('current')
+snMacAuthTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 3), )
+if mibBuilder.loadTexts: snMacAuthTable.setStatus('current')
+snMacAuthEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 3, 1), ).setIndexNames((0, "FOUNDRY-SN-MAC-AUTHENTICATION-MIB", "snMacAuthIfIndex"), (0, "FOUNDRY-SN-MAC-AUTHENTICATION-MIB", "snMacAuthVlanId"), (0, "FOUNDRY-SN-MAC-AUTHENTICATION-MIB", "snMacAuthMac"))
+if mibBuilder.loadTexts: snMacAuthEntry.setStatus('current')
+snMacAuthIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 3, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: snMacAuthIfIndex.setStatus('current')
+snMacAuthVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 3, 1, 2), Integer32())
+if mibBuilder.loadTexts: snMacAuthVlanId.setStatus('current')
+snMacAuthMac = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 3, 1, 3), MacAddress())
+if mibBuilder.loadTexts: snMacAuthMac.setStatus('current')
+snMacAuthState = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("authenticate", 1), ("unauthenticate", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snMacAuthState.setStatus('current')
+snMacAuthTimeStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 3, 1, 5), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snMacAuthTimeStamp.setStatus('current')
+snMacAuthAge = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 3, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snMacAuthAge.setStatus('current')
+snMacAuthDot1x = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snMacAuthDot1x.setStatus('current')
+snMacAuthClearMacSessionTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 4), )
+if mibBuilder.loadTexts: snMacAuthClearMacSessionTable.setStatus('current')
+snMacAuthClearMacSessionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 4, 1), ).setIndexNames((0, "FOUNDRY-SN-MAC-AUTHENTICATION-MIB", "snMacAuthClearMacSessionIfIndex"), (0, "FOUNDRY-SN-MAC-AUTHENTICATION-MIB", "snMacAuthClearMacSessionMac"))
+if mibBuilder.loadTexts: snMacAuthClearMacSessionEntry.setStatus('current')
+snMacAuthClearMacSessionIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 4, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: snMacAuthClearMacSessionIfIndex.setStatus('current')
+snMacAuthClearMacSessionMac = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 4, 1, 2), MacAddress())
+if mibBuilder.loadTexts: snMacAuthClearMacSessionMac.setStatus('current')
+snMacAuthClearMacSessionAction = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("valid", 0), ("clear", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: snMacAuthClearMacSessionAction.setStatus('current')
+mibBuilder.exportSymbols("FOUNDRY-SN-MAC-AUTHENTICATION-MIB", PYSNMP_MODULE_ID=snMacAuth, snMacAuthMac=snMacAuthMac, snMacAuthAge=snMacAuthAge, snMacAuthClearMacSessionIfIndex=snMacAuthClearMacSessionIfIndex, snMacAuthIfIndex=snMacAuthIfIndex, snMacAuthClearIfCmdEntry=snMacAuthClearIfCmdEntry, snMacAuthClearIfCmdTable=snMacAuthClearIfCmdTable, snMacAuthDot1x=snMacAuthDot1x, snMacAuthEntry=snMacAuthEntry, snMacAuthTimeStamp=snMacAuthTimeStamp, snMacAuthClearIfCmdIfIndex=snMacAuthClearIfCmdIfIndex, snMacAuthState=snMacAuthState, snMacAuth=snMacAuth, snMacAuthClearMacSessionTable=snMacAuthClearMacSessionTable, snMacAuthTable=snMacAuthTable, snMacAuthGlobalConfigState=snMacAuthGlobalConfigState, snMacAuthClearMacSessionEntry=snMacAuthClearMacSessionEntry, snMacAuthClearIfCmdAction=snMacAuthClearIfCmdAction, snMacAuthVlanId=snMacAuthVlanId, snMacAuthClearGlobalCmd=snMacAuthClearGlobalCmd, snMacAuthClearMacSessionAction=snMacAuthClearMacSessionAction, snMacAuthClearMacSessionMac=snMacAuthClearMacSessionMac, snMacAuthGlobal=snMacAuthGlobal)

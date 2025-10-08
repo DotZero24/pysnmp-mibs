@@ -1,192 +1,82 @@
-_i='qtechmplsL3VpnVrfBgpGroup'
-_h='qtechmplsL3VpnVrfBgpPAtrUnknown'
-_g='qtechmplsL3VpnVrfBgpPAtrBest'
-_f='qtechmplsL3VpnVrfBgpPAtrCalcLocalPref'
-_e='qtechmplsL3VpnVrfBgpPAtrAggregatorAddr'
-_d='qtechmplsL3VpnVrfBgpPAtrAggrAddrType'
-_c='qtechmplsL3VpnVrfBgpPAtrAggregatorAS'
-_b='qtechmplsL3VpnVrfBgpPAtrAtomicAggregate'
-_a='qtechmplsL3VpnVrfBgpPAtrLocalPref'
-_Z='qtechmplsL3VpnVrfBgpPAtrMultiExitDisc'
-_Y='qtechmplsL3VpnVrfBgpPAtrNextHop'
-_X='qtechmplsL3VpnVrfBgpPAtrNextHopType'
-_W='qtechmplsL3VpnVrfBgpPAtrASPathSegment'
-_V='qtechmplsL3VpnVrfBgpPAtrOrigin'
-_U='qtechmplsL3VpnVrfBgpPAtrIpAddrPfxType'
-_T='qtechmplsL3VpnVrfBgpPAtrPeerType'
-_S='qtechmplsL3VpnVrfBgpNbrRemoteAS'
-_R='qtechmplsL3VpnVrfBgpNbrStorageType'
-_Q='qtechmplsL3VpnVrfBgpNbrRowStatus'
-_P='qtechmplsL3VpnVrfBgpNbrType'
-_O='qtechmplsL3VpnVrfBgpNbrRole'
-_N='read-write'
-_M='StorageType'
-_L='bgp4PathAttrPeer'
-_K='bgp4PathAttrIpAddrPrefixLen'
-_J='bgp4PathAttrIpAddrPrefix'
-_I='qtechmplsL3VpnVrfBgpNbrAddr'
-_H='mplsL3VpnVrfName'
-_G='MPLS-L3VPN-STD-MIB'
-_F='OctetString'
-_E='BGP4-MIB'
-_D='Integer32'
-_C='read-only'
-_B='QTECH-MPLS-L3VPN-BGP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_F,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-bgp4PathAttrIpAddrPrefix,bgp4PathAttrIpAddrPrefixLen,bgp4PathAttrPeer=mibBuilder.importSymbols(_E,_J,_K,_L)
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-mplsL3VpnVrfName,=mibBuilder.importSymbols(_G,_H)
-qtechMgmt,=mibBuilder.importSymbols('QTECH-SMI','qtechMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_M,'TextualConvention')
-qtechmplsL3VpnNbrMIB=ModuleIdentity((1,3,6,1,4,1,27514,1,1,10,2,100))
-if mibBuilder.loadTexts:qtechmplsL3VpnNbrMIB.setRevisions(('2011-09-16 00:00',))
-_QtechmplsL3VpnVrfBgpNbrTable_Object=MibTable
-qtechmplsL3VpnVrfBgpNbrTable=_QtechmplsL3VpnVrfBgpNbrTable_Object((1,3,6,1,4,1,27514,1,1,10,2,100,1))
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpNbrTable.setStatus(_A)
-_QtechmplsL3VpnVrfBgpNbrEntry_Object=MibTableRow
-qtechmplsL3VpnVrfBgpNbrEntry=_QtechmplsL3VpnVrfBgpNbrEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,100,1,1))
-qtechmplsL3VpnVrfBgpNbrEntry.setIndexNames((0,_G,_H),(0,_B,_I))
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpNbrEntry.setStatus(_A)
-class _QtechmplsL3VpnVrfBgpNbrRole_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ce',1),('pe',2)))
-_QtechmplsL3VpnVrfBgpNbrRole_Type.__name__=_D
-_QtechmplsL3VpnVrfBgpNbrRole_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpNbrRole=_QtechmplsL3VpnVrfBgpNbrRole_Object((1,3,6,1,4,1,27514,1,1,10,2,100,1,1,1),_QtechmplsL3VpnVrfBgpNbrRole_Type())
-qtechmplsL3VpnVrfBgpNbrRole.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpNbrRole.setStatus(_A)
-_QtechmplsL3VpnVrfBgpNbrType_Type=InetAddressType
-_QtechmplsL3VpnVrfBgpNbrType_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpNbrType=_QtechmplsL3VpnVrfBgpNbrType_Object((1,3,6,1,4,1,27514,1,1,10,2,100,1,1,2),_QtechmplsL3VpnVrfBgpNbrType_Type())
-qtechmplsL3VpnVrfBgpNbrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpNbrType.setStatus(_A)
-_QtechmplsL3VpnVrfBgpNbrAddr_Type=InetAddress
-_QtechmplsL3VpnVrfBgpNbrAddr_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpNbrAddr=_QtechmplsL3VpnVrfBgpNbrAddr_Object((1,3,6,1,4,1,27514,1,1,10,2,100,1,1,3),_QtechmplsL3VpnVrfBgpNbrAddr_Type())
-qtechmplsL3VpnVrfBgpNbrAddr.setMaxAccess(_N)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpNbrAddr.setStatus(_A)
-_QtechmplsL3VpnVrfBgpNbrRowStatus_Type=RowStatus
-_QtechmplsL3VpnVrfBgpNbrRowStatus_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpNbrRowStatus=_QtechmplsL3VpnVrfBgpNbrRowStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,100,1,1,4),_QtechmplsL3VpnVrfBgpNbrRowStatus_Type())
-qtechmplsL3VpnVrfBgpNbrRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpNbrRowStatus.setStatus(_A)
-class _QtechmplsL3VpnVrfBgpNbrStorageType_Type(StorageType):defaultValue=2
-_QtechmplsL3VpnVrfBgpNbrStorageType_Type.__name__=_M
-_QtechmplsL3VpnVrfBgpNbrStorageType_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpNbrStorageType=_QtechmplsL3VpnVrfBgpNbrStorageType_Object((1,3,6,1,4,1,27514,1,1,10,2,100,1,1,5),_QtechmplsL3VpnVrfBgpNbrStorageType_Type())
-qtechmplsL3VpnVrfBgpNbrStorageType.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpNbrStorageType.setStatus(_A)
-class _QtechmplsL3VpnVrfBgpNbrRemoteAS_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_QtechmplsL3VpnVrfBgpNbrRemoteAS_Type.__name__=_D
-_QtechmplsL3VpnVrfBgpNbrRemoteAS_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpNbrRemoteAS=_QtechmplsL3VpnVrfBgpNbrRemoteAS_Object((1,3,6,1,4,1,27514,1,1,10,2,100,1,1,6),_QtechmplsL3VpnVrfBgpNbrRemoteAS_Type())
-qtechmplsL3VpnVrfBgpNbrRemoteAS.setMaxAccess(_N)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpNbrRemoteAS.setStatus(_A)
-_QtechmplsL3VpnVrfBgpPAtrTable_Object=MibTable
-qtechmplsL3VpnVrfBgpPAtrTable=_QtechmplsL3VpnVrfBgpPAtrTable_Object((1,3,6,1,4,1,27514,1,1,10,2,100,2))
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpPAtrTable.setStatus(_A)
-_QtechmplsL3VpnVrfBgpPAtrEntry_Object=MibTableRow
-qtechmplsL3VpnVrfBgpPAtrEntry=_QtechmplsL3VpnVrfBgpPAtrEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,100,2,1))
-qtechmplsL3VpnVrfBgpPAtrEntry.setIndexNames((0,_G,_H),(0,_E,_J),(0,_E,_K),(0,_E,_L))
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpPAtrEntry.setStatus(_A)
-_QtechmplsL3VpnVrfBgpPAtrPeerType_Type=InetAddressType
-_QtechmplsL3VpnVrfBgpPAtrPeerType_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpPAtrPeerType=_QtechmplsL3VpnVrfBgpPAtrPeerType_Object((1,3,6,1,4,1,27514,1,1,10,2,100,2,1,1),_QtechmplsL3VpnVrfBgpPAtrPeerType_Type())
-qtechmplsL3VpnVrfBgpPAtrPeerType.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpPAtrPeerType.setStatus(_A)
-_QtechmplsL3VpnVrfBgpPAtrIpAddrPfxType_Type=InetAddressType
-_QtechmplsL3VpnVrfBgpPAtrIpAddrPfxType_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpPAtrIpAddrPfxType=_QtechmplsL3VpnVrfBgpPAtrIpAddrPfxType_Object((1,3,6,1,4,1,27514,1,1,10,2,100,2,1,2),_QtechmplsL3VpnVrfBgpPAtrIpAddrPfxType_Type())
-qtechmplsL3VpnVrfBgpPAtrIpAddrPfxType.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpPAtrIpAddrPfxType.setStatus(_A)
-class _QtechmplsL3VpnVrfBgpPAtrOrigin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('igp',1),('egp',2),('incomplete',3)))
-_QtechmplsL3VpnVrfBgpPAtrOrigin_Type.__name__=_D
-_QtechmplsL3VpnVrfBgpPAtrOrigin_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpPAtrOrigin=_QtechmplsL3VpnVrfBgpPAtrOrigin_Object((1,3,6,1,4,1,27514,1,1,10,2,100,2,1,3),_QtechmplsL3VpnVrfBgpPAtrOrigin_Type())
-qtechmplsL3VpnVrfBgpPAtrOrigin.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpPAtrOrigin.setStatus(_A)
-_QtechmplsL3VpnVrfBgpPAtrNextHop_Type=InetAddress
-_QtechmplsL3VpnVrfBgpPAtrNextHop_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpPAtrNextHop=_QtechmplsL3VpnVrfBgpPAtrNextHop_Object((1,3,6,1,4,1,27514,1,1,10,2,100,2,1,4),_QtechmplsL3VpnVrfBgpPAtrNextHop_Type())
-qtechmplsL3VpnVrfBgpPAtrNextHop.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpPAtrNextHop.setStatus(_A)
-class _QtechmplsL3VpnVrfBgpPAtrASPathSegment_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,255))
-_QtechmplsL3VpnVrfBgpPAtrASPathSegment_Type.__name__=_F
-_QtechmplsL3VpnVrfBgpPAtrASPathSegment_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpPAtrASPathSegment=_QtechmplsL3VpnVrfBgpPAtrASPathSegment_Object((1,3,6,1,4,1,27514,1,1,10,2,100,2,1,5),_QtechmplsL3VpnVrfBgpPAtrASPathSegment_Type())
-qtechmplsL3VpnVrfBgpPAtrASPathSegment.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpPAtrASPathSegment.setStatus(_A)
-_QtechmplsL3VpnVrfBgpPAtrNextHopType_Type=InetAddressType
-_QtechmplsL3VpnVrfBgpPAtrNextHopType_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpPAtrNextHopType=_QtechmplsL3VpnVrfBgpPAtrNextHopType_Object((1,3,6,1,4,1,27514,1,1,10,2,100,2,1,6),_QtechmplsL3VpnVrfBgpPAtrNextHopType_Type())
-qtechmplsL3VpnVrfBgpPAtrNextHopType.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpPAtrNextHopType.setStatus(_A)
-class _QtechmplsL3VpnVrfBgpPAtrMultiExitDisc_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_QtechmplsL3VpnVrfBgpPAtrMultiExitDisc_Type.__name__=_D
-_QtechmplsL3VpnVrfBgpPAtrMultiExitDisc_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpPAtrMultiExitDisc=_QtechmplsL3VpnVrfBgpPAtrMultiExitDisc_Object((1,3,6,1,4,1,27514,1,1,10,2,100,2,1,7),_QtechmplsL3VpnVrfBgpPAtrMultiExitDisc_Type())
-qtechmplsL3VpnVrfBgpPAtrMultiExitDisc.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpPAtrMultiExitDisc.setStatus(_A)
-class _QtechmplsL3VpnVrfBgpPAtrLocalPref_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_QtechmplsL3VpnVrfBgpPAtrLocalPref_Type.__name__=_D
-_QtechmplsL3VpnVrfBgpPAtrLocalPref_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpPAtrLocalPref=_QtechmplsL3VpnVrfBgpPAtrLocalPref_Object((1,3,6,1,4,1,27514,1,1,10,2,100,2,1,8),_QtechmplsL3VpnVrfBgpPAtrLocalPref_Type())
-qtechmplsL3VpnVrfBgpPAtrLocalPref.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpPAtrLocalPref.setStatus(_A)
-class _QtechmplsL3VpnVrfBgpPAtrAtomicAggregate_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('lessSpecificRrouteNotSelected',1),('lessSpecificRouteSelected',2)))
-_QtechmplsL3VpnVrfBgpPAtrAtomicAggregate_Type.__name__=_D
-_QtechmplsL3VpnVrfBgpPAtrAtomicAggregate_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpPAtrAtomicAggregate=_QtechmplsL3VpnVrfBgpPAtrAtomicAggregate_Object((1,3,6,1,4,1,27514,1,1,10,2,100,2,1,9),_QtechmplsL3VpnVrfBgpPAtrAtomicAggregate_Type())
-qtechmplsL3VpnVrfBgpPAtrAtomicAggregate.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpPAtrAtomicAggregate.setStatus(_A)
-class _QtechmplsL3VpnVrfBgpPAtrAggregatorAS_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_QtechmplsL3VpnVrfBgpPAtrAggregatorAS_Type.__name__=_D
-_QtechmplsL3VpnVrfBgpPAtrAggregatorAS_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpPAtrAggregatorAS=_QtechmplsL3VpnVrfBgpPAtrAggregatorAS_Object((1,3,6,1,4,1,27514,1,1,10,2,100,2,1,10),_QtechmplsL3VpnVrfBgpPAtrAggregatorAS_Type())
-qtechmplsL3VpnVrfBgpPAtrAggregatorAS.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpPAtrAggregatorAS.setStatus(_A)
-_QtechmplsL3VpnVrfBgpPAtrAggrAddrType_Type=InetAddressType
-_QtechmplsL3VpnVrfBgpPAtrAggrAddrType_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpPAtrAggrAddrType=_QtechmplsL3VpnVrfBgpPAtrAggrAddrType_Object((1,3,6,1,4,1,27514,1,1,10,2,100,2,1,11),_QtechmplsL3VpnVrfBgpPAtrAggrAddrType_Type())
-qtechmplsL3VpnVrfBgpPAtrAggrAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpPAtrAggrAddrType.setStatus(_A)
-_QtechmplsL3VpnVrfBgpPAtrAggregatorAddr_Type=InetAddress
-_QtechmplsL3VpnVrfBgpPAtrAggregatorAddr_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpPAtrAggregatorAddr=_QtechmplsL3VpnVrfBgpPAtrAggregatorAddr_Object((1,3,6,1,4,1,27514,1,1,10,2,100,2,1,12),_QtechmplsL3VpnVrfBgpPAtrAggregatorAddr_Type())
-qtechmplsL3VpnVrfBgpPAtrAggregatorAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpPAtrAggregatorAddr.setStatus(_A)
-class _QtechmplsL3VpnVrfBgpPAtrCalcLocalPref_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_QtechmplsL3VpnVrfBgpPAtrCalcLocalPref_Type.__name__=_D
-_QtechmplsL3VpnVrfBgpPAtrCalcLocalPref_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpPAtrCalcLocalPref=_QtechmplsL3VpnVrfBgpPAtrCalcLocalPref_Object((1,3,6,1,4,1,27514,1,1,10,2,100,2,1,13),_QtechmplsL3VpnVrfBgpPAtrCalcLocalPref_Type())
-qtechmplsL3VpnVrfBgpPAtrCalcLocalPref.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpPAtrCalcLocalPref.setStatus(_A)
-class _QtechmplsL3VpnVrfBgpPAtrBest_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('false',1),('true',2)))
-_QtechmplsL3VpnVrfBgpPAtrBest_Type.__name__=_D
-_QtechmplsL3VpnVrfBgpPAtrBest_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpPAtrBest=_QtechmplsL3VpnVrfBgpPAtrBest_Object((1,3,6,1,4,1,27514,1,1,10,2,100,2,1,14),_QtechmplsL3VpnVrfBgpPAtrBest_Type())
-qtechmplsL3VpnVrfBgpPAtrBest.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpPAtrBest.setStatus(_A)
-class _QtechmplsL3VpnVrfBgpPAtrUnknown_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_QtechmplsL3VpnVrfBgpPAtrUnknown_Type.__name__=_F
-_QtechmplsL3VpnVrfBgpPAtrUnknown_Object=MibTableColumn
-qtechmplsL3VpnVrfBgpPAtrUnknown=_QtechmplsL3VpnVrfBgpPAtrUnknown_Object((1,3,6,1,4,1,27514,1,1,10,2,100,2,1,15),_QtechmplsL3VpnVrfBgpPAtrUnknown_Type())
-qtechmplsL3VpnVrfBgpPAtrUnknown.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpPAtrUnknown.setStatus(_A)
-_QtechmplsL3VpnVrfBgpNbrCom_ObjectIdentity=ObjectIdentity
-qtechmplsL3VpnVrfBgpNbrCom=_QtechmplsL3VpnVrfBgpNbrCom_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,100,3))
-_QtechmplsL3VpnVrfBgpCompliances_ObjectIdentity=ObjectIdentity
-qtechmplsL3VpnVrfBgpCompliances=_QtechmplsL3VpnVrfBgpCompliances_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,100,3,1))
-_QtechmplsL3VpnVrfBgpGroups_ObjectIdentity=ObjectIdentity
-qtechmplsL3VpnVrfBgpGroups=_QtechmplsL3VpnVrfBgpGroups_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,100,3,2))
-qtechmplsL3VpnVrfBgpGroup=ObjectGroup((1,3,6,1,4,1,27514,1,1,10,2,100,3,2,1))
-qtechmplsL3VpnVrfBgpGroup.setObjects(*((_B,_O),(_B,_P),(_B,_I),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h)))
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpGroup.setStatus(_A)
-qtechmplsL3VpnVrfBgpCompliance=ModuleCompliance((1,3,6,1,4,1,27514,1,1,10,2,100,3,1,1))
-qtechmplsL3VpnVrfBgpCompliance.setObjects((_B,_i))
-if mibBuilder.loadTexts:qtechmplsL3VpnVrfBgpCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'qtechmplsL3VpnNbrMIB':qtechmplsL3VpnNbrMIB,'qtechmplsL3VpnVrfBgpNbrTable':qtechmplsL3VpnVrfBgpNbrTable,'qtechmplsL3VpnVrfBgpNbrEntry':qtechmplsL3VpnVrfBgpNbrEntry,_O:qtechmplsL3VpnVrfBgpNbrRole,_P:qtechmplsL3VpnVrfBgpNbrType,_I:qtechmplsL3VpnVrfBgpNbrAddr,_Q:qtechmplsL3VpnVrfBgpNbrRowStatus,_R:qtechmplsL3VpnVrfBgpNbrStorageType,_S:qtechmplsL3VpnVrfBgpNbrRemoteAS,'qtechmplsL3VpnVrfBgpPAtrTable':qtechmplsL3VpnVrfBgpPAtrTable,'qtechmplsL3VpnVrfBgpPAtrEntry':qtechmplsL3VpnVrfBgpPAtrEntry,_T:qtechmplsL3VpnVrfBgpPAtrPeerType,_U:qtechmplsL3VpnVrfBgpPAtrIpAddrPfxType,_V:qtechmplsL3VpnVrfBgpPAtrOrigin,_Y:qtechmplsL3VpnVrfBgpPAtrNextHop,_W:qtechmplsL3VpnVrfBgpPAtrASPathSegment,_X:qtechmplsL3VpnVrfBgpPAtrNextHopType,_Z:qtechmplsL3VpnVrfBgpPAtrMultiExitDisc,_a:qtechmplsL3VpnVrfBgpPAtrLocalPref,_b:qtechmplsL3VpnVrfBgpPAtrAtomicAggregate,_c:qtechmplsL3VpnVrfBgpPAtrAggregatorAS,_d:qtechmplsL3VpnVrfBgpPAtrAggrAddrType,_e:qtechmplsL3VpnVrfBgpPAtrAggregatorAddr,_f:qtechmplsL3VpnVrfBgpPAtrCalcLocalPref,_g:qtechmplsL3VpnVrfBgpPAtrBest,_h:qtechmplsL3VpnVrfBgpPAtrUnknown,'qtechmplsL3VpnVrfBgpNbrCom':qtechmplsL3VpnVrfBgpNbrCom,'qtechmplsL3VpnVrfBgpCompliances':qtechmplsL3VpnVrfBgpCompliances,'qtechmplsL3VpnVrfBgpCompliance':qtechmplsL3VpnVrfBgpCompliance,'qtechmplsL3VpnVrfBgpGroups':qtechmplsL3VpnVrfBgpGroups,_i:qtechmplsL3VpnVrfBgpGroup})
+#
+# PySNMP MIB module QTECH-MPLS-L3VPN-BGP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-MPLS-L3VPN-BGP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:24 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+bgp4PathAttrPeer, bgp4PathAttrIpAddrPrefixLen, bgp4PathAttrIpAddrPrefix = mibBuilder.importSymbols("BGP4-MIB", "bgp4PathAttrPeer", "bgp4PathAttrIpAddrPrefixLen", "bgp4PathAttrIpAddrPrefix")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+mplsL3VpnVrfName, = mibBuilder.importSymbols("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfName")
+qtechMgmt, = mibBuilder.importSymbols("QTECH-SMI", "qtechMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention, RowStatus, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus", "StorageType")
+qtechmplsL3VpnNbrMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100))
+qtechmplsL3VpnNbrMIB.setRevisions(('2011-09-16 00:00',))
+if mibBuilder.loadTexts: qtechmplsL3VpnNbrMIB.setLastUpdated('201109160000Z')
+if mibBuilder.loadTexts: qtechmplsL3VpnNbrMIB.setOrganization('Qtech Networks Co.,Ltd.')
+qtechmplsL3VpnVrfBgpNbrTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 1), )
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpNbrTable.setStatus('current')
+qtechmplsL3VpnVrfBgpNbrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 1, 1), ).setIndexNames((0, "MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfName"), (0, "QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpNbrAddr"))
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpNbrEntry.setStatus('current')
+qtechmplsL3VpnVrfBgpNbrRole = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ce", 1), ("pe", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpNbrRole.setStatus('current')
+qtechmplsL3VpnVrfBgpNbrType = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 1, 1, 2), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpNbrType.setStatus('current')
+qtechmplsL3VpnVrfBgpNbrAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 1, 1, 3), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpNbrAddr.setStatus('current')
+qtechmplsL3VpnVrfBgpNbrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpNbrRowStatus.setStatus('current')
+qtechmplsL3VpnVrfBgpNbrStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 1, 1, 5), StorageType().clone('volatile')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpNbrStorageType.setStatus('current')
+qtechmplsL3VpnVrfBgpNbrRemoteAS = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpNbrRemoteAS.setStatus('current')
+qtechmplsL3VpnVrfBgpPAtrTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 2), )
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpPAtrTable.setStatus('current')
+qtechmplsL3VpnVrfBgpPAtrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 2, 1), ).setIndexNames((0, "MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfName"), (0, "BGP4-MIB", "bgp4PathAttrIpAddrPrefix"), (0, "BGP4-MIB", "bgp4PathAttrIpAddrPrefixLen"), (0, "BGP4-MIB", "bgp4PathAttrPeer"))
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpPAtrEntry.setStatus('current')
+qtechmplsL3VpnVrfBgpPAtrPeerType = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 2, 1, 1), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpPAtrPeerType.setStatus('current')
+qtechmplsL3VpnVrfBgpPAtrIpAddrPfxType = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 2, 1, 2), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpPAtrIpAddrPfxType.setStatus('current')
+qtechmplsL3VpnVrfBgpPAtrOrigin = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("igp", 1), ("egp", 2), ("incomplete", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpPAtrOrigin.setStatus('current')
+qtechmplsL3VpnVrfBgpPAtrNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 2, 1, 4), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpPAtrNextHop.setStatus('current')
+qtechmplsL3VpnVrfBgpPAtrASPathSegment = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 2, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpPAtrASPathSegment.setStatus('current')
+qtechmplsL3VpnVrfBgpPAtrNextHopType = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 2, 1, 6), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpPAtrNextHopType.setStatus('current')
+qtechmplsL3VpnVrfBgpPAtrMultiExitDisc = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpPAtrMultiExitDisc.setStatus('current')
+qtechmplsL3VpnVrfBgpPAtrLocalPref = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpPAtrLocalPref.setStatus('current')
+qtechmplsL3VpnVrfBgpPAtrAtomicAggregate = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("lessSpecificRrouteNotSelected", 1), ("lessSpecificRouteSelected", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpPAtrAtomicAggregate.setStatus('current')
+qtechmplsL3VpnVrfBgpPAtrAggregatorAS = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 2, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpPAtrAggregatorAS.setStatus('current')
+qtechmplsL3VpnVrfBgpPAtrAggrAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 2, 1, 11), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpPAtrAggrAddrType.setStatus('current')
+qtechmplsL3VpnVrfBgpPAtrAggregatorAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 2, 1, 12), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpPAtrAggregatorAddr.setStatus('current')
+qtechmplsL3VpnVrfBgpPAtrCalcLocalPref = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 2, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpPAtrCalcLocalPref.setStatus('current')
+qtechmplsL3VpnVrfBgpPAtrBest = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 2, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("false", 1), ("true", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpPAtrBest.setStatus('current')
+qtechmplsL3VpnVrfBgpPAtrUnknown = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 2, 1, 15), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechmplsL3VpnVrfBgpPAtrUnknown.setStatus('current')
+qtechmplsL3VpnVrfBgpNbrCom = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 3))
+qtechmplsL3VpnVrfBgpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 3, 1))
+qtechmplsL3VpnVrfBgpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 3, 2))
+qtechmplsL3VpnVrfBgpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 3, 1, 1)).setObjects(("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechmplsL3VpnVrfBgpCompliance = qtechmplsL3VpnVrfBgpCompliance.setStatus('current')
+qtechmplsL3VpnVrfBgpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 100, 3, 2, 1)).setObjects(("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpNbrRole"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpNbrType"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpNbrAddr"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpNbrRowStatus"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpNbrStorageType"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpNbrRemoteAS"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpPAtrPeerType"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpPAtrIpAddrPfxType"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpPAtrOrigin"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpPAtrASPathSegment"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpPAtrNextHopType"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpPAtrNextHop"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpPAtrMultiExitDisc"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpPAtrLocalPref"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpPAtrAtomicAggregate"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpPAtrAggregatorAS"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpPAtrAggrAddrType"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpPAtrAggregatorAddr"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpPAtrCalcLocalPref"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpPAtrBest"), ("QTECH-MPLS-L3VPN-BGP-MIB", "qtechmplsL3VpnVrfBgpPAtrUnknown"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechmplsL3VpnVrfBgpGroup = qtechmplsL3VpnVrfBgpGroup.setStatus('current')
+mibBuilder.exportSymbols("QTECH-MPLS-L3VPN-BGP-MIB", qtechmplsL3VpnVrfBgpCompliance=qtechmplsL3VpnVrfBgpCompliance, qtechmplsL3VpnVrfBgpPAtrLocalPref=qtechmplsL3VpnVrfBgpPAtrLocalPref, qtechmplsL3VpnVrfBgpPAtrNextHop=qtechmplsL3VpnVrfBgpPAtrNextHop, qtechmplsL3VpnVrfBgpNbrEntry=qtechmplsL3VpnVrfBgpNbrEntry, qtechmplsL3VpnVrfBgpPAtrAggregatorAS=qtechmplsL3VpnVrfBgpPAtrAggregatorAS, qtechmplsL3VpnVrfBgpNbrCom=qtechmplsL3VpnVrfBgpNbrCom, qtechmplsL3VpnVrfBgpNbrStorageType=qtechmplsL3VpnVrfBgpNbrStorageType, qtechmplsL3VpnVrfBgpNbrTable=qtechmplsL3VpnVrfBgpNbrTable, qtechmplsL3VpnVrfBgpPAtrTable=qtechmplsL3VpnVrfBgpPAtrTable, qtechmplsL3VpnVrfBgpPAtrEntry=qtechmplsL3VpnVrfBgpPAtrEntry, qtechmplsL3VpnVrfBgpPAtrBest=qtechmplsL3VpnVrfBgpPAtrBest, qtechmplsL3VpnVrfBgpNbrAddr=qtechmplsL3VpnVrfBgpNbrAddr, qtechmplsL3VpnVrfBgpCompliances=qtechmplsL3VpnVrfBgpCompliances, qtechmplsL3VpnVrfBgpPAtrMultiExitDisc=qtechmplsL3VpnVrfBgpPAtrMultiExitDisc, qtechmplsL3VpnVrfBgpPAtrOrigin=qtechmplsL3VpnVrfBgpPAtrOrigin, qtechmplsL3VpnVrfBgpGroup=qtechmplsL3VpnVrfBgpGroup, qtechmplsL3VpnVrfBgpNbrRowStatus=qtechmplsL3VpnVrfBgpNbrRowStatus, qtechmplsL3VpnVrfBgpPAtrNextHopType=qtechmplsL3VpnVrfBgpPAtrNextHopType, qtechmplsL3VpnVrfBgpNbrRemoteAS=qtechmplsL3VpnVrfBgpNbrRemoteAS, qtechmplsL3VpnVrfBgpPAtrAtomicAggregate=qtechmplsL3VpnVrfBgpPAtrAtomicAggregate, qtechmplsL3VpnVrfBgpPAtrCalcLocalPref=qtechmplsL3VpnVrfBgpPAtrCalcLocalPref, qtechmplsL3VpnVrfBgpNbrRole=qtechmplsL3VpnVrfBgpNbrRole, qtechmplsL3VpnVrfBgpNbrType=qtechmplsL3VpnVrfBgpNbrType, qtechmplsL3VpnVrfBgpGroups=qtechmplsL3VpnVrfBgpGroups, qtechmplsL3VpnVrfBgpPAtrIpAddrPfxType=qtechmplsL3VpnVrfBgpPAtrIpAddrPfxType, qtechmplsL3VpnVrfBgpPAtrUnknown=qtechmplsL3VpnVrfBgpPAtrUnknown, qtechmplsL3VpnNbrMIB=qtechmplsL3VpnNbrMIB, qtechmplsL3VpnVrfBgpPAtrASPathSegment=qtechmplsL3VpnVrfBgpPAtrASPathSegment, qtechmplsL3VpnVrfBgpPAtrAggregatorAddr=qtechmplsL3VpnVrfBgpPAtrAggregatorAddr, qtechmplsL3VpnVrfBgpPAtrPeerType=qtechmplsL3VpnVrfBgpPAtrPeerType, qtechmplsL3VpnVrfBgpPAtrAggrAddrType=qtechmplsL3VpnVrfBgpPAtrAggrAddrType, PYSNMP_MODULE_ID=qtechmplsL3VpnNbrMIB)

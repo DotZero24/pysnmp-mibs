@@ -1,32 +1,26 @@
-_C='current'
-_B='read-write'
-_A='Integer32'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_A,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-mitelRouterSnmpTrapGroup=ModuleIdentity((1,3,6,1,4,1,1027,4,8,1,7))
-if mibBuilder.loadTexts:mitelRouterSnmpTrapGroup.setRevisions(('2003-03-24 10:50','2002-04-02 00:00'))
-_Mitel_ObjectIdentity=ObjectIdentity
-mitel=_Mitel_ObjectIdentity((1,3,6,1,4,1,1027))
-_MitelProprietary_ObjectIdentity=ObjectIdentity
-mitelProprietary=_MitelProprietary_ObjectIdentity((1,3,6,1,4,1,1027,4))
-_MitelPropIpNetworking_ObjectIdentity=ObjectIdentity
-mitelPropIpNetworking=_MitelPropIpNetworking_ObjectIdentity((1,3,6,1,4,1,1027,4,8))
-_MitelIpNetRouter_ObjectIdentity=ObjectIdentity
-mitelIpNetRouter=_MitelIpNetRouter_ObjectIdentity((1,3,6,1,4,1,1027,4,8,1))
-class _MitelSnmpTrapGlobal_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_MitelSnmpTrapGlobal_Type.__name__=_A
-_MitelSnmpTrapGlobal_Object=MibScalar
-mitelSnmpTrapGlobal=_MitelSnmpTrapGlobal_Object((1,3,6,1,4,1,1027,4,8,1,7,1),_MitelSnmpTrapGlobal_Type())
-mitelSnmpTrapGlobal.setMaxAccess(_B)
-if mibBuilder.loadTexts:mitelSnmpTrapGlobal.setStatus(_C)
-_MitelSnmpTrapControl_Type=Integer32
-_MitelSnmpTrapControl_Object=MibScalar
-mitelSnmpTrapControl=_MitelSnmpTrapControl_Object((1,3,6,1,4,1,1027,4,8,1,7,2),_MitelSnmpTrapControl_Type())
-mitelSnmpTrapControl.setMaxAccess(_B)
-if mibBuilder.loadTexts:mitelSnmpTrapControl.setStatus(_C)
-mibBuilder.exportSymbols('MITEL-TRAPGROUP-MIB',**{'mitel':mitel,'mitelProprietary':mitelProprietary,'mitelPropIpNetworking':mitelPropIpNetworking,'mitelIpNetRouter':mitelIpNetRouter,'mitelRouterSnmpTrapGroup':mitelRouterSnmpTrapGroup,'mitelSnmpTrapGlobal':mitelSnmpTrapGlobal,'mitelSnmpTrapControl':mitelSnmpTrapControl})
+#
+# PySNMP MIB module MITEL-TRAPGROUP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mitel/MITEL-TRAPGROUP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:38 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+mitelRouterSnmpTrapGroup = ModuleIdentity((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 7))
+mitelRouterSnmpTrapGroup.setRevisions(('2003-03-24 10:50', '2002-04-02 00:00',))
+if mibBuilder.loadTexts: mitelRouterSnmpTrapGroup.setLastUpdated('200303241050Z')
+if mibBuilder.loadTexts: mitelRouterSnmpTrapGroup.setOrganization('MITEL Networks Corporation')
+mitel = MibIdentifier((1, 3, 6, 1, 4, 1, 1027))
+mitelProprietary = MibIdentifier((1, 3, 6, 1, 4, 1, 1027, 4))
+mitelPropIpNetworking = MibIdentifier((1, 3, 6, 1, 4, 1, 1027, 4, 8))
+mitelIpNetRouter = MibIdentifier((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1))
+mitelSnmpTrapGlobal = MibScalar((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 7, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mitelSnmpTrapGlobal.setStatus('current')
+mitelSnmpTrapControl = MibScalar((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 7, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mitelSnmpTrapControl.setStatus('current')
+mibBuilder.exportSymbols("MITEL-TRAPGROUP-MIB", mitelSnmpTrapGlobal=mitelSnmpTrapGlobal, mitelProprietary=mitelProprietary, mitelSnmpTrapControl=mitelSnmpTrapControl, mitelPropIpNetworking=mitelPropIpNetworking, mitelRouterSnmpTrapGroup=mitelRouterSnmpTrapGroup, mitel=mitel, PYSNMP_MODULE_ID=mitelRouterSnmpTrapGroup, mitelIpNetRouter=mitelIpNetRouter)

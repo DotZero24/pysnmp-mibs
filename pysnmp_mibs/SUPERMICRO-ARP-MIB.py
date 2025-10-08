@@ -1,56 +1,34 @@
-_D='read-write'
-_C='read-only'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-fsarp=ModuleIdentity((1,3,6,1,4,1,10876,101,1,109))
-if mibBuilder.loadTexts:fsarp.setRevisions(('2012-09-04 00:00',))
-_Arp_ObjectIdentity=ObjectIdentity
-arp=_Arp_ObjectIdentity((1,3,6,1,4,1,10876,101,1,109,1))
-class _FsArpCacheTimeout_Type(Integer32):defaultValue=300;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(30,86400))
-_FsArpCacheTimeout_Type.__name__=_B
-_FsArpCacheTimeout_Object=MibScalar
-fsArpCacheTimeout=_FsArpCacheTimeout_Object((1,3,6,1,4,1,10876,101,1,109,1,1),_FsArpCacheTimeout_Type())
-fsArpCacheTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsArpCacheTimeout.setStatus(_A)
-class _FsArpCachePendTime_Type(Integer32):defaultValue=30;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(30,3000))
-_FsArpCachePendTime_Type.__name__=_B
-_FsArpCachePendTime_Object=MibScalar
-fsArpCachePendTime=_FsArpCachePendTime_Object((1,3,6,1,4,1,10876,101,1,109,1,2),_FsArpCachePendTime_Type())
-fsArpCachePendTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsArpCachePendTime.setStatus(_A)
-class _FsArpMaxRetries_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(2,10))
-_FsArpMaxRetries_Type.__name__=_B
-_FsArpMaxRetries_Object=MibScalar
-fsArpMaxRetries=_FsArpMaxRetries_Object((1,3,6,1,4,1,10876,101,1,109,1,3),_FsArpMaxRetries_Type())
-fsArpMaxRetries.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsArpMaxRetries.setStatus(_A)
-_Arptest_ObjectIdentity=ObjectIdentity
-arptest=_Arptest_ObjectIdentity((1,3,6,1,4,1,10876,101,1,109,2))
-_FsArpPendingEntryCount_Type=Integer32
-_FsArpPendingEntryCount_Object=MibScalar
-fsArpPendingEntryCount=_FsArpPendingEntryCount_Object((1,3,6,1,4,1,10876,101,1,109,2,1),_FsArpPendingEntryCount_Type())
-fsArpPendingEntryCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsArpPendingEntryCount.setStatus(_A)
-_FsArpCacheEntryCount_Type=Integer32
-_FsArpCacheEntryCount_Object=MibScalar
-fsArpCacheEntryCount=_FsArpCacheEntryCount_Object((1,3,6,1,4,1,10876,101,1,109,2,2),_FsArpCacheEntryCount_Type())
-fsArpCacheEntryCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsArpCacheEntryCount.setStatus(_A)
-_FsArpRedEntryTime_Type=Integer32
-_FsArpRedEntryTime_Object=MibScalar
-fsArpRedEntryTime=_FsArpRedEntryTime_Object((1,3,6,1,4,1,10876,101,1,109,2,3),_FsArpRedEntryTime_Type())
-fsArpRedEntryTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsArpRedEntryTime.setStatus(_A)
-_FsArpRedExitTime_Type=Integer32
-_FsArpRedExitTime_Object=MibScalar
-fsArpRedExitTime=_FsArpRedExitTime_Object((1,3,6,1,4,1,10876,101,1,109,2,4),_FsArpRedExitTime_Type())
-fsArpRedExitTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsArpRedExitTime.setStatus(_A)
-mibBuilder.exportSymbols('SUPERMICRO-ARP-MIB',**{'fsarp':fsarp,'arp':arp,'fsArpCacheTimeout':fsArpCacheTimeout,'fsArpCachePendTime':fsArpCachePendTime,'fsArpMaxRetries':fsArpMaxRetries,'arptest':arptest,'fsArpPendingEntryCount':fsArpPendingEntryCount,'fsArpCacheEntryCount':fsArpCacheEntryCount,'fsArpRedEntryTime':fsArpRedEntryTime,'fsArpRedExitTime':fsArpRedExitTime})
+#
+# PySNMP MIB module SUPERMICRO-ARP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-ARP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:51 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+fsarp = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876, 101, 1, 109))
+fsarp.setRevisions(('2012-09-04 00:00',))
+if mibBuilder.loadTexts: fsarp.setLastUpdated('201209040000Z')
+if mibBuilder.loadTexts: fsarp.setOrganization('Super Micro Computer Inc.')
+arp = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 1, 109, 1))
+arptest = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 1, 109, 2))
+fsArpCacheTimeout = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 109, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(30, 86400)).clone(300)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsArpCacheTimeout.setStatus('current')
+fsArpCachePendTime = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 109, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(30, 3000)).clone(30)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsArpCachePendTime.setStatus('current')
+fsArpMaxRetries = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 109, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(2, 10)).clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsArpMaxRetries.setStatus('current')
+fsArpPendingEntryCount = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 109, 2, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsArpPendingEntryCount.setStatus('current')
+fsArpCacheEntryCount = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 109, 2, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsArpCacheEntryCount.setStatus('current')
+fsArpRedEntryTime = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 109, 2, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsArpRedEntryTime.setStatus('current')
+fsArpRedExitTime = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 109, 2, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsArpRedExitTime.setStatus('current')
+mibBuilder.exportSymbols("SUPERMICRO-ARP-MIB", PYSNMP_MODULE_ID=fsarp, fsArpPendingEntryCount=fsArpPendingEntryCount, fsarp=fsarp, arp=arp, fsArpCachePendTime=fsArpCachePendTime, fsArpMaxRetries=fsArpMaxRetries, fsArpRedEntryTime=fsArpRedEntryTime, fsArpRedExitTime=fsArpRedExitTime, arptest=arptest, fsArpCacheEntryCount=fsArpCacheEntryCount, fsArpCacheTimeout=fsArpCacheTimeout)

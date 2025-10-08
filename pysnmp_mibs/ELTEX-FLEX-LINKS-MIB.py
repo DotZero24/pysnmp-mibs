@@ -1,123 +1,73 @@
-_R='eltexFlexLinksPreemptionGroup'
-_Q='eltexFlexLinksNotifGroup'
-_P='eltexFlexLinksEnableNotifGroup'
-_O='eltexFlexLinksIfStatusGroup'
-_N='eltexFlexLinksIfConfigGroup'
-_M='eltexFlIfStatusChangeNotif'
-_L='eltexFlIfConfigPreemptionDelay'
-_K='eltexFlIfConfigPreemptionMode'
-_J='eltexFlEnableStatusChangeNotif'
-_I='eltexFlIfConfigBackUp'
-_H='read-only'
-_G='eltexFlIfStatus'
-_F='eltexFlIfIndex'
-_E='read-write'
-_D='eltexFlIfConfigPrimary'
-_C='Integer32'
-_B='ELTEX-FLEX-LINKS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-eltexLtd,=mibBuilder.importSymbols('ELTEX-SMI-ACTUAL','eltexLtd')
-InterfaceIndex,InterfaceIndexOrZero=mibBuilder.importSymbols('IF-MIB','InterfaceIndex','InterfaceIndexOrZero')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-eltexFlexLinksMIB=ModuleIdentity((1,3,6,1,4,1,35265,31))
-_EltexFlexLinksMIBNotifs_ObjectIdentity=ObjectIdentity
-eltexFlexLinksMIBNotifs=_EltexFlexLinksMIBNotifs_ObjectIdentity((1,3,6,1,4,1,35265,31,0))
-_EltexFlexLinksMIBObjects_ObjectIdentity=ObjectIdentity
-eltexFlexLinksMIBObjects=_EltexFlexLinksMIBObjects_ObjectIdentity((1,3,6,1,4,1,35265,31,1))
-_EltexFlConfig_ObjectIdentity=ObjectIdentity
-eltexFlConfig=_EltexFlConfig_ObjectIdentity((1,3,6,1,4,1,35265,31,1,1))
-_EltexFlIfConfigTable_Object=MibTable
-eltexFlIfConfigTable=_EltexFlIfConfigTable_Object((1,3,6,1,4,1,35265,31,1,1,1))
-if mibBuilder.loadTexts:eltexFlIfConfigTable.setStatus(_A)
-_EltexFlIfConfigEntry_Object=MibTableRow
-eltexFlIfConfigEntry=_EltexFlIfConfigEntry_Object((1,3,6,1,4,1,35265,31,1,1,1,1))
-eltexFlIfConfigEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:eltexFlIfConfigEntry.setStatus(_A)
-_EltexFlIfConfigPrimary_Type=InterfaceIndex
-_EltexFlIfConfigPrimary_Object=MibTableColumn
-eltexFlIfConfigPrimary=_EltexFlIfConfigPrimary_Object((1,3,6,1,4,1,35265,31,1,1,1,1,1),_EltexFlIfConfigPrimary_Type())
-eltexFlIfConfigPrimary.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:eltexFlIfConfigPrimary.setStatus(_A)
-_EltexFlIfConfigBackUp_Type=InterfaceIndexOrZero
-_EltexFlIfConfigBackUp_Object=MibTableColumn
-eltexFlIfConfigBackUp=_EltexFlIfConfigBackUp_Object((1,3,6,1,4,1,35265,31,1,1,1,1,2),_EltexFlIfConfigBackUp_Type())
-eltexFlIfConfigBackUp.setMaxAccess('read-create')
-if mibBuilder.loadTexts:eltexFlIfConfigBackUp.setStatus(_A)
-_EltexFlEnableStatusChangeNotif_Type=TruthValue
-_EltexFlEnableStatusChangeNotif_Object=MibScalar
-eltexFlEnableStatusChangeNotif=_EltexFlEnableStatusChangeNotif_Object((1,3,6,1,4,1,35265,31,1,1,2),_EltexFlEnableStatusChangeNotif_Type())
-eltexFlEnableStatusChangeNotif.setMaxAccess(_E)
-if mibBuilder.loadTexts:eltexFlEnableStatusChangeNotif.setStatus(_A)
-_EltexFlIfConfigExtTable_Object=MibTable
-eltexFlIfConfigExtTable=_EltexFlIfConfigExtTable_Object((1,3,6,1,4,1,35265,31,1,1,3))
-if mibBuilder.loadTexts:eltexFlIfConfigExtTable.setStatus(_A)
-_EltexFlIfConfigExtEntry_Object=MibTableRow
-eltexFlIfConfigExtEntry=_EltexFlIfConfigExtEntry_Object((1,3,6,1,4,1,35265,31,1,1,3,1))
-eltexFlIfConfigExtEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:eltexFlIfConfigExtEntry.setStatus(_A)
-class _EltexFlIfConfigPreemptionMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('off',1),('forced',2),('bandwidth',3)))
-_EltexFlIfConfigPreemptionMode_Type.__name__=_C
-_EltexFlIfConfigPreemptionMode_Object=MibTableColumn
-eltexFlIfConfigPreemptionMode=_EltexFlIfConfigPreemptionMode_Object((1,3,6,1,4,1,35265,31,1,1,3,1,1),_EltexFlIfConfigPreemptionMode_Type())
-eltexFlIfConfigPreemptionMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:eltexFlIfConfigPreemptionMode.setStatus(_A)
-_EltexFlIfConfigPreemptionDelay_Type=Unsigned32
-_EltexFlIfConfigPreemptionDelay_Object=MibTableColumn
-eltexFlIfConfigPreemptionDelay=_EltexFlIfConfigPreemptionDelay_Object((1,3,6,1,4,1,35265,31,1,1,3,1,2),_EltexFlIfConfigPreemptionDelay_Type())
-eltexFlIfConfigPreemptionDelay.setMaxAccess(_E)
-if mibBuilder.loadTexts:eltexFlIfConfigPreemptionDelay.setStatus(_A)
-if mibBuilder.loadTexts:eltexFlIfConfigPreemptionDelay.setUnits('seconds')
-_EltexFlStatus_ObjectIdentity=ObjectIdentity
-eltexFlStatus=_EltexFlStatus_ObjectIdentity((1,3,6,1,4,1,35265,31,1,2))
-_EltexFlIfStatusTable_Object=MibTable
-eltexFlIfStatusTable=_EltexFlIfStatusTable_Object((1,3,6,1,4,1,35265,31,1,2,1))
-if mibBuilder.loadTexts:eltexFlIfStatusTable.setStatus(_A)
-_EltexFlIfStatusEntry_Object=MibTableRow
-eltexFlIfStatusEntry=_EltexFlIfStatusEntry_Object((1,3,6,1,4,1,35265,31,1,2,1,1))
-eltexFlIfStatusEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:eltexFlIfStatusEntry.setStatus(_A)
-_EltexFlIfIndex_Type=InterfaceIndex
-_EltexFlIfIndex_Object=MibTableColumn
-eltexFlIfIndex=_EltexFlIfIndex_Object((1,3,6,1,4,1,35265,31,1,2,1,1,1),_EltexFlIfIndex_Type())
-eltexFlIfIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:eltexFlIfIndex.setStatus(_A)
-class _EltexFlIfStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('forwarding',1),('blocking',2),('down',3),('unknown',4)))
-_EltexFlIfStatus_Type.__name__=_C
-_EltexFlIfStatus_Object=MibTableColumn
-eltexFlIfStatus=_EltexFlIfStatus_Object((1,3,6,1,4,1,35265,31,1,2,1,1,2),_EltexFlIfStatus_Type())
-eltexFlIfStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:eltexFlIfStatus.setStatus(_A)
-_EltexFlexLinksMIBConformance_ObjectIdentity=ObjectIdentity
-eltexFlexLinksMIBConformance=_EltexFlexLinksMIBConformance_ObjectIdentity((1,3,6,1,4,1,35265,31,2))
-_EltexFlexLinksMIBCompliances_ObjectIdentity=ObjectIdentity
-eltexFlexLinksMIBCompliances=_EltexFlexLinksMIBCompliances_ObjectIdentity((1,3,6,1,4,1,35265,31,2,1))
-_EltexFlexLinksMIBGroups_ObjectIdentity=ObjectIdentity
-eltexFlexLinksMIBGroups=_EltexFlexLinksMIBGroups_ObjectIdentity((1,3,6,1,4,1,35265,31,2,2))
-eltexFlexLinksIfConfigGroup=ObjectGroup((1,3,6,1,4,1,35265,31,2,2,1))
-eltexFlexLinksIfConfigGroup.setObjects((_B,_I))
-if mibBuilder.loadTexts:eltexFlexLinksIfConfigGroup.setStatus(_A)
-eltexFlexLinksIfStatusGroup=ObjectGroup((1,3,6,1,4,1,35265,31,2,2,2))
-eltexFlexLinksIfStatusGroup.setObjects((_B,_G))
-if mibBuilder.loadTexts:eltexFlexLinksIfStatusGroup.setStatus(_A)
-eltexFlexLinksEnableNotifGroup=ObjectGroup((1,3,6,1,4,1,35265,31,2,2,3))
-eltexFlexLinksEnableNotifGroup.setObjects((_B,_J))
-if mibBuilder.loadTexts:eltexFlexLinksEnableNotifGroup.setStatus(_A)
-eltexFlexLinksPreemptionGroup=ObjectGroup((1,3,6,1,4,1,35265,31,2,2,5))
-eltexFlexLinksPreemptionGroup.setObjects(*((_B,_K),(_B,_L)))
-if mibBuilder.loadTexts:eltexFlexLinksPreemptionGroup.setStatus(_A)
-eltexFlIfStatusChangeNotif=NotificationType((1,3,6,1,4,1,35265,31,0,1))
-eltexFlIfStatusChangeNotif.setObjects(*((_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:eltexFlIfStatusChangeNotif.setStatus(_A)
-eltexFlexLinksNotifGroup=NotificationGroup((1,3,6,1,4,1,35265,31,2,2,4))
-eltexFlexLinksNotifGroup.setObjects((_B,_M))
-if mibBuilder.loadTexts:eltexFlexLinksNotifGroup.setStatus(_A)
-eltexFlexLinksMIBCompliance=ModuleCompliance((1,3,6,1,4,1,35265,31,2,1,1))
-eltexFlexLinksMIBCompliance.setObjects(*((_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R)))
-if mibBuilder.loadTexts:eltexFlexLinksMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'eltexFlexLinksMIB':eltexFlexLinksMIB,'eltexFlexLinksMIBNotifs':eltexFlexLinksMIBNotifs,_M:eltexFlIfStatusChangeNotif,'eltexFlexLinksMIBObjects':eltexFlexLinksMIBObjects,'eltexFlConfig':eltexFlConfig,'eltexFlIfConfigTable':eltexFlIfConfigTable,'eltexFlIfConfigEntry':eltexFlIfConfigEntry,_D:eltexFlIfConfigPrimary,_I:eltexFlIfConfigBackUp,_J:eltexFlEnableStatusChangeNotif,'eltexFlIfConfigExtTable':eltexFlIfConfigExtTable,'eltexFlIfConfigExtEntry':eltexFlIfConfigExtEntry,_K:eltexFlIfConfigPreemptionMode,_L:eltexFlIfConfigPreemptionDelay,'eltexFlStatus':eltexFlStatus,'eltexFlIfStatusTable':eltexFlIfStatusTable,'eltexFlIfStatusEntry':eltexFlIfStatusEntry,_F:eltexFlIfIndex,_G:eltexFlIfStatus,'eltexFlexLinksMIBConformance':eltexFlexLinksMIBConformance,'eltexFlexLinksMIBCompliances':eltexFlexLinksMIBCompliances,'eltexFlexLinksMIBCompliance':eltexFlexLinksMIBCompliance,'eltexFlexLinksMIBGroups':eltexFlexLinksMIBGroups,_N:eltexFlexLinksIfConfigGroup,_O:eltexFlexLinksIfStatusGroup,_P:eltexFlexLinksEnableNotifGroup,_Q:eltexFlexLinksNotifGroup,_R:eltexFlexLinksPreemptionGroup})
+#
+# PySNMP MIB module ELTEX-FLEX-LINKS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-FLEX-LINKS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+eltexLtd, = mibBuilder.importSymbols("ELTEX-SMI-ACTUAL", "eltexLtd")
+InterfaceIndexOrZero, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "InterfaceIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+eltexFlexLinksMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 31))
+if mibBuilder.loadTexts: eltexFlexLinksMIB.setLastUpdated('201410070000Z')
+if mibBuilder.loadTexts: eltexFlexLinksMIB.setOrganization('Eltex Ltd.')
+eltexFlexLinksMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 31, 0))
+eltexFlexLinksMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 31, 1))
+eltexFlexLinksMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 31, 2))
+eltexFlConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 31, 1, 1))
+eltexFlStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 31, 1, 2))
+eltexFlIfConfigTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 31, 1, 1, 1), )
+if mibBuilder.loadTexts: eltexFlIfConfigTable.setStatus('current')
+eltexFlIfConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 31, 1, 1, 1, 1), ).setIndexNames((0, "ELTEX-FLEX-LINKS-MIB", "eltexFlIfConfigPrimary"))
+if mibBuilder.loadTexts: eltexFlIfConfigEntry.setStatus('current')
+eltexFlIfConfigPrimary = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 31, 1, 1, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: eltexFlIfConfigPrimary.setStatus('current')
+eltexFlIfConfigBackUp = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 31, 1, 1, 1, 1, 2), InterfaceIndexOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: eltexFlIfConfigBackUp.setStatus('current')
+eltexFlEnableStatusChangeNotif = MibScalar((1, 3, 6, 1, 4, 1, 35265, 31, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexFlEnableStatusChangeNotif.setStatus('current')
+eltexFlIfConfigExtTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 31, 1, 1, 3), )
+if mibBuilder.loadTexts: eltexFlIfConfigExtTable.setStatus('current')
+eltexFlIfConfigExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 31, 1, 1, 3, 1), ).setIndexNames((0, "ELTEX-FLEX-LINKS-MIB", "eltexFlIfConfigPrimary"))
+if mibBuilder.loadTexts: eltexFlIfConfigExtEntry.setStatus('current')
+eltexFlIfConfigPreemptionMode = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 31, 1, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("off", 1), ("forced", 2), ("bandwidth", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexFlIfConfigPreemptionMode.setStatus('current')
+eltexFlIfConfigPreemptionDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 31, 1, 1, 3, 1, 2), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexFlIfConfigPreemptionDelay.setStatus('current')
+eltexFlIfStatusTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 31, 1, 2, 1), )
+if mibBuilder.loadTexts: eltexFlIfStatusTable.setStatus('current')
+eltexFlIfStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 31, 1, 2, 1, 1), ).setIndexNames((0, "ELTEX-FLEX-LINKS-MIB", "eltexFlIfIndex"))
+if mibBuilder.loadTexts: eltexFlIfStatusEntry.setStatus('current')
+eltexFlIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 31, 1, 2, 1, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexFlIfIndex.setStatus('current')
+eltexFlIfStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 31, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("forwarding", 1), ("blocking", 2), ("down", 3), ("unknown", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexFlIfStatus.setStatus('current')
+eltexFlIfStatusChangeNotif = NotificationType((1, 3, 6, 1, 4, 1, 35265, 31, 0, 1)).setObjects(("ELTEX-FLEX-LINKS-MIB", "eltexFlIfIndex"), ("ELTEX-FLEX-LINKS-MIB", "eltexFlIfStatus"))
+if mibBuilder.loadTexts: eltexFlIfStatusChangeNotif.setStatus('current')
+eltexFlexLinksMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 31, 2, 1))
+eltexFlexLinksMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 31, 2, 2))
+eltexFlexLinksMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 35265, 31, 2, 1, 1)).setObjects(("ELTEX-FLEX-LINKS-MIB", "eltexFlexLinksIfConfigGroup"), ("ELTEX-FLEX-LINKS-MIB", "eltexFlexLinksIfStatusGroup"), ("ELTEX-FLEX-LINKS-MIB", "eltexFlexLinksEnableNotifGroup"), ("ELTEX-FLEX-LINKS-MIB", "eltexFlexLinksNotifGroup"), ("ELTEX-FLEX-LINKS-MIB", "eltexFlexLinksPreemptionGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    eltexFlexLinksMIBCompliance = eltexFlexLinksMIBCompliance.setStatus('current')
+eltexFlexLinksIfConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 35265, 31, 2, 2, 1)).setObjects(("ELTEX-FLEX-LINKS-MIB", "eltexFlIfConfigBackUp"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    eltexFlexLinksIfConfigGroup = eltexFlexLinksIfConfigGroup.setStatus('current')
+eltexFlexLinksIfStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 35265, 31, 2, 2, 2)).setObjects(("ELTEX-FLEX-LINKS-MIB", "eltexFlIfStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    eltexFlexLinksIfStatusGroup = eltexFlexLinksIfStatusGroup.setStatus('current')
+eltexFlexLinksEnableNotifGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 35265, 31, 2, 2, 3)).setObjects(("ELTEX-FLEX-LINKS-MIB", "eltexFlEnableStatusChangeNotif"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    eltexFlexLinksEnableNotifGroup = eltexFlexLinksEnableNotifGroup.setStatus('current')
+eltexFlexLinksNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 35265, 31, 2, 2, 4)).setObjects(("ELTEX-FLEX-LINKS-MIB", "eltexFlIfStatusChangeNotif"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    eltexFlexLinksNotifGroup = eltexFlexLinksNotifGroup.setStatus('current')
+eltexFlexLinksPreemptionGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 35265, 31, 2, 2, 5)).setObjects(("ELTEX-FLEX-LINKS-MIB", "eltexFlIfConfigPreemptionMode"), ("ELTEX-FLEX-LINKS-MIB", "eltexFlIfConfigPreemptionDelay"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    eltexFlexLinksPreemptionGroup = eltexFlexLinksPreemptionGroup.setStatus('current')
+mibBuilder.exportSymbols("ELTEX-FLEX-LINKS-MIB", eltexFlIfStatusChangeNotif=eltexFlIfStatusChangeNotif, eltexFlexLinksEnableNotifGroup=eltexFlexLinksEnableNotifGroup, eltexFlexLinksMIBCompliance=eltexFlexLinksMIBCompliance, eltexFlexLinksMIBConformance=eltexFlexLinksMIBConformance, eltexFlIfIndex=eltexFlIfIndex, eltexFlexLinksIfStatusGroup=eltexFlexLinksIfStatusGroup, eltexFlIfConfigTable=eltexFlIfConfigTable, eltexFlexLinksMIBGroups=eltexFlexLinksMIBGroups, eltexFlIfConfigPreemptionMode=eltexFlIfConfigPreemptionMode, eltexFlIfConfigEntry=eltexFlIfConfigEntry, eltexFlexLinksMIBObjects=eltexFlexLinksMIBObjects, eltexFlIfConfigPrimary=eltexFlIfConfigPrimary, eltexFlexLinksPreemptionGroup=eltexFlexLinksPreemptionGroup, PYSNMP_MODULE_ID=eltexFlexLinksMIB, eltexFlexLinksMIBCompliances=eltexFlexLinksMIBCompliances, eltexFlexLinksIfConfigGroup=eltexFlexLinksIfConfigGroup, eltexFlConfig=eltexFlConfig, eltexFlStatus=eltexFlStatus, eltexFlIfConfigPreemptionDelay=eltexFlIfConfigPreemptionDelay, eltexFlIfStatusEntry=eltexFlIfStatusEntry, eltexFlIfConfigExtTable=eltexFlIfConfigExtTable, eltexFlEnableStatusChangeNotif=eltexFlEnableStatusChangeNotif, eltexFlexLinksNotifGroup=eltexFlexLinksNotifGroup, eltexFlexLinksMIBNotifs=eltexFlexLinksMIBNotifs, eltexFlexLinksMIB=eltexFlexLinksMIB, eltexFlIfStatusTable=eltexFlIfStatusTable, eltexFlIfConfigExtEntry=eltexFlIfConfigExtEntry, eltexFlIfStatus=eltexFlIfStatus, eltexFlIfConfigBackUp=eltexFlIfConfigBackUp)

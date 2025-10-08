@@ -1,55 +1,34 @@
-_F='agentDot1xAuthServUserIndex'
-_E='LANCOM-DOT1X-AUTHENTICATION-SERVER-MIB'
-_D='Integer32'
-_C='read-write'
-_B='DisplayString'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fastPath,=mibBuilder.importSymbols('LANCOM-REF-MIB','fastPath')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_B,'PhysAddress','RowStatus','TextualConvention')
-fastPathdot1xAuthenticationServer=ModuleIdentity((1,3,6,1,4,1,2356,16,1,49))
-if mibBuilder.loadTexts:fastPathdot1xAuthenticationServer.setRevisions(('2011-01-26 00:00','2009-11-12 00:00'))
-_AgentDot1xAuthServUserConfigGroup_ObjectIdentity=ObjectIdentity
-agentDot1xAuthServUserConfigGroup=_AgentDot1xAuthServUserConfigGroup_ObjectIdentity((1,3,6,1,4,1,2356,16,1,49,1))
-class _AgentDot1xAuthServUserConfigCreate_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_AgentDot1xAuthServUserConfigCreate_Type.__name__=_B
-_AgentDot1xAuthServUserConfigCreate_Object=MibScalar
-agentDot1xAuthServUserConfigCreate=_AgentDot1xAuthServUserConfigCreate_Object((1,3,6,1,4,1,2356,16,1,49,1,1),_AgentDot1xAuthServUserConfigCreate_Type())
-agentDot1xAuthServUserConfigCreate.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentDot1xAuthServUserConfigCreate.setStatus(_A)
-_AgentDot1xAuthServUserConfigTable_Object=MibTable
-agentDot1xAuthServUserConfigTable=_AgentDot1xAuthServUserConfigTable_Object((1,3,6,1,4,1,2356,16,1,49,1,2))
-if mibBuilder.loadTexts:agentDot1xAuthServUserConfigTable.setStatus(_A)
-_AgentDot1xAuthServUserConfigEntry_Object=MibTableRow
-agentDot1xAuthServUserConfigEntry=_AgentDot1xAuthServUserConfigEntry_Object((1,3,6,1,4,1,2356,16,1,49,1,2,1))
-agentDot1xAuthServUserConfigEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:agentDot1xAuthServUserConfigEntry.setStatus(_A)
-class _AgentDot1xAuthServUserIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,99))
-_AgentDot1xAuthServUserIndex_Type.__name__=_D
-_AgentDot1xAuthServUserIndex_Object=MibTableColumn
-agentDot1xAuthServUserIndex=_AgentDot1xAuthServUserIndex_Object((1,3,6,1,4,1,2356,16,1,49,1,2,1,1),_AgentDot1xAuthServUserIndex_Type())
-agentDot1xAuthServUserIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:agentDot1xAuthServUserIndex.setStatus(_A)
-class _AgentDot1xAuthServUserName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_AgentDot1xAuthServUserName_Type.__name__=_B
-_AgentDot1xAuthServUserName_Object=MibTableColumn
-agentDot1xAuthServUserName=_AgentDot1xAuthServUserName_Object((1,3,6,1,4,1,2356,16,1,49,1,2,1,2),_AgentDot1xAuthServUserName_Type())
-agentDot1xAuthServUserName.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentDot1xAuthServUserName.setStatus(_A)
-class _AgentDot1xAuthServUserPassword_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_AgentDot1xAuthServUserPassword_Type.__name__=_B
-_AgentDot1xAuthServUserPassword_Object=MibTableColumn
-agentDot1xAuthServUserPassword=_AgentDot1xAuthServUserPassword_Object((1,3,6,1,4,1,2356,16,1,49,1,2,1,3),_AgentDot1xAuthServUserPassword_Type())
-agentDot1xAuthServUserPassword.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentDot1xAuthServUserPassword.setStatus(_A)
-_AgentDot1xAuthServUserStatus_Type=RowStatus
-_AgentDot1xAuthServUserStatus_Object=MibTableColumn
-agentDot1xAuthServUserStatus=_AgentDot1xAuthServUserStatus_Object((1,3,6,1,4,1,2356,16,1,49,1,2,1,4),_AgentDot1xAuthServUserStatus_Type())
-agentDot1xAuthServUserStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentDot1xAuthServUserStatus.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'fastPathdot1xAuthenticationServer':fastPathdot1xAuthenticationServer,'agentDot1xAuthServUserConfigGroup':agentDot1xAuthServUserConfigGroup,'agentDot1xAuthServUserConfigCreate':agentDot1xAuthServUserConfigCreate,'agentDot1xAuthServUserConfigTable':agentDot1xAuthServUserConfigTable,'agentDot1xAuthServUserConfigEntry':agentDot1xAuthServUserConfigEntry,_F:agentDot1xAuthServUserIndex,'agentDot1xAuthServUserName':agentDot1xAuthServUserName,'agentDot1xAuthServUserPassword':agentDot1xAuthServUserPassword,'agentDot1xAuthServUserStatus':agentDot1xAuthServUserStatus})
+#
+# PySNMP MIB module LANCOM-DOT1X-AUTHENTICATION-SERVER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/lancom/LANCOM-DOT1X-AUTHENTICATION-SERVER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:43:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+fastPath, = mibBuilder.importSymbols("LANCOM-REF-MIB", "fastPath")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+fastPathdot1xAuthenticationServer = ModuleIdentity((1, 3, 6, 1, 4, 1, 2356, 16, 1, 49))
+fastPathdot1xAuthenticationServer.setRevisions(('2011-01-26 00:00', '2009-11-12 00:00',))
+if mibBuilder.loadTexts: fastPathdot1xAuthenticationServer.setLastUpdated('201101260000Z')
+if mibBuilder.loadTexts: fastPathdot1xAuthenticationServer.setOrganization('Broadcom')
+agentDot1xAuthServUserConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2356, 16, 1, 49, 1))
+agentDot1xAuthServUserConfigCreate = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 49, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentDot1xAuthServUserConfigCreate.setStatus('current')
+agentDot1xAuthServUserConfigTable = MibTable((1, 3, 6, 1, 4, 1, 2356, 16, 1, 49, 1, 2), )
+if mibBuilder.loadTexts: agentDot1xAuthServUserConfigTable.setStatus('current')
+agentDot1xAuthServUserConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2356, 16, 1, 49, 1, 2, 1), ).setIndexNames((0, "LANCOM-DOT1X-AUTHENTICATION-SERVER-MIB", "agentDot1xAuthServUserIndex"))
+if mibBuilder.loadTexts: agentDot1xAuthServUserConfigEntry.setStatus('current')
+agentDot1xAuthServUserIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 49, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99)))
+if mibBuilder.loadTexts: agentDot1xAuthServUserIndex.setStatus('current')
+agentDot1xAuthServUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 49, 1, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentDot1xAuthServUserName.setStatus('current')
+agentDot1xAuthServUserPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 49, 1, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentDot1xAuthServUserPassword.setStatus('current')
+agentDot1xAuthServUserStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 49, 1, 2, 1, 4), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentDot1xAuthServUserStatus.setStatus('current')
+mibBuilder.exportSymbols("LANCOM-DOT1X-AUTHENTICATION-SERVER-MIB", agentDot1xAuthServUserConfigGroup=agentDot1xAuthServUserConfigGroup, agentDot1xAuthServUserConfigEntry=agentDot1xAuthServUserConfigEntry, fastPathdot1xAuthenticationServer=fastPathdot1xAuthenticationServer, PYSNMP_MODULE_ID=fastPathdot1xAuthenticationServer, agentDot1xAuthServUserStatus=agentDot1xAuthServUserStatus, agentDot1xAuthServUserName=agentDot1xAuthServUserName, agentDot1xAuthServUserIndex=agentDot1xAuthServUserIndex, agentDot1xAuthServUserConfigTable=agentDot1xAuthServUserConfigTable, agentDot1xAuthServUserPassword=agentDot1xAuthServUserPassword, agentDot1xAuthServUserConfigCreate=agentDot1xAuthServUserConfigCreate)

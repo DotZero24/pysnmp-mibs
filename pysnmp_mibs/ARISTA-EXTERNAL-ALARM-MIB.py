@@ -1,101 +1,58 @@
-_P='aristaExternalAlarmNotificationsGroup'
-_O='aristaExternalAlarmObjectsGroup'
-_N='aristaExternalAlarmDeassertedNotif'
-_M='aristaExternalAlarmAssertedNotif'
-_L='aristaExternalAlarmAction'
-_K='aristaExternalAlarmPolarity'
-_J='aristaExternalAlarmLastDeasserted'
-_I='aristaExternalAlarmLastAsserted'
-_H='aristaExternalAlarmCount'
-_G='aristaExternalAlarmAsserted'
-_F='aristaExternalAlarmId'
-_E='Integer32'
-_D='aristaExternalAlarmDescription'
-_C='read-only'
-_B='ARISTA-EXTERNAL-ALARM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-aristaMibs,=mibBuilder.importSymbols('ARISTA-SMI-MIB','aristaMibs')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp','TruthValue')
-aristaExternalAlarmMIB=ModuleIdentity((1,3,6,1,4,1,30065,3,25))
-if mibBuilder.loadTexts:aristaExternalAlarmMIB.setRevisions(('2018-02-26 00:00',))
-_AristaExternalAlarmMibNotifications_ObjectIdentity=ObjectIdentity
-aristaExternalAlarmMibNotifications=_AristaExternalAlarmMibNotifications_ObjectIdentity((1,3,6,1,4,1,30065,3,25,0))
-_AristaExternalAlarmMibObjects_ObjectIdentity=ObjectIdentity
-aristaExternalAlarmMibObjects=_AristaExternalAlarmMibObjects_ObjectIdentity((1,3,6,1,4,1,30065,3,25,1))
-_AristaExternalAlarmTable_Object=MibTable
-aristaExternalAlarmTable=_AristaExternalAlarmTable_Object((1,3,6,1,4,1,30065,3,25,1,1))
-if mibBuilder.loadTexts:aristaExternalAlarmTable.setStatus(_A)
-_AristaExternalAlarmTableEntry_Object=MibTableRow
-aristaExternalAlarmTableEntry=_AristaExternalAlarmTableEntry_Object((1,3,6,1,4,1,30065,3,25,1,1,1))
-aristaExternalAlarmTableEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:aristaExternalAlarmTableEntry.setStatus(_A)
-_AristaExternalAlarmId_Type=Unsigned32
-_AristaExternalAlarmId_Object=MibTableColumn
-aristaExternalAlarmId=_AristaExternalAlarmId_Object((1,3,6,1,4,1,30065,3,25,1,1,1,1),_AristaExternalAlarmId_Type())
-aristaExternalAlarmId.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:aristaExternalAlarmId.setStatus(_A)
-_AristaExternalAlarmAsserted_Type=TruthValue
-_AristaExternalAlarmAsserted_Object=MibTableColumn
-aristaExternalAlarmAsserted=_AristaExternalAlarmAsserted_Object((1,3,6,1,4,1,30065,3,25,1,1,1,2),_AristaExternalAlarmAsserted_Type())
-aristaExternalAlarmAsserted.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaExternalAlarmAsserted.setStatus(_A)
-_AristaExternalAlarmCount_Type=Unsigned32
-_AristaExternalAlarmCount_Object=MibTableColumn
-aristaExternalAlarmCount=_AristaExternalAlarmCount_Object((1,3,6,1,4,1,30065,3,25,1,1,1,3),_AristaExternalAlarmCount_Type())
-aristaExternalAlarmCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaExternalAlarmCount.setStatus(_A)
-_AristaExternalAlarmLastAsserted_Type=TimeStamp
-_AristaExternalAlarmLastAsserted_Object=MibTableColumn
-aristaExternalAlarmLastAsserted=_AristaExternalAlarmLastAsserted_Object((1,3,6,1,4,1,30065,3,25,1,1,1,4),_AristaExternalAlarmLastAsserted_Type())
-aristaExternalAlarmLastAsserted.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaExternalAlarmLastAsserted.setStatus(_A)
-_AristaExternalAlarmLastDeasserted_Type=TimeStamp
-_AristaExternalAlarmLastDeasserted_Object=MibTableColumn
-aristaExternalAlarmLastDeasserted=_AristaExternalAlarmLastDeasserted_Object((1,3,6,1,4,1,30065,3,25,1,1,1,5),_AristaExternalAlarmLastDeasserted_Type())
-aristaExternalAlarmLastDeasserted.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaExternalAlarmLastDeasserted.setStatus(_A)
-_AristaExternalAlarmDescription_Type=DisplayString
-_AristaExternalAlarmDescription_Object=MibTableColumn
-aristaExternalAlarmDescription=_AristaExternalAlarmDescription_Object((1,3,6,1,4,1,30065,3,25,1,1,1,6),_AristaExternalAlarmDescription_Type())
-aristaExternalAlarmDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaExternalAlarmDescription.setStatus(_A)
-class _AristaExternalAlarmPolarity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('open',1),('closed',2)))
-_AristaExternalAlarmPolarity_Type.__name__=_E
-_AristaExternalAlarmPolarity_Object=MibTableColumn
-aristaExternalAlarmPolarity=_AristaExternalAlarmPolarity_Object((1,3,6,1,4,1,30065,3,25,1,1,1,7),_AristaExternalAlarmPolarity_Type())
-aristaExternalAlarmPolarity.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaExternalAlarmPolarity.setStatus(_A)
-class _AristaExternalAlarmAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('ignore',1),('syslog',2),('snmpTrap',3)))
-_AristaExternalAlarmAction_Type.__name__=_E
-_AristaExternalAlarmAction_Object=MibTableColumn
-aristaExternalAlarmAction=_AristaExternalAlarmAction_Object((1,3,6,1,4,1,30065,3,25,1,1,1,8),_AristaExternalAlarmAction_Type())
-aristaExternalAlarmAction.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaExternalAlarmAction.setStatus(_A)
-_AristaExternalAlarmMibConformance_ObjectIdentity=ObjectIdentity
-aristaExternalAlarmMibConformance=_AristaExternalAlarmMibConformance_ObjectIdentity((1,3,6,1,4,1,30065,3,25,2))
-_AristaExternalAlarmMibCompliances_ObjectIdentity=ObjectIdentity
-aristaExternalAlarmMibCompliances=_AristaExternalAlarmMibCompliances_ObjectIdentity((1,3,6,1,4,1,30065,3,25,2,1))
-_AristaExternalAlarmMibGroups_ObjectIdentity=ObjectIdentity
-aristaExternalAlarmMibGroups=_AristaExternalAlarmMibGroups_ObjectIdentity((1,3,6,1,4,1,30065,3,25,2,2))
-aristaExternalAlarmObjectsGroup=ObjectGroup((1,3,6,1,4,1,30065,3,25,2,2,1))
-aristaExternalAlarmObjectsGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_D),(_B,_K),(_B,_L)))
-if mibBuilder.loadTexts:aristaExternalAlarmObjectsGroup.setStatus(_A)
-aristaExternalAlarmAssertedNotif=NotificationType((1,3,6,1,4,1,30065,3,25,0,1))
-aristaExternalAlarmAssertedNotif.setObjects((_B,_D))
-if mibBuilder.loadTexts:aristaExternalAlarmAssertedNotif.setStatus(_A)
-aristaExternalAlarmDeassertedNotif=NotificationType((1,3,6,1,4,1,30065,3,25,0,2))
-aristaExternalAlarmDeassertedNotif.setObjects((_B,_D))
-if mibBuilder.loadTexts:aristaExternalAlarmDeassertedNotif.setStatus(_A)
-aristaExternalAlarmNotificationsGroup=NotificationGroup((1,3,6,1,4,1,30065,3,25,2,2,2))
-aristaExternalAlarmNotificationsGroup.setObjects(*((_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:aristaExternalAlarmNotificationsGroup.setStatus(_A)
-aristaExternalAlarmMibCompliance=ModuleCompliance((1,3,6,1,4,1,30065,3,25,2,1,1))
-aristaExternalAlarmMibCompliance.setObjects(*((_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:aristaExternalAlarmMibCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'aristaExternalAlarmMIB':aristaExternalAlarmMIB,'aristaExternalAlarmMibNotifications':aristaExternalAlarmMibNotifications,_M:aristaExternalAlarmAssertedNotif,_N:aristaExternalAlarmDeassertedNotif,'aristaExternalAlarmMibObjects':aristaExternalAlarmMibObjects,'aristaExternalAlarmTable':aristaExternalAlarmTable,'aristaExternalAlarmTableEntry':aristaExternalAlarmTableEntry,_F:aristaExternalAlarmId,_G:aristaExternalAlarmAsserted,_H:aristaExternalAlarmCount,_I:aristaExternalAlarmLastAsserted,_J:aristaExternalAlarmLastDeasserted,_D:aristaExternalAlarmDescription,_K:aristaExternalAlarmPolarity,_L:aristaExternalAlarmAction,'aristaExternalAlarmMibConformance':aristaExternalAlarmMibConformance,'aristaExternalAlarmMibCompliances':aristaExternalAlarmMibCompliances,'aristaExternalAlarmMibCompliance':aristaExternalAlarmMibCompliance,'aristaExternalAlarmMibGroups':aristaExternalAlarmMibGroups,_O:aristaExternalAlarmObjectsGroup,_P:aristaExternalAlarmNotificationsGroup})
+#
+# PySNMP MIB module ARISTA-EXTERNAL-ALARM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/arista/ARISTA-EXTERNAL-ALARM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:27 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TruthValue", "TextualConvention")
+aristaExternalAlarmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 25))
+aristaExternalAlarmMIB.setRevisions(('2018-02-26 00:00',))
+if mibBuilder.loadTexts: aristaExternalAlarmMIB.setLastUpdated('201802260000Z')
+if mibBuilder.loadTexts: aristaExternalAlarmMIB.setOrganization('Arista Networks, Inc.')
+aristaExternalAlarmMibNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 25, 0))
+aristaExternalAlarmMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 25, 1))
+aristaExternalAlarmMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 25, 2))
+aristaExternalAlarmTable = MibTable((1, 3, 6, 1, 4, 1, 30065, 3, 25, 1, 1), )
+if mibBuilder.loadTexts: aristaExternalAlarmTable.setStatus('current')
+aristaExternalAlarmTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30065, 3, 25, 1, 1, 1), ).setIndexNames((0, "ARISTA-EXTERNAL-ALARM-MIB", "aristaExternalAlarmId"))
+if mibBuilder.loadTexts: aristaExternalAlarmTableEntry.setStatus('current')
+aristaExternalAlarmId = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 25, 1, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: aristaExternalAlarmId.setStatus('current')
+aristaExternalAlarmAsserted = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 25, 1, 1, 1, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaExternalAlarmAsserted.setStatus('current')
+aristaExternalAlarmCount = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 25, 1, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaExternalAlarmCount.setStatus('current')
+aristaExternalAlarmLastAsserted = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 25, 1, 1, 1, 4), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaExternalAlarmLastAsserted.setStatus('current')
+aristaExternalAlarmLastDeasserted = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 25, 1, 1, 1, 5), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaExternalAlarmLastDeasserted.setStatus('current')
+aristaExternalAlarmDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 25, 1, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaExternalAlarmDescription.setStatus('current')
+aristaExternalAlarmPolarity = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 25, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("open", 1), ("closed", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaExternalAlarmPolarity.setStatus('current')
+aristaExternalAlarmAction = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 25, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("ignore", 1), ("syslog", 2), ("snmpTrap", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaExternalAlarmAction.setStatus('current')
+aristaExternalAlarmAssertedNotif = NotificationType((1, 3, 6, 1, 4, 1, 30065, 3, 25, 0, 1)).setObjects(("ARISTA-EXTERNAL-ALARM-MIB", "aristaExternalAlarmDescription"))
+if mibBuilder.loadTexts: aristaExternalAlarmAssertedNotif.setStatus('current')
+aristaExternalAlarmDeassertedNotif = NotificationType((1, 3, 6, 1, 4, 1, 30065, 3, 25, 0, 2)).setObjects(("ARISTA-EXTERNAL-ALARM-MIB", "aristaExternalAlarmDescription"))
+if mibBuilder.loadTexts: aristaExternalAlarmDeassertedNotif.setStatus('current')
+aristaExternalAlarmMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 25, 2, 1))
+aristaExternalAlarmMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 25, 2, 2))
+aristaExternalAlarmMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 30065, 3, 25, 2, 1, 1)).setObjects(("ARISTA-EXTERNAL-ALARM-MIB", "aristaExternalAlarmObjectsGroup"), ("ARISTA-EXTERNAL-ALARM-MIB", "aristaExternalAlarmNotificationsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aristaExternalAlarmMibCompliance = aristaExternalAlarmMibCompliance.setStatus('current')
+aristaExternalAlarmObjectsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 25, 2, 2, 1)).setObjects(("ARISTA-EXTERNAL-ALARM-MIB", "aristaExternalAlarmAsserted"), ("ARISTA-EXTERNAL-ALARM-MIB", "aristaExternalAlarmCount"), ("ARISTA-EXTERNAL-ALARM-MIB", "aristaExternalAlarmLastAsserted"), ("ARISTA-EXTERNAL-ALARM-MIB", "aristaExternalAlarmLastDeasserted"), ("ARISTA-EXTERNAL-ALARM-MIB", "aristaExternalAlarmDescription"), ("ARISTA-EXTERNAL-ALARM-MIB", "aristaExternalAlarmPolarity"), ("ARISTA-EXTERNAL-ALARM-MIB", "aristaExternalAlarmAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aristaExternalAlarmObjectsGroup = aristaExternalAlarmObjectsGroup.setStatus('current')
+aristaExternalAlarmNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 30065, 3, 25, 2, 2, 2)).setObjects(("ARISTA-EXTERNAL-ALARM-MIB", "aristaExternalAlarmAssertedNotif"), ("ARISTA-EXTERNAL-ALARM-MIB", "aristaExternalAlarmDeassertedNotif"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aristaExternalAlarmNotificationsGroup = aristaExternalAlarmNotificationsGroup.setStatus('current')
+mibBuilder.exportSymbols("ARISTA-EXTERNAL-ALARM-MIB", aristaExternalAlarmMibObjects=aristaExternalAlarmMibObjects, aristaExternalAlarmMibGroups=aristaExternalAlarmMibGroups, aristaExternalAlarmDeassertedNotif=aristaExternalAlarmDeassertedNotif, aristaExternalAlarmDescription=aristaExternalAlarmDescription, aristaExternalAlarmTableEntry=aristaExternalAlarmTableEntry, aristaExternalAlarmMibNotifications=aristaExternalAlarmMibNotifications, aristaExternalAlarmId=aristaExternalAlarmId, aristaExternalAlarmAsserted=aristaExternalAlarmAsserted, aristaExternalAlarmMibCompliances=aristaExternalAlarmMibCompliances, aristaExternalAlarmLastAsserted=aristaExternalAlarmLastAsserted, aristaExternalAlarmPolarity=aristaExternalAlarmPolarity, PYSNMP_MODULE_ID=aristaExternalAlarmMIB, aristaExternalAlarmCount=aristaExternalAlarmCount, aristaExternalAlarmAction=aristaExternalAlarmAction, aristaExternalAlarmMIB=aristaExternalAlarmMIB, aristaExternalAlarmAssertedNotif=aristaExternalAlarmAssertedNotif, aristaExternalAlarmLastDeasserted=aristaExternalAlarmLastDeasserted, aristaExternalAlarmNotificationsGroup=aristaExternalAlarmNotificationsGroup, aristaExternalAlarmMibCompliance=aristaExternalAlarmMibCompliance, aristaExternalAlarmObjectsGroup=aristaExternalAlarmObjectsGroup, aristaExternalAlarmTable=aristaExternalAlarmTable, aristaExternalAlarmMibConformance=aristaExternalAlarmMibConformance)

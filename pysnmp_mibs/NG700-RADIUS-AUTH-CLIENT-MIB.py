@@ -1,268 +1,110 @@
-_N='obsolete'
-_M='agentRadiusServerIndex'
-_L='not-accessible'
-_K='agentRadiusAccountingServerIndex'
-_J='NG700-RADIUS-AUTH-CLIENT-MIB'
-_I='disable'
-_H='enable'
-_G='DisplayString'
-_F='read-only'
-_E='read-create'
-_D='Unsigned32'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndexOrZero,=mibBuilder.importSymbols('IF-MIB','InterfaceIndexOrZero')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ng700smartswitch,=mibBuilder.importSymbols('NG700-REF-MIB','ng700smartswitch')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_G,'PhysAddress','RowStatus','TextualConvention')
-fastPathRadius=ModuleIdentity((1,3,6,1,4,1,4526,11,8))
-if mibBuilder.loadTexts:fastPathRadius.setRevisions(('2011-12-14 00:00','2011-09-26 00:00','2011-01-26 00:00','2007-05-23 00:00','2003-11-21 00:00','2003-05-07 00:00'))
-_AgentRadiusConfigGroup_ObjectIdentity=ObjectIdentity
-agentRadiusConfigGroup=_AgentRadiusConfigGroup_ObjectIdentity((1,3,6,1,4,1,4526,11,8,1))
-class _AgentRadiusMaxTransmit_Type(Unsigned32):defaultValue=4;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,15))
-_AgentRadiusMaxTransmit_Type.__name__=_D
-_AgentRadiusMaxTransmit_Object=MibScalar
-agentRadiusMaxTransmit=_AgentRadiusMaxTransmit_Object((1,3,6,1,4,1,4526,11,8,1,1),_AgentRadiusMaxTransmit_Type())
-agentRadiusMaxTransmit.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusMaxTransmit.setStatus(_A)
-class _AgentRadiusTimeout_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,30))
-_AgentRadiusTimeout_Type.__name__=_D
-_AgentRadiusTimeout_Object=MibScalar
-agentRadiusTimeout=_AgentRadiusTimeout_Object((1,3,6,1,4,1,4526,11,8,1,2),_AgentRadiusTimeout_Type())
-agentRadiusTimeout.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusTimeout.setStatus(_A)
-class _AgentRadiusAccountingMode_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_I,2)))
-_AgentRadiusAccountingMode_Type.__name__=_C
-_AgentRadiusAccountingMode_Object=MibScalar
-agentRadiusAccountingMode=_AgentRadiusAccountingMode_Object((1,3,6,1,4,1,4526,11,8,1,3),_AgentRadiusAccountingMode_Type())
-agentRadiusAccountingMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusAccountingMode.setStatus(_A)
-class _AgentRadiusStatsClear_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_I,2)))
-_AgentRadiusStatsClear_Type.__name__=_C
-_AgentRadiusStatsClear_Object=MibScalar
-agentRadiusStatsClear=_AgentRadiusStatsClear_Object((1,3,6,1,4,1,4526,11,8,1,4),_AgentRadiusStatsClear_Type())
-agentRadiusStatsClear.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusStatsClear.setStatus(_A)
-class _AgentRadiusAccountingIndexNextValid_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,2147483647))
-_AgentRadiusAccountingIndexNextValid_Type.__name__=_C
-_AgentRadiusAccountingIndexNextValid_Object=MibScalar
-agentRadiusAccountingIndexNextValid=_AgentRadiusAccountingIndexNextValid_Object((1,3,6,1,4,1,4526,11,8,1,5),_AgentRadiusAccountingIndexNextValid_Type())
-agentRadiusAccountingIndexNextValid.setMaxAccess(_F)
-if mibBuilder.loadTexts:agentRadiusAccountingIndexNextValid.setStatus(_A)
-_AgentRadiusAccountingConfigTable_Object=MibTable
-agentRadiusAccountingConfigTable=_AgentRadiusAccountingConfigTable_Object((1,3,6,1,4,1,4526,11,8,1,6))
-if mibBuilder.loadTexts:agentRadiusAccountingConfigTable.setStatus(_A)
-_AgentRadiusAccountingConfigEntry_Object=MibTableRow
-agentRadiusAccountingConfigEntry=_AgentRadiusAccountingConfigEntry_Object((1,3,6,1,4,1,4526,11,8,1,6,1))
-agentRadiusAccountingConfigEntry.setIndexNames((0,_J,_K))
-if mibBuilder.loadTexts:agentRadiusAccountingConfigEntry.setStatus(_A)
-class _AgentRadiusAccountingServerIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_AgentRadiusAccountingServerIndex_Type.__name__=_C
-_AgentRadiusAccountingServerIndex_Object=MibTableColumn
-agentRadiusAccountingServerIndex=_AgentRadiusAccountingServerIndex_Object((1,3,6,1,4,1,4526,11,8,1,6,1,1),_AgentRadiusAccountingServerIndex_Type())
-agentRadiusAccountingServerIndex.setMaxAccess(_L)
-if mibBuilder.loadTexts:agentRadiusAccountingServerIndex.setStatus(_A)
-_AgentRadiusAccountingServerAddress_Type=InetAddress
-_AgentRadiusAccountingServerAddress_Object=MibTableColumn
-agentRadiusAccountingServerAddress=_AgentRadiusAccountingServerAddress_Object((1,3,6,1,4,1,4526,11,8,1,6,1,2),_AgentRadiusAccountingServerAddress_Type())
-agentRadiusAccountingServerAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentRadiusAccountingServerAddress.setStatus(_A)
-_AgentRadiusAccountingServerAddressType_Type=InetAddressType
-_AgentRadiusAccountingServerAddressType_Object=MibTableColumn
-agentRadiusAccountingServerAddressType=_AgentRadiusAccountingServerAddressType_Object((1,3,6,1,4,1,4526,11,8,1,6,1,3),_AgentRadiusAccountingServerAddressType_Type())
-agentRadiusAccountingServerAddressType.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentRadiusAccountingServerAddressType.setStatus(_A)
-class _AgentRadiusAccountingPort_Type(Unsigned32):defaultValue=1813;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_AgentRadiusAccountingPort_Type.__name__=_D
-_AgentRadiusAccountingPort_Object=MibTableColumn
-agentRadiusAccountingPort=_AgentRadiusAccountingPort_Object((1,3,6,1,4,1,4526,11,8,1,6,1,4),_AgentRadiusAccountingPort_Type())
-agentRadiusAccountingPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusAccountingPort.setStatus(_A)
-class _AgentRadiusAccountingSecret_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_AgentRadiusAccountingSecret_Type.__name__=_G
-_AgentRadiusAccountingSecret_Object=MibTableColumn
-agentRadiusAccountingSecret=_AgentRadiusAccountingSecret_Object((1,3,6,1,4,1,4526,11,8,1,6,1,5),_AgentRadiusAccountingSecret_Type())
-agentRadiusAccountingSecret.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusAccountingSecret.setStatus(_A)
-_AgentRadiusAccountingStatus_Type=RowStatus
-_AgentRadiusAccountingStatus_Object=MibTableColumn
-agentRadiusAccountingStatus=_AgentRadiusAccountingStatus_Object((1,3,6,1,4,1,4526,11,8,1,6,1,6),_AgentRadiusAccountingStatus_Type())
-agentRadiusAccountingStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentRadiusAccountingStatus.setStatus(_A)
-class _AgentRadiusAccountingServerName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_AgentRadiusAccountingServerName_Type.__name__=_G
-_AgentRadiusAccountingServerName_Object=MibTableColumn
-agentRadiusAccountingServerName=_AgentRadiusAccountingServerName_Object((1,3,6,1,4,1,4526,11,8,1,6,1,7),_AgentRadiusAccountingServerName_Type())
-agentRadiusAccountingServerName.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentRadiusAccountingServerName.setStatus(_A)
-class _AgentRadiusServerIndexNextValid_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,2147483647))
-_AgentRadiusServerIndexNextValid_Type.__name__=_C
-_AgentRadiusServerIndexNextValid_Object=MibScalar
-agentRadiusServerIndexNextValid=_AgentRadiusServerIndexNextValid_Object((1,3,6,1,4,1,4526,11,8,1,7),_AgentRadiusServerIndexNextValid_Type())
-agentRadiusServerIndexNextValid.setMaxAccess(_F)
-if mibBuilder.loadTexts:agentRadiusServerIndexNextValid.setStatus(_A)
-_AgentRadiusServerConfigTable_Object=MibTable
-agentRadiusServerConfigTable=_AgentRadiusServerConfigTable_Object((1,3,6,1,4,1,4526,11,8,1,8))
-if mibBuilder.loadTexts:agentRadiusServerConfigTable.setStatus(_A)
-_AgentRadiusServerConfigEntry_Object=MibTableRow
-agentRadiusServerConfigEntry=_AgentRadiusServerConfigEntry_Object((1,3,6,1,4,1,4526,11,8,1,8,1))
-agentRadiusServerConfigEntry.setIndexNames((0,_J,_M))
-if mibBuilder.loadTexts:agentRadiusServerConfigEntry.setStatus(_A)
-class _AgentRadiusServerIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_AgentRadiusServerIndex_Type.__name__=_C
-_AgentRadiusServerIndex_Object=MibTableColumn
-agentRadiusServerIndex=_AgentRadiusServerIndex_Object((1,3,6,1,4,1,4526,11,8,1,8,1,1),_AgentRadiusServerIndex_Type())
-agentRadiusServerIndex.setMaxAccess(_L)
-if mibBuilder.loadTexts:agentRadiusServerIndex.setStatus(_A)
-_AgentRadiusServerAddress_Type=InetAddress
-_AgentRadiusServerAddress_Object=MibTableColumn
-agentRadiusServerAddress=_AgentRadiusServerAddress_Object((1,3,6,1,4,1,4526,11,8,1,8,1,2),_AgentRadiusServerAddress_Type())
-agentRadiusServerAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentRadiusServerAddress.setStatus(_N)
-_AgentRadiusServerAddressType_Type=InetAddressType
-_AgentRadiusServerAddressType_Object=MibTableColumn
-agentRadiusServerAddressType=_AgentRadiusServerAddressType_Object((1,3,6,1,4,1,4526,11,8,1,8,1,3),_AgentRadiusServerAddressType_Type())
-agentRadiusServerAddressType.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentRadiusServerAddressType.setStatus(_A)
-class _AgentRadiusServerPort_Type(Unsigned32):defaultValue=1812;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_AgentRadiusServerPort_Type.__name__=_D
-_AgentRadiusServerPort_Object=MibTableColumn
-agentRadiusServerPort=_AgentRadiusServerPort_Object((1,3,6,1,4,1,4526,11,8,1,8,1,4),_AgentRadiusServerPort_Type())
-agentRadiusServerPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusServerPort.setStatus(_A)
-class _AgentRadiusServerSecret_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_AgentRadiusServerSecret_Type.__name__=_G
-_AgentRadiusServerSecret_Object=MibTableColumn
-agentRadiusServerSecret=_AgentRadiusServerSecret_Object((1,3,6,1,4,1,4526,11,8,1,8,1,5),_AgentRadiusServerSecret_Type())
-agentRadiusServerSecret.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusServerSecret.setStatus(_A)
-class _AgentRadiusServerPrimaryMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_I,2)))
-_AgentRadiusServerPrimaryMode_Type.__name__=_C
-_AgentRadiusServerPrimaryMode_Object=MibTableColumn
-agentRadiusServerPrimaryMode=_AgentRadiusServerPrimaryMode_Object((1,3,6,1,4,1,4526,11,8,1,8,1,6),_AgentRadiusServerPrimaryMode_Type())
-agentRadiusServerPrimaryMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusServerPrimaryMode.setStatus(_A)
-class _AgentRadiusServerCurrentMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('yes',1),('no',2)))
-_AgentRadiusServerCurrentMode_Type.__name__=_C
-_AgentRadiusServerCurrentMode_Object=MibTableColumn
-agentRadiusServerCurrentMode=_AgentRadiusServerCurrentMode_Object((1,3,6,1,4,1,4526,11,8,1,8,1,7),_AgentRadiusServerCurrentMode_Type())
-agentRadiusServerCurrentMode.setMaxAccess(_F)
-if mibBuilder.loadTexts:agentRadiusServerCurrentMode.setStatus(_A)
-class _AgentRadiusServerMsgAuth_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_I,2)))
-_AgentRadiusServerMsgAuth_Type.__name__=_C
-_AgentRadiusServerMsgAuth_Object=MibTableColumn
-agentRadiusServerMsgAuth=_AgentRadiusServerMsgAuth_Object((1,3,6,1,4,1,4526,11,8,1,8,1,8),_AgentRadiusServerMsgAuth_Type())
-agentRadiusServerMsgAuth.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusServerMsgAuth.setStatus(_A)
-_AgentRadiusServerRowStatus_Type=RowStatus
-_AgentRadiusServerRowStatus_Object=MibTableColumn
-agentRadiusServerRowStatus=_AgentRadiusServerRowStatus_Object((1,3,6,1,4,1,4526,11,8,1,8,1,9),_AgentRadiusServerRowStatus_Type())
-agentRadiusServerRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentRadiusServerRowStatus.setStatus(_A)
-class _AgentRadiusServerName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_AgentRadiusServerName_Type.__name__=_G
-_AgentRadiusServerName_Object=MibTableColumn
-agentRadiusServerName=_AgentRadiusServerName_Object((1,3,6,1,4,1,4526,11,8,1,8,1,10),_AgentRadiusServerName_Type())
-agentRadiusServerName.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentRadiusServerName.setStatus(_A)
-_AgentRadiusServerInetAddress_Type=InetAddress
-_AgentRadiusServerInetAddress_Object=MibTableColumn
-agentRadiusServerInetAddress=_AgentRadiusServerInetAddress_Object((1,3,6,1,4,1,4526,11,8,1,8,1,11),_AgentRadiusServerInetAddress_Type())
-agentRadiusServerInetAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentRadiusServerInetAddress.setStatus(_A)
-class _AgentRadiusServerTimeout_Type(Unsigned32):defaultValue=3;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,30))
-_AgentRadiusServerTimeout_Type.__name__=_D
-_AgentRadiusServerTimeout_Object=MibTableColumn
-agentRadiusServerTimeout=_AgentRadiusServerTimeout_Object((1,3,6,1,4,1,4526,11,8,1,8,1,12),_AgentRadiusServerTimeout_Type())
-agentRadiusServerTimeout.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusServerTimeout.setStatus(_A)
-class _AgentRadiusServerRetransmit_Type(Unsigned32):defaultValue=3;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_AgentRadiusServerRetransmit_Type.__name__=_D
-_AgentRadiusServerRetransmit_Object=MibTableColumn
-agentRadiusServerRetransmit=_AgentRadiusServerRetransmit_Object((1,3,6,1,4,1,4526,11,8,1,8,1,13),_AgentRadiusServerRetransmit_Type())
-agentRadiusServerRetransmit.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusServerRetransmit.setStatus(_A)
-class _AgentRadiusServerDeadtime_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2000))
-_AgentRadiusServerDeadtime_Type.__name__=_D
-_AgentRadiusServerDeadtime_Object=MibTableColumn
-agentRadiusServerDeadtime=_AgentRadiusServerDeadtime_Object((1,3,6,1,4,1,4526,11,8,1,8,1,14),_AgentRadiusServerDeadtime_Type())
-agentRadiusServerDeadtime.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusServerDeadtime.setStatus(_A)
-_AgentRadiusServerSourceIPAddr_Type=IpAddress
-_AgentRadiusServerSourceIPAddr_Object=MibTableColumn
-agentRadiusServerSourceIPAddr=_AgentRadiusServerSourceIPAddr_Object((1,3,6,1,4,1,4526,11,8,1,8,1,15),_AgentRadiusServerSourceIPAddr_Type())
-agentRadiusServerSourceIPAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusServerSourceIPAddr.setStatus(_A)
-class _AgentRadiusServerPriority_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AgentRadiusServerPriority_Type.__name__=_D
-_AgentRadiusServerPriority_Object=MibTableColumn
-agentRadiusServerPriority=_AgentRadiusServerPriority_Object((1,3,6,1,4,1,4526,11,8,1,8,1,16),_AgentRadiusServerPriority_Type())
-agentRadiusServerPriority.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusServerPriority.setStatus(_A)
-class _AgentRadiusServerUsageType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('all',1),('login',2),('dot1x',3)))
-_AgentRadiusServerUsageType_Type.__name__=_C
-_AgentRadiusServerUsageType_Object=MibTableColumn
-agentRadiusServerUsageType=_AgentRadiusServerUsageType_Object((1,3,6,1,4,1,4526,11,8,1,8,1,17),_AgentRadiusServerUsageType_Type())
-agentRadiusServerUsageType.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusServerUsageType.setStatus(_A)
-_AgentRadiusAuthenticationServers_Type=Unsigned32
-_AgentRadiusAuthenticationServers_Object=MibScalar
-agentRadiusAuthenticationServers=_AgentRadiusAuthenticationServers_Object((1,3,6,1,4,1,4526,11,8,1,9),_AgentRadiusAuthenticationServers_Type())
-agentRadiusAuthenticationServers.setMaxAccess(_F)
-if mibBuilder.loadTexts:agentRadiusAuthenticationServers.setStatus(_A)
-_AgentRadiusAccountingServers_Type=Unsigned32
-_AgentRadiusAccountingServers_Object=MibScalar
-agentRadiusAccountingServers=_AgentRadiusAccountingServers_Object((1,3,6,1,4,1,4526,11,8,1,10),_AgentRadiusAccountingServers_Type())
-agentRadiusAccountingServers.setMaxAccess(_F)
-if mibBuilder.loadTexts:agentRadiusAccountingServers.setStatus(_A)
-_AgentRadiusNamedAuthenticationServerGroups_Type=Unsigned32
-_AgentRadiusNamedAuthenticationServerGroups_Object=MibScalar
-agentRadiusNamedAuthenticationServerGroups=_AgentRadiusNamedAuthenticationServerGroups_Object((1,3,6,1,4,1,4526,11,8,1,11),_AgentRadiusNamedAuthenticationServerGroups_Type())
-agentRadiusNamedAuthenticationServerGroups.setMaxAccess(_F)
-if mibBuilder.loadTexts:agentRadiusNamedAuthenticationServerGroups.setStatus(_A)
-_AgentRadiusNamedAccountingServerGroups_Type=Unsigned32
-_AgentRadiusNamedAccountingServerGroups_Object=MibScalar
-agentRadiusNamedAccountingServerGroups=_AgentRadiusNamedAccountingServerGroups_Object((1,3,6,1,4,1,4526,11,8,1,12),_AgentRadiusNamedAccountingServerGroups_Type())
-agentRadiusNamedAccountingServerGroups.setMaxAccess(_F)
-if mibBuilder.loadTexts:agentRadiusNamedAccountingServerGroups.setStatus(_A)
-class _AgentRadiusDeadTime_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2000))
-_AgentRadiusDeadTime_Type.__name__=_D
-_AgentRadiusDeadTime_Object=MibScalar
-agentRadiusDeadTime=_AgentRadiusDeadTime_Object((1,3,6,1,4,1,4526,11,8,1,13),_AgentRadiusDeadTime_Type())
-agentRadiusDeadTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusDeadTime.setStatus(_A)
-class _AgentRadiusServerKey_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_AgentRadiusServerKey_Type.__name__=_G
-_AgentRadiusServerKey_Object=MibScalar
-agentRadiusServerKey=_AgentRadiusServerKey_Object((1,3,6,1,4,1,4526,11,8,1,14),_AgentRadiusServerKey_Type())
-agentRadiusServerKey.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusServerKey.setStatus(_N)
-_AgentRadiusSourceIPAddr_Type=IpAddress
-_AgentRadiusSourceIPAddr_Object=MibScalar
-agentRadiusSourceIPAddr=_AgentRadiusSourceIPAddr_Object((1,3,6,1,4,1,4526,11,8,1,15),_AgentRadiusSourceIPAddr_Type())
-agentRadiusSourceIPAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusSourceIPAddr.setStatus(_A)
-_AgentRadiusNasIpAddress_Type=IpAddress
-_AgentRadiusNasIpAddress_Object=MibScalar
-agentRadiusNasIpAddress=_AgentRadiusNasIpAddress_Object((1,3,6,1,4,1,4526,11,8,1,16),_AgentRadiusNasIpAddress_Type())
-agentRadiusNasIpAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusNasIpAddress.setStatus(_A)
-class _AgentAuthorizationNetworkRadiusMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_H,1)))
-_AgentAuthorizationNetworkRadiusMode_Type.__name__=_C
-_AgentAuthorizationNetworkRadiusMode_Object=MibScalar
-agentAuthorizationNetworkRadiusMode=_AgentAuthorizationNetworkRadiusMode_Object((1,3,6,1,4,1,4526,11,8,1,17),_AgentAuthorizationNetworkRadiusMode_Type())
-agentAuthorizationNetworkRadiusMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentAuthorizationNetworkRadiusMode.setStatus(_A)
-_AgentRadiusSourceInterface_Type=InterfaceIndexOrZero
-_AgentRadiusSourceInterface_Object=MibScalar
-agentRadiusSourceInterface=_AgentRadiusSourceInterface_Object((1,3,6,1,4,1,4526,11,8,1,18),_AgentRadiusSourceInterface_Type())
-agentRadiusSourceInterface.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentRadiusSourceInterface.setStatus(_A)
-mibBuilder.exportSymbols(_J,**{'fastPathRadius':fastPathRadius,'agentRadiusConfigGroup':agentRadiusConfigGroup,'agentRadiusMaxTransmit':agentRadiusMaxTransmit,'agentRadiusTimeout':agentRadiusTimeout,'agentRadiusAccountingMode':agentRadiusAccountingMode,'agentRadiusStatsClear':agentRadiusStatsClear,'agentRadiusAccountingIndexNextValid':agentRadiusAccountingIndexNextValid,'agentRadiusAccountingConfigTable':agentRadiusAccountingConfigTable,'agentRadiusAccountingConfigEntry':agentRadiusAccountingConfigEntry,_K:agentRadiusAccountingServerIndex,'agentRadiusAccountingServerAddress':agentRadiusAccountingServerAddress,'agentRadiusAccountingServerAddressType':agentRadiusAccountingServerAddressType,'agentRadiusAccountingPort':agentRadiusAccountingPort,'agentRadiusAccountingSecret':agentRadiusAccountingSecret,'agentRadiusAccountingStatus':agentRadiusAccountingStatus,'agentRadiusAccountingServerName':agentRadiusAccountingServerName,'agentRadiusServerIndexNextValid':agentRadiusServerIndexNextValid,'agentRadiusServerConfigTable':agentRadiusServerConfigTable,'agentRadiusServerConfigEntry':agentRadiusServerConfigEntry,_M:agentRadiusServerIndex,'agentRadiusServerAddress':agentRadiusServerAddress,'agentRadiusServerAddressType':agentRadiusServerAddressType,'agentRadiusServerPort':agentRadiusServerPort,'agentRadiusServerSecret':agentRadiusServerSecret,'agentRadiusServerPrimaryMode':agentRadiusServerPrimaryMode,'agentRadiusServerCurrentMode':agentRadiusServerCurrentMode,'agentRadiusServerMsgAuth':agentRadiusServerMsgAuth,'agentRadiusServerRowStatus':agentRadiusServerRowStatus,'agentRadiusServerName':agentRadiusServerName,'agentRadiusServerInetAddress':agentRadiusServerInetAddress,'agentRadiusServerTimeout':agentRadiusServerTimeout,'agentRadiusServerRetransmit':agentRadiusServerRetransmit,'agentRadiusServerDeadtime':agentRadiusServerDeadtime,'agentRadiusServerSourceIPAddr':agentRadiusServerSourceIPAddr,'agentRadiusServerPriority':agentRadiusServerPriority,'agentRadiusServerUsageType':agentRadiusServerUsageType,'agentRadiusAuthenticationServers':agentRadiusAuthenticationServers,'agentRadiusAccountingServers':agentRadiusAccountingServers,'agentRadiusNamedAuthenticationServerGroups':agentRadiusNamedAuthenticationServerGroups,'agentRadiusNamedAccountingServerGroups':agentRadiusNamedAccountingServerGroups,'agentRadiusDeadTime':agentRadiusDeadTime,'agentRadiusServerKey':agentRadiusServerKey,'agentRadiusSourceIPAddr':agentRadiusSourceIPAddr,'agentRadiusNasIpAddress':agentRadiusNasIpAddress,'agentAuthorizationNetworkRadiusMode':agentAuthorizationNetworkRadiusMode,'agentRadiusSourceInterface':agentRadiusSourceInterface})
+#
+# PySNMP MIB module NG700-RADIUS-AUTH-CLIENT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netgear/NG700-RADIUS-AUTH-CLIENT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:28:47 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ng700smartswitch, = mibBuilder.importSymbols("NG700-REF-MIB", "ng700smartswitch")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+fastPathRadius = ModuleIdentity((1, 3, 6, 1, 4, 1, 4526, 11, 8))
+fastPathRadius.setRevisions(('2011-12-14 00:00', '2011-09-26 00:00', '2011-01-26 00:00', '2007-05-23 00:00', '2003-11-21 00:00', '2003-05-07 00:00',))
+if mibBuilder.loadTexts: fastPathRadius.setLastUpdated('201112140000Z')
+if mibBuilder.loadTexts: fastPathRadius.setOrganization('Netgear Inc')
+agentRadiusConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1))
+agentRadiusMaxTransmit = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 15)).clone(4)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusMaxTransmit.setStatus('current')
+agentRadiusTimeout = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 30)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusTimeout.setStatus('current')
+agentRadiusAccountingMode = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusAccountingMode.setStatus('current')
+agentRadiusStatsClear = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusStatsClear.setStatus('current')
+agentRadiusAccountingIndexNextValid = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 2147483647), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentRadiusAccountingIndexNextValid.setStatus('current')
+agentRadiusAccountingConfigTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 6), )
+if mibBuilder.loadTexts: agentRadiusAccountingConfigTable.setStatus('current')
+agentRadiusAccountingConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 6, 1), ).setIndexNames((0, "NG700-RADIUS-AUTH-CLIENT-MIB", "agentRadiusAccountingServerIndex"))
+if mibBuilder.loadTexts: agentRadiusAccountingConfigEntry.setStatus('current')
+agentRadiusAccountingServerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: agentRadiusAccountingServerIndex.setStatus('current')
+agentRadiusAccountingServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 6, 1, 2), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentRadiusAccountingServerAddress.setStatus('current')
+agentRadiusAccountingServerAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 6, 1, 3), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentRadiusAccountingServerAddressType.setStatus('current')
+agentRadiusAccountingPort = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 6, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(1813)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusAccountingPort.setStatus('current')
+agentRadiusAccountingSecret = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 6, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusAccountingSecret.setStatus('current')
+agentRadiusAccountingStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 6, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentRadiusAccountingStatus.setStatus('current')
+agentRadiusAccountingServerName = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 6, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentRadiusAccountingServerName.setStatus('current')
+agentRadiusServerIndexNextValid = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 2147483647), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentRadiusServerIndexNextValid.setStatus('current')
+agentRadiusServerConfigTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 8), )
+if mibBuilder.loadTexts: agentRadiusServerConfigTable.setStatus('current')
+agentRadiusServerConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 8, 1), ).setIndexNames((0, "NG700-RADIUS-AUTH-CLIENT-MIB", "agentRadiusServerIndex"))
+if mibBuilder.loadTexts: agentRadiusServerConfigEntry.setStatus('current')
+agentRadiusServerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 8, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: agentRadiusServerIndex.setStatus('current')
+agentRadiusServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 8, 1, 2), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentRadiusServerAddress.setStatus('obsolete')
+agentRadiusServerAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 8, 1, 3), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentRadiusServerAddressType.setStatus('current')
+agentRadiusServerPort = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 8, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(1812)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusServerPort.setStatus('current')
+agentRadiusServerSecret = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 8, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusServerSecret.setStatus('current')
+agentRadiusServerPrimaryMode = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 8, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusServerPrimaryMode.setStatus('current')
+agentRadiusServerCurrentMode = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 8, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("yes", 1), ("no", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentRadiusServerCurrentMode.setStatus('current')
+agentRadiusServerMsgAuth = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 8, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusServerMsgAuth.setStatus('current')
+agentRadiusServerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 8, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentRadiusServerRowStatus.setStatus('current')
+agentRadiusServerName = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 8, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentRadiusServerName.setStatus('current')
+agentRadiusServerInetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 8, 1, 11), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentRadiusServerInetAddress.setStatus('current')
+agentRadiusServerTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 8, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 30)).clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusServerTimeout.setStatus('current')
+agentRadiusServerRetransmit = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 8, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusServerRetransmit.setStatus('current')
+agentRadiusServerDeadtime = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 8, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusServerDeadtime.setStatus('current')
+agentRadiusServerSourceIPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 8, 1, 15), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusServerSourceIPAddr.setStatus('current')
+agentRadiusServerPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 8, 1, 16), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusServerPriority.setStatus('current')
+agentRadiusServerUsageType = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 8, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("all", 1), ("login", 2), ("dot1x", 3))).clone('all')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusServerUsageType.setStatus('current')
+agentRadiusAuthenticationServers = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 9), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentRadiusAuthenticationServers.setStatus('current')
+agentRadiusAccountingServers = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 10), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentRadiusAccountingServers.setStatus('current')
+agentRadiusNamedAuthenticationServerGroups = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 11), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentRadiusNamedAuthenticationServerGroups.setStatus('current')
+agentRadiusNamedAccountingServerGroups = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 12), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentRadiusNamedAccountingServerGroups.setStatus('current')
+agentRadiusDeadTime = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusDeadTime.setStatus('current')
+agentRadiusServerKey = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 14), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusServerKey.setStatus('obsolete')
+agentRadiusSourceIPAddr = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 15), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusSourceIPAddr.setStatus('current')
+agentRadiusNasIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 16), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusNasIpAddress.setStatus('current')
+agentAuthorizationNetworkRadiusMode = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 0))).clone(namedValues=NamedValues(("enable", 1), ("disable", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentAuthorizationNetworkRadiusMode.setStatus('current')
+agentRadiusSourceInterface = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 8, 1, 18), InterfaceIndexOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentRadiusSourceInterface.setStatus('current')
+mibBuilder.exportSymbols("NG700-RADIUS-AUTH-CLIENT-MIB", agentRadiusAuthenticationServers=agentRadiusAuthenticationServers, agentRadiusNamedAccountingServerGroups=agentRadiusNamedAccountingServerGroups, PYSNMP_MODULE_ID=fastPathRadius, agentRadiusAccountingServers=agentRadiusAccountingServers, agentRadiusNasIpAddress=agentRadiusNasIpAddress, fastPathRadius=fastPathRadius, agentRadiusAccountingServerName=agentRadiusAccountingServerName, agentRadiusServerSecret=agentRadiusServerSecret, agentRadiusServerUsageType=agentRadiusServerUsageType, agentRadiusServerAddressType=agentRadiusServerAddressType, agentRadiusServerRetransmit=agentRadiusServerRetransmit, agentRadiusServerName=agentRadiusServerName, agentRadiusTimeout=agentRadiusTimeout, agentRadiusServerDeadtime=agentRadiusServerDeadtime, agentRadiusServerKey=agentRadiusServerKey, agentRadiusServerPort=agentRadiusServerPort, agentRadiusAccountingStatus=agentRadiusAccountingStatus, agentRadiusSourceIPAddr=agentRadiusSourceIPAddr, agentRadiusAccountingServerIndex=agentRadiusAccountingServerIndex, agentRadiusServerConfigTable=agentRadiusServerConfigTable, agentRadiusMaxTransmit=agentRadiusMaxTransmit, agentRadiusAccountingServerAddress=agentRadiusAccountingServerAddress, agentRadiusAccountingPort=agentRadiusAccountingPort, agentRadiusServerAddress=agentRadiusServerAddress, agentAuthorizationNetworkRadiusMode=agentAuthorizationNetworkRadiusMode, agentRadiusServerSourceIPAddr=agentRadiusServerSourceIPAddr, agentRadiusAccountingConfigTable=agentRadiusAccountingConfigTable, agentRadiusAccountingMode=agentRadiusAccountingMode, agentRadiusConfigGroup=agentRadiusConfigGroup, agentRadiusServerConfigEntry=agentRadiusServerConfigEntry, agentRadiusStatsClear=agentRadiusStatsClear, agentRadiusServerMsgAuth=agentRadiusServerMsgAuth, agentRadiusAccountingServerAddressType=agentRadiusAccountingServerAddressType, agentRadiusServerCurrentMode=agentRadiusServerCurrentMode, agentRadiusServerPriority=agentRadiusServerPriority, agentRadiusDeadTime=agentRadiusDeadTime, agentRadiusSourceInterface=agentRadiusSourceInterface, agentRadiusNamedAuthenticationServerGroups=agentRadiusNamedAuthenticationServerGroups, agentRadiusAccountingIndexNextValid=agentRadiusAccountingIndexNextValid, agentRadiusServerInetAddress=agentRadiusServerInetAddress, agentRadiusServerTimeout=agentRadiusServerTimeout, agentRadiusServerRowStatus=agentRadiusServerRowStatus, agentRadiusAccountingSecret=agentRadiusAccountingSecret, agentRadiusServerIndexNextValid=agentRadiusServerIndexNextValid, agentRadiusServerPrimaryMode=agentRadiusServerPrimaryMode, agentRadiusServerIndex=agentRadiusServerIndex, agentRadiusAccountingConfigEntry=agentRadiusAccountingConfigEntry)

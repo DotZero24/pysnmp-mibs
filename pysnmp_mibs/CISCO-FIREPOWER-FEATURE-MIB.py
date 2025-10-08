@@ -1,323 +1,151 @@
-_L='cfprFeatureProviderInstanceInstanceId'
-_K='cfprFeatureProviderInstanceId'
-_J='cfprFeatureFruCapProviderRefInstanceId'
-_I='cfprFeatureFruCapProviderInstanceInstanceId'
-_H='cfprFeatureDefinitionRefInstanceId'
-_G='cfprFeatureDefinitionInstanceInstanceId'
-_F='cfprFeatureDefinitionInstanceId'
-_E='cfprFeatureContextEpInstanceId'
-_D='not-accessible'
-_C='CISCO-FIREPOWER-FEATURE-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-CfprManagedObjectDn,CfprManagedObjectId,ciscoFirepowerMIBObjects=mibBuilder.importSymbols('CISCO-FIREPOWER-MIB','CfprManagedObjectDn','CfprManagedObjectId','ciscoFirepowerMIBObjects')
-CfprFeatureSupportabilityType,=mibBuilder.importSymbols('CISCO-FIREPOWER-TC-MIB','CfprFeatureSupportabilityType')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-CiscoAlarmSeverity,CiscoInetAddressMask,CiscoNetworkAddress,TimeIntervalSec,Unsigned64=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity','CiscoInetAddressMask','CiscoNetworkAddress','TimeIntervalSec','Unsigned64')
-InetAddressIPv4,InetAddressIPv6=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowPointer','TextualConvention','TimeInterval','TimeStamp','TruthValue')
-cfprFeatureObjects=ModuleIdentity((1,3,6,1,4,1,9,9,826,1,29))
-_CfprFeatureContextEpTable_Object=MibTable
-cfprFeatureContextEpTable=_CfprFeatureContextEpTable_Object((1,3,6,1,4,1,9,9,826,1,29,1))
-if mibBuilder.loadTexts:cfprFeatureContextEpTable.setStatus(_A)
-_CfprFeatureContextEpEntry_Object=MibTableRow
-cfprFeatureContextEpEntry=_CfprFeatureContextEpEntry_Object((1,3,6,1,4,1,9,9,826,1,29,1,1))
-cfprFeatureContextEpEntry.setIndexNames((0,_C,_E))
-if mibBuilder.loadTexts:cfprFeatureContextEpEntry.setStatus(_A)
-_CfprFeatureContextEpInstanceId_Type=CfprManagedObjectId
-_CfprFeatureContextEpInstanceId_Object=MibTableColumn
-cfprFeatureContextEpInstanceId=_CfprFeatureContextEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,29,1,1,1),_CfprFeatureContextEpInstanceId_Type())
-cfprFeatureContextEpInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprFeatureContextEpInstanceId.setStatus(_A)
-_CfprFeatureContextEpDn_Type=CfprManagedObjectDn
-_CfprFeatureContextEpDn_Object=MibTableColumn
-cfprFeatureContextEpDn=_CfprFeatureContextEpDn_Object((1,3,6,1,4,1,9,9,826,1,29,1,1,2),_CfprFeatureContextEpDn_Type())
-cfprFeatureContextEpDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureContextEpDn.setStatus(_A)
-_CfprFeatureContextEpRn_Type=SnmpAdminString
-_CfprFeatureContextEpRn_Object=MibTableColumn
-cfprFeatureContextEpRn=_CfprFeatureContextEpRn_Object((1,3,6,1,4,1,9,9,826,1,29,1,1,3),_CfprFeatureContextEpRn_Type())
-cfprFeatureContextEpRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureContextEpRn.setStatus(_A)
-_CfprFeatureDefinitionTable_Object=MibTable
-cfprFeatureDefinitionTable=_CfprFeatureDefinitionTable_Object((1,3,6,1,4,1,9,9,826,1,29,2))
-if mibBuilder.loadTexts:cfprFeatureDefinitionTable.setStatus(_A)
-_CfprFeatureDefinitionEntry_Object=MibTableRow
-cfprFeatureDefinitionEntry=_CfprFeatureDefinitionEntry_Object((1,3,6,1,4,1,9,9,826,1,29,2,1))
-cfprFeatureDefinitionEntry.setIndexNames((0,_C,_F))
-if mibBuilder.loadTexts:cfprFeatureDefinitionEntry.setStatus(_A)
-_CfprFeatureDefinitionInstanceId_Type=CfprManagedObjectId
-_CfprFeatureDefinitionInstanceId_Object=MibTableColumn
-cfprFeatureDefinitionInstanceId=_CfprFeatureDefinitionInstanceId_Object((1,3,6,1,4,1,9,9,826,1,29,2,1,1),_CfprFeatureDefinitionInstanceId_Type())
-cfprFeatureDefinitionInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprFeatureDefinitionInstanceId.setStatus(_A)
-_CfprFeatureDefinitionDn_Type=CfprManagedObjectDn
-_CfprFeatureDefinitionDn_Object=MibTableColumn
-cfprFeatureDefinitionDn=_CfprFeatureDefinitionDn_Object((1,3,6,1,4,1,9,9,826,1,29,2,1,2),_CfprFeatureDefinitionDn_Type())
-cfprFeatureDefinitionDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureDefinitionDn.setStatus(_A)
-_CfprFeatureDefinitionRn_Type=SnmpAdminString
-_CfprFeatureDefinitionRn_Object=MibTableColumn
-cfprFeatureDefinitionRn=_CfprFeatureDefinitionRn_Object((1,3,6,1,4,1,9,9,826,1,29,2,1,3),_CfprFeatureDefinitionRn_Type())
-cfprFeatureDefinitionRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureDefinitionRn.setStatus(_A)
-_CfprFeatureDefinitionDescription_Type=SnmpAdminString
-_CfprFeatureDefinitionDescription_Object=MibTableColumn
-cfprFeatureDefinitionDescription=_CfprFeatureDefinitionDescription_Object((1,3,6,1,4,1,9,9,826,1,29,2,1,4),_CfprFeatureDefinitionDescription_Type())
-cfprFeatureDefinitionDescription.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureDefinitionDescription.setStatus(_A)
-_CfprFeatureDefinitionName_Type=SnmpAdminString
-_CfprFeatureDefinitionName_Object=MibTableColumn
-cfprFeatureDefinitionName=_CfprFeatureDefinitionName_Object((1,3,6,1,4,1,9,9,826,1,29,2,1,5),_CfprFeatureDefinitionName_Type())
-cfprFeatureDefinitionName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureDefinitionName.setStatus(_A)
-_CfprFeatureDefinitionRevision_Type=SnmpAdminString
-_CfprFeatureDefinitionRevision_Object=MibTableColumn
-cfprFeatureDefinitionRevision=_CfprFeatureDefinitionRevision_Object((1,3,6,1,4,1,9,9,826,1,29,2,1,6),_CfprFeatureDefinitionRevision_Type())
-cfprFeatureDefinitionRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureDefinitionRevision.setStatus(_A)
-_CfprFeatureDefinitionInstanceTable_Object=MibTable
-cfprFeatureDefinitionInstanceTable=_CfprFeatureDefinitionInstanceTable_Object((1,3,6,1,4,1,9,9,826,1,29,3))
-if mibBuilder.loadTexts:cfprFeatureDefinitionInstanceTable.setStatus(_A)
-_CfprFeatureDefinitionInstanceEntry_Object=MibTableRow
-cfprFeatureDefinitionInstanceEntry=_CfprFeatureDefinitionInstanceEntry_Object((1,3,6,1,4,1,9,9,826,1,29,3,1))
-cfprFeatureDefinitionInstanceEntry.setIndexNames((0,_C,_G))
-if mibBuilder.loadTexts:cfprFeatureDefinitionInstanceEntry.setStatus(_A)
-_CfprFeatureDefinitionInstanceInstanceId_Type=CfprManagedObjectId
-_CfprFeatureDefinitionInstanceInstanceId_Object=MibTableColumn
-cfprFeatureDefinitionInstanceInstanceId=_CfprFeatureDefinitionInstanceInstanceId_Object((1,3,6,1,4,1,9,9,826,1,29,3,1,1),_CfprFeatureDefinitionInstanceInstanceId_Type())
-cfprFeatureDefinitionInstanceInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprFeatureDefinitionInstanceInstanceId.setStatus(_A)
-_CfprFeatureDefinitionInstanceDn_Type=CfprManagedObjectDn
-_CfprFeatureDefinitionInstanceDn_Object=MibTableColumn
-cfprFeatureDefinitionInstanceDn=_CfprFeatureDefinitionInstanceDn_Object((1,3,6,1,4,1,9,9,826,1,29,3,1,2),_CfprFeatureDefinitionInstanceDn_Type())
-cfprFeatureDefinitionInstanceDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureDefinitionInstanceDn.setStatus(_A)
-_CfprFeatureDefinitionInstanceRn_Type=SnmpAdminString
-_CfprFeatureDefinitionInstanceRn_Object=MibTableColumn
-cfprFeatureDefinitionInstanceRn=_CfprFeatureDefinitionInstanceRn_Object((1,3,6,1,4,1,9,9,826,1,29,3,1,3),_CfprFeatureDefinitionInstanceRn_Type())
-cfprFeatureDefinitionInstanceRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureDefinitionInstanceRn.setStatus(_A)
-_CfprFeatureDefinitionInstanceName_Type=SnmpAdminString
-_CfprFeatureDefinitionInstanceName_Object=MibTableColumn
-cfprFeatureDefinitionInstanceName=_CfprFeatureDefinitionInstanceName_Object((1,3,6,1,4,1,9,9,826,1,29,3,1,4),_CfprFeatureDefinitionInstanceName_Type())
-cfprFeatureDefinitionInstanceName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureDefinitionInstanceName.setStatus(_A)
-_CfprFeatureDefinitionInstanceRevision_Type=SnmpAdminString
-_CfprFeatureDefinitionInstanceRevision_Object=MibTableColumn
-cfprFeatureDefinitionInstanceRevision=_CfprFeatureDefinitionInstanceRevision_Object((1,3,6,1,4,1,9,9,826,1,29,3,1,5),_CfprFeatureDefinitionInstanceRevision_Type())
-cfprFeatureDefinitionInstanceRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureDefinitionInstanceRevision.setStatus(_A)
-_CfprFeatureDefinitionInstanceSupportability_Type=CfprFeatureSupportabilityType
-_CfprFeatureDefinitionInstanceSupportability_Object=MibTableColumn
-cfprFeatureDefinitionInstanceSupportability=_CfprFeatureDefinitionInstanceSupportability_Object((1,3,6,1,4,1,9,9,826,1,29,3,1,6),_CfprFeatureDefinitionInstanceSupportability_Type())
-cfprFeatureDefinitionInstanceSupportability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureDefinitionInstanceSupportability.setStatus(_A)
-_CfprFeatureDefinitionInstanceTargetDn_Type=SnmpAdminString
-_CfprFeatureDefinitionInstanceTargetDn_Object=MibTableColumn
-cfprFeatureDefinitionInstanceTargetDn=_CfprFeatureDefinitionInstanceTargetDn_Object((1,3,6,1,4,1,9,9,826,1,29,3,1,7),_CfprFeatureDefinitionInstanceTargetDn_Type())
-cfprFeatureDefinitionInstanceTargetDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureDefinitionInstanceTargetDn.setStatus(_A)
-_CfprFeatureDefinitionRefTable_Object=MibTable
-cfprFeatureDefinitionRefTable=_CfprFeatureDefinitionRefTable_Object((1,3,6,1,4,1,9,9,826,1,29,4))
-if mibBuilder.loadTexts:cfprFeatureDefinitionRefTable.setStatus(_A)
-_CfprFeatureDefinitionRefEntry_Object=MibTableRow
-cfprFeatureDefinitionRefEntry=_CfprFeatureDefinitionRefEntry_Object((1,3,6,1,4,1,9,9,826,1,29,4,1))
-cfprFeatureDefinitionRefEntry.setIndexNames((0,_C,_H))
-if mibBuilder.loadTexts:cfprFeatureDefinitionRefEntry.setStatus(_A)
-_CfprFeatureDefinitionRefInstanceId_Type=CfprManagedObjectId
-_CfprFeatureDefinitionRefInstanceId_Object=MibTableColumn
-cfprFeatureDefinitionRefInstanceId=_CfprFeatureDefinitionRefInstanceId_Object((1,3,6,1,4,1,9,9,826,1,29,4,1,1),_CfprFeatureDefinitionRefInstanceId_Type())
-cfprFeatureDefinitionRefInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprFeatureDefinitionRefInstanceId.setStatus(_A)
-_CfprFeatureDefinitionRefDn_Type=CfprManagedObjectDn
-_CfprFeatureDefinitionRefDn_Object=MibTableColumn
-cfprFeatureDefinitionRefDn=_CfprFeatureDefinitionRefDn_Object((1,3,6,1,4,1,9,9,826,1,29,4,1,2),_CfprFeatureDefinitionRefDn_Type())
-cfprFeatureDefinitionRefDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureDefinitionRefDn.setStatus(_A)
-_CfprFeatureDefinitionRefRn_Type=SnmpAdminString
-_CfprFeatureDefinitionRefRn_Object=MibTableColumn
-cfprFeatureDefinitionRefRn=_CfprFeatureDefinitionRefRn_Object((1,3,6,1,4,1,9,9,826,1,29,4,1,3),_CfprFeatureDefinitionRefRn_Type())
-cfprFeatureDefinitionRefRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureDefinitionRefRn.setStatus(_A)
-_CfprFeatureDefinitionRefName_Type=SnmpAdminString
-_CfprFeatureDefinitionRefName_Object=MibTableColumn
-cfprFeatureDefinitionRefName=_CfprFeatureDefinitionRefName_Object((1,3,6,1,4,1,9,9,826,1,29,4,1,4),_CfprFeatureDefinitionRefName_Type())
-cfprFeatureDefinitionRefName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureDefinitionRefName.setStatus(_A)
-_CfprFeatureDefinitionRefRevision_Type=SnmpAdminString
-_CfprFeatureDefinitionRefRevision_Object=MibTableColumn
-cfprFeatureDefinitionRefRevision=_CfprFeatureDefinitionRefRevision_Object((1,3,6,1,4,1,9,9,826,1,29,4,1,5),_CfprFeatureDefinitionRefRevision_Type())
-cfprFeatureDefinitionRefRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureDefinitionRefRevision.setStatus(_A)
-_CfprFeatureDefinitionRefSupportability_Type=CfprFeatureSupportabilityType
-_CfprFeatureDefinitionRefSupportability_Object=MibTableColumn
-cfprFeatureDefinitionRefSupportability=_CfprFeatureDefinitionRefSupportability_Object((1,3,6,1,4,1,9,9,826,1,29,4,1,6),_CfprFeatureDefinitionRefSupportability_Type())
-cfprFeatureDefinitionRefSupportability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureDefinitionRefSupportability.setStatus(_A)
-_CfprFeatureDefinitionRefTargetDn_Type=SnmpAdminString
-_CfprFeatureDefinitionRefTargetDn_Object=MibTableColumn
-cfprFeatureDefinitionRefTargetDn=_CfprFeatureDefinitionRefTargetDn_Object((1,3,6,1,4,1,9,9,826,1,29,4,1,7),_CfprFeatureDefinitionRefTargetDn_Type())
-cfprFeatureDefinitionRefTargetDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureDefinitionRefTargetDn.setStatus(_A)
-_CfprFeatureFruCapProviderInstanceTable_Object=MibTable
-cfprFeatureFruCapProviderInstanceTable=_CfprFeatureFruCapProviderInstanceTable_Object((1,3,6,1,4,1,9,9,826,1,29,5))
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderInstanceTable.setStatus(_A)
-_CfprFeatureFruCapProviderInstanceEntry_Object=MibTableRow
-cfprFeatureFruCapProviderInstanceEntry=_CfprFeatureFruCapProviderInstanceEntry_Object((1,3,6,1,4,1,9,9,826,1,29,5,1))
-cfprFeatureFruCapProviderInstanceEntry.setIndexNames((0,_C,_I))
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderInstanceEntry.setStatus(_A)
-_CfprFeatureFruCapProviderInstanceInstanceId_Type=CfprManagedObjectId
-_CfprFeatureFruCapProviderInstanceInstanceId_Object=MibTableColumn
-cfprFeatureFruCapProviderInstanceInstanceId=_CfprFeatureFruCapProviderInstanceInstanceId_Object((1,3,6,1,4,1,9,9,826,1,29,5,1,1),_CfprFeatureFruCapProviderInstanceInstanceId_Type())
-cfprFeatureFruCapProviderInstanceInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderInstanceInstanceId.setStatus(_A)
-_CfprFeatureFruCapProviderInstanceDn_Type=CfprManagedObjectDn
-_CfprFeatureFruCapProviderInstanceDn_Object=MibTableColumn
-cfprFeatureFruCapProviderInstanceDn=_CfprFeatureFruCapProviderInstanceDn_Object((1,3,6,1,4,1,9,9,826,1,29,5,1,2),_CfprFeatureFruCapProviderInstanceDn_Type())
-cfprFeatureFruCapProviderInstanceDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderInstanceDn.setStatus(_A)
-_CfprFeatureFruCapProviderInstanceRn_Type=SnmpAdminString
-_CfprFeatureFruCapProviderInstanceRn_Object=MibTableColumn
-cfprFeatureFruCapProviderInstanceRn=_CfprFeatureFruCapProviderInstanceRn_Object((1,3,6,1,4,1,9,9,826,1,29,5,1,3),_CfprFeatureFruCapProviderInstanceRn_Type())
-cfprFeatureFruCapProviderInstanceRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderInstanceRn.setStatus(_A)
-_CfprFeatureFruCapProviderInstanceModel_Type=SnmpAdminString
-_CfprFeatureFruCapProviderInstanceModel_Object=MibTableColumn
-cfprFeatureFruCapProviderInstanceModel=_CfprFeatureFruCapProviderInstanceModel_Object((1,3,6,1,4,1,9,9,826,1,29,5,1,4),_CfprFeatureFruCapProviderInstanceModel_Type())
-cfprFeatureFruCapProviderInstanceModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderInstanceModel.setStatus(_A)
-_CfprFeatureFruCapProviderInstanceRevision_Type=SnmpAdminString
-_CfprFeatureFruCapProviderInstanceRevision_Object=MibTableColumn
-cfprFeatureFruCapProviderInstanceRevision=_CfprFeatureFruCapProviderInstanceRevision_Object((1,3,6,1,4,1,9,9,826,1,29,5,1,5),_CfprFeatureFruCapProviderInstanceRevision_Type())
-cfprFeatureFruCapProviderInstanceRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderInstanceRevision.setStatus(_A)
-_CfprFeatureFruCapProviderInstanceSupportability_Type=CfprFeatureSupportabilityType
-_CfprFeatureFruCapProviderInstanceSupportability_Object=MibTableColumn
-cfprFeatureFruCapProviderInstanceSupportability=_CfprFeatureFruCapProviderInstanceSupportability_Object((1,3,6,1,4,1,9,9,826,1,29,5,1,6),_CfprFeatureFruCapProviderInstanceSupportability_Type())
-cfprFeatureFruCapProviderInstanceSupportability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderInstanceSupportability.setStatus(_A)
-_CfprFeatureFruCapProviderInstanceTargetDn_Type=SnmpAdminString
-_CfprFeatureFruCapProviderInstanceTargetDn_Object=MibTableColumn
-cfprFeatureFruCapProviderInstanceTargetDn=_CfprFeatureFruCapProviderInstanceTargetDn_Object((1,3,6,1,4,1,9,9,826,1,29,5,1,7),_CfprFeatureFruCapProviderInstanceTargetDn_Type())
-cfprFeatureFruCapProviderInstanceTargetDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderInstanceTargetDn.setStatus(_A)
-_CfprFeatureFruCapProviderInstanceVendor_Type=SnmpAdminString
-_CfprFeatureFruCapProviderInstanceVendor_Object=MibTableColumn
-cfprFeatureFruCapProviderInstanceVendor=_CfprFeatureFruCapProviderInstanceVendor_Object((1,3,6,1,4,1,9,9,826,1,29,5,1,8),_CfprFeatureFruCapProviderInstanceVendor_Type())
-cfprFeatureFruCapProviderInstanceVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderInstanceVendor.setStatus(_A)
-_CfprFeatureFruCapProviderRefTable_Object=MibTable
-cfprFeatureFruCapProviderRefTable=_CfprFeatureFruCapProviderRefTable_Object((1,3,6,1,4,1,9,9,826,1,29,6))
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderRefTable.setStatus(_A)
-_CfprFeatureFruCapProviderRefEntry_Object=MibTableRow
-cfprFeatureFruCapProviderRefEntry=_CfprFeatureFruCapProviderRefEntry_Object((1,3,6,1,4,1,9,9,826,1,29,6,1))
-cfprFeatureFruCapProviderRefEntry.setIndexNames((0,_C,_J))
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderRefEntry.setStatus(_A)
-_CfprFeatureFruCapProviderRefInstanceId_Type=CfprManagedObjectId
-_CfprFeatureFruCapProviderRefInstanceId_Object=MibTableColumn
-cfprFeatureFruCapProviderRefInstanceId=_CfprFeatureFruCapProviderRefInstanceId_Object((1,3,6,1,4,1,9,9,826,1,29,6,1,1),_CfprFeatureFruCapProviderRefInstanceId_Type())
-cfprFeatureFruCapProviderRefInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderRefInstanceId.setStatus(_A)
-_CfprFeatureFruCapProviderRefDn_Type=CfprManagedObjectDn
-_CfprFeatureFruCapProviderRefDn_Object=MibTableColumn
-cfprFeatureFruCapProviderRefDn=_CfprFeatureFruCapProviderRefDn_Object((1,3,6,1,4,1,9,9,826,1,29,6,1,2),_CfprFeatureFruCapProviderRefDn_Type())
-cfprFeatureFruCapProviderRefDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderRefDn.setStatus(_A)
-_CfprFeatureFruCapProviderRefRn_Type=SnmpAdminString
-_CfprFeatureFruCapProviderRefRn_Object=MibTableColumn
-cfprFeatureFruCapProviderRefRn=_CfprFeatureFruCapProviderRefRn_Object((1,3,6,1,4,1,9,9,826,1,29,6,1,3),_CfprFeatureFruCapProviderRefRn_Type())
-cfprFeatureFruCapProviderRefRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderRefRn.setStatus(_A)
-_CfprFeatureFruCapProviderRefModel_Type=SnmpAdminString
-_CfprFeatureFruCapProviderRefModel_Object=MibTableColumn
-cfprFeatureFruCapProviderRefModel=_CfprFeatureFruCapProviderRefModel_Object((1,3,6,1,4,1,9,9,826,1,29,6,1,4),_CfprFeatureFruCapProviderRefModel_Type())
-cfprFeatureFruCapProviderRefModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderRefModel.setStatus(_A)
-_CfprFeatureFruCapProviderRefRevision_Type=SnmpAdminString
-_CfprFeatureFruCapProviderRefRevision_Object=MibTableColumn
-cfprFeatureFruCapProviderRefRevision=_CfprFeatureFruCapProviderRefRevision_Object((1,3,6,1,4,1,9,9,826,1,29,6,1,5),_CfprFeatureFruCapProviderRefRevision_Type())
-cfprFeatureFruCapProviderRefRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderRefRevision.setStatus(_A)
-_CfprFeatureFruCapProviderRefSupportability_Type=CfprFeatureSupportabilityType
-_CfprFeatureFruCapProviderRefSupportability_Object=MibTableColumn
-cfprFeatureFruCapProviderRefSupportability=_CfprFeatureFruCapProviderRefSupportability_Object((1,3,6,1,4,1,9,9,826,1,29,6,1,6),_CfprFeatureFruCapProviderRefSupportability_Type())
-cfprFeatureFruCapProviderRefSupportability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderRefSupportability.setStatus(_A)
-_CfprFeatureFruCapProviderRefTargetDn_Type=SnmpAdminString
-_CfprFeatureFruCapProviderRefTargetDn_Object=MibTableColumn
-cfprFeatureFruCapProviderRefTargetDn=_CfprFeatureFruCapProviderRefTargetDn_Object((1,3,6,1,4,1,9,9,826,1,29,6,1,7),_CfprFeatureFruCapProviderRefTargetDn_Type())
-cfprFeatureFruCapProviderRefTargetDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderRefTargetDn.setStatus(_A)
-_CfprFeatureFruCapProviderRefVendor_Type=SnmpAdminString
-_CfprFeatureFruCapProviderRefVendor_Object=MibTableColumn
-cfprFeatureFruCapProviderRefVendor=_CfprFeatureFruCapProviderRefVendor_Object((1,3,6,1,4,1,9,9,826,1,29,6,1,8),_CfprFeatureFruCapProviderRefVendor_Type())
-cfprFeatureFruCapProviderRefVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureFruCapProviderRefVendor.setStatus(_A)
-_CfprFeatureProviderTable_Object=MibTable
-cfprFeatureProviderTable=_CfprFeatureProviderTable_Object((1,3,6,1,4,1,9,9,826,1,29,7))
-if mibBuilder.loadTexts:cfprFeatureProviderTable.setStatus(_A)
-_CfprFeatureProviderEntry_Object=MibTableRow
-cfprFeatureProviderEntry=_CfprFeatureProviderEntry_Object((1,3,6,1,4,1,9,9,826,1,29,7,1))
-cfprFeatureProviderEntry.setIndexNames((0,_C,_K))
-if mibBuilder.loadTexts:cfprFeatureProviderEntry.setStatus(_A)
-_CfprFeatureProviderInstanceId_Type=CfprManagedObjectId
-_CfprFeatureProviderInstanceId_Object=MibTableColumn
-cfprFeatureProviderInstanceId=_CfprFeatureProviderInstanceId_Object((1,3,6,1,4,1,9,9,826,1,29,7,1,1),_CfprFeatureProviderInstanceId_Type())
-cfprFeatureProviderInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprFeatureProviderInstanceId.setStatus(_A)
-_CfprFeatureProviderDn_Type=CfprManagedObjectDn
-_CfprFeatureProviderDn_Object=MibTableColumn
-cfprFeatureProviderDn=_CfprFeatureProviderDn_Object((1,3,6,1,4,1,9,9,826,1,29,7,1,2),_CfprFeatureProviderDn_Type())
-cfprFeatureProviderDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureProviderDn.setStatus(_A)
-_CfprFeatureProviderRn_Type=SnmpAdminString
-_CfprFeatureProviderRn_Object=MibTableColumn
-cfprFeatureProviderRn=_CfprFeatureProviderRn_Object((1,3,6,1,4,1,9,9,826,1,29,7,1,3),_CfprFeatureProviderRn_Type())
-cfprFeatureProviderRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureProviderRn.setStatus(_A)
-_CfprFeatureProviderName_Type=SnmpAdminString
-_CfprFeatureProviderName_Object=MibTableColumn
-cfprFeatureProviderName=_CfprFeatureProviderName_Object((1,3,6,1,4,1,9,9,826,1,29,7,1,4),_CfprFeatureProviderName_Type())
-cfprFeatureProviderName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureProviderName.setStatus(_A)
-_CfprFeatureProviderInstanceTable_Object=MibTable
-cfprFeatureProviderInstanceTable=_CfprFeatureProviderInstanceTable_Object((1,3,6,1,4,1,9,9,826,1,29,8))
-if mibBuilder.loadTexts:cfprFeatureProviderInstanceTable.setStatus(_A)
-_CfprFeatureProviderInstanceEntry_Object=MibTableRow
-cfprFeatureProviderInstanceEntry=_CfprFeatureProviderInstanceEntry_Object((1,3,6,1,4,1,9,9,826,1,29,8,1))
-cfprFeatureProviderInstanceEntry.setIndexNames((0,_C,_L))
-if mibBuilder.loadTexts:cfprFeatureProviderInstanceEntry.setStatus(_A)
-_CfprFeatureProviderInstanceInstanceId_Type=CfprManagedObjectId
-_CfprFeatureProviderInstanceInstanceId_Object=MibTableColumn
-cfprFeatureProviderInstanceInstanceId=_CfprFeatureProviderInstanceInstanceId_Object((1,3,6,1,4,1,9,9,826,1,29,8,1,1),_CfprFeatureProviderInstanceInstanceId_Type())
-cfprFeatureProviderInstanceInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprFeatureProviderInstanceInstanceId.setStatus(_A)
-_CfprFeatureProviderInstanceDn_Type=CfprManagedObjectDn
-_CfprFeatureProviderInstanceDn_Object=MibTableColumn
-cfprFeatureProviderInstanceDn=_CfprFeatureProviderInstanceDn_Object((1,3,6,1,4,1,9,9,826,1,29,8,1,2),_CfprFeatureProviderInstanceDn_Type())
-cfprFeatureProviderInstanceDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureProviderInstanceDn.setStatus(_A)
-_CfprFeatureProviderInstanceRn_Type=SnmpAdminString
-_CfprFeatureProviderInstanceRn_Object=MibTableColumn
-cfprFeatureProviderInstanceRn=_CfprFeatureProviderInstanceRn_Object((1,3,6,1,4,1,9,9,826,1,29,8,1,3),_CfprFeatureProviderInstanceRn_Type())
-cfprFeatureProviderInstanceRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureProviderInstanceRn.setStatus(_A)
-_CfprFeatureProviderInstanceName_Type=SnmpAdminString
-_CfprFeatureProviderInstanceName_Object=MibTableColumn
-cfprFeatureProviderInstanceName=_CfprFeatureProviderInstanceName_Object((1,3,6,1,4,1,9,9,826,1,29,8,1,4),_CfprFeatureProviderInstanceName_Type())
-cfprFeatureProviderInstanceName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureProviderInstanceName.setStatus(_A)
-_CfprFeatureProviderInstanceOperProviderDn_Type=SnmpAdminString
-_CfprFeatureProviderInstanceOperProviderDn_Object=MibTableColumn
-cfprFeatureProviderInstanceOperProviderDn=_CfprFeatureProviderInstanceOperProviderDn_Object((1,3,6,1,4,1,9,9,826,1,29,8,1,5),_CfprFeatureProviderInstanceOperProviderDn_Type())
-cfprFeatureProviderInstanceOperProviderDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprFeatureProviderInstanceOperProviderDn.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'cfprFeatureObjects':cfprFeatureObjects,'cfprFeatureContextEpTable':cfprFeatureContextEpTable,'cfprFeatureContextEpEntry':cfprFeatureContextEpEntry,_E:cfprFeatureContextEpInstanceId,'cfprFeatureContextEpDn':cfprFeatureContextEpDn,'cfprFeatureContextEpRn':cfprFeatureContextEpRn,'cfprFeatureDefinitionTable':cfprFeatureDefinitionTable,'cfprFeatureDefinitionEntry':cfprFeatureDefinitionEntry,_F:cfprFeatureDefinitionInstanceId,'cfprFeatureDefinitionDn':cfprFeatureDefinitionDn,'cfprFeatureDefinitionRn':cfprFeatureDefinitionRn,'cfprFeatureDefinitionDescription':cfprFeatureDefinitionDescription,'cfprFeatureDefinitionName':cfprFeatureDefinitionName,'cfprFeatureDefinitionRevision':cfprFeatureDefinitionRevision,'cfprFeatureDefinitionInstanceTable':cfprFeatureDefinitionInstanceTable,'cfprFeatureDefinitionInstanceEntry':cfprFeatureDefinitionInstanceEntry,_G:cfprFeatureDefinitionInstanceInstanceId,'cfprFeatureDefinitionInstanceDn':cfprFeatureDefinitionInstanceDn,'cfprFeatureDefinitionInstanceRn':cfprFeatureDefinitionInstanceRn,'cfprFeatureDefinitionInstanceName':cfprFeatureDefinitionInstanceName,'cfprFeatureDefinitionInstanceRevision':cfprFeatureDefinitionInstanceRevision,'cfprFeatureDefinitionInstanceSupportability':cfprFeatureDefinitionInstanceSupportability,'cfprFeatureDefinitionInstanceTargetDn':cfprFeatureDefinitionInstanceTargetDn,'cfprFeatureDefinitionRefTable':cfprFeatureDefinitionRefTable,'cfprFeatureDefinitionRefEntry':cfprFeatureDefinitionRefEntry,_H:cfprFeatureDefinitionRefInstanceId,'cfprFeatureDefinitionRefDn':cfprFeatureDefinitionRefDn,'cfprFeatureDefinitionRefRn':cfprFeatureDefinitionRefRn,'cfprFeatureDefinitionRefName':cfprFeatureDefinitionRefName,'cfprFeatureDefinitionRefRevision':cfprFeatureDefinitionRefRevision,'cfprFeatureDefinitionRefSupportability':cfprFeatureDefinitionRefSupportability,'cfprFeatureDefinitionRefTargetDn':cfprFeatureDefinitionRefTargetDn,'cfprFeatureFruCapProviderInstanceTable':cfprFeatureFruCapProviderInstanceTable,'cfprFeatureFruCapProviderInstanceEntry':cfprFeatureFruCapProviderInstanceEntry,_I:cfprFeatureFruCapProviderInstanceInstanceId,'cfprFeatureFruCapProviderInstanceDn':cfprFeatureFruCapProviderInstanceDn,'cfprFeatureFruCapProviderInstanceRn':cfprFeatureFruCapProviderInstanceRn,'cfprFeatureFruCapProviderInstanceModel':cfprFeatureFruCapProviderInstanceModel,'cfprFeatureFruCapProviderInstanceRevision':cfprFeatureFruCapProviderInstanceRevision,'cfprFeatureFruCapProviderInstanceSupportability':cfprFeatureFruCapProviderInstanceSupportability,'cfprFeatureFruCapProviderInstanceTargetDn':cfprFeatureFruCapProviderInstanceTargetDn,'cfprFeatureFruCapProviderInstanceVendor':cfprFeatureFruCapProviderInstanceVendor,'cfprFeatureFruCapProviderRefTable':cfprFeatureFruCapProviderRefTable,'cfprFeatureFruCapProviderRefEntry':cfprFeatureFruCapProviderRefEntry,_J:cfprFeatureFruCapProviderRefInstanceId,'cfprFeatureFruCapProviderRefDn':cfprFeatureFruCapProviderRefDn,'cfprFeatureFruCapProviderRefRn':cfprFeatureFruCapProviderRefRn,'cfprFeatureFruCapProviderRefModel':cfprFeatureFruCapProviderRefModel,'cfprFeatureFruCapProviderRefRevision':cfprFeatureFruCapProviderRefRevision,'cfprFeatureFruCapProviderRefSupportability':cfprFeatureFruCapProviderRefSupportability,'cfprFeatureFruCapProviderRefTargetDn':cfprFeatureFruCapProviderRefTargetDn,'cfprFeatureFruCapProviderRefVendor':cfprFeatureFruCapProviderRefVendor,'cfprFeatureProviderTable':cfprFeatureProviderTable,'cfprFeatureProviderEntry':cfprFeatureProviderEntry,_K:cfprFeatureProviderInstanceId,'cfprFeatureProviderDn':cfprFeatureProviderDn,'cfprFeatureProviderRn':cfprFeatureProviderRn,'cfprFeatureProviderName':cfprFeatureProviderName,'cfprFeatureProviderInstanceTable':cfprFeatureProviderInstanceTable,'cfprFeatureProviderInstanceEntry':cfprFeatureProviderInstanceEntry,_L:cfprFeatureProviderInstanceInstanceId,'cfprFeatureProviderInstanceDn':cfprFeatureProviderInstanceDn,'cfprFeatureProviderInstanceRn':cfprFeatureProviderInstanceRn,'cfprFeatureProviderInstanceName':cfprFeatureProviderInstanceName,'cfprFeatureProviderInstanceOperProviderDn':cfprFeatureProviderInstanceOperProviderDn})
+#
+# PySNMP MIB module CISCO-FIREPOWER-FEATURE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-FIREPOWER-FEATURE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:20 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoFirepowerMIBObjects, CfprManagedObjectId, CfprManagedObjectDn = mibBuilder.importSymbols("CISCO-FIREPOWER-MIB", "ciscoFirepowerMIBObjects", "CfprManagedObjectId", "CfprManagedObjectDn")
+CfprFeatureSupportabilityType, = mibBuilder.importSymbols("CISCO-FIREPOWER-TC-MIB", "CfprFeatureSupportabilityType")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+Unsigned64, CiscoAlarmSeverity, CiscoInetAddressMask, TimeIntervalSec, CiscoNetworkAddress = mibBuilder.importSymbols("CISCO-TC", "Unsigned64", "CiscoAlarmSeverity", "CiscoInetAddressMask", "TimeIntervalSec", "CiscoNetworkAddress")
+InetAddressIPv6, InetAddressIPv4 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv6", "InetAddressIPv4")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, MacAddress, TimeInterval, TimeStamp, TruthValue, DateAndTime, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "TimeStamp", "TruthValue", "DateAndTime", "RowPointer", "TextualConvention")
+cfprFeatureObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29))
+if mibBuilder.loadTexts: cfprFeatureObjects.setLastUpdated('202003100000Z')
+if mibBuilder.loadTexts: cfprFeatureObjects.setOrganization('Cisco Systems Inc.')
+cfprFeatureContextEpTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 1), )
+if mibBuilder.loadTexts: cfprFeatureContextEpTable.setStatus('current')
+cfprFeatureContextEpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 1, 1), ).setIndexNames((0, "CISCO-FIREPOWER-FEATURE-MIB", "cfprFeatureContextEpInstanceId"))
+if mibBuilder.loadTexts: cfprFeatureContextEpEntry.setStatus('current')
+cfprFeatureContextEpInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 1, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprFeatureContextEpInstanceId.setStatus('current')
+cfprFeatureContextEpDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 1, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureContextEpDn.setStatus('current')
+cfprFeatureContextEpRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureContextEpRn.setStatus('current')
+cfprFeatureDefinitionTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 2), )
+if mibBuilder.loadTexts: cfprFeatureDefinitionTable.setStatus('current')
+cfprFeatureDefinitionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 2, 1), ).setIndexNames((0, "CISCO-FIREPOWER-FEATURE-MIB", "cfprFeatureDefinitionInstanceId"))
+if mibBuilder.loadTexts: cfprFeatureDefinitionEntry.setStatus('current')
+cfprFeatureDefinitionInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 2, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprFeatureDefinitionInstanceId.setStatus('current')
+cfprFeatureDefinitionDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 2, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureDefinitionDn.setStatus('current')
+cfprFeatureDefinitionRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 2, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureDefinitionRn.setStatus('current')
+cfprFeatureDefinitionDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 2, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureDefinitionDescription.setStatus('current')
+cfprFeatureDefinitionName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 2, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureDefinitionName.setStatus('current')
+cfprFeatureDefinitionRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 2, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureDefinitionRevision.setStatus('current')
+cfprFeatureDefinitionInstanceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 3), )
+if mibBuilder.loadTexts: cfprFeatureDefinitionInstanceTable.setStatus('current')
+cfprFeatureDefinitionInstanceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 3, 1), ).setIndexNames((0, "CISCO-FIREPOWER-FEATURE-MIB", "cfprFeatureDefinitionInstanceInstanceId"))
+if mibBuilder.loadTexts: cfprFeatureDefinitionInstanceEntry.setStatus('current')
+cfprFeatureDefinitionInstanceInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 3, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprFeatureDefinitionInstanceInstanceId.setStatus('current')
+cfprFeatureDefinitionInstanceDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 3, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureDefinitionInstanceDn.setStatus('current')
+cfprFeatureDefinitionInstanceRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 3, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureDefinitionInstanceRn.setStatus('current')
+cfprFeatureDefinitionInstanceName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 3, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureDefinitionInstanceName.setStatus('current')
+cfprFeatureDefinitionInstanceRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 3, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureDefinitionInstanceRevision.setStatus('current')
+cfprFeatureDefinitionInstanceSupportability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 3, 1, 6), CfprFeatureSupportabilityType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureDefinitionInstanceSupportability.setStatus('current')
+cfprFeatureDefinitionInstanceTargetDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 3, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureDefinitionInstanceTargetDn.setStatus('current')
+cfprFeatureDefinitionRefTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 4), )
+if mibBuilder.loadTexts: cfprFeatureDefinitionRefTable.setStatus('current')
+cfprFeatureDefinitionRefEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 4, 1), ).setIndexNames((0, "CISCO-FIREPOWER-FEATURE-MIB", "cfprFeatureDefinitionRefInstanceId"))
+if mibBuilder.loadTexts: cfprFeatureDefinitionRefEntry.setStatus('current')
+cfprFeatureDefinitionRefInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 4, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprFeatureDefinitionRefInstanceId.setStatus('current')
+cfprFeatureDefinitionRefDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 4, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureDefinitionRefDn.setStatus('current')
+cfprFeatureDefinitionRefRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 4, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureDefinitionRefRn.setStatus('current')
+cfprFeatureDefinitionRefName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 4, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureDefinitionRefName.setStatus('current')
+cfprFeatureDefinitionRefRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 4, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureDefinitionRefRevision.setStatus('current')
+cfprFeatureDefinitionRefSupportability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 4, 1, 6), CfprFeatureSupportabilityType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureDefinitionRefSupportability.setStatus('current')
+cfprFeatureDefinitionRefTargetDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 4, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureDefinitionRefTargetDn.setStatus('current')
+cfprFeatureFruCapProviderInstanceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 5), )
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderInstanceTable.setStatus('current')
+cfprFeatureFruCapProviderInstanceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 5, 1), ).setIndexNames((0, "CISCO-FIREPOWER-FEATURE-MIB", "cfprFeatureFruCapProviderInstanceInstanceId"))
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderInstanceEntry.setStatus('current')
+cfprFeatureFruCapProviderInstanceInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 5, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderInstanceInstanceId.setStatus('current')
+cfprFeatureFruCapProviderInstanceDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 5, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderInstanceDn.setStatus('current')
+cfprFeatureFruCapProviderInstanceRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 5, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderInstanceRn.setStatus('current')
+cfprFeatureFruCapProviderInstanceModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 5, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderInstanceModel.setStatus('current')
+cfprFeatureFruCapProviderInstanceRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 5, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderInstanceRevision.setStatus('current')
+cfprFeatureFruCapProviderInstanceSupportability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 5, 1, 6), CfprFeatureSupportabilityType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderInstanceSupportability.setStatus('current')
+cfprFeatureFruCapProviderInstanceTargetDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 5, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderInstanceTargetDn.setStatus('current')
+cfprFeatureFruCapProviderInstanceVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 5, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderInstanceVendor.setStatus('current')
+cfprFeatureFruCapProviderRefTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 6), )
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderRefTable.setStatus('current')
+cfprFeatureFruCapProviderRefEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 6, 1), ).setIndexNames((0, "CISCO-FIREPOWER-FEATURE-MIB", "cfprFeatureFruCapProviderRefInstanceId"))
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderRefEntry.setStatus('current')
+cfprFeatureFruCapProviderRefInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 6, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderRefInstanceId.setStatus('current')
+cfprFeatureFruCapProviderRefDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 6, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderRefDn.setStatus('current')
+cfprFeatureFruCapProviderRefRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 6, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderRefRn.setStatus('current')
+cfprFeatureFruCapProviderRefModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 6, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderRefModel.setStatus('current')
+cfprFeatureFruCapProviderRefRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 6, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderRefRevision.setStatus('current')
+cfprFeatureFruCapProviderRefSupportability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 6, 1, 6), CfprFeatureSupportabilityType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderRefSupportability.setStatus('current')
+cfprFeatureFruCapProviderRefTargetDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 6, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderRefTargetDn.setStatus('current')
+cfprFeatureFruCapProviderRefVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 6, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureFruCapProviderRefVendor.setStatus('current')
+cfprFeatureProviderTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 7), )
+if mibBuilder.loadTexts: cfprFeatureProviderTable.setStatus('current')
+cfprFeatureProviderEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 7, 1), ).setIndexNames((0, "CISCO-FIREPOWER-FEATURE-MIB", "cfprFeatureProviderInstanceId"))
+if mibBuilder.loadTexts: cfprFeatureProviderEntry.setStatus('current')
+cfprFeatureProviderInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 7, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprFeatureProviderInstanceId.setStatus('current')
+cfprFeatureProviderDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 7, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureProviderDn.setStatus('current')
+cfprFeatureProviderRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 7, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureProviderRn.setStatus('current')
+cfprFeatureProviderName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 7, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureProviderName.setStatus('current')
+cfprFeatureProviderInstanceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 8), )
+if mibBuilder.loadTexts: cfprFeatureProviderInstanceTable.setStatus('current')
+cfprFeatureProviderInstanceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 8, 1), ).setIndexNames((0, "CISCO-FIREPOWER-FEATURE-MIB", "cfprFeatureProviderInstanceInstanceId"))
+if mibBuilder.loadTexts: cfprFeatureProviderInstanceEntry.setStatus('current')
+cfprFeatureProviderInstanceInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 8, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprFeatureProviderInstanceInstanceId.setStatus('current')
+cfprFeatureProviderInstanceDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 8, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureProviderInstanceDn.setStatus('current')
+cfprFeatureProviderInstanceRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 8, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureProviderInstanceRn.setStatus('current')
+cfprFeatureProviderInstanceName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 8, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureProviderInstanceName.setStatus('current')
+cfprFeatureProviderInstanceOperProviderDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 29, 8, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprFeatureProviderInstanceOperProviderDn.setStatus('current')
+mibBuilder.exportSymbols("CISCO-FIREPOWER-FEATURE-MIB", cfprFeatureContextEpInstanceId=cfprFeatureContextEpInstanceId, cfprFeatureDefinitionInstanceName=cfprFeatureDefinitionInstanceName, cfprFeatureProviderInstanceTable=cfprFeatureProviderInstanceTable, cfprFeatureFruCapProviderInstanceDn=cfprFeatureFruCapProviderInstanceDn, cfprFeatureFruCapProviderRefSupportability=cfprFeatureFruCapProviderRefSupportability, cfprFeatureDefinitionInstanceInstanceId=cfprFeatureDefinitionInstanceInstanceId, cfprFeatureDefinitionRefInstanceId=cfprFeatureDefinitionRefInstanceId, cfprFeatureFruCapProviderInstanceRn=cfprFeatureFruCapProviderInstanceRn, cfprFeatureFruCapProviderRefRn=cfprFeatureFruCapProviderRefRn, cfprFeatureDefinitionRefTargetDn=cfprFeatureDefinitionRefTargetDn, cfprFeatureFruCapProviderInstanceModel=cfprFeatureFruCapProviderInstanceModel, cfprFeatureFruCapProviderInstanceRevision=cfprFeatureFruCapProviderInstanceRevision, cfprFeatureFruCapProviderRefInstanceId=cfprFeatureFruCapProviderRefInstanceId, cfprFeatureDefinitionInstanceEntry=cfprFeatureDefinitionInstanceEntry, cfprFeatureFruCapProviderInstanceSupportability=cfprFeatureFruCapProviderInstanceSupportability, cfprFeatureDefinitionTable=cfprFeatureDefinitionTable, cfprFeatureDefinitionInstanceDn=cfprFeatureDefinitionInstanceDn, cfprFeatureDefinitionDescription=cfprFeatureDefinitionDescription, cfprFeatureFruCapProviderInstanceEntry=cfprFeatureFruCapProviderInstanceEntry, cfprFeatureFruCapProviderRefTargetDn=cfprFeatureFruCapProviderRefTargetDn, cfprFeatureDefinitionRefEntry=cfprFeatureDefinitionRefEntry, cfprFeatureDefinitionRefName=cfprFeatureDefinitionRefName, cfprFeatureFruCapProviderRefEntry=cfprFeatureFruCapProviderRefEntry, cfprFeatureObjects=cfprFeatureObjects, cfprFeatureDefinitionRefSupportability=cfprFeatureDefinitionRefSupportability, cfprFeatureProviderInstanceRn=cfprFeatureProviderInstanceRn, cfprFeatureFruCapProviderRefTable=cfprFeatureFruCapProviderRefTable, cfprFeatureFruCapProviderRefModel=cfprFeatureFruCapProviderRefModel, cfprFeatureFruCapProviderInstanceTable=cfprFeatureFruCapProviderInstanceTable, cfprFeatureDefinitionDn=cfprFeatureDefinitionDn, cfprFeatureDefinitionRn=cfprFeatureDefinitionRn, cfprFeatureDefinitionRefDn=cfprFeatureDefinitionRefDn, cfprFeatureDefinitionEntry=cfprFeatureDefinitionEntry, cfprFeatureContextEpEntry=cfprFeatureContextEpEntry, cfprFeatureProviderRn=cfprFeatureProviderRn, cfprFeatureProviderInstanceDn=cfprFeatureProviderInstanceDn, cfprFeatureDefinitionInstanceRevision=cfprFeatureDefinitionInstanceRevision, cfprFeatureFruCapProviderInstanceVendor=cfprFeatureFruCapProviderInstanceVendor, cfprFeatureDefinitionInstanceSupportability=cfprFeatureDefinitionInstanceSupportability, cfprFeatureProviderDn=cfprFeatureProviderDn, cfprFeatureDefinitionInstanceRn=cfprFeatureDefinitionInstanceRn, cfprFeatureDefinitionInstanceTable=cfprFeatureDefinitionInstanceTable, cfprFeatureProviderInstanceEntry=cfprFeatureProviderInstanceEntry, PYSNMP_MODULE_ID=cfprFeatureObjects, cfprFeatureDefinitionRefTable=cfprFeatureDefinitionRefTable, cfprFeatureDefinitionName=cfprFeatureDefinitionName, cfprFeatureFruCapProviderRefDn=cfprFeatureFruCapProviderRefDn, cfprFeatureContextEpDn=cfprFeatureContextEpDn, cfprFeatureDefinitionRefRn=cfprFeatureDefinitionRefRn, cfprFeatureProviderTable=cfprFeatureProviderTable, cfprFeatureFruCapProviderInstanceTargetDn=cfprFeatureFruCapProviderInstanceTargetDn, cfprFeatureProviderInstanceInstanceId=cfprFeatureProviderInstanceInstanceId, cfprFeatureProviderName=cfprFeatureProviderName, cfprFeatureDefinitionInstanceTargetDn=cfprFeatureDefinitionInstanceTargetDn, cfprFeatureDefinitionInstanceId=cfprFeatureDefinitionInstanceId, cfprFeatureContextEpTable=cfprFeatureContextEpTable, cfprFeatureContextEpRn=cfprFeatureContextEpRn, cfprFeatureFruCapProviderRefRevision=cfprFeatureFruCapProviderRefRevision, cfprFeatureProviderInstanceId=cfprFeatureProviderInstanceId, cfprFeatureProviderEntry=cfprFeatureProviderEntry, cfprFeatureProviderInstanceOperProviderDn=cfprFeatureProviderInstanceOperProviderDn, cfprFeatureDefinitionRevision=cfprFeatureDefinitionRevision, cfprFeatureProviderInstanceName=cfprFeatureProviderInstanceName, cfprFeatureFruCapProviderInstanceInstanceId=cfprFeatureFruCapProviderInstanceInstanceId, cfprFeatureFruCapProviderRefVendor=cfprFeatureFruCapProviderRefVendor, cfprFeatureDefinitionRefRevision=cfprFeatureDefinitionRefRevision)

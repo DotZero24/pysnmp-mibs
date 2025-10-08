@@ -1,251 +1,104 @@
-_r='ntcAntCtrlConfGrpV1Standard'
-_q='ntcAntCtrlAntFailure'
-_p='ntcAntCtrlCommError'
-_o='ntcAntCtrlAntFailureStat'
-_n='ntcAntCtrlCommErrorStat'
-_m='ntcAntCtrlRxMsg'
-_l='ntcAntCtrlTxMsg'
-_k='ntcAntCtrlLongitude'
-_j='ntcAntCtrlLatitude'
-_i='ntcAntCtrlTxAllowed'
-_h='ntcAntCtrlAntStatus'
-_g='ntcAntCtrlInterval'
-_f='ntcAntCtrlCfgTxMaxSkew'
-_e='ntcAntCtrlCfgTxLoFreq'
-_d='ntcAntCtrlCfgRxLoFreq'
-_c='ntcAntCtrlCfgTxPol'
-_b='ntcAntCtrlCfgRxPol'
-_a='ntcAntCtrlCfgSatSkew'
-_Z='ntcAntCtrlCfgSatLatVar'
-_Y='ntcAntCtrlCfgSatLong'
-_X='ntcAntCtrlCfgPort'
-_W='ntcAntCtrlCfgIpAddress'
-_V='ntcAntCtrlCfgEnable'
-_U='ntcAntCtrlAlarmStatsControlId'
-_T='unknown'
-_S='ntcAntCtrlMonControlId'
-_R='vertical'
-_Q='horizontal'
-_P='righthanded'
-_O='lefthanded'
-_N='ntcAntCtrlCfgControlId'
-_M='NtcEnable'
-_L='not-accessible'
-_K='control4'
-_J='control3'
-_I='control2'
-_H='control1'
-_G='Unsigned32'
-_F='deg.'
-_E='Integer32'
-_D='read-write'
-_C='read-only'
-_B='NEWTEC-ANTENNA-CONTROLLER-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-Float32TC,=mibBuilder.importSymbols('FLOAT-TC-MIB','Float32TC')
-ntcFunction,=mibBuilder.importSymbols('NEWTEC-MAIN-MIB','ntcFunction')
-NtcAlarmState,NtcEnable=mibBuilder.importSymbols('NEWTEC-TC-MIB','NtcAlarmState',_M)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ntcAntennaController=ModuleIdentity((1,3,6,1,4,1,5835,5,2,5700))
-if mibBuilder.loadTexts:ntcAntennaController.setRevisions(('2018-02-02 09:00','2014-02-03 12:00'))
-_NtcAntCtrlObjects_ObjectIdentity=ObjectIdentity
-ntcAntCtrlObjects=_NtcAntCtrlObjects_ObjectIdentity((1,3,6,1,4,1,5835,5,2,5700,1))
-if mibBuilder.loadTexts:ntcAntCtrlObjects.setStatus(_A)
-_NtcAntCtrlCfg_ObjectIdentity=ObjectIdentity
-ntcAntCtrlCfg=_NtcAntCtrlCfg_ObjectIdentity((1,3,6,1,4,1,5835,5,2,5700,1,1))
-if mibBuilder.loadTexts:ntcAntCtrlCfg.setStatus(_A)
-_NtcAntCtrlCfgTable_Object=MibTable
-ntcAntCtrlCfgTable=_NtcAntCtrlCfgTable_Object((1,3,6,1,4,1,5835,5,2,5700,1,1,1))
-if mibBuilder.loadTexts:ntcAntCtrlCfgTable.setStatus(_A)
-_NtcAntCtrlCfgEntry_Object=MibTableRow
-ntcAntCtrlCfgEntry=_NtcAntCtrlCfgEntry_Object((1,3,6,1,4,1,5835,5,2,5700,1,1,1,1))
-ntcAntCtrlCfgEntry.setIndexNames((0,_B,_N))
-if mibBuilder.loadTexts:ntcAntCtrlCfgEntry.setStatus(_A)
-class _NtcAntCtrlCfgControlId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_H,1),(_I,2),(_J,3),(_K,4)))
-_NtcAntCtrlCfgControlId_Type.__name__=_E
-_NtcAntCtrlCfgControlId_Object=MibTableColumn
-ntcAntCtrlCfgControlId=_NtcAntCtrlCfgControlId_Object((1,3,6,1,4,1,5835,5,2,5700,1,1,1,1,1),_NtcAntCtrlCfgControlId_Type())
-ntcAntCtrlCfgControlId.setMaxAccess(_L)
-if mibBuilder.loadTexts:ntcAntCtrlCfgControlId.setStatus(_A)
-class _NtcAntCtrlCfgEnable_Type(NtcEnable):defaultValue=0
-_NtcAntCtrlCfgEnable_Type.__name__=_M
-_NtcAntCtrlCfgEnable_Object=MibTableColumn
-ntcAntCtrlCfgEnable=_NtcAntCtrlCfgEnable_Object((1,3,6,1,4,1,5835,5,2,5700,1,1,1,1,2),_NtcAntCtrlCfgEnable_Type())
-ntcAntCtrlCfgEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcAntCtrlCfgEnable.setStatus(_A)
-_NtcAntCtrlCfgIpAddress_Type=IpAddress
-_NtcAntCtrlCfgIpAddress_Object=MibTableColumn
-ntcAntCtrlCfgIpAddress=_NtcAntCtrlCfgIpAddress_Object((1,3,6,1,4,1,5835,5,2,5700,1,1,1,1,3),_NtcAntCtrlCfgIpAddress_Type())
-ntcAntCtrlCfgIpAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcAntCtrlCfgIpAddress.setStatus(_A)
-class _NtcAntCtrlCfgPort_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_NtcAntCtrlCfgPort_Type.__name__=_G
-_NtcAntCtrlCfgPort_Object=MibTableColumn
-ntcAntCtrlCfgPort=_NtcAntCtrlCfgPort_Object((1,3,6,1,4,1,5835,5,2,5700,1,1,1,1,4),_NtcAntCtrlCfgPort_Type())
-ntcAntCtrlCfgPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcAntCtrlCfgPort.setStatus(_A)
-_NtcAntCtrlCfgSatLong_Type=Float32TC
-_NtcAntCtrlCfgSatLong_Object=MibTableColumn
-ntcAntCtrlCfgSatLong=_NtcAntCtrlCfgSatLong_Object((1,3,6,1,4,1,5835,5,2,5700,1,1,1,1,5),_NtcAntCtrlCfgSatLong_Type())
-ntcAntCtrlCfgSatLong.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcAntCtrlCfgSatLong.setStatus(_A)
-if mibBuilder.loadTexts:ntcAntCtrlCfgSatLong.setUnits(_F)
-_NtcAntCtrlCfgSatLatVar_Type=Float32TC
-_NtcAntCtrlCfgSatLatVar_Object=MibTableColumn
-ntcAntCtrlCfgSatLatVar=_NtcAntCtrlCfgSatLatVar_Object((1,3,6,1,4,1,5835,5,2,5700,1,1,1,1,6),_NtcAntCtrlCfgSatLatVar_Type())
-ntcAntCtrlCfgSatLatVar.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcAntCtrlCfgSatLatVar.setStatus(_A)
-if mibBuilder.loadTexts:ntcAntCtrlCfgSatLatVar.setUnits(_F)
-_NtcAntCtrlCfgSatSkew_Type=Float32TC
-_NtcAntCtrlCfgSatSkew_Object=MibTableColumn
-ntcAntCtrlCfgSatSkew=_NtcAntCtrlCfgSatSkew_Object((1,3,6,1,4,1,5835,5,2,5700,1,1,1,1,7),_NtcAntCtrlCfgSatSkew_Type())
-ntcAntCtrlCfgSatSkew.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcAntCtrlCfgSatSkew.setStatus(_A)
-if mibBuilder.loadTexts:ntcAntCtrlCfgSatSkew.setUnits(_F)
-class _NtcAntCtrlCfgRxPol_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,3,4)));namedValues=NamedValues(*((_O,0),(_P,1),(_Q,3),(_R,4)))
-_NtcAntCtrlCfgRxPol_Type.__name__=_E
-_NtcAntCtrlCfgRxPol_Object=MibTableColumn
-ntcAntCtrlCfgRxPol=_NtcAntCtrlCfgRxPol_Object((1,3,6,1,4,1,5835,5,2,5700,1,1,1,1,8),_NtcAntCtrlCfgRxPol_Type())
-ntcAntCtrlCfgRxPol.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcAntCtrlCfgRxPol.setStatus(_A)
-class _NtcAntCtrlCfgTxPol_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,3,4)));namedValues=NamedValues(*((_O,0),(_P,1),(_Q,3),(_R,4)))
-_NtcAntCtrlCfgTxPol_Type.__name__=_E
-_NtcAntCtrlCfgTxPol_Object=MibTableColumn
-ntcAntCtrlCfgTxPol=_NtcAntCtrlCfgTxPol_Object((1,3,6,1,4,1,5835,5,2,5700,1,1,1,1,9),_NtcAntCtrlCfgTxPol_Type())
-ntcAntCtrlCfgTxPol.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcAntCtrlCfgTxPol.setStatus(_A)
-class _NtcAntCtrlCfgRxLoFreq_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,42000000))
-_NtcAntCtrlCfgRxLoFreq_Type.__name__=_G
-_NtcAntCtrlCfgRxLoFreq_Object=MibTableColumn
-ntcAntCtrlCfgRxLoFreq=_NtcAntCtrlCfgRxLoFreq_Object((1,3,6,1,4,1,5835,5,2,5700,1,1,1,1,10),_NtcAntCtrlCfgRxLoFreq_Type())
-ntcAntCtrlCfgRxLoFreq.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcAntCtrlCfgRxLoFreq.setStatus(_A)
-if mibBuilder.loadTexts:ntcAntCtrlCfgRxLoFreq.setUnits('kHz')
-class _NtcAntCtrlCfgTxLoFreq_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,42000000))
-_NtcAntCtrlCfgTxLoFreq_Type.__name__=_G
-_NtcAntCtrlCfgTxLoFreq_Object=MibTableColumn
-ntcAntCtrlCfgTxLoFreq=_NtcAntCtrlCfgTxLoFreq_Object((1,3,6,1,4,1,5835,5,2,5700,1,1,1,1,11),_NtcAntCtrlCfgTxLoFreq_Type())
-ntcAntCtrlCfgTxLoFreq.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcAntCtrlCfgTxLoFreq.setStatus(_A)
-if mibBuilder.loadTexts:ntcAntCtrlCfgTxLoFreq.setUnits('kHz')
-_NtcAntCtrlCfgTxMaxSkew_Type=Float32TC
-_NtcAntCtrlCfgTxMaxSkew_Object=MibTableColumn
-ntcAntCtrlCfgTxMaxSkew=_NtcAntCtrlCfgTxMaxSkew_Object((1,3,6,1,4,1,5835,5,2,5700,1,1,1,1,12),_NtcAntCtrlCfgTxMaxSkew_Type())
-ntcAntCtrlCfgTxMaxSkew.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcAntCtrlCfgTxMaxSkew.setStatus(_A)
-if mibBuilder.loadTexts:ntcAntCtrlCfgTxMaxSkew.setUnits(_F)
-_NtcAntCtrlMon_ObjectIdentity=ObjectIdentity
-ntcAntCtrlMon=_NtcAntCtrlMon_ObjectIdentity((1,3,6,1,4,1,5835,5,2,5700,1,2))
-if mibBuilder.loadTexts:ntcAntCtrlMon.setStatus(_A)
-_NtcAntCtrlMonTable_Object=MibTable
-ntcAntCtrlMonTable=_NtcAntCtrlMonTable_Object((1,3,6,1,4,1,5835,5,2,5700,1,2,1))
-if mibBuilder.loadTexts:ntcAntCtrlMonTable.setStatus(_A)
-_NtcAntCtrlMonEntry_Object=MibTableRow
-ntcAntCtrlMonEntry=_NtcAntCtrlMonEntry_Object((1,3,6,1,4,1,5835,5,2,5700,1,2,1,1))
-ntcAntCtrlMonEntry.setIndexNames((0,_B,_S))
-if mibBuilder.loadTexts:ntcAntCtrlMonEntry.setStatus(_A)
-class _NtcAntCtrlMonControlId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_H,1),(_I,2),(_J,3),(_K,4)))
-_NtcAntCtrlMonControlId_Type.__name__=_E
-_NtcAntCtrlMonControlId_Object=MibTableColumn
-ntcAntCtrlMonControlId=_NtcAntCtrlMonControlId_Object((1,3,6,1,4,1,5835,5,2,5700,1,2,1,1,1),_NtcAntCtrlMonControlId_Type())
-ntcAntCtrlMonControlId.setMaxAccess(_L)
-if mibBuilder.loadTexts:ntcAntCtrlMonControlId.setStatus(_A)
-class _NtcAntCtrlInterval_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,9999999))
-_NtcAntCtrlInterval_Type.__name__=_G
-_NtcAntCtrlInterval_Object=MibTableColumn
-ntcAntCtrlInterval=_NtcAntCtrlInterval_Object((1,3,6,1,4,1,5835,5,2,5700,1,2,1,1,2),_NtcAntCtrlInterval_Type())
-ntcAntCtrlInterval.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcAntCtrlInterval.setStatus(_A)
-if mibBuilder.loadTexts:ntcAntCtrlInterval.setUnits('s')
-class _NtcAntCtrlAntStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_T,0),('ok',1),('failed',2)))
-_NtcAntCtrlAntStatus_Type.__name__=_E
-_NtcAntCtrlAntStatus_Object=MibTableColumn
-ntcAntCtrlAntStatus=_NtcAntCtrlAntStatus_Object((1,3,6,1,4,1,5835,5,2,5700,1,2,1,1,3),_NtcAntCtrlAntStatus_Type())
-ntcAntCtrlAntStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcAntCtrlAntStatus.setStatus(_A)
-class _NtcAntCtrlTxAllowed_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_T,0),('on',1),('off',2)))
-_NtcAntCtrlTxAllowed_Type.__name__=_E
-_NtcAntCtrlTxAllowed_Object=MibTableColumn
-ntcAntCtrlTxAllowed=_NtcAntCtrlTxAllowed_Object((1,3,6,1,4,1,5835,5,2,5700,1,2,1,1,4),_NtcAntCtrlTxAllowed_Type())
-ntcAntCtrlTxAllowed.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcAntCtrlTxAllowed.setStatus(_A)
-_NtcAntCtrlLatitude_Type=Float32TC
-_NtcAntCtrlLatitude_Object=MibTableColumn
-ntcAntCtrlLatitude=_NtcAntCtrlLatitude_Object((1,3,6,1,4,1,5835,5,2,5700,1,2,1,1,5),_NtcAntCtrlLatitude_Type())
-ntcAntCtrlLatitude.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcAntCtrlLatitude.setStatus(_A)
-if mibBuilder.loadTexts:ntcAntCtrlLatitude.setUnits(_F)
-_NtcAntCtrlLongitude_Type=Float32TC
-_NtcAntCtrlLongitude_Object=MibTableColumn
-ntcAntCtrlLongitude=_NtcAntCtrlLongitude_Object((1,3,6,1,4,1,5835,5,2,5700,1,2,1,1,6),_NtcAntCtrlLongitude_Type())
-ntcAntCtrlLongitude.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcAntCtrlLongitude.setStatus(_A)
-if mibBuilder.loadTexts:ntcAntCtrlLongitude.setUnits(_F)
-_NtcAntCtrlTxMsg_Type=Unsigned32
-_NtcAntCtrlTxMsg_Object=MibTableColumn
-ntcAntCtrlTxMsg=_NtcAntCtrlTxMsg_Object((1,3,6,1,4,1,5835,5,2,5700,1,2,1,1,7),_NtcAntCtrlTxMsg_Type())
-ntcAntCtrlTxMsg.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcAntCtrlTxMsg.setStatus(_A)
-_NtcAntCtrlRxMsg_Type=Unsigned32
-_NtcAntCtrlRxMsg_Object=MibTableColumn
-ntcAntCtrlRxMsg=_NtcAntCtrlRxMsg_Object((1,3,6,1,4,1,5835,5,2,5700,1,2,1,1,8),_NtcAntCtrlRxMsg_Type())
-ntcAntCtrlRxMsg.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcAntCtrlRxMsg.setStatus(_A)
-_NtcAntCtrlAlarm_ObjectIdentity=ObjectIdentity
-ntcAntCtrlAlarm=_NtcAntCtrlAlarm_ObjectIdentity((1,3,6,1,4,1,5835,5,2,5700,1,3))
-if mibBuilder.loadTexts:ntcAntCtrlAlarm.setStatus(_A)
-_NtcAntCtrlAlarmStatsTable_Object=MibTable
-ntcAntCtrlAlarmStatsTable=_NtcAntCtrlAlarmStatsTable_Object((1,3,6,1,4,1,5835,5,2,5700,1,3,1))
-if mibBuilder.loadTexts:ntcAntCtrlAlarmStatsTable.setStatus(_A)
-_NtcAntCtrlAlarmStatsEntry_Object=MibTableRow
-ntcAntCtrlAlarmStatsEntry=_NtcAntCtrlAlarmStatsEntry_Object((1,3,6,1,4,1,5835,5,2,5700,1,3,1,1))
-ntcAntCtrlAlarmStatsEntry.setIndexNames((0,_B,_U))
-if mibBuilder.loadTexts:ntcAntCtrlAlarmStatsEntry.setStatus(_A)
-class _NtcAntCtrlAlarmStatsControlId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_H,1),(_I,2),(_J,3),(_K,4)))
-_NtcAntCtrlAlarmStatsControlId_Type.__name__=_E
-_NtcAntCtrlAlarmStatsControlId_Object=MibTableColumn
-ntcAntCtrlAlarmStatsControlId=_NtcAntCtrlAlarmStatsControlId_Object((1,3,6,1,4,1,5835,5,2,5700,1,3,1,1,1),_NtcAntCtrlAlarmStatsControlId_Type())
-ntcAntCtrlAlarmStatsControlId.setMaxAccess(_L)
-if mibBuilder.loadTexts:ntcAntCtrlAlarmStatsControlId.setStatus(_A)
-_NtcAntCtrlCommErrorStat_Type=NtcAlarmState
-_NtcAntCtrlCommErrorStat_Object=MibTableColumn
-ntcAntCtrlCommErrorStat=_NtcAntCtrlCommErrorStat_Object((1,3,6,1,4,1,5835,5,2,5700,1,3,1,1,2),_NtcAntCtrlCommErrorStat_Type())
-ntcAntCtrlCommErrorStat.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcAntCtrlCommErrorStat.setStatus(_A)
-_NtcAntCtrlAntFailureStat_Type=NtcAlarmState
-_NtcAntCtrlAntFailureStat_Object=MibTableColumn
-ntcAntCtrlAntFailureStat=_NtcAntCtrlAntFailureStat_Object((1,3,6,1,4,1,5835,5,2,5700,1,3,1,1,3),_NtcAntCtrlAntFailureStat_Type())
-ntcAntCtrlAntFailureStat.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcAntCtrlAntFailureStat.setStatus(_A)
-_NtcAntCtrlCommError_Type=NtcAlarmState
-_NtcAntCtrlCommError_Object=MibScalar
-ntcAntCtrlCommError=_NtcAntCtrlCommError_Object((1,3,6,1,4,1,5835,5,2,5700,1,3,2),_NtcAntCtrlCommError_Type())
-ntcAntCtrlCommError.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcAntCtrlCommError.setStatus(_A)
-_NtcAntCtrlAntFailure_Type=NtcAlarmState
-_NtcAntCtrlAntFailure_Object=MibScalar
-ntcAntCtrlAntFailure=_NtcAntCtrlAntFailure_Object((1,3,6,1,4,1,5835,5,2,5700,1,3,3),_NtcAntCtrlAntFailure_Type())
-ntcAntCtrlAntFailure.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcAntCtrlAntFailure.setStatus(_A)
-_NtcAntCtrlConformance_ObjectIdentity=ObjectIdentity
-ntcAntCtrlConformance=_NtcAntCtrlConformance_ObjectIdentity((1,3,6,1,4,1,5835,5,2,5700,2))
-if mibBuilder.loadTexts:ntcAntCtrlConformance.setStatus(_A)
-_NtcAntCtrlConfCompliance_ObjectIdentity=ObjectIdentity
-ntcAntCtrlConfCompliance=_NtcAntCtrlConfCompliance_ObjectIdentity((1,3,6,1,4,1,5835,5,2,5700,2,1))
-if mibBuilder.loadTexts:ntcAntCtrlConfCompliance.setStatus(_A)
-_NtcAntCtrlConfGroup_ObjectIdentity=ObjectIdentity
-ntcAntCtrlConfGroup=_NtcAntCtrlConfGroup_ObjectIdentity((1,3,6,1,4,1,5835,5,2,5700,2,2))
-if mibBuilder.loadTexts:ntcAntCtrlConfGroup.setStatus(_A)
-ntcAntCtrlConfGrpV1Standard=ObjectGroup((1,3,6,1,4,1,5835,5,2,5700,2,2,1))
-ntcAntCtrlConfGrpV1Standard.setObjects(*((_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q)))
-if mibBuilder.loadTexts:ntcAntCtrlConfGrpV1Standard.setStatus(_A)
-ntcAntCtrlConfCompV1Standard=ModuleCompliance((1,3,6,1,4,1,5835,5,2,5700,2,1,1))
-ntcAntCtrlConfCompV1Standard.setObjects((_B,_r))
-if mibBuilder.loadTexts:ntcAntCtrlConfCompV1Standard.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ntcAntennaController':ntcAntennaController,'ntcAntCtrlObjects':ntcAntCtrlObjects,'ntcAntCtrlCfg':ntcAntCtrlCfg,'ntcAntCtrlCfgTable':ntcAntCtrlCfgTable,'ntcAntCtrlCfgEntry':ntcAntCtrlCfgEntry,_N:ntcAntCtrlCfgControlId,_V:ntcAntCtrlCfgEnable,_W:ntcAntCtrlCfgIpAddress,_X:ntcAntCtrlCfgPort,_Y:ntcAntCtrlCfgSatLong,_Z:ntcAntCtrlCfgSatLatVar,_a:ntcAntCtrlCfgSatSkew,_b:ntcAntCtrlCfgRxPol,_c:ntcAntCtrlCfgTxPol,_d:ntcAntCtrlCfgRxLoFreq,_e:ntcAntCtrlCfgTxLoFreq,_f:ntcAntCtrlCfgTxMaxSkew,'ntcAntCtrlMon':ntcAntCtrlMon,'ntcAntCtrlMonTable':ntcAntCtrlMonTable,'ntcAntCtrlMonEntry':ntcAntCtrlMonEntry,_S:ntcAntCtrlMonControlId,_g:ntcAntCtrlInterval,_h:ntcAntCtrlAntStatus,_i:ntcAntCtrlTxAllowed,_j:ntcAntCtrlLatitude,_k:ntcAntCtrlLongitude,_l:ntcAntCtrlTxMsg,_m:ntcAntCtrlRxMsg,'ntcAntCtrlAlarm':ntcAntCtrlAlarm,'ntcAntCtrlAlarmStatsTable':ntcAntCtrlAlarmStatsTable,'ntcAntCtrlAlarmStatsEntry':ntcAntCtrlAlarmStatsEntry,_U:ntcAntCtrlAlarmStatsControlId,_n:ntcAntCtrlCommErrorStat,_o:ntcAntCtrlAntFailureStat,_p:ntcAntCtrlCommError,_q:ntcAntCtrlAntFailure,'ntcAntCtrlConformance':ntcAntCtrlConformance,'ntcAntCtrlConfCompliance':ntcAntCtrlConfCompliance,'ntcAntCtrlConfCompV1Standard':ntcAntCtrlConfCompV1Standard,'ntcAntCtrlConfGroup':ntcAntCtrlConfGroup,_r:ntcAntCtrlConfGrpV1Standard})
+#
+# PySNMP MIB module NEWTEC-ANTENNA-CONTROLLER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/newtec/NEWTEC-ANTENNA-CONTROLLER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:24 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+Float32TC, = mibBuilder.importSymbols("FLOAT-TC-MIB", "Float32TC")
+ntcFunction, = mibBuilder.importSymbols("NEWTEC-MAIN-MIB", "ntcFunction")
+NtcAlarmState, NtcEnable = mibBuilder.importSymbols("NEWTEC-TC-MIB", "NtcAlarmState", "NtcEnable")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ntcAntennaController = ModuleIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700))
+ntcAntennaController.setRevisions(('2018-02-02 09:00', '2014-02-03 12:00',))
+if mibBuilder.loadTexts: ntcAntennaController.setLastUpdated('201802020900Z')
+if mibBuilder.loadTexts: ntcAntennaController.setOrganization('Newtec Cy')
+ntcAntCtrlObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1))
+if mibBuilder.loadTexts: ntcAntCtrlObjects.setStatus('current')
+ntcAntCtrlConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 2))
+if mibBuilder.loadTexts: ntcAntCtrlConformance.setStatus('current')
+ntcAntCtrlCfg = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 1))
+if mibBuilder.loadTexts: ntcAntCtrlCfg.setStatus('current')
+ntcAntCtrlMon = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 2))
+if mibBuilder.loadTexts: ntcAntCtrlMon.setStatus('current')
+ntcAntCtrlAlarm = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 3))
+if mibBuilder.loadTexts: ntcAntCtrlAlarm.setStatus('current')
+ntcAntCtrlConfCompliance = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 2, 1))
+if mibBuilder.loadTexts: ntcAntCtrlConfCompliance.setStatus('current')
+ntcAntCtrlConfGroup = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 2, 2))
+if mibBuilder.loadTexts: ntcAntCtrlConfGroup.setStatus('current')
+ntcAntCtrlCfgTable = MibTable((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 1, 1), )
+if mibBuilder.loadTexts: ntcAntCtrlCfgTable.setStatus('current')
+ntcAntCtrlCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 1, 1, 1), ).setIndexNames((0, "NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlCfgControlId"))
+if mibBuilder.loadTexts: ntcAntCtrlCfgEntry.setStatus('current')
+ntcAntCtrlCfgControlId = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("control1", 1), ("control2", 2), ("control3", 3), ("control4", 4))))
+if mibBuilder.loadTexts: ntcAntCtrlCfgControlId.setStatus('current')
+ntcAntCtrlCfgEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 1, 1, 1, 2), NtcEnable().clone('off')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcAntCtrlCfgEnable.setStatus('current')
+ntcAntCtrlCfgIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 1, 1, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcAntCtrlCfgIpAddress.setStatus('current')
+ntcAntCtrlCfgPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 1, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcAntCtrlCfgPort.setStatus('current')
+ntcAntCtrlCfgSatLong = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 1, 1, 1, 5), Float32TC().clone('0')).setUnits('deg.').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcAntCtrlCfgSatLong.setStatus('current')
+ntcAntCtrlCfgSatLatVar = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 1, 1, 1, 6), Float32TC().clone('1')).setUnits('deg.').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcAntCtrlCfgSatLatVar.setStatus('current')
+ntcAntCtrlCfgSatSkew = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 1, 1, 1, 7), Float32TC()).setUnits('deg.').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcAntCtrlCfgSatSkew.setStatus('current')
+ntcAntCtrlCfgRxPol = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 3, 4))).clone(namedValues=NamedValues(("lefthanded", 0), ("righthanded", 1), ("horizontal", 3), ("vertical", 4))).clone('lefthanded')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcAntCtrlCfgRxPol.setStatus('current')
+ntcAntCtrlCfgTxPol = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 3, 4))).clone(namedValues=NamedValues(("lefthanded", 0), ("righthanded", 1), ("horizontal", 3), ("vertical", 4))).clone('lefthanded')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcAntCtrlCfgTxPol.setStatus('current')
+ntcAntCtrlCfgRxLoFreq = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 1, 1, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 42000000))).setUnits('kHz').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcAntCtrlCfgRxLoFreq.setStatus('current')
+ntcAntCtrlCfgTxLoFreq = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 1, 1, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 42000000))).setUnits('kHz').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcAntCtrlCfgTxLoFreq.setStatus('current')
+ntcAntCtrlCfgTxMaxSkew = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 1, 1, 1, 12), Float32TC().clone('90')).setUnits('deg.').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcAntCtrlCfgTxMaxSkew.setStatus('current')
+ntcAntCtrlMonTable = MibTable((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 2, 1), )
+if mibBuilder.loadTexts: ntcAntCtrlMonTable.setStatus('current')
+ntcAntCtrlMonEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 2, 1, 1), ).setIndexNames((0, "NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlMonControlId"))
+if mibBuilder.loadTexts: ntcAntCtrlMonEntry.setStatus('current')
+ntcAntCtrlMonControlId = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("control1", 1), ("control2", 2), ("control3", 3), ("control4", 4))))
+if mibBuilder.loadTexts: ntcAntCtrlMonControlId.setStatus('current')
+ntcAntCtrlInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 2, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 9999999))).setUnits('s').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcAntCtrlInterval.setStatus('current')
+ntcAntCtrlAntStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("unknown", 0), ("ok", 1), ("failed", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcAntCtrlAntStatus.setStatus('current')
+ntcAntCtrlTxAllowed = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("unknown", 0), ("on", 1), ("off", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcAntCtrlTxAllowed.setStatus('current')
+ntcAntCtrlLatitude = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 2, 1, 1, 5), Float32TC()).setUnits('deg.').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcAntCtrlLatitude.setStatus('current')
+ntcAntCtrlLongitude = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 2, 1, 1, 6), Float32TC()).setUnits('deg.').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcAntCtrlLongitude.setStatus('current')
+ntcAntCtrlTxMsg = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 2, 1, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcAntCtrlTxMsg.setStatus('current')
+ntcAntCtrlRxMsg = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 2, 1, 1, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcAntCtrlRxMsg.setStatus('current')
+ntcAntCtrlAlarmStatsTable = MibTable((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 3, 1), )
+if mibBuilder.loadTexts: ntcAntCtrlAlarmStatsTable.setStatus('current')
+ntcAntCtrlAlarmStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 3, 1, 1), ).setIndexNames((0, "NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlAlarmStatsControlId"))
+if mibBuilder.loadTexts: ntcAntCtrlAlarmStatsEntry.setStatus('current')
+ntcAntCtrlAlarmStatsControlId = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("control1", 1), ("control2", 2), ("control3", 3), ("control4", 4))))
+if mibBuilder.loadTexts: ntcAntCtrlAlarmStatsControlId.setStatus('current')
+ntcAntCtrlCommErrorStat = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 3, 1, 1, 2), NtcAlarmState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcAntCtrlCommErrorStat.setStatus('current')
+ntcAntCtrlAntFailureStat = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 3, 1, 1, 3), NtcAlarmState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcAntCtrlAntFailureStat.setStatus('current')
+ntcAntCtrlCommError = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 3, 2), NtcAlarmState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcAntCtrlCommError.setStatus('current')
+ntcAntCtrlAntFailure = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 1, 3, 3), NtcAlarmState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcAntCtrlAntFailure.setStatus('current')
+ntcAntCtrlConfGrpV1Standard = ObjectGroup((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 2, 2, 1)).setObjects(("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlCfgEnable"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlCfgIpAddress"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlCfgPort"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlCfgSatLong"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlCfgSatLatVar"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlCfgSatSkew"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlCfgRxPol"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlCfgTxPol"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlCfgRxLoFreq"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlCfgTxLoFreq"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlCfgTxMaxSkew"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlInterval"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlAntStatus"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlTxAllowed"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlLatitude"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlLongitude"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlTxMsg"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlRxMsg"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlCommErrorStat"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlAntFailureStat"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlCommError"), ("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlAntFailure"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ntcAntCtrlConfGrpV1Standard = ntcAntCtrlConfGrpV1Standard.setStatus('current')
+ntcAntCtrlConfCompV1Standard = ModuleCompliance((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5700, 2, 1, 1)).setObjects(("NEWTEC-ANTENNA-CONTROLLER-MIB", "ntcAntCtrlConfGrpV1Standard"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ntcAntCtrlConfCompV1Standard = ntcAntCtrlConfCompV1Standard.setStatus('current')
+mibBuilder.exportSymbols("NEWTEC-ANTENNA-CONTROLLER-MIB", ntcAntCtrlCfgSatLatVar=ntcAntCtrlCfgSatLatVar, ntcAntCtrlCfg=ntcAntCtrlCfg, ntcAntCtrlConfCompV1Standard=ntcAntCtrlConfCompV1Standard, ntcAntCtrlMonEntry=ntcAntCtrlMonEntry, ntcAntCtrlCfgTable=ntcAntCtrlCfgTable, ntcAntCtrlCfgPort=ntcAntCtrlCfgPort, ntcAntCtrlCfgEntry=ntcAntCtrlCfgEntry, ntcAntCtrlAlarm=ntcAntCtrlAlarm, ntcAntCtrlCfgRxLoFreq=ntcAntCtrlCfgRxLoFreq, ntcAntCtrlMon=ntcAntCtrlMon, ntcAntCtrlCommError=ntcAntCtrlCommError, ntcAntCtrlObjects=ntcAntCtrlObjects, ntcAntCtrlCommErrorStat=ntcAntCtrlCommErrorStat, ntcAntCtrlAlarmStatsTable=ntcAntCtrlAlarmStatsTable, ntcAntCtrlCfgSatSkew=ntcAntCtrlCfgSatSkew, ntcAntCtrlAntStatus=ntcAntCtrlAntStatus, PYSNMP_MODULE_ID=ntcAntennaController, ntcAntCtrlInterval=ntcAntCtrlInterval, ntcAntCtrlAntFailure=ntcAntCtrlAntFailure, ntcAntCtrlLatitude=ntcAntCtrlLatitude, ntcAntCtrlTxMsg=ntcAntCtrlTxMsg, ntcAntCtrlAlarmStatsControlId=ntcAntCtrlAlarmStatsControlId, ntcAntCtrlCfgRxPol=ntcAntCtrlCfgRxPol, ntcAntennaController=ntcAntennaController, ntcAntCtrlCfgTxLoFreq=ntcAntCtrlCfgTxLoFreq, ntcAntCtrlConformance=ntcAntCtrlConformance, ntcAntCtrlRxMsg=ntcAntCtrlRxMsg, ntcAntCtrlAlarmStatsEntry=ntcAntCtrlAlarmStatsEntry, ntcAntCtrlConfGroup=ntcAntCtrlConfGroup, ntcAntCtrlCfgEnable=ntcAntCtrlCfgEnable, ntcAntCtrlConfCompliance=ntcAntCtrlConfCompliance, ntcAntCtrlCfgTxPol=ntcAntCtrlCfgTxPol, ntcAntCtrlLongitude=ntcAntCtrlLongitude, ntcAntCtrlAntFailureStat=ntcAntCtrlAntFailureStat, ntcAntCtrlMonControlId=ntcAntCtrlMonControlId, ntcAntCtrlMonTable=ntcAntCtrlMonTable, ntcAntCtrlConfGrpV1Standard=ntcAntCtrlConfGrpV1Standard, ntcAntCtrlCfgSatLong=ntcAntCtrlCfgSatLong, ntcAntCtrlCfgIpAddress=ntcAntCtrlCfgIpAddress, ntcAntCtrlCfgControlId=ntcAntCtrlCfgControlId, ntcAntCtrlTxAllowed=ntcAntCtrlTxAllowed, ntcAntCtrlCfgTxMaxSkew=ntcAntCtrlCfgTxMaxSkew)

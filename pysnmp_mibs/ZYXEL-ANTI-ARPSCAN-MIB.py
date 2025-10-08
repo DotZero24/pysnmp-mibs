@@ -1,129 +1,64 @@
-_L='zyAntiArpscanHostVid'
-_K='zyAntiArpscanHostMacAddress'
-_J='zyAntiArpscanTrustHostMask'
-_I='zyAntiArpscanTrustHostIpAddress'
-_H='dot1dBasePort'
-_G='BRIDGE-MIB'
-_F='not-accessible'
-_E='read-only'
-_D='ZYXEL-ANTI-ARPSCAN-MIB'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dBasePort,=mibBuilder.importSymbols(_G,_H)
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB','EnabledStatus')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention')
-esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
-zyxelAntiArpscan=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,106))
-_ZyxelAntiArpscanSetup_ObjectIdentity=ObjectIdentity
-zyxelAntiArpscanSetup=_ZyxelAntiArpscanSetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,106,1))
-_ZyAntiArpscanState_Type=EnabledStatus
-_ZyAntiArpscanState_Object=MibScalar
-zyAntiArpscanState=_ZyAntiArpscanState_Object((1,3,6,1,4,1,890,1,15,3,106,1,1),_ZyAntiArpscanState_Type())
-zyAntiArpscanState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyAntiArpscanState.setStatus(_A)
-class _ZyAntiArpscanPortThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(2,255))
-_ZyAntiArpscanPortThreshold_Type.__name__=_C
-_ZyAntiArpscanPortThreshold_Object=MibScalar
-zyAntiArpscanPortThreshold=_ZyAntiArpscanPortThreshold_Object((1,3,6,1,4,1,890,1,15,3,106,1,2),_ZyAntiArpscanPortThreshold_Type())
-zyAntiArpscanPortThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyAntiArpscanPortThreshold.setStatus(_A)
-class _ZyAntiArpscanHostThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(2,100))
-_ZyAntiArpscanHostThreshold_Type.__name__=_C
-_ZyAntiArpscanHostThreshold_Object=MibScalar
-zyAntiArpscanHostThreshold=_ZyAntiArpscanHostThreshold_Object((1,3,6,1,4,1,890,1,15,3,106,1,3),_ZyAntiArpscanHostThreshold_Type())
-zyAntiArpscanHostThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyAntiArpscanHostThreshold.setStatus(_A)
-_ZyxelAntiArpscanPortTable_Object=MibTable
-zyxelAntiArpscanPortTable=_ZyxelAntiArpscanPortTable_Object((1,3,6,1,4,1,890,1,15,3,106,1,4))
-if mibBuilder.loadTexts:zyxelAntiArpscanPortTable.setStatus(_A)
-_ZyxelAntiArpscanPortEntry_Object=MibTableRow
-zyxelAntiArpscanPortEntry=_ZyxelAntiArpscanPortEntry_Object((1,3,6,1,4,1,890,1,15,3,106,1,4,1))
-zyxelAntiArpscanPortEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:zyxelAntiArpscanPortEntry.setStatus(_A)
-class _ZyAntiArpscanPortTrustState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('trusted',1),('untrusted',2)))
-_ZyAntiArpscanPortTrustState_Type.__name__=_C
-_ZyAntiArpscanPortTrustState_Object=MibTableColumn
-zyAntiArpscanPortTrustState=_ZyAntiArpscanPortTrustState_Object((1,3,6,1,4,1,890,1,15,3,106,1,4,1,1),_ZyAntiArpscanPortTrustState_Type())
-zyAntiArpscanPortTrustState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyAntiArpscanPortTrustState.setStatus(_A)
-_ZyAntiArpscanMaxNumberOfTrustHosts_Type=Integer32
-_ZyAntiArpscanMaxNumberOfTrustHosts_Object=MibScalar
-zyAntiArpscanMaxNumberOfTrustHosts=_ZyAntiArpscanMaxNumberOfTrustHosts_Object((1,3,6,1,4,1,890,1,15,3,106,1,5),_ZyAntiArpscanMaxNumberOfTrustHosts_Type())
-zyAntiArpscanMaxNumberOfTrustHosts.setMaxAccess(_E)
-if mibBuilder.loadTexts:zyAntiArpscanMaxNumberOfTrustHosts.setStatus(_A)
-_ZyxelAntiArpscanTrustHostTable_Object=MibTable
-zyxelAntiArpscanTrustHostTable=_ZyxelAntiArpscanTrustHostTable_Object((1,3,6,1,4,1,890,1,15,3,106,1,6))
-if mibBuilder.loadTexts:zyxelAntiArpscanTrustHostTable.setStatus(_A)
-_ZyxelAntiArpscanTrustHostEntry_Object=MibTableRow
-zyxelAntiArpscanTrustHostEntry=_ZyxelAntiArpscanTrustHostEntry_Object((1,3,6,1,4,1,890,1,15,3,106,1,6,1))
-zyxelAntiArpscanTrustHostEntry.setIndexNames((0,_D,_I),(0,_D,_J))
-if mibBuilder.loadTexts:zyxelAntiArpscanTrustHostEntry.setStatus(_A)
-_ZyAntiArpscanTrustHostIpAddress_Type=IpAddress
-_ZyAntiArpscanTrustHostIpAddress_Object=MibTableColumn
-zyAntiArpscanTrustHostIpAddress=_ZyAntiArpscanTrustHostIpAddress_Object((1,3,6,1,4,1,890,1,15,3,106,1,6,1,1),_ZyAntiArpscanTrustHostIpAddress_Type())
-zyAntiArpscanTrustHostIpAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:zyAntiArpscanTrustHostIpAddress.setStatus(_A)
-_ZyAntiArpscanTrustHostMask_Type=IpAddress
-_ZyAntiArpscanTrustHostMask_Object=MibTableColumn
-zyAntiArpscanTrustHostMask=_ZyAntiArpscanTrustHostMask_Object((1,3,6,1,4,1,890,1,15,3,106,1,6,1,2),_ZyAntiArpscanTrustHostMask_Type())
-zyAntiArpscanTrustHostMask.setMaxAccess(_F)
-if mibBuilder.loadTexts:zyAntiArpscanTrustHostMask.setStatus(_A)
-_ZyAntiArpscanTrustHostName_Type=DisplayString
-_ZyAntiArpscanTrustHostName_Object=MibTableColumn
-zyAntiArpscanTrustHostName=_ZyAntiArpscanTrustHostName_Object((1,3,6,1,4,1,890,1,15,3,106,1,6,1,3),_ZyAntiArpscanTrustHostName_Type())
-zyAntiArpscanTrustHostName.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyAntiArpscanTrustHostName.setStatus(_A)
-_ZyAntiArpscanTrustHostRowStatus_Type=RowStatus
-_ZyAntiArpscanTrustHostRowStatus_Object=MibTableColumn
-zyAntiArpscanTrustHostRowStatus=_ZyAntiArpscanTrustHostRowStatus_Object((1,3,6,1,4,1,890,1,15,3,106,1,6,1,4),_ZyAntiArpscanTrustHostRowStatus_Type())
-zyAntiArpscanTrustHostRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyAntiArpscanTrustHostRowStatus.setStatus(_A)
-_ZyxelAntiArpscanStatus_ObjectIdentity=ObjectIdentity
-zyxelAntiArpscanStatus=_ZyxelAntiArpscanStatus_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,106,2))
-_ZyAntiArpscanHostClear_Type=Integer32
-_ZyAntiArpscanHostClear_Object=MibScalar
-zyAntiArpscanHostClear=_ZyAntiArpscanHostClear_Object((1,3,6,1,4,1,890,1,15,3,106,2,1),_ZyAntiArpscanHostClear_Type())
-zyAntiArpscanHostClear.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyAntiArpscanHostClear.setStatus(_A)
-_ZyxelAntiArpscanHostTable_Object=MibTable
-zyxelAntiArpscanHostTable=_ZyxelAntiArpscanHostTable_Object((1,3,6,1,4,1,890,1,15,3,106,2,2))
-if mibBuilder.loadTexts:zyxelAntiArpscanHostTable.setStatus(_A)
-_ZyxelAntiArpscanHostEntry_Object=MibTableRow
-zyxelAntiArpscanHostEntry=_ZyxelAntiArpscanHostEntry_Object((1,3,6,1,4,1,890,1,15,3,106,2,2,1))
-zyxelAntiArpscanHostEntry.setIndexNames((0,_D,_K),(0,_D,_L))
-if mibBuilder.loadTexts:zyxelAntiArpscanHostEntry.setStatus(_A)
-_ZyAntiArpscanHostMacAddress_Type=MacAddress
-_ZyAntiArpscanHostMacAddress_Object=MibTableColumn
-zyAntiArpscanHostMacAddress=_ZyAntiArpscanHostMacAddress_Object((1,3,6,1,4,1,890,1,15,3,106,2,2,1,1),_ZyAntiArpscanHostMacAddress_Type())
-zyAntiArpscanHostMacAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:zyAntiArpscanHostMacAddress.setStatus(_A)
-class _ZyAntiArpscanHostVid_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_ZyAntiArpscanHostVid_Type.__name__=_C
-_ZyAntiArpscanHostVid_Object=MibTableColumn
-zyAntiArpscanHostVid=_ZyAntiArpscanHostVid_Object((1,3,6,1,4,1,890,1,15,3,106,2,2,1,2),_ZyAntiArpscanHostVid_Type())
-zyAntiArpscanHostVid.setMaxAccess(_F)
-if mibBuilder.loadTexts:zyAntiArpscanHostVid.setStatus(_A)
-_ZyAntiArpscanHostPort_Type=Integer32
-_ZyAntiArpscanHostPort_Object=MibTableColumn
-zyAntiArpscanHostPort=_ZyAntiArpscanHostPort_Object((1,3,6,1,4,1,890,1,15,3,106,2,2,1,3),_ZyAntiArpscanHostPort_Type())
-zyAntiArpscanHostPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:zyAntiArpscanHostPort.setStatus(_A)
-_ZyAntiArpscanHostIpAddress_Type=IpAddress
-_ZyAntiArpscanHostIpAddress_Object=MibTableColumn
-zyAntiArpscanHostIpAddress=_ZyAntiArpscanHostIpAddress_Object((1,3,6,1,4,1,890,1,15,3,106,2,2,1,4),_ZyAntiArpscanHostIpAddress_Type())
-zyAntiArpscanHostIpAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:zyAntiArpscanHostIpAddress.setStatus(_A)
-class _ZyAntiArpscanHostStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(2));namedValues=NamedValues(('errDisable',2))
-_ZyAntiArpscanHostStatus_Type.__name__=_C
-_ZyAntiArpscanHostStatus_Object=MibTableColumn
-zyAntiArpscanHostStatus=_ZyAntiArpscanHostStatus_Object((1,3,6,1,4,1,890,1,15,3,106,2,2,1,5),_ZyAntiArpscanHostStatus_Type())
-zyAntiArpscanHostStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:zyAntiArpscanHostStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'zyxelAntiArpscan':zyxelAntiArpscan,'zyxelAntiArpscanSetup':zyxelAntiArpscanSetup,'zyAntiArpscanState':zyAntiArpscanState,'zyAntiArpscanPortThreshold':zyAntiArpscanPortThreshold,'zyAntiArpscanHostThreshold':zyAntiArpscanHostThreshold,'zyxelAntiArpscanPortTable':zyxelAntiArpscanPortTable,'zyxelAntiArpscanPortEntry':zyxelAntiArpscanPortEntry,'zyAntiArpscanPortTrustState':zyAntiArpscanPortTrustState,'zyAntiArpscanMaxNumberOfTrustHosts':zyAntiArpscanMaxNumberOfTrustHosts,'zyxelAntiArpscanTrustHostTable':zyxelAntiArpscanTrustHostTable,'zyxelAntiArpscanTrustHostEntry':zyxelAntiArpscanTrustHostEntry,_I:zyAntiArpscanTrustHostIpAddress,_J:zyAntiArpscanTrustHostMask,'zyAntiArpscanTrustHostName':zyAntiArpscanTrustHostName,'zyAntiArpscanTrustHostRowStatus':zyAntiArpscanTrustHostRowStatus,'zyxelAntiArpscanStatus':zyxelAntiArpscanStatus,'zyAntiArpscanHostClear':zyAntiArpscanHostClear,'zyxelAntiArpscanHostTable':zyxelAntiArpscanHostTable,'zyxelAntiArpscanHostEntry':zyxelAntiArpscanHostEntry,_K:zyAntiArpscanHostMacAddress,_L:zyAntiArpscanHostVid,'zyAntiArpscanHostPort':zyAntiArpscanHostPort,'zyAntiArpscanHostIpAddress':zyAntiArpscanHostIpAddress,'zyAntiArpscanHostStatus':zyAntiArpscanHostStatus})
+#
+# PySNMP MIB module ZYXEL-ANTI-ARPSCAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-ANTI-ARPSCAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:02 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
+zyxelAntiArpscan = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106))
+if mibBuilder.loadTexts: zyxelAntiArpscan.setLastUpdated('201410280000Z')
+if mibBuilder.loadTexts: zyxelAntiArpscan.setOrganization('Enterprise Solution ZyXEL')
+zyxelAntiArpscanSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 1))
+zyxelAntiArpscanStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 2))
+zyAntiArpscanState = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyAntiArpscanState.setStatus('current')
+zyAntiArpscanPortThreshold = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(2, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyAntiArpscanPortThreshold.setStatus('current')
+zyAntiArpscanHostThreshold = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(2, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyAntiArpscanHostThreshold.setStatus('current')
+zyxelAntiArpscanPortTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 1, 4), )
+if mibBuilder.loadTexts: zyxelAntiArpscanPortTable.setStatus('current')
+zyxelAntiArpscanPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 1, 4, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
+if mibBuilder.loadTexts: zyxelAntiArpscanPortEntry.setStatus('current')
+zyAntiArpscanPortTrustState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("trusted", 1), ("untrusted", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyAntiArpscanPortTrustState.setStatus('current')
+zyAntiArpscanMaxNumberOfTrustHosts = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zyAntiArpscanMaxNumberOfTrustHosts.setStatus('current')
+zyxelAntiArpscanTrustHostTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 1, 6), )
+if mibBuilder.loadTexts: zyxelAntiArpscanTrustHostTable.setStatus('current')
+zyxelAntiArpscanTrustHostEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 1, 6, 1), ).setIndexNames((0, "ZYXEL-ANTI-ARPSCAN-MIB", "zyAntiArpscanTrustHostIpAddress"), (0, "ZYXEL-ANTI-ARPSCAN-MIB", "zyAntiArpscanTrustHostMask"))
+if mibBuilder.loadTexts: zyxelAntiArpscanTrustHostEntry.setStatus('current')
+zyAntiArpscanTrustHostIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 1, 6, 1, 1), IpAddress())
+if mibBuilder.loadTexts: zyAntiArpscanTrustHostIpAddress.setStatus('current')
+zyAntiArpscanTrustHostMask = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 1, 6, 1, 2), IpAddress())
+if mibBuilder.loadTexts: zyAntiArpscanTrustHostMask.setStatus('current')
+zyAntiArpscanTrustHostName = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 1, 6, 1, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyAntiArpscanTrustHostName.setStatus('current')
+zyAntiArpscanTrustHostRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 1, 6, 1, 4), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyAntiArpscanTrustHostRowStatus.setStatus('current')
+zyAntiArpscanHostClear = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 2, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyAntiArpscanHostClear.setStatus('current')
+zyxelAntiArpscanHostTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 2, 2), )
+if mibBuilder.loadTexts: zyxelAntiArpscanHostTable.setStatus('current')
+zyxelAntiArpscanHostEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 2, 2, 1), ).setIndexNames((0, "ZYXEL-ANTI-ARPSCAN-MIB", "zyAntiArpscanHostMacAddress"), (0, "ZYXEL-ANTI-ARPSCAN-MIB", "zyAntiArpscanHostVid"))
+if mibBuilder.loadTexts: zyxelAntiArpscanHostEntry.setStatus('current')
+zyAntiArpscanHostMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 2, 2, 1, 1), MacAddress())
+if mibBuilder.loadTexts: zyAntiArpscanHostMacAddress.setStatus('current')
+zyAntiArpscanHostVid = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094)))
+if mibBuilder.loadTexts: zyAntiArpscanHostVid.setStatus('current')
+zyAntiArpscanHostPort = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 2, 2, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zyAntiArpscanHostPort.setStatus('current')
+zyAntiArpscanHostIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 2, 2, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zyAntiArpscanHostIpAddress.setStatus('current')
+zyAntiArpscanHostStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 106, 2, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2))).clone(namedValues=NamedValues(("errDisable", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zyAntiArpscanHostStatus.setStatus('current')
+mibBuilder.exportSymbols("ZYXEL-ANTI-ARPSCAN-MIB", zyAntiArpscanTrustHostName=zyAntiArpscanTrustHostName, zyxelAntiArpscanStatus=zyxelAntiArpscanStatus, zyAntiArpscanTrustHostMask=zyAntiArpscanTrustHostMask, zyxelAntiArpscanPortEntry=zyxelAntiArpscanPortEntry, zyAntiArpscanHostPort=zyAntiArpscanHostPort, PYSNMP_MODULE_ID=zyxelAntiArpscan, zyAntiArpscanPortThreshold=zyAntiArpscanPortThreshold, zyxelAntiArpscanHostEntry=zyxelAntiArpscanHostEntry, zyAntiArpscanHostStatus=zyAntiArpscanHostStatus, zyAntiArpscanMaxNumberOfTrustHosts=zyAntiArpscanMaxNumberOfTrustHosts, zyAntiArpscanHostVid=zyAntiArpscanHostVid, zyxelAntiArpscan=zyxelAntiArpscan, zyAntiArpscanHostClear=zyAntiArpscanHostClear, zyAntiArpscanPortTrustState=zyAntiArpscanPortTrustState, zyxelAntiArpscanTrustHostEntry=zyxelAntiArpscanTrustHostEntry, zyxelAntiArpscanPortTable=zyxelAntiArpscanPortTable, zyAntiArpscanHostIpAddress=zyAntiArpscanHostIpAddress, zyAntiArpscanTrustHostRowStatus=zyAntiArpscanTrustHostRowStatus, zyAntiArpscanState=zyAntiArpscanState, zyAntiArpscanTrustHostIpAddress=zyAntiArpscanTrustHostIpAddress, zyAntiArpscanHostMacAddress=zyAntiArpscanHostMacAddress, zyxelAntiArpscanHostTable=zyxelAntiArpscanHostTable, zyxelAntiArpscanTrustHostTable=zyxelAntiArpscanTrustHostTable, zyAntiArpscanHostThreshold=zyAntiArpscanHostThreshold, zyxelAntiArpscanSetup=zyxelAntiArpscanSetup)

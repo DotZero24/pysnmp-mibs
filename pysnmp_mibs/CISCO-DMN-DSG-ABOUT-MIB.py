@@ -1,156 +1,70 @@
-_H='firmwareIdx'
-_G='boardIdx'
-_F='not-accessible'
-_E='CISCO-DMN-DSG-ABOUT-MIB'
-_D='Integer32'
-_C='DisplayString'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoDSGUtilities,=mibBuilder.importSymbols('CISCO-DMN-DSG-ROOT-MIB','ciscoDSGUtilities')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_C,'PhysAddress','TextualConvention')
-ciscoDSGAbout=ModuleIdentity((1,3,6,1,4,1,1429,2,2,5,7))
-if mibBuilder.loadTexts:ciscoDSGAbout.setRevisions(('2010-08-03 06:00','2010-03-22 05:00','2009-12-20 15:00'))
-_AboutTable_ObjectIdentity=ObjectIdentity
-aboutTable=_AboutTable_ObjectIdentity((1,3,6,1,4,1,1429,2,2,5,7,2))
-_BoardTable_Object=MibTable
-boardTable=_BoardTable_Object((1,3,6,1,4,1,1429,2,2,5,7,2,1))
-if mibBuilder.loadTexts:boardTable.setStatus(_A)
-_BoardEntry_Object=MibTableRow
-boardEntry=_BoardEntry_Object((1,3,6,1,4,1,1429,2,2,5,7,2,1,1))
-boardEntry.setIndexNames((0,_E,_G))
-if mibBuilder.loadTexts:boardEntry.setStatus(_A)
-class _BoardIdx_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_BoardIdx_Type.__name__=_D
-_BoardIdx_Object=MibTableColumn
-boardIdx=_BoardIdx_Object((1,3,6,1,4,1,1429,2,2,5,7,2,1,1,1),_BoardIdx_Type())
-boardIdx.setMaxAccess(_F)
-if mibBuilder.loadTexts:boardIdx.setStatus(_A)
-class _BoardPosition_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_BoardPosition_Type.__name__=_D
-_BoardPosition_Object=MibTableColumn
-boardPosition=_BoardPosition_Object((1,3,6,1,4,1,1429,2,2,5,7,2,1,1,2),_BoardPosition_Type())
-boardPosition.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardPosition.setStatus(_A)
-class _BoardID_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,49))
-_BoardID_Type.__name__=_C
-_BoardID_Object=MibTableColumn
-boardID=_BoardID_Object((1,3,6,1,4,1,1429,2,2,5,7,2,1,1,3),_BoardID_Type())
-boardID.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardID.setStatus(_A)
-class _BoardRev_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,49))
-_BoardRev_Type.__name__=_C
-_BoardRev_Object=MibTableColumn
-boardRev=_BoardRev_Object((1,3,6,1,4,1,1429,2,2,5,7,2,1,1,4),_BoardRev_Type())
-boardRev.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardRev.setStatus(_A)
-class _BoardOptionBits_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_BoardOptionBits_Type.__name__=_D
-_BoardOptionBits_Object=MibTableColumn
-boardOptionBits=_BoardOptionBits_Object((1,3,6,1,4,1,1429,2,2,5,7,2,1,1,5),_BoardOptionBits_Type())
-boardOptionBits.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardOptionBits.setStatus(_A)
-class _BoardSerialNum_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,49))
-_BoardSerialNum_Type.__name__=_C
-_BoardSerialNum_Object=MibTableColumn
-boardSerialNum=_BoardSerialNum_Object((1,3,6,1,4,1,1429,2,2,5,7,2,1,1,6),_BoardSerialNum_Type())
-boardSerialNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardSerialNum.setStatus(_A)
-_SwTable_Object=MibTable
-swTable=_SwTable_Object((1,3,6,1,4,1,1429,2,2,5,7,2,3))
-if mibBuilder.loadTexts:swTable.setStatus(_A)
-_SwEntry_Object=MibTableRow
-swEntry=_SwEntry_Object((1,3,6,1,4,1,1429,2,2,5,7,2,3,1))
-swEntry.setIndexNames((0,_E,'swIdx'))
-if mibBuilder.loadTexts:swEntry.setStatus(_A)
-class _SwIdx_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_SwIdx_Type.__name__=_D
-_SwIdx_Object=MibTableColumn
-swIdx=_SwIdx_Object((1,3,6,1,4,1,1429,2,2,5,7,2,3,1,1),_SwIdx_Type())
-swIdx.setMaxAccess(_F)
-if mibBuilder.loadTexts:swIdx.setStatus(_A)
-class _SwBoardIdx_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,10))
-_SwBoardIdx_Type.__name__=_C
-_SwBoardIdx_Object=MibTableColumn
-swBoardIdx=_SwBoardIdx_Object((1,3,6,1,4,1,1429,2,2,5,7,2,3,1,2),_SwBoardIdx_Type())
-swBoardIdx.setMaxAccess(_B)
-if mibBuilder.loadTexts:swBoardIdx.setStatus(_A)
-class _SwID_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,10))
-_SwID_Type.__name__=_C
-_SwID_Object=MibTableColumn
-swID=_SwID_Object((1,3,6,1,4,1,1429,2,2,5,7,2,3,1,3),_SwID_Type())
-swID.setMaxAccess(_B)
-if mibBuilder.loadTexts:swID.setStatus(_A)
-class _SwFileIdx_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_SwFileIdx_Type.__name__=_D
-_SwFileIdx_Object=MibTableColumn
-swFileIdx=_SwFileIdx_Object((1,3,6,1,4,1,1429,2,2,5,7,2,3,1,4),_SwFileIdx_Type())
-swFileIdx.setMaxAccess(_B)
-if mibBuilder.loadTexts:swFileIdx.setStatus(_A)
-class _SwVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,35))
-_SwVersion_Type.__name__=_C
-_SwVersion_Object=MibTableColumn
-swVersion=_SwVersion_Object((1,3,6,1,4,1,1429,2,2,5,7,2,3,1,5),_SwVersion_Type())
-swVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:swVersion.setStatus(_A)
-class _SwValidationCode_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,35))
-_SwValidationCode_Type.__name__=_C
-_SwValidationCode_Object=MibTableColumn
-swValidationCode=_SwValidationCode_Object((1,3,6,1,4,1,1429,2,2,5,7,2,3,1,6),_SwValidationCode_Type())
-swValidationCode.setMaxAccess(_B)
-if mibBuilder.loadTexts:swValidationCode.setStatus(_A)
-class _SwStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('running',1),('ready',2)))
-_SwStatus_Type.__name__=_D
-_SwStatus_Object=MibTableColumn
-swStatus=_SwStatus_Object((1,3,6,1,4,1,1429,2,2,5,7,2,3,1,7),_SwStatus_Type())
-swStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:swStatus.setStatus(_A)
-class _SwCtrl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('none',1),('select',2),('erase',3)))
-_SwCtrl_Type.__name__=_D
-_SwCtrl_Object=MibTableColumn
-swCtrl=_SwCtrl_Object((1,3,6,1,4,1,1429,2,2,5,7,2,3,1,8),_SwCtrl_Type())
-swCtrl.setMaxAccess('read-write')
-if mibBuilder.loadTexts:swCtrl.setStatus(_A)
-_FirmwareTable_Object=MibTable
-firmwareTable=_FirmwareTable_Object((1,3,6,1,4,1,1429,2,2,5,7,2,4))
-if mibBuilder.loadTexts:firmwareTable.setStatus(_A)
-_FirmwareEntry_Object=MibTableRow
-firmwareEntry=_FirmwareEntry_Object((1,3,6,1,4,1,1429,2,2,5,7,2,4,1))
-firmwareEntry.setIndexNames((0,_E,_H))
-if mibBuilder.loadTexts:firmwareEntry.setStatus(_A)
-class _FirmwareIdx_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_FirmwareIdx_Type.__name__=_D
-_FirmwareIdx_Object=MibTableColumn
-firmwareIdx=_FirmwareIdx_Object((1,3,6,1,4,1,1429,2,2,5,7,2,4,1,1),_FirmwareIdx_Type())
-firmwareIdx.setMaxAccess(_F)
-if mibBuilder.loadTexts:firmwareIdx.setStatus(_A)
-class _FirmwareBoardID_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,10))
-_FirmwareBoardID_Type.__name__=_C
-_FirmwareBoardID_Object=MibTableColumn
-firmwareBoardID=_FirmwareBoardID_Object((1,3,6,1,4,1,1429,2,2,5,7,2,4,1,2),_FirmwareBoardID_Type())
-firmwareBoardID.setMaxAccess(_B)
-if mibBuilder.loadTexts:firmwareBoardID.setStatus(_A)
-class _FirmwareID_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,10))
-_FirmwareID_Type.__name__=_C
-_FirmwareID_Object=MibTableColumn
-firmwareID=_FirmwareID_Object((1,3,6,1,4,1,1429,2,2,5,7,2,4,1,3),_FirmwareID_Type())
-firmwareID.setMaxAccess(_B)
-if mibBuilder.loadTexts:firmwareID.setStatus(_A)
-class _FirmwareVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,49))
-_FirmwareVersion_Type.__name__=_C
-_FirmwareVersion_Object=MibTableColumn
-firmwareVersion=_FirmwareVersion_Object((1,3,6,1,4,1,1429,2,2,5,7,2,4,1,4),_FirmwareVersion_Type())
-firmwareVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:firmwareVersion.setStatus(_A)
-class _FirmwareValidationCode_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,49))
-_FirmwareValidationCode_Type.__name__=_C
-_FirmwareValidationCode_Object=MibTableColumn
-firmwareValidationCode=_FirmwareValidationCode_Object((1,3,6,1,4,1,1429,2,2,5,7,2,4,1,5),_FirmwareValidationCode_Type())
-firmwareValidationCode.setMaxAccess(_B)
-if mibBuilder.loadTexts:firmwareValidationCode.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'ciscoDSGAbout':ciscoDSGAbout,'aboutTable':aboutTable,'boardTable':boardTable,'boardEntry':boardEntry,_G:boardIdx,'boardPosition':boardPosition,'boardID':boardID,'boardRev':boardRev,'boardOptionBits':boardOptionBits,'boardSerialNum':boardSerialNum,'swTable':swTable,'swEntry':swEntry,'swIdx':swIdx,'swBoardIdx':swBoardIdx,'swID':swID,'swFileIdx':swFileIdx,'swVersion':swVersion,'swValidationCode':swValidationCode,'swStatus':swStatus,'swCtrl':swCtrl,'firmwareTable':firmwareTable,'firmwareEntry':firmwareEntry,_H:firmwareIdx,'firmwareBoardID':firmwareBoardID,'firmwareID':firmwareID,'firmwareVersion':firmwareVersion,'firmwareValidationCode':firmwareValidationCode})
+#
+# PySNMP MIB module CISCO-DMN-DSG-ABOUT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-DMN-DSG-ABOUT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:33 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoDSGUtilities, = mibBuilder.importSymbols("CISCO-DMN-DSG-ROOT-MIB", "ciscoDSGUtilities")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoDSGAbout = ModuleIdentity((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7))
+ciscoDSGAbout.setRevisions(('2010-08-03 06:00', '2010-03-22 05:00', '2009-12-20 15:00',))
+if mibBuilder.loadTexts: ciscoDSGAbout.setLastUpdated('201008030600Z')
+if mibBuilder.loadTexts: ciscoDSGAbout.setOrganization('Cisco Systems, Inc.')
+aboutTable = MibIdentifier((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2))
+boardTable = MibTable((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 1), )
+if mibBuilder.loadTexts: boardTable.setStatus('current')
+boardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 1, 1), ).setIndexNames((0, "CISCO-DMN-DSG-ABOUT-MIB", "boardIdx"))
+if mibBuilder.loadTexts: boardEntry.setStatus('current')
+boardIdx = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: boardIdx.setStatus('current')
+boardPosition = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardPosition.setStatus('current')
+boardID = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 49))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardID.setStatus('current')
+boardRev = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 49))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardRev.setStatus('current')
+boardOptionBits = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardOptionBits.setStatus('current')
+boardSerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 49))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardSerialNum.setStatus('current')
+swTable = MibTable((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 3), )
+if mibBuilder.loadTexts: swTable.setStatus('current')
+swEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 3, 1), ).setIndexNames((0, "CISCO-DMN-DSG-ABOUT-MIB", "swIdx"))
+if mibBuilder.loadTexts: swEntry.setStatus('current')
+swIdx = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: swIdx.setStatus('current')
+swBoardIdx = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 3, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 10))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swBoardIdx.setStatus('current')
+swID = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 10))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swID.setStatus('current')
+swFileIdx = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swFileIdx.setStatus('current')
+swVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 3, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 35))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swVersion.setStatus('current')
+swValidationCode = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 3, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 35))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swValidationCode.setStatus('current')
+swStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("running", 1), ("ready", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swStatus.setStatus('current')
+swCtrl = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("select", 2), ("erase", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swCtrl.setStatus('current')
+firmwareTable = MibTable((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 4), )
+if mibBuilder.loadTexts: firmwareTable.setStatus('current')
+firmwareEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 4, 1), ).setIndexNames((0, "CISCO-DMN-DSG-ABOUT-MIB", "firmwareIdx"))
+if mibBuilder.loadTexts: firmwareEntry.setStatus('current')
+firmwareIdx = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: firmwareIdx.setStatus('current')
+firmwareBoardID = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 4, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 10))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: firmwareBoardID.setStatus('current')
+firmwareID = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 4, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 10))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: firmwareID.setStatus('current')
+firmwareVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 4, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 49))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: firmwareVersion.setStatus('current')
+firmwareValidationCode = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 7, 2, 4, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 49))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: firmwareValidationCode.setStatus('current')
+mibBuilder.exportSymbols("CISCO-DMN-DSG-ABOUT-MIB", boardIdx=boardIdx, swStatus=swStatus, PYSNMP_MODULE_ID=ciscoDSGAbout, swIdx=swIdx, swTable=swTable, firmwareEntry=firmwareEntry, boardEntry=boardEntry, firmwareValidationCode=firmwareValidationCode, firmwareTable=firmwareTable, firmwareID=firmwareID, boardPosition=boardPosition, aboutTable=aboutTable, boardID=boardID, boardSerialNum=boardSerialNum, swCtrl=swCtrl, swFileIdx=swFileIdx, boardOptionBits=boardOptionBits, swID=swID, boardRev=boardRev, boardTable=boardTable, firmwareIdx=firmwareIdx, firmwareVersion=firmwareVersion, swVersion=swVersion, swValidationCode=swValidationCode, firmwareBoardID=firmwareBoardID, ciscoDSGAbout=ciscoDSGAbout, swEntry=swEntry, swBoardIdx=swBoardIdx)

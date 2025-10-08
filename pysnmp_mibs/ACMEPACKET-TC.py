@@ -1,21 +1,58 @@
-_B='unknown'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-acmepacket,=mibBuilder.importSymbols('ACMEPACKET-SMI','acmepacket')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-apTextualConventions=ModuleIdentity((1,3,6,1,4,1,9148,0))
-if mibBuilder.loadTexts:apTextualConventions.setRevisions(('2012-02-06 23:05','2012-05-05 23:05'))
-class ApHardwareModuleFamily(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,17,18,19,24,25,26,240,241,242)));namedValues=NamedValues(*((_B,0),('spu',17),('npu',18),('tcu',19),('niuCopper',24),('niuFiber',25),('miu',26),('fanTray',240),('powerSupply',241),('niu10g',242)))
-class ApRedundancyState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*((_B,0),('initial',1),('active',2),('standby',3),('outOfService',4),('unassigned',5),('activePending',6),('standbyPending',7),('outOfServicePending',8),('recovery',9)))
-class ApPhyPortType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_B,0),('sfp',1)))
-class ApPresence(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_B,0),('inserted',1),('removed',2)))
-class ApTransportType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_B,0),('tcp',1),('sctp',2)))
-class ApServerStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('inservice',0),('lowerpriority',1),('oosunreachable',2)))
-class ApDiamResultCode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1001,2001,2002,3001,3002,3003,3004,3005,3006,3007,3008,3009,3010,4001,4002,4003,5001,5002,5003,5004,5005,5006,5007,5008,5009,5010,5011,5012,5013,5014,5015,5016,5017)));namedValues=NamedValues(*(('diameterMultiRoundAuth',1001),('diameterSuccess',2001),('diameterLimitedSuccess',2002),('diameterCommandUnsupported',3001),('diameterUnableToDeliver',3002),('diameterRealmNotServed',3003),('diameterTooBusy',3004),('diameterLoopDetected',3005),('diameterRedirectIndicatoion',3006),('diameterApplicationUnsupported',3007),('diameterInvalidHdrBits',3008),('diameterInvalidAvpBits',3009),('diameterUnknownPeer',3010),('diameterAuthenticationRejected',4001),('diameterOutOfSpace',4002),('electionLost',4003),('diameterAvpUnsupported',5001),('diameterUnknownSessionId',5002),('diameterAuthoriszationRejected',5003),('diameterInvalidAvpValue',5004),('diameterMissingAvp',5005),('diameterResourcesExceeded',5006),('diameterContradictingAvps',5007),('diameterAvpNotAllowed',5008),('diameterAvpTooManyTimes',5009),('diameterNoCommonApplication',5010),('diameterUnsupportedVersion',5011),('diameterUnableToComply',5012),('diameterInvalidBitInHeader',5013),('diameterInvalidAvpLength',5014),('diameterInvalidMessageLength',5015),('diameterInvalidAvpBitCombo',5016),('diameterNoCommonSecurity',5017)))
-class ApPercentage(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-mibBuilder.exportSymbols('ACMEPACKET-TC',**{'ApHardwareModuleFamily':ApHardwareModuleFamily,'ApRedundancyState':ApRedundancyState,'ApPhyPortType':ApPhyPortType,'ApPresence':ApPresence,'ApTransportType':ApTransportType,'ApServerStatus':ApServerStatus,'ApDiamResultCode':ApDiamResultCode,'ApPercentage':ApPercentage,'apTextualConventions':apTextualConventions})
+#
+# PySNMP MIB module ACMEPACKET-TC (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/acme/ACMEPACKET-TC
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:57 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+acmepacket, = mibBuilder.importSymbols("ACMEPACKET-SMI", "acmepacket")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+apTextualConventions = ModuleIdentity((1, 3, 6, 1, 4, 1, 9148, 0))
+apTextualConventions.setRevisions(('2012-02-06 23:05', '2012-05-05 23:05',))
+if mibBuilder.loadTexts: apTextualConventions.setLastUpdated('201205082305Z')
+if mibBuilder.loadTexts: apTextualConventions.setOrganization('Acme Packet, Inc.')
+class ApHardwareModuleFamily(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 17, 18, 19, 24, 25, 26, 240, 241, 242))
+    namedValues = NamedValues(("unknown", 0), ("spu", 17), ("npu", 18), ("tcu", 19), ("niuCopper", 24), ("niuFiber", 25), ("miu", 26), ("fanTray", 240), ("powerSupply", 241), ("niu10g", 242))
+
+class ApRedundancyState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
+    namedValues = NamedValues(("unknown", 0), ("initial", 1), ("active", 2), ("standby", 3), ("outOfService", 4), ("unassigned", 5), ("activePending", 6), ("standbyPending", 7), ("outOfServicePending", 8), ("recovery", 9))
+
+class ApPhyPortType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
+    namedValues = NamedValues(("unknown", 0), ("sfp", 1))
+
+class ApPresence(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("unknown", 0), ("inserted", 1), ("removed", 2))
+
+class ApTransportType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("unknown", 0), ("tcp", 1), ("sctp", 2))
+
+class ApServerStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("inservice", 0), ("lowerpriority", 1), ("oosunreachable", 2))
+
+class ApDiamResultCode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1001, 2001, 2002, 3001, 3002, 3003, 3004, 3005, 3006, 3007, 3008, 3009, 3010, 4001, 4002, 4003, 5001, 5002, 5003, 5004, 5005, 5006, 5007, 5008, 5009, 5010, 5011, 5012, 5013, 5014, 5015, 5016, 5017))
+    namedValues = NamedValues(("diameterMultiRoundAuth", 1001), ("diameterSuccess", 2001), ("diameterLimitedSuccess", 2002), ("diameterCommandUnsupported", 3001), ("diameterUnableToDeliver", 3002), ("diameterRealmNotServed", 3003), ("diameterTooBusy", 3004), ("diameterLoopDetected", 3005), ("diameterRedirectIndicatoion", 3006), ("diameterApplicationUnsupported", 3007), ("diameterInvalidHdrBits", 3008), ("diameterInvalidAvpBits", 3009), ("diameterUnknownPeer", 3010), ("diameterAuthenticationRejected", 4001), ("diameterOutOfSpace", 4002), ("electionLost", 4003), ("diameterAvpUnsupported", 5001), ("diameterUnknownSessionId", 5002), ("diameterAuthoriszationRejected", 5003), ("diameterInvalidAvpValue", 5004), ("diameterMissingAvp", 5005), ("diameterResourcesExceeded", 5006), ("diameterContradictingAvps", 5007), ("diameterAvpNotAllowed", 5008), ("diameterAvpTooManyTimes", 5009), ("diameterNoCommonApplication", 5010), ("diameterUnsupportedVersion", 5011), ("diameterUnableToComply", 5012), ("diameterInvalidBitInHeader", 5013), ("diameterInvalidAvpLength", 5014), ("diameterInvalidMessageLength", 5015), ("diameterInvalidAvpBitCombo", 5016), ("diameterNoCommonSecurity", 5017))
+
+class ApPercentage(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 100)
+
+mibBuilder.exportSymbols("ACMEPACKET-TC", PYSNMP_MODULE_ID=apTextualConventions, ApPresence=ApPresence, ApPercentage=ApPercentage, ApServerStatus=ApServerStatus, apTextualConventions=apTextualConventions, ApHardwareModuleFamily=ApHardwareModuleFamily, ApDiamResultCode=ApDiamResultCode, ApPhyPortType=ApPhyPortType, ApTransportType=ApTransportType, ApRedundancyState=ApRedundancyState)

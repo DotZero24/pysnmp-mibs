@@ -1,78 +1,50 @@
-_J='EtsAdminStatusReasonType'
-_I='rlEtsPriorityGroupMapping8021QPrio'
-_H='RADLAN-ETS-MIB'
-_G='TruthValue'
-_F='OctetString'
-_E='read-only'
-_D='EtsPriorityGroupType'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_F,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,InterfaceIndexOrZero=mibBuilder.importSymbols('IF-MIB','InterfaceIndex','InterfaceIndexOrZero')
-PortList,=mibBuilder.importSymbols('Q-BRIDGE-MIB','PortList')
-Percents,rnd=mibBuilder.importSymbols('RADLAN-MIB','Percents','rnd')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowPointer,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowPointer','RowStatus','TextualConvention',_G)
-rlEtsMib=ModuleIdentity((1,3,6,1,4,1,89,201))
-class EtsPriorityGroupType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,15)));namedValues=NamedValues(*(('priorityGroup0',0),('priorityGroup1',1),('priorityGroup2',2),('priorityGroup3',3),('priorityGroup4',4),('priorityGroup5',5),('priorityGroup6',6),('priorityGroup7',7),('priorityGroup15',15)))
-class EtsAdminStatusReasonType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('ok',1),('too-many-groups',2),('too-many-queues',3),('not-highest-queue',4)))
-class _RlEtsFeatureStatus_Type(TruthValue):defaultValue=2
-_RlEtsFeatureStatus_Type.__name__=_G
-_RlEtsFeatureStatus_Object=MibScalar
-rlEtsFeatureStatus=_RlEtsFeatureStatus_Object((1,3,6,1,4,1,89,201,1),_RlEtsFeatureStatus_Type())
-rlEtsFeatureStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlEtsFeatureStatus.setStatus(_A)
-_RlEtsPriorityGroupMappingTable_Object=MibTable
-rlEtsPriorityGroupMappingTable=_RlEtsPriorityGroupMappingTable_Object((1,3,6,1,4,1,89,201,2))
-if mibBuilder.loadTexts:rlEtsPriorityGroupMappingTable.setStatus(_A)
-_RlEtsPriorityGroupMappingEntry_Object=MibTableRow
-rlEtsPriorityGroupMappingEntry=_RlEtsPriorityGroupMappingEntry_Object((1,3,6,1,4,1,89,201,2,1))
-rlEtsPriorityGroupMappingEntry.setIndexNames((0,_H,_I))
-if mibBuilder.loadTexts:rlEtsPriorityGroupMappingEntry.setStatus(_A)
-class _RlEtsPriorityGroupMapping8021QPrio_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_RlEtsPriorityGroupMapping8021QPrio_Type.__name__=_C
-_RlEtsPriorityGroupMapping8021QPrio_Object=MibTableColumn
-rlEtsPriorityGroupMapping8021QPrio=_RlEtsPriorityGroupMapping8021QPrio_Object((1,3,6,1,4,1,89,201,2,1,1),_RlEtsPriorityGroupMapping8021QPrio_Type())
-rlEtsPriorityGroupMapping8021QPrio.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:rlEtsPriorityGroupMapping8021QPrio.setStatus(_A)
-class _RlEtsPriorityGroupMappingAdminPG_Type(EtsPriorityGroupType):defaultValue=15
-_RlEtsPriorityGroupMappingAdminPG_Type.__name__=_D
-_RlEtsPriorityGroupMappingAdminPG_Object=MibTableColumn
-rlEtsPriorityGroupMappingAdminPG=_RlEtsPriorityGroupMappingAdminPG_Object((1,3,6,1,4,1,89,201,2,1,2),_RlEtsPriorityGroupMappingAdminPG_Type())
-rlEtsPriorityGroupMappingAdminPG.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlEtsPriorityGroupMappingAdminPG.setStatus(_A)
-class _RlEtsPriorityGroupMappingOperPG_Type(EtsPriorityGroupType):defaultValue=15
-_RlEtsPriorityGroupMappingOperPG_Type.__name__=_D
-_RlEtsPriorityGroupMappingOperPG_Object=MibTableColumn
-rlEtsPriorityGroupMappingOperPG=_RlEtsPriorityGroupMappingOperPG_Object((1,3,6,1,4,1,89,201,2,1,3),_RlEtsPriorityGroupMappingOperPG_Type())
-rlEtsPriorityGroupMappingOperPG.setMaxAccess(_E)
-if mibBuilder.loadTexts:rlEtsPriorityGroupMappingOperPG.setStatus(_A)
-_RlEtsPriorityGroupMappingStatus_Type=RowStatus
-_RlEtsPriorityGroupMappingStatus_Object=MibTableColumn
-rlEtsPriorityGroupMappingStatus=_RlEtsPriorityGroupMappingStatus_Object((1,3,6,1,4,1,89,201,2,1,4),_RlEtsPriorityGroupMappingStatus_Type())
-rlEtsPriorityGroupMappingStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlEtsPriorityGroupMappingStatus.setStatus(_A)
-class _RlEtsPriorityGroupMappingProblemReason_Type(EtsAdminStatusReasonType):defaultValue=1
-_RlEtsPriorityGroupMappingProblemReason_Type.__name__=_J
-_RlEtsPriorityGroupMappingProblemReason_Object=MibScalar
-rlEtsPriorityGroupMappingProblemReason=_RlEtsPriorityGroupMappingProblemReason_Object((1,3,6,1,4,1,89,201,3),_RlEtsPriorityGroupMappingProblemReason_Type())
-rlEtsPriorityGroupMappingProblemReason.setMaxAccess(_E)
-if mibBuilder.loadTexts:rlEtsPriorityGroupMappingProblemReason.setStatus(_A)
-class _RlEtsPriorityGroupMappingProblemIndex_Type(Integer32):defaultValue=0
-_RlEtsPriorityGroupMappingProblemIndex_Type.__name__=_C
-_RlEtsPriorityGroupMappingProblemIndex_Object=MibScalar
-rlEtsPriorityGroupMappingProblemIndex=_RlEtsPriorityGroupMappingProblemIndex_Object((1,3,6,1,4,1,89,201,4),_RlEtsPriorityGroupMappingProblemIndex_Type())
-rlEtsPriorityGroupMappingProblemIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:rlEtsPriorityGroupMappingProblemIndex.setStatus(_A)
-class _RlEtsPriorityGroupBwAlloc_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
-_RlEtsPriorityGroupBwAlloc_Type.__name__=_F
-_RlEtsPriorityGroupBwAlloc_Object=MibScalar
-rlEtsPriorityGroupBwAlloc=_RlEtsPriorityGroupBwAlloc_Object((1,3,6,1,4,1,89,201,5),_RlEtsPriorityGroupBwAlloc_Type())
-rlEtsPriorityGroupBwAlloc.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlEtsPriorityGroupBwAlloc.setStatus(_A)
-mibBuilder.exportSymbols(_H,**{_D:EtsPriorityGroupType,_J:EtsAdminStatusReasonType,'rlEtsMib':rlEtsMib,'rlEtsFeatureStatus':rlEtsFeatureStatus,'rlEtsPriorityGroupMappingTable':rlEtsPriorityGroupMappingTable,'rlEtsPriorityGroupMappingEntry':rlEtsPriorityGroupMappingEntry,_I:rlEtsPriorityGroupMapping8021QPrio,'rlEtsPriorityGroupMappingAdminPG':rlEtsPriorityGroupMappingAdminPG,'rlEtsPriorityGroupMappingOperPG':rlEtsPriorityGroupMappingOperPG,'rlEtsPriorityGroupMappingStatus':rlEtsPriorityGroupMappingStatus,'rlEtsPriorityGroupMappingProblemReason':rlEtsPriorityGroupMappingProblemReason,'rlEtsPriorityGroupMappingProblemIndex':rlEtsPriorityGroupMappingProblemIndex,'rlEtsPriorityGroupBwAlloc':rlEtsPriorityGroupBwAlloc})
+#
+# PySNMP MIB module RADLAN-ETS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/radlan/RADLAN-ETS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:40:40 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndexOrZero, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "InterfaceIndex")
+PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
+Percents, rnd = mibBuilder.importSymbols("RADLAN-MIB", "Percents", "rnd")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TruthValue, RowStatus, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "RowPointer", "TextualConvention")
+rlEtsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 201))
+if mibBuilder.loadTexts: rlEtsMib.setLastUpdated('201003210000Z')
+if mibBuilder.loadTexts: rlEtsMib.setOrganization('Marvell Computer Communications Ltd.')
+class EtsPriorityGroupType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 15))
+    namedValues = NamedValues(("priorityGroup0", 0), ("priorityGroup1", 1), ("priorityGroup2", 2), ("priorityGroup3", 3), ("priorityGroup4", 4), ("priorityGroup5", 5), ("priorityGroup6", 6), ("priorityGroup7", 7), ("priorityGroup15", 15))
+
+class EtsAdminStatusReasonType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("ok", 1), ("too-many-groups", 2), ("too-many-queues", 3), ("not-highest-queue", 4))
+
+rlEtsFeatureStatus = MibScalar((1, 3, 6, 1, 4, 1, 89, 201, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlEtsFeatureStatus.setStatus('current')
+rlEtsPriorityGroupMappingTable = MibTable((1, 3, 6, 1, 4, 1, 89, 201, 2), )
+if mibBuilder.loadTexts: rlEtsPriorityGroupMappingTable.setStatus('current')
+rlEtsPriorityGroupMappingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 201, 2, 1), ).setIndexNames((0, "RADLAN-ETS-MIB", "rlEtsPriorityGroupMapping8021QPrio"))
+if mibBuilder.loadTexts: rlEtsPriorityGroupMappingEntry.setStatus('current')
+rlEtsPriorityGroupMapping8021QPrio = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 201, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7)))
+if mibBuilder.loadTexts: rlEtsPriorityGroupMapping8021QPrio.setStatus('current')
+rlEtsPriorityGroupMappingAdminPG = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 201, 2, 1, 2), EtsPriorityGroupType().clone('priorityGroup15')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlEtsPriorityGroupMappingAdminPG.setStatus('current')
+rlEtsPriorityGroupMappingOperPG = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 201, 2, 1, 3), EtsPriorityGroupType().clone('priorityGroup15')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlEtsPriorityGroupMappingOperPG.setStatus('current')
+rlEtsPriorityGroupMappingStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 201, 2, 1, 4), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlEtsPriorityGroupMappingStatus.setStatus('current')
+rlEtsPriorityGroupMappingProblemReason = MibScalar((1, 3, 6, 1, 4, 1, 89, 201, 3), EtsAdminStatusReasonType().clone('ok')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlEtsPriorityGroupMappingProblemReason.setStatus('current')
+rlEtsPriorityGroupMappingProblemIndex = MibScalar((1, 3, 6, 1, 4, 1, 89, 201, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlEtsPriorityGroupMappingProblemIndex.setStatus('current')
+rlEtsPriorityGroupBwAlloc = MibScalar((1, 3, 6, 1, 4, 1, 89, 201, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlEtsPriorityGroupBwAlloc.setStatus('current')
+mibBuilder.exportSymbols("RADLAN-ETS-MIB", EtsAdminStatusReasonType=EtsAdminStatusReasonType, rlEtsPriorityGroupMappingTable=rlEtsPriorityGroupMappingTable, rlEtsPriorityGroupMappingAdminPG=rlEtsPriorityGroupMappingAdminPG, rlEtsPriorityGroupMappingEntry=rlEtsPriorityGroupMappingEntry, rlEtsPriorityGroupMappingOperPG=rlEtsPriorityGroupMappingOperPG, rlEtsPriorityGroupMappingStatus=rlEtsPriorityGroupMappingStatus, rlEtsPriorityGroupMappingProblemReason=rlEtsPriorityGroupMappingProblemReason, rlEtsMib=rlEtsMib, rlEtsFeatureStatus=rlEtsFeatureStatus, PYSNMP_MODULE_ID=rlEtsMib, rlEtsPriorityGroupMappingProblemIndex=rlEtsPriorityGroupMappingProblemIndex, rlEtsPriorityGroupBwAlloc=rlEtsPriorityGroupBwAlloc, rlEtsPriorityGroupMapping8021QPrio=rlEtsPriorityGroupMapping8021QPrio, EtsPriorityGroupType=EtsPriorityGroupType)

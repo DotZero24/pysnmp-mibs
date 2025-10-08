@@ -1,147 +1,72 @@
-_W='qtechDhcpRelayCountersObjects'
-_V='qtechDHCPRelayNakPktNum'
-_U='qtechDHCPRelayAckPktNum'
-_T='qtechDHCPRelayOfferPktNum'
-_S='qtechDHCPRelayInformPktNum'
-_R='qtechDHCPRelayReleasePktNum'
-_Q='qtechDHCPRelayDeclinePktNum'
-_P='qtechDHCPRelayRequestPktNum'
-_O='qtechDHCPRelayDiscoverPktNum'
-_N='qtechDHCPRTxClientBroPktNum'
-_M='qtechDHCPRTxClientUniPktNum'
-_L='qtechDHCPRRxClientBroPktNum'
-_K='qtechDHCPRRxClientUniPktNum'
-_J='qtechDHCPRTxClientPktNum'
-_I='qtechDHCPRRxClientPktNum'
-_H='qtechDHCPRTxServerPktNum'
-_G='qtechDHCPRRxServerPktNum'
-_F='qtechDHCPRRxBadPktNum'
-_E='qtechDHCPRelayCycleStatus'
-_D='Integer32'
-_C='read-only'
-_B='QTECH-DHCP-RELAY-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-qtechMgmt,=mibBuilder.importSymbols('QTECH-SMI','qtechMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-qtechDhcpMIB=ModuleIdentity((1,3,6,1,4,1,27514,1,1,10,2,104))
-if mibBuilder.loadTexts:qtechDhcpMIB.setRevisions(('2011-11-28 00:00',))
-_QtechDhcpMIBObjects_ObjectIdentity=ObjectIdentity
-qtechDhcpMIBObjects=_QtechDhcpMIBObjects_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,104,1))
-if mibBuilder.loadTexts:qtechDhcpMIBObjects.setStatus(_A)
-_QtechDhcpRelayMIBObjects_ObjectIdentity=ObjectIdentity
-qtechDhcpRelayMIBObjects=_QtechDhcpRelayMIBObjects_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,104,1,1))
-if mibBuilder.loadTexts:qtechDhcpRelayMIBObjects.setStatus(_A)
-class _QtechDHCPRelayCycleStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('on',0),('off',1)))
-_QtechDHCPRelayCycleStatus_Type.__name__=_D
-_QtechDHCPRelayCycleStatus_Object=MibScalar
-qtechDHCPRelayCycleStatus=_QtechDHCPRelayCycleStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,104,1,1,1),_QtechDHCPRelayCycleStatus_Type())
-qtechDHCPRelayCycleStatus.setMaxAccess('read-write')
-if mibBuilder.loadTexts:qtechDHCPRelayCycleStatus.setStatus(_A)
-_QtechDhcpRelayCounters_ObjectIdentity=ObjectIdentity
-qtechDhcpRelayCounters=_QtechDhcpRelayCounters_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,104,1,1,2))
-if mibBuilder.loadTexts:qtechDhcpRelayCounters.setStatus(_A)
-_QtechDHCPRRxBadPktNum_Type=Integer32
-_QtechDHCPRRxBadPktNum_Object=MibScalar
-qtechDHCPRRxBadPktNum=_QtechDHCPRRxBadPktNum_Object((1,3,6,1,4,1,27514,1,1,10,2,104,1,1,2,1),_QtechDHCPRRxBadPktNum_Type())
-qtechDHCPRRxBadPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDHCPRRxBadPktNum.setStatus(_A)
-_QtechDHCPRRxServerPktNum_Type=Integer32
-_QtechDHCPRRxServerPktNum_Object=MibScalar
-qtechDHCPRRxServerPktNum=_QtechDHCPRRxServerPktNum_Object((1,3,6,1,4,1,27514,1,1,10,2,104,1,1,2,2),_QtechDHCPRRxServerPktNum_Type())
-qtechDHCPRRxServerPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDHCPRRxServerPktNum.setStatus(_A)
-_QtechDHCPRTxServerPktNum_Type=Integer32
-_QtechDHCPRTxServerPktNum_Object=MibScalar
-qtechDHCPRTxServerPktNum=_QtechDHCPRTxServerPktNum_Object((1,3,6,1,4,1,27514,1,1,10,2,104,1,1,2,3),_QtechDHCPRTxServerPktNum_Type())
-qtechDHCPRTxServerPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDHCPRTxServerPktNum.setStatus(_A)
-_QtechDHCPRRxClientPktNum_Type=Integer32
-_QtechDHCPRRxClientPktNum_Object=MibScalar
-qtechDHCPRRxClientPktNum=_QtechDHCPRRxClientPktNum_Object((1,3,6,1,4,1,27514,1,1,10,2,104,1,1,2,4),_QtechDHCPRRxClientPktNum_Type())
-qtechDHCPRRxClientPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDHCPRRxClientPktNum.setStatus(_A)
-_QtechDHCPRTxClientPktNum_Type=Integer32
-_QtechDHCPRTxClientPktNum_Object=MibScalar
-qtechDHCPRTxClientPktNum=_QtechDHCPRTxClientPktNum_Object((1,3,6,1,4,1,27514,1,1,10,2,104,1,1,2,5),_QtechDHCPRTxClientPktNum_Type())
-qtechDHCPRTxClientPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDHCPRTxClientPktNum.setStatus(_A)
-_QtechDHCPRRxClientUniPktNum_Type=Integer32
-_QtechDHCPRRxClientUniPktNum_Object=MibScalar
-qtechDHCPRRxClientUniPktNum=_QtechDHCPRRxClientUniPktNum_Object((1,3,6,1,4,1,27514,1,1,10,2,104,1,1,2,6),_QtechDHCPRRxClientUniPktNum_Type())
-qtechDHCPRRxClientUniPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDHCPRRxClientUniPktNum.setStatus(_A)
-_QtechDHCPRRxClientBroPktNum_Type=Integer32
-_QtechDHCPRRxClientBroPktNum_Object=MibScalar
-qtechDHCPRRxClientBroPktNum=_QtechDHCPRRxClientBroPktNum_Object((1,3,6,1,4,1,27514,1,1,10,2,104,1,1,2,7),_QtechDHCPRRxClientBroPktNum_Type())
-qtechDHCPRRxClientBroPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDHCPRRxClientBroPktNum.setStatus(_A)
-_QtechDHCPRTxClientUniPktNum_Type=Integer32
-_QtechDHCPRTxClientUniPktNum_Object=MibScalar
-qtechDHCPRTxClientUniPktNum=_QtechDHCPRTxClientUniPktNum_Object((1,3,6,1,4,1,27514,1,1,10,2,104,1,1,2,8),_QtechDHCPRTxClientUniPktNum_Type())
-qtechDHCPRTxClientUniPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDHCPRTxClientUniPktNum.setStatus(_A)
-_QtechDHCPRTxClientBroPktNum_Type=Integer32
-_QtechDHCPRTxClientBroPktNum_Object=MibScalar
-qtechDHCPRTxClientBroPktNum=_QtechDHCPRTxClientBroPktNum_Object((1,3,6,1,4,1,27514,1,1,10,2,104,1,1,2,9),_QtechDHCPRTxClientBroPktNum_Type())
-qtechDHCPRTxClientBroPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDHCPRTxClientBroPktNum.setStatus(_A)
-_QtechDHCPRelayDiscoverPktNum_Type=Integer32
-_QtechDHCPRelayDiscoverPktNum_Object=MibScalar
-qtechDHCPRelayDiscoverPktNum=_QtechDHCPRelayDiscoverPktNum_Object((1,3,6,1,4,1,27514,1,1,10,2,104,1,1,2,10),_QtechDHCPRelayDiscoverPktNum_Type())
-qtechDHCPRelayDiscoverPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDHCPRelayDiscoverPktNum.setStatus(_A)
-_QtechDHCPRelayRequestPktNum_Type=Integer32
-_QtechDHCPRelayRequestPktNum_Object=MibScalar
-qtechDHCPRelayRequestPktNum=_QtechDHCPRelayRequestPktNum_Object((1,3,6,1,4,1,27514,1,1,10,2,104,1,1,2,11),_QtechDHCPRelayRequestPktNum_Type())
-qtechDHCPRelayRequestPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDHCPRelayRequestPktNum.setStatus(_A)
-_QtechDHCPRelayDeclinePktNum_Type=Integer32
-_QtechDHCPRelayDeclinePktNum_Object=MibScalar
-qtechDHCPRelayDeclinePktNum=_QtechDHCPRelayDeclinePktNum_Object((1,3,6,1,4,1,27514,1,1,10,2,104,1,1,2,12),_QtechDHCPRelayDeclinePktNum_Type())
-qtechDHCPRelayDeclinePktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDHCPRelayDeclinePktNum.setStatus(_A)
-_QtechDHCPRelayReleasePktNum_Type=Integer32
-_QtechDHCPRelayReleasePktNum_Object=MibScalar
-qtechDHCPRelayReleasePktNum=_QtechDHCPRelayReleasePktNum_Object((1,3,6,1,4,1,27514,1,1,10,2,104,1,1,2,13),_QtechDHCPRelayReleasePktNum_Type())
-qtechDHCPRelayReleasePktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDHCPRelayReleasePktNum.setStatus(_A)
-_QtechDHCPRelayInformPktNum_Type=Integer32
-_QtechDHCPRelayInformPktNum_Object=MibScalar
-qtechDHCPRelayInformPktNum=_QtechDHCPRelayInformPktNum_Object((1,3,6,1,4,1,27514,1,1,10,2,104,1,1,2,14),_QtechDHCPRelayInformPktNum_Type())
-qtechDHCPRelayInformPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDHCPRelayInformPktNum.setStatus(_A)
-_QtechDHCPRelayOfferPktNum_Type=Integer32
-_QtechDHCPRelayOfferPktNum_Object=MibScalar
-qtechDHCPRelayOfferPktNum=_QtechDHCPRelayOfferPktNum_Object((1,3,6,1,4,1,27514,1,1,10,2,104,1,1,2,15),_QtechDHCPRelayOfferPktNum_Type())
-qtechDHCPRelayOfferPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDHCPRelayOfferPktNum.setStatus(_A)
-_QtechDHCPRelayAckPktNum_Type=Integer32
-_QtechDHCPRelayAckPktNum_Object=MibScalar
-qtechDHCPRelayAckPktNum=_QtechDHCPRelayAckPktNum_Object((1,3,6,1,4,1,27514,1,1,10,2,104,1,1,2,16),_QtechDHCPRelayAckPktNum_Type())
-qtechDHCPRelayAckPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDHCPRelayAckPktNum.setStatus(_A)
-_QtechDHCPRelayNakPktNum_Type=Integer32
-_QtechDHCPRelayNakPktNum_Object=MibScalar
-qtechDHCPRelayNakPktNum=_QtechDHCPRelayNakPktNum_Object((1,3,6,1,4,1,27514,1,1,10,2,104,1,1,2,17),_QtechDHCPRelayNakPktNum_Type())
-qtechDHCPRelayNakPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDHCPRelayNakPktNum.setStatus(_A)
-_QtechDhcpMIBConformance_ObjectIdentity=ObjectIdentity
-qtechDhcpMIBConformance=_QtechDhcpMIBConformance_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,104,2))
-if mibBuilder.loadTexts:qtechDhcpMIBConformance.setStatus(_A)
-_QtechDhcpMIBCompliances_ObjectIdentity=ObjectIdentity
-qtechDhcpMIBCompliances=_QtechDhcpMIBCompliances_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,104,2,1))
-_QtechDhcpMIBGroups_ObjectIdentity=ObjectIdentity
-qtechDhcpMIBGroups=_QtechDhcpMIBGroups_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,104,2,2))
-qtechDhcpRelayCountersObjects=ObjectGroup((1,3,6,1,4,1,27514,1,1,10,2,104,2,2,1))
-qtechDhcpRelayCountersObjects.setObjects(*((_B,_E),(_B,_F),(_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:qtechDhcpRelayCountersObjects.setStatus(_A)
-qtechDhcpRelayCompliance=ModuleCompliance((1,3,6,1,4,1,27514,1,1,10,2,104,2,1,1))
-qtechDhcpRelayCompliance.setObjects((_B,_W))
-if mibBuilder.loadTexts:qtechDhcpRelayCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'qtechDhcpMIB':qtechDhcpMIB,'qtechDhcpMIBObjects':qtechDhcpMIBObjects,'qtechDhcpRelayMIBObjects':qtechDhcpRelayMIBObjects,_E:qtechDHCPRelayCycleStatus,'qtechDhcpRelayCounters':qtechDhcpRelayCounters,_F:qtechDHCPRRxBadPktNum,_G:qtechDHCPRRxServerPktNum,_H:qtechDHCPRTxServerPktNum,_I:qtechDHCPRRxClientPktNum,_J:qtechDHCPRTxClientPktNum,_K:qtechDHCPRRxClientUniPktNum,_L:qtechDHCPRRxClientBroPktNum,_M:qtechDHCPRTxClientUniPktNum,_N:qtechDHCPRTxClientBroPktNum,_O:qtechDHCPRelayDiscoverPktNum,_P:qtechDHCPRelayRequestPktNum,_Q:qtechDHCPRelayDeclinePktNum,_R:qtechDHCPRelayReleasePktNum,_S:qtechDHCPRelayInformPktNum,_T:qtechDHCPRelayOfferPktNum,_U:qtechDHCPRelayAckPktNum,_V:qtechDHCPRelayNakPktNum,'qtechDhcpMIBConformance':qtechDhcpMIBConformance,'qtechDhcpMIBCompliances':qtechDhcpMIBCompliances,'qtechDhcpRelayCompliance':qtechDhcpRelayCompliance,'qtechDhcpMIBGroups':qtechDhcpMIBGroups,_W:qtechDhcpRelayCountersObjects})
+#
+# PySNMP MIB module QTECH-DHCP-RELAY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-DHCP-RELAY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:04 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+qtechMgmt, = mibBuilder.importSymbols("QTECH-SMI", "qtechMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+qtechDhcpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104))
+qtechDhcpMIB.setRevisions(('2011-11-28 00:00',))
+if mibBuilder.loadTexts: qtechDhcpMIB.setLastUpdated('201111280000Z')
+if mibBuilder.loadTexts: qtechDhcpMIB.setOrganization('Qtech Networks Co.,Ltd.')
+qtechDhcpMIBObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1))
+if mibBuilder.loadTexts: qtechDhcpMIBObjects.setStatus('current')
+qtechDhcpRelayMIBObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1))
+if mibBuilder.loadTexts: qtechDhcpRelayMIBObjects.setStatus('current')
+qtechDHCPRelayCycleStatus = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("on", 0), ("off", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechDHCPRelayCycleStatus.setStatus('current')
+qtechDhcpRelayCounters = ObjectIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1, 2))
+if mibBuilder.loadTexts: qtechDhcpRelayCounters.setStatus('current')
+qtechDHCPRRxBadPktNum = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1, 2, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDHCPRRxBadPktNum.setStatus('current')
+qtechDHCPRRxServerPktNum = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1, 2, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDHCPRRxServerPktNum.setStatus('current')
+qtechDHCPRTxServerPktNum = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1, 2, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDHCPRTxServerPktNum.setStatus('current')
+qtechDHCPRRxClientPktNum = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1, 2, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDHCPRRxClientPktNum.setStatus('current')
+qtechDHCPRTxClientPktNum = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1, 2, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDHCPRTxClientPktNum.setStatus('current')
+qtechDHCPRRxClientUniPktNum = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1, 2, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDHCPRRxClientUniPktNum.setStatus('current')
+qtechDHCPRRxClientBroPktNum = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1, 2, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDHCPRRxClientBroPktNum.setStatus('current')
+qtechDHCPRTxClientUniPktNum = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1, 2, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDHCPRTxClientUniPktNum.setStatus('current')
+qtechDHCPRTxClientBroPktNum = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1, 2, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDHCPRTxClientBroPktNum.setStatus('current')
+qtechDHCPRelayDiscoverPktNum = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1, 2, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDHCPRelayDiscoverPktNum.setStatus('current')
+qtechDHCPRelayRequestPktNum = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1, 2, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDHCPRelayRequestPktNum.setStatus('current')
+qtechDHCPRelayDeclinePktNum = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1, 2, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDHCPRelayDeclinePktNum.setStatus('current')
+qtechDHCPRelayReleasePktNum = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1, 2, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDHCPRelayReleasePktNum.setStatus('current')
+qtechDHCPRelayInformPktNum = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1, 2, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDHCPRelayInformPktNum.setStatus('current')
+qtechDHCPRelayOfferPktNum = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1, 2, 15), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDHCPRelayOfferPktNum.setStatus('current')
+qtechDHCPRelayAckPktNum = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1, 2, 16), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDHCPRelayAckPktNum.setStatus('current')
+qtechDHCPRelayNakPktNum = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 1, 1, 2, 17), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDHCPRelayNakPktNum.setStatus('current')
+qtechDhcpMIBConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 2))
+if mibBuilder.loadTexts: qtechDhcpMIBConformance.setStatus('current')
+qtechDhcpMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 2, 1))
+qtechDhcpMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 2, 2))
+qtechDhcpRelayCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 2, 1, 1)).setObjects(("QTECH-DHCP-RELAY-MIB", "qtechDhcpRelayCountersObjects"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechDhcpRelayCompliance = qtechDhcpRelayCompliance.setStatus('current')
+qtechDhcpRelayCountersObjects = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 104, 2, 2, 1)).setObjects(("QTECH-DHCP-RELAY-MIB", "qtechDHCPRelayCycleStatus"), ("QTECH-DHCP-RELAY-MIB", "qtechDHCPRRxBadPktNum"), ("QTECH-DHCP-RELAY-MIB", "qtechDHCPRRxServerPktNum"), ("QTECH-DHCP-RELAY-MIB", "qtechDHCPRTxServerPktNum"), ("QTECH-DHCP-RELAY-MIB", "qtechDHCPRRxClientPktNum"), ("QTECH-DHCP-RELAY-MIB", "qtechDHCPRTxClientPktNum"), ("QTECH-DHCP-RELAY-MIB", "qtechDHCPRRxClientUniPktNum"), ("QTECH-DHCP-RELAY-MIB", "qtechDHCPRRxClientBroPktNum"), ("QTECH-DHCP-RELAY-MIB", "qtechDHCPRTxClientUniPktNum"), ("QTECH-DHCP-RELAY-MIB", "qtechDHCPRTxClientBroPktNum"), ("QTECH-DHCP-RELAY-MIB", "qtechDHCPRelayDiscoverPktNum"), ("QTECH-DHCP-RELAY-MIB", "qtechDHCPRelayRequestPktNum"), ("QTECH-DHCP-RELAY-MIB", "qtechDHCPRelayDeclinePktNum"), ("QTECH-DHCP-RELAY-MIB", "qtechDHCPRelayReleasePktNum"), ("QTECH-DHCP-RELAY-MIB", "qtechDHCPRelayInformPktNum"), ("QTECH-DHCP-RELAY-MIB", "qtechDHCPRelayOfferPktNum"), ("QTECH-DHCP-RELAY-MIB", "qtechDHCPRelayAckPktNum"), ("QTECH-DHCP-RELAY-MIB", "qtechDHCPRelayNakPktNum"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechDhcpRelayCountersObjects = qtechDhcpRelayCountersObjects.setStatus('current')
+mibBuilder.exportSymbols("QTECH-DHCP-RELAY-MIB", qtechDhcpMIBCompliances=qtechDhcpMIBCompliances, qtechDHCPRTxClientBroPktNum=qtechDHCPRTxClientBroPktNum, qtechDhcpRelayCountersObjects=qtechDhcpRelayCountersObjects, qtechDHCPRelayInformPktNum=qtechDHCPRelayInformPktNum, qtechDHCPRTxServerPktNum=qtechDHCPRTxServerPktNum, qtechDhcpMIBGroups=qtechDhcpMIBGroups, PYSNMP_MODULE_ID=qtechDhcpMIB, qtechDHCPRRxClientUniPktNum=qtechDHCPRRxClientUniPktNum, qtechDhcpMIBConformance=qtechDhcpMIBConformance, qtechDHCPRelayReleasePktNum=qtechDHCPRelayReleasePktNum, qtechDHCPRTxClientPktNum=qtechDHCPRTxClientPktNum, qtechDHCPRelayOfferPktNum=qtechDHCPRelayOfferPktNum, qtechDhcpRelayCounters=qtechDhcpRelayCounters, qtechDHCPRelayDeclinePktNum=qtechDHCPRelayDeclinePktNum, qtechDHCPRelayDiscoverPktNum=qtechDHCPRelayDiscoverPktNum, qtechDHCPRRxClientPktNum=qtechDHCPRRxClientPktNum, qtechDHCPRRxBadPktNum=qtechDHCPRRxBadPktNum, qtechDHCPRelayCycleStatus=qtechDHCPRelayCycleStatus, qtechDhcpMIB=qtechDhcpMIB, qtechDHCPRRxClientBroPktNum=qtechDHCPRRxClientBroPktNum, qtechDHCPRelayRequestPktNum=qtechDHCPRelayRequestPktNum, qtechDHCPRelayAckPktNum=qtechDHCPRelayAckPktNum, qtechDhcpRelayCompliance=qtechDhcpRelayCompliance, qtechDHCPRTxClientUniPktNum=qtechDHCPRTxClientUniPktNum, qtechDhcpMIBObjects=qtechDhcpMIBObjects, qtechDhcpRelayMIBObjects=qtechDhcpRelayMIBObjects, qtechDHCPRRxServerPktNum=qtechDHCPRRxServerPktNum, qtechDHCPRelayNakPktNum=qtechDHCPRelayNakPktNum)

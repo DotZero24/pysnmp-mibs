@@ -1,87 +1,51 @@
-_O='dwCtpGroup'
-_N='dwCtpOprCarrierCtpList'
-_M='dwCtpPropagationDelay'
-_L='dwCtpTotalBW'
-_K='dwCtpRxTTI'
-_J='dwCtpExpTTI'
-_I='dwCtpTxTTI'
-_H='dwCtpCarrierCtpList'
-_G='dwCtpMoID'
-_F='ifIndex'
-_E='IF-MIB'
-_D='read-only'
-_C='read-write'
-_B='INFINERA-TP-DWCTP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-terminationPoint,=mibBuilder.importSymbols('INFINERA-REG-MIB','terminationPoint')
-FloatArbitraryPrecision,=mibBuilder.importSymbols('INFINERA-TC-MIB','FloatArbitraryPrecision')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-dwCtpMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,2,64))
-if mibBuilder.loadTexts:dwCtpMIB.setRevisions(('2017-01-13 00:00',))
-_DwCtpTable_Object=MibTable
-dwCtpTable=_DwCtpTable_Object((1,3,6,1,4,1,21296,2,2,2,2,64,1))
-if mibBuilder.loadTexts:dwCtpTable.setStatus(_A)
-_DwCtpEntry_Object=MibTableRow
-dwCtpEntry=_DwCtpEntry_Object((1,3,6,1,4,1,21296,2,2,2,2,64,1,1))
-dwCtpEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:dwCtpEntry.setStatus(_A)
-_DwCtpMoID_Type=DisplayString
-_DwCtpMoID_Object=MibTableColumn
-dwCtpMoID=_DwCtpMoID_Object((1,3,6,1,4,1,21296,2,2,2,2,64,1,1,1),_DwCtpMoID_Type())
-dwCtpMoID.setMaxAccess('read-create')
-if mibBuilder.loadTexts:dwCtpMoID.setStatus(_A)
-_DwCtpCarrierCtpList_Type=DisplayString
-_DwCtpCarrierCtpList_Object=MibTableColumn
-dwCtpCarrierCtpList=_DwCtpCarrierCtpList_Object((1,3,6,1,4,1,21296,2,2,2,2,64,1,1,2),_DwCtpCarrierCtpList_Type())
-dwCtpCarrierCtpList.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpCarrierCtpList.setStatus(_A)
-_DwCtpTxTTI_Type=DisplayString
-_DwCtpTxTTI_Object=MibTableColumn
-dwCtpTxTTI=_DwCtpTxTTI_Object((1,3,6,1,4,1,21296,2,2,2,2,64,1,1,3),_DwCtpTxTTI_Type())
-dwCtpTxTTI.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpTxTTI.setStatus(_A)
-_DwCtpExpTTI_Type=DisplayString
-_DwCtpExpTTI_Object=MibTableColumn
-dwCtpExpTTI=_DwCtpExpTTI_Object((1,3,6,1,4,1,21296,2,2,2,2,64,1,1,4),_DwCtpExpTTI_Type())
-dwCtpExpTTI.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpExpTTI.setStatus(_A)
-_DwCtpRxTTI_Type=DisplayString
-_DwCtpRxTTI_Object=MibTableColumn
-dwCtpRxTTI=_DwCtpRxTTI_Object((1,3,6,1,4,1,21296,2,2,2,2,64,1,1,5),_DwCtpRxTTI_Type())
-dwCtpRxTTI.setMaxAccess(_D)
-if mibBuilder.loadTexts:dwCtpRxTTI.setStatus(_A)
-_DwCtpTotalBW_Type=Unsigned32
-_DwCtpTotalBW_Object=MibTableColumn
-dwCtpTotalBW=_DwCtpTotalBW_Object((1,3,6,1,4,1,21296,2,2,2,2,64,1,1,6),_DwCtpTotalBW_Type())
-dwCtpTotalBW.setMaxAccess(_D)
-if mibBuilder.loadTexts:dwCtpTotalBW.setStatus(_A)
-_DwCtpPropagationDelay_Type=FloatArbitraryPrecision
-_DwCtpPropagationDelay_Object=MibTableColumn
-dwCtpPropagationDelay=_DwCtpPropagationDelay_Object((1,3,6,1,4,1,21296,2,2,2,2,64,1,1,7),_DwCtpPropagationDelay_Type())
-dwCtpPropagationDelay.setMaxAccess(_D)
-if mibBuilder.loadTexts:dwCtpPropagationDelay.setStatus(_A)
-_DwCtpOprCarrierCtpList_Type=DisplayString
-_DwCtpOprCarrierCtpList_Object=MibTableColumn
-dwCtpOprCarrierCtpList=_DwCtpOprCarrierCtpList_Object((1,3,6,1,4,1,21296,2,2,2,2,64,1,1,8),_DwCtpOprCarrierCtpList_Type())
-dwCtpOprCarrierCtpList.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpOprCarrierCtpList.setStatus(_A)
-_DwCtpConformance_ObjectIdentity=ObjectIdentity
-dwCtpConformance=_DwCtpConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,64,3))
-_DwCtpCompliances_ObjectIdentity=ObjectIdentity
-dwCtpCompliances=_DwCtpCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,64,3,1))
-_DwCtpGroups_ObjectIdentity=ObjectIdentity
-dwCtpGroups=_DwCtpGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,64,3,2))
-dwCtpGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,2,64,3,2,1))
-dwCtpGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:dwCtpGroup.setStatus(_A)
-dwCtpCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,2,64,3,1,1))
-dwCtpCompliance.setObjects((_B,_O))
-if mibBuilder.loadTexts:dwCtpCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'dwCtpMIB':dwCtpMIB,'dwCtpTable':dwCtpTable,'dwCtpEntry':dwCtpEntry,_G:dwCtpMoID,_H:dwCtpCarrierCtpList,_I:dwCtpTxTTI,_J:dwCtpExpTTI,_K:dwCtpRxTTI,_L:dwCtpTotalBW,_M:dwCtpPropagationDelay,_N:dwCtpOprCarrierCtpList,'dwCtpConformance':dwCtpConformance,'dwCtpCompliances':dwCtpCompliances,'dwCtpCompliance':dwCtpCompliance,'dwCtpGroups':dwCtpGroups,_O:dwCtpGroup})
+#
+# PySNMP MIB module INFINERA-TP-DWCTP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-DWCTP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
+FloatArbitraryPrecision, = mibBuilder.importSymbols("INFINERA-TC-MIB", "FloatArbitraryPrecision")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+dwCtpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 64))
+dwCtpMIB.setRevisions(('2017-01-13 00:00',))
+if mibBuilder.loadTexts: dwCtpMIB.setLastUpdated('201701130000Z')
+if mibBuilder.loadTexts: dwCtpMIB.setOrganization('Infinera')
+dwCtpTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 64, 1), )
+if mibBuilder.loadTexts: dwCtpTable.setStatus('current')
+dwCtpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 64, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: dwCtpEntry.setStatus('current')
+dwCtpMoID = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 64, 1, 1, 1), DisplayString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dwCtpMoID.setStatus('current')
+dwCtpCarrierCtpList = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 64, 1, 1, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dwCtpCarrierCtpList.setStatus('current')
+dwCtpTxTTI = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 64, 1, 1, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dwCtpTxTTI.setStatus('current')
+dwCtpExpTTI = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 64, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dwCtpExpTTI.setStatus('current')
+dwCtpRxTTI = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 64, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpRxTTI.setStatus('current')
+dwCtpTotalBW = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 64, 1, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpTotalBW.setStatus('current')
+dwCtpPropagationDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 64, 1, 1, 7), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPropagationDelay.setStatus('current')
+dwCtpOprCarrierCtpList = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 64, 1, 1, 8), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dwCtpOprCarrierCtpList.setStatus('current')
+dwCtpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 64, 3))
+dwCtpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 64, 3, 1))
+dwCtpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 64, 3, 2))
+dwCtpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 64, 3, 1, 1)).setObjects(("INFINERA-TP-DWCTP-MIB", "dwCtpGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dwCtpCompliance = dwCtpCompliance.setStatus('current')
+dwCtpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 64, 3, 2, 1)).setObjects(("INFINERA-TP-DWCTP-MIB", "dwCtpMoID"), ("INFINERA-TP-DWCTP-MIB", "dwCtpCarrierCtpList"), ("INFINERA-TP-DWCTP-MIB", "dwCtpTxTTI"), ("INFINERA-TP-DWCTP-MIB", "dwCtpExpTTI"), ("INFINERA-TP-DWCTP-MIB", "dwCtpRxTTI"), ("INFINERA-TP-DWCTP-MIB", "dwCtpTotalBW"), ("INFINERA-TP-DWCTP-MIB", "dwCtpPropagationDelay"), ("INFINERA-TP-DWCTP-MIB", "dwCtpOprCarrierCtpList"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dwCtpGroup = dwCtpGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-TP-DWCTP-MIB", dwCtpConformance=dwCtpConformance, dwCtpMoID=dwCtpMoID, dwCtpTotalBW=dwCtpTotalBW, dwCtpEntry=dwCtpEntry, dwCtpOprCarrierCtpList=dwCtpOprCarrierCtpList, dwCtpCompliances=dwCtpCompliances, PYSNMP_MODULE_ID=dwCtpMIB, dwCtpPropagationDelay=dwCtpPropagationDelay, dwCtpExpTTI=dwCtpExpTTI, dwCtpCarrierCtpList=dwCtpCarrierCtpList, dwCtpTxTTI=dwCtpTxTTI, dwCtpRxTTI=dwCtpRxTTI, dwCtpCompliance=dwCtpCompliance, dwCtpGroups=dwCtpGroups, dwCtpTable=dwCtpTable, dwCtpMIB=dwCtpMIB, dwCtpGroup=dwCtpGroup)

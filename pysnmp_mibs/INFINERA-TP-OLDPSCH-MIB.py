@@ -1,74 +1,47 @@
-_L='oldpSchGroup'
-_K='monitoringMode'
-_J='timDetMode'
-_I='expectedDAPI'
-_H='expectedSAPI'
-_G='recievedTTI'
-_F='transmitTTI'
-_E='ifIndex'
-_D='IF-MIB'
-_C='read-write'
-_B='INFINERA-TP-OLDPSCH-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-terminationPoint,=mibBuilder.importSymbols('INFINERA-REG-MIB','terminationPoint')
-InfnMonitoringMode,InfnTimReptMode=mibBuilder.importSymbols('INFINERA-TC-MIB','InfnMonitoringMode','InfnTimReptMode')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-oldpSchMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,2,58))
-if mibBuilder.loadTexts:oldpSchMIB.setRevisions(('2016-08-29 00:00',))
-_OldpSchTable_Object=MibTable
-oldpSchTable=_OldpSchTable_Object((1,3,6,1,4,1,21296,2,2,2,2,58,1))
-if mibBuilder.loadTexts:oldpSchTable.setStatus(_A)
-_OldpSchEntry_Object=MibTableRow
-oldpSchEntry=_OldpSchEntry_Object((1,3,6,1,4,1,21296,2,2,2,2,58,1,1))
-oldpSchEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:oldpSchEntry.setStatus(_A)
-_TransmitTTI_Type=DisplayString
-_TransmitTTI_Object=MibTableColumn
-transmitTTI=_TransmitTTI_Object((1,3,6,1,4,1,21296,2,2,2,2,58,1,1,1),_TransmitTTI_Type())
-transmitTTI.setMaxAccess(_C)
-if mibBuilder.loadTexts:transmitTTI.setStatus(_A)
-_RecievedTTI_Type=DisplayString
-_RecievedTTI_Object=MibTableColumn
-recievedTTI=_RecievedTTI_Object((1,3,6,1,4,1,21296,2,2,2,2,58,1,1,2),_RecievedTTI_Type())
-recievedTTI.setMaxAccess('read-only')
-if mibBuilder.loadTexts:recievedTTI.setStatus(_A)
-_ExpectedSAPI_Type=DisplayString
-_ExpectedSAPI_Object=MibTableColumn
-expectedSAPI=_ExpectedSAPI_Object((1,3,6,1,4,1,21296,2,2,2,2,58,1,1,3),_ExpectedSAPI_Type())
-expectedSAPI.setMaxAccess(_C)
-if mibBuilder.loadTexts:expectedSAPI.setStatus(_A)
-_ExpectedDAPI_Type=DisplayString
-_ExpectedDAPI_Object=MibTableColumn
-expectedDAPI=_ExpectedDAPI_Object((1,3,6,1,4,1,21296,2,2,2,2,58,1,1,4),_ExpectedDAPI_Type())
-expectedDAPI.setMaxAccess(_C)
-if mibBuilder.loadTexts:expectedDAPI.setStatus(_A)
-_TimDetMode_Type=InfnTimReptMode
-_TimDetMode_Object=MibTableColumn
-timDetMode=_TimDetMode_Object((1,3,6,1,4,1,21296,2,2,2,2,58,1,1,5),_TimDetMode_Type())
-timDetMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:timDetMode.setStatus(_A)
-_MonitoringMode_Type=InfnMonitoringMode
-_MonitoringMode_Object=MibTableColumn
-monitoringMode=_MonitoringMode_Object((1,3,6,1,4,1,21296,2,2,2,2,58,1,1,6),_MonitoringMode_Type())
-monitoringMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:monitoringMode.setStatus(_A)
-_OldpSchConformance_ObjectIdentity=ObjectIdentity
-oldpSchConformance=_OldpSchConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,58,3))
-_OldpSchCompliances_ObjectIdentity=ObjectIdentity
-oldpSchCompliances=_OldpSchCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,58,3,1))
-_OldpSchGroups_ObjectIdentity=ObjectIdentity
-oldpSchGroups=_OldpSchGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,58,3,2))
-oldpSchGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,2,58,3,2,1))
-oldpSchGroup.setObjects(*((_B,_F),(_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:oldpSchGroup.setStatus(_A)
-oldpSchCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,2,58,3,1,1))
-oldpSchCompliance.setObjects((_B,_L))
-if mibBuilder.loadTexts:oldpSchCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'oldpSchMIB':oldpSchMIB,'oldpSchTable':oldpSchTable,'oldpSchEntry':oldpSchEntry,_F:transmitTTI,_G:recievedTTI,_H:expectedSAPI,_I:expectedDAPI,_J:timDetMode,_K:monitoringMode,'oldpSchConformance':oldpSchConformance,'oldpSchCompliances':oldpSchCompliances,'oldpSchCompliance':oldpSchCompliance,'oldpSchGroups':oldpSchGroups,_L:oldpSchGroup})
+#
+# PySNMP MIB module INFINERA-TP-OLDPSCH-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-OLDPSCH-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:55 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
+InfnTimReptMode, InfnMonitoringMode = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnTimReptMode", "InfnMonitoringMode")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+oldpSchMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 58))
+oldpSchMIB.setRevisions(('2016-08-29 00:00',))
+if mibBuilder.loadTexts: oldpSchMIB.setLastUpdated('201608290000Z')
+if mibBuilder.loadTexts: oldpSchMIB.setOrganization('Infinera')
+oldpSchTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 58, 1), )
+if mibBuilder.loadTexts: oldpSchTable.setStatus('current')
+oldpSchEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 58, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: oldpSchEntry.setStatus('current')
+transmitTTI = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 58, 1, 1, 1), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: transmitTTI.setStatus('current')
+recievedTTI = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 58, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: recievedTTI.setStatus('current')
+expectedSAPI = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 58, 1, 1, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: expectedSAPI.setStatus('current')
+expectedDAPI = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 58, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: expectedDAPI.setStatus('current')
+timDetMode = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 58, 1, 1, 5), InfnTimReptMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: timDetMode.setStatus('current')
+monitoringMode = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 58, 1, 1, 6), InfnMonitoringMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: monitoringMode.setStatus('current')
+oldpSchConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 58, 3))
+oldpSchCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 58, 3, 1))
+oldpSchGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 58, 3, 2))
+oldpSchCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 58, 3, 1, 1)).setObjects(("INFINERA-TP-OLDPSCH-MIB", "oldpSchGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oldpSchCompliance = oldpSchCompliance.setStatus('current')
+oldpSchGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 58, 3, 2, 1)).setObjects(("INFINERA-TP-OLDPSCH-MIB", "transmitTTI"), ("INFINERA-TP-OLDPSCH-MIB", "recievedTTI"), ("INFINERA-TP-OLDPSCH-MIB", "expectedSAPI"), ("INFINERA-TP-OLDPSCH-MIB", "expectedDAPI"), ("INFINERA-TP-OLDPSCH-MIB", "timDetMode"), ("INFINERA-TP-OLDPSCH-MIB", "monitoringMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oldpSchGroup = oldpSchGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-TP-OLDPSCH-MIB", oldpSchGroup=oldpSchGroup, monitoringMode=monitoringMode, recievedTTI=recievedTTI, oldpSchEntry=oldpSchEntry, oldpSchTable=oldpSchTable, oldpSchGroups=oldpSchGroups, oldpSchCompliance=oldpSchCompliance, timDetMode=timDetMode, oldpSchConformance=oldpSchConformance, oldpSchCompliances=oldpSchCompliances, PYSNMP_MODULE_ID=oldpSchMIB, oldpSchMIB=oldpSchMIB, expectedSAPI=expectedSAPI, expectedDAPI=expectedDAPI, transmitTTI=transmitTTI)

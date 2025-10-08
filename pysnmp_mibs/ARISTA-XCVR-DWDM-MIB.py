@@ -1,96 +1,61 @@
-_Q='aristaXcvrDwdmGroup'
-_P='aristaXcvrDwdmUncorrectedCodewords'
-_O='aristaXcvrDwdmAdminFrequency'
-_N='aristaXcvrDwdmModulationFormat'
-_M='aristaXcvrDwdmTunable'
-_L='aristaXcvrDwdmAdminGrid'
-_K='aristaXcvrDwdmAdminChannel'
-_J='aristaXcvrDwdmOperFrequency'
-_I='aristaXcvrDwdmOperGrid'
-_H='aristaXcvrDwdmOperChannel'
-_G='Unsigned32'
-_F='ifIndex'
-_E='IF-MIB'
-_D='read-write'
-_C='read-only'
-_B='ARISTA-XCVR-DWDM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-aristaMibs,=mibBuilder.importSymbols('ARISTA-SMI-MIB','aristaMibs')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-aristaXcvrDwdmMIB=ModuleIdentity((1,3,6,1,4,1,30065,3,19))
-if mibBuilder.loadTexts:aristaXcvrDwdmMIB.setRevisions(('2018-08-27 00:00','2018-05-16 00:00','2016-03-11 00:00'))
-class AristaDwdmGridSpacing(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(6250,6250),ValueRangeConstraint(12500,12500),ValueRangeConstraint(25000,25000),ValueRangeConstraint(50000,50000),ValueRangeConstraint(100000,100000))
-class AristaModulationFormat(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*(('notApplicable',0),('none',1),('qpsk',2),('eightQam',3),('sixteenQam',4)))
-_AristaXcvrDwdmTable_Object=MibTable
-aristaXcvrDwdmTable=_AristaXcvrDwdmTable_Object((1,3,6,1,4,1,30065,3,19,1))
-if mibBuilder.loadTexts:aristaXcvrDwdmTable.setStatus(_A)
-_AristaXcvrDwdmEntry_Object=MibTableRow
-aristaXcvrDwdmEntry=_AristaXcvrDwdmEntry_Object((1,3,6,1,4,1,30065,3,19,1,1))
-aristaXcvrDwdmEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:aristaXcvrDwdmEntry.setStatus(_A)
-_AristaXcvrDwdmOperChannel_Type=Unsigned32
-_AristaXcvrDwdmOperChannel_Object=MibTableColumn
-aristaXcvrDwdmOperChannel=_AristaXcvrDwdmOperChannel_Object((1,3,6,1,4,1,30065,3,19,1,1,1),_AristaXcvrDwdmOperChannel_Type())
-aristaXcvrDwdmOperChannel.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaXcvrDwdmOperChannel.setStatus(_A)
-_AristaXcvrDwdmOperGrid_Type=AristaDwdmGridSpacing
-_AristaXcvrDwdmOperGrid_Object=MibTableColumn
-aristaXcvrDwdmOperGrid=_AristaXcvrDwdmOperGrid_Object((1,3,6,1,4,1,30065,3,19,1,1,2),_AristaXcvrDwdmOperGrid_Type())
-aristaXcvrDwdmOperGrid.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaXcvrDwdmOperGrid.setStatus(_A)
-_AristaXcvrDwdmOperFrequency_Type=Unsigned32
-_AristaXcvrDwdmOperFrequency_Object=MibTableColumn
-aristaXcvrDwdmOperFrequency=_AristaXcvrDwdmOperFrequency_Object((1,3,6,1,4,1,30065,3,19,1,1,3),_AristaXcvrDwdmOperFrequency_Type())
-aristaXcvrDwdmOperFrequency.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaXcvrDwdmOperFrequency.setStatus(_A)
-class _AristaXcvrDwdmAdminChannel_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,1000))
-_AristaXcvrDwdmAdminChannel_Type.__name__=_G
-_AristaXcvrDwdmAdminChannel_Object=MibTableColumn
-aristaXcvrDwdmAdminChannel=_AristaXcvrDwdmAdminChannel_Object((1,3,6,1,4,1,30065,3,19,1,1,6),_AristaXcvrDwdmAdminChannel_Type())
-aristaXcvrDwdmAdminChannel.setMaxAccess(_D)
-if mibBuilder.loadTexts:aristaXcvrDwdmAdminChannel.setStatus(_A)
-_AristaXcvrDwdmAdminGrid_Type=AristaDwdmGridSpacing
-_AristaXcvrDwdmAdminGrid_Object=MibTableColumn
-aristaXcvrDwdmAdminGrid=_AristaXcvrDwdmAdminGrid_Object((1,3,6,1,4,1,30065,3,19,1,1,7),_AristaXcvrDwdmAdminGrid_Type())
-aristaXcvrDwdmAdminGrid.setMaxAccess(_D)
-if mibBuilder.loadTexts:aristaXcvrDwdmAdminGrid.setStatus(_A)
-_AristaXcvrDwdmTunable_Type=TruthValue
-_AristaXcvrDwdmTunable_Object=MibTableColumn
-aristaXcvrDwdmTunable=_AristaXcvrDwdmTunable_Object((1,3,6,1,4,1,30065,3,19,1,1,8),_AristaXcvrDwdmTunable_Type())
-aristaXcvrDwdmTunable.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaXcvrDwdmTunable.setStatus(_A)
-_AristaXcvrDwdmModulationFormat_Type=AristaModulationFormat
-_AristaXcvrDwdmModulationFormat_Object=MibTableColumn
-aristaXcvrDwdmModulationFormat=_AristaXcvrDwdmModulationFormat_Object((1,3,6,1,4,1,30065,3,19,1,1,9),_AristaXcvrDwdmModulationFormat_Type())
-aristaXcvrDwdmModulationFormat.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaXcvrDwdmModulationFormat.setStatus(_A)
-_AristaXcvrDwdmAdminFrequency_Type=Unsigned32
-_AristaXcvrDwdmAdminFrequency_Object=MibTableColumn
-aristaXcvrDwdmAdminFrequency=_AristaXcvrDwdmAdminFrequency_Object((1,3,6,1,4,1,30065,3,19,1,1,10),_AristaXcvrDwdmAdminFrequency_Type())
-aristaXcvrDwdmAdminFrequency.setMaxAccess(_D)
-if mibBuilder.loadTexts:aristaXcvrDwdmAdminFrequency.setStatus(_A)
-_AristaXcvrDwdmUncorrectedCodewords_Type=Counter64
-_AristaXcvrDwdmUncorrectedCodewords_Object=MibTableColumn
-aristaXcvrDwdmUncorrectedCodewords=_AristaXcvrDwdmUncorrectedCodewords_Object((1,3,6,1,4,1,30065,3,19,1,1,11),_AristaXcvrDwdmUncorrectedCodewords_Type())
-aristaXcvrDwdmUncorrectedCodewords.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaXcvrDwdmUncorrectedCodewords.setStatus(_A)
-_AristaXcvrDwdmMibConformance_ObjectIdentity=ObjectIdentity
-aristaXcvrDwdmMibConformance=_AristaXcvrDwdmMibConformance_ObjectIdentity((1,3,6,1,4,1,30065,3,19,2))
-_AristaXcvrDwdmMibCompliances_ObjectIdentity=ObjectIdentity
-aristaXcvrDwdmMibCompliances=_AristaXcvrDwdmMibCompliances_ObjectIdentity((1,3,6,1,4,1,30065,3,19,2,1))
-_AristaXcvrDwdmMibGroups_ObjectIdentity=ObjectIdentity
-aristaXcvrDwdmMibGroups=_AristaXcvrDwdmMibGroups_ObjectIdentity((1,3,6,1,4,1,30065,3,19,2,2))
-aristaXcvrDwdmGroup=ObjectGroup((1,3,6,1,4,1,30065,3,19,2,2,1))
-aristaXcvrDwdmGroup.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:aristaXcvrDwdmGroup.setStatus(_A)
-aristaXcvrDwdmMibCompliance=ModuleCompliance((1,3,6,1,4,1,30065,3,19,2,1,1))
-aristaXcvrDwdmMibCompliance.setObjects((_B,_Q))
-if mibBuilder.loadTexts:aristaXcvrDwdmMibCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'AristaDwdmGridSpacing':AristaDwdmGridSpacing,'AristaModulationFormat':AristaModulationFormat,'aristaXcvrDwdmMIB':aristaXcvrDwdmMIB,'aristaXcvrDwdmTable':aristaXcvrDwdmTable,'aristaXcvrDwdmEntry':aristaXcvrDwdmEntry,_H:aristaXcvrDwdmOperChannel,_I:aristaXcvrDwdmOperGrid,_J:aristaXcvrDwdmOperFrequency,_K:aristaXcvrDwdmAdminChannel,_L:aristaXcvrDwdmAdminGrid,_M:aristaXcvrDwdmTunable,_N:aristaXcvrDwdmModulationFormat,_O:aristaXcvrDwdmAdminFrequency,_P:aristaXcvrDwdmUncorrectedCodewords,'aristaXcvrDwdmMibConformance':aristaXcvrDwdmMibConformance,'aristaXcvrDwdmMibCompliances':aristaXcvrDwdmMibCompliances,'aristaXcvrDwdmMibCompliance':aristaXcvrDwdmMibCompliance,'aristaXcvrDwdmMibGroups':aristaXcvrDwdmMibGroups,_Q:aristaXcvrDwdmGroup})
+#
+# PySNMP MIB module ARISTA-XCVR-DWDM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/arista/ARISTA-XCVR-DWDM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:27 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+aristaXcvrDwdmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 19))
+aristaXcvrDwdmMIB.setRevisions(('2018-08-27 00:00', '2018-05-16 00:00', '2016-03-11 00:00',))
+if mibBuilder.loadTexts: aristaXcvrDwdmMIB.setLastUpdated('201808270000Z')
+if mibBuilder.loadTexts: aristaXcvrDwdmMIB.setOrganization('Arista Networks, Inc.')
+class AristaDwdmGridSpacing(TextualConvention, Unsigned32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(6250, 6250), ValueRangeConstraint(12500, 12500), ValueRangeConstraint(25000, 25000), ValueRangeConstraint(50000, 50000), ValueRangeConstraint(100000, 100000), )
+class AristaModulationFormat(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))
+    namedValues = NamedValues(("notApplicable", 0), ("none", 1), ("qpsk", 2), ("eightQam", 3), ("sixteenQam", 4))
+
+aristaXcvrDwdmTable = MibTable((1, 3, 6, 1, 4, 1, 30065, 3, 19, 1), )
+if mibBuilder.loadTexts: aristaXcvrDwdmTable.setStatus('current')
+aristaXcvrDwdmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30065, 3, 19, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: aristaXcvrDwdmEntry.setStatus('current')
+aristaXcvrDwdmOperChannel = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 19, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaXcvrDwdmOperChannel.setStatus('current')
+aristaXcvrDwdmOperGrid = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 19, 1, 1, 2), AristaDwdmGridSpacing()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaXcvrDwdmOperGrid.setStatus('current')
+aristaXcvrDwdmOperFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 19, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaXcvrDwdmOperFrequency.setStatus('current')
+aristaXcvrDwdmAdminChannel = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 19, 1, 1, 6), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 1000), ))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aristaXcvrDwdmAdminChannel.setStatus('current')
+aristaXcvrDwdmAdminGrid = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 19, 1, 1, 7), AristaDwdmGridSpacing()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aristaXcvrDwdmAdminGrid.setStatus('current')
+aristaXcvrDwdmTunable = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 19, 1, 1, 8), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaXcvrDwdmTunable.setStatus('current')
+aristaXcvrDwdmModulationFormat = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 19, 1, 1, 9), AristaModulationFormat()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaXcvrDwdmModulationFormat.setStatus('current')
+aristaXcvrDwdmAdminFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 19, 1, 1, 10), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aristaXcvrDwdmAdminFrequency.setStatus('current')
+aristaXcvrDwdmUncorrectedCodewords = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 19, 1, 1, 11), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaXcvrDwdmUncorrectedCodewords.setStatus('current')
+aristaXcvrDwdmMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 19, 2))
+aristaXcvrDwdmMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 19, 2, 1))
+aristaXcvrDwdmMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 19, 2, 2))
+aristaXcvrDwdmMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 30065, 3, 19, 2, 1, 1)).setObjects(("ARISTA-XCVR-DWDM-MIB", "aristaXcvrDwdmGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aristaXcvrDwdmMibCompliance = aristaXcvrDwdmMibCompliance.setStatus('current')
+aristaXcvrDwdmGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 19, 2, 2, 1)).setObjects(("ARISTA-XCVR-DWDM-MIB", "aristaXcvrDwdmOperChannel"), ("ARISTA-XCVR-DWDM-MIB", "aristaXcvrDwdmOperGrid"), ("ARISTA-XCVR-DWDM-MIB", "aristaXcvrDwdmOperFrequency"), ("ARISTA-XCVR-DWDM-MIB", "aristaXcvrDwdmAdminChannel"), ("ARISTA-XCVR-DWDM-MIB", "aristaXcvrDwdmAdminGrid"), ("ARISTA-XCVR-DWDM-MIB", "aristaXcvrDwdmTunable"), ("ARISTA-XCVR-DWDM-MIB", "aristaXcvrDwdmModulationFormat"), ("ARISTA-XCVR-DWDM-MIB", "aristaXcvrDwdmAdminFrequency"), ("ARISTA-XCVR-DWDM-MIB", "aristaXcvrDwdmUncorrectedCodewords"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aristaXcvrDwdmGroup = aristaXcvrDwdmGroup.setStatus('current')
+mibBuilder.exportSymbols("ARISTA-XCVR-DWDM-MIB", aristaXcvrDwdmAdminFrequency=aristaXcvrDwdmAdminFrequency, aristaXcvrDwdmOperGrid=aristaXcvrDwdmOperGrid, aristaXcvrDwdmModulationFormat=aristaXcvrDwdmModulationFormat, aristaXcvrDwdmMIB=aristaXcvrDwdmMIB, PYSNMP_MODULE_ID=aristaXcvrDwdmMIB, aristaXcvrDwdmUncorrectedCodewords=aristaXcvrDwdmUncorrectedCodewords, aristaXcvrDwdmTable=aristaXcvrDwdmTable, aristaXcvrDwdmMibConformance=aristaXcvrDwdmMibConformance, aristaXcvrDwdmGroup=aristaXcvrDwdmGroup, aristaXcvrDwdmAdminGrid=aristaXcvrDwdmAdminGrid, aristaXcvrDwdmOperFrequency=aristaXcvrDwdmOperFrequency, aristaXcvrDwdmEntry=aristaXcvrDwdmEntry, aristaXcvrDwdmTunable=aristaXcvrDwdmTunable, aristaXcvrDwdmAdminChannel=aristaXcvrDwdmAdminChannel, aristaXcvrDwdmMibGroups=aristaXcvrDwdmMibGroups, aristaXcvrDwdmMibCompliances=aristaXcvrDwdmMibCompliances, AristaModulationFormat=AristaModulationFormat, AristaDwdmGridSpacing=AristaDwdmGridSpacing, aristaXcvrDwdmOperChannel=aristaXcvrDwdmOperChannel, aristaXcvrDwdmMibCompliance=aristaXcvrDwdmMibCompliance)

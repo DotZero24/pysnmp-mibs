@@ -1,105 +1,53 @@
-_T='licenseFeatureId'
-_S='licenseId'
-_R='SnmpAdminString'
-_Q='fileSystemPath'
-_P='fileSystemObjType'
-_O='fileSystemObjName'
-_N='licenseFeatureName'
-_M='Integer32'
-_L='sysName'
-_K='SNMPv2-MIB'
-_J='alarmEventReason'
-_I='alarmEventLogSourceName'
-_H='alarmEventLogSeverity'
-_G='alarmEventLogDescription'
-_F='alarmEventLogDateAndTime'
-_E='alarmEventLogAlarmOrEventId'
-_D='RAD-License-MIB'
-_C='read-only'
-_B='current'
-_A='RAD-GEN-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-alarmEventLogAlarmOrEventId,alarmEventLogDateAndTime,alarmEventLogDescription,alarmEventLogSeverity,alarmEventLogSourceName,alarmEventReason,fileSystemObjName,fileSystemObjType,fileSystemPath=mibBuilder.importSymbols(_A,_E,_F,_G,_H,_I,_J,_O,_P,_Q)
-agnt,=mibBuilder.importSymbols('RAD-SMI-MIB','agnt')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_R)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-sysName,=mibBuilder.importSymbols(_K,_L)
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_M,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention')
-agnLicense=ModuleIdentity((1,3,6,1,4,1,164,6,2,73))
-_LicenseNotifications_ObjectIdentity=ObjectIdentity
-licenseNotifications=_LicenseNotifications_ObjectIdentity((1,3,6,1,4,1,164,6,2,73,0))
-_LicenseConfig_ObjectIdentity=ObjectIdentity
-licenseConfig=_LicenseConfig_ObjectIdentity((1,3,6,1,4,1,164,6,2,73,1))
-_LicenseTable_Object=MibTable
-licenseTable=_LicenseTable_Object((1,3,6,1,4,1,164,6,2,73,1,1))
-if mibBuilder.loadTexts:licenseTable.setStatus(_B)
-_LicenseEntry_Object=MibTableRow
-licenseEntry=_LicenseEntry_Object((1,3,6,1,4,1,164,6,2,73,1,1,1))
-licenseEntry.setIndexNames((0,_A,_Q),(0,_A,_P),(1,_A,_O))
-if mibBuilder.loadTexts:licenseEntry.setStatus(_B)
-_LicenseId_Type=Unsigned32
-_LicenseId_Object=MibTableColumn
-licenseId=_LicenseId_Object((1,3,6,1,4,1,164,6,2,73,1,1,1,1),_LicenseId_Type())
-licenseId.setMaxAccess(_C)
-if mibBuilder.loadTexts:licenseId.setStatus(_B)
-_LicenseFeatureTable_Object=MibTable
-licenseFeatureTable=_LicenseFeatureTable_Object((1,3,6,1,4,1,164,6,2,73,1,2))
-if mibBuilder.loadTexts:licenseFeatureTable.setStatus(_B)
-_LicenseFeatureEntry_Object=MibTableRow
-licenseFeatureEntry=_LicenseFeatureEntry_Object((1,3,6,1,4,1,164,6,2,73,1,2,1))
-licenseFeatureEntry.setIndexNames((0,_D,_S),(0,_D,_T))
-if mibBuilder.loadTexts:licenseFeatureEntry.setStatus(_B)
-_LicenseFeatureId_Type=Unsigned32
-_LicenseFeatureId_Object=MibTableColumn
-licenseFeatureId=_LicenseFeatureId_Object((1,3,6,1,4,1,164,6,2,73,1,2,1,1),_LicenseFeatureId_Type())
-licenseFeatureId.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:licenseFeatureId.setStatus(_B)
-class _LicenseFeatureName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_LicenseFeatureName_Type.__name__=_R
-_LicenseFeatureName_Object=MibTableColumn
-licenseFeatureName=_LicenseFeatureName_Object((1,3,6,1,4,1,164,6,2,73,1,2,1,2),_LicenseFeatureName_Type())
-licenseFeatureName.setMaxAccess(_C)
-if mibBuilder.loadTexts:licenseFeatureName.setStatus(_B)
-class _LicenseFeatureStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('inactive',1),('perpetual',2),('perpeutalAll',3),('temporary',4),('temporaryAll',5),('expired',6)))
-_LicenseFeatureStatus_Type.__name__=_M
-_LicenseFeatureStatus_Object=MibTableColumn
-licenseFeatureStatus=_LicenseFeatureStatus_Object((1,3,6,1,4,1,164,6,2,73,1,2,1,3),_LicenseFeatureStatus_Type())
-licenseFeatureStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:licenseFeatureStatus.setStatus(_B)
-_LicenseFeatureMaxAvailableQuantity_Type=Unsigned32
-_LicenseFeatureMaxAvailableQuantity_Object=MibTableColumn
-licenseFeatureMaxAvailableQuantity=_LicenseFeatureMaxAvailableQuantity_Object((1,3,6,1,4,1,164,6,2,73,1,2,1,4),_LicenseFeatureMaxAvailableQuantity_Type())
-licenseFeatureMaxAvailableQuantity.setMaxAccess(_C)
-if mibBuilder.loadTexts:licenseFeatureMaxAvailableQuantity.setStatus(_B)
-_LicenseFeatureAllowedQuantity_Type=Unsigned32
-_LicenseFeatureAllowedQuantity_Object=MibTableColumn
-licenseFeatureAllowedQuantity=_LicenseFeatureAllowedQuantity_Object((1,3,6,1,4,1,164,6,2,73,1,2,1,5),_LicenseFeatureAllowedQuantity_Type())
-licenseFeatureAllowedQuantity.setMaxAccess(_C)
-if mibBuilder.loadTexts:licenseFeatureAllowedQuantity.setStatus(_B)
-_LicenseFeatureQuantityInUse_Type=Unsigned32
-_LicenseFeatureQuantityInUse_Object=MibTableColumn
-licenseFeatureQuantityInUse=_LicenseFeatureQuantityInUse_Object((1,3,6,1,4,1,164,6,2,73,1,2,1,6),_LicenseFeatureQuantityInUse_Type())
-licenseFeatureQuantityInUse.setMaxAccess(_C)
-if mibBuilder.loadTexts:licenseFeatureQuantityInUse.setStatus(_B)
-_LicenseFeatureExpiration_Type=Unsigned32
-_LicenseFeatureExpiration_Object=MibTableColumn
-licenseFeatureExpiration=_LicenseFeatureExpiration_Object((1,3,6,1,4,1,164,6,2,73,1,2,1,7),_LicenseFeatureExpiration_Type())
-licenseFeatureExpiration.setMaxAccess(_C)
-if mibBuilder.loadTexts:licenseFeatureExpiration.setStatus(_B)
-class _LicenseFeatureActivationCmd_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('activate',1),('deactivate',2)))
-_LicenseFeatureActivationCmd_Type.__name__=_M
-_LicenseFeatureActivationCmd_Object=MibTableColumn
-licenseFeatureActivationCmd=_LicenseFeatureActivationCmd_Object((1,3,6,1,4,1,164,6,2,73,1,2,1,8),_LicenseFeatureActivationCmd_Type())
-licenseFeatureActivationCmd.setMaxAccess('read-write')
-if mibBuilder.loadTexts:licenseFeatureActivationCmd.setStatus(_B)
-systemLicenseEnabled=NotificationType((1,3,6,1,4,1,164,6,2,73,0,8))
-systemLicenseEnabled.setObjects(*((_A,_I),(_A,_E),(_A,_G),(_A,_H),(_A,_F),(_A,_J),(_K,_L),(_D,_N)))
-if mibBuilder.loadTexts:systemLicenseEnabled.setStatus(_B)
-systemLicenseDisabled=NotificationType((1,3,6,1,4,1,164,6,2,73,0,9))
-systemLicenseDisabled.setObjects(*((_A,_I),(_A,_E),(_A,_G),(_A,_H),(_A,_F),(_A,_J),(_K,_L),(_D,_N)))
-if mibBuilder.loadTexts:systemLicenseDisabled.setStatus(_B)
-mibBuilder.exportSymbols(_D,**{'agnLicense':agnLicense,'licenseNotifications':licenseNotifications,'systemLicenseEnabled':systemLicenseEnabled,'systemLicenseDisabled':systemLicenseDisabled,'licenseConfig':licenseConfig,'licenseTable':licenseTable,'licenseEntry':licenseEntry,_S:licenseId,'licenseFeatureTable':licenseFeatureTable,'licenseFeatureEntry':licenseFeatureEntry,_T:licenseFeatureId,_N:licenseFeatureName,'licenseFeatureStatus':licenseFeatureStatus,'licenseFeatureMaxAvailableQuantity':licenseFeatureMaxAvailableQuantity,'licenseFeatureAllowedQuantity':licenseFeatureAllowedQuantity,'licenseFeatureQuantityInUse':licenseFeatureQuantityInUse,'licenseFeatureExpiration':licenseFeatureExpiration,'licenseFeatureActivationCmd':licenseFeatureActivationCmd})
+#
+# PySNMP MIB module RAD-License-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rad/RAD-License-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:42:54 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+alarmEventLogAlarmOrEventId, alarmEventLogDescription, alarmEventLogSeverity, alarmEventReason, fileSystemObjName, alarmEventLogDateAndTime, alarmEventLogSourceName, fileSystemObjType, fileSystemPath = mibBuilder.importSymbols("RAD-GEN-MIB", "alarmEventLogAlarmOrEventId", "alarmEventLogDescription", "alarmEventLogSeverity", "alarmEventReason", "fileSystemObjName", "alarmEventLogDateAndTime", "alarmEventLogSourceName", "fileSystemObjType", "fileSystemPath")
+agnt, = mibBuilder.importSymbols("RAD-SMI-MIB", "agnt")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+agnLicense = ModuleIdentity((1, 3, 6, 1, 4, 1, 164, 6, 2, 73))
+if mibBuilder.loadTexts: agnLicense.setLastUpdated('201602041803Z')
+if mibBuilder.loadTexts: agnLicense.setOrganization('RAD Data Communications Ltd.')
+licenseNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 164, 6, 2, 73, 0))
+licenseConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 164, 6, 2, 73, 1))
+licenseTable = MibTable((1, 3, 6, 1, 4, 1, 164, 6, 2, 73, 1, 1), )
+if mibBuilder.loadTexts: licenseTable.setStatus('current')
+licenseEntry = MibTableRow((1, 3, 6, 1, 4, 1, 164, 6, 2, 73, 1, 1, 1), ).setIndexNames((0, "RAD-GEN-MIB", "fileSystemPath"), (0, "RAD-GEN-MIB", "fileSystemObjType"), (1, "RAD-GEN-MIB", "fileSystemObjName"))
+if mibBuilder.loadTexts: licenseEntry.setStatus('current')
+licenseId = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 2, 73, 1, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: licenseId.setStatus('current')
+licenseFeatureTable = MibTable((1, 3, 6, 1, 4, 1, 164, 6, 2, 73, 1, 2), )
+if mibBuilder.loadTexts: licenseFeatureTable.setStatus('current')
+licenseFeatureEntry = MibTableRow((1, 3, 6, 1, 4, 1, 164, 6, 2, 73, 1, 2, 1), ).setIndexNames((0, "RAD-License-MIB", "licenseId"), (0, "RAD-License-MIB", "licenseFeatureId"))
+if mibBuilder.loadTexts: licenseFeatureEntry.setStatus('current')
+licenseFeatureId = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 2, 73, 1, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: licenseFeatureId.setStatus('current')
+licenseFeatureName = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 2, 73, 1, 2, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: licenseFeatureName.setStatus('current')
+licenseFeatureStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 2, 73, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("inactive", 1), ("perpetual", 2), ("perpeutalAll", 3), ("temporary", 4), ("temporaryAll", 5), ("expired", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: licenseFeatureStatus.setStatus('current')
+licenseFeatureMaxAvailableQuantity = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 2, 73, 1, 2, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: licenseFeatureMaxAvailableQuantity.setStatus('current')
+licenseFeatureAllowedQuantity = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 2, 73, 1, 2, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: licenseFeatureAllowedQuantity.setStatus('current')
+licenseFeatureQuantityInUse = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 2, 73, 1, 2, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: licenseFeatureQuantityInUse.setStatus('current')
+licenseFeatureExpiration = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 2, 73, 1, 2, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: licenseFeatureExpiration.setStatus('current')
+licenseFeatureActivationCmd = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 2, 73, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("activate", 1), ("deactivate", 2))).clone('deactivate')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: licenseFeatureActivationCmd.setStatus('current')
+systemLicenseEnabled = NotificationType((1, 3, 6, 1, 4, 1, 164, 6, 2, 73, 0, 8)).setObjects(("RAD-GEN-MIB", "alarmEventLogSourceName"), ("RAD-GEN-MIB", "alarmEventLogAlarmOrEventId"), ("RAD-GEN-MIB", "alarmEventLogDescription"), ("RAD-GEN-MIB", "alarmEventLogSeverity"), ("RAD-GEN-MIB", "alarmEventLogDateAndTime"), ("RAD-GEN-MIB", "alarmEventReason"), ("SNMPv2-MIB", "sysName"), ("RAD-License-MIB", "licenseFeatureName"))
+if mibBuilder.loadTexts: systemLicenseEnabled.setStatus('current')
+systemLicenseDisabled = NotificationType((1, 3, 6, 1, 4, 1, 164, 6, 2, 73, 0, 9)).setObjects(("RAD-GEN-MIB", "alarmEventLogSourceName"), ("RAD-GEN-MIB", "alarmEventLogAlarmOrEventId"), ("RAD-GEN-MIB", "alarmEventLogDescription"), ("RAD-GEN-MIB", "alarmEventLogSeverity"), ("RAD-GEN-MIB", "alarmEventLogDateAndTime"), ("RAD-GEN-MIB", "alarmEventReason"), ("SNMPv2-MIB", "sysName"), ("RAD-License-MIB", "licenseFeatureName"))
+if mibBuilder.loadTexts: systemLicenseDisabled.setStatus('current')
+mibBuilder.exportSymbols("RAD-License-MIB", licenseFeatureActivationCmd=licenseFeatureActivationCmd, licenseFeatureQuantityInUse=licenseFeatureQuantityInUse, licenseFeatureStatus=licenseFeatureStatus, licenseNotifications=licenseNotifications, licenseId=licenseId, systemLicenseDisabled=systemLicenseDisabled, licenseConfig=licenseConfig, PYSNMP_MODULE_ID=agnLicense, licenseFeatureName=licenseFeatureName, systemLicenseEnabled=systemLicenseEnabled, licenseFeatureEntry=licenseFeatureEntry, licenseFeatureMaxAvailableQuantity=licenseFeatureMaxAvailableQuantity, agnLicense=agnLicense, licenseFeatureExpiration=licenseFeatureExpiration, licenseEntry=licenseEntry, licenseFeatureAllowedQuantity=licenseFeatureAllowedQuantity, licenseFeatureTable=licenseFeatureTable, licenseTable=licenseTable, licenseFeatureId=licenseFeatureId)

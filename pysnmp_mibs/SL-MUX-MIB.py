@@ -1,52 +1,36 @@
-_E='muxIfIndex'
-_D='SL-MUX-MIB'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-PerfCurrentCount,PerfIntervalCount,PerfTotalCount=mibBuilder.importSymbols('PerfHist-TC-MIB','PerfCurrentCount','PerfIntervalCount','PerfTotalCount')
-CleiCode,=mibBuilder.importSymbols('SL-ENTITY-MIB','CleiCode')
-sitelight,=mibBuilder.importSymbols('SL-NE-MIB','sitelight')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp','TruthValue')
-slMux=ModuleIdentity((1,3,6,1,4,1,4515,1,5))
-_MuxIfTable_Object=MibTable
-muxIfTable=_MuxIfTable_Object((1,3,6,1,4,1,4515,1,5,1))
-if mibBuilder.loadTexts:muxIfTable.setStatus(_A)
-_MuxIfEntry_Object=MibTableRow
-muxIfEntry=_MuxIfEntry_Object((1,3,6,1,4,1,4515,1,5,1,1))
-muxIfEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:muxIfEntry.setStatus(_A)
-_MuxIfIndex_Type=InterfaceIndex
-_MuxIfIndex_Object=MibTableColumn
-muxIfIndex=_MuxIfIndex_Object((1,3,6,1,4,1,4515,1,5,1,1,1),_MuxIfIndex_Type())
-muxIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:muxIfIndex.setStatus(_A)
-_MuxIfType_Type=Integer32
-_MuxIfType_Object=MibTableColumn
-muxIfType=_MuxIfType_Object((1,3,6,1,4,1,4515,1,5,1,1,2),_MuxIfType_Type())
-muxIfType.setMaxAccess(_B)
-if mibBuilder.loadTexts:muxIfType.setStatus(_A)
-class _MuxIfWaveSpacing_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*(('ghzNone',0),('ghz400',1),('ghz200',2),('ghz100',3),('ghz50',4),('ghz2500',5)))
-_MuxIfWaveSpacing_Type.__name__=_C
-_MuxIfWaveSpacing_Object=MibTableColumn
-muxIfWaveSpacing=_MuxIfWaveSpacing_Object((1,3,6,1,4,1,4515,1,5,1,1,3),_MuxIfWaveSpacing_Type())
-muxIfWaveSpacing.setMaxAccess(_B)
-if mibBuilder.loadTexts:muxIfWaveSpacing.setStatus(_A)
-_MuxIfWaveLengthNm_Type=Integer32
-_MuxIfWaveLengthNm_Object=MibTableColumn
-muxIfWaveLengthNm=_MuxIfWaveLengthNm_Object((1,3,6,1,4,1,4515,1,5,1,1,4),_MuxIfWaveLengthNm_Type())
-muxIfWaveLengthNm.setMaxAccess(_B)
-if mibBuilder.loadTexts:muxIfWaveLengthNm.setStatus(_A)
-_MuxIfOscWaveLengthNm_Type=Integer32
-_MuxIfOscWaveLengthNm_Object=MibTableColumn
-muxIfOscWaveLengthNm=_MuxIfOscWaveLengthNm_Object((1,3,6,1,4,1,4515,1,5,1,1,5),_MuxIfOscWaveLengthNm_Type())
-muxIfOscWaveLengthNm.setMaxAccess(_B)
-if mibBuilder.loadTexts:muxIfOscWaveLengthNm.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'slMux':slMux,'muxIfTable':muxIfTable,'muxIfEntry':muxIfEntry,_E:muxIfIndex,'muxIfType':muxIfType,'muxIfWaveSpacing':muxIfWaveSpacing,'muxIfWaveLengthNm':muxIfWaveLengthNm,'muxIfOscWaveLengthNm':muxIfOscWaveLengthNm})
+#
+# PySNMP MIB module SL-MUX-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/smartoptics/SL-MUX-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:09 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+PerfCurrentCount, PerfTotalCount, PerfIntervalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfCurrentCount", "PerfTotalCount", "PerfIntervalCount")
+CleiCode, = mibBuilder.importSymbols("SL-ENTITY-MIB", "CleiCode")
+sitelight, = mibBuilder.importSymbols("SL-NE-MIB", "sitelight")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+TimeStamp, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TruthValue", "TextualConvention")
+slMux = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 5))
+if mibBuilder.loadTexts: slMux.setLastUpdated('200008280000Z')
+if mibBuilder.loadTexts: slMux.setOrganization('SmartOptics AS')
+muxIfTable = MibTable((1, 3, 6, 1, 4, 1, 4515, 1, 5, 1), )
+if mibBuilder.loadTexts: muxIfTable.setStatus('current')
+muxIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4515, 1, 5, 1, 1), ).setIndexNames((0, "SL-MUX-MIB", "muxIfIndex"))
+if mibBuilder.loadTexts: muxIfEntry.setStatus('current')
+muxIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 5, 1, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: muxIfIndex.setStatus('current')
+muxIfType = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 5, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: muxIfType.setStatus('current')
+muxIfWaveSpacing = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 5, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("ghzNone", 0), ("ghz400", 1), ("ghz200", 2), ("ghz100", 3), ("ghz50", 4), ("ghz2500", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: muxIfWaveSpacing.setStatus('current')
+muxIfWaveLengthNm = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 5, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: muxIfWaveLengthNm.setStatus('current')
+muxIfOscWaveLengthNm = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 5, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: muxIfOscWaveLengthNm.setStatus('current')
+mibBuilder.exportSymbols("SL-MUX-MIB", muxIfEntry=muxIfEntry, muxIfWaveLengthNm=muxIfWaveLengthNm, muxIfIndex=muxIfIndex, muxIfTable=muxIfTable, muxIfType=muxIfType, muxIfOscWaveLengthNm=muxIfOscWaveLengthNm, muxIfWaveSpacing=muxIfWaveSpacing, slMux=slMux, PYSNMP_MODULE_ID=slMux)

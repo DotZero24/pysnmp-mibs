@@ -1,153 +1,80 @@
-_b='cwmWwnmVsanWwnGroup'
-_a='wwnmTypeOtherWwnAvailableNotify'
-_Z='wwnmTypeOtherWwnShortageNotify'
-_Y='wwnmType1WwnAvailableNotify'
-_X='wwnmType1WwnShortageNotify'
-_W='wwnmVsanWwnRowStatus'
-_V='wwnmVsanWwnStorageType'
-_U='wwnmVsanWwn'
-_T='wwnmTypeOtherReservedWwns'
-_S='wwnmType1ReservedWwns'
-_R='wwnmTypeOtherMaxWwns'
-_Q='wwnmType1MaxWwns'
-_P='wwnmSecondaryMacAddressRange'
-_O='wwnmSecondaryBaseMacAddress'
-_N='read-create'
-_M='read-write'
-_L='StorageType'
-_K='MacAddress'
-_J='vsanIndex'
-_I='CISCO-VSAN-MIB'
-_H='cwmWwnmNotificationGroup'
-_G='cwmWwnmConfigurationGroup'
-_F='wwnmTypeOtherAvailableWwns'
-_E='wwnmType1AvailableWwns'
-_D='Unsigned32'
-_C='read-only'
-_B='current'
-_A='CISCO-WWNMGR-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-FcNameId,=mibBuilder.importSymbols('CISCO-ST-TC','FcNameId')
-vsanIndex,=mibBuilder.importSymbols(_I,_J)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,StorageType,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString',_K,'PhysAddress','RowStatus',_L,'TextualConvention')
-ciscoWwnmgrMIB=ModuleIdentity((1,3,6,1,4,1,9,9,286))
-if mibBuilder.loadTexts:ciscoWwnmgrMIB.setRevisions(('2006-02-06 00:00','2002-10-01 00:00'))
-_CiscoWwnmMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoWwnmMIBObjects=_CiscoWwnmMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,286,1))
-_WwnmConfigurationGroup_ObjectIdentity=ObjectIdentity
-wwnmConfigurationGroup=_WwnmConfigurationGroup_ObjectIdentity((1,3,6,1,4,1,9,9,286,1,1))
-class _WwnmSecondaryBaseMacAddress_Type(MacAddress):defaultHexValue='000000000000'
-_WwnmSecondaryBaseMacAddress_Type.__name__=_K
-_WwnmSecondaryBaseMacAddress_Object=MibScalar
-wwnmSecondaryBaseMacAddress=_WwnmSecondaryBaseMacAddress_Object((1,3,6,1,4,1,9,9,286,1,1,1),_WwnmSecondaryBaseMacAddress_Type())
-wwnmSecondaryBaseMacAddress.setMaxAccess(_M)
-if mibBuilder.loadTexts:wwnmSecondaryBaseMacAddress.setStatus(_B)
-class _WwnmSecondaryMacAddressRange_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_WwnmSecondaryMacAddressRange_Type.__name__=_D
-_WwnmSecondaryMacAddressRange_Object=MibScalar
-wwnmSecondaryMacAddressRange=_WwnmSecondaryMacAddressRange_Object((1,3,6,1,4,1,9,9,286,1,1,2),_WwnmSecondaryMacAddressRange_Type())
-wwnmSecondaryMacAddressRange.setMaxAccess(_M)
-if mibBuilder.loadTexts:wwnmSecondaryMacAddressRange.setStatus(_B)
-class _WwnmType1MaxWwns_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_WwnmType1MaxWwns_Type.__name__=_D
-_WwnmType1MaxWwns_Object=MibScalar
-wwnmType1MaxWwns=_WwnmType1MaxWwns_Object((1,3,6,1,4,1,9,9,286,1,1,3),_WwnmType1MaxWwns_Type())
-wwnmType1MaxWwns.setMaxAccess(_C)
-if mibBuilder.loadTexts:wwnmType1MaxWwns.setStatus(_B)
-_WwnmType1AvailableWwns_Type=Gauge32
-_WwnmType1AvailableWwns_Object=MibScalar
-wwnmType1AvailableWwns=_WwnmType1AvailableWwns_Object((1,3,6,1,4,1,9,9,286,1,1,4),_WwnmType1AvailableWwns_Type())
-wwnmType1AvailableWwns.setMaxAccess(_C)
-if mibBuilder.loadTexts:wwnmType1AvailableWwns.setStatus(_B)
-class _WwnmTypeOtherMaxWwns_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_WwnmTypeOtherMaxWwns_Type.__name__=_D
-_WwnmTypeOtherMaxWwns_Object=MibScalar
-wwnmTypeOtherMaxWwns=_WwnmTypeOtherMaxWwns_Object((1,3,6,1,4,1,9,9,286,1,1,5),_WwnmTypeOtherMaxWwns_Type())
-wwnmTypeOtherMaxWwns.setMaxAccess(_C)
-if mibBuilder.loadTexts:wwnmTypeOtherMaxWwns.setStatus(_B)
-_WwnmTypeOtherAvailableWwns_Type=Gauge32
-_WwnmTypeOtherAvailableWwns_Object=MibScalar
-wwnmTypeOtherAvailableWwns=_WwnmTypeOtherAvailableWwns_Object((1,3,6,1,4,1,9,9,286,1,1,6),_WwnmTypeOtherAvailableWwns_Type())
-wwnmTypeOtherAvailableWwns.setMaxAccess(_C)
-if mibBuilder.loadTexts:wwnmTypeOtherAvailableWwns.setStatus(_B)
-class _WwnmType1ReservedWwns_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_WwnmType1ReservedWwns_Type.__name__=_D
-_WwnmType1ReservedWwns_Object=MibScalar
-wwnmType1ReservedWwns=_WwnmType1ReservedWwns_Object((1,3,6,1,4,1,9,9,286,1,1,7),_WwnmType1ReservedWwns_Type())
-wwnmType1ReservedWwns.setMaxAccess(_C)
-if mibBuilder.loadTexts:wwnmType1ReservedWwns.setStatus(_B)
-class _WwnmTypeOtherReservedWwns_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_WwnmTypeOtherReservedWwns_Type.__name__=_D
-_WwnmTypeOtherReservedWwns_Object=MibScalar
-wwnmTypeOtherReservedWwns=_WwnmTypeOtherReservedWwns_Object((1,3,6,1,4,1,9,9,286,1,1,8),_WwnmTypeOtherReservedWwns_Type())
-wwnmTypeOtherReservedWwns.setMaxAccess(_C)
-if mibBuilder.loadTexts:wwnmTypeOtherReservedWwns.setStatus(_B)
-_WwnmVsanWwnTable_Object=MibTable
-wwnmVsanWwnTable=_WwnmVsanWwnTable_Object((1,3,6,1,4,1,9,9,286,1,1,9))
-if mibBuilder.loadTexts:wwnmVsanWwnTable.setStatus(_B)
-_WwnmVsanWwnEntry_Object=MibTableRow
-wwnmVsanWwnEntry=_WwnmVsanWwnEntry_Object((1,3,6,1,4,1,9,9,286,1,1,9,1))
-wwnmVsanWwnEntry.setIndexNames((0,_I,_J))
-if mibBuilder.loadTexts:wwnmVsanWwnEntry.setStatus(_B)
-_WwnmVsanWwn_Type=FcNameId
-_WwnmVsanWwn_Object=MibTableColumn
-wwnmVsanWwn=_WwnmVsanWwn_Object((1,3,6,1,4,1,9,9,286,1,1,9,1,1),_WwnmVsanWwn_Type())
-wwnmVsanWwn.setMaxAccess(_N)
-if mibBuilder.loadTexts:wwnmVsanWwn.setStatus(_B)
-class _WwnmVsanWwnStorageType_Type(StorageType):defaultValue=3
-_WwnmVsanWwnStorageType_Type.__name__=_L
-_WwnmVsanWwnStorageType_Object=MibTableColumn
-wwnmVsanWwnStorageType=_WwnmVsanWwnStorageType_Object((1,3,6,1,4,1,9,9,286,1,1,9,1,2),_WwnmVsanWwnStorageType_Type())
-wwnmVsanWwnStorageType.setMaxAccess(_C)
-if mibBuilder.loadTexts:wwnmVsanWwnStorageType.setStatus(_B)
-_WwnmVsanWwnRowStatus_Type=RowStatus
-_WwnmVsanWwnRowStatus_Object=MibTableColumn
-wwnmVsanWwnRowStatus=_WwnmVsanWwnRowStatus_Object((1,3,6,1,4,1,9,9,286,1,1,9,1,3),_WwnmVsanWwnRowStatus_Type())
-wwnmVsanWwnRowStatus.setMaxAccess(_N)
-if mibBuilder.loadTexts:wwnmVsanWwnRowStatus.setStatus(_B)
-_WwnmNotificationGroup_ObjectIdentity=ObjectIdentity
-wwnmNotificationGroup=_WwnmNotificationGroup_ObjectIdentity((1,3,6,1,4,1,9,9,286,1,2))
-_WwnmNotification_ObjectIdentity=ObjectIdentity
-wwnmNotification=_WwnmNotification_ObjectIdentity((1,3,6,1,4,1,9,9,286,1,2,1))
-_WwnmNotificationPrefix_ObjectIdentity=ObjectIdentity
-wwnmNotificationPrefix=_WwnmNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,9,9,286,1,2,1,0))
-_CiscoWwnmMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoWwnmMIBConformance=_CiscoWwnmMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,286,2))
-_CiscoWwnmMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoWwnmMIBCompliances=_CiscoWwnmMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,286,2,1))
-_CiscoWwnmMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoWwnmMIBGroups=_CiscoWwnmMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,286,2,2))
-cwmWwnmConfigurationGroup=ObjectGroup((1,3,6,1,4,1,9,9,286,2,2,6))
-cwmWwnmConfigurationGroup.setObjects(*((_A,_O),(_A,_P),(_A,_Q),(_A,_E),(_A,_R),(_A,_F),(_A,_S),(_A,_T)))
-if mibBuilder.loadTexts:cwmWwnmConfigurationGroup.setStatus(_B)
-cwmWwnmVsanWwnGroup=ObjectGroup((1,3,6,1,4,1,9,9,286,2,2,9))
-cwmWwnmVsanWwnGroup.setObjects(*((_A,_U),(_A,_V),(_A,_W)))
-if mibBuilder.loadTexts:cwmWwnmVsanWwnGroup.setStatus(_B)
-wwnmType1WwnShortageNotify=NotificationType((1,3,6,1,4,1,9,9,286,1,2,1,0,1))
-wwnmType1WwnShortageNotify.setObjects((_A,_E))
-if mibBuilder.loadTexts:wwnmType1WwnShortageNotify.setStatus(_B)
-wwnmType1WwnAvailableNotify=NotificationType((1,3,6,1,4,1,9,9,286,1,2,1,0,2))
-wwnmType1WwnAvailableNotify.setObjects((_A,_E))
-if mibBuilder.loadTexts:wwnmType1WwnAvailableNotify.setStatus(_B)
-wwnmTypeOtherWwnShortageNotify=NotificationType((1,3,6,1,4,1,9,9,286,1,2,1,0,3))
-wwnmTypeOtherWwnShortageNotify.setObjects((_A,_F))
-if mibBuilder.loadTexts:wwnmTypeOtherWwnShortageNotify.setStatus(_B)
-wwnmTypeOtherWwnAvailableNotify=NotificationType((1,3,6,1,4,1,9,9,286,1,2,1,0,4))
-wwnmTypeOtherWwnAvailableNotify.setObjects((_A,_F))
-if mibBuilder.loadTexts:wwnmTypeOtherWwnAvailableNotify.setStatus(_B)
-cwmWwnmNotificationGroup=NotificationGroup((1,3,6,1,4,1,9,9,286,2,2,8))
-cwmWwnmNotificationGroup.setObjects(*((_A,_X),(_A,_Y),(_A,_Z),(_A,_a)))
-if mibBuilder.loadTexts:cwmWwnmNotificationGroup.setStatus(_B)
-ciscoWwnmMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,286,2,1,1))
-ciscoWwnmMIBCompliance.setObjects(*((_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:ciscoWwnmMIBCompliance.setStatus('deprecated')
-ciscoWwnmMIBCompliance1=ModuleCompliance((1,3,6,1,4,1,9,9,286,2,1,2))
-ciscoWwnmMIBCompliance1.setObjects(*((_A,_G),(_A,_b),(_A,_H)))
-if mibBuilder.loadTexts:ciscoWwnmMIBCompliance1.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'ciscoWwnmgrMIB':ciscoWwnmgrMIB,'ciscoWwnmMIBObjects':ciscoWwnmMIBObjects,'wwnmConfigurationGroup':wwnmConfigurationGroup,_O:wwnmSecondaryBaseMacAddress,_P:wwnmSecondaryMacAddressRange,_Q:wwnmType1MaxWwns,_E:wwnmType1AvailableWwns,_R:wwnmTypeOtherMaxWwns,_F:wwnmTypeOtherAvailableWwns,_S:wwnmType1ReservedWwns,_T:wwnmTypeOtherReservedWwns,'wwnmVsanWwnTable':wwnmVsanWwnTable,'wwnmVsanWwnEntry':wwnmVsanWwnEntry,_U:wwnmVsanWwn,_V:wwnmVsanWwnStorageType,_W:wwnmVsanWwnRowStatus,'wwnmNotificationGroup':wwnmNotificationGroup,'wwnmNotification':wwnmNotification,'wwnmNotificationPrefix':wwnmNotificationPrefix,_X:wwnmType1WwnShortageNotify,_Y:wwnmType1WwnAvailableNotify,_Z:wwnmTypeOtherWwnShortageNotify,_a:wwnmTypeOtherWwnAvailableNotify,'ciscoWwnmMIBConformance':ciscoWwnmMIBConformance,'ciscoWwnmMIBCompliances':ciscoWwnmMIBCompliances,'ciscoWwnmMIBCompliance':ciscoWwnmMIBCompliance,'ciscoWwnmMIBCompliance1':ciscoWwnmMIBCompliance1,'ciscoWwnmMIBGroups':ciscoWwnmMIBGroups,_G:cwmWwnmConfigurationGroup,_H:cwmWwnmNotificationGroup,_b:cwmWwnmVsanWwnGroup})
+#
+# PySNMP MIB module CISCO-WWNMGR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-WWNMGR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:13:21 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+FcNameId, = mibBuilder.importSymbols("CISCO-ST-TC", "FcNameId")
+vsanIndex, = mibBuilder.importSymbols("CISCO-VSAN-MIB", "vsanIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, StorageType, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "StorageType", "TextualConvention")
+ciscoWwnmgrMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 286))
+ciscoWwnmgrMIB.setRevisions(('2006-02-06 00:00', '2002-10-01 00:00',))
+if mibBuilder.loadTexts: ciscoWwnmgrMIB.setLastUpdated('200602060000Z')
+if mibBuilder.loadTexts: ciscoWwnmgrMIB.setOrganization('Cisco Systems Inc. ')
+ciscoWwnmMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 286, 1))
+wwnmConfigurationGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 1))
+wwnmNotificationGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 2))
+wwnmNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 2, 1))
+wwnmNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 2, 1, 0))
+wwnmSecondaryBaseMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 1, 1), MacAddress().clone(hexValue="000000000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwnmSecondaryBaseMacAddress.setStatus('current')
+wwnmSecondaryMacAddressRange = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwnmSecondaryMacAddressRange.setStatus('current')
+wwnmType1MaxWwns = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwnmType1MaxWwns.setStatus('current')
+wwnmType1AvailableWwns = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwnmType1AvailableWwns.setStatus('current')
+wwnmTypeOtherMaxWwns = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwnmTypeOtherMaxWwns.setStatus('current')
+wwnmTypeOtherAvailableWwns = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwnmTypeOtherAvailableWwns.setStatus('current')
+wwnmType1ReservedWwns = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwnmType1ReservedWwns.setStatus('current')
+wwnmTypeOtherReservedWwns = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwnmTypeOtherReservedWwns.setStatus('current')
+wwnmVsanWwnTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 1, 9), )
+if mibBuilder.loadTexts: wwnmVsanWwnTable.setStatus('current')
+wwnmVsanWwnEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 1, 9, 1), ).setIndexNames((0, "CISCO-VSAN-MIB", "vsanIndex"))
+if mibBuilder.loadTexts: wwnmVsanWwnEntry.setStatus('current')
+wwnmVsanWwn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 1, 9, 1, 1), FcNameId()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: wwnmVsanWwn.setStatus('current')
+wwnmVsanWwnStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 1, 9, 1, 2), StorageType().clone('nonVolatile')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwnmVsanWwnStorageType.setStatus('current')
+wwnmVsanWwnRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 1, 9, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: wwnmVsanWwnRowStatus.setStatus('current')
+wwnmType1WwnShortageNotify = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 2, 1, 0, 1)).setObjects(("CISCO-WWNMGR-MIB", "wwnmType1AvailableWwns"))
+if mibBuilder.loadTexts: wwnmType1WwnShortageNotify.setStatus('current')
+wwnmType1WwnAvailableNotify = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 2, 1, 0, 2)).setObjects(("CISCO-WWNMGR-MIB", "wwnmType1AvailableWwns"))
+if mibBuilder.loadTexts: wwnmType1WwnAvailableNotify.setStatus('current')
+wwnmTypeOtherWwnShortageNotify = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 2, 1, 0, 3)).setObjects(("CISCO-WWNMGR-MIB", "wwnmTypeOtherAvailableWwns"))
+if mibBuilder.loadTexts: wwnmTypeOtherWwnShortageNotify.setStatus('current')
+wwnmTypeOtherWwnAvailableNotify = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 286, 1, 2, 1, 0, 4)).setObjects(("CISCO-WWNMGR-MIB", "wwnmTypeOtherAvailableWwns"))
+if mibBuilder.loadTexts: wwnmTypeOtherWwnAvailableNotify.setStatus('current')
+ciscoWwnmMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 286, 2))
+ciscoWwnmMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 286, 2, 1))
+ciscoWwnmMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 286, 2, 2))
+ciscoWwnmMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 286, 2, 1, 1)).setObjects(("CISCO-WWNMGR-MIB", "cwmWwnmConfigurationGroup"), ("CISCO-WWNMGR-MIB", "cwmWwnmNotificationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWwnmMIBCompliance = ciscoWwnmMIBCompliance.setStatus('deprecated')
+ciscoWwnmMIBCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 286, 2, 1, 2)).setObjects(("CISCO-WWNMGR-MIB", "cwmWwnmConfigurationGroup"), ("CISCO-WWNMGR-MIB", "cwmWwnmVsanWwnGroup"), ("CISCO-WWNMGR-MIB", "cwmWwnmNotificationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWwnmMIBCompliance1 = ciscoWwnmMIBCompliance1.setStatus('current')
+cwmWwnmConfigurationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 286, 2, 2, 6)).setObjects(("CISCO-WWNMGR-MIB", "wwnmSecondaryBaseMacAddress"), ("CISCO-WWNMGR-MIB", "wwnmSecondaryMacAddressRange"), ("CISCO-WWNMGR-MIB", "wwnmType1MaxWwns"), ("CISCO-WWNMGR-MIB", "wwnmType1AvailableWwns"), ("CISCO-WWNMGR-MIB", "wwnmTypeOtherMaxWwns"), ("CISCO-WWNMGR-MIB", "wwnmTypeOtherAvailableWwns"), ("CISCO-WWNMGR-MIB", "wwnmType1ReservedWwns"), ("CISCO-WWNMGR-MIB", "wwnmTypeOtherReservedWwns"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cwmWwnmConfigurationGroup = cwmWwnmConfigurationGroup.setStatus('current')
+cwmWwnmNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 286, 2, 2, 8)).setObjects(("CISCO-WWNMGR-MIB", "wwnmType1WwnShortageNotify"), ("CISCO-WWNMGR-MIB", "wwnmType1WwnAvailableNotify"), ("CISCO-WWNMGR-MIB", "wwnmTypeOtherWwnShortageNotify"), ("CISCO-WWNMGR-MIB", "wwnmTypeOtherWwnAvailableNotify"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cwmWwnmNotificationGroup = cwmWwnmNotificationGroup.setStatus('current')
+cwmWwnmVsanWwnGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 286, 2, 2, 9)).setObjects(("CISCO-WWNMGR-MIB", "wwnmVsanWwn"), ("CISCO-WWNMGR-MIB", "wwnmVsanWwnStorageType"), ("CISCO-WWNMGR-MIB", "wwnmVsanWwnRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cwmWwnmVsanWwnGroup = cwmWwnmVsanWwnGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-WWNMGR-MIB", wwnmType1MaxWwns=wwnmType1MaxWwns, wwnmVsanWwnEntry=wwnmVsanWwnEntry, wwnmNotification=wwnmNotification, ciscoWwnmMIBCompliances=ciscoWwnmMIBCompliances, wwnmType1WwnAvailableNotify=wwnmType1WwnAvailableNotify, PYSNMP_MODULE_ID=ciscoWwnmgrMIB, wwnmVsanWwnRowStatus=wwnmVsanWwnRowStatus, wwnmType1ReservedWwns=wwnmType1ReservedWwns, cwmWwnmNotificationGroup=cwmWwnmNotificationGroup, wwnmNotificationGroup=wwnmNotificationGroup, wwnmVsanWwnTable=wwnmVsanWwnTable, ciscoWwnmMIBObjects=ciscoWwnmMIBObjects, wwnmTypeOtherAvailableWwns=wwnmTypeOtherAvailableWwns, wwnmSecondaryBaseMacAddress=wwnmSecondaryBaseMacAddress, cwmWwnmConfigurationGroup=cwmWwnmConfigurationGroup, ciscoWwnmMIBConformance=ciscoWwnmMIBConformance, wwnmSecondaryMacAddressRange=wwnmSecondaryMacAddressRange, wwnmConfigurationGroup=wwnmConfigurationGroup, wwnmVsanWwn=wwnmVsanWwn, wwnmTypeOtherReservedWwns=wwnmTypeOtherReservedWwns, ciscoWwnmgrMIB=ciscoWwnmgrMIB, ciscoWwnmMIBCompliance1=ciscoWwnmMIBCompliance1, cwmWwnmVsanWwnGroup=cwmWwnmVsanWwnGroup, ciscoWwnmMIBGroups=ciscoWwnmMIBGroups, wwnmType1WwnShortageNotify=wwnmType1WwnShortageNotify, wwnmNotificationPrefix=wwnmNotificationPrefix, wwnmTypeOtherMaxWwns=wwnmTypeOtherMaxWwns, wwnmVsanWwnStorageType=wwnmVsanWwnStorageType, wwnmTypeOtherWwnAvailableNotify=wwnmTypeOtherWwnAvailableNotify, wwnmTypeOtherWwnShortageNotify=wwnmTypeOtherWwnShortageNotify, ciscoWwnmMIBCompliance=ciscoWwnmMIBCompliance, wwnmType1AvailableWwns=wwnmType1AvailableWwns)

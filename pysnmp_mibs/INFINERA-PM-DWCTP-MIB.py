@@ -1,241 +1,108 @@
-_m='dwCtpPmRealGroup'
-_l='dwCtpPmGroup'
-_k='dwCtpPmRealPropagationDelay'
-_j='dwCtpPmRealCorrectedBits'
-_i='dwCtpPmRealUnCorrectedBits'
-_h='dwCtpPmRealBerPostFec'
-_g='dwCtpPmRealBerPreFec'
-_f='dwCtpPmRealPreFecQ'
-_e='dwCtpPmRealPostFecQ'
-_d='dwCtpPmRealFecUncorCodeWords'
-_c='dwCtpPmRealFecCodeWords'
-_b='dwCtpPmPropagationDelayAve'
-_a='dwCtpPmPropagationDelayMax'
-_Z='dwCtpPmPropagationDelayMin'
-_Y='dwCtpPmCorrectedBits'
-_X='dwCtpPmUnCorrectedBits'
-_W='dwCtpPmBerPostFecAve'
-_V='dwCtpPmBerPostFecMax'
-_U='dwCtpPmBerPostFecMin'
-_T='dwCtpPmBerPreFecAve'
-_S='dwCtpPmBerPreFecMax'
-_R='dwCtpPmBerPreFecMin'
-_Q='dwCtpPmPreFecQAve'
-_P='dwCtpPmPreFecQMax'
-_O='dwCtpPmPreFecQMin'
-_N='dwCtpPmPostFecQave'
-_M='dwCtpPmPostFecQmax'
-_L='dwCtpPmPostFecQmin'
-_K='dwCtpPmFecUncorCodeWords'
-_J='dwCtpPmFecCodeWords'
-_I='not-accessible'
-_H='dwCtpPmTimestamp'
-_G='dwCtpPmSampleDuration'
-_F='Integer32'
-_E='ifIndex'
-_D='IF-MIB'
-_C='read-only'
-_B='INFINERA-PM-DWCTP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-perfMon,=mibBuilder.importSymbols('INFINERA-REG-MIB','perfMon')
-FloatArbitraryPrecision,=mibBuilder.importSymbols('INFINERA-TC-MIB','FloatArbitraryPrecision')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-dwCtpPmMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,3,47))
-if mibBuilder.loadTexts:dwCtpPmMIB.setRevisions(('2017-01-03 00:00',))
-_DwCtpPmRealTable_Object=MibTable
-dwCtpPmRealTable=_DwCtpPmRealTable_Object((1,3,6,1,4,1,21296,2,2,2,3,47,1))
-if mibBuilder.loadTexts:dwCtpPmRealTable.setStatus(_A)
-_DwCtpPmRealEntry_Object=MibTableRow
-dwCtpPmRealEntry=_DwCtpPmRealEntry_Object((1,3,6,1,4,1,21296,2,2,2,3,47,1,1))
-dwCtpPmRealEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:dwCtpPmRealEntry.setStatus(_A)
-_DwCtpPmRealFecCodeWords_Type=Counter64
-_DwCtpPmRealFecCodeWords_Object=MibTableColumn
-dwCtpPmRealFecCodeWords=_DwCtpPmRealFecCodeWords_Object((1,3,6,1,4,1,21296,2,2,2,3,47,1,1,1),_DwCtpPmRealFecCodeWords_Type())
-dwCtpPmRealFecCodeWords.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmRealFecCodeWords.setStatus(_A)
-_DwCtpPmRealFecUncorCodeWords_Type=Counter64
-_DwCtpPmRealFecUncorCodeWords_Object=MibTableColumn
-dwCtpPmRealFecUncorCodeWords=_DwCtpPmRealFecUncorCodeWords_Object((1,3,6,1,4,1,21296,2,2,2,3,47,1,1,2),_DwCtpPmRealFecUncorCodeWords_Type())
-dwCtpPmRealFecUncorCodeWords.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmRealFecUncorCodeWords.setStatus(_A)
-_DwCtpPmRealPostFecQ_Type=FloatArbitraryPrecision
-_DwCtpPmRealPostFecQ_Object=MibTableColumn
-dwCtpPmRealPostFecQ=_DwCtpPmRealPostFecQ_Object((1,3,6,1,4,1,21296,2,2,2,3,47,1,1,3),_DwCtpPmRealPostFecQ_Type())
-dwCtpPmRealPostFecQ.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmRealPostFecQ.setStatus(_A)
-_DwCtpPmRealPreFecQ_Type=FloatArbitraryPrecision
-_DwCtpPmRealPreFecQ_Object=MibTableColumn
-dwCtpPmRealPreFecQ=_DwCtpPmRealPreFecQ_Object((1,3,6,1,4,1,21296,2,2,2,3,47,1,1,4),_DwCtpPmRealPreFecQ_Type())
-dwCtpPmRealPreFecQ.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmRealPreFecQ.setStatus(_A)
-_DwCtpPmRealBerPreFec_Type=FloatArbitraryPrecision
-_DwCtpPmRealBerPreFec_Object=MibTableColumn
-dwCtpPmRealBerPreFec=_DwCtpPmRealBerPreFec_Object((1,3,6,1,4,1,21296,2,2,2,3,47,1,1,5),_DwCtpPmRealBerPreFec_Type())
-dwCtpPmRealBerPreFec.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmRealBerPreFec.setStatus(_A)
-_DwCtpPmRealBerPostFec_Type=FloatArbitraryPrecision
-_DwCtpPmRealBerPostFec_Object=MibTableColumn
-dwCtpPmRealBerPostFec=_DwCtpPmRealBerPostFec_Object((1,3,6,1,4,1,21296,2,2,2,3,47,1,1,6),_DwCtpPmRealBerPostFec_Type())
-dwCtpPmRealBerPostFec.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmRealBerPostFec.setStatus(_A)
-_DwCtpPmRealUnCorrectedBits_Type=Counter64
-_DwCtpPmRealUnCorrectedBits_Object=MibTableColumn
-dwCtpPmRealUnCorrectedBits=_DwCtpPmRealUnCorrectedBits_Object((1,3,6,1,4,1,21296,2,2,2,3,47,1,1,7),_DwCtpPmRealUnCorrectedBits_Type())
-dwCtpPmRealUnCorrectedBits.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmRealUnCorrectedBits.setStatus(_A)
-_DwCtpPmRealCorrectedBits_Type=Counter64
-_DwCtpPmRealCorrectedBits_Object=MibTableColumn
-dwCtpPmRealCorrectedBits=_DwCtpPmRealCorrectedBits_Object((1,3,6,1,4,1,21296,2,2,2,3,47,1,1,8),_DwCtpPmRealCorrectedBits_Type())
-dwCtpPmRealCorrectedBits.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmRealCorrectedBits.setStatus(_A)
-_DwCtpPmRealPropagationDelay_Type=FloatArbitraryPrecision
-_DwCtpPmRealPropagationDelay_Object=MibTableColumn
-dwCtpPmRealPropagationDelay=_DwCtpPmRealPropagationDelay_Object((1,3,6,1,4,1,21296,2,2,2,3,47,1,1,9),_DwCtpPmRealPropagationDelay_Type())
-dwCtpPmRealPropagationDelay.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmRealPropagationDelay.setStatus(_A)
-_DwCtpPmTable_Object=MibTable
-dwCtpPmTable=_DwCtpPmTable_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2))
-if mibBuilder.loadTexts:dwCtpPmTable.setStatus(_A)
-_DwCtpPmEntry_Object=MibTableRow
-dwCtpPmEntry=_DwCtpPmEntry_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1))
-dwCtpPmEntry.setIndexNames((0,_D,_E),(0,_B,_G),(0,_B,_H))
-if mibBuilder.loadTexts:dwCtpPmEntry.setStatus(_A)
-class _DwCtpPmTimestamp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_DwCtpPmTimestamp_Type.__name__=_F
-_DwCtpPmTimestamp_Object=MibTableColumn
-dwCtpPmTimestamp=_DwCtpPmTimestamp_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,1),_DwCtpPmTimestamp_Type())
-dwCtpPmTimestamp.setMaxAccess(_I)
-if mibBuilder.loadTexts:dwCtpPmTimestamp.setStatus(_A)
-class _DwCtpPmSampleDuration_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('fifteenMinutes',1),('day',2)))
-_DwCtpPmSampleDuration_Type.__name__=_F
-_DwCtpPmSampleDuration_Object=MibTableColumn
-dwCtpPmSampleDuration=_DwCtpPmSampleDuration_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,2),_DwCtpPmSampleDuration_Type())
-dwCtpPmSampleDuration.setMaxAccess(_I)
-if mibBuilder.loadTexts:dwCtpPmSampleDuration.setStatus(_A)
-_DwCtpPmValidity_Type=TruthValue
-_DwCtpPmValidity_Object=MibTableColumn
-dwCtpPmValidity=_DwCtpPmValidity_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,3),_DwCtpPmValidity_Type())
-dwCtpPmValidity.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmValidity.setStatus(_A)
-_DwCtpPmFecCodeWords_Type=Counter64
-_DwCtpPmFecCodeWords_Object=MibTableColumn
-dwCtpPmFecCodeWords=_DwCtpPmFecCodeWords_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,4),_DwCtpPmFecCodeWords_Type())
-dwCtpPmFecCodeWords.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmFecCodeWords.setStatus(_A)
-_DwCtpPmFecUncorCodeWords_Type=Counter64
-_DwCtpPmFecUncorCodeWords_Object=MibTableColumn
-dwCtpPmFecUncorCodeWords=_DwCtpPmFecUncorCodeWords_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,5),_DwCtpPmFecUncorCodeWords_Type())
-dwCtpPmFecUncorCodeWords.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmFecUncorCodeWords.setStatus(_A)
-_DwCtpPmPostFecQmin_Type=FloatArbitraryPrecision
-_DwCtpPmPostFecQmin_Object=MibTableColumn
-dwCtpPmPostFecQmin=_DwCtpPmPostFecQmin_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,6),_DwCtpPmPostFecQmin_Type())
-dwCtpPmPostFecQmin.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmPostFecQmin.setStatus(_A)
-_DwCtpPmPostFecQmax_Type=FloatArbitraryPrecision
-_DwCtpPmPostFecQmax_Object=MibTableColumn
-dwCtpPmPostFecQmax=_DwCtpPmPostFecQmax_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,7),_DwCtpPmPostFecQmax_Type())
-dwCtpPmPostFecQmax.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmPostFecQmax.setStatus(_A)
-_DwCtpPmPostFecQave_Type=FloatArbitraryPrecision
-_DwCtpPmPostFecQave_Object=MibTableColumn
-dwCtpPmPostFecQave=_DwCtpPmPostFecQave_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,8),_DwCtpPmPostFecQave_Type())
-dwCtpPmPostFecQave.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmPostFecQave.setStatus(_A)
-_DwCtpPmPreFecQMin_Type=FloatArbitraryPrecision
-_DwCtpPmPreFecQMin_Object=MibTableColumn
-dwCtpPmPreFecQMin=_DwCtpPmPreFecQMin_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,9),_DwCtpPmPreFecQMin_Type())
-dwCtpPmPreFecQMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmPreFecQMin.setStatus(_A)
-_DwCtpPmPreFecQMax_Type=FloatArbitraryPrecision
-_DwCtpPmPreFecQMax_Object=MibTableColumn
-dwCtpPmPreFecQMax=_DwCtpPmPreFecQMax_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,10),_DwCtpPmPreFecQMax_Type())
-dwCtpPmPreFecQMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmPreFecQMax.setStatus(_A)
-_DwCtpPmPreFecQAve_Type=FloatArbitraryPrecision
-_DwCtpPmPreFecQAve_Object=MibTableColumn
-dwCtpPmPreFecQAve=_DwCtpPmPreFecQAve_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,11),_DwCtpPmPreFecQAve_Type())
-dwCtpPmPreFecQAve.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmPreFecQAve.setStatus(_A)
-_DwCtpPmBerPreFecMin_Type=FloatArbitraryPrecision
-_DwCtpPmBerPreFecMin_Object=MibTableColumn
-dwCtpPmBerPreFecMin=_DwCtpPmBerPreFecMin_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,12),_DwCtpPmBerPreFecMin_Type())
-dwCtpPmBerPreFecMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmBerPreFecMin.setStatus(_A)
-_DwCtpPmBerPreFecMax_Type=FloatArbitraryPrecision
-_DwCtpPmBerPreFecMax_Object=MibTableColumn
-dwCtpPmBerPreFecMax=_DwCtpPmBerPreFecMax_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,13),_DwCtpPmBerPreFecMax_Type())
-dwCtpPmBerPreFecMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmBerPreFecMax.setStatus(_A)
-_DwCtpPmBerPreFecAve_Type=FloatArbitraryPrecision
-_DwCtpPmBerPreFecAve_Object=MibTableColumn
-dwCtpPmBerPreFecAve=_DwCtpPmBerPreFecAve_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,14),_DwCtpPmBerPreFecAve_Type())
-dwCtpPmBerPreFecAve.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmBerPreFecAve.setStatus(_A)
-_DwCtpPmBerPostFecMin_Type=FloatArbitraryPrecision
-_DwCtpPmBerPostFecMin_Object=MibTableColumn
-dwCtpPmBerPostFecMin=_DwCtpPmBerPostFecMin_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,15),_DwCtpPmBerPostFecMin_Type())
-dwCtpPmBerPostFecMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmBerPostFecMin.setStatus(_A)
-_DwCtpPmBerPostFecMax_Type=FloatArbitraryPrecision
-_DwCtpPmBerPostFecMax_Object=MibTableColumn
-dwCtpPmBerPostFecMax=_DwCtpPmBerPostFecMax_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,16),_DwCtpPmBerPostFecMax_Type())
-dwCtpPmBerPostFecMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmBerPostFecMax.setStatus(_A)
-_DwCtpPmBerPostFecAve_Type=FloatArbitraryPrecision
-_DwCtpPmBerPostFecAve_Object=MibTableColumn
-dwCtpPmBerPostFecAve=_DwCtpPmBerPostFecAve_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,17),_DwCtpPmBerPostFecAve_Type())
-dwCtpPmBerPostFecAve.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmBerPostFecAve.setStatus(_A)
-_DwCtpPmUnCorrectedBits_Type=Counter64
-_DwCtpPmUnCorrectedBits_Object=MibTableColumn
-dwCtpPmUnCorrectedBits=_DwCtpPmUnCorrectedBits_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,18),_DwCtpPmUnCorrectedBits_Type())
-dwCtpPmUnCorrectedBits.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmUnCorrectedBits.setStatus(_A)
-_DwCtpPmCorrectedBits_Type=Counter64
-_DwCtpPmCorrectedBits_Object=MibTableColumn
-dwCtpPmCorrectedBits=_DwCtpPmCorrectedBits_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,19),_DwCtpPmCorrectedBits_Type())
-dwCtpPmCorrectedBits.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmCorrectedBits.setStatus(_A)
-_DwCtpPmPropagationDelayMin_Type=FloatArbitraryPrecision
-_DwCtpPmPropagationDelayMin_Object=MibTableColumn
-dwCtpPmPropagationDelayMin=_DwCtpPmPropagationDelayMin_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,20),_DwCtpPmPropagationDelayMin_Type())
-dwCtpPmPropagationDelayMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmPropagationDelayMin.setStatus(_A)
-_DwCtpPmPropagationDelayMax_Type=FloatArbitraryPrecision
-_DwCtpPmPropagationDelayMax_Object=MibTableColumn
-dwCtpPmPropagationDelayMax=_DwCtpPmPropagationDelayMax_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,21),_DwCtpPmPropagationDelayMax_Type())
-dwCtpPmPropagationDelayMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmPropagationDelayMax.setStatus(_A)
-_DwCtpPmPropagationDelayAve_Type=FloatArbitraryPrecision
-_DwCtpPmPropagationDelayAve_Object=MibTableColumn
-dwCtpPmPropagationDelayAve=_DwCtpPmPropagationDelayAve_Object((1,3,6,1,4,1,21296,2,2,2,3,47,2,1,22),_DwCtpPmPropagationDelayAve_Type())
-dwCtpPmPropagationDelayAve.setMaxAccess(_C)
-if mibBuilder.loadTexts:dwCtpPmPropagationDelayAve.setStatus(_A)
-_DwCtpPmConformance_ObjectIdentity=ObjectIdentity
-dwCtpPmConformance=_DwCtpPmConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,3,47,3))
-_DwCtpPmCompliances_ObjectIdentity=ObjectIdentity
-dwCtpPmCompliances=_DwCtpPmCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,3,47,3,1))
-_DwCtpPmGroups_ObjectIdentity=ObjectIdentity
-dwCtpPmGroups=_DwCtpPmGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,3,47,3,2))
-dwCtpPmGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,3,47,3,2,1))
-dwCtpPmGroup.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b)))
-if mibBuilder.loadTexts:dwCtpPmGroup.setStatus(_A)
-dwCtpPmRealGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,3,47,3,2,2))
-dwCtpPmRealGroup.setObjects(*((_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k)))
-if mibBuilder.loadTexts:dwCtpPmRealGroup.setStatus(_A)
-dwCtpPmCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,3,47,3,1,1))
-dwCtpPmCompliance.setObjects((_B,_l))
-if mibBuilder.loadTexts:dwCtpPmCompliance.setStatus(_A)
-dwCtpPmRealCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,3,47,3,1,2))
-dwCtpPmRealCompliance.setObjects((_B,_m))
-if mibBuilder.loadTexts:dwCtpPmRealCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'dwCtpPmMIB':dwCtpPmMIB,'dwCtpPmRealTable':dwCtpPmRealTable,'dwCtpPmRealEntry':dwCtpPmRealEntry,_c:dwCtpPmRealFecCodeWords,_d:dwCtpPmRealFecUncorCodeWords,_e:dwCtpPmRealPostFecQ,_f:dwCtpPmRealPreFecQ,_g:dwCtpPmRealBerPreFec,_h:dwCtpPmRealBerPostFec,_i:dwCtpPmRealUnCorrectedBits,_j:dwCtpPmRealCorrectedBits,_k:dwCtpPmRealPropagationDelay,'dwCtpPmTable':dwCtpPmTable,'dwCtpPmEntry':dwCtpPmEntry,_H:dwCtpPmTimestamp,_G:dwCtpPmSampleDuration,'dwCtpPmValidity':dwCtpPmValidity,_J:dwCtpPmFecCodeWords,_K:dwCtpPmFecUncorCodeWords,_L:dwCtpPmPostFecQmin,_M:dwCtpPmPostFecQmax,_N:dwCtpPmPostFecQave,_O:dwCtpPmPreFecQMin,_P:dwCtpPmPreFecQMax,_Q:dwCtpPmPreFecQAve,_R:dwCtpPmBerPreFecMin,_S:dwCtpPmBerPreFecMax,_T:dwCtpPmBerPreFecAve,_U:dwCtpPmBerPostFecMin,_V:dwCtpPmBerPostFecMax,_W:dwCtpPmBerPostFecAve,_X:dwCtpPmUnCorrectedBits,_Y:dwCtpPmCorrectedBits,_Z:dwCtpPmPropagationDelayMin,_a:dwCtpPmPropagationDelayMax,_b:dwCtpPmPropagationDelayAve,'dwCtpPmConformance':dwCtpPmConformance,'dwCtpPmCompliances':dwCtpPmCompliances,'dwCtpPmCompliance':dwCtpPmCompliance,'dwCtpPmRealCompliance':dwCtpPmRealCompliance,'dwCtpPmGroups':dwCtpPmGroups,_l:dwCtpPmGroup,_m:dwCtpPmRealGroup})
+#
+# PySNMP MIB module INFINERA-PM-DWCTP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-PM-DWCTP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:59 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+perfMon, = mibBuilder.importSymbols("INFINERA-REG-MIB", "perfMon")
+FloatArbitraryPrecision, = mibBuilder.importSymbols("INFINERA-TC-MIB", "FloatArbitraryPrecision")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+dwCtpPmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47))
+dwCtpPmMIB.setRevisions(('2017-01-03 00:00',))
+if mibBuilder.loadTexts: dwCtpPmMIB.setLastUpdated('201702030000Z')
+if mibBuilder.loadTexts: dwCtpPmMIB.setOrganization('Infinera')
+dwCtpPmTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2), )
+if mibBuilder.loadTexts: dwCtpPmTable.setStatus('current')
+dwCtpPmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "INFINERA-PM-DWCTP-MIB", "dwCtpPmSampleDuration"), (0, "INFINERA-PM-DWCTP-MIB", "dwCtpPmTimestamp"))
+if mibBuilder.loadTexts: dwCtpPmEntry.setStatus('current')
+dwCtpPmTimestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
+if mibBuilder.loadTexts: dwCtpPmTimestamp.setStatus('current')
+dwCtpPmSampleDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("fifteenMinutes", 1), ("day", 2))))
+if mibBuilder.loadTexts: dwCtpPmSampleDuration.setStatus('current')
+dwCtpPmValidity = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmValidity.setStatus('current')
+dwCtpPmFecCodeWords = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmFecCodeWords.setStatus('current')
+dwCtpPmFecUncorCodeWords = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmFecUncorCodeWords.setStatus('current')
+dwCtpPmPostFecQmin = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 6), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmPostFecQmin.setStatus('current')
+dwCtpPmPostFecQmax = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 7), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmPostFecQmax.setStatus('current')
+dwCtpPmPostFecQave = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 8), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmPostFecQave.setStatus('current')
+dwCtpPmPreFecQMin = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 9), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmPreFecQMin.setStatus('current')
+dwCtpPmPreFecQMax = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 10), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmPreFecQMax.setStatus('current')
+dwCtpPmPreFecQAve = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 11), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmPreFecQAve.setStatus('current')
+dwCtpPmBerPreFecMin = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 12), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmBerPreFecMin.setStatus('current')
+dwCtpPmBerPreFecMax = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 13), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmBerPreFecMax.setStatus('current')
+dwCtpPmBerPreFecAve = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 14), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmBerPreFecAve.setStatus('current')
+dwCtpPmBerPostFecMin = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 15), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmBerPostFecMin.setStatus('current')
+dwCtpPmBerPostFecMax = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 16), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmBerPostFecMax.setStatus('current')
+dwCtpPmBerPostFecAve = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 17), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmBerPostFecAve.setStatus('current')
+dwCtpPmUnCorrectedBits = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 18), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmUnCorrectedBits.setStatus('current')
+dwCtpPmCorrectedBits = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 19), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmCorrectedBits.setStatus('current')
+dwCtpPmPropagationDelayMin = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 20), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmPropagationDelayMin.setStatus('current')
+dwCtpPmPropagationDelayMax = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 21), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmPropagationDelayMax.setStatus('current')
+dwCtpPmPropagationDelayAve = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 2, 1, 22), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmPropagationDelayAve.setStatus('current')
+dwCtpPmRealTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 1), )
+if mibBuilder.loadTexts: dwCtpPmRealTable.setStatus('current')
+dwCtpPmRealEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: dwCtpPmRealEntry.setStatus('current')
+dwCtpPmRealFecCodeWords = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 1, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmRealFecCodeWords.setStatus('current')
+dwCtpPmRealFecUncorCodeWords = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 1, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmRealFecUncorCodeWords.setStatus('current')
+dwCtpPmRealPostFecQ = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 1, 1, 3), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmRealPostFecQ.setStatus('current')
+dwCtpPmRealPreFecQ = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 1, 1, 4), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmRealPreFecQ.setStatus('current')
+dwCtpPmRealBerPreFec = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 1, 1, 5), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmRealBerPreFec.setStatus('current')
+dwCtpPmRealBerPostFec = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 1, 1, 6), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmRealBerPostFec.setStatus('current')
+dwCtpPmRealUnCorrectedBits = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 1, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmRealUnCorrectedBits.setStatus('current')
+dwCtpPmRealCorrectedBits = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 1, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmRealCorrectedBits.setStatus('current')
+dwCtpPmRealPropagationDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 1, 1, 9), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dwCtpPmRealPropagationDelay.setStatus('current')
+dwCtpPmConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 3))
+dwCtpPmCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 3, 1))
+dwCtpPmGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 3, 2))
+dwCtpPmCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 3, 1, 1)).setObjects(("INFINERA-PM-DWCTP-MIB", "dwCtpPmGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dwCtpPmCompliance = dwCtpPmCompliance.setStatus('current')
+dwCtpPmRealCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 3, 1, 2)).setObjects(("INFINERA-PM-DWCTP-MIB", "dwCtpPmRealGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dwCtpPmRealCompliance = dwCtpPmRealCompliance.setStatus('current')
+dwCtpPmGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 3, 2, 1)).setObjects(("INFINERA-PM-DWCTP-MIB", "dwCtpPmFecCodeWords"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmFecUncorCodeWords"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmPostFecQmin"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmPostFecQmax"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmPostFecQave"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmPreFecQMin"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmPreFecQMax"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmPreFecQAve"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmBerPreFecMin"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmBerPreFecMax"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmBerPreFecAve"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmBerPostFecMin"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmBerPostFecMax"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmBerPostFecAve"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmUnCorrectedBits"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmCorrectedBits"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmPropagationDelayMin"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmPropagationDelayMax"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmPropagationDelayAve"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dwCtpPmGroup = dwCtpPmGroup.setStatus('current')
+dwCtpPmRealGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 47, 3, 2, 2)).setObjects(("INFINERA-PM-DWCTP-MIB", "dwCtpPmRealFecCodeWords"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmRealFecUncorCodeWords"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmRealPostFecQ"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmRealPreFecQ"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmRealBerPreFec"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmRealBerPostFec"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmRealUnCorrectedBits"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmRealCorrectedBits"), ("INFINERA-PM-DWCTP-MIB", "dwCtpPmRealPropagationDelay"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dwCtpPmRealGroup = dwCtpPmRealGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-PM-DWCTP-MIB", dwCtpPmRealPreFecQ=dwCtpPmRealPreFecQ, dwCtpPmBerPostFecAve=dwCtpPmBerPostFecAve, dwCtpPmCompliance=dwCtpPmCompliance, dwCtpPmPropagationDelayMax=dwCtpPmPropagationDelayMax, dwCtpPmPreFecQMax=dwCtpPmPreFecQMax, dwCtpPmConformance=dwCtpPmConformance, dwCtpPmRealBerPreFec=dwCtpPmRealBerPreFec, dwCtpPmTable=dwCtpPmTable, dwCtpPmRealFecUncorCodeWords=dwCtpPmRealFecUncorCodeWords, dwCtpPmBerPostFecMax=dwCtpPmBerPostFecMax, dwCtpPmRealFecCodeWords=dwCtpPmRealFecCodeWords, dwCtpPmRealCorrectedBits=dwCtpPmRealCorrectedBits, dwCtpPmSampleDuration=dwCtpPmSampleDuration, dwCtpPmRealTable=dwCtpPmRealTable, dwCtpPmValidity=dwCtpPmValidity, dwCtpPmPostFecQmin=dwCtpPmPostFecQmin, dwCtpPmRealUnCorrectedBits=dwCtpPmRealUnCorrectedBits, dwCtpPmGroups=dwCtpPmGroups, dwCtpPmBerPostFecMin=dwCtpPmBerPostFecMin, dwCtpPmBerPreFecAve=dwCtpPmBerPreFecAve, dwCtpPmFecCodeWords=dwCtpPmFecCodeWords, dwCtpPmPropagationDelayMin=dwCtpPmPropagationDelayMin, dwCtpPmEntry=dwCtpPmEntry, dwCtpPmBerPreFecMax=dwCtpPmBerPreFecMax, PYSNMP_MODULE_ID=dwCtpPmMIB, dwCtpPmCompliances=dwCtpPmCompliances, dwCtpPmPropagationDelayAve=dwCtpPmPropagationDelayAve, dwCtpPmGroup=dwCtpPmGroup, dwCtpPmTimestamp=dwCtpPmTimestamp, dwCtpPmPostFecQave=dwCtpPmPostFecQave, dwCtpPmRealEntry=dwCtpPmRealEntry, dwCtpPmCorrectedBits=dwCtpPmCorrectedBits, dwCtpPmRealPostFecQ=dwCtpPmRealPostFecQ, dwCtpPmRealCompliance=dwCtpPmRealCompliance, dwCtpPmFecUncorCodeWords=dwCtpPmFecUncorCodeWords, dwCtpPmMIB=dwCtpPmMIB, dwCtpPmUnCorrectedBits=dwCtpPmUnCorrectedBits, dwCtpPmRealBerPostFec=dwCtpPmRealBerPostFec, dwCtpPmPreFecQMin=dwCtpPmPreFecQMin, dwCtpPmBerPreFecMin=dwCtpPmBerPreFecMin, dwCtpPmRealPropagationDelay=dwCtpPmRealPropagationDelay, dwCtpPmRealGroup=dwCtpPmRealGroup, dwCtpPmPreFecQAve=dwCtpPmPreFecQAve, dwCtpPmPostFecQmax=dwCtpPmPostFecQmax)

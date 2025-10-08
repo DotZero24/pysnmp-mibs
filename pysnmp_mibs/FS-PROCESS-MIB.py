@@ -1,181 +1,92 @@
-_U='fsCPUUtilizationMIBGroup'
-_T='fsNodeCPUTotalCritical'
-_S='fsNodeCPUTotalWarning'
-_R='fsNodeCPUTotal5min'
-_Q='fsNodeCPUTotal1min'
-_P='fsNodeCPUTotal5sec'
-_O='fsNodeCPUTotalName'
-_N='fsCPUUtilizationCurrent'
-_M='fsCPUUtilizationCollectSwitch'
-_L='fsCPUMaxUtilization5Min'
-_K='fsCPUMaxUtilization1Min'
-_J='fsCPUMaxUtilization5Sec'
-_I='fsCPUUtilization5Min'
-_H='fsCPUUtilization1Min'
-_G='fsCPUUtilization5Sec'
-_F='fsLankApCPUMacAddr'
-_E='fsNodeCPUTotalIndex'
-_D='read-write'
-_C='read-only'
-_B='FS-PROCESS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fsMgmt,=mibBuilder.importSymbols('FS-SMI','fsMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention')
-fsProcessMIB=ModuleIdentity((1,3,6,1,4,1,52642,1,1,10,2,36))
-if mibBuilder.loadTexts:fsProcessMIB.setRevisions(('2003-10-14 00:00',))
-class Percent(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_FsCPUMIBObjects_ObjectIdentity=ObjectIdentity
-fsCPUMIBObjects=_FsCPUMIBObjects_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,36,1))
-_FsCpuGeneralMibsGroup_ObjectIdentity=ObjectIdentity
-fsCpuGeneralMibsGroup=_FsCpuGeneralMibsGroup_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,36,1,1))
-_FsCPUUtilization5Sec_Type=Percent
-_FsCPUUtilization5Sec_Object=MibScalar
-fsCPUUtilization5Sec=_FsCPUUtilization5Sec_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,1,1),_FsCPUUtilization5Sec_Type())
-fsCPUUtilization5Sec.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsCPUUtilization5Sec.setStatus(_A)
-_FsCPUUtilization1Min_Type=Percent
-_FsCPUUtilization1Min_Object=MibScalar
-fsCPUUtilization1Min=_FsCPUUtilization1Min_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,1,2),_FsCPUUtilization1Min_Type())
-fsCPUUtilization1Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsCPUUtilization1Min.setStatus(_A)
-_FsCPUUtilization5Min_Type=Percent
-_FsCPUUtilization5Min_Object=MibScalar
-fsCPUUtilization5Min=_FsCPUUtilization5Min_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,1,3),_FsCPUUtilization5Min_Type())
-fsCPUUtilization5Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsCPUUtilization5Min.setStatus(_A)
-_FsCPUUtilizationWarning_Type=Percent
-_FsCPUUtilizationWarning_Object=MibScalar
-fsCPUUtilizationWarning=_FsCPUUtilizationWarning_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,1,4),_FsCPUUtilizationWarning_Type())
-fsCPUUtilizationWarning.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsCPUUtilizationWarning.setStatus(_A)
-_FsCPUUtilizationCritical_Type=Percent
-_FsCPUUtilizationCritical_Object=MibScalar
-fsCPUUtilizationCritical=_FsCPUUtilizationCritical_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,1,5),_FsCPUUtilizationCritical_Type())
-fsCPUUtilizationCritical.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsCPUUtilizationCritical.setStatus(_A)
-_FsCPUMaxUtilization5Sec_Type=Percent
-_FsCPUMaxUtilization5Sec_Object=MibScalar
-fsCPUMaxUtilization5Sec=_FsCPUMaxUtilization5Sec_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,1,6),_FsCPUMaxUtilization5Sec_Type())
-fsCPUMaxUtilization5Sec.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsCPUMaxUtilization5Sec.setStatus(_A)
-_FsCPUMaxUtilization1Min_Type=Percent
-_FsCPUMaxUtilization1Min_Object=MibScalar
-fsCPUMaxUtilization1Min=_FsCPUMaxUtilization1Min_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,1,7),_FsCPUMaxUtilization1Min_Type())
-fsCPUMaxUtilization1Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsCPUMaxUtilization1Min.setStatus(_A)
-_FsCPUMaxUtilization5Min_Type=Percent
-_FsCPUMaxUtilization5Min_Object=MibScalar
-fsCPUMaxUtilization5Min=_FsCPUMaxUtilization5Min_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,1,8),_FsCPUMaxUtilization5Min_Type())
-fsCPUMaxUtilization5Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsCPUMaxUtilization5Min.setStatus(_A)
-_FsCPUUtilizationCollectSwitch_Type=Integer32
-_FsCPUUtilizationCollectSwitch_Object=MibScalar
-fsCPUUtilizationCollectSwitch=_FsCPUUtilizationCollectSwitch_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,1,9),_FsCPUUtilizationCollectSwitch_Type())
-fsCPUUtilizationCollectSwitch.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsCPUUtilizationCollectSwitch.setStatus(_A)
-_FsCPUUtilizationCurrent_Type=Percent
-_FsCPUUtilizationCurrent_Object=MibScalar
-fsCPUUtilizationCurrent=_FsCPUUtilizationCurrent_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,1,10),_FsCPUUtilizationCurrent_Type())
-fsCPUUtilizationCurrent.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsCPUUtilizationCurrent.setStatus(_A)
-_FsNodeCPUTotalTable_Object=MibTable
-fsNodeCPUTotalTable=_FsNodeCPUTotalTable_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,2))
-if mibBuilder.loadTexts:fsNodeCPUTotalTable.setStatus(_A)
-_FsNodeCPUTotalEntry_Object=MibTableRow
-fsNodeCPUTotalEntry=_FsNodeCPUTotalEntry_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,2,1))
-fsNodeCPUTotalEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:fsNodeCPUTotalEntry.setStatus(_A)
-_FsNodeCPUTotalIndex_Type=Integer32
-_FsNodeCPUTotalIndex_Object=MibTableColumn
-fsNodeCPUTotalIndex=_FsNodeCPUTotalIndex_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,2,1,1),_FsNodeCPUTotalIndex_Type())
-fsNodeCPUTotalIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsNodeCPUTotalIndex.setStatus(_A)
-_FsNodeCPUTotalName_Type=DisplayString
-_FsNodeCPUTotalName_Object=MibTableColumn
-fsNodeCPUTotalName=_FsNodeCPUTotalName_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,2,1,2),_FsNodeCPUTotalName_Type())
-fsNodeCPUTotalName.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsNodeCPUTotalName.setStatus(_A)
-_FsNodeCPUTotal5sec_Type=Percent
-_FsNodeCPUTotal5sec_Object=MibTableColumn
-fsNodeCPUTotal5sec=_FsNodeCPUTotal5sec_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,2,1,3),_FsNodeCPUTotal5sec_Type())
-fsNodeCPUTotal5sec.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsNodeCPUTotal5sec.setStatus(_A)
-_FsNodeCPUTotal1min_Type=Percent
-_FsNodeCPUTotal1min_Object=MibTableColumn
-fsNodeCPUTotal1min=_FsNodeCPUTotal1min_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,2,1,4),_FsNodeCPUTotal1min_Type())
-fsNodeCPUTotal1min.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsNodeCPUTotal1min.setStatus(_A)
-_FsNodeCPUTotal5min_Type=Percent
-_FsNodeCPUTotal5min_Object=MibTableColumn
-fsNodeCPUTotal5min=_FsNodeCPUTotal5min_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,2,1,5),_FsNodeCPUTotal5min_Type())
-fsNodeCPUTotal5min.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsNodeCPUTotal5min.setStatus(_A)
-_FsNodeCPUTotalWarning_Type=Percent
-_FsNodeCPUTotalWarning_Object=MibTableColumn
-fsNodeCPUTotalWarning=_FsNodeCPUTotalWarning_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,2,1,6),_FsNodeCPUTotalWarning_Type())
-fsNodeCPUTotalWarning.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsNodeCPUTotalWarning.setStatus(_A)
-_FsNodeCPUTotalCritical_Type=Percent
-_FsNodeCPUTotalCritical_Object=MibTableColumn
-fsNodeCPUTotalCritical=_FsNodeCPUTotalCritical_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,2,1,7),_FsNodeCPUTotalCritical_Type())
-fsNodeCPUTotalCritical.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsNodeCPUTotalCritical.setStatus(_A)
-_FsLankApCPUTotalTable_Object=MibTable
-fsLankApCPUTotalTable=_FsLankApCPUTotalTable_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,3))
-if mibBuilder.loadTexts:fsLankApCPUTotalTable.setStatus(_A)
-_FsLankApCPUTotalEntry_Object=MibTableRow
-fsLankApCPUTotalEntry=_FsLankApCPUTotalEntry_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,3,1))
-fsLankApCPUTotalEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:fsLankApCPUTotalEntry.setStatus(_A)
-_FsLankApCPUMacAddr_Type=MacAddress
-_FsLankApCPUMacAddr_Object=MibTableColumn
-fsLankApCPUMacAddr=_FsLankApCPUMacAddr_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,3,1,1),_FsLankApCPUMacAddr_Type())
-fsLankApCPUMacAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsLankApCPUMacAddr.setStatus(_A)
-_FsLankApCPUUtilizationCollectSwitch_Type=Integer32
-_FsLankApCPUUtilizationCollectSwitch_Object=MibTableColumn
-fsLankApCPUUtilizationCollectSwitch=_FsLankApCPUUtilizationCollectSwitch_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,3,1,2),_FsLankApCPUUtilizationCollectSwitch_Type())
-fsLankApCPUUtilizationCollectSwitch.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsLankApCPUUtilizationCollectSwitch.setStatus(_A)
-_FsLankApCPUUtilizationWarning_Type=Percent
-_FsLankApCPUUtilizationWarning_Object=MibTableColumn
-fsLankApCPUUtilizationWarning=_FsLankApCPUUtilizationWarning_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,3,1,3),_FsLankApCPUUtilizationWarning_Type())
-fsLankApCPUUtilizationWarning.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsLankApCPUUtilizationWarning.setStatus(_A)
-_FsLankApCPUUtilizationCritical_Type=Percent
-_FsLankApCPUUtilizationCritical_Object=MibTableColumn
-fsLankApCPUUtilizationCritical=_FsLankApCPUUtilizationCritical_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,3,1,4),_FsLankApCPUUtilizationCritical_Type())
-fsLankApCPUUtilizationCritical.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsLankApCPUUtilizationCritical.setStatus(_A)
-_FsLankApCPUUtilizationCurrent_Type=Percent
-_FsLankApCPUUtilizationCurrent_Object=MibTableColumn
-fsLankApCPUUtilizationCurrent=_FsLankApCPUUtilizationCurrent_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,3,1,5),_FsLankApCPUUtilizationCurrent_Type())
-fsLankApCPUUtilizationCurrent.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsLankApCPUUtilizationCurrent.setStatus(_A)
-_FsLankApCPUUtilization5Min_Type=Percent
-_FsLankApCPUUtilization5Min_Object=MibTableColumn
-fsLankApCPUUtilization5Min=_FsLankApCPUUtilization5Min_Object((1,3,6,1,4,1,52642,1,1,10,2,36,1,3,1,6),_FsLankApCPUUtilization5Min_Type())
-fsLankApCPUUtilization5Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsLankApCPUUtilization5Min.setStatus(_A)
-_FsProcessMIBConformance_ObjectIdentity=ObjectIdentity
-fsProcessMIBConformance=_FsProcessMIBConformance_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,36,2))
-_FsProcessMIBCompliances_ObjectIdentity=ObjectIdentity
-fsProcessMIBCompliances=_FsProcessMIBCompliances_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,36,2,1))
-_FsProcessMIBGroups_ObjectIdentity=ObjectIdentity
-fsProcessMIBGroups=_FsProcessMIBGroups_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,36,2,2))
-fsCPUUtilizationMIBGroup=ObjectGroup((1,3,6,1,4,1,52642,1,1,10,2,36,2,2,1))
-fsCPUUtilizationMIBGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:fsCPUUtilizationMIBGroup.setStatus(_A)
-fsNodeCPUTotalGroups=ObjectGroup((1,3,6,1,4,1,52642,1,1,10,2,36,2,2,2))
-fsNodeCPUTotalGroups.setObjects(*((_B,_E),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T)))
-if mibBuilder.loadTexts:fsNodeCPUTotalGroups.setStatus(_A)
-fsProcessMIBCompliance=ModuleCompliance((1,3,6,1,4,1,52642,1,1,10,2,36,2,1,1))
-fsProcessMIBCompliance.setObjects((_B,_U))
-if mibBuilder.loadTexts:fsProcessMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'Percent':Percent,'fsProcessMIB':fsProcessMIB,'fsCPUMIBObjects':fsCPUMIBObjects,'fsCpuGeneralMibsGroup':fsCpuGeneralMibsGroup,_G:fsCPUUtilization5Sec,_H:fsCPUUtilization1Min,_I:fsCPUUtilization5Min,'fsCPUUtilizationWarning':fsCPUUtilizationWarning,'fsCPUUtilizationCritical':fsCPUUtilizationCritical,_J:fsCPUMaxUtilization5Sec,_K:fsCPUMaxUtilization1Min,_L:fsCPUMaxUtilization5Min,_M:fsCPUUtilizationCollectSwitch,_N:fsCPUUtilizationCurrent,'fsNodeCPUTotalTable':fsNodeCPUTotalTable,'fsNodeCPUTotalEntry':fsNodeCPUTotalEntry,_E:fsNodeCPUTotalIndex,_O:fsNodeCPUTotalName,_P:fsNodeCPUTotal5sec,_Q:fsNodeCPUTotal1min,_R:fsNodeCPUTotal5min,_S:fsNodeCPUTotalWarning,_T:fsNodeCPUTotalCritical,'fsLankApCPUTotalTable':fsLankApCPUTotalTable,'fsLankApCPUTotalEntry':fsLankApCPUTotalEntry,_F:fsLankApCPUMacAddr,'fsLankApCPUUtilizationCollectSwitch':fsLankApCPUUtilizationCollectSwitch,'fsLankApCPUUtilizationWarning':fsLankApCPUUtilizationWarning,'fsLankApCPUUtilizationCritical':fsLankApCPUUtilizationCritical,'fsLankApCPUUtilizationCurrent':fsLankApCPUUtilizationCurrent,'fsLankApCPUUtilization5Min':fsLankApCPUUtilization5Min,'fsProcessMIBConformance':fsProcessMIBConformance,'fsProcessMIBCompliances':fsProcessMIBCompliances,'fsProcessMIBCompliance':fsProcessMIBCompliance,'fsProcessMIBGroups':fsProcessMIBGroups,_U:fsCPUUtilizationMIBGroup,'fsNodeCPUTotalGroups':fsNodeCPUTotalGroups})
+#
+# PySNMP MIB module FS-PROCESS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fscom/FS-PROCESS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:44 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+fsMgmt, = mibBuilder.importSymbols("FS-SMI", "fsMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+fsProcessMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36))
+fsProcessMIB.setRevisions(('2003-10-14 00:00',))
+if mibBuilder.loadTexts: fsProcessMIB.setLastUpdated('200310140000Z')
+if mibBuilder.loadTexts: fsProcessMIB.setOrganization('FS.COM Inc..')
+class Percent(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 100)
+
+fsCPUMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1))
+fsCpuGeneralMibsGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 1))
+fsCPUUtilization5Sec = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 1, 1), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsCPUUtilization5Sec.setStatus('current')
+fsCPUUtilization1Min = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 1, 2), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsCPUUtilization1Min.setStatus('current')
+fsCPUUtilization5Min = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 1, 3), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsCPUUtilization5Min.setStatus('current')
+fsCPUUtilizationWarning = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 1, 4), Percent()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsCPUUtilizationWarning.setStatus('current')
+fsCPUUtilizationCritical = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 1, 5), Percent()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsCPUUtilizationCritical.setStatus('current')
+fsCPUMaxUtilization5Sec = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 1, 6), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsCPUMaxUtilization5Sec.setStatus('current')
+fsCPUMaxUtilization1Min = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 1, 7), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsCPUMaxUtilization1Min.setStatus('current')
+fsCPUMaxUtilization5Min = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 1, 8), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsCPUMaxUtilization5Min.setStatus('current')
+fsCPUUtilizationCollectSwitch = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 1, 9), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsCPUUtilizationCollectSwitch.setStatus('current')
+fsCPUUtilizationCurrent = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 1, 10), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsCPUUtilizationCurrent.setStatus('current')
+fsNodeCPUTotalTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 2), )
+if mibBuilder.loadTexts: fsNodeCPUTotalTable.setStatus('current')
+fsNodeCPUTotalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 2, 1), ).setIndexNames((0, "FS-PROCESS-MIB", "fsNodeCPUTotalIndex"))
+if mibBuilder.loadTexts: fsNodeCPUTotalEntry.setStatus('current')
+fsNodeCPUTotalIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsNodeCPUTotalIndex.setStatus('current')
+fsNodeCPUTotalName = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsNodeCPUTotalName.setStatus('current')
+fsNodeCPUTotal5sec = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 2, 1, 3), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsNodeCPUTotal5sec.setStatus('current')
+fsNodeCPUTotal1min = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 2, 1, 4), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsNodeCPUTotal1min.setStatus('current')
+fsNodeCPUTotal5min = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 2, 1, 5), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsNodeCPUTotal5min.setStatus('current')
+fsNodeCPUTotalWarning = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 2, 1, 6), Percent()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsNodeCPUTotalWarning.setStatus('current')
+fsNodeCPUTotalCritical = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 2, 1, 7), Percent()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsNodeCPUTotalCritical.setStatus('current')
+fsLankApCPUTotalTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 3), )
+if mibBuilder.loadTexts: fsLankApCPUTotalTable.setStatus('current')
+fsLankApCPUTotalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 3, 1), ).setIndexNames((0, "FS-PROCESS-MIB", "fsLankApCPUMacAddr"))
+if mibBuilder.loadTexts: fsLankApCPUTotalEntry.setStatus('current')
+fsLankApCPUMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 3, 1, 1), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsLankApCPUMacAddr.setStatus('current')
+fsLankApCPUUtilizationCollectSwitch = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 3, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsLankApCPUUtilizationCollectSwitch.setStatus('current')
+fsLankApCPUUtilizationWarning = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 3, 1, 3), Percent()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsLankApCPUUtilizationWarning.setStatus('current')
+fsLankApCPUUtilizationCritical = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 3, 1, 4), Percent()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsLankApCPUUtilizationCritical.setStatus('current')
+fsLankApCPUUtilizationCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 3, 1, 5), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsLankApCPUUtilizationCurrent.setStatus('current')
+fsLankApCPUUtilization5Min = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 1, 3, 1, 6), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsLankApCPUUtilization5Min.setStatus('current')
+fsProcessMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 2))
+fsProcessMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 2, 1))
+fsProcessMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 2, 2))
+fsProcessMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 2, 1, 1)).setObjects(("FS-PROCESS-MIB", "fsCPUUtilizationMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsProcessMIBCompliance = fsProcessMIBCompliance.setStatus('current')
+fsCPUUtilizationMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 2, 2, 1)).setObjects(("FS-PROCESS-MIB", "fsCPUUtilization5Sec"), ("FS-PROCESS-MIB", "fsCPUUtilization1Min"), ("FS-PROCESS-MIB", "fsCPUUtilization5Min"), ("FS-PROCESS-MIB", "fsCPUMaxUtilization5Sec"), ("FS-PROCESS-MIB", "fsCPUMaxUtilization1Min"), ("FS-PROCESS-MIB", "fsCPUMaxUtilization5Min"), ("FS-PROCESS-MIB", "fsCPUUtilizationCollectSwitch"), ("FS-PROCESS-MIB", "fsCPUUtilizationCurrent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsCPUUtilizationMIBGroup = fsCPUUtilizationMIBGroup.setStatus('current')
+fsNodeCPUTotalGroups = ObjectGroup((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 36, 2, 2, 2)).setObjects(("FS-PROCESS-MIB", "fsNodeCPUTotalIndex"), ("FS-PROCESS-MIB", "fsNodeCPUTotalName"), ("FS-PROCESS-MIB", "fsNodeCPUTotal5sec"), ("FS-PROCESS-MIB", "fsNodeCPUTotal1min"), ("FS-PROCESS-MIB", "fsNodeCPUTotal5min"), ("FS-PROCESS-MIB", "fsNodeCPUTotalWarning"), ("FS-PROCESS-MIB", "fsNodeCPUTotalCritical"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsNodeCPUTotalGroups = fsNodeCPUTotalGroups.setStatus('current')
+mibBuilder.exportSymbols("FS-PROCESS-MIB", fsLankApCPUUtilizationCollectSwitch=fsLankApCPUUtilizationCollectSwitch, fsNodeCPUTotalWarning=fsNodeCPUTotalWarning, fsNodeCPUTotal5sec=fsNodeCPUTotal5sec, fsNodeCPUTotalGroups=fsNodeCPUTotalGroups, PYSNMP_MODULE_ID=fsProcessMIB, fsCPUUtilization1Min=fsCPUUtilization1Min, fsCPUUtilizationMIBGroup=fsCPUUtilizationMIBGroup, fsNodeCPUTotalName=fsNodeCPUTotalName, Percent=Percent, fsCPUMaxUtilization5Min=fsCPUMaxUtilization5Min, fsCPUMaxUtilization1Min=fsCPUMaxUtilization1Min, fsNodeCPUTotal1min=fsNodeCPUTotal1min, fsProcessMIBCompliance=fsProcessMIBCompliance, fsProcessMIBConformance=fsProcessMIBConformance, fsLankApCPUMacAddr=fsLankApCPUMacAddr, fsNodeCPUTotalIndex=fsNodeCPUTotalIndex, fsProcessMIBGroups=fsProcessMIBGroups, fsProcessMIB=fsProcessMIB, fsCPUMIBObjects=fsCPUMIBObjects, fsNodeCPUTotalEntry=fsNodeCPUTotalEntry, fsCPUMaxUtilization5Sec=fsCPUMaxUtilization5Sec, fsNodeCPUTotalTable=fsNodeCPUTotalTable, fsLankApCPUTotalEntry=fsLankApCPUTotalEntry, fsCpuGeneralMibsGroup=fsCpuGeneralMibsGroup, fsNodeCPUTotal5min=fsNodeCPUTotal5min, fsLankApCPUTotalTable=fsLankApCPUTotalTable, fsCPUUtilizationCritical=fsCPUUtilizationCritical, fsCPUUtilization5Sec=fsCPUUtilization5Sec, fsCPUUtilizationCurrent=fsCPUUtilizationCurrent, fsLankApCPUUtilizationCritical=fsLankApCPUUtilizationCritical, fsLankApCPUUtilizationCurrent=fsLankApCPUUtilizationCurrent, fsCPUUtilization5Min=fsCPUUtilization5Min, fsCPUUtilizationCollectSwitch=fsCPUUtilizationCollectSwitch, fsLankApCPUUtilization5Min=fsLankApCPUUtilization5Min, fsLankApCPUUtilizationWarning=fsLankApCPUUtilizationWarning, fsProcessMIBCompliances=fsProcessMIBCompliances, fsCPUUtilizationWarning=fsCPUUtilizationWarning, fsNodeCPUTotalCritical=fsNodeCPUTotalCritical)

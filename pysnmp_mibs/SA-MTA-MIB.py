@@ -1,64 +1,37 @@
-_G='read-only'
-_F='milliseconds'
-_E='ifIndex'
-_D='IF-MIB'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention','TruthValue')
-saMta=ModuleIdentity((1,3,6,1,4,1,1429,78,3))
-if mibBuilder.loadTexts:saMta.setRevisions(('2016-11-10 00:00',))
-_Sa_ObjectIdentity=ObjectIdentity
-sa=_Sa_ObjectIdentity((1,3,6,1,4,1,1429))
-_SaVoip_ObjectIdentity=ObjectIdentity
-saVoip=_SaVoip_ObjectIdentity((1,3,6,1,4,1,1429,78))
-_SaMtaDevice_ObjectIdentity=ObjectIdentity
-saMtaDevice=_SaMtaDevice_ObjectIdentity((1,3,6,1,4,1,1429,78,3,1))
-class _SaMtaDevOffHookWarnTOBusy_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('disabled',0),('enabled',1)))
-_SaMtaDevOffHookWarnTOBusy_Type.__name__=_B
-_SaMtaDevOffHookWarnTOBusy_Object=MibScalar
-saMtaDevOffHookWarnTOBusy=_SaMtaDevOffHookWarnTOBusy_Object((1,3,6,1,4,1,1429,78,3,1,61),_SaMtaDevOffHookWarnTOBusy_Type())
-saMtaDevOffHookWarnTOBusy.setMaxAccess(_C)
-if mibBuilder.loadTexts:saMtaDevOffHookWarnTOBusy.setStatus(_A)
-_SaMtaEndPointTable_Object=MibTable
-saMtaEndPointTable=_SaMtaEndPointTable_Object((1,3,6,1,4,1,1429,78,3,2))
-if mibBuilder.loadTexts:saMtaEndPointTable.setStatus(_A)
-_SaMtaEndPointEntry_Object=MibTableRow
-saMtaEndPointEntry=_SaMtaEndPointEntry_Object((1,3,6,1,4,1,1429,78,3,2,1))
-saMtaEndPointEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:saMtaEndPointEntry.setStatus(_A)
-class _SaMtaEndPntHookFlashMinTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(40,2000))
-_SaMtaEndPntHookFlashMinTime_Type.__name__=_B
-_SaMtaEndPntHookFlashMinTime_Object=MibTableColumn
-saMtaEndPntHookFlashMinTime=_SaMtaEndPntHookFlashMinTime_Object((1,3,6,1,4,1,1429,78,3,2,1,1),_SaMtaEndPntHookFlashMinTime_Type())
-saMtaEndPntHookFlashMinTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:saMtaEndPntHookFlashMinTime.setStatus(_A)
-if mibBuilder.loadTexts:saMtaEndPntHookFlashMinTime.setUnits(_F)
-class _SaMtaEndPntHookFlashMaxTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,2000))
-_SaMtaEndPntHookFlashMaxTime_Type.__name__=_B
-_SaMtaEndPntHookFlashMaxTime_Object=MibTableColumn
-saMtaEndPntHookFlashMaxTime=_SaMtaEndPntHookFlashMaxTime_Object((1,3,6,1,4,1,1429,78,3,2,1,2),_SaMtaEndPntHookFlashMaxTime_Type())
-saMtaEndPntHookFlashMaxTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:saMtaEndPntHookFlashMaxTime.setStatus(_A)
-if mibBuilder.loadTexts:saMtaEndPntHookFlashMaxTime.setUnits(_F)
-class _SaMtaEndPntStatePhysical_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('onHook',1),('offHook',2)))
-_SaMtaEndPntStatePhysical_Type.__name__=_B
-_SaMtaEndPntStatePhysical_Object=MibTableColumn
-saMtaEndPntStatePhysical=_SaMtaEndPntStatePhysical_Object((1,3,6,1,4,1,1429,78,3,2,1,6),_SaMtaEndPntStatePhysical_Type())
-saMtaEndPntStatePhysical.setMaxAccess(_G)
-if mibBuilder.loadTexts:saMtaEndPntStatePhysical.setStatus(_A)
-class _SaMtaEndPntStateLogical_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('connectedIdle',1),('disconnected',2),('inCallVoice',3),('inCallData',4)))
-_SaMtaEndPntStateLogical_Type.__name__=_B
-_SaMtaEndPntStateLogical_Object=MibTableColumn
-saMtaEndPntStateLogical=_SaMtaEndPntStateLogical_Object((1,3,6,1,4,1,1429,78,3,2,1,7),_SaMtaEndPntStateLogical_Type())
-saMtaEndPntStateLogical.setMaxAccess(_G)
-if mibBuilder.loadTexts:saMtaEndPntStateLogical.setStatus(_A)
-mibBuilder.exportSymbols('SA-MTA-MIB',**{'sa':sa,'saVoip':saVoip,'saMta':saMta,'saMtaDevice':saMtaDevice,'saMtaDevOffHookWarnTOBusy':saMtaDevOffHookWarnTOBusy,'saMtaEndPointTable':saMtaEndPointTable,'saMtaEndPointEntry':saMtaEndPointEntry,'saMtaEndPntHookFlashMinTime':saMtaEndPntHookFlashMinTime,'saMtaEndPntHookFlashMaxTime':saMtaEndPntHookFlashMaxTime,'saMtaEndPntStatePhysical':saMtaEndPntStatePhysical,'saMtaEndPntStateLogical':saMtaEndPntStateLogical})
+#
+# PySNMP MIB module SA-MTA-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/SA-MTA-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:07 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "DateAndTime", "TextualConvention")
+sa = MibIdentifier((1, 3, 6, 1, 4, 1, 1429))
+saVoip = MibIdentifier((1, 3, 6, 1, 4, 1, 1429, 78))
+saMta = ModuleIdentity((1, 3, 6, 1, 4, 1, 1429, 78, 3))
+saMta.setRevisions(('2016-11-10 00:00',))
+if mibBuilder.loadTexts: saMta.setLastUpdated('201611100000Z')
+if mibBuilder.loadTexts: saMta.setOrganization('Cisco Inc.')
+saMtaDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 1429, 78, 3, 1))
+saMtaDevOffHookWarnTOBusy = MibScalar((1, 3, 6, 1, 4, 1, 1429, 78, 3, 1, 61), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: saMtaDevOffHookWarnTOBusy.setStatus('current')
+saMtaEndPointTable = MibTable((1, 3, 6, 1, 4, 1, 1429, 78, 3, 2), )
+if mibBuilder.loadTexts: saMtaEndPointTable.setStatus('current')
+saMtaEndPointEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1429, 78, 3, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: saMtaEndPointEntry.setStatus('current')
+saMtaEndPntHookFlashMinTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 78, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(40, 2000))).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: saMtaEndPntHookFlashMinTime.setStatus('current')
+saMtaEndPntHookFlashMaxTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 78, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(100, 2000))).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: saMtaEndPntHookFlashMaxTime.setStatus('current')
+saMtaEndPntStatePhysical = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 78, 3, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("onHook", 1), ("offHook", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: saMtaEndPntStatePhysical.setStatus('current')
+saMtaEndPntStateLogical = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 78, 3, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("connectedIdle", 1), ("disconnected", 2), ("inCallVoice", 3), ("inCallData", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: saMtaEndPntStateLogical.setStatus('current')
+mibBuilder.exportSymbols("SA-MTA-MIB", saMta=saMta, saVoip=saVoip, saMtaDevice=saMtaDevice, saMtaEndPointEntry=saMtaEndPointEntry, saMtaEndPntStateLogical=saMtaEndPntStateLogical, saMtaEndPntHookFlashMinTime=saMtaEndPntHookFlashMinTime, PYSNMP_MODULE_ID=saMta, saMtaEndPntHookFlashMaxTime=saMtaEndPntHookFlashMaxTime, saMtaEndPntStatePhysical=saMtaEndPntStatePhysical, saMtaEndPointTable=saMtaEndPointTable, saMtaDevOffHookWarnTOBusy=saMtaDevOffHookWarnTOBusy, sa=sa)

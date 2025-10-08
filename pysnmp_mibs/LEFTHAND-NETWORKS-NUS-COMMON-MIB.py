@@ -1,71 +1,44 @@
-_Q='lhnNusCommonBasicGroup'
-_P='current'
-_O='lhnNusCommonStatus'
-_N='lhnNusCommonNotification'
-_M='lhnNusCommonClustering'
-_L='lhnNusCommonSecurity'
-_K='lhnNusCommonSysOptions'
-_J='lhnNusCommonNTDomain'
-_I='lhnNusCommonShares'
-_H='lhnNusCommonAEBS'
-_G='lhnNusCommonNIS'
-_F='lhnNusCommonNTP'
-_E='lhnNusCommonStorage'
-_D='lhnNusCommonDNS'
-_C='lhnNusCommonNetwork'
-_B='lhnNusCommonInfo'
-_A='LEFTHAND-NETWORKS-NUS-COMMON-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-lhnModules,lhnNusCommonMIB=mibBuilder.importSymbols('LEFTHAND-NETWORKS-GLOBAL-REG','lhnModules','lhnNusCommonMIB')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-leftHandNetworksNusCommonModule=ModuleIdentity((1,3,6,1,4,1,9804,1,1,2))
-_LhnNusCommonConfs_ObjectIdentity=ObjectIdentity
-lhnNusCommonConfs=_LhnNusCommonConfs_ObjectIdentity((1,3,6,1,4,1,9804,3,1,1,1))
-_LhnNusCommonGroups_ObjectIdentity=ObjectIdentity
-lhnNusCommonGroups=_LhnNusCommonGroups_ObjectIdentity((1,3,6,1,4,1,9804,3,1,1,1,1))
-_LhnNusCommonCompl_ObjectIdentity=ObjectIdentity
-lhnNusCommonCompl=_LhnNusCommonCompl_ObjectIdentity((1,3,6,1,4,1,9804,3,1,1,1,2))
-_LhnNusCommonObjs_ObjectIdentity=ObjectIdentity
-lhnNusCommonObjs=_LhnNusCommonObjs_ObjectIdentity((1,3,6,1,4,1,9804,3,1,1,2))
-_LhnNusCommonInfo_ObjectIdentity=ObjectIdentity
-lhnNusCommonInfo=_LhnNusCommonInfo_ObjectIdentity((1,3,6,1,4,1,9804,3,1,1,2,1))
-_LhnNusCommonNetwork_ObjectIdentity=ObjectIdentity
-lhnNusCommonNetwork=_LhnNusCommonNetwork_ObjectIdentity((1,3,6,1,4,1,9804,3,1,1,2,2))
-_LhnNusCommonDNS_ObjectIdentity=ObjectIdentity
-lhnNusCommonDNS=_LhnNusCommonDNS_ObjectIdentity((1,3,6,1,4,1,9804,3,1,1,2,3))
-_LhnNusCommonStorage_ObjectIdentity=ObjectIdentity
-lhnNusCommonStorage=_LhnNusCommonStorage_ObjectIdentity((1,3,6,1,4,1,9804,3,1,1,2,4))
-_LhnNusCommonNTP_ObjectIdentity=ObjectIdentity
-lhnNusCommonNTP=_LhnNusCommonNTP_ObjectIdentity((1,3,6,1,4,1,9804,3,1,1,2,5))
-_LhnNusCommonNIS_ObjectIdentity=ObjectIdentity
-lhnNusCommonNIS=_LhnNusCommonNIS_ObjectIdentity((1,3,6,1,4,1,9804,3,1,1,2,6))
-_LhnNusCommonAEBS_ObjectIdentity=ObjectIdentity
-lhnNusCommonAEBS=_LhnNusCommonAEBS_ObjectIdentity((1,3,6,1,4,1,9804,3,1,1,2,7))
-_LhnNusCommonShares_ObjectIdentity=ObjectIdentity
-lhnNusCommonShares=_LhnNusCommonShares_ObjectIdentity((1,3,6,1,4,1,9804,3,1,1,2,8))
-_LhnNusCommonNTDomain_ObjectIdentity=ObjectIdentity
-lhnNusCommonNTDomain=_LhnNusCommonNTDomain_ObjectIdentity((1,3,6,1,4,1,9804,3,1,1,2,9))
-_LhnNusCommonSysOptions_ObjectIdentity=ObjectIdentity
-lhnNusCommonSysOptions=_LhnNusCommonSysOptions_ObjectIdentity((1,3,6,1,4,1,9804,3,1,1,2,10))
-_LhnNusCommonSecurity_ObjectIdentity=ObjectIdentity
-lhnNusCommonSecurity=_LhnNusCommonSecurity_ObjectIdentity((1,3,6,1,4,1,9804,3,1,1,2,11))
-_LhnNusCommonClustering_ObjectIdentity=ObjectIdentity
-lhnNusCommonClustering=_LhnNusCommonClustering_ObjectIdentity((1,3,6,1,4,1,9804,3,1,1,2,12))
-_LhnNusCommonNotification_ObjectIdentity=ObjectIdentity
-lhnNusCommonNotification=_LhnNusCommonNotification_ObjectIdentity((1,3,6,1,4,1,9804,3,1,1,2,13))
-_LhnNusCommonStatus_ObjectIdentity=ObjectIdentity
-lhnNusCommonStatus=_LhnNusCommonStatus_ObjectIdentity((1,3,6,1,4,1,9804,3,1,1,2,99))
-_LhnNusCommonEvents_ObjectIdentity=ObjectIdentity
-lhnNusCommonEvents=_LhnNusCommonEvents_ObjectIdentity((1,3,6,1,4,1,9804,3,1,1,3))
-lhnNusCommonBasicGroup=ObjectGroup((1,3,6,1,4,1,9804,3,1,1,1,1,1))
-lhnNusCommonBasicGroup.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:lhnNusCommonBasicGroup.setStatus(_P)
-lhnNusCommonComplianceV1=ModuleCompliance((1,3,6,1,4,1,9804,3,1,1,1,2,1))
-lhnNusCommonComplianceV1.setObjects((_A,_Q))
-if mibBuilder.loadTexts:lhnNusCommonComplianceV1.setStatus(_P)
-mibBuilder.exportSymbols(_A,**{'leftHandNetworksNusCommonModule':leftHandNetworksNusCommonModule,'lhnNusCommonConfs':lhnNusCommonConfs,'lhnNusCommonGroups':lhnNusCommonGroups,_Q:lhnNusCommonBasicGroup,'lhnNusCommonCompl':lhnNusCommonCompl,'lhnNusCommonComplianceV1':lhnNusCommonComplianceV1,'lhnNusCommonObjs':lhnNusCommonObjs,_B:lhnNusCommonInfo,_C:lhnNusCommonNetwork,_D:lhnNusCommonDNS,_E:lhnNusCommonStorage,_F:lhnNusCommonNTP,_G:lhnNusCommonNIS,_H:lhnNusCommonAEBS,_I:lhnNusCommonShares,_J:lhnNusCommonNTDomain,_K:lhnNusCommonSysOptions,_L:lhnNusCommonSecurity,_M:lhnNusCommonClustering,_N:lhnNusCommonNotification,_O:lhnNusCommonStatus,'lhnNusCommonEvents':lhnNusCommonEvents})
+#
+# PySNMP MIB module LEFTHAND-NETWORKS-NUS-COMMON-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/LEFTHAND-NETWORKS-NUS-COMMON-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:28 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+lhnNusCommonMIB, lhnModules = mibBuilder.importSymbols("LEFTHAND-NETWORKS-GLOBAL-REG", "lhnNusCommonMIB", "lhnModules")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+leftHandNetworksNusCommonModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 9804, 1, 1, 2))
+if mibBuilder.loadTexts: leftHandNetworksNusCommonModule.setLastUpdated('200106010000Z')
+if mibBuilder.loadTexts: leftHandNetworksNusCommonModule.setOrganization('LeftHand Networks, Inc.')
+lhnNusCommonConfs = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 1))
+lhnNusCommonGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 1, 1))
+lhnNusCommonCompl = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 1, 2))
+lhnNusCommonObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2))
+lhnNusCommonInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 1))
+lhnNusCommonNetwork = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2))
+lhnNusCommonDNS = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 3))
+lhnNusCommonStorage = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 4))
+lhnNusCommonNTP = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 5))
+lhnNusCommonNIS = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 6))
+lhnNusCommonAEBS = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 7))
+lhnNusCommonShares = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 8))
+lhnNusCommonNTDomain = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 9))
+lhnNusCommonSysOptions = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 10))
+lhnNusCommonSecurity = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 11))
+lhnNusCommonClustering = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 12))
+lhnNusCommonNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 13))
+lhnNusCommonStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 99))
+lhnNusCommonEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 3))
+lhnNusCommonBasicGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 1, 1, 1)).setObjects(("LEFTHAND-NETWORKS-NUS-COMMON-MIB", "lhnNusCommonInfo"), ("LEFTHAND-NETWORKS-NUS-COMMON-MIB", "lhnNusCommonNetwork"), ("LEFTHAND-NETWORKS-NUS-COMMON-MIB", "lhnNusCommonDNS"), ("LEFTHAND-NETWORKS-NUS-COMMON-MIB", "lhnNusCommonStorage"), ("LEFTHAND-NETWORKS-NUS-COMMON-MIB", "lhnNusCommonNTP"), ("LEFTHAND-NETWORKS-NUS-COMMON-MIB", "lhnNusCommonNIS"), ("LEFTHAND-NETWORKS-NUS-COMMON-MIB", "lhnNusCommonAEBS"), ("LEFTHAND-NETWORKS-NUS-COMMON-MIB", "lhnNusCommonShares"), ("LEFTHAND-NETWORKS-NUS-COMMON-MIB", "lhnNusCommonNTDomain"), ("LEFTHAND-NETWORKS-NUS-COMMON-MIB", "lhnNusCommonSysOptions"), ("LEFTHAND-NETWORKS-NUS-COMMON-MIB", "lhnNusCommonSecurity"), ("LEFTHAND-NETWORKS-NUS-COMMON-MIB", "lhnNusCommonClustering"), ("LEFTHAND-NETWORKS-NUS-COMMON-MIB", "lhnNusCommonNotification"), ("LEFTHAND-NETWORKS-NUS-COMMON-MIB", "lhnNusCommonStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lhnNusCommonBasicGroup = lhnNusCommonBasicGroup.setStatus('current')
+lhnNusCommonComplianceV1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 1, 2, 1)).setObjects(("LEFTHAND-NETWORKS-NUS-COMMON-MIB", "lhnNusCommonBasicGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lhnNusCommonComplianceV1 = lhnNusCommonComplianceV1.setStatus('current')
+mibBuilder.exportSymbols("LEFTHAND-NETWORKS-NUS-COMMON-MIB", lhnNusCommonStatus=lhnNusCommonStatus, lhnNusCommonNTP=lhnNusCommonNTP, lhnNusCommonShares=lhnNusCommonShares, lhnNusCommonSysOptions=lhnNusCommonSysOptions, lhnNusCommonAEBS=lhnNusCommonAEBS, lhnNusCommonNTDomain=lhnNusCommonNTDomain, lhnNusCommonDNS=lhnNusCommonDNS, lhnNusCommonStorage=lhnNusCommonStorage, lhnNusCommonEvents=lhnNusCommonEvents, PYSNMP_MODULE_ID=leftHandNetworksNusCommonModule, lhnNusCommonNIS=lhnNusCommonNIS, lhnNusCommonCompl=lhnNusCommonCompl, lhnNusCommonNotification=lhnNusCommonNotification, lhnNusCommonComplianceV1=lhnNusCommonComplianceV1, leftHandNetworksNusCommonModule=leftHandNetworksNusCommonModule, lhnNusCommonClustering=lhnNusCommonClustering, lhnNusCommonGroups=lhnNusCommonGroups, lhnNusCommonSecurity=lhnNusCommonSecurity, lhnNusCommonObjs=lhnNusCommonObjs, lhnNusCommonConfs=lhnNusCommonConfs, lhnNusCommonInfo=lhnNusCommonInfo, lhnNusCommonNetwork=lhnNusCommonNetwork, lhnNusCommonBasicGroup=lhnNusCommonBasicGroup)

@@ -1,140 +1,67 @@
-_J='hwVoAAAGwAccessnumber'
-_I='read-only'
-_H='hwVoAAAClientLocalUserName'
-_G='HUAWEI-VO-AAA-CLIENT-MIB'
-_F='OctetString'
-_E='disable'
-_D='enable'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_F,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-voice,=mibBuilder.importSymbols('HUAWEI-3COM-OID-MIB','voice')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-hwVoiceAAAClientMIB=ModuleIdentity((1,3,6,1,4,1,2011,5,25,1,9))
-if mibBuilder.loadTexts:hwVoiceAAAClientMIB.setRevisions(('2004-04-08 13:45',))
-class EntryStatus(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('valid',1),('createRequest',2),('underCreation',3),('invalid',4)))
-_HwVoAAAClientObjects_ObjectIdentity=ObjectIdentity
-hwVoAAAClientObjects=_HwVoAAAClientObjects_ObjectIdentity((1,3,6,1,4,1,2011,5,25,1,9,1))
-_HwVoAAAClientCfgObjects_ObjectIdentity=ObjectIdentity
-hwVoAAAClientCfgObjects=_HwVoAAAClientCfgObjects_ObjectIdentity((1,3,6,1,4,1,2011,5,25,1,9,1,1))
-class _HwVoAAAEnable_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_HwVoAAAEnable_Type.__name__=_C
-_HwVoAAAEnable_Object=MibScalar
-hwVoAAAEnable=_HwVoAAAEnable_Object((1,3,6,1,4,1,2011,5,25,1,9,1,1,1),_HwVoAAAEnable_Type())
-hwVoAAAEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwVoAAAEnable.setStatus(_A)
-class _HwVoAAAClienttype_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('huawei',1),('nonstandard-compatible-vsa',2),('nonstandard-compatible-overload',3),('ietf-rfc',4)))
-_HwVoAAAClienttype_Type.__name__=_C
-_HwVoAAAClienttype_Object=MibScalar
-hwVoAAAClienttype=_HwVoAAAClienttype_Object((1,3,6,1,4,1,2011,5,25,1,9,1,1,2),_HwVoAAAClienttype_Type())
-hwVoAAAClienttype.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwVoAAAClienttype.setStatus(_A)
-class _HwVoAAAGwAuthenDidH323_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_HwVoAAAGwAuthenDidH323_Type.__name__=_C
-_HwVoAAAGwAuthenDidH323_Object=MibScalar
-hwVoAAAGwAuthenDidH323=_HwVoAAAGwAuthenDidH323_Object((1,3,6,1,4,1,2011,5,25,1,9,1,1,3),_HwVoAAAGwAuthenDidH323_Type())
-hwVoAAAGwAuthenDidH323.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwVoAAAGwAuthenDidH323.setStatus(_A)
-class _HwVoAAAGwAuthorDidH323_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_HwVoAAAGwAuthorDidH323_Type.__name__=_C
-_HwVoAAAGwAuthorDidH323_Object=MibScalar
-hwVoAAAGwAuthorDidH323=_HwVoAAAGwAuthorDidH323_Object((1,3,6,1,4,1,2011,5,25,1,9,1,1,4),_HwVoAAAGwAuthorDidH323_Type())
-hwVoAAAGwAuthorDidH323.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwVoAAAGwAuthorDidH323.setStatus(_A)
-class _HwVoAAAGwAccounting_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_HwVoAAAGwAccounting_Type.__name__=_C
-_HwVoAAAGwAccounting_Object=MibScalar
-hwVoAAAGwAccounting=_HwVoAAAGwAccounting_Object((1,3,6,1,4,1,2011,5,25,1,9,1,1,5),_HwVoAAAGwAccounting_Type())
-hwVoAAAGwAccounting.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwVoAAAGwAccounting.setStatus(_A)
-class _HwVoAAAGwAccountMethod_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('none',1),('start-ack',2),('start-no-ack',3),('stop-only',4)))
-_HwVoAAAGwAccountMethod_Type.__name__=_C
-_HwVoAAAGwAccountMethod_Object=MibScalar
-hwVoAAAGwAccountMethod=_HwVoAAAGwAccountMethod_Object((1,3,6,1,4,1,2011,5,25,1,9,1,1,6),_HwVoAAAGwAccountMethod_Type())
-hwVoAAAGwAccountMethod.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwVoAAAGwAccountMethod.setStatus(_A)
-_HwVoAAAClientLocalUserTable_Object=MibTable
-hwVoAAAClientLocalUserTable=_HwVoAAAClientLocalUserTable_Object((1,3,6,1,4,1,2011,5,25,1,9,1,2))
-if mibBuilder.loadTexts:hwVoAAAClientLocalUserTable.setStatus(_A)
-_HwVoAAAClientLocalUserEntry_Object=MibTableRow
-hwVoAAAClientLocalUserEntry=_HwVoAAAClientLocalUserEntry_Object((1,3,6,1,4,1,2011,5,25,1,9,1,2,1))
-hwVoAAAClientLocalUserEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:hwVoAAAClientLocalUserEntry.setStatus(_A)
-class _HwVoAAAClientLocalUserName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,16))
-_HwVoAAAClientLocalUserName_Type.__name__=_F
-_HwVoAAAClientLocalUserName_Object=MibTableColumn
-hwVoAAAClientLocalUserName=_HwVoAAAClientLocalUserName_Object((1,3,6,1,4,1,2011,5,25,1,9,1,2,1,1),_HwVoAAAClientLocalUserName_Type())
-hwVoAAAClientLocalUserName.setMaxAccess(_I)
-if mibBuilder.loadTexts:hwVoAAAClientLocalUserName.setStatus(_A)
-class _HwVoAAAClientLocalUserPassword_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_HwVoAAAClientLocalUserPassword_Type.__name__=_F
-_HwVoAAAClientLocalUserPassword_Object=MibTableColumn
-hwVoAAAClientLocalUserPassword=_HwVoAAAClientLocalUserPassword_Object((1,3,6,1,4,1,2011,5,25,1,9,1,2,1,2),_HwVoAAAClientLocalUserPassword_Type())
-hwVoAAAClientLocalUserPassword.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwVoAAAClientLocalUserPassword.setStatus(_A)
-_HwVoAAAClientLocalRowStatus_Type=EntryStatus
-_HwVoAAAClientLocalRowStatus_Object=MibTableColumn
-hwVoAAAClientLocalRowStatus=_HwVoAAAClientLocalRowStatus_Object((1,3,6,1,4,1,2011,5,25,1,9,1,2,1,3),_HwVoAAAClientLocalRowStatus_Type())
-hwVoAAAClientLocalRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwVoAAAClientLocalRowStatus.setStatus(_A)
-_HwVoAAAGwAccessNumberTable_Object=MibTable
-hwVoAAAGwAccessNumberTable=_HwVoAAAGwAccessNumberTable_Object((1,3,6,1,4,1,2011,5,25,1,9,1,3))
-if mibBuilder.loadTexts:hwVoAAAGwAccessNumberTable.setStatus(_A)
-_HwVoAAAGwAccessNumberEntry_Object=MibTableRow
-hwVoAAAGwAccessNumberEntry=_HwVoAAAGwAccessNumberEntry_Object((1,3,6,1,4,1,2011,5,25,1,9,1,3,1))
-hwVoAAAGwAccessNumberEntry.setIndexNames((0,_G,_J))
-if mibBuilder.loadTexts:hwVoAAAGwAccessNumberEntry.setStatus(_A)
-class _HwVoAAAGwAccessnumber_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,31))
-_HwVoAAAGwAccessnumber_Type.__name__=_F
-_HwVoAAAGwAccessnumber_Object=MibTableColumn
-hwVoAAAGwAccessnumber=_HwVoAAAGwAccessnumber_Object((1,3,6,1,4,1,2011,5,25,1,9,1,3,1,1),_HwVoAAAGwAccessnumber_Type())
-hwVoAAAGwAccessnumber.setMaxAccess(_I)
-if mibBuilder.loadTexts:hwVoAAAGwAccessnumber.setStatus(_A)
-class _HwVoAAAGwAuthentication_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_HwVoAAAGwAuthentication_Type.__name__=_C
-_HwVoAAAGwAuthentication_Object=MibTableColumn
-hwVoAAAGwAuthentication=_HwVoAAAGwAuthentication_Object((1,3,6,1,4,1,2011,5,25,1,9,1,3,1,2),_HwVoAAAGwAuthentication_Type())
-hwVoAAAGwAuthentication.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwVoAAAGwAuthentication.setStatus(_A)
-class _HwVoAAAGwAuthorization_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_HwVoAAAGwAuthorization_Type.__name__=_C
-_HwVoAAAGwAuthorization_Object=MibTableColumn
-hwVoAAAGwAuthorization=_HwVoAAAGwAuthorization_Object((1,3,6,1,4,1,2011,5,25,1,9,1,3,1,3),_HwVoAAAGwAuthorization_Type())
-hwVoAAAGwAuthorization.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwVoAAAGwAuthorization.setStatus(_A)
-class _HwVoAAAGwProcessConfig_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('callernumber',1),('cardnumber',2)))
-_HwVoAAAGwProcessConfig_Type.__name__=_C
-_HwVoAAAGwProcessConfig_Object=MibTableColumn
-hwVoAAAGwProcessConfig=_HwVoAAAGwProcessConfig_Object((1,3,6,1,4,1,2011,5,25,1,9,1,3,1,4),_HwVoAAAGwProcessConfig_Type())
-hwVoAAAGwProcessConfig.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwVoAAAGwProcessConfig.setStatus(_A)
-class _HwVoAAAGwCardDigit_Type(Integer32):defaultValue=12;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,31))
-_HwVoAAAGwCardDigit_Type.__name__=_C
-_HwVoAAAGwCardDigit_Object=MibTableColumn
-hwVoAAAGwCardDigit=_HwVoAAAGwCardDigit_Object((1,3,6,1,4,1,2011,5,25,1,9,1,3,1,5),_HwVoAAAGwCardDigit_Type())
-hwVoAAAGwCardDigit.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwVoAAAGwCardDigit.setStatus(_A)
-class _HwVoAAAGwPasswordDigit_Type(Integer32):defaultValue=6;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16))
-_HwVoAAAGwPasswordDigit_Type.__name__=_C
-_HwVoAAAGwPasswordDigit_Object=MibTableColumn
-hwVoAAAGwPasswordDigit=_HwVoAAAGwPasswordDigit_Object((1,3,6,1,4,1,2011,5,25,1,9,1,3,1,6),_HwVoAAAGwPasswordDigit_Type())
-hwVoAAAGwPasswordDigit.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwVoAAAGwPasswordDigit.setStatus(_A)
-class _HwVoAAAGwRedialtimes_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_HwVoAAAGwRedialtimes_Type.__name__=_C
-_HwVoAAAGwRedialtimes_Object=MibTableColumn
-hwVoAAAGwRedialtimes=_HwVoAAAGwRedialtimes_Object((1,3,6,1,4,1,2011,5,25,1,9,1,3,1,7),_HwVoAAAGwRedialtimes_Type())
-hwVoAAAGwRedialtimes.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwVoAAAGwRedialtimes.setStatus(_A)
-_HwVoAAAGwRowStatus_Type=EntryStatus
-_HwVoAAAGwRowStatus_Object=MibTableColumn
-hwVoAAAGwRowStatus=_HwVoAAAGwRowStatus_Object((1,3,6,1,4,1,2011,5,25,1,9,1,3,1,8),_HwVoAAAGwRowStatus_Type())
-hwVoAAAGwRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwVoAAAGwRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_G,**{'EntryStatus':EntryStatus,'hwVoiceAAAClientMIB':hwVoiceAAAClientMIB,'hwVoAAAClientObjects':hwVoAAAClientObjects,'hwVoAAAClientCfgObjects':hwVoAAAClientCfgObjects,'hwVoAAAEnable':hwVoAAAEnable,'hwVoAAAClienttype':hwVoAAAClienttype,'hwVoAAAGwAuthenDidH323':hwVoAAAGwAuthenDidH323,'hwVoAAAGwAuthorDidH323':hwVoAAAGwAuthorDidH323,'hwVoAAAGwAccounting':hwVoAAAGwAccounting,'hwVoAAAGwAccountMethod':hwVoAAAGwAccountMethod,'hwVoAAAClientLocalUserTable':hwVoAAAClientLocalUserTable,'hwVoAAAClientLocalUserEntry':hwVoAAAClientLocalUserEntry,_H:hwVoAAAClientLocalUserName,'hwVoAAAClientLocalUserPassword':hwVoAAAClientLocalUserPassword,'hwVoAAAClientLocalRowStatus':hwVoAAAClientLocalRowStatus,'hwVoAAAGwAccessNumberTable':hwVoAAAGwAccessNumberTable,'hwVoAAAGwAccessNumberEntry':hwVoAAAGwAccessNumberEntry,_J:hwVoAAAGwAccessnumber,'hwVoAAAGwAuthentication':hwVoAAAGwAuthentication,'hwVoAAAGwAuthorization':hwVoAAAGwAuthorization,'hwVoAAAGwProcessConfig':hwVoAAAGwProcessConfig,'hwVoAAAGwCardDigit':hwVoAAAGwCardDigit,'hwVoAAAGwPasswordDigit':hwVoAAAGwPasswordDigit,'hwVoAAAGwRedialtimes':hwVoAAAGwRedialtimes,'hwVoAAAGwRowStatus':hwVoAAAGwRowStatus})
+#
+# PySNMP MIB module HUAWEI-VO-AAA-CLIENT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/HUAWEI-VO-AAA-CLIENT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:45 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+voice, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "voice")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hwVoiceAAAClientMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9))
+hwVoiceAAAClientMIB.setRevisions(('2004-04-08 13:45',))
+if mibBuilder.loadTexts: hwVoiceAAAClientMIB.setLastUpdated('200410200000Z')
+if mibBuilder.loadTexts: hwVoiceAAAClientMIB.setOrganization('Huawei-3COM Technologies Co., Ltd.')
+class EntryStatus(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("valid", 1), ("createRequest", 2), ("underCreation", 3), ("invalid", 4))
+
+hwVoAAAClientObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1))
+hwVoAAAClientCfgObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 1))
+hwVoAAAEnable = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoAAAEnable.setStatus('current')
+hwVoAAAClienttype = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("huawei", 1), ("nonstandard-compatible-vsa", 2), ("nonstandard-compatible-overload", 3), ("ietf-rfc", 4))).clone('huawei')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoAAAClienttype.setStatus('current')
+hwVoAAAGwAuthenDidH323 = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoAAAGwAuthenDidH323.setStatus('current')
+hwVoAAAGwAuthorDidH323 = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoAAAGwAuthorDidH323.setStatus('current')
+hwVoAAAGwAccounting = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoAAAGwAccounting.setStatus('current')
+hwVoAAAGwAccountMethod = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("start-ack", 2), ("start-no-ack", 3), ("stop-only", 4))).clone('start-no-ack')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoAAAGwAccountMethod.setStatus('current')
+hwVoAAAClientLocalUserTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 2), )
+if mibBuilder.loadTexts: hwVoAAAClientLocalUserTable.setStatus('current')
+hwVoAAAClientLocalUserEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 2, 1), ).setIndexNames((0, "HUAWEI-VO-AAA-CLIENT-MIB", "hwVoAAAClientLocalUserName"))
+if mibBuilder.loadTexts: hwVoAAAClientLocalUserEntry.setStatus('current')
+hwVoAAAClientLocalUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 2, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwVoAAAClientLocalUserName.setStatus('current')
+hwVoAAAClientLocalUserPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoAAAClientLocalUserPassword.setStatus('current')
+hwVoAAAClientLocalRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 2, 1, 3), EntryStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoAAAClientLocalRowStatus.setStatus('current')
+hwVoAAAGwAccessNumberTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 3), )
+if mibBuilder.loadTexts: hwVoAAAGwAccessNumberTable.setStatus('current')
+hwVoAAAGwAccessNumberEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 3, 1), ).setIndexNames((0, "HUAWEI-VO-AAA-CLIENT-MIB", "hwVoAAAGwAccessnumber"))
+if mibBuilder.loadTexts: hwVoAAAGwAccessNumberEntry.setStatus('current')
+hwVoAAAGwAccessnumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 3, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwVoAAAGwAccessnumber.setStatus('current')
+hwVoAAAGwAuthentication = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoAAAGwAuthentication.setStatus('current')
+hwVoAAAGwAuthorization = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoAAAGwAuthorization.setStatus('current')
+hwVoAAAGwProcessConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("callernumber", 1), ("cardnumber", 2))).clone('cardnumber')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoAAAGwProcessConfig.setStatus('current')
+hwVoAAAGwCardDigit = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 31)).clone(12)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoAAAGwCardDigit.setStatus('current')
+hwVoAAAGwPasswordDigit = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 3, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)).clone(6)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoAAAGwPasswordDigit.setStatus('current')
+hwVoAAAGwRedialtimes = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoAAAGwRedialtimes.setStatus('current')
+hwVoAAAGwRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 9, 1, 3, 1, 8), EntryStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoAAAGwRowStatus.setStatus('current')
+mibBuilder.exportSymbols("HUAWEI-VO-AAA-CLIENT-MIB", hwVoAAAGwAuthorization=hwVoAAAGwAuthorization, hwVoAAAGwAuthorDidH323=hwVoAAAGwAuthorDidH323, hwVoAAAGwAccessnumber=hwVoAAAGwAccessnumber, hwVoAAAGwAccessNumberTable=hwVoAAAGwAccessNumberTable, PYSNMP_MODULE_ID=hwVoiceAAAClientMIB, hwVoAAAGwRedialtimes=hwVoAAAGwRedialtimes, hwVoiceAAAClientMIB=hwVoiceAAAClientMIB, hwVoAAAClientCfgObjects=hwVoAAAClientCfgObjects, hwVoAAAGwAccountMethod=hwVoAAAGwAccountMethod, hwVoAAAClientLocalUserTable=hwVoAAAClientLocalUserTable, hwVoAAAGwAuthentication=hwVoAAAGwAuthentication, hwVoAAAClientLocalUserPassword=hwVoAAAClientLocalUserPassword, hwVoAAAClientObjects=hwVoAAAClientObjects, hwVoAAAClienttype=hwVoAAAClienttype, hwVoAAAGwPasswordDigit=hwVoAAAGwPasswordDigit, hwVoAAAGwAuthenDidH323=hwVoAAAGwAuthenDidH323, hwVoAAAClientLocalUserName=hwVoAAAClientLocalUserName, hwVoAAAEnable=hwVoAAAEnable, hwVoAAAClientLocalRowStatus=hwVoAAAClientLocalRowStatus, hwVoAAAGwRowStatus=hwVoAAAGwRowStatus, hwVoAAAClientLocalUserEntry=hwVoAAAClientLocalUserEntry, hwVoAAAGwAccessNumberEntry=hwVoAAAGwAccessNumberEntry, hwVoAAAGwCardDigit=hwVoAAAGwCardDigit, hwVoAAAGwProcessConfig=hwVoAAAGwProcessConfig, EntryStatus=EntryStatus, hwVoAAAGwAccounting=hwVoAAAGwAccounting)

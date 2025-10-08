@@ -1,62 +1,41 @@
-_K='fxsMeterPulseGroupVer1'
-_J='fxsMeterPulseFreq'
-_I='fxsMeterPauseDuration'
-_H='fxsMeterPulseDuration'
-_G='Integer32'
-_F='ifIndex'
-_E='IF-MIB'
-_D='read-write'
-_C='Unsigned32'
-_B='MX-FXS-METER-PULSE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-mediatrixExperimental,=mibBuilder.importSymbols('MX-SMI','mediatrixExperimental')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_C,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-fxsMeterPulseMIB=ModuleIdentity((1,3,6,1,4,1,4935,99,30))
-if mibBuilder.loadTexts:fxsMeterPulseMIB.setRevisions(('1902-11-04 00:00',))
-_FxsMeterPulseMIBObjects_ObjectIdentity=ObjectIdentity
-fxsMeterPulseMIBObjects=_FxsMeterPulseMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,99,30,1))
-_FxsMeterPulseTable_Object=MibTable
-fxsMeterPulseTable=_FxsMeterPulseTable_Object((1,3,6,1,4,1,4935,99,30,1,30))
-if mibBuilder.loadTexts:fxsMeterPulseTable.setStatus(_A)
-_FxsMeterPulseEntry_Object=MibTableRow
-fxsMeterPulseEntry=_FxsMeterPulseEntry_Object((1,3,6,1,4,1,4935,99,30,1,30,1))
-fxsMeterPulseEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:fxsMeterPulseEntry.setStatus(_A)
-class _FxsMeterPulseDuration_Type(Unsigned32):defaultValue=160;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(120,220))
-_FxsMeterPulseDuration_Type.__name__=_C
-_FxsMeterPulseDuration_Object=MibTableColumn
-fxsMeterPulseDuration=_FxsMeterPulseDuration_Object((1,3,6,1,4,1,4935,99,30,1,30,1,10),_FxsMeterPulseDuration_Type())
-fxsMeterPulseDuration.setMaxAccess(_D)
-if mibBuilder.loadTexts:fxsMeterPulseDuration.setStatus(_A)
-class _FxsMeterPauseDuration_Type(Unsigned32):defaultValue=360;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,600))
-_FxsMeterPauseDuration_Type.__name__=_C
-_FxsMeterPauseDuration_Object=MibTableColumn
-fxsMeterPauseDuration=_FxsMeterPauseDuration_Object((1,3,6,1,4,1,4935,99,30,1,30,1,15),_FxsMeterPauseDuration_Type())
-fxsMeterPauseDuration.setMaxAccess(_D)
-if mibBuilder.loadTexts:fxsMeterPauseDuration.setStatus(_A)
-class _FxsMeterPulseFreq_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('freq-12-kHz',1),('freq-16-kHz',2)))
-_FxsMeterPulseFreq_Type.__name__=_G
-_FxsMeterPulseFreq_Object=MibScalar
-fxsMeterPulseFreq=_FxsMeterPulseFreq_Object((1,3,6,1,4,1,4935,99,30,1,35),_FxsMeterPulseFreq_Type())
-fxsMeterPulseFreq.setMaxAccess(_D)
-if mibBuilder.loadTexts:fxsMeterPulseFreq.setStatus(_A)
-_FxsMeterPulseConformance_ObjectIdentity=ObjectIdentity
-fxsMeterPulseConformance=_FxsMeterPulseConformance_ObjectIdentity((1,3,6,1,4,1,4935,99,30,2))
-_FxsMeterPulseCompliances_ObjectIdentity=ObjectIdentity
-fxsMeterPulseCompliances=_FxsMeterPulseCompliances_ObjectIdentity((1,3,6,1,4,1,4935,99,30,2,1))
-_FxsMeterPulseGroups_ObjectIdentity=ObjectIdentity
-fxsMeterPulseGroups=_FxsMeterPulseGroups_ObjectIdentity((1,3,6,1,4,1,4935,99,30,2,2))
-fxsMeterPulseGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,99,30,2,2,1))
-fxsMeterPulseGroupVer1.setObjects(*((_B,_H),(_B,_I),(_B,_J)))
-if mibBuilder.loadTexts:fxsMeterPulseGroupVer1.setStatus(_A)
-fxsMeterPulseBasicComplVer1=ModuleCompliance((1,3,6,1,4,1,4935,99,30,2,1,1))
-fxsMeterPulseBasicComplVer1.setObjects((_B,_K))
-if mibBuilder.loadTexts:fxsMeterPulseBasicComplVer1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'fxsMeterPulseMIB':fxsMeterPulseMIB,'fxsMeterPulseMIBObjects':fxsMeterPulseMIBObjects,'fxsMeterPulseTable':fxsMeterPulseTable,'fxsMeterPulseEntry':fxsMeterPulseEntry,_H:fxsMeterPulseDuration,_I:fxsMeterPauseDuration,_J:fxsMeterPulseFreq,'fxsMeterPulseConformance':fxsMeterPulseConformance,'fxsMeterPulseCompliances':fxsMeterPulseCompliances,'fxsMeterPulseBasicComplVer1':fxsMeterPulseBasicComplVer1,'fxsMeterPulseGroups':fxsMeterPulseGroups,_K:fxsMeterPulseGroupVer1})
+#
+# PySNMP MIB module MX-FXS-METER-PULSE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-FXS-METER-PULSE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:01 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+mediatrixExperimental, = mibBuilder.importSymbols("MX-SMI", "mediatrixExperimental")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+fxsMeterPulseMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 99, 30))
+fxsMeterPulseMIB.setRevisions(('1902-11-04 00:00',))
+if mibBuilder.loadTexts: fxsMeterPulseMIB.setLastUpdated('0211040000Z')
+if mibBuilder.loadTexts: fxsMeterPulseMIB.setOrganization('Mediatrix Telecom, Inc.')
+fxsMeterPulseMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 30, 1))
+fxsMeterPulseConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 30, 2))
+fxsMeterPulseTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 99, 30, 1, 30), )
+if mibBuilder.loadTexts: fxsMeterPulseTable.setStatus('current')
+fxsMeterPulseEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 99, 30, 1, 30, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: fxsMeterPulseEntry.setStatus('current')
+fxsMeterPulseDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 99, 30, 1, 30, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(120, 220)).clone(160)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fxsMeterPulseDuration.setStatus('current')
+fxsMeterPauseDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 99, 30, 1, 30, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(100, 600)).clone(360)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fxsMeterPauseDuration.setStatus('current')
+fxsMeterPulseFreq = MibScalar((1, 3, 6, 1, 4, 1, 4935, 99, 30, 1, 35), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("freq-12-kHz", 1), ("freq-16-kHz", 2))).clone('freq-12-kHz')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fxsMeterPulseFreq.setStatus('current')
+fxsMeterPulseCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 30, 2, 1))
+fxsMeterPulseBasicComplVer1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4935, 99, 30, 2, 1, 1)).setObjects(("MX-FXS-METER-PULSE-MIB", "fxsMeterPulseGroupVer1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fxsMeterPulseBasicComplVer1 = fxsMeterPulseBasicComplVer1.setStatus('current')
+fxsMeterPulseGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 30, 2, 2))
+fxsMeterPulseGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 99, 30, 2, 2, 1)).setObjects(("MX-FXS-METER-PULSE-MIB", "fxsMeterPulseDuration"), ("MX-FXS-METER-PULSE-MIB", "fxsMeterPauseDuration"), ("MX-FXS-METER-PULSE-MIB", "fxsMeterPulseFreq"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fxsMeterPulseGroupVer1 = fxsMeterPulseGroupVer1.setStatus('current')
+mibBuilder.exportSymbols("MX-FXS-METER-PULSE-MIB", fxsMeterPulseConformance=fxsMeterPulseConformance, fxsMeterPulseCompliances=fxsMeterPulseCompliances, fxsMeterPulseMIB=fxsMeterPulseMIB, fxsMeterPulseDuration=fxsMeterPulseDuration, fxsMeterPulseBasicComplVer1=fxsMeterPulseBasicComplVer1, fxsMeterPulseTable=fxsMeterPulseTable, fxsMeterPauseDuration=fxsMeterPauseDuration, fxsMeterPulseFreq=fxsMeterPulseFreq, PYSNMP_MODULE_ID=fxsMeterPulseMIB, fxsMeterPulseMIBObjects=fxsMeterPulseMIBObjects, fxsMeterPulseGroups=fxsMeterPulseGroups, fxsMeterPulseEntry=fxsMeterPulseEntry, fxsMeterPulseGroupVer1=fxsMeterPulseGroupVer1)

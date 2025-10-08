@@ -1,61 +1,42 @@
-_I='persistentXgcpEventsMIBGroup'
-_H='persistentXgcpEventRowStatus'
-_G='persistentXgcpEventName'
-_F='read-write'
-_E='persistentXgcpEventNum'
-_D='Integer32'
-_C='SnmpAdminString'
-_B='CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoWan,=mibBuilder.importSymbols('CISCOWAN-SMI','ciscoWan')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_C)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-ciscoWanPersistentXgcpEventsMIB=ModuleIdentity((1,3,6,1,4,1,351,150,18))
-if mibBuilder.loadTexts:ciscoWanPersistentXgcpEventsMIB.setRevisions(('2003-10-20 00:00',))
-_CiscoWanPersistentXgcpEventsMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoWanPersistentXgcpEventsMIBObjects=_CiscoWanPersistentXgcpEventsMIBObjects_ObjectIdentity((1,3,6,1,4,1,351,150,18,1))
-_PersistentXgcpEvents_ObjectIdentity=ObjectIdentity
-persistentXgcpEvents=_PersistentXgcpEvents_ObjectIdentity((1,3,6,1,4,1,351,150,18,1,1))
-_PersistentXgcpEventsTable_Object=MibTable
-persistentXgcpEventsTable=_PersistentXgcpEventsTable_Object((1,3,6,1,4,1,351,150,18,1,1,1))
-if mibBuilder.loadTexts:persistentXgcpEventsTable.setStatus(_A)
-_PersistentXgcpEventsEntry_Object=MibTableRow
-persistentXgcpEventsEntry=_PersistentXgcpEventsEntry_Object((1,3,6,1,4,1,351,150,18,1,1,1,1))
-persistentXgcpEventsEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:persistentXgcpEventsEntry.setStatus(_A)
-class _PersistentXgcpEventNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16))
-_PersistentXgcpEventNum_Type.__name__=_D
-_PersistentXgcpEventNum_Object=MibTableColumn
-persistentXgcpEventNum=_PersistentXgcpEventNum_Object((1,3,6,1,4,1,351,150,18,1,1,1,1,1),_PersistentXgcpEventNum_Type())
-persistentXgcpEventNum.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:persistentXgcpEventNum.setStatus(_A)
-class _PersistentXgcpEventName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_PersistentXgcpEventName_Type.__name__=_C
-_PersistentXgcpEventName_Object=MibTableColumn
-persistentXgcpEventName=_PersistentXgcpEventName_Object((1,3,6,1,4,1,351,150,18,1,1,1,1,2),_PersistentXgcpEventName_Type())
-persistentXgcpEventName.setMaxAccess(_F)
-if mibBuilder.loadTexts:persistentXgcpEventName.setStatus(_A)
-_PersistentXgcpEventRowStatus_Type=RowStatus
-_PersistentXgcpEventRowStatus_Object=MibTableColumn
-persistentXgcpEventRowStatus=_PersistentXgcpEventRowStatus_Object((1,3,6,1,4,1,351,150,18,1,1,1,1,3),_PersistentXgcpEventRowStatus_Type())
-persistentXgcpEventRowStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:persistentXgcpEventRowStatus.setStatus(_A)
-_PersistentXgcpEventsMIBConformance_ObjectIdentity=ObjectIdentity
-persistentXgcpEventsMIBConformance=_PersistentXgcpEventsMIBConformance_ObjectIdentity((1,3,6,1,4,1,351,150,18,2))
-_PersistentXgcpEventsMIBCompliances_ObjectIdentity=ObjectIdentity
-persistentXgcpEventsMIBCompliances=_PersistentXgcpEventsMIBCompliances_ObjectIdentity((1,3,6,1,4,1,351,150,18,2,1))
-_PersistentXgcpEventsMIBGroups_ObjectIdentity=ObjectIdentity
-persistentXgcpEventsMIBGroups=_PersistentXgcpEventsMIBGroups_ObjectIdentity((1,3,6,1,4,1,351,150,18,2,2))
-persistentXgcpEventsMIBGroup=ObjectGroup((1,3,6,1,4,1,351,150,18,2,2,1))
-persistentXgcpEventsMIBGroup.setObjects(*((_B,_G),(_B,_H)))
-if mibBuilder.loadTexts:persistentXgcpEventsMIBGroup.setStatus(_A)
-persistentXgcpEventsMIBCompliance=ModuleCompliance((1,3,6,1,4,1,351,150,18,2,1,1))
-persistentXgcpEventsMIBCompliance.setObjects((_B,_I))
-if mibBuilder.loadTexts:persistentXgcpEventsMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoWanPersistentXgcpEventsMIB':ciscoWanPersistentXgcpEventsMIB,'ciscoWanPersistentXgcpEventsMIBObjects':ciscoWanPersistentXgcpEventsMIBObjects,'persistentXgcpEvents':persistentXgcpEvents,'persistentXgcpEventsTable':persistentXgcpEventsTable,'persistentXgcpEventsEntry':persistentXgcpEventsEntry,_E:persistentXgcpEventNum,_G:persistentXgcpEventName,_H:persistentXgcpEventRowStatus,'persistentXgcpEventsMIBConformance':persistentXgcpEventsMIBConformance,'persistentXgcpEventsMIBCompliances':persistentXgcpEventsMIBCompliances,'persistentXgcpEventsMIBCompliance':persistentXgcpEventsMIBCompliance,'persistentXgcpEventsMIBGroups':persistentXgcpEventsMIBGroups,_I:persistentXgcpEventsMIBGroup})
+#
+# PySNMP MIB module CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:41 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoWan, = mibBuilder.importSymbols("CISCOWAN-SMI", "ciscoWan")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ciscoWanPersistentXgcpEventsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 351, 150, 18))
+ciscoWanPersistentXgcpEventsMIB.setRevisions(('2003-10-20 00:00',))
+if mibBuilder.loadTexts: ciscoWanPersistentXgcpEventsMIB.setLastUpdated('200310200000Z')
+if mibBuilder.loadTexts: ciscoWanPersistentXgcpEventsMIB.setOrganization('Cisco Systems, Inc.')
+ciscoWanPersistentXgcpEventsMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 18, 1))
+persistentXgcpEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 18, 1, 1))
+persistentXgcpEventsTable = MibTable((1, 3, 6, 1, 4, 1, 351, 150, 18, 1, 1, 1), )
+if mibBuilder.loadTexts: persistentXgcpEventsTable.setStatus('current')
+persistentXgcpEventsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 351, 150, 18, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB", "persistentXgcpEventNum"))
+if mibBuilder.loadTexts: persistentXgcpEventsEntry.setStatus('current')
+persistentXgcpEventNum = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 18, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
+if mibBuilder.loadTexts: persistentXgcpEventNum.setStatus('current')
+persistentXgcpEventName = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 18, 1, 1, 1, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: persistentXgcpEventName.setStatus('current')
+persistentXgcpEventRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 18, 1, 1, 1, 1, 3), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: persistentXgcpEventRowStatus.setStatus('current')
+persistentXgcpEventsMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 18, 2))
+persistentXgcpEventsMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 18, 2, 1))
+persistentXgcpEventsMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 18, 2, 2))
+persistentXgcpEventsMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 351, 150, 18, 2, 1, 1)).setObjects(("CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB", "persistentXgcpEventsMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    persistentXgcpEventsMIBCompliance = persistentXgcpEventsMIBCompliance.setStatus('current')
+persistentXgcpEventsMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 18, 2, 2, 1)).setObjects(("CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB", "persistentXgcpEventName"), ("CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB", "persistentXgcpEventRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    persistentXgcpEventsMIBGroup = persistentXgcpEventsMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB", ciscoWanPersistentXgcpEventsMIBObjects=ciscoWanPersistentXgcpEventsMIBObjects, persistentXgcpEvents=persistentXgcpEvents, persistentXgcpEventsMIBCompliances=persistentXgcpEventsMIBCompliances, persistentXgcpEventsEntry=persistentXgcpEventsEntry, persistentXgcpEventsTable=persistentXgcpEventsTable, persistentXgcpEventName=persistentXgcpEventName, persistentXgcpEventsMIBGroups=persistentXgcpEventsMIBGroups, persistentXgcpEventsMIBConformance=persistentXgcpEventsMIBConformance, persistentXgcpEventsMIBGroup=persistentXgcpEventsMIBGroup, persistentXgcpEventsMIBCompliance=persistentXgcpEventsMIBCompliance, persistentXgcpEventRowStatus=persistentXgcpEventRowStatus, ciscoWanPersistentXgcpEventsMIB=ciscoWanPersistentXgcpEventsMIB, persistentXgcpEventNum=persistentXgcpEventNum, PYSNMP_MODULE_ID=ciscoWanPersistentXgcpEventsMIB)

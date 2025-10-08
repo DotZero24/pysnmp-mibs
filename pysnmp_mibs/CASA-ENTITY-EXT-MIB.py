@@ -1,67 +1,44 @@
-_J='casaCmtsCpuMemGroup'
-_I='casaModuleTotalCpuUtilization'
-_H='casaModuleTotalFreeMem'
-_G='casaModuleTotalMemAllocated'
-_F='casaModuleTotalAllocatableMem'
-_E='casaModuleCpuMemEntry'
-_D='KBytes'
-_C='read-only'
-_B='CASA-ENTITY-EXT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-casa,=mibBuilder.importSymbols('CASA-MIB','casa')
-entPhysicalEntry,=mibBuilder.importSymbols('ENTITY-MIB','entPhysicalEntry')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-casaModuleCpuMemMib=ModuleIdentity((1,3,6,1,4,1,20858,10,13))
-_CasaMgmt_ObjectIdentity=ObjectIdentity
-casaMgmt=_CasaMgmt_ObjectIdentity((1,3,6,1,4,1,20858,10))
-_CasaModuleCpuMemObjects_ObjectIdentity=ObjectIdentity
-casaModuleCpuMemObjects=_CasaModuleCpuMemObjects_ObjectIdentity((1,3,6,1,4,1,20858,10,13,1))
-_CasaModuleCpuMemTable_Object=MibTable
-casaModuleCpuMemTable=_CasaModuleCpuMemTable_Object((1,3,6,1,4,1,20858,10,13,1,1))
-if mibBuilder.loadTexts:casaModuleCpuMemTable.setStatus(_A)
-_CasaModuleCpuMemEntry_Object=MibTableRow
-casaModuleCpuMemEntry=_CasaModuleCpuMemEntry_Object((1,3,6,1,4,1,20858,10,13,1,1,1))
-if mibBuilder.loadTexts:casaModuleCpuMemEntry.setStatus(_A)
-_CasaModuleTotalAllocatableMem_Type=Unsigned32
-_CasaModuleTotalAllocatableMem_Object=MibTableColumn
-casaModuleTotalAllocatableMem=_CasaModuleTotalAllocatableMem_Object((1,3,6,1,4,1,20858,10,13,1,1,1,1),_CasaModuleTotalAllocatableMem_Type())
-casaModuleTotalAllocatableMem.setMaxAccess(_C)
-if mibBuilder.loadTexts:casaModuleTotalAllocatableMem.setStatus(_A)
-if mibBuilder.loadTexts:casaModuleTotalAllocatableMem.setUnits(_D)
-_CasaModuleTotalMemAllocated_Type=Unsigned32
-_CasaModuleTotalMemAllocated_Object=MibTableColumn
-casaModuleTotalMemAllocated=_CasaModuleTotalMemAllocated_Object((1,3,6,1,4,1,20858,10,13,1,1,1,2),_CasaModuleTotalMemAllocated_Type())
-casaModuleTotalMemAllocated.setMaxAccess(_C)
-if mibBuilder.loadTexts:casaModuleTotalMemAllocated.setStatus(_A)
-if mibBuilder.loadTexts:casaModuleTotalMemAllocated.setUnits(_D)
-_CasaModuleTotalFreeMem_Type=Unsigned32
-_CasaModuleTotalFreeMem_Object=MibTableColumn
-casaModuleTotalFreeMem=_CasaModuleTotalFreeMem_Object((1,3,6,1,4,1,20858,10,13,1,1,1,3),_CasaModuleTotalFreeMem_Type())
-casaModuleTotalFreeMem.setMaxAccess(_C)
-if mibBuilder.loadTexts:casaModuleTotalFreeMem.setStatus(_A)
-if mibBuilder.loadTexts:casaModuleTotalFreeMem.setUnits(_D)
-_CasaModuleTotalCpuUtilization_Type=Unsigned32
-_CasaModuleTotalCpuUtilization_Object=MibTableColumn
-casaModuleTotalCpuUtilization=_CasaModuleTotalCpuUtilization_Object((1,3,6,1,4,1,20858,10,13,1,1,1,4),_CasaModuleTotalCpuUtilization_Type())
-casaModuleTotalCpuUtilization.setMaxAccess(_C)
-if mibBuilder.loadTexts:casaModuleTotalCpuUtilization.setStatus(_A)
-if mibBuilder.loadTexts:casaModuleTotalCpuUtilization.setUnits('%')
-_CasaCmtsCpuMemGroups_ObjectIdentity=ObjectIdentity
-casaCmtsCpuMemGroups=_CasaCmtsCpuMemGroups_ObjectIdentity((1,3,6,1,4,1,20858,10,13,2))
-_CasaCmtsCpuMemCompliances_ObjectIdentity=ObjectIdentity
-casaCmtsCpuMemCompliances=_CasaCmtsCpuMemCompliances_ObjectIdentity((1,3,6,1,4,1,20858,10,13,3))
-entPhysicalEntry.registerAugmentions((_B,_E))
+#
+# PySNMP MIB module CASA-ENTITY-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/casa/CASA-ENTITY-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:43 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+casa, = mibBuilder.importSymbols("CASA-MIB", "casa")
+entPhysicalEntry, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalEntry")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+casaModuleCpuMemMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 20858, 10, 13))
+if mibBuilder.loadTexts: casaModuleCpuMemMib.setLastUpdated('200809040922Z')
+if mibBuilder.loadTexts: casaModuleCpuMemMib.setOrganization('Casa Systems Inc')
+casaMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 20858, 10))
+casaModuleCpuMemObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 20858, 10, 13, 1))
+casaModuleCpuMemTable = MibTable((1, 3, 6, 1, 4, 1, 20858, 10, 13, 1, 1), )
+if mibBuilder.loadTexts: casaModuleCpuMemTable.setStatus('current')
+casaModuleCpuMemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 20858, 10, 13, 1, 1, 1), )
+entPhysicalEntry.registerAugmentions(("CASA-ENTITY-EXT-MIB", "casaModuleCpuMemEntry"))
 casaModuleCpuMemEntry.setIndexNames(*entPhysicalEntry.getIndexNames())
-casaCmtsCpuMemGroup=ObjectGroup((1,3,6,1,4,1,20858,10,13,2,1))
-casaCmtsCpuMemGroup.setObjects(*((_B,_F),(_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:casaCmtsCpuMemGroup.setStatus(_A)
-casaCmtsCpuMemCompliance=ModuleCompliance((1,3,6,1,4,1,20858,10,13,3,1))
-casaCmtsCpuMemCompliance.setObjects(('CASA-CABLE-CPUMEMINFO-MIB',_J))
-if mibBuilder.loadTexts:casaCmtsCpuMemCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'casaMgmt':casaMgmt,'casaModuleCpuMemMib':casaModuleCpuMemMib,'casaModuleCpuMemObjects':casaModuleCpuMemObjects,'casaModuleCpuMemTable':casaModuleCpuMemTable,_E:casaModuleCpuMemEntry,_F:casaModuleTotalAllocatableMem,_G:casaModuleTotalMemAllocated,_H:casaModuleTotalFreeMem,_I:casaModuleTotalCpuUtilization,'casaCmtsCpuMemGroups':casaCmtsCpuMemGroups,_J:casaCmtsCpuMemGroup,'casaCmtsCpuMemCompliances':casaCmtsCpuMemCompliances,'casaCmtsCpuMemCompliance':casaCmtsCpuMemCompliance})
+if mibBuilder.loadTexts: casaModuleCpuMemEntry.setStatus('current')
+casaModuleTotalAllocatableMem = MibTableColumn((1, 3, 6, 1, 4, 1, 20858, 10, 13, 1, 1, 1, 1), Unsigned32()).setUnits('KBytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: casaModuleTotalAllocatableMem.setStatus('current')
+casaModuleTotalMemAllocated = MibTableColumn((1, 3, 6, 1, 4, 1, 20858, 10, 13, 1, 1, 1, 2), Unsigned32()).setUnits('KBytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: casaModuleTotalMemAllocated.setStatus('current')
+casaModuleTotalFreeMem = MibTableColumn((1, 3, 6, 1, 4, 1, 20858, 10, 13, 1, 1, 1, 3), Unsigned32()).setUnits('KBytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: casaModuleTotalFreeMem.setStatus('current')
+casaModuleTotalCpuUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 20858, 10, 13, 1, 1, 1, 4), Unsigned32()).setUnits('%').setMaxAccess("readonly")
+if mibBuilder.loadTexts: casaModuleTotalCpuUtilization.setStatus('current')
+casaCmtsCpuMemGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 20858, 10, 13, 2))
+casaCmtsCpuMemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 20858, 10, 13, 2, 1)).setObjects(("CASA-ENTITY-EXT-MIB", "casaModuleTotalAllocatableMem"), ("CASA-ENTITY-EXT-MIB", "casaModuleTotalMemAllocated"), ("CASA-ENTITY-EXT-MIB", "casaModuleTotalFreeMem"), ("CASA-ENTITY-EXT-MIB", "casaModuleTotalCpuUtilization"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    casaCmtsCpuMemGroup = casaCmtsCpuMemGroup.setStatus('current')
+casaCmtsCpuMemCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 20858, 10, 13, 3))
+casaCmtsCpuMemCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 20858, 10, 13, 3, 1)).setObjects(("CASA-CABLE-CPUMEMINFO-MIB", "casaCmtsCpuMemGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    casaCmtsCpuMemCompliance = casaCmtsCpuMemCompliance.setStatus('current')
+mibBuilder.exportSymbols("CASA-ENTITY-EXT-MIB", casaModuleCpuMemEntry=casaModuleCpuMemEntry, casaCmtsCpuMemCompliances=casaCmtsCpuMemCompliances, casaModuleCpuMemMib=casaModuleCpuMemMib, casaCmtsCpuMemCompliance=casaCmtsCpuMemCompliance, casaModuleTotalFreeMem=casaModuleTotalFreeMem, casaModuleTotalCpuUtilization=casaModuleTotalCpuUtilization, PYSNMP_MODULE_ID=casaModuleCpuMemMib, casaModuleCpuMemTable=casaModuleCpuMemTable, casaModuleTotalMemAllocated=casaModuleTotalMemAllocated, casaCmtsCpuMemGroups=casaCmtsCpuMemGroups, casaModuleCpuMemObjects=casaModuleCpuMemObjects, casaCmtsCpuMemGroup=casaCmtsCpuMemGroup, casaMgmt=casaMgmt, casaModuleTotalAllocatableMem=casaModuleTotalAllocatableMem)

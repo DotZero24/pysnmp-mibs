@@ -1,65 +1,37 @@
-_I='hmITIpTMask'
-_H='hmITIpTAddress'
-_G='hmITIpTIfName'
-_F='DisplayString'
-_E='read-only'
-_D='not-accessible'
-_C='Integer32'
-_B='HMIT-IP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hmITMgmt,=mibBuilder.importSymbols('HMIT-SMI','hmITMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime',_F,'MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-hmITIpMib=ModuleIdentity((1,3,6,1,4,1,248,100,1,3,700))
-if mibBuilder.loadTexts:hmITIpMib.setRevisions(('2010-01-08 17:00',))
-_HmITIpTable_Object=MibTable
-hmITIpTable=_HmITIpTable_Object((1,3,6,1,4,1,248,100,1,3,700,1))
-if mibBuilder.loadTexts:hmITIpTable.setStatus(_A)
-_HmITIpEntry_Object=MibTableRow
-hmITIpEntry=_HmITIpEntry_Object((1,3,6,1,4,1,248,100,1,3,700,1,1))
-hmITIpEntry.setIndexNames((0,_B,_G),(0,_B,_H),(0,_B,_I))
-if mibBuilder.loadTexts:hmITIpEntry.setStatus(_A)
-class _HmITIpTIfName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,40))
-_HmITIpTIfName_Type.__name__=_F
-_HmITIpTIfName_Object=MibTableColumn
-hmITIpTIfName=_HmITIpTIfName_Object((1,3,6,1,4,1,248,100,1,3,700,1,1,1),_HmITIpTIfName_Type())
-hmITIpTIfName.setMaxAccess(_D)
-if mibBuilder.loadTexts:hmITIpTIfName.setStatus(_A)
-_HmITIpTAddress_Type=IpAddress
-_HmITIpTAddress_Object=MibTableColumn
-hmITIpTAddress=_HmITIpTAddress_Object((1,3,6,1,4,1,248,100,1,3,700,1,1,2),_HmITIpTAddress_Type())
-hmITIpTAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:hmITIpTAddress.setStatus(_A)
-_HmITIpTMask_Type=IpAddress
-_HmITIpTMask_Object=MibTableColumn
-hmITIpTMask=_HmITIpTMask_Object((1,3,6,1,4,1,248,100,1,3,700,1,1,3),_HmITIpTMask_Type())
-hmITIpTMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:hmITIpTMask.setStatus(_A)
-_HmITIpTBPAddress_Type=IpAddress
-_HmITIpTBPAddress_Object=MibTableColumn
-hmITIpTBPAddress=_HmITIpTBPAddress_Object((1,3,6,1,4,1,248,100,1,3,700,1,1,4),_HmITIpTBPAddress_Type())
-hmITIpTBPAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:hmITIpTBPAddress.setStatus(_A)
-class _HmITIpTType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('primary',1),('secondary',2)))
-_HmITIpTType_Type.__name__=_C
-_HmITIpTType_Object=MibTableColumn
-hmITIpTType=_HmITIpTType_Object((1,3,6,1,4,1,248,100,1,3,700,1,1,5),_HmITIpTType_Type())
-hmITIpTType.setMaxAccess(_E)
-if mibBuilder.loadTexts:hmITIpTType.setStatus(_A)
-class _HmITIpTWay_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('manual',1),('dhcp',2),('negotiated',3),('unnumbered',4),('virtual',5)))
-_HmITIpTWay_Type.__name__=_C
-_HmITIpTWay_Object=MibTableColumn
-hmITIpTWay=_HmITIpTWay_Object((1,3,6,1,4,1,248,100,1,3,700,1,1,6),_HmITIpTWay_Type())
-hmITIpTWay.setMaxAccess(_E)
-if mibBuilder.loadTexts:hmITIpTWay.setStatus(_A)
-_HmITIpTRowStatus_Type=RowStatus
-_HmITIpTRowStatus_Object=MibTableColumn
-hmITIpTRowStatus=_HmITIpTRowStatus_Object((1,3,6,1,4,1,248,100,1,3,700,1,1,7),_HmITIpTRowStatus_Type())
-hmITIpTRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:hmITIpTRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'hmITIpMib':hmITIpMib,'hmITIpTable':hmITIpTable,'hmITIpEntry':hmITIpEntry,_G:hmITIpTIfName,_H:hmITIpTAddress,_I:hmITIpTMask,'hmITIpTBPAddress':hmITIpTBPAddress,'hmITIpTType':hmITIpTType,'hmITIpTWay':hmITIpTWay,'hmITIpTRowStatus':hmITIpTRowStatus})
+#
+# PySNMP MIB module HMIT-IP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hirschmann/HMIT-IP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:04 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hmITMgmt, = mibBuilder.importSymbols("HMIT-SMI", "hmITMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+hmITIpMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 100, 1, 3, 700))
+hmITIpMib.setRevisions(('2010-01-08 17:00',))
+if mibBuilder.loadTexts: hmITIpMib.setLastUpdated('201001081700Z')
+if mibBuilder.loadTexts: hmITIpMib.setOrganization('Belden Singapore Pte Ltd.')
+hmITIpTable = MibTable((1, 3, 6, 1, 4, 1, 248, 100, 1, 3, 700, 1), )
+if mibBuilder.loadTexts: hmITIpTable.setStatus('current')
+hmITIpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 100, 1, 3, 700, 1, 1), ).setIndexNames((0, "HMIT-IP-MIB", "hmITIpTIfName"), (0, "HMIT-IP-MIB", "hmITIpTAddress"), (0, "HMIT-IP-MIB", "hmITIpTMask"))
+if mibBuilder.loadTexts: hmITIpEntry.setStatus('current')
+hmITIpTIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 100, 1, 3, 700, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 40)))
+if mibBuilder.loadTexts: hmITIpTIfName.setStatus('current')
+hmITIpTAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 100, 1, 3, 700, 1, 1, 2), IpAddress())
+if mibBuilder.loadTexts: hmITIpTAddress.setStatus('current')
+hmITIpTMask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 100, 1, 3, 700, 1, 1, 3), IpAddress())
+if mibBuilder.loadTexts: hmITIpTMask.setStatus('current')
+hmITIpTBPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 100, 1, 3, 700, 1, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmITIpTBPAddress.setStatus('current')
+hmITIpTType = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 100, 1, 3, 700, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmITIpTType.setStatus('current')
+hmITIpTWay = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 100, 1, 3, 700, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("manual", 1), ("dhcp", 2), ("negotiated", 3), ("unnumbered", 4), ("virtual", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmITIpTWay.setStatus('current')
+hmITIpTRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 100, 1, 3, 700, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hmITIpTRowStatus.setStatus('current')
+mibBuilder.exportSymbols("HMIT-IP-MIB", hmITIpEntry=hmITIpEntry, PYSNMP_MODULE_ID=hmITIpMib, hmITIpTBPAddress=hmITIpTBPAddress, hmITIpTWay=hmITIpTWay, hmITIpTIfName=hmITIpTIfName, hmITIpTRowStatus=hmITIpTRowStatus, hmITIpTType=hmITIpTType, hmITIpTAddress=hmITIpTAddress, hmITIpTable=hmITIpTable, hmITIpTMask=hmITIpTMask, hmITIpMib=hmITIpMib)

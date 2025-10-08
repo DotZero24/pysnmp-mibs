@@ -1,142 +1,72 @@
-_K='disable'
-_J='enable'
-_I='wwpIgmpSnoopGroupAddress'
-_H='wwpIgmpSnoopVlanId'
-_G='TruthValue'
-_F='seconds'
-_E='WWP-IGMP-SNOOP-MIB'
-_D='read-write'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention',_G)
-wwpModules,=mibBuilder.importSymbols('WWP-SMI','wwpModules')
-wwpIgmpSnoopMIB=ModuleIdentity((1,3,6,1,4,1,6141,2,10))
-if mibBuilder.loadTexts:wwpIgmpSnoopMIB.setRevisions(('2001-04-03 17:00',))
-class PortList(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-class VlanId(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_WwpIgmpSnoopMIBObjects_ObjectIdentity=ObjectIdentity
-wwpIgmpSnoopMIBObjects=_WwpIgmpSnoopMIBObjects_ObjectIdentity((1,3,6,1,4,1,6141,2,10,1))
-_WwpIgmpSnoop_ObjectIdentity=ObjectIdentity
-wwpIgmpSnoop=_WwpIgmpSnoop_ObjectIdentity((1,3,6,1,4,1,6141,2,10,1,1))
-class _WwpIgmpSnoopActivate_Type(TruthValue):defaultValue=2
-_WwpIgmpSnoopActivate_Type.__name__=_G
-_WwpIgmpSnoopActivate_Object=MibScalar
-wwpIgmpSnoopActivate=_WwpIgmpSnoopActivate_Object((1,3,6,1,4,1,6141,2,10,1,1,1),_WwpIgmpSnoopActivate_Type())
-wwpIgmpSnoopActivate.setMaxAccess(_D)
-if mibBuilder.loadTexts:wwpIgmpSnoopActivate.setStatus(_A)
-_WwpIgmpSnoopTable_Object=MibTable
-wwpIgmpSnoopTable=_WwpIgmpSnoopTable_Object((1,3,6,1,4,1,6141,2,10,1,1,2))
-if mibBuilder.loadTexts:wwpIgmpSnoopTable.setStatus(_A)
-_WwpIgmpSnoopEntry_Object=MibTableRow
-wwpIgmpSnoopEntry=_WwpIgmpSnoopEntry_Object((1,3,6,1,4,1,6141,2,10,1,1,2,1))
-wwpIgmpSnoopEntry.setIndexNames((0,_E,_H),(0,_E,_I))
-if mibBuilder.loadTexts:wwpIgmpSnoopEntry.setStatus(_A)
-_WwpIgmpSnoopVlanId_Type=VlanId
-_WwpIgmpSnoopVlanId_Object=MibTableColumn
-wwpIgmpSnoopVlanId=_WwpIgmpSnoopVlanId_Object((1,3,6,1,4,1,6141,2,10,1,1,2,1,1),_WwpIgmpSnoopVlanId_Type())
-wwpIgmpSnoopVlanId.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpIgmpSnoopVlanId.setStatus(_A)
-_WwpIgmpSnoopGroupAddress_Type=IpAddress
-_WwpIgmpSnoopGroupAddress_Object=MibTableColumn
-wwpIgmpSnoopGroupAddress=_WwpIgmpSnoopGroupAddress_Object((1,3,6,1,4,1,6141,2,10,1,1,2,1,2),_WwpIgmpSnoopGroupAddress_Type())
-wwpIgmpSnoopGroupAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpIgmpSnoopGroupAddress.setStatus(_A)
-_WwpIgmpSnoopActivePorts_Type=PortList
-_WwpIgmpSnoopActivePorts_Object=MibTableColumn
-wwpIgmpSnoopActivePorts=_WwpIgmpSnoopActivePorts_Object((1,3,6,1,4,1,6141,2,10,1,1,2,1,3),_WwpIgmpSnoopActivePorts_Type())
-wwpIgmpSnoopActivePorts.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpIgmpSnoopActivePorts.setStatus(_A)
-class _WwpIgmpSnoopRouterPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpIgmpSnoopRouterPort_Type.__name__=_C
-_WwpIgmpSnoopRouterPort_Object=MibTableColumn
-wwpIgmpSnoopRouterPort=_WwpIgmpSnoopRouterPort_Object((1,3,6,1,4,1,6141,2,10,1,1,2,1,4),_WwpIgmpSnoopRouterPort_Type())
-wwpIgmpSnoopRouterPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpIgmpSnoopRouterPort.setStatus(_A)
-_WwpIgmpSnoopQueryTime_Type=TimeTicks
-_WwpIgmpSnoopQueryTime_Object=MibTableColumn
-wwpIgmpSnoopQueryTime=_WwpIgmpSnoopQueryTime_Object((1,3,6,1,4,1,6141,2,10,1,1,2,1,5),_WwpIgmpSnoopQueryTime_Type())
-wwpIgmpSnoopQueryTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpIgmpSnoopQueryTime.setStatus(_A)
-class _WwpIgmpSnoopLingerTimeout_Type(Integer32):defaultValue=20;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_WwpIgmpSnoopLingerTimeout_Type.__name__=_C
-_WwpIgmpSnoopLingerTimeout_Object=MibScalar
-wwpIgmpSnoopLingerTimeout=_WwpIgmpSnoopLingerTimeout_Object((1,3,6,1,4,1,6141,2,10,1,1,3),_WwpIgmpSnoopLingerTimeout_Type())
-wwpIgmpSnoopLingerTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:wwpIgmpSnoopLingerTimeout.setStatus(_A)
-if mibBuilder.loadTexts:wwpIgmpSnoopLingerTimeout.setUnits(_F)
-class _WwpIgmpSnoopExpiryTimeout_Type(Integer32):defaultValue=30;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_WwpIgmpSnoopExpiryTimeout_Type.__name__=_C
-_WwpIgmpSnoopExpiryTimeout_Object=MibScalar
-wwpIgmpSnoopExpiryTimeout=_WwpIgmpSnoopExpiryTimeout_Object((1,3,6,1,4,1,6141,2,10,1,1,4),_WwpIgmpSnoopExpiryTimeout_Type())
-wwpIgmpSnoopExpiryTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:wwpIgmpSnoopExpiryTimeout.setStatus(_A)
-if mibBuilder.loadTexts:wwpIgmpSnoopExpiryTimeout.setUnits(_F)
-_WwpIgmpSnoopQueryMessages_Type=Counter32
-_WwpIgmpSnoopQueryMessages_Object=MibScalar
-wwpIgmpSnoopQueryMessages=_WwpIgmpSnoopQueryMessages_Object((1,3,6,1,4,1,6141,2,10,1,1,5),_WwpIgmpSnoopQueryMessages_Type())
-wwpIgmpSnoopQueryMessages.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpIgmpSnoopQueryMessages.setStatus(_A)
-_WwpIgmpSnoopJoinMessages_Type=Counter32
-_WwpIgmpSnoopJoinMessages_Object=MibScalar
-wwpIgmpSnoopJoinMessages=_WwpIgmpSnoopJoinMessages_Object((1,3,6,1,4,1,6141,2,10,1,1,6),_WwpIgmpSnoopJoinMessages_Type())
-wwpIgmpSnoopJoinMessages.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpIgmpSnoopJoinMessages.setStatus(_A)
-_WwpIgmpSnoopLeaveMessages_Type=Counter32
-_WwpIgmpSnoopLeaveMessages_Object=MibScalar
-wwpIgmpSnoopLeaveMessages=_WwpIgmpSnoopLeaveMessages_Object((1,3,6,1,4,1,6141,2,10,1,1,7),_WwpIgmpSnoopLeaveMessages_Type())
-wwpIgmpSnoopLeaveMessages.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpIgmpSnoopLeaveMessages.setStatus(_A)
-_WwpIgmpSnoopRouterDiscards_Type=Counter32
-_WwpIgmpSnoopRouterDiscards_Object=MibScalar
-wwpIgmpSnoopRouterDiscards=_WwpIgmpSnoopRouterDiscards_Object((1,3,6,1,4,1,6141,2,10,1,1,8),_WwpIgmpSnoopRouterDiscards_Type())
-wwpIgmpSnoopRouterDiscards.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpIgmpSnoopRouterDiscards.setStatus(_A)
-class _WwpIgmpSnoopMinQueryTimeout_Type(Integer32):defaultValue=60;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_WwpIgmpSnoopMinQueryTimeout_Type.__name__=_C
-_WwpIgmpSnoopMinQueryTimeout_Object=MibScalar
-wwpIgmpSnoopMinQueryTimeout=_WwpIgmpSnoopMinQueryTimeout_Object((1,3,6,1,4,1,6141,2,10,1,1,9),_WwpIgmpSnoopMinQueryTimeout_Type())
-wwpIgmpSnoopMinQueryTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:wwpIgmpSnoopMinQueryTimeout.setStatus(_A)
-if mibBuilder.loadTexts:wwpIgmpSnoopMinQueryTimeout.setUnits(_F)
-class _WwpIgmpSnoopLeaveMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('fast',1),('inquisitive',2)))
-_WwpIgmpSnoopLeaveMode_Type.__name__=_C
-_WwpIgmpSnoopLeaveMode_Object=MibScalar
-wwpIgmpSnoopLeaveMode=_WwpIgmpSnoopLeaveMode_Object((1,3,6,1,4,1,6141,2,10,1,1,10),_WwpIgmpSnoopLeaveMode_Type())
-wwpIgmpSnoopLeaveMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:wwpIgmpSnoopLeaveMode.setStatus(_A)
-class _WwpIgmpSnoopInqLeaveTimeout_Type(Integer32):defaultValue=20;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_WwpIgmpSnoopInqLeaveTimeout_Type.__name__=_C
-_WwpIgmpSnoopInqLeaveTimeout_Object=MibScalar
-wwpIgmpSnoopInqLeaveTimeout=_WwpIgmpSnoopInqLeaveTimeout_Object((1,3,6,1,4,1,6141,2,10,1,1,11),_WwpIgmpSnoopInqLeaveTimeout_Type())
-wwpIgmpSnoopInqLeaveTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:wwpIgmpSnoopInqLeaveTimeout.setStatus(_A)
-class _WwpIgmpSnoopUnresMcastFilterAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_J,1),(_K,2)))
-_WwpIgmpSnoopUnresMcastFilterAdminStatus_Type.__name__=_C
-_WwpIgmpSnoopUnresMcastFilterAdminStatus_Object=MibScalar
-wwpIgmpSnoopUnresMcastFilterAdminStatus=_WwpIgmpSnoopUnresMcastFilterAdminStatus_Object((1,3,6,1,4,1,6141,2,10,1,1,12),_WwpIgmpSnoopUnresMcastFilterAdminStatus_Type())
-wwpIgmpSnoopUnresMcastFilterAdminStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:wwpIgmpSnoopUnresMcastFilterAdminStatus.setStatus(_A)
-class _WwpIgmpSnoopUnresMcastFilterOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_J,1),(_K,2)))
-_WwpIgmpSnoopUnresMcastFilterOperStatus_Type.__name__=_C
-_WwpIgmpSnoopUnresMcastFilterOperStatus_Object=MibScalar
-wwpIgmpSnoopUnresMcastFilterOperStatus=_WwpIgmpSnoopUnresMcastFilterOperStatus_Object((1,3,6,1,4,1,6141,2,10,1,1,13),_WwpIgmpSnoopUnresMcastFilterOperStatus_Type())
-wwpIgmpSnoopUnresMcastFilterOperStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpIgmpSnoopUnresMcastFilterOperStatus.setStatus(_A)
-_WwpIgmpSnoopMIBNotificationPrefix_ObjectIdentity=ObjectIdentity
-wwpIgmpSnoopMIBNotificationPrefix=_WwpIgmpSnoopMIBNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,6141,2,10,2))
-_WwpIgmpSnoopMIBNotifications_ObjectIdentity=ObjectIdentity
-wwpIgmpSnoopMIBNotifications=_WwpIgmpSnoopMIBNotifications_ObjectIdentity((1,3,6,1,4,1,6141,2,10,2,0))
-_WwpIgmpSnoopMIBConformance_ObjectIdentity=ObjectIdentity
-wwpIgmpSnoopMIBConformance=_WwpIgmpSnoopMIBConformance_ObjectIdentity((1,3,6,1,4,1,6141,2,10,3))
-_WwpIgmpSnoopMIBCompliances_ObjectIdentity=ObjectIdentity
-wwpIgmpSnoopMIBCompliances=_WwpIgmpSnoopMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6141,2,10,3,1))
-_WwpIgmpSnoopMIBGroups_ObjectIdentity=ObjectIdentity
-wwpIgmpSnoopMIBGroups=_WwpIgmpSnoopMIBGroups_ObjectIdentity((1,3,6,1,4,1,6141,2,10,3,2))
-mibBuilder.exportSymbols(_E,**{'PortList':PortList,'VlanId':VlanId,'wwpIgmpSnoopMIB':wwpIgmpSnoopMIB,'wwpIgmpSnoopMIBObjects':wwpIgmpSnoopMIBObjects,'wwpIgmpSnoop':wwpIgmpSnoop,'wwpIgmpSnoopActivate':wwpIgmpSnoopActivate,'wwpIgmpSnoopTable':wwpIgmpSnoopTable,'wwpIgmpSnoopEntry':wwpIgmpSnoopEntry,_H:wwpIgmpSnoopVlanId,_I:wwpIgmpSnoopGroupAddress,'wwpIgmpSnoopActivePorts':wwpIgmpSnoopActivePorts,'wwpIgmpSnoopRouterPort':wwpIgmpSnoopRouterPort,'wwpIgmpSnoopQueryTime':wwpIgmpSnoopQueryTime,'wwpIgmpSnoopLingerTimeout':wwpIgmpSnoopLingerTimeout,'wwpIgmpSnoopExpiryTimeout':wwpIgmpSnoopExpiryTimeout,'wwpIgmpSnoopQueryMessages':wwpIgmpSnoopQueryMessages,'wwpIgmpSnoopJoinMessages':wwpIgmpSnoopJoinMessages,'wwpIgmpSnoopLeaveMessages':wwpIgmpSnoopLeaveMessages,'wwpIgmpSnoopRouterDiscards':wwpIgmpSnoopRouterDiscards,'wwpIgmpSnoopMinQueryTimeout':wwpIgmpSnoopMinQueryTimeout,'wwpIgmpSnoopLeaveMode':wwpIgmpSnoopLeaveMode,'wwpIgmpSnoopInqLeaveTimeout':wwpIgmpSnoopInqLeaveTimeout,'wwpIgmpSnoopUnresMcastFilterAdminStatus':wwpIgmpSnoopUnresMcastFilterAdminStatus,'wwpIgmpSnoopUnresMcastFilterOperStatus':wwpIgmpSnoopUnresMcastFilterOperStatus,'wwpIgmpSnoopMIBNotificationPrefix':wwpIgmpSnoopMIBNotificationPrefix,'wwpIgmpSnoopMIBNotifications':wwpIgmpSnoopMIBNotifications,'wwpIgmpSnoopMIBConformance':wwpIgmpSnoopMIBConformance,'wwpIgmpSnoopMIBCompliances':wwpIgmpSnoopMIBCompliances,'wwpIgmpSnoopMIBGroups':wwpIgmpSnoopMIBGroups})
+#
+# PySNMP MIB module WWP-IGMP-SNOOP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciena/WWP-IGMP-SNOOP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:10 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+wwpModules, = mibBuilder.importSymbols("WWP-SMI", "wwpModules")
+wwpIgmpSnoopMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6141, 2, 10))
+wwpIgmpSnoopMIB.setRevisions(('2001-04-03 17:00',))
+if mibBuilder.loadTexts: wwpIgmpSnoopMIB.setLastUpdated('200104031700Z')
+if mibBuilder.loadTexts: wwpIgmpSnoopMIB.setOrganization('World Wide Packets, Inc')
+class PortList(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+
+class VlanId(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 4094)
+
+wwpIgmpSnoopMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1))
+wwpIgmpSnoop = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1))
+wwpIgmpSnoopMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 10, 2))
+wwpIgmpSnoopMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 10, 2, 0))
+wwpIgmpSnoopMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 10, 3))
+wwpIgmpSnoopMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 10, 3, 1))
+wwpIgmpSnoopMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 10, 3, 2))
+wwpIgmpSnoopActivate = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpIgmpSnoopActivate.setStatus('current')
+wwpIgmpSnoopTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1, 2), )
+if mibBuilder.loadTexts: wwpIgmpSnoopTable.setStatus('current')
+wwpIgmpSnoopEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1, 2, 1), ).setIndexNames((0, "WWP-IGMP-SNOOP-MIB", "wwpIgmpSnoopVlanId"), (0, "WWP-IGMP-SNOOP-MIB", "wwpIgmpSnoopGroupAddress"))
+if mibBuilder.loadTexts: wwpIgmpSnoopEntry.setStatus('current')
+wwpIgmpSnoopVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1, 2, 1, 1), VlanId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpIgmpSnoopVlanId.setStatus('current')
+wwpIgmpSnoopGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1, 2, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpIgmpSnoopGroupAddress.setStatus('current')
+wwpIgmpSnoopActivePorts = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1, 2, 1, 3), PortList()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpIgmpSnoopActivePorts.setStatus('current')
+wwpIgmpSnoopRouterPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpIgmpSnoopRouterPort.setStatus('current')
+wwpIgmpSnoopQueryTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1, 2, 1, 5), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpIgmpSnoopQueryTime.setStatus('current')
+wwpIgmpSnoopLingerTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)).clone(20)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpIgmpSnoopLingerTimeout.setStatus('current')
+wwpIgmpSnoopExpiryTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)).clone(30)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpIgmpSnoopExpiryTimeout.setStatus('current')
+wwpIgmpSnoopQueryMessages = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpIgmpSnoopQueryMessages.setStatus('current')
+wwpIgmpSnoopJoinMessages = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpIgmpSnoopJoinMessages.setStatus('current')
+wwpIgmpSnoopLeaveMessages = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpIgmpSnoopLeaveMessages.setStatus('current')
+wwpIgmpSnoopRouterDiscards = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpIgmpSnoopRouterDiscards.setStatus('current')
+wwpIgmpSnoopMinQueryTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)).clone(60)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpIgmpSnoopMinQueryTimeout.setStatus('current')
+wwpIgmpSnoopLeaveMode = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("fast", 1), ("inquisitive", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpIgmpSnoopLeaveMode.setStatus('current')
+wwpIgmpSnoopInqLeaveTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)).clone(20)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpIgmpSnoopInqLeaveTimeout.setStatus('current')
+wwpIgmpSnoopUnresMcastFilterAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpIgmpSnoopUnresMcastFilterAdminStatus.setStatus('current')
+wwpIgmpSnoopUnresMcastFilterOperStatus = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 10, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpIgmpSnoopUnresMcastFilterOperStatus.setStatus('current')
+mibBuilder.exportSymbols("WWP-IGMP-SNOOP-MIB", wwpIgmpSnoopMinQueryTimeout=wwpIgmpSnoopMinQueryTimeout, wwpIgmpSnoopExpiryTimeout=wwpIgmpSnoopExpiryTimeout, wwpIgmpSnoopGroupAddress=wwpIgmpSnoopGroupAddress, wwpIgmpSnoopMIBGroups=wwpIgmpSnoopMIBGroups, wwpIgmpSnoopLingerTimeout=wwpIgmpSnoopLingerTimeout, wwpIgmpSnoopQueryTime=wwpIgmpSnoopQueryTime, wwpIgmpSnoopRouterDiscards=wwpIgmpSnoopRouterDiscards, wwpIgmpSnoopMIBObjects=wwpIgmpSnoopMIBObjects, wwpIgmpSnoopActivePorts=wwpIgmpSnoopActivePorts, wwpIgmpSnoopLeaveMessages=wwpIgmpSnoopLeaveMessages, wwpIgmpSnoopJoinMessages=wwpIgmpSnoopJoinMessages, wwpIgmpSnoopActivate=wwpIgmpSnoopActivate, wwpIgmpSnoopMIBNotifications=wwpIgmpSnoopMIBNotifications, wwpIgmpSnoopLeaveMode=wwpIgmpSnoopLeaveMode, wwpIgmpSnoopInqLeaveTimeout=wwpIgmpSnoopInqLeaveTimeout, wwpIgmpSnoopVlanId=wwpIgmpSnoopVlanId, wwpIgmpSnoopUnresMcastFilterOperStatus=wwpIgmpSnoopUnresMcastFilterOperStatus, wwpIgmpSnoopMIBCompliances=wwpIgmpSnoopMIBCompliances, wwpIgmpSnoopRouterPort=wwpIgmpSnoopRouterPort, wwpIgmpSnoopTable=wwpIgmpSnoopTable, wwpIgmpSnoopEntry=wwpIgmpSnoopEntry, PYSNMP_MODULE_ID=wwpIgmpSnoopMIB, wwpIgmpSnoopMIBConformance=wwpIgmpSnoopMIBConformance, wwpIgmpSnoop=wwpIgmpSnoop, wwpIgmpSnoopUnresMcastFilterAdminStatus=wwpIgmpSnoopUnresMcastFilterAdminStatus, wwpIgmpSnoopMIB=wwpIgmpSnoopMIB, wwpIgmpSnoopMIBNotificationPrefix=wwpIgmpSnoopMIBNotificationPrefix, wwpIgmpSnoopQueryMessages=wwpIgmpSnoopQueryMessages, PortList=PortList, VlanId=VlanId)

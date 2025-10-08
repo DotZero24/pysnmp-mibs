@@ -1,78 +1,45 @@
-_E='read-create'
-_D='ntpIndex'
-_C='LEFTHAND-NETWORKS-NUS-COMMON-NTP-MIB'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-lhnModules,=mibBuilder.importSymbols('LEFTHAND-NETWORKS-GLOBAL-REG','lhnModules')
-lhnNusCommonNTP,=mibBuilder.importSymbols('LEFTHAND-NETWORKS-NUS-COMMON-MIB','lhnNusCommonNTP')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-lhnNusCommonNTPModule=ModuleIdentity((1,3,6,1,4,1,9804,1,1,7))
-_NtpCount_Type=Integer32
-_NtpCount_Object=MibScalar
-ntpCount=_NtpCount_Object((1,3,6,1,4,1,9804,3,1,1,2,5,1),_NtpCount_Type())
-ntpCount.setMaxAccess('read-only')
-if mibBuilder.loadTexts:ntpCount.setStatus(_A)
-_NtpTable_Object=MibTable
-ntpTable=_NtpTable_Object((1,3,6,1,4,1,9804,3,1,1,2,5,2))
-if mibBuilder.loadTexts:ntpTable.setStatus(_A)
-_NtpEntry_Object=MibTableRow
-ntpEntry=_NtpEntry_Object((1,3,6,1,4,1,9804,3,1,1,2,5,2,1))
-ntpEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:ntpEntry.setStatus(_A)
-_NtpIndex_Type=Integer32
-_NtpIndex_Object=MibTableColumn
-ntpIndex=_NtpIndex_Object((1,3,6,1,4,1,9804,3,1,1,2,5,2,1,1),_NtpIndex_Type())
-ntpIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:ntpIndex.setStatus(_A)
-_NtpPreferred_Type=TruthValue
-_NtpPreferred_Object=MibTableColumn
-ntpPreferred=_NtpPreferred_Object((1,3,6,1,4,1,9804,3,1,1,2,5,2,1,2),_NtpPreferred_Type())
-ntpPreferred.setMaxAccess(_B)
-if mibBuilder.loadTexts:ntpPreferred.setStatus(_A)
-_NtpServer_Type=OctetString
-_NtpServer_Object=MibTableColumn
-ntpServer=_NtpServer_Object((1,3,6,1,4,1,9804,3,1,1,2,5,2,1,3),_NtpServer_Type())
-ntpServer.setMaxAccess(_B)
-if mibBuilder.loadTexts:ntpServer.setStatus(_A)
-_NtpRowStatus_Type=RowStatus
-_NtpRowStatus_Object=MibTableColumn
-ntpRowStatus=_NtpRowStatus_Object((1,3,6,1,4,1,9804,3,1,1,2,5,2,1,4),_NtpRowStatus_Type())
-ntpRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ntpRowStatus.setStatus(_A)
-_NtpStart_Type=TruthValue
-_NtpStart_Object=MibScalar
-ntpStart=_NtpStart_Object((1,3,6,1,4,1,9804,3,1,1,2,5,3),_NtpStart_Type())
-ntpStart.setMaxAccess(_B)
-if mibBuilder.loadTexts:ntpStart.setStatus(_A)
-_NtpStop_Type=TruthValue
-_NtpStop_Object=MibScalar
-ntpStop=_NtpStop_Object((1,3,6,1,4,1,9804,3,1,1,2,5,4),_NtpStop_Type())
-ntpStop.setMaxAccess(_B)
-if mibBuilder.loadTexts:ntpStop.setStatus(_A)
-_NtpRestart_Type=TruthValue
-_NtpRestart_Object=MibScalar
-ntpRestart=_NtpRestart_Object((1,3,6,1,4,1,9804,3,1,1,2,5,5),_NtpRestart_Type())
-ntpRestart.setMaxAccess(_B)
-if mibBuilder.loadTexts:ntpRestart.setStatus(_A)
-_NtpCheck_Type=TruthValue
-_NtpCheck_Object=MibScalar
-ntpCheck=_NtpCheck_Object((1,3,6,1,4,1,9804,3,1,1,2,5,6),_NtpCheck_Type())
-ntpCheck.setMaxAccess(_B)
-if mibBuilder.loadTexts:ntpCheck.setStatus(_A)
-_TimeGMTTime_Type=OctetString
-_TimeGMTTime_Object=MibScalar
-timeGMTTime=_TimeGMTTime_Object((1,3,6,1,4,1,9804,3,1,1,2,5,7),_TimeGMTTime_Type())
-timeGMTTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:timeGMTTime.setStatus(_A)
-_TimeTimeZone_Type=OctetString
-_TimeTimeZone_Object=MibScalar
-timeTimeZone=_TimeTimeZone_Object((1,3,6,1,4,1,9804,3,1,1,2,5,8),_TimeTimeZone_Type())
-timeTimeZone.setMaxAccess(_B)
-if mibBuilder.loadTexts:timeTimeZone.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'lhnNusCommonNTPModule':lhnNusCommonNTPModule,'ntpCount':ntpCount,'ntpTable':ntpTable,'ntpEntry':ntpEntry,_D:ntpIndex,'ntpPreferred':ntpPreferred,'ntpServer':ntpServer,'ntpRowStatus':ntpRowStatus,'ntpStart':ntpStart,'ntpStop':ntpStop,'ntpRestart':ntpRestart,'ntpCheck':ntpCheck,'timeGMTTime':timeGMTTime,'timeTimeZone':timeTimeZone})
+#
+# PySNMP MIB module LEFTHAND-NETWORKS-NUS-COMMON-NTP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/LEFTHAND-NETWORKS-NUS-COMMON-NTP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:21 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+lhnModules, = mibBuilder.importSymbols("LEFTHAND-NETWORKS-GLOBAL-REG", "lhnModules")
+lhnNusCommonNTP, = mibBuilder.importSymbols("LEFTHAND-NETWORKS-NUS-COMMON-MIB", "lhnNusCommonNTP")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+lhnNusCommonNTPModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 9804, 1, 1, 7))
+if mibBuilder.loadTexts: lhnNusCommonNTPModule.setLastUpdated('0106010000Z')
+if mibBuilder.loadTexts: lhnNusCommonNTPModule.setOrganization('LeftHand Networks, Inc.')
+ntpCount = MibScalar((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 5, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntpCount.setStatus('current')
+ntpTable = MibTable((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 5, 2), )
+if mibBuilder.loadTexts: ntpTable.setStatus('current')
+ntpStart = MibScalar((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 5, 3), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntpStart.setStatus('current')
+ntpStop = MibScalar((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 5, 4), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntpStop.setStatus('current')
+ntpRestart = MibScalar((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 5, 5), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntpRestart.setStatus('current')
+ntpCheck = MibScalar((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 5, 6), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntpCheck.setStatus('current')
+timeGMTTime = MibScalar((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 5, 7), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: timeGMTTime.setStatus('current')
+timeTimeZone = MibScalar((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 5, 8), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: timeTimeZone.setStatus('current')
+ntpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 5, 2, 1), ).setIndexNames((0, "LEFTHAND-NETWORKS-NUS-COMMON-NTP-MIB", "ntpIndex"))
+if mibBuilder.loadTexts: ntpEntry.setStatus('current')
+ntpIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 5, 2, 1, 1), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ntpIndex.setStatus('current')
+ntpPreferred = MibTableColumn((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 5, 2, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntpPreferred.setStatus('current')
+ntpServer = MibTableColumn((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 5, 2, 1, 3), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntpServer.setStatus('current')
+ntpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 5, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ntpRowStatus.setStatus('current')
+mibBuilder.exportSymbols("LEFTHAND-NETWORKS-NUS-COMMON-NTP-MIB", ntpRestart=ntpRestart, ntpTable=ntpTable, ntpStart=ntpStart, PYSNMP_MODULE_ID=lhnNusCommonNTPModule, timeGMTTime=timeGMTTime, ntpServer=ntpServer, timeTimeZone=timeTimeZone, ntpStop=ntpStop, ntpRowStatus=ntpRowStatus, ntpIndex=ntpIndex, ntpCount=ntpCount, ntpEntry=ntpEntry, ntpCheck=ntpCheck, ntpPreferred=ntpPreferred, lhnNusCommonNTPModule=lhnNusCommonNTPModule)

@@ -1,45 +1,32 @@
-_E='snsServicesIndex'
-_D='STORMSHIELD-SERVICES-MIB'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-stormshieldMIB,=mibBuilder.importSymbols('STORMSHIELD-SMI-MIB','stormshieldMIB')
-snsServices=ModuleIdentity((1,3,6,1,4,1,11256,1,7))
-if mibBuilder.loadTexts:snsServices.setRevisions(('2017-02-20 00:00',))
-_SnsServicesTable_Object=MibTable
-snsServicesTable=_SnsServicesTable_Object((1,3,6,1,4,1,11256,1,7,1))
-if mibBuilder.loadTexts:snsServicesTable.setStatus(_A)
-_SnsServicesEntry_Object=MibTableRow
-snsServicesEntry=_SnsServicesEntry_Object((1,3,6,1,4,1,11256,1,7,1,1))
-snsServicesEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:snsServicesEntry.setStatus(_A)
-class _SnsServicesIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_SnsServicesIndex_Type.__name__=_C
-_SnsServicesIndex_Object=MibTableColumn
-snsServicesIndex=_SnsServicesIndex_Object((1,3,6,1,4,1,11256,1,7,1,1,1),_SnsServicesIndex_Type())
-snsServicesIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:snsServicesIndex.setStatus(_A)
-_SnsServicesName_Type=SnmpAdminString
-_SnsServicesName_Object=MibTableColumn
-snsServicesName=_SnsServicesName_Object((1,3,6,1,4,1,11256,1,7,1,1,2),_SnsServicesName_Type())
-snsServicesName.setMaxAccess(_B)
-if mibBuilder.loadTexts:snsServicesName.setStatus(_A)
-_SnsServicesState_Type=Integer32
-_SnsServicesState_Object=MibTableColumn
-snsServicesState=_SnsServicesState_Object((1,3,6,1,4,1,11256,1,7,1,1,3),_SnsServicesState_Type())
-snsServicesState.setMaxAccess(_B)
-if mibBuilder.loadTexts:snsServicesState.setStatus(_A)
-_SnsServicesUptime_Type=Integer32
-_SnsServicesUptime_Object=MibTableColumn
-snsServicesUptime=_SnsServicesUptime_Object((1,3,6,1,4,1,11256,1,7,1,1,4),_SnsServicesUptime_Type())
-snsServicesUptime.setMaxAccess(_B)
-if mibBuilder.loadTexts:snsServicesUptime.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'snsServices':snsServices,'snsServicesTable':snsServicesTable,'snsServicesEntry':snsServicesEntry,_E:snsServicesIndex,'snsServicesName':snsServicesName,'snsServicesState':snsServicesState,'snsServicesUptime':snsServicesUptime})
+#
+# PySNMP MIB module STORMSHIELD-SERVICES-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/stormshield/STORMSHIELD-SERVICES-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:17 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
+snsServices = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 7))
+snsServices.setRevisions(('2017-02-20 00:00',))
+if mibBuilder.loadTexts: snsServices.setLastUpdated('201702200000Z')
+if mibBuilder.loadTexts: snsServices.setOrganization('Stormshield')
+snsServicesTable = MibTable((1, 3, 6, 1, 4, 1, 11256, 1, 7, 1), )
+if mibBuilder.loadTexts: snsServicesTable.setStatus('current')
+snsServicesEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11256, 1, 7, 1, 1), ).setIndexNames((0, "STORMSHIELD-SERVICES-MIB", "snsServicesIndex"))
+if mibBuilder.loadTexts: snsServicesEntry.setStatus('current')
+snsServicesIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 7, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsServicesIndex.setStatus('current')
+snsServicesName = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 7, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsServicesName.setStatus('current')
+snsServicesState = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 7, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsServicesState.setStatus('current')
+snsServicesUptime = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 7, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsServicesUptime.setStatus('current')
+mibBuilder.exportSymbols("STORMSHIELD-SERVICES-MIB", snsServicesIndex=snsServicesIndex, snsServicesName=snsServicesName, snsServicesEntry=snsServicesEntry, snsServices=snsServices, snsServicesUptime=snsServicesUptime, snsServicesTable=snsServicesTable, snsServicesState=snsServicesState, PYSNMP_MODULE_ID=snsServices)

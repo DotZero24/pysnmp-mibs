@@ -1,56 +1,31 @@
-_E='frMprIfIndex'
-_D='BIANCA-BRICK-FR-MIB'
-_C='read-write'
-_B='Integer32'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Bintec_ObjectIdentity=ObjectIdentity
-bintec=_Bintec_ObjectIdentity((1,3,6,1,4,1,272))
-_Bibo_ObjectIdentity=ObjectIdentity
-bibo=_Bibo_ObjectIdentity((1,3,6,1,4,1,272,4))
-_Fr_ObjectIdentity=ObjectIdentity
-fr=_Fr_ObjectIdentity((1,3,6,1,4,1,272,4,13))
-_FrMprTable_Object=MibTable
-frMprTable=_FrMprTable_Object((1,3,6,1,4,1,272,4,13,1))
-if mibBuilder.loadTexts:frMprTable.setStatus(_A)
-_FrMprEntry_Object=MibTableRow
-frMprEntry=_FrMprEntry_Object((1,3,6,1,4,1,272,4,13,1,1))
-frMprEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:frMprEntry.setStatus(_A)
-class _FrMprIfIndex_Type(Integer32):defaultValue=0
-_FrMprIfIndex_Type.__name__=_B
-_FrMprIfIndex_Object=MibTableColumn
-frMprIfIndex=_FrMprIfIndex_Object((1,3,6,1,4,1,272,4,13,1,1,1),_FrMprIfIndex_Type())
-frMprIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:frMprIfIndex.setStatus(_A)
-class _FrMprMtu_Type(Integer32):defaultValue=1500;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(576,8180))
-_FrMprMtu_Type.__name__=_B
-_FrMprMtu_Object=MibTableColumn
-frMprMtu=_FrMprMtu_Object((1,3,6,1,4,1,272,4,13,1,1,2),_FrMprMtu_Type())
-frMprMtu.setMaxAccess(_C)
-if mibBuilder.loadTexts:frMprMtu.setStatus(_A)
-class _FrMprEncapsulation_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,7)));namedValues=NamedValues(*(('mpr',1),('delete',7)))
-_FrMprEncapsulation_Type.__name__=_B
-_FrMprEncapsulation_Object=MibTableColumn
-frMprEncapsulation=_FrMprEncapsulation_Object((1,3,6,1,4,1,272,4,13,1,1,3),_FrMprEncapsulation_Type())
-frMprEncapsulation.setMaxAccess(_C)
-if mibBuilder.loadTexts:frMprEncapsulation.setStatus(_A)
-class _FrMprIfcType_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('multipoint',1),('point-to-point',2)))
-_FrMprIfcType_Type.__name__=_B
-_FrMprIfcType_Object=MibTableColumn
-frMprIfcType=_FrMprIfcType_Object((1,3,6,1,4,1,272,4,13,1,1,4),_FrMprIfcType_Type())
-frMprIfcType.setMaxAccess(_C)
-if mibBuilder.loadTexts:frMprIfcType.setStatus(_A)
-class _FrMprInverseArp_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_FrMprInverseArp_Type.__name__=_B
-_FrMprInverseArp_Object=MibTableColumn
-frMprInverseArp=_FrMprInverseArp_Object((1,3,6,1,4,1,272,4,13,1,1,5),_FrMprInverseArp_Type())
-frMprInverseArp.setMaxAccess(_C)
-if mibBuilder.loadTexts:frMprInverseArp.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'bintec':bintec,'bibo':bibo,'fr':fr,'frMprTable':frMprTable,'frMprEntry':frMprEntry,_E:frMprIfIndex,'frMprMtu':frMprMtu,'frMprEncapsulation':frMprEncapsulation,'frMprIfcType':frMprIfcType,'frMprInverseArp':frMprInverseArp})
+#
+# PySNMP MIB module BIANCA-BRICK-FR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/bintec/BIANCA-BRICK-FR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:27 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+bintec = MibIdentifier((1, 3, 6, 1, 4, 1, 272))
+bibo = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4))
+fr = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4, 13))
+frMprTable = MibTable((1, 3, 6, 1, 4, 1, 272, 4, 13, 1), )
+if mibBuilder.loadTexts: frMprTable.setStatus('mandatory')
+frMprEntry = MibTableRow((1, 3, 6, 1, 4, 1, 272, 4, 13, 1, 1), ).setIndexNames((0, "BIANCA-BRICK-FR-MIB", "frMprIfIndex"))
+if mibBuilder.loadTexts: frMprEntry.setStatus('mandatory')
+frMprIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 13, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: frMprIfIndex.setStatus('mandatory')
+frMprMtu = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 13, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(576, 8180)).clone(1500)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: frMprMtu.setStatus('mandatory')
+frMprEncapsulation = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 13, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 7))).clone(namedValues=NamedValues(("mpr", 1), ("delete", 7))).clone('mpr')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: frMprEncapsulation.setStatus('mandatory')
+frMprIfcType = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 13, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("multipoint", 1), ("point-to-point", 2))).clone('point-to-point')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: frMprIfcType.setStatus('mandatory')
+frMprInverseArp = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 13, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: frMprInverseArp.setStatus('mandatory')
+mibBuilder.exportSymbols("BIANCA-BRICK-FR-MIB", frMprEncapsulation=frMprEncapsulation, frMprInverseArp=frMprInverseArp, frMprIfcType=frMprIfcType, bintec=bintec, bibo=bibo, frMprEntry=frMprEntry, frMprIfIndex=frMprIfIndex, frMprTable=frMprTable, frMprMtu=frMprMtu, fr=fr)

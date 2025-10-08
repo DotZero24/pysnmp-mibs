@@ -1,72 +1,51 @@
-_J='wmoInterfaceGroup'
-_I='ifRefifType'
-_H='ifRefifDescr'
-_G='ifRefifName'
-_F='ifRefifIndex'
-_E='ifRefIndex'
-_D='DisplayString'
-_C='read-only'
-_B='WESTERMO-INTERFACE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-IANAifType,=mibBuilder.importSymbols('IANAifType-MIB','IANAifType')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','TextualConvention')
-common,=mibBuilder.importSymbols('WESTERMO-OID-MIB','common')
-wmoInterface=ModuleIdentity((1,3,6,1,4,1,16177,2,4))
-if mibBuilder.loadTexts:wmoInterface.setRevisions(('2019-08-30 00:00',))
-class IfaceRefIndex(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000))
-_WmoInterfaceObjects_ObjectIdentity=ObjectIdentity
-wmoInterfaceObjects=_WmoInterfaceObjects_ObjectIdentity((1,3,6,1,4,1,16177,2,4,1))
-_IfRefTable_Object=MibTable
-ifRefTable=_IfRefTable_Object((1,3,6,1,4,1,16177,2,4,1,1))
-if mibBuilder.loadTexts:ifRefTable.setStatus(_A)
-_IfRefEntry_Object=MibTableRow
-ifRefEntry=_IfRefEntry_Object((1,3,6,1,4,1,16177,2,4,1,1,1))
-ifRefEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:ifRefEntry.setStatus(_A)
-_IfRefIndex_Type=IfaceRefIndex
-_IfRefIndex_Object=MibTableColumn
-ifRefIndex=_IfRefIndex_Object((1,3,6,1,4,1,16177,2,4,1,1,1,1),_IfRefIndex_Type())
-ifRefIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:ifRefIndex.setStatus(_A)
-_IfRefifIndex_Type=InterfaceIndex
-_IfRefifIndex_Object=MibTableColumn
-ifRefifIndex=_IfRefifIndex_Object((1,3,6,1,4,1,16177,2,4,1,1,1,2),_IfRefifIndex_Type())
-ifRefifIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifRefifIndex.setStatus(_A)
-class _IfRefifName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_IfRefifName_Type.__name__=_D
-_IfRefifName_Object=MibTableColumn
-ifRefifName=_IfRefifName_Object((1,3,6,1,4,1,16177,2,4,1,1,1,3),_IfRefifName_Type())
-ifRefifName.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifRefifName.setStatus(_A)
-class _IfRefifDescr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_IfRefifDescr_Type.__name__=_D
-_IfRefifDescr_Object=MibTableColumn
-ifRefifDescr=_IfRefifDescr_Object((1,3,6,1,4,1,16177,2,4,1,1,1,4),_IfRefifDescr_Type())
-ifRefifDescr.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifRefifDescr.setStatus(_A)
-_IfRefifType_Type=IANAifType
-_IfRefifType_Object=MibTableColumn
-ifRefifType=_IfRefifType_Object((1,3,6,1,4,1,16177,2,4,1,1,1,5),_IfRefifType_Type())
-ifRefifType.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifRefifType.setStatus(_A)
-_WmoInterfaceConformance_ObjectIdentity=ObjectIdentity
-wmoInterfaceConformance=_WmoInterfaceConformance_ObjectIdentity((1,3,6,1,4,1,16177,2,4,2))
-_WmoInterfaceGroups_ObjectIdentity=ObjectIdentity
-wmoInterfaceGroups=_WmoInterfaceGroups_ObjectIdentity((1,3,6,1,4,1,16177,2,4,2,1))
-_WmoInterfaceCompliances_ObjectIdentity=ObjectIdentity
-wmoInterfaceCompliances=_WmoInterfaceCompliances_ObjectIdentity((1,3,6,1,4,1,16177,2,4,2,2))
-wmoInterfaceGroup=ObjectGroup((1,3,6,1,4,1,16177,2,4,2,1,1))
-wmoInterfaceGroup.setObjects(*((_B,_F),(_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:wmoInterfaceGroup.setStatus(_A)
-wmoInterfaceCompliance=ModuleCompliance((1,3,6,1,4,1,16177,2,4,2,2,1))
-wmoInterfaceCompliance.setObjects((_B,_J))
-if mibBuilder.loadTexts:wmoInterfaceCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'IfaceRefIndex':IfaceRefIndex,'wmoInterface':wmoInterface,'wmoInterfaceObjects':wmoInterfaceObjects,'ifRefTable':ifRefTable,'ifRefEntry':ifRefEntry,_E:ifRefIndex,_F:ifRefifIndex,_G:ifRefifName,_H:ifRefifDescr,_I:ifRefifType,'wmoInterfaceConformance':wmoInterfaceConformance,'wmoInterfaceGroups':wmoInterfaceGroups,_J:wmoInterfaceGroup,'wmoInterfaceCompliances':wmoInterfaceCompliances,'wmoInterfaceCompliance':wmoInterfaceCompliance})
+#
+# PySNMP MIB module WESTERMO-INTERFACE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/westermo/WESTERMO-INTERFACE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+IANAifType, = mibBuilder.importSymbols("IANAifType-MIB", "IANAifType")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+common, = mibBuilder.importSymbols("WESTERMO-OID-MIB", "common")
+wmoInterface = ModuleIdentity((1, 3, 6, 1, 4, 1, 16177, 2, 4))
+wmoInterface.setRevisions(('2019-08-30 00:00',))
+if mibBuilder.loadTexts: wmoInterface.setLastUpdated('201908300000Z')
+if mibBuilder.loadTexts: wmoInterface.setOrganization('Westermo')
+class IfaceRefIndex(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 1000)
+
+wmoInterfaceObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 16177, 2, 4, 1))
+wmoInterfaceConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 16177, 2, 4, 2))
+ifRefTable = MibTable((1, 3, 6, 1, 4, 1, 16177, 2, 4, 1, 1), )
+if mibBuilder.loadTexts: ifRefTable.setStatus('current')
+ifRefEntry = MibTableRow((1, 3, 6, 1, 4, 1, 16177, 2, 4, 1, 1, 1), ).setIndexNames((0, "WESTERMO-INTERFACE-MIB", "ifRefIndex"))
+if mibBuilder.loadTexts: ifRefEntry.setStatus('current')
+ifRefIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 16177, 2, 4, 1, 1, 1, 1), IfaceRefIndex())
+if mibBuilder.loadTexts: ifRefIndex.setStatus('current')
+ifRefifIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 16177, 2, 4, 1, 1, 1, 2), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifRefifIndex.setStatus('current')
+ifRefifName = MibTableColumn((1, 3, 6, 1, 4, 1, 16177, 2, 4, 1, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifRefifName.setStatus('current')
+ifRefifDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 16177, 2, 4, 1, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifRefifDescr.setStatus('current')
+ifRefifType = MibTableColumn((1, 3, 6, 1, 4, 1, 16177, 2, 4, 1, 1, 1, 5), IANAifType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifRefifType.setStatus('current')
+wmoInterfaceGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 16177, 2, 4, 2, 1))
+wmoInterfaceCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 16177, 2, 4, 2, 2))
+wmoInterfaceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 16177, 2, 4, 2, 1, 1)).setObjects(("WESTERMO-INTERFACE-MIB", "ifRefifIndex"), ("WESTERMO-INTERFACE-MIB", "ifRefifName"), ("WESTERMO-INTERFACE-MIB", "ifRefifDescr"), ("WESTERMO-INTERFACE-MIB", "ifRefifType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    wmoInterfaceGroup = wmoInterfaceGroup.setStatus('current')
+wmoInterfaceCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 16177, 2, 4, 2, 2, 1)).setObjects(("WESTERMO-INTERFACE-MIB", "wmoInterfaceGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    wmoInterfaceCompliance = wmoInterfaceCompliance.setStatus('current')
+mibBuilder.exportSymbols("WESTERMO-INTERFACE-MIB", ifRefifIndex=ifRefifIndex, ifRefifType=ifRefifType, wmoInterfaceObjects=wmoInterfaceObjects, PYSNMP_MODULE_ID=wmoInterface, ifRefifDescr=ifRefifDescr, wmoInterfaceConformance=wmoInterfaceConformance, wmoInterfaceGroup=wmoInterfaceGroup, ifRefTable=ifRefTable, wmoInterfaceCompliance=wmoInterfaceCompliance, ifRefEntry=ifRefEntry, ifRefifName=ifRefifName, wmoInterfaceGroups=wmoInterfaceGroups, IfaceRefIndex=IfaceRefIndex, wmoInterfaceCompliances=wmoInterfaceCompliances, ifRefIndex=ifRefIndex, wmoInterface=wmoInterface)

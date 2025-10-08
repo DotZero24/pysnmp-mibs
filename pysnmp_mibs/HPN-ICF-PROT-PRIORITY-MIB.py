@@ -1,50 +1,33 @@
-_E='hpnicfPPriProtocolType'
-_D='HPN-ICF-PROT-PRIORITY-MIB'
-_C='read-create'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpnicfCommon,=mibBuilder.importSymbols('HPN-ICF-OID-MIB','hpnicfCommon')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-hpnicfProtocolPriority=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,15,2,37))
-if mibBuilder.loadTexts:hpnicfProtocolPriority.setRevisions(('2005-01-17 16:33',))
-_HpnicfProtocolPriorityObjects_ObjectIdentity=ObjectIdentity
-hpnicfProtocolPriorityObjects=_HpnicfProtocolPriorityObjects_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,37,1))
-_HpnicfPPri_ObjectIdentity=ObjectIdentity
-hpnicfPPri=_HpnicfPPri_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,37,1,1))
-_HpnicfProtocolPriorityTable_Object=MibTable
-hpnicfProtocolPriorityTable=_HpnicfProtocolPriorityTable_Object((1,3,6,1,4,1,11,2,14,11,15,2,37,1,1,1))
-if mibBuilder.loadTexts:hpnicfProtocolPriorityTable.setStatus(_A)
-_HpnicfProtocolPriorityEntry_Object=MibTableRow
-hpnicfProtocolPriorityEntry=_HpnicfProtocolPriorityEntry_Object((1,3,6,1,4,1,11,2,14,11,15,2,37,1,1,1,1))
-hpnicfProtocolPriorityEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:hpnicfProtocolPriorityEntry.setStatus(_A)
-class _HpnicfPPriProtocolType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('ospf',1),('telnet',2),('snmp',3),('icmp',4),('bgp',5),('ldp',6)))
-_HpnicfPPriProtocolType_Type.__name__=_B
-_HpnicfPPriProtocolType_Object=MibTableColumn
-hpnicfPPriProtocolType=_HpnicfPPriProtocolType_Object((1,3,6,1,4,1,11,2,14,11,15,2,37,1,1,1,1,1),_HpnicfPPriProtocolType_Type())
-hpnicfPPriProtocolType.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:hpnicfPPriProtocolType.setStatus(_A)
-class _HpnicfPPriPriorityType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ipPrecedence',1),('dscp',2)))
-_HpnicfPPriPriorityType_Type.__name__=_B
-_HpnicfPPriPriorityType_Object=MibTableColumn
-hpnicfPPriPriorityType=_HpnicfPPriPriorityType_Object((1,3,6,1,4,1,11,2,14,11,15,2,37,1,1,1,1,2),_HpnicfPPriPriorityType_Type())
-hpnicfPPriPriorityType.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfPPriPriorityType.setStatus(_A)
-class _HpnicfPPriPriorityVlaue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,63))
-_HpnicfPPriPriorityVlaue_Type.__name__=_B
-_HpnicfPPriPriorityVlaue_Object=MibTableColumn
-hpnicfPPriPriorityVlaue=_HpnicfPPriPriorityVlaue_Object((1,3,6,1,4,1,11,2,14,11,15,2,37,1,1,1,1,3),_HpnicfPPriPriorityVlaue_Type())
-hpnicfPPriPriorityVlaue.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfPPriPriorityVlaue.setStatus(_A)
-_HpnicfPPriRowStatus_Type=RowStatus
-_HpnicfPPriRowStatus_Object=MibTableColumn
-hpnicfPPriRowStatus=_HpnicfPPriRowStatus_Object((1,3,6,1,4,1,11,2,14,11,15,2,37,1,1,1,1,4),_HpnicfPPriRowStatus_Type())
-hpnicfPPriRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfPPriRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'hpnicfProtocolPriority':hpnicfProtocolPriority,'hpnicfProtocolPriorityObjects':hpnicfProtocolPriorityObjects,'hpnicfPPri':hpnicfPPri,'hpnicfProtocolPriorityTable':hpnicfProtocolPriorityTable,'hpnicfProtocolPriorityEntry':hpnicfProtocolPriorityEntry,_E:hpnicfPPriProtocolType,'hpnicfPPriPriorityType':hpnicfPPriPriorityType,'hpnicfPPriPriorityVlaue':hpnicfPPriPriorityVlaue,'hpnicfPPriRowStatus':hpnicfPPriRowStatus})
+#
+# PySNMP MIB module HPN-ICF-PROT-PRIORITY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-PROT-PRIORITY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:02 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+hpnicfProtocolPriority = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 37))
+hpnicfProtocolPriority.setRevisions(('2005-01-17 16:33',))
+if mibBuilder.loadTexts: hpnicfProtocolPriority.setLastUpdated('200501171633Z')
+if mibBuilder.loadTexts: hpnicfProtocolPriority.setOrganization('')
+hpnicfProtocolPriorityObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 37, 1))
+hpnicfPPri = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 37, 1, 1))
+hpnicfProtocolPriorityTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 37, 1, 1, 1), )
+if mibBuilder.loadTexts: hpnicfProtocolPriorityTable.setStatus('current')
+hpnicfProtocolPriorityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 37, 1, 1, 1, 1), ).setIndexNames((0, "HPN-ICF-PROT-PRIORITY-MIB", "hpnicfPPriProtocolType"))
+if mibBuilder.loadTexts: hpnicfProtocolPriorityEntry.setStatus('current')
+hpnicfPPriProtocolType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 37, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("ospf", 1), ("telnet", 2), ("snmp", 3), ("icmp", 4), ("bgp", 5), ("ldp", 6))))
+if mibBuilder.loadTexts: hpnicfPPriProtocolType.setStatus('current')
+hpnicfPPriPriorityType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 37, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ipPrecedence", 1), ("dscp", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpnicfPPriPriorityType.setStatus('current')
+hpnicfPPriPriorityVlaue = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 37, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpnicfPPriPriorityVlaue.setStatus('current')
+hpnicfPPriRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 37, 1, 1, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpnicfPPriRowStatus.setStatus('current')
+mibBuilder.exportSymbols("HPN-ICF-PROT-PRIORITY-MIB", hpnicfPPriPriorityVlaue=hpnicfPPriPriorityVlaue, PYSNMP_MODULE_ID=hpnicfProtocolPriority, hpnicfPPriRowStatus=hpnicfPPriRowStatus, hpnicfPPriProtocolType=hpnicfPPriProtocolType, hpnicfPPri=hpnicfPPri, hpnicfProtocolPriorityEntry=hpnicfProtocolPriorityEntry, hpnicfPPriPriorityType=hpnicfPPriPriorityType, hpnicfProtocolPriorityTable=hpnicfProtocolPriorityTable, hpnicfProtocolPriority=hpnicfProtocolPriority, hpnicfProtocolPriorityObjects=hpnicfProtocolPriorityObjects)

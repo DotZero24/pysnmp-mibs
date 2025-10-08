@@ -1,88 +1,50 @@
-_F='read-only'
-_E='adGenSlotInfoIndex'
-_D='ADTRAN-GENSLOT-MIB'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adGenPortInfoIndex,=mibBuilder.importSymbols('ADTRAN-GENPORT-MIB','adGenPortInfoIndex')
-adGenSlotInfoIndex,=mibBuilder.importSymbols(_D,_E)
-adGenTa5kOam,adGenTa5kOamID=mibBuilder.importSymbols('ADTRAN-GENTA5K-MIB','adGenTa5kOam','adGenTa5kOamID')
-atmVclVci,atmVclVpi=mibBuilder.importSymbols('ATM-MIB','atmVclVci','atmVclVpi')
-InterfaceIndex,ifIndex=mibBuilder.importSymbols('IF-MIB','InterfaceIndex','ifIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-sysName,=mibBuilder.importSymbols('SNMPv2-MIB','sysName')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention','TruthValue')
-adTa5kOamModuleIdentity=ModuleIdentity((1,3,6,1,4,1,664,6,10000,67,1,20,1))
-if mibBuilder.loadTexts:adTa5kOamModuleIdentity.setRevisions(('2014-05-05 00:00',))
-_AdGenTa5kOamTable_Object=MibTable
-adGenTa5kOamTable=_AdGenTa5kOamTable_Object((1,3,6,1,4,1,664,5,67,1,20,1))
-if mibBuilder.loadTexts:adGenTa5kOamTable.setStatus(_A)
-_AdGenTa5kOamEntry_Object=MibTableRow
-adGenTa5kOamEntry=_AdGenTa5kOamEntry_Object((1,3,6,1,4,1,664,5,67,1,20,1,1))
-adGenTa5kOamEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:adGenTa5kOamEntry.setStatus(_A)
-_AdGenTa5kOamLBIfId_Type=InterfaceIndex
-_AdGenTa5kOamLBIfId_Object=MibTableColumn
-adGenTa5kOamLBIfId=_AdGenTa5kOamLBIfId_Object((1,3,6,1,4,1,664,5,67,1,20,1,1,1),_AdGenTa5kOamLBIfId_Type())
-adGenTa5kOamLBIfId.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenTa5kOamLBIfId.setStatus(_A)
-class _AdGenTa5kOamLBVpi_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_AdGenTa5kOamLBVpi_Type.__name__=_C
-_AdGenTa5kOamLBVpi_Object=MibTableColumn
-adGenTa5kOamLBVpi=_AdGenTa5kOamLBVpi_Object((1,3,6,1,4,1,664,5,67,1,20,1,1,2),_AdGenTa5kOamLBVpi_Type())
-adGenTa5kOamLBVpi.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenTa5kOamLBVpi.setStatus(_A)
-class _AdGenTa5kOamLBVci_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_AdGenTa5kOamLBVci_Type.__name__=_C
-_AdGenTa5kOamLBVci_Object=MibTableColumn
-adGenTa5kOamLBVci=_AdGenTa5kOamLBVci_Object((1,3,6,1,4,1,664,5,67,1,20,1,1,3),_AdGenTa5kOamLBVci_Type())
-adGenTa5kOamLBVci.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenTa5kOamLBVci.setStatus(_A)
-class _AdGenTa5kOamLBType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('segment',1),('end-to-end',2)))
-_AdGenTa5kOamLBType_Type.__name__=_C
-_AdGenTa5kOamLBType_Object=MibTableColumn
-adGenTa5kOamLBType=_AdGenTa5kOamLBType_Object((1,3,6,1,4,1,664,5,67,1,20,1,1,4),_AdGenTa5kOamLBType_Type())
-adGenTa5kOamLBType.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenTa5kOamLBType.setStatus(_A)
-_AdGenTa5kOamLBDestLlid_Type=OctetString
-_AdGenTa5kOamLBDestLlid_Object=MibTableColumn
-adGenTa5kOamLBDestLlid=_AdGenTa5kOamLBDestLlid_Object((1,3,6,1,4,1,664,5,67,1,20,1,1,5),_AdGenTa5kOamLBDestLlid_Type())
-adGenTa5kOamLBDestLlid.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenTa5kOamLBDestLlid.setStatus(_A)
-_AdGenTa5kOamLBSend_Type=Integer32
-_AdGenTa5kOamLBSend_Object=MibTableColumn
-adGenTa5kOamLBSend=_AdGenTa5kOamLBSend_Object((1,3,6,1,4,1,664,5,67,1,20,1,1,6),_AdGenTa5kOamLBSend_Type())
-adGenTa5kOamLBSend.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenTa5kOamLBSend.setStatus(_A)
-_AdGenTa5kOamLBResetCounts_Type=Integer32
-_AdGenTa5kOamLBResetCounts_Object=MibTableColumn
-adGenTa5kOamLBResetCounts=_AdGenTa5kOamLBResetCounts_Object((1,3,6,1,4,1,664,5,67,1,20,1,1,7),_AdGenTa5kOamLBResetCounts_Type())
-adGenTa5kOamLBResetCounts.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenTa5kOamLBResetCounts.setStatus(_A)
-_AdGenTa5kOamLocalLlid_Type=OctetString
-_AdGenTa5kOamLocalLlid_Object=MibTableColumn
-adGenTa5kOamLocalLlid=_AdGenTa5kOamLocalLlid_Object((1,3,6,1,4,1,664,5,67,1,20,1,1,8),_AdGenTa5kOamLocalLlid_Type())
-adGenTa5kOamLocalLlid.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenTa5kOamLocalLlid.setStatus(_A)
-_AdGenTa5kOamLBTxRequests_Type=Integer32
-_AdGenTa5kOamLBTxRequests_Object=MibTableColumn
-adGenTa5kOamLBTxRequests=_AdGenTa5kOamLBTxRequests_Object((1,3,6,1,4,1,664,5,67,1,20,1,1,9),_AdGenTa5kOamLBTxRequests_Type())
-adGenTa5kOamLBTxRequests.setMaxAccess(_F)
-if mibBuilder.loadTexts:adGenTa5kOamLBTxRequests.setStatus(_A)
-_AdGenTa5kOamLBRxResponses_Type=Integer32
-_AdGenTa5kOamLBRxResponses_Object=MibTableColumn
-adGenTa5kOamLBRxResponses=_AdGenTa5kOamLBRxResponses_Object((1,3,6,1,4,1,664,5,67,1,20,1,1,10),_AdGenTa5kOamLBRxResponses_Type())
-adGenTa5kOamLBRxResponses.setMaxAccess(_F)
-if mibBuilder.loadTexts:adGenTa5kOamLBRxResponses.setStatus(_A)
-class _AdGenTa5kOamLBSendSpecifiedNumber_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000000))
-_AdGenTa5kOamLBSendSpecifiedNumber_Type.__name__=_C
-_AdGenTa5kOamLBSendSpecifiedNumber_Object=MibTableColumn
-adGenTa5kOamLBSendSpecifiedNumber=_AdGenTa5kOamLBSendSpecifiedNumber_Object((1,3,6,1,4,1,664,5,67,1,20,1,1,11),_AdGenTa5kOamLBSendSpecifiedNumber_Type())
-adGenTa5kOamLBSendSpecifiedNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenTa5kOamLBSendSpecifiedNumber.setStatus(_A)
-mibBuilder.exportSymbols('ADTRAN-TA5K-OAM-MIB',**{'adGenTa5kOamTable':adGenTa5kOamTable,'adGenTa5kOamEntry':adGenTa5kOamEntry,'adGenTa5kOamLBIfId':adGenTa5kOamLBIfId,'adGenTa5kOamLBVpi':adGenTa5kOamLBVpi,'adGenTa5kOamLBVci':adGenTa5kOamLBVci,'adGenTa5kOamLBType':adGenTa5kOamLBType,'adGenTa5kOamLBDestLlid':adGenTa5kOamLBDestLlid,'adGenTa5kOamLBSend':adGenTa5kOamLBSend,'adGenTa5kOamLBResetCounts':adGenTa5kOamLBResetCounts,'adGenTa5kOamLocalLlid':adGenTa5kOamLocalLlid,'adGenTa5kOamLBTxRequests':adGenTa5kOamLBTxRequests,'adGenTa5kOamLBRxResponses':adGenTa5kOamLBRxResponses,'adGenTa5kOamLBSendSpecifiedNumber':adGenTa5kOamLBSendSpecifiedNumber,'adTa5kOamModuleIdentity':adTa5kOamModuleIdentity})
+#
+# PySNMP MIB module ADTRAN-TA5K-OAM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-TA5K-OAM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:53 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+adGenPortInfoIndex, = mibBuilder.importSymbols("ADTRAN-GENPORT-MIB", "adGenPortInfoIndex")
+adGenSlotInfoIndex, = mibBuilder.importSymbols("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex")
+adGenTa5kOamID, adGenTa5kOam = mibBuilder.importSymbols("ADTRAN-GENTA5K-MIB", "adGenTa5kOamID", "adGenTa5kOam")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+atmVclVpi, atmVclVci = mibBuilder.importSymbols("ATM-MIB", "atmVclVpi", "atmVclVci")
+ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+MacAddress, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TruthValue", "TextualConvention")
+adTa5kOamModuleIdentity = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 20, 1))
+adTa5kOamModuleIdentity.setRevisions(('2014-05-05 00:00',))
+if mibBuilder.loadTexts: adTa5kOamModuleIdentity.setLastUpdated('201405050000Z')
+if mibBuilder.loadTexts: adTa5kOamModuleIdentity.setOrganization('ADTRAN, Inc.')
+adGenTa5kOamTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 20, 1), )
+if mibBuilder.loadTexts: adGenTa5kOamTable.setStatus('current')
+adGenTa5kOamEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 20, 1, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adGenTa5kOamEntry.setStatus('current')
+adGenTa5kOamLBIfId = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 20, 1, 1, 1), InterfaceIndex()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenTa5kOamLBIfId.setStatus('current')
+adGenTa5kOamLBVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 20, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenTa5kOamLBVpi.setStatus('current')
+adGenTa5kOamLBVci = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 20, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenTa5kOamLBVci.setStatus('current')
+adGenTa5kOamLBType = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 20, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("segment", 1), ("end-to-end", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenTa5kOamLBType.setStatus('current')
+adGenTa5kOamLBDestLlid = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 20, 1, 1, 5), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenTa5kOamLBDestLlid.setStatus('current')
+adGenTa5kOamLBSend = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 20, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenTa5kOamLBSend.setStatus('current')
+adGenTa5kOamLBResetCounts = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 20, 1, 1, 7), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenTa5kOamLBResetCounts.setStatus('current')
+adGenTa5kOamLocalLlid = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 20, 1, 1, 8), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenTa5kOamLocalLlid.setStatus('current')
+adGenTa5kOamLBTxRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 20, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenTa5kOamLBTxRequests.setStatus('current')
+adGenTa5kOamLBRxResponses = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 20, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenTa5kOamLBRxResponses.setStatus('current')
+adGenTa5kOamLBSendSpecifiedNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 20, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000000)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenTa5kOamLBSendSpecifiedNumber.setStatus('current')
+mibBuilder.exportSymbols("ADTRAN-TA5K-OAM-MIB", adGenTa5kOamEntry=adGenTa5kOamEntry, adGenTa5kOamLBType=adGenTa5kOamLBType, adTa5kOamModuleIdentity=adTa5kOamModuleIdentity, adGenTa5kOamLocalLlid=adGenTa5kOamLocalLlid, adGenTa5kOamLBSend=adGenTa5kOamLBSend, adGenTa5kOamLBIfId=adGenTa5kOamLBIfId, adGenTa5kOamLBVpi=adGenTa5kOamLBVpi, adGenTa5kOamLBDestLlid=adGenTa5kOamLBDestLlid, adGenTa5kOamLBResetCounts=adGenTa5kOamLBResetCounts, adGenTa5kOamLBSendSpecifiedNumber=adGenTa5kOamLBSendSpecifiedNumber, PYSNMP_MODULE_ID=adTa5kOamModuleIdentity, adGenTa5kOamLBRxResponses=adGenTa5kOamLBRxResponses, adGenTa5kOamLBTxRequests=adGenTa5kOamLBTxRequests, adGenTa5kOamLBVci=adGenTa5kOamLBVci, adGenTa5kOamTable=adGenTa5kOamTable)

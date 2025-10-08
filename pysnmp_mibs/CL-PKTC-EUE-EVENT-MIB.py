@@ -1,46 +1,38 @@
-_I='PKTC-IETF-EVENT-MIB'
-_H='pktcEventNotificationGroup'
-_G='pktcEventGroup'
-_F='PKTC-EVENT-MIB'
-_E='pktcEUEMEMVersion'
-_D='SnmpAdminString'
-_C='pktcEUEMEMGroup'
-_B='CL-PKTC-EUE-EVENT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-pktcEUEMibs,=mibBuilder.importSymbols('CLAB-DEF-MIB','pktcEUEMibs')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_D)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-pktcEUEEventMIB=ModuleIdentity((1,3,6,1,4,1,4491,2,2,10,6))
-if mibBuilder.loadTexts:pktcEUEEventMIB.setRevisions(('2012-10-30 00:00','2007-11-06 00:00'))
-_PktcEUEEventNotifications_ObjectIdentity=ObjectIdentity
-pktcEUEEventNotifications=_PktcEUEEventNotifications_ObjectIdentity((1,3,6,1,4,1,4491,2,2,10,6,0))
-_PktcEUEEventObjects_ObjectIdentity=ObjectIdentity
-pktcEUEEventObjects=_PktcEUEEventObjects_ObjectIdentity((1,3,6,1,4,1,4491,2,2,10,6,1))
-class _PktcEUEMEMVersion_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,6))
-_PktcEUEMEMVersion_Type.__name__=_D
-_PktcEUEMEMVersion_Object=MibScalar
-pktcEUEMEMVersion=_PktcEUEMEMVersion_Object((1,3,6,1,4,1,4491,2,2,10,6,1,1),_PktcEUEMEMVersion_Type())
-pktcEUEMEMVersion.setMaxAccess('read-only')
-if mibBuilder.loadTexts:pktcEUEMEMVersion.setStatus(_A)
-_PktcEUEEventConformance_ObjectIdentity=ObjectIdentity
-pktcEUEEventConformance=_PktcEUEEventConformance_ObjectIdentity((1,3,6,1,4,1,4491,2,2,10,6,2))
-_PktcEUEEventCompliances_ObjectIdentity=ObjectIdentity
-pktcEUEEventCompliances=_PktcEUEEventCompliances_ObjectIdentity((1,3,6,1,4,1,4491,2,2,10,6,2,1))
-_PktcEUEEventGroups_ObjectIdentity=ObjectIdentity
-pktcEUEEventGroups=_PktcEUEEventGroups_ObjectIdentity((1,3,6,1,4,1,4491,2,2,10,6,2,2))
-pktcEUEMEMGroup=ObjectGroup((1,3,6,1,4,1,4491,2,2,10,6,2,2,1))
-pktcEUEMEMGroup.setObjects((_B,_E))
-if mibBuilder.loadTexts:pktcEUEMEMGroup.setStatus(_A)
-pktcEUEEventCompliance=ModuleCompliance((1,3,6,1,4,1,4491,2,2,10,6,2,1,1))
-pktcEUEEventCompliance.setObjects(*((_F,_G),(_F,_H),(_B,_C)))
-if mibBuilder.loadTexts:pktcEUEEventCompliance.setStatus(_A)
-pktcEUEEventEuroCompliance=ModuleCompliance((1,3,6,1,4,1,4491,2,2,10,6,2,1,2))
-pktcEUEEventEuroCompliance.setObjects(*((_I,_G),(_I,_H),(_B,_C)))
-if mibBuilder.loadTexts:pktcEUEEventEuroCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'pktcEUEEventMIB':pktcEUEEventMIB,'pktcEUEEventNotifications':pktcEUEEventNotifications,'pktcEUEEventObjects':pktcEUEEventObjects,_E:pktcEUEMEMVersion,'pktcEUEEventConformance':pktcEUEEventConformance,'pktcEUEEventCompliances':pktcEUEEventCompliances,'pktcEUEEventCompliance':pktcEUEEventCompliance,'pktcEUEEventEuroCompliance':pktcEUEEventEuroCompliance,'pktcEUEEventGroups':pktcEUEEventGroups,_C:pktcEUEMEMGroup})
+#
+# PySNMP MIB module CL-PKTC-EUE-EVENT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/CL-PKTC-EUE-EVENT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:26:23 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+pktcEUEMibs, = mibBuilder.importSymbols("CLAB-DEF-MIB", "pktcEUEMibs")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+pktcEUEEventMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 6))
+pktcEUEEventMIB.setRevisions(('2012-10-30 00:00', '2007-11-06 00:00',))
+if mibBuilder.loadTexts: pktcEUEEventMIB.setLastUpdated('201210300000Z')
+if mibBuilder.loadTexts: pktcEUEEventMIB.setOrganization('Cable Television Laboratories, Inc.')
+pktcEUEEventNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 6, 0))
+pktcEUEEventObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 6, 1))
+pktcEUEEventConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 6, 2))
+pktcEUEMEMVersion = MibScalar((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 6, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 6))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pktcEUEMEMVersion.setStatus('current')
+pktcEUEEventCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 6, 2, 1))
+pktcEUEEventGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 6, 2, 2))
+pktcEUEEventCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 6, 2, 1, 1)).setObjects(("PKTC-EVENT-MIB", "pktcEventGroup"), ("PKTC-EVENT-MIB", "pktcEventNotificationGroup"), ("CL-PKTC-EUE-EVENT-MIB", "pktcEUEMEMGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pktcEUEEventCompliance = pktcEUEEventCompliance.setStatus('current')
+pktcEUEEventEuroCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 6, 2, 1, 2)).setObjects(("PKTC-IETF-EVENT-MIB", "pktcEventGroup"), ("PKTC-IETF-EVENT-MIB", "pktcEventNotificationGroup"), ("CL-PKTC-EUE-EVENT-MIB", "pktcEUEMEMGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pktcEUEEventEuroCompliance = pktcEUEEventEuroCompliance.setStatus('current')
+pktcEUEMEMGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 6, 2, 2, 1)).setObjects(("CL-PKTC-EUE-EVENT-MIB", "pktcEUEMEMVersion"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pktcEUEMEMGroup = pktcEUEMEMGroup.setStatus('current')
+mibBuilder.exportSymbols("CL-PKTC-EUE-EVENT-MIB", pktcEUEEventCompliances=pktcEUEEventCompliances, pktcEUEEventCompliance=pktcEUEEventCompliance, pktcEUEEventNotifications=pktcEUEEventNotifications, PYSNMP_MODULE_ID=pktcEUEEventMIB, pktcEUEEventMIB=pktcEUEEventMIB, pktcEUEEventGroups=pktcEUEEventGroups, pktcEUEMEMVersion=pktcEUEMEMVersion, pktcEUEEventObjects=pktcEUEEventObjects, pktcEUEEventEuroCompliance=pktcEUEEventEuroCompliance, pktcEUEMEMGroup=pktcEUEMEMGroup, pktcEUEEventConformance=pktcEUEEventConformance)

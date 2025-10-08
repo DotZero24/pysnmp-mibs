@@ -1,89 +1,47 @@
-_F='zxAnPppoaIfIndex'
-_E='ZTE-AN-PPPOA-MIB'
-_D='read-write'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention')
-ZxAnIfindex,zxAn=mibBuilder.importSymbols('ZTE-AN-TC-MIB','ZxAnIfindex','zxAn')
-zxAnPppoaMib=ModuleIdentity((1,3,6,1,4,1,3902,1015,35))
-_ZxAnPppoaGlobal_ObjectIdentity=ObjectIdentity
-zxAnPppoaGlobal=_ZxAnPppoaGlobal_ObjectIdentity((1,3,6,1,4,1,3902,1015,35,1))
-class _ZxAnPppoaEchoTimeout_Type(Integer32):defaultValue=180;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(60,1800))
-_ZxAnPppoaEchoTimeout_Type.__name__=_C
-_ZxAnPppoaEchoTimeout_Object=MibScalar
-zxAnPppoaEchoTimeout=_ZxAnPppoaEchoTimeout_Object((1,3,6,1,4,1,3902,1015,35,1,1),_ZxAnPppoaEchoTimeout_Type())
-zxAnPppoaEchoTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:zxAnPppoaEchoTimeout.setStatus(_A)
-if mibBuilder.loadTexts:zxAnPppoaEchoTimeout.setUnits('sec')
-_ZxAnPppoaInterfaceTable_Object=MibTable
-zxAnPppoaInterfaceTable=_ZxAnPppoaInterfaceTable_Object((1,3,6,1,4,1,3902,1015,35,2))
-if mibBuilder.loadTexts:zxAnPppoaInterfaceTable.setStatus(_A)
-_ZxAnPppoaInterfaceEntry_Object=MibTableRow
-zxAnPppoaInterfaceEntry=_ZxAnPppoaInterfaceEntry_Object((1,3,6,1,4,1,3902,1015,35,2,1))
-zxAnPppoaInterfaceEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:zxAnPppoaInterfaceEntry.setStatus(_A)
-_ZxAnPppoaIfIndex_Type=ZxAnIfindex
-_ZxAnPppoaIfIndex_Object=MibTableColumn
-zxAnPppoaIfIndex=_ZxAnPppoaIfIndex_Object((1,3,6,1,4,1,3902,1015,35,2,1,1),_ZxAnPppoaIfIndex_Type())
-zxAnPppoaIfIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:zxAnPppoaIfIndex.setStatus(_A)
-class _ZxAnPppoaIfAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_ZxAnPppoaIfAdminStatus_Type.__name__=_C
-_ZxAnPppoaIfAdminStatus_Object=MibTableColumn
-zxAnPppoaIfAdminStatus=_ZxAnPppoaIfAdminStatus_Object((1,3,6,1,4,1,3902,1015,35,2,1,2),_ZxAnPppoaIfAdminStatus_Type())
-zxAnPppoaIfAdminStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:zxAnPppoaIfAdminStatus.setStatus(_A)
-class _ZxAnPppoaIfMgmtOperstatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('invalidState',1),('waitLcpCfgreq',2),('waitPado',3),('waitPads',4),('waitRetry',5),('pppoeConnnect',6)))
-_ZxAnPppoaIfMgmtOperstatus_Type.__name__=_C
-_ZxAnPppoaIfMgmtOperstatus_Object=MibTableColumn
-zxAnPppoaIfMgmtOperstatus=_ZxAnPppoaIfMgmtOperstatus_Object((1,3,6,1,4,1,3902,1015,35,2,1,3),_ZxAnPppoaIfMgmtOperstatus_Type())
-zxAnPppoaIfMgmtOperstatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnPppoaIfMgmtOperstatus.setStatus(_A)
-_ZxAnPppoaIfSessionId_Type=Integer32
-_ZxAnPppoaIfSessionId_Object=MibTableColumn
-zxAnPppoaIfSessionId=_ZxAnPppoaIfSessionId_Object((1,3,6,1,4,1,3902,1015,35,2,1,4),_ZxAnPppoaIfSessionId_Type())
-zxAnPppoaIfSessionId.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnPppoaIfSessionId.setStatus(_A)
-_ZxAnPppoaIfServerMac_Type=MacAddress
-_ZxAnPppoaIfServerMac_Object=MibTableColumn
-zxAnPppoaIfServerMac=_ZxAnPppoaIfServerMac_Object((1,3,6,1,4,1,3902,1015,35,2,1,5),_ZxAnPppoaIfServerMac_Type())
-zxAnPppoaIfServerMac.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnPppoaIfServerMac.setStatus(_A)
-_ZxAnPppoaIfLcpCfgReqPkts_Type=Counter32
-_ZxAnPppoaIfLcpCfgReqPkts_Object=MibTableColumn
-zxAnPppoaIfLcpCfgReqPkts=_ZxAnPppoaIfLcpCfgReqPkts_Object((1,3,6,1,4,1,3902,1015,35,2,1,6),_ZxAnPppoaIfLcpCfgReqPkts_Type())
-zxAnPppoaIfLcpCfgReqPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnPppoaIfLcpCfgReqPkts.setStatus(_A)
-_ZxAnPppoaIfEchoAckPkts_Type=Counter32
-_ZxAnPppoaIfEchoAckPkts_Object=MibTableColumn
-zxAnPppoaIfEchoAckPkts=_ZxAnPppoaIfEchoAckPkts_Object((1,3,6,1,4,1,3902,1015,35,2,1,7),_ZxAnPppoaIfEchoAckPkts_Type())
-zxAnPppoaIfEchoAckPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnPppoaIfEchoAckPkts.setStatus(_A)
-_ZxAnPppoaIfLcpTerminateReqPkts_Type=Counter32
-_ZxAnPppoaIfLcpTerminateReqPkts_Object=MibTableColumn
-zxAnPppoaIfLcpTerminateReqPkts=_ZxAnPppoaIfLcpTerminateReqPkts_Object((1,3,6,1,4,1,3902,1015,35,2,1,8),_ZxAnPppoaIfLcpTerminateReqPkts_Type())
-zxAnPppoaIfLcpTerminateReqPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnPppoaIfLcpTerminateReqPkts.setStatus(_A)
-_ZxAnPppoaIfPadoPkts_Type=Counter32
-_ZxAnPppoaIfPadoPkts_Object=MibTableColumn
-zxAnPppoaIfPadoPkts=_ZxAnPppoaIfPadoPkts_Object((1,3,6,1,4,1,3902,1015,35,2,1,9),_ZxAnPppoaIfPadoPkts_Type())
-zxAnPppoaIfPadoPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnPppoaIfPadoPkts.setStatus(_A)
-_ZxAnPppoaIfPadsPkts_Type=Counter32
-_ZxAnPppoaIfPadsPkts_Object=MibTableColumn
-zxAnPppoaIfPadsPkts=_ZxAnPppoaIfPadsPkts_Object((1,3,6,1,4,1,3902,1015,35,2,1,10),_ZxAnPppoaIfPadsPkts_Type())
-zxAnPppoaIfPadsPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnPppoaIfPadsPkts.setStatus(_A)
-_ZxAnPppoaIfPadtPkts_Type=Counter32
-_ZxAnPppoaIfPadtPkts_Object=MibTableColumn
-zxAnPppoaIfPadtPkts=_ZxAnPppoaIfPadtPkts_Object((1,3,6,1,4,1,3902,1015,35,2,1,11),_ZxAnPppoaIfPadtPkts_Type())
-zxAnPppoaIfPadtPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnPppoaIfPadtPkts.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'zxAnPppoaMib':zxAnPppoaMib,'zxAnPppoaGlobal':zxAnPppoaGlobal,'zxAnPppoaEchoTimeout':zxAnPppoaEchoTimeout,'zxAnPppoaInterfaceTable':zxAnPppoaInterfaceTable,'zxAnPppoaInterfaceEntry':zxAnPppoaInterfaceEntry,_F:zxAnPppoaIfIndex,'zxAnPppoaIfAdminStatus':zxAnPppoaIfAdminStatus,'zxAnPppoaIfMgmtOperstatus':zxAnPppoaIfMgmtOperstatus,'zxAnPppoaIfSessionId':zxAnPppoaIfSessionId,'zxAnPppoaIfServerMac':zxAnPppoaIfServerMac,'zxAnPppoaIfLcpCfgReqPkts':zxAnPppoaIfLcpCfgReqPkts,'zxAnPppoaIfEchoAckPkts':zxAnPppoaIfEchoAckPkts,'zxAnPppoaIfLcpTerminateReqPkts':zxAnPppoaIfLcpTerminateReqPkts,'zxAnPppoaIfPadoPkts':zxAnPppoaIfPadoPkts,'zxAnPppoaIfPadsPkts':zxAnPppoaIfPadsPkts,'zxAnPppoaIfPadtPkts':zxAnPppoaIfPadtPkts})
+#
+# PySNMP MIB module ZTE-AN-PPPOA-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZTE-AN-PPPOA-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+ZxAnIfindex, zxAn = mibBuilder.importSymbols("ZTE-AN-TC-MIB", "ZxAnIfindex", "zxAn")
+zxAnPppoaMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 1015, 35))
+if mibBuilder.loadTexts: zxAnPppoaMib.setLastUpdated('200706071600Z')
+if mibBuilder.loadTexts: zxAnPppoaMib.setOrganization('ZTE Corporation')
+zxAnPppoaGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 35, 1))
+zxAnPppoaEchoTimeout = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1015, 35, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(60, 1800)).clone(180)).setUnits('sec').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxAnPppoaEchoTimeout.setStatus('current')
+zxAnPppoaInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 35, 2), )
+if mibBuilder.loadTexts: zxAnPppoaInterfaceTable.setStatus('current')
+zxAnPppoaInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 35, 2, 1), ).setIndexNames((0, "ZTE-AN-PPPOA-MIB", "zxAnPppoaIfIndex"))
+if mibBuilder.loadTexts: zxAnPppoaInterfaceEntry.setStatus('current')
+zxAnPppoaIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 35, 2, 1, 1), ZxAnIfindex())
+if mibBuilder.loadTexts: zxAnPppoaIfIndex.setStatus('current')
+zxAnPppoaIfAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 35, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxAnPppoaIfAdminStatus.setStatus('current')
+zxAnPppoaIfMgmtOperstatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 35, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("invalidState", 1), ("waitLcpCfgreq", 2), ("waitPado", 3), ("waitPads", 4), ("waitRetry", 5), ("pppoeConnnect", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnPppoaIfMgmtOperstatus.setStatus('current')
+zxAnPppoaIfSessionId = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 35, 2, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnPppoaIfSessionId.setStatus('current')
+zxAnPppoaIfServerMac = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 35, 2, 1, 5), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnPppoaIfServerMac.setStatus('current')
+zxAnPppoaIfLcpCfgReqPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 35, 2, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnPppoaIfLcpCfgReqPkts.setStatus('current')
+zxAnPppoaIfEchoAckPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 35, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnPppoaIfEchoAckPkts.setStatus('current')
+zxAnPppoaIfLcpTerminateReqPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 35, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnPppoaIfLcpTerminateReqPkts.setStatus('current')
+zxAnPppoaIfPadoPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 35, 2, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnPppoaIfPadoPkts.setStatus('current')
+zxAnPppoaIfPadsPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 35, 2, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnPppoaIfPadsPkts.setStatus('current')
+zxAnPppoaIfPadtPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 35, 2, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnPppoaIfPadtPkts.setStatus('current')
+mibBuilder.exportSymbols("ZTE-AN-PPPOA-MIB", zxAnPppoaIfEchoAckPkts=zxAnPppoaIfEchoAckPkts, zxAnPppoaIfSessionId=zxAnPppoaIfSessionId, zxAnPppoaIfPadoPkts=zxAnPppoaIfPadoPkts, zxAnPppoaEchoTimeout=zxAnPppoaEchoTimeout, zxAnPppoaIfMgmtOperstatus=zxAnPppoaIfMgmtOperstatus, zxAnPppoaIfServerMac=zxAnPppoaIfServerMac, zxAnPppoaIfIndex=zxAnPppoaIfIndex, zxAnPppoaIfPadtPkts=zxAnPppoaIfPadtPkts, PYSNMP_MODULE_ID=zxAnPppoaMib, zxAnPppoaInterfaceEntry=zxAnPppoaInterfaceEntry, zxAnPppoaIfPadsPkts=zxAnPppoaIfPadsPkts, zxAnPppoaIfLcpCfgReqPkts=zxAnPppoaIfLcpCfgReqPkts, zxAnPppoaIfLcpTerminateReqPkts=zxAnPppoaIfLcpTerminateReqPkts, zxAnPppoaGlobal=zxAnPppoaGlobal, zxAnPppoaMib=zxAnPppoaMib, zxAnPppoaIfAdminStatus=zxAnPppoaIfAdminStatus, zxAnPppoaInterfaceTable=zxAnPppoaInterfaceTable)

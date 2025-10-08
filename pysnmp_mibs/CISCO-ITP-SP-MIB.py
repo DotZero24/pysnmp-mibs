@@ -1,2102 +1,703 @@
-_EN='cItpSpNotificationsGroupRev2'
-_EM='cItpSpNotificationsEnableGroupRev2'
-_EL='cItpSpLinkGroupRev2'
-_EK='cItpSpLinksetGroupRev2'
-_EJ='cItpSpScalarsGroupRev2'
-_EI='cItpSpStatsGroup'
-_EH='cItpSpLinkSentUtilChange'
-_EG='cItpSpLinkRcvdUtilChange'
-_EF='cItpSpLinkUtilNotifEnabled'
-_EE='cItpSpLinkL2BytesSent'
-_ED='cItpSpLinkUtilThresholdSent'
-_EC='cItpSpLinkPlanCapacitySent'
-_EB='cItpSpLinkL2BytesRcvd'
-_EA='cItpSpLinkUtilThresholdRcvd'
-_E9='cItpSpLinkPlanCapacityRcvd'
-_E8='cItpSpUtilAbateDelta'
-_E7='cItpSpUtilThreshold'
-_E6='cItpSpUtilSampleInterval'
-_E5='cItpSpLinksetPlanCapacity'
-_E4='cItpSpPointCodeRowStatus'
-_E3='cItpSpPointCodeDisplay'
-_E2='cItpSpPointCodeType'
-_E1='bits per second'
-_E0='cItpSpLinkSlc'
-_D_='unavailable'
-_Dz='available'
-_Dy='cItpSpPointCodeBin'
-_Dx='cItpSpPointCodeNi'
-_Dw='CItpSpSampleInterval'
-_Dv='cItpSpNotificationsGroup'
-_Du='cItpSpNotificationsEnableGroup'
-_Dt='cItpSpLinkGroup'
-_Ds='cItpSpLinksetGroup'
-_Dr='cItpSpScalarsGroup'
-_Dq='cItpSpCongestionChange'
-_Dp='cItpSpLinkStateChange'
-_Do='cItpSpLinksetStateChange'
-_Dn='cItpSpLinkUtilStateSent'
-_Dm='cItpSpLinkUtilizationSent'
-_Dl='cItpSpLinkUtilStateRcvd'
-_Dk='cItpSpLinkUtilizationRcvd'
-_Dj='cItpSpLinkOMSURMFailCount'
-_Di='cItpSpLinkOMSURMCount'
-_Dh='cItpSpLinkOMAERMFailCount'
-_Dg='cItpSpLinkOMAERMCount'
-_Df='cItpSpLinkMtp2ExpiredT07'
-_De='cItpSpLinkMtp2ExpiredT06'
-_Dd='cItpSpLinkMtp2ExpiredT05'
-_Dc='cItpSpLinkMtp2ExpiredT04'
-_Db='cItpSpLinkMtp2ExpiredT03'
-_Da='cItpSpLinkMtp2ExpiredT02'
-_DZ='cItpSpLinkMtp2ExpiredT01'
-_DY='cItpSpLinkTransmittedSIB'
-_DX='cItpSpLinkReceivedSIB'
-_DW='cItpSpLinkTcbcState'
-_DV='cItpSpLinkTcocRemoteBSNT'
-_DU='cItpSpLinkTcocLocalBSNT'
-_DT='cItpSpLinkTcocState'
-_DS='cItpSpLinkTsrcState'
-_DR='cItpSpLinkLsacState'
-_DQ='cItpSpLinkProtocolDetails'
-_DP='cItpSpLinkReceivedLssu'
-_DO='cItpSpLinkTransmittedLssu'
-_DN='cItpSpLinkDroppedPkts'
-_DM='cItpSpLinksetVariant'
-_DL='cItpSpSummaryRoutingException'
-_DK='cItpSpDistSccpUnseq'
-_DJ='cItpSpCongestionNotifEnabled'
-_DI='cItpSpLnkStateChangeNotifEnabled'
-_DH='cItpSpLsStateChangeNotifEnabled'
-_DG='cItpSpLinkRowStatus'
-_DF='cItpSpLinkQosClass'
-_DE='cItpSpLinkRemotePort'
-_DD='cItpSpLinkLocalPort'
-_DC='cItpSpLinkIPAddr4'
-_DB='cItpSpLinkIPAddr3'
-_DA='cItpSpLinkIPAddr2'
-_D9='cItpSpLinkIPAddr1'
-_D8='cItpSpLinkIPType4'
-_D7='cItpSpLinkIPType3'
-_D6='cItpSpLinkIPType2'
-_D5='cItpSpLinkIPType1'
-_D4='cItpSpLinkQ752T3E11L3'
-_D3='cItpSpLinkQ752T3E11L2'
-_D2='cItpSpLinkQ752T3E11L1'
-_D1='cItpSpLinkQ752T3E10L3'
-_D0='cItpSpLinkQ752T3E10L2'
-_C_='cItpSpLinkQ752T3E10L1'
-_Cz='cItpSpLinkQ752T3E7'
-_Cy='cItpSpLinkQ752T3E6'
-_Cx='cItpSpLinkMtp3BytesRetrans'
-_Cw='cItpSpLinkMtp3PacketsRetrans'
-_Cv='cItpSpLinkQ752T2E18'
-_Cu='cItpSpLinkQ752T2E16'
-_Ct='cItpSpLinkQ752T2E15'
-_Cs='cItpSpLinkQ752T2E10'
-_Cr='cItpSpLinkQ752T2E9'
-_Cq='cItpSpLinkQ752T2E7'
-_Cp='cItpSpLinkQ752T2E6'
-_Co='cItpSpLinkQ752T2E5'
-_Cn='cItpSpLinkQ752T2E1'
-_Cm='cItpSpLinkQ752T1E11'
-_Cl='cItpSpLinkQ752T1E10'
-_Ck='cItpSpLinkQ752T1E9'
-_Cj='cItpSpLinkQ752T1E8'
-_Ci='cItpSpLinkQ752T1E7'
-_Ch='cItpSpLinkQ752T1E6'
-_Cg='cItpSpLinkQ752T1E5'
-_Cf='cItpSpLinkQ752T1E4'
-_Ce='cItpSpLinkQ752T1E3'
-_Cd='cItpSpLinkQ752T1E2'
-_Cc='cItpSpLinkQ752T1E1'
-_Cb='cItpSpLinkSigLinkTest'
-_Ca='cItpSpLinkCongestionOnset3'
-_CZ='cItpSpLinkCongestionOnset2'
-_CY='cItpSpLinkCongestionOnset1'
-_CX='cItpSpLinkCongestionAbate3'
-_CW='cItpSpLinkCongestionAbate2'
-_CV='cItpSpLinkCongestionAbate1'
-_CU='cItpSpLinkXmitQueueDepthHighRT'
-_CT='cItpSpLinkXmitQueueDepthHigh'
-_CS='cItpSpLinkXmitQueueDepth'
-_CR='cItpSpLinkTimerLinkActRetry'
-_CQ='cItpSpLinkTimerLinkMessage'
-_CP='cItpSpLinkTimerLinkTest'
-_CO='cItpSpLinkMtp3T34'
-_CN='cItpSpLinkMtp3T33'
-_CM='cItpSpLinkMtp3T32'
-_CL='cItpSpLinkMtp3T31'
-_CK='cItpSpLinkMtp3T30'
-_CJ='cItpSpLinkMtp3T29'
-_CI='cItpSpLinkMtp3T28'
-_CH='cItpSpLinkMtp3T27'
-_CG='cItpSpLinkMtp3T26'
-_CF='cItpSpLinkMtp3T25'
-_CE='cItpSpLinkMtp3T24'
-_CD='cItpSpLinkMtp3T23'
-_CC='cItpSpLinkMtp3T22'
-_CB='cItpSpLinkMtp3T21'
-_CA='cItpSpLinkMtp3T20'
-_C9='cItpSpLinkMtp3T19'
-_C8='cItpSpLinkMtp3T18'
-_C7='cItpSpLinkMtp3T17'
-_C6='cItpSpLinkMtp3T16'
-_C5='cItpSpLinkMtp3T15'
-_C4='cItpSpLinkMtp3T14'
-_C3='cItpSpLinkMtp3T13'
-_C2='cItpSpLinkMtp3T12'
-_C1='cItpSpLinkMtp3T11'
-_C0='cItpSpLinkMtp3T10'
-_B_='cItpSpLinkMtp3T08'
-_Bz='cItpSpLinkMtp3T07'
-_By='cItpSpLinkMtp3T06'
-_Bx='cItpSpLinkMtp3T05'
-_Bw='cItpSpLinkMtp3T04'
-_Bv='cItpSpLinkMtp3T03'
-_Bu='cItpSpLinkMtp3T02'
-_Bt='cItpSpLinkMtp3T01'
-_Bs='cItpSpLinkMtp2T07'
-_Br='cItpSpLinkMtp2T06'
-_Bq='cItpSpLinkMtp2T05'
-_Bp='cItpSpLinkMtp2T04N'
-_Bo='cItpSpLinkMtp2T04E'
-_Bn='cItpSpLinkMtp2T03'
-_Bm='cItpSpLinkMtp2T02'
-_Bl='cItpSpLinkMtp2T01'
-_Bk='cItpSpLinkMtp3BytesSent'
-_Bj='cItpSpLinkMtp3BytesRcvd'
-_Bi='cItpSpLinkMtp3PacketsSent'
-_Bh='cItpSpLinkMtp3PacketsRcvd'
-_Bg='cItpSpLinkSctpAssociation'
-_Bf='cItpSpLinkifIndex'
-_Be='cItpSpLinkType'
-_Bd='cItpSpLinkDescription'
-_Bc='cItpSpLinksetDescription'
-_Bb='cItpSpLinksetNi'
-_Ba='cItpSpLinksetRowStatus'
-_BZ='cItpSpLinksetType'
-_BY='cItpSpLinksetActPriority'
-_BX='cItpSpLinksetTimerLinkActRetry'
-_BW='cItpSpLinksetTimerLinkMessage'
-_BV='cItpSpLinksetTimerLinkTest'
-_BU='cItpSpLinksetMtp3T34'
-_BT='cItpSpLinksetMtp3T33'
-_BS='cItpSpLinksetMtp3T32'
-_BR='cItpSpLinksetMtp3T31'
-_BQ='cItpSpLinksetMtp3T30'
-_BP='cItpSpLinksetMtp3T29'
-_BO='cItpSpLinksetMtp3T28'
-_BN='cItpSpLinksetMtp3T27'
-_BM='cItpSpLinksetMtp3T26'
-_BL='cItpSpLinksetMtp3T25'
-_BK='cItpSpLinksetMtp3T24'
-_BJ='cItpSpLinksetMtp3T23'
-_BI='cItpSpLinksetMtp3T22'
-_BH='cItpSpLinksetMtp3T21'
-_BG='cItpSpLinksetMtp3T20'
-_BF='cItpSpLinksetMtp3T19'
-_BE='cItpSpLinksetMtp3T18'
-_BD='cItpSpLinksetMtp3T17'
-_BC='cItpSpLinksetMtp3T16'
-_BB='cItpSpLinksetMtp3T15'
-_BA='cItpSpLinksetMtp3T14'
-_B9='cItpSpLinksetMtp3T13'
-_B8='cItpSpLinksetMtp3T12'
-_B7='cItpSpLinksetMtp3T11'
-_B6='cItpSpLinksetMtp3T10'
-_B5='cItpSpLinksetMtp3T08'
-_B4='cItpSpLinksetMtp3T07'
-_B3='cItpSpLinksetMtp3T06'
-_B2='cItpSpLinksetMtp3T05'
-_B1='cItpSpLinksetMtp3T04'
-_B0='cItpSpLinksetMtp3T03'
-_A_='cItpSpLinksetMtp3T02'
-_Az='cItpSpLinksetMtp3T01'
-_Ay='cItpSpLinksetMtp2T07'
-_Ax='cItpSpLinksetMtp2T06'
-_Aw='cItpSpLinksetMtp2T05'
-_Av='cItpSpLinksetMtp2T04N'
-_Au='cItpSpLinksetMtp2T04E'
-_At='cItpSpLinksetMtp2T03'
-_As='cItpSpLinksetMtp2T02'
-_Ar='cItpSpLinksetMtp2T01'
-_Aq='cItpSpLinksetDurationOutService'
-_Ap='cItpSpLinksetDurationInService'
-_Ao='cItpSpLinksetNumLinks'
-_An='cItpSpLinksetAccountingEnabled'
-_Am='cItpSpLinksetSpare15RTN'
-_Al='cItpSpLinksetSpare14RTN'
-_Ak='cItpSpLinksetSpare13RTN'
-_Aj='cItpSpLinksetSpare12RTN'
-_Ai='cItpSpLinksetSpare11RTN'
-_Ah='cItpSpLinksetSisupRTN'
-_Ag='cItpSpLinksetBisupRTN'
-_Af='cItpSpLinksetMtupRTN'
-_Ae='cItpSpLinksetDupfRTN'
-_Ad='cItpSpLinksetDupcRTN'
-_Ac='cItpSpLinksetIsupRTN'
-_Ab='cItpSpLinksetTupRTN'
-_Aa='cItpSpLinksetSccpRTN'
-_AZ='cItpSpLinksetSpare2RTN'
-_AY='cItpSpLinksetSntmRTN'
-_AX='cItpSpLinksetSnmmRTN'
-_AW='cItpSpLinksetOutboundAcl'
-_AV='cItpSpLinksetInboundAcl'
-_AU='cItpSpLinksetAdjacentPointCode'
-_AT='cItpSpLinksetSourcePointCode'
-_AS='cItpSpFastRestart'
-_AR='cItpSpCongestionsLevels'
-_AQ='cItpSpTFR'
-_AP='cItpSpTimerLinkActRetry'
-_AO='cItpSpTimerLinkMessage'
-_AN='cItpSpTimerLinkTest'
-_AM='cItpSpMtp3T34'
-_AL='cItpSpMtp3T33'
-_AK='cItpSpMtp3T32'
-_AJ='cItpSpMtp3T31'
-_AI='cItpSpMtp3T30'
-_AH='cItpSpMtp3T29'
-_AG='cItpSpMtp3T28'
-_AF='cItpSpMtp3T27'
-_AE='cItpSpMtp3T26'
-_AD='cItpSpMtp3T25'
-_AC='cItpSpMtp3T24'
-_AB='cItpSpMtp3T23'
-_AA='cItpSpMtp3T22'
-_A9='cItpSpMtp3T21'
-_A8='cItpSpMtp3T20'
-_A7='cItpSpMtp3T19'
-_A6='cItpSpMtp3T18'
-_A5='cItpSpMtp3T17'
-_A4='cItpSpMtp3T16'
-_A3='cItpSpMtp3T15'
-_A2='cItpSpMtp3T14'
-_A1='cItpSpMtp3T13'
-_A0='cItpSpMtp3T12'
-_z='cItpSpMtp3T11'
-_y='cItpSpMtp3T10'
-_x='cItpSpMtp3T08'
-_w='cItpSpMtp3T07'
-_v='cItpSpMtp3T06'
-_u='cItpSpMtp3T05'
-_t='cItpSpMtp3T04'
-_s='cItpSpMtp3T03'
-_r='cItpSpMtp3T02'
-_q='cItpSpMtp3T01'
-_p='cItpSpMtp2T07'
-_o='cItpSpMtp2T06'
-_n='cItpSpMtp2T05'
-_m='cItpSpMtp2T04N'
-_l='cItpSpMtp2T04E'
-_k='cItpSpMtp2T03'
-_j='cItpSpMtp2T02'
-_i='cItpSpMtp2T01'
-_h='cItpSpDescription'
-_g='cItpSpDisplayName'
-_f='cItpSpVariant'
-_e='idle'
-_d='Packets'
-_c='cItpSpLinksetName'
-_b='Bits'
-_a='cItpSpPointCodeGroup'
-_Z='cItpSpLinkStateReason'
-_Y='cItpSpLinkCongestionState'
-_X='cItpSpLinkState'
-_W='cItpSpLinksetDisplayName'
-_V='cItpSpLinksetState'
-_U='undefined'
-_T='packets'
-_S='not-accessible'
-_R='CItpSpPercentThreshold'
-_Q='bytes'
-_P='percent'
-_O='cItpSpLinkDisplayName'
-_N='SnmpAdminString'
-_M='cItpSpLinksetAdjacentDisplayPC'
-_L='cItpSpLinksetSourceDisplayPC'
-_K='cItpSpCLLICode'
-_J='Integer32'
-_I='occurrences'
-_H='Unsigned32'
-_G='TruthValue'
-_F='read-write'
-_E='read-only'
-_D='milliseconds'
-_C='read-create'
-_B='deprecated'
-_A='CISCO-ITP-SP-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-CItpTcAclId,CItpTcCLLI,CItpTcDisplayPC,CItpTcLinkSLC,CItpTcLinkType,CItpTcLinksetId,CItpTcNetworkIndicator,CItpTcPointCode,CItpTcPointCodeType,CItpTcQos,CItpTcRouteTableName,CItpTcSs7Variant,CItpTcTimerLinkActRetry,CItpTcTimerLinkMessage,CItpTcTimerLinkTest,CItpTcTimerMtp2T01,CItpTcTimerMtp2T02,CItpTcTimerMtp2T03,CItpTcTimerMtp2T04E,CItpTcTimerMtp2T04N,CItpTcTimerMtp2T05,CItpTcTimerMtp2T06,CItpTcTimerMtp2T07,CItpTcTimerMtp3T01,CItpTcTimerMtp3T02,CItpTcTimerMtp3T03,CItpTcTimerMtp3T04,CItpTcTimerMtp3T05,CItpTcTimerMtp3T06,CItpTcTimerMtp3T07,CItpTcTimerMtp3T08,CItpTcTimerMtp3T10,CItpTcTimerMtp3T11,CItpTcTimerMtp3T12,CItpTcTimerMtp3T13,CItpTcTimerMtp3T14,CItpTcTimerMtp3T15,CItpTcTimerMtp3T16,CItpTcTimerMtp3T17,CItpTcTimerMtp3T18,CItpTcTimerMtp3T19,CItpTcTimerMtp3T20,CItpTcTimerMtp3T21,CItpTcTimerMtp3T22,CItpTcTimerMtp3T23,CItpTcTimerMtp3T24,CItpTcTimerMtp3T25,CItpTcTimerMtp3T26,CItpTcTimerMtp3T27,CItpTcTimerMtp3T28,CItpTcTimerMtp3T29,CItpTcTimerMtp3T30,CItpTcTimerMtp3T31,CItpTcTimerMtp3T32,CItpTcTimerMtp3T33,CItpTcTimerMtp3T34=mibBuilder.importSymbols('CISCO-ITP-TC-MIB','CItpTcAclId','CItpTcCLLI','CItpTcDisplayPC','CItpTcLinkSLC','CItpTcLinkType','CItpTcLinksetId','CItpTcNetworkIndicator','CItpTcPointCode','CItpTcPointCodeType','CItpTcQos','CItpTcRouteTableName','CItpTcSs7Variant','CItpTcTimerLinkActRetry','CItpTcTimerLinkMessage','CItpTcTimerLinkTest','CItpTcTimerMtp2T01','CItpTcTimerMtp2T02','CItpTcTimerMtp2T03','CItpTcTimerMtp2T04E','CItpTcTimerMtp2T04N','CItpTcTimerMtp2T05','CItpTcTimerMtp2T06','CItpTcTimerMtp2T07','CItpTcTimerMtp3T01','CItpTcTimerMtp3T02','CItpTcTimerMtp3T03','CItpTcTimerMtp3T04','CItpTcTimerMtp3T05','CItpTcTimerMtp3T06','CItpTcTimerMtp3T07','CItpTcTimerMtp3T08','CItpTcTimerMtp3T10','CItpTcTimerMtp3T11','CItpTcTimerMtp3T12','CItpTcTimerMtp3T13','CItpTcTimerMtp3T14','CItpTcTimerMtp3T15','CItpTcTimerMtp3T16','CItpTcTimerMtp3T17','CItpTcTimerMtp3T18','CItpTcTimerMtp3T19','CItpTcTimerMtp3T20','CItpTcTimerMtp3T21','CItpTcTimerMtp3T22','CItpTcTimerMtp3T23','CItpTcTimerMtp3T24','CItpTcTimerMtp3T25','CItpTcTimerMtp3T26','CItpTcTimerMtp3T27','CItpTcTimerMtp3T28','CItpTcTimerMtp3T29','CItpTcTimerMtp3T30','CItpTcTimerMtp3T31','CItpTcTimerMtp3T32','CItpTcTimerMtp3T33','CItpTcTimerMtp3T34')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-InterfaceIndexOrZero,=mibBuilder.importSymbols('IF-MIB','InterfaceIndexOrZero')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_N)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI',_b,'Counter32','Counter64','Gauge32',_J,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_H,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TimeStamp',_G)
-ciscoItpSpMIB=ModuleIdentity((1,3,6,1,4,1,9,9,232))
-if mibBuilder.loadTexts:ciscoItpSpMIB.setRevisions(('2003-02-18 00:00','2002-03-07 00:00','2002-01-23 00:00','2001-08-29 00:00'))
-class CItpSpSequenceNumber(TextualConvention,Unsigned32):status=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-class CItpSpSampleInterval(TextualConvention,Unsigned32):status=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(60,3600))
-class CItpSpPercentThreshold(TextualConvention,Unsigned32):status=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-class CItpSpLinkUtilization(TextualConvention,Unsigned32):status=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,999))
-class CItpSpLinkCapacity(TextualConvention,Unsigned32):status=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(56000,2147483647))
-class CItpSpLinkUtilizationState(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('unMonitored',0),('underThreshold',1),('overThreshold',2)))
-_CItpSpMIBNotifs_ObjectIdentity=ObjectIdentity
-cItpSpMIBNotifs=_CItpSpMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,232,0))
-_CItpSpNotifications_ObjectIdentity=ObjectIdentity
-cItpSpNotifications=_CItpSpNotifications_ObjectIdentity((1,3,6,1,4,1,9,9,232,0,0))
-_CItpSpMIBObjects_ObjectIdentity=ObjectIdentity
-cItpSpMIBObjects=_CItpSpMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,232,1))
-_CItpSpScalars_ObjectIdentity=ObjectIdentity
-cItpSpScalars=_CItpSpScalars_ObjectIdentity((1,3,6,1,4,1,9,9,232,1,1))
-_CItpSpVariant_Type=CItpTcSs7Variant
-_CItpSpVariant_Object=MibScalar
-cItpSpVariant=_CItpSpVariant_Object((1,3,6,1,4,1,9,9,232,1,1,1),_CItpSpVariant_Type())
-cItpSpVariant.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpVariant.setStatus(_B)
-_CItpSpCLLICode_Type=CItpTcCLLI
-_CItpSpCLLICode_Object=MibScalar
-cItpSpCLLICode=_CItpSpCLLICode_Object((1,3,6,1,4,1,9,9,232,1,1,2),_CItpSpCLLICode_Type())
-cItpSpCLLICode.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpCLLICode.setStatus(_B)
-class _CItpSpDisplayName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,30))
-_CItpSpDisplayName_Type.__name__=_N
-_CItpSpDisplayName_Object=MibScalar
-cItpSpDisplayName=_CItpSpDisplayName_Object((1,3,6,1,4,1,9,9,232,1,1,3),_CItpSpDisplayName_Type())
-cItpSpDisplayName.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpDisplayName.setStatus(_B)
-class _CItpSpDescription_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,254))
-_CItpSpDescription_Type.__name__=_N
-_CItpSpDescription_Object=MibScalar
-cItpSpDescription=_CItpSpDescription_Object((1,3,6,1,4,1,9,9,232,1,1,4),_CItpSpDescription_Type())
-cItpSpDescription.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpDescription.setStatus(_B)
-_CItpSpMtp2T01_Type=CItpTcTimerMtp2T01
-_CItpSpMtp2T01_Object=MibScalar
-cItpSpMtp2T01=_CItpSpMtp2T01_Object((1,3,6,1,4,1,9,9,232,1,1,5),_CItpSpMtp2T01_Type())
-cItpSpMtp2T01.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp2T01.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp2T01.setUnits(_D)
-_CItpSpMtp2T02_Type=CItpTcTimerMtp2T02
-_CItpSpMtp2T02_Object=MibScalar
-cItpSpMtp2T02=_CItpSpMtp2T02_Object((1,3,6,1,4,1,9,9,232,1,1,6),_CItpSpMtp2T02_Type())
-cItpSpMtp2T02.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp2T02.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp2T02.setUnits(_D)
-_CItpSpMtp2T03_Type=CItpTcTimerMtp2T03
-_CItpSpMtp2T03_Object=MibScalar
-cItpSpMtp2T03=_CItpSpMtp2T03_Object((1,3,6,1,4,1,9,9,232,1,1,7),_CItpSpMtp2T03_Type())
-cItpSpMtp2T03.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp2T03.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp2T03.setUnits(_D)
-_CItpSpMtp2T04E_Type=CItpTcTimerMtp2T04E
-_CItpSpMtp2T04E_Object=MibScalar
-cItpSpMtp2T04E=_CItpSpMtp2T04E_Object((1,3,6,1,4,1,9,9,232,1,1,8),_CItpSpMtp2T04E_Type())
-cItpSpMtp2T04E.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp2T04E.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp2T04E.setUnits(_D)
-_CItpSpMtp2T04N_Type=CItpTcTimerMtp2T04N
-_CItpSpMtp2T04N_Object=MibScalar
-cItpSpMtp2T04N=_CItpSpMtp2T04N_Object((1,3,6,1,4,1,9,9,232,1,1,9),_CItpSpMtp2T04N_Type())
-cItpSpMtp2T04N.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp2T04N.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp2T04N.setUnits(_D)
-_CItpSpMtp2T05_Type=CItpTcTimerMtp2T05
-_CItpSpMtp2T05_Object=MibScalar
-cItpSpMtp2T05=_CItpSpMtp2T05_Object((1,3,6,1,4,1,9,9,232,1,1,10),_CItpSpMtp2T05_Type())
-cItpSpMtp2T05.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp2T05.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp2T05.setUnits(_D)
-_CItpSpMtp2T06_Type=CItpTcTimerMtp2T06
-_CItpSpMtp2T06_Object=MibScalar
-cItpSpMtp2T06=_CItpSpMtp2T06_Object((1,3,6,1,4,1,9,9,232,1,1,11),_CItpSpMtp2T06_Type())
-cItpSpMtp2T06.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp2T06.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp2T06.setUnits(_D)
-_CItpSpMtp2T07_Type=CItpTcTimerMtp2T07
-_CItpSpMtp2T07_Object=MibScalar
-cItpSpMtp2T07=_CItpSpMtp2T07_Object((1,3,6,1,4,1,9,9,232,1,1,12),_CItpSpMtp2T07_Type())
-cItpSpMtp2T07.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp2T07.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp2T07.setUnits(_D)
-_CItpSpMtp3T01_Type=CItpTcTimerMtp3T01
-_CItpSpMtp3T01_Object=MibScalar
-cItpSpMtp3T01=_CItpSpMtp3T01_Object((1,3,6,1,4,1,9,9,232,1,1,13),_CItpSpMtp3T01_Type())
-cItpSpMtp3T01.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T01.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T01.setUnits(_D)
-_CItpSpMtp3T02_Type=CItpTcTimerMtp3T02
-_CItpSpMtp3T02_Object=MibScalar
-cItpSpMtp3T02=_CItpSpMtp3T02_Object((1,3,6,1,4,1,9,9,232,1,1,14),_CItpSpMtp3T02_Type())
-cItpSpMtp3T02.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T02.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T02.setUnits(_D)
-_CItpSpMtp3T03_Type=CItpTcTimerMtp3T03
-_CItpSpMtp3T03_Object=MibScalar
-cItpSpMtp3T03=_CItpSpMtp3T03_Object((1,3,6,1,4,1,9,9,232,1,1,15),_CItpSpMtp3T03_Type())
-cItpSpMtp3T03.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T03.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T03.setUnits(_D)
-_CItpSpMtp3T04_Type=CItpTcTimerMtp3T04
-_CItpSpMtp3T04_Object=MibScalar
-cItpSpMtp3T04=_CItpSpMtp3T04_Object((1,3,6,1,4,1,9,9,232,1,1,16),_CItpSpMtp3T04_Type())
-cItpSpMtp3T04.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T04.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T04.setUnits(_D)
-_CItpSpMtp3T05_Type=CItpTcTimerMtp3T05
-_CItpSpMtp3T05_Object=MibScalar
-cItpSpMtp3T05=_CItpSpMtp3T05_Object((1,3,6,1,4,1,9,9,232,1,1,17),_CItpSpMtp3T05_Type())
-cItpSpMtp3T05.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T05.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T05.setUnits(_D)
-_CItpSpMtp3T06_Type=CItpTcTimerMtp3T06
-_CItpSpMtp3T06_Object=MibScalar
-cItpSpMtp3T06=_CItpSpMtp3T06_Object((1,3,6,1,4,1,9,9,232,1,1,18),_CItpSpMtp3T06_Type())
-cItpSpMtp3T06.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T06.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T06.setUnits(_D)
-_CItpSpMtp3T07_Type=CItpTcTimerMtp3T07
-_CItpSpMtp3T07_Object=MibScalar
-cItpSpMtp3T07=_CItpSpMtp3T07_Object((1,3,6,1,4,1,9,9,232,1,1,19),_CItpSpMtp3T07_Type())
-cItpSpMtp3T07.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T07.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T07.setUnits(_D)
-_CItpSpMtp3T08_Type=CItpTcTimerMtp3T08
-_CItpSpMtp3T08_Object=MibScalar
-cItpSpMtp3T08=_CItpSpMtp3T08_Object((1,3,6,1,4,1,9,9,232,1,1,20),_CItpSpMtp3T08_Type())
-cItpSpMtp3T08.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T08.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T08.setUnits(_D)
-_CItpSpMtp3T10_Type=CItpTcTimerMtp3T10
-_CItpSpMtp3T10_Object=MibScalar
-cItpSpMtp3T10=_CItpSpMtp3T10_Object((1,3,6,1,4,1,9,9,232,1,1,21),_CItpSpMtp3T10_Type())
-cItpSpMtp3T10.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T10.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T10.setUnits(_D)
-_CItpSpMtp3T11_Type=CItpTcTimerMtp3T11
-_CItpSpMtp3T11_Object=MibScalar
-cItpSpMtp3T11=_CItpSpMtp3T11_Object((1,3,6,1,4,1,9,9,232,1,1,22),_CItpSpMtp3T11_Type())
-cItpSpMtp3T11.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T11.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T11.setUnits(_D)
-_CItpSpMtp3T12_Type=CItpTcTimerMtp3T12
-_CItpSpMtp3T12_Object=MibScalar
-cItpSpMtp3T12=_CItpSpMtp3T12_Object((1,3,6,1,4,1,9,9,232,1,1,23),_CItpSpMtp3T12_Type())
-cItpSpMtp3T12.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T12.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T12.setUnits(_D)
-_CItpSpMtp3T13_Type=CItpTcTimerMtp3T13
-_CItpSpMtp3T13_Object=MibScalar
-cItpSpMtp3T13=_CItpSpMtp3T13_Object((1,3,6,1,4,1,9,9,232,1,1,24),_CItpSpMtp3T13_Type())
-cItpSpMtp3T13.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T13.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T13.setUnits(_D)
-_CItpSpMtp3T14_Type=CItpTcTimerMtp3T14
-_CItpSpMtp3T14_Object=MibScalar
-cItpSpMtp3T14=_CItpSpMtp3T14_Object((1,3,6,1,4,1,9,9,232,1,1,25),_CItpSpMtp3T14_Type())
-cItpSpMtp3T14.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T14.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T14.setUnits(_D)
-_CItpSpMtp3T15_Type=CItpTcTimerMtp3T15
-_CItpSpMtp3T15_Object=MibScalar
-cItpSpMtp3T15=_CItpSpMtp3T15_Object((1,3,6,1,4,1,9,9,232,1,1,26),_CItpSpMtp3T15_Type())
-cItpSpMtp3T15.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T15.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T15.setUnits(_D)
-_CItpSpMtp3T16_Type=CItpTcTimerMtp3T16
-_CItpSpMtp3T16_Object=MibScalar
-cItpSpMtp3T16=_CItpSpMtp3T16_Object((1,3,6,1,4,1,9,9,232,1,1,27),_CItpSpMtp3T16_Type())
-cItpSpMtp3T16.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T16.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T16.setUnits(_D)
-_CItpSpMtp3T17_Type=CItpTcTimerMtp3T17
-_CItpSpMtp3T17_Object=MibScalar
-cItpSpMtp3T17=_CItpSpMtp3T17_Object((1,3,6,1,4,1,9,9,232,1,1,28),_CItpSpMtp3T17_Type())
-cItpSpMtp3T17.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T17.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T17.setUnits(_D)
-_CItpSpMtp3T18_Type=CItpTcTimerMtp3T18
-_CItpSpMtp3T18_Object=MibScalar
-cItpSpMtp3T18=_CItpSpMtp3T18_Object((1,3,6,1,4,1,9,9,232,1,1,29),_CItpSpMtp3T18_Type())
-cItpSpMtp3T18.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T18.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T18.setUnits(_D)
-_CItpSpMtp3T19_Type=CItpTcTimerMtp3T19
-_CItpSpMtp3T19_Object=MibScalar
-cItpSpMtp3T19=_CItpSpMtp3T19_Object((1,3,6,1,4,1,9,9,232,1,1,30),_CItpSpMtp3T19_Type())
-cItpSpMtp3T19.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T19.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T19.setUnits(_D)
-_CItpSpMtp3T20_Type=CItpTcTimerMtp3T20
-_CItpSpMtp3T20_Object=MibScalar
-cItpSpMtp3T20=_CItpSpMtp3T20_Object((1,3,6,1,4,1,9,9,232,1,1,31),_CItpSpMtp3T20_Type())
-cItpSpMtp3T20.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T20.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T20.setUnits(_D)
-_CItpSpMtp3T21_Type=CItpTcTimerMtp3T21
-_CItpSpMtp3T21_Object=MibScalar
-cItpSpMtp3T21=_CItpSpMtp3T21_Object((1,3,6,1,4,1,9,9,232,1,1,32),_CItpSpMtp3T21_Type())
-cItpSpMtp3T21.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T21.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T21.setUnits(_D)
-_CItpSpMtp3T22_Type=CItpTcTimerMtp3T22
-_CItpSpMtp3T22_Object=MibScalar
-cItpSpMtp3T22=_CItpSpMtp3T22_Object((1,3,6,1,4,1,9,9,232,1,1,33),_CItpSpMtp3T22_Type())
-cItpSpMtp3T22.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T22.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T22.setUnits(_D)
-_CItpSpMtp3T23_Type=CItpTcTimerMtp3T23
-_CItpSpMtp3T23_Object=MibScalar
-cItpSpMtp3T23=_CItpSpMtp3T23_Object((1,3,6,1,4,1,9,9,232,1,1,34),_CItpSpMtp3T23_Type())
-cItpSpMtp3T23.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T23.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T23.setUnits(_D)
-_CItpSpMtp3T24_Type=CItpTcTimerMtp3T24
-_CItpSpMtp3T24_Object=MibScalar
-cItpSpMtp3T24=_CItpSpMtp3T24_Object((1,3,6,1,4,1,9,9,232,1,1,35),_CItpSpMtp3T24_Type())
-cItpSpMtp3T24.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T24.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T24.setUnits(_D)
-_CItpSpMtp3T25_Type=CItpTcTimerMtp3T25
-_CItpSpMtp3T25_Object=MibScalar
-cItpSpMtp3T25=_CItpSpMtp3T25_Object((1,3,6,1,4,1,9,9,232,1,1,36),_CItpSpMtp3T25_Type())
-cItpSpMtp3T25.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T25.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T25.setUnits(_D)
-_CItpSpMtp3T26_Type=CItpTcTimerMtp3T26
-_CItpSpMtp3T26_Object=MibScalar
-cItpSpMtp3T26=_CItpSpMtp3T26_Object((1,3,6,1,4,1,9,9,232,1,1,37),_CItpSpMtp3T26_Type())
-cItpSpMtp3T26.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T26.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T26.setUnits(_D)
-_CItpSpMtp3T27_Type=CItpTcTimerMtp3T27
-_CItpSpMtp3T27_Object=MibScalar
-cItpSpMtp3T27=_CItpSpMtp3T27_Object((1,3,6,1,4,1,9,9,232,1,1,38),_CItpSpMtp3T27_Type())
-cItpSpMtp3T27.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T27.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T27.setUnits(_D)
-_CItpSpMtp3T28_Type=CItpTcTimerMtp3T28
-_CItpSpMtp3T28_Object=MibScalar
-cItpSpMtp3T28=_CItpSpMtp3T28_Object((1,3,6,1,4,1,9,9,232,1,1,39),_CItpSpMtp3T28_Type())
-cItpSpMtp3T28.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T28.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T28.setUnits(_D)
-_CItpSpMtp3T29_Type=CItpTcTimerMtp3T29
-_CItpSpMtp3T29_Object=MibScalar
-cItpSpMtp3T29=_CItpSpMtp3T29_Object((1,3,6,1,4,1,9,9,232,1,1,40),_CItpSpMtp3T29_Type())
-cItpSpMtp3T29.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T29.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T29.setUnits(_D)
-_CItpSpMtp3T30_Type=CItpTcTimerMtp3T30
-_CItpSpMtp3T30_Object=MibScalar
-cItpSpMtp3T30=_CItpSpMtp3T30_Object((1,3,6,1,4,1,9,9,232,1,1,41),_CItpSpMtp3T30_Type())
-cItpSpMtp3T30.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T30.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T30.setUnits(_D)
-_CItpSpMtp3T31_Type=CItpTcTimerMtp3T31
-_CItpSpMtp3T31_Object=MibScalar
-cItpSpMtp3T31=_CItpSpMtp3T31_Object((1,3,6,1,4,1,9,9,232,1,1,42),_CItpSpMtp3T31_Type())
-cItpSpMtp3T31.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T31.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T31.setUnits(_D)
-_CItpSpMtp3T32_Type=CItpTcTimerMtp3T32
-_CItpSpMtp3T32_Object=MibScalar
-cItpSpMtp3T32=_CItpSpMtp3T32_Object((1,3,6,1,4,1,9,9,232,1,1,43),_CItpSpMtp3T32_Type())
-cItpSpMtp3T32.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T32.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T32.setUnits(_D)
-_CItpSpMtp3T33_Type=CItpTcTimerMtp3T33
-_CItpSpMtp3T33_Object=MibScalar
-cItpSpMtp3T33=_CItpSpMtp3T33_Object((1,3,6,1,4,1,9,9,232,1,1,44),_CItpSpMtp3T33_Type())
-cItpSpMtp3T33.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T33.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T33.setUnits(_D)
-_CItpSpMtp3T34_Type=CItpTcTimerMtp3T34
-_CItpSpMtp3T34_Object=MibScalar
-cItpSpMtp3T34=_CItpSpMtp3T34_Object((1,3,6,1,4,1,9,9,232,1,1,45),_CItpSpMtp3T34_Type())
-cItpSpMtp3T34.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpMtp3T34.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpMtp3T34.setUnits(_D)
-_CItpSpTimerLinkTest_Type=CItpTcTimerLinkTest
-_CItpSpTimerLinkTest_Object=MibScalar
-cItpSpTimerLinkTest=_CItpSpTimerLinkTest_Object((1,3,6,1,4,1,9,9,232,1,1,46),_CItpSpTimerLinkTest_Type())
-cItpSpTimerLinkTest.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpTimerLinkTest.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpTimerLinkTest.setUnits(_D)
-_CItpSpTimerLinkMessage_Type=CItpTcTimerLinkMessage
-_CItpSpTimerLinkMessage_Object=MibScalar
-cItpSpTimerLinkMessage=_CItpSpTimerLinkMessage_Object((1,3,6,1,4,1,9,9,232,1,1,47),_CItpSpTimerLinkMessage_Type())
-cItpSpTimerLinkMessage.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpTimerLinkMessage.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpTimerLinkMessage.setUnits(_D)
-_CItpSpTimerLinkActRetry_Type=CItpTcTimerLinkActRetry
-_CItpSpTimerLinkActRetry_Object=MibScalar
-cItpSpTimerLinkActRetry=_CItpSpTimerLinkActRetry_Object((1,3,6,1,4,1,9,9,232,1,1,48),_CItpSpTimerLinkActRetry_Type())
-cItpSpTimerLinkActRetry.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpTimerLinkActRetry.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpTimerLinkActRetry.setUnits(_D)
-class _CItpSpTFR_Type(TruthValue):defaultValue=2
-_CItpSpTFR_Type.__name__=_G
-_CItpSpTFR_Object=MibScalar
-cItpSpTFR=_CItpSpTFR_Object((1,3,6,1,4,1,9,9,232,1,1,49),_CItpSpTFR_Type())
-cItpSpTFR.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpTFR.setStatus(_B)
-class _CItpSpCongestionsLevels_Type(TruthValue):defaultValue=2
-_CItpSpCongestionsLevels_Type.__name__=_G
-_CItpSpCongestionsLevels_Object=MibScalar
-cItpSpCongestionsLevels=_CItpSpCongestionsLevels_Object((1,3,6,1,4,1,9,9,232,1,1,50),_CItpSpCongestionsLevels_Type())
-cItpSpCongestionsLevels.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpCongestionsLevels.setStatus(_B)
-class _CItpSpFastRestart_Type(TruthValue):defaultValue=2
-_CItpSpFastRestart_Type.__name__=_G
-_CItpSpFastRestart_Object=MibScalar
-cItpSpFastRestart=_CItpSpFastRestart_Object((1,3,6,1,4,1,9,9,232,1,1,51),_CItpSpFastRestart_Type())
-cItpSpFastRestart.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpFastRestart.setStatus(_B)
-class _CItpSpDistSccpUnseq_Type(TruthValue):defaultValue=2
-_CItpSpDistSccpUnseq_Type.__name__=_G
-_CItpSpDistSccpUnseq_Object=MibScalar
-cItpSpDistSccpUnseq=_CItpSpDistSccpUnseq_Object((1,3,6,1,4,1,9,9,232,1,1,52),_CItpSpDistSccpUnseq_Type())
-cItpSpDistSccpUnseq.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpDistSccpUnseq.setStatus(_B)
-class _CItpSpSummaryRoutingException_Type(TruthValue):defaultValue=1
-_CItpSpSummaryRoutingException_Type.__name__=_G
-_CItpSpSummaryRoutingException_Object=MibScalar
-cItpSpSummaryRoutingException=_CItpSpSummaryRoutingException_Object((1,3,6,1,4,1,9,9,232,1,1,53),_CItpSpSummaryRoutingException_Type())
-cItpSpSummaryRoutingException.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpSummaryRoutingException.setStatus(_B)
-class _CItpSpUtilSampleInterval_Type(CItpSpSampleInterval):defaultValue=300
-_CItpSpUtilSampleInterval_Type.__name__=_Dw
-_CItpSpUtilSampleInterval_Object=MibScalar
-cItpSpUtilSampleInterval=_CItpSpUtilSampleInterval_Object((1,3,6,1,4,1,9,9,232,1,1,54),_CItpSpUtilSampleInterval_Type())
-cItpSpUtilSampleInterval.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpUtilSampleInterval.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpUtilSampleInterval.setUnits('seconds')
-class _CItpSpUtilThreshold_Type(CItpSpPercentThreshold):defaultValue=40
-_CItpSpUtilThreshold_Type.__name__=_R
-_CItpSpUtilThreshold_Object=MibScalar
-cItpSpUtilThreshold=_CItpSpUtilThreshold_Object((1,3,6,1,4,1,9,9,232,1,1,55),_CItpSpUtilThreshold_Type())
-cItpSpUtilThreshold.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpUtilThreshold.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpUtilThreshold.setUnits(_P)
-class _CItpSpUtilAbateDelta_Type(CItpSpPercentThreshold):defaultValue=0
-_CItpSpUtilAbateDelta_Type.__name__=_R
-_CItpSpUtilAbateDelta_Object=MibScalar
-cItpSpUtilAbateDelta=_CItpSpUtilAbateDelta_Object((1,3,6,1,4,1,9,9,232,1,1,56),_CItpSpUtilAbateDelta_Type())
-cItpSpUtilAbateDelta.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpUtilAbateDelta.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpUtilAbateDelta.setUnits(_P)
-_CItpSpPointCode_ObjectIdentity=ObjectIdentity
-cItpSpPointCode=_CItpSpPointCode_ObjectIdentity((1,3,6,1,4,1,9,9,232,1,2))
-_CItpSpPointCodeTable_Object=MibTable
-cItpSpPointCodeTable=_CItpSpPointCodeTable_Object((1,3,6,1,4,1,9,9,232,1,2,1))
-if mibBuilder.loadTexts:cItpSpPointCodeTable.setStatus(_B)
-_CItpSpPointCodeTableEntry_Object=MibTableRow
-cItpSpPointCodeTableEntry=_CItpSpPointCodeTableEntry_Object((1,3,6,1,4,1,9,9,232,1,2,1,1))
-cItpSpPointCodeTableEntry.setIndexNames((0,_A,_Dx),(0,_A,_Dy))
-if mibBuilder.loadTexts:cItpSpPointCodeTableEntry.setStatus(_B)
-_CItpSpPointCodeNi_Type=CItpTcNetworkIndicator
-_CItpSpPointCodeNi_Object=MibTableColumn
-cItpSpPointCodeNi=_CItpSpPointCodeNi_Object((1,3,6,1,4,1,9,9,232,1,2,1,1,1),_CItpSpPointCodeNi_Type())
-cItpSpPointCodeNi.setMaxAccess(_S)
-if mibBuilder.loadTexts:cItpSpPointCodeNi.setStatus(_B)
-_CItpSpPointCodeBin_Type=CItpTcPointCode
-_CItpSpPointCodeBin_Object=MibTableColumn
-cItpSpPointCodeBin=_CItpSpPointCodeBin_Object((1,3,6,1,4,1,9,9,232,1,2,1,1,2),_CItpSpPointCodeBin_Type())
-cItpSpPointCodeBin.setMaxAccess(_S)
-if mibBuilder.loadTexts:cItpSpPointCodeBin.setStatus(_B)
-_CItpSpPointCodeType_Type=CItpTcPointCodeType
-_CItpSpPointCodeType_Object=MibTableColumn
-cItpSpPointCodeType=_CItpSpPointCodeType_Object((1,3,6,1,4,1,9,9,232,1,2,1,1,3),_CItpSpPointCodeType_Type())
-cItpSpPointCodeType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpPointCodeType.setStatus(_B)
-_CItpSpPointCodeDisplay_Type=CItpTcDisplayPC
-_CItpSpPointCodeDisplay_Object=MibTableColumn
-cItpSpPointCodeDisplay=_CItpSpPointCodeDisplay_Object((1,3,6,1,4,1,9,9,232,1,2,1,1,4),_CItpSpPointCodeDisplay_Type())
-cItpSpPointCodeDisplay.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpPointCodeDisplay.setStatus(_B)
-_CItpSpPointCodeRowStatus_Type=RowStatus
-_CItpSpPointCodeRowStatus_Object=MibTableColumn
-cItpSpPointCodeRowStatus=_CItpSpPointCodeRowStatus_Object((1,3,6,1,4,1,9,9,232,1,2,1,1,5),_CItpSpPointCodeRowStatus_Type())
-cItpSpPointCodeRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpPointCodeRowStatus.setStatus(_B)
-_CItpSpLinkset_ObjectIdentity=ObjectIdentity
-cItpSpLinkset=_CItpSpLinkset_ObjectIdentity((1,3,6,1,4,1,9,9,232,1,3))
-_CItpSpLinksetTable_Object=MibTable
-cItpSpLinksetTable=_CItpSpLinksetTable_Object((1,3,6,1,4,1,9,9,232,1,3,1))
-if mibBuilder.loadTexts:cItpSpLinksetTable.setStatus(_B)
-_CItpSpLinksetTableEntry_Object=MibTableRow
-cItpSpLinksetTableEntry=_CItpSpLinksetTableEntry_Object((1,3,6,1,4,1,9,9,232,1,3,1,1))
-cItpSpLinksetTableEntry.setIndexNames((0,_A,_c))
-if mibBuilder.loadTexts:cItpSpLinksetTableEntry.setStatus(_B)
-_CItpSpLinksetName_Type=CItpTcLinksetId
-_CItpSpLinksetName_Object=MibTableColumn
-cItpSpLinksetName=_CItpSpLinksetName_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,1),_CItpSpLinksetName_Type())
-cItpSpLinksetName.setMaxAccess(_S)
-if mibBuilder.loadTexts:cItpSpLinksetName.setStatus(_B)
-_CItpSpLinksetSourcePointCode_Type=CItpTcPointCode
-_CItpSpLinksetSourcePointCode_Object=MibTableColumn
-cItpSpLinksetSourcePointCode=_CItpSpLinksetSourcePointCode_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,2),_CItpSpLinksetSourcePointCode_Type())
-cItpSpLinksetSourcePointCode.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetSourcePointCode.setStatus(_B)
-_CItpSpLinksetSourceDisplayPC_Type=CItpTcDisplayPC
-_CItpSpLinksetSourceDisplayPC_Object=MibTableColumn
-cItpSpLinksetSourceDisplayPC=_CItpSpLinksetSourceDisplayPC_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,3),_CItpSpLinksetSourceDisplayPC_Type())
-cItpSpLinksetSourceDisplayPC.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinksetSourceDisplayPC.setStatus(_B)
-_CItpSpLinksetAdjacentPointCode_Type=CItpTcPointCode
-_CItpSpLinksetAdjacentPointCode_Object=MibTableColumn
-cItpSpLinksetAdjacentPointCode=_CItpSpLinksetAdjacentPointCode_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,4),_CItpSpLinksetAdjacentPointCode_Type())
-cItpSpLinksetAdjacentPointCode.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetAdjacentPointCode.setStatus(_B)
-_CItpSpLinksetAdjacentDisplayPC_Type=CItpTcDisplayPC
-_CItpSpLinksetAdjacentDisplayPC_Object=MibTableColumn
-cItpSpLinksetAdjacentDisplayPC=_CItpSpLinksetAdjacentDisplayPC_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,5),_CItpSpLinksetAdjacentDisplayPC_Type())
-cItpSpLinksetAdjacentDisplayPC.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinksetAdjacentDisplayPC.setStatus(_B)
-class _CItpSpLinksetState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_Dz,1),('shutdown',2),(_D_,3)))
-_CItpSpLinksetState_Type.__name__=_J
-_CItpSpLinksetState_Object=MibTableColumn
-cItpSpLinksetState=_CItpSpLinksetState_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,6),_CItpSpLinksetState_Type())
-cItpSpLinksetState.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinksetState.setStatus(_B)
-_CItpSpLinksetInboundAcl_Type=CItpTcAclId
-_CItpSpLinksetInboundAcl_Object=MibTableColumn
-cItpSpLinksetInboundAcl=_CItpSpLinksetInboundAcl_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,7),_CItpSpLinksetInboundAcl_Type())
-cItpSpLinksetInboundAcl.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetInboundAcl.setStatus(_B)
-_CItpSpLinksetOutboundAcl_Type=CItpTcAclId
-_CItpSpLinksetOutboundAcl_Object=MibTableColumn
-cItpSpLinksetOutboundAcl=_CItpSpLinksetOutboundAcl_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,8),_CItpSpLinksetOutboundAcl_Type())
-cItpSpLinksetOutboundAcl.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetOutboundAcl.setStatus(_B)
-_CItpSpLinksetSnmmRTN_Type=CItpTcRouteTableName
-_CItpSpLinksetSnmmRTN_Object=MibTableColumn
-cItpSpLinksetSnmmRTN=_CItpSpLinksetSnmmRTN_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,9),_CItpSpLinksetSnmmRTN_Type())
-cItpSpLinksetSnmmRTN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetSnmmRTN.setStatus(_B)
-_CItpSpLinksetSntmRTN_Type=CItpTcRouteTableName
-_CItpSpLinksetSntmRTN_Object=MibTableColumn
-cItpSpLinksetSntmRTN=_CItpSpLinksetSntmRTN_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,10),_CItpSpLinksetSntmRTN_Type())
-cItpSpLinksetSntmRTN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetSntmRTN.setStatus(_B)
-_CItpSpLinksetSpare2RTN_Type=CItpTcRouteTableName
-_CItpSpLinksetSpare2RTN_Object=MibTableColumn
-cItpSpLinksetSpare2RTN=_CItpSpLinksetSpare2RTN_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,11),_CItpSpLinksetSpare2RTN_Type())
-cItpSpLinksetSpare2RTN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetSpare2RTN.setStatus(_B)
-_CItpSpLinksetSccpRTN_Type=CItpTcRouteTableName
-_CItpSpLinksetSccpRTN_Object=MibTableColumn
-cItpSpLinksetSccpRTN=_CItpSpLinksetSccpRTN_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,12),_CItpSpLinksetSccpRTN_Type())
-cItpSpLinksetSccpRTN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetSccpRTN.setStatus(_B)
-_CItpSpLinksetTupRTN_Type=CItpTcRouteTableName
-_CItpSpLinksetTupRTN_Object=MibTableColumn
-cItpSpLinksetTupRTN=_CItpSpLinksetTupRTN_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,13),_CItpSpLinksetTupRTN_Type())
-cItpSpLinksetTupRTN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetTupRTN.setStatus(_B)
-_CItpSpLinksetIsupRTN_Type=CItpTcRouteTableName
-_CItpSpLinksetIsupRTN_Object=MibTableColumn
-cItpSpLinksetIsupRTN=_CItpSpLinksetIsupRTN_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,14),_CItpSpLinksetIsupRTN_Type())
-cItpSpLinksetIsupRTN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetIsupRTN.setStatus(_B)
-_CItpSpLinksetDupcRTN_Type=CItpTcRouteTableName
-_CItpSpLinksetDupcRTN_Object=MibTableColumn
-cItpSpLinksetDupcRTN=_CItpSpLinksetDupcRTN_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,15),_CItpSpLinksetDupcRTN_Type())
-cItpSpLinksetDupcRTN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetDupcRTN.setStatus(_B)
-_CItpSpLinksetDupfRTN_Type=CItpTcRouteTableName
-_CItpSpLinksetDupfRTN_Object=MibTableColumn
-cItpSpLinksetDupfRTN=_CItpSpLinksetDupfRTN_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,16),_CItpSpLinksetDupfRTN_Type())
-cItpSpLinksetDupfRTN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetDupfRTN.setStatus(_B)
-_CItpSpLinksetMtupRTN_Type=CItpTcRouteTableName
-_CItpSpLinksetMtupRTN_Object=MibTableColumn
-cItpSpLinksetMtupRTN=_CItpSpLinksetMtupRTN_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,17),_CItpSpLinksetMtupRTN_Type())
-cItpSpLinksetMtupRTN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtupRTN.setStatus(_B)
-_CItpSpLinksetBisupRTN_Type=CItpTcRouteTableName
-_CItpSpLinksetBisupRTN_Object=MibTableColumn
-cItpSpLinksetBisupRTN=_CItpSpLinksetBisupRTN_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,18),_CItpSpLinksetBisupRTN_Type())
-cItpSpLinksetBisupRTN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetBisupRTN.setStatus(_B)
-_CItpSpLinksetSisupRTN_Type=CItpTcRouteTableName
-_CItpSpLinksetSisupRTN_Object=MibTableColumn
-cItpSpLinksetSisupRTN=_CItpSpLinksetSisupRTN_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,19),_CItpSpLinksetSisupRTN_Type())
-cItpSpLinksetSisupRTN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetSisupRTN.setStatus(_B)
-_CItpSpLinksetSpare11RTN_Type=CItpTcRouteTableName
-_CItpSpLinksetSpare11RTN_Object=MibTableColumn
-cItpSpLinksetSpare11RTN=_CItpSpLinksetSpare11RTN_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,20),_CItpSpLinksetSpare11RTN_Type())
-cItpSpLinksetSpare11RTN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetSpare11RTN.setStatus(_B)
-_CItpSpLinksetSpare12RTN_Type=CItpTcRouteTableName
-_CItpSpLinksetSpare12RTN_Object=MibTableColumn
-cItpSpLinksetSpare12RTN=_CItpSpLinksetSpare12RTN_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,21),_CItpSpLinksetSpare12RTN_Type())
-cItpSpLinksetSpare12RTN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetSpare12RTN.setStatus(_B)
-_CItpSpLinksetSpare13RTN_Type=CItpTcRouteTableName
-_CItpSpLinksetSpare13RTN_Object=MibTableColumn
-cItpSpLinksetSpare13RTN=_CItpSpLinksetSpare13RTN_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,22),_CItpSpLinksetSpare13RTN_Type())
-cItpSpLinksetSpare13RTN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetSpare13RTN.setStatus(_B)
-_CItpSpLinksetSpare14RTN_Type=CItpTcRouteTableName
-_CItpSpLinksetSpare14RTN_Object=MibTableColumn
-cItpSpLinksetSpare14RTN=_CItpSpLinksetSpare14RTN_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,23),_CItpSpLinksetSpare14RTN_Type())
-cItpSpLinksetSpare14RTN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetSpare14RTN.setStatus(_B)
-_CItpSpLinksetSpare15RTN_Type=CItpTcRouteTableName
-_CItpSpLinksetSpare15RTN_Object=MibTableColumn
-cItpSpLinksetSpare15RTN=_CItpSpLinksetSpare15RTN_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,24),_CItpSpLinksetSpare15RTN_Type())
-cItpSpLinksetSpare15RTN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetSpare15RTN.setStatus(_B)
-class _CItpSpLinksetAccountingEnabled_Type(TruthValue):defaultValue=2
-_CItpSpLinksetAccountingEnabled_Type.__name__=_G
-_CItpSpLinksetAccountingEnabled_Object=MibTableColumn
-cItpSpLinksetAccountingEnabled=_CItpSpLinksetAccountingEnabled_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,25),_CItpSpLinksetAccountingEnabled_Type())
-cItpSpLinksetAccountingEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetAccountingEnabled.setStatus(_B)
-_CItpSpLinksetNumLinks_Type=Unsigned32
-_CItpSpLinksetNumLinks_Object=MibTableColumn
-cItpSpLinksetNumLinks=_CItpSpLinksetNumLinks_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,26),_CItpSpLinksetNumLinks_Type())
-cItpSpLinksetNumLinks.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinksetNumLinks.setStatus(_B)
-_CItpSpLinksetDurationInService_Type=TimeTicks
-_CItpSpLinksetDurationInService_Object=MibTableColumn
-cItpSpLinksetDurationInService=_CItpSpLinksetDurationInService_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,27),_CItpSpLinksetDurationInService_Type())
-cItpSpLinksetDurationInService.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinksetDurationInService.setStatus(_B)
-_CItpSpLinksetDurationOutService_Type=TimeTicks
-_CItpSpLinksetDurationOutService_Object=MibTableColumn
-cItpSpLinksetDurationOutService=_CItpSpLinksetDurationOutService_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,28),_CItpSpLinksetDurationOutService_Type())
-cItpSpLinksetDurationOutService.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinksetDurationOutService.setStatus(_B)
-_CItpSpLinksetMtp2T01_Type=CItpTcTimerMtp2T01
-_CItpSpLinksetMtp2T01_Object=MibTableColumn
-cItpSpLinksetMtp2T01=_CItpSpLinksetMtp2T01_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,29),_CItpSpLinksetMtp2T01_Type())
-cItpSpLinksetMtp2T01.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp2T01.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp2T01.setUnits(_D)
-_CItpSpLinksetMtp2T02_Type=CItpTcTimerMtp2T02
-_CItpSpLinksetMtp2T02_Object=MibTableColumn
-cItpSpLinksetMtp2T02=_CItpSpLinksetMtp2T02_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,30),_CItpSpLinksetMtp2T02_Type())
-cItpSpLinksetMtp2T02.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp2T02.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp2T02.setUnits(_D)
-_CItpSpLinksetMtp2T03_Type=CItpTcTimerMtp2T03
-_CItpSpLinksetMtp2T03_Object=MibTableColumn
-cItpSpLinksetMtp2T03=_CItpSpLinksetMtp2T03_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,31),_CItpSpLinksetMtp2T03_Type())
-cItpSpLinksetMtp2T03.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp2T03.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp2T03.setUnits(_D)
-_CItpSpLinksetMtp2T04E_Type=CItpTcTimerMtp2T04E
-_CItpSpLinksetMtp2T04E_Object=MibTableColumn
-cItpSpLinksetMtp2T04E=_CItpSpLinksetMtp2T04E_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,32),_CItpSpLinksetMtp2T04E_Type())
-cItpSpLinksetMtp2T04E.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp2T04E.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp2T04E.setUnits(_D)
-_CItpSpLinksetMtp2T04N_Type=CItpTcTimerMtp2T04N
-_CItpSpLinksetMtp2T04N_Object=MibTableColumn
-cItpSpLinksetMtp2T04N=_CItpSpLinksetMtp2T04N_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,33),_CItpSpLinksetMtp2T04N_Type())
-cItpSpLinksetMtp2T04N.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp2T04N.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp2T04N.setUnits(_D)
-_CItpSpLinksetMtp2T05_Type=CItpTcTimerMtp2T05
-_CItpSpLinksetMtp2T05_Object=MibTableColumn
-cItpSpLinksetMtp2T05=_CItpSpLinksetMtp2T05_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,34),_CItpSpLinksetMtp2T05_Type())
-cItpSpLinksetMtp2T05.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp2T05.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp2T05.setUnits(_D)
-_CItpSpLinksetMtp2T06_Type=CItpTcTimerMtp2T06
-_CItpSpLinksetMtp2T06_Object=MibTableColumn
-cItpSpLinksetMtp2T06=_CItpSpLinksetMtp2T06_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,35),_CItpSpLinksetMtp2T06_Type())
-cItpSpLinksetMtp2T06.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp2T06.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp2T06.setUnits(_D)
-_CItpSpLinksetMtp2T07_Type=CItpTcTimerMtp2T07
-_CItpSpLinksetMtp2T07_Object=MibTableColumn
-cItpSpLinksetMtp2T07=_CItpSpLinksetMtp2T07_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,36),_CItpSpLinksetMtp2T07_Type())
-cItpSpLinksetMtp2T07.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp2T07.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp2T07.setUnits(_D)
-_CItpSpLinksetMtp3T01_Type=CItpTcTimerMtp3T01
-_CItpSpLinksetMtp3T01_Object=MibTableColumn
-cItpSpLinksetMtp3T01=_CItpSpLinksetMtp3T01_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,37),_CItpSpLinksetMtp3T01_Type())
-cItpSpLinksetMtp3T01.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T01.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T01.setUnits(_D)
-_CItpSpLinksetMtp3T02_Type=CItpTcTimerMtp3T02
-_CItpSpLinksetMtp3T02_Object=MibTableColumn
-cItpSpLinksetMtp3T02=_CItpSpLinksetMtp3T02_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,38),_CItpSpLinksetMtp3T02_Type())
-cItpSpLinksetMtp3T02.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T02.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T02.setUnits(_D)
-_CItpSpLinksetMtp3T03_Type=CItpTcTimerMtp3T03
-_CItpSpLinksetMtp3T03_Object=MibTableColumn
-cItpSpLinksetMtp3T03=_CItpSpLinksetMtp3T03_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,39),_CItpSpLinksetMtp3T03_Type())
-cItpSpLinksetMtp3T03.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T03.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T03.setUnits(_D)
-_CItpSpLinksetMtp3T04_Type=CItpTcTimerMtp3T04
-_CItpSpLinksetMtp3T04_Object=MibTableColumn
-cItpSpLinksetMtp3T04=_CItpSpLinksetMtp3T04_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,40),_CItpSpLinksetMtp3T04_Type())
-cItpSpLinksetMtp3T04.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T04.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T04.setUnits(_D)
-_CItpSpLinksetMtp3T05_Type=CItpTcTimerMtp3T05
-_CItpSpLinksetMtp3T05_Object=MibTableColumn
-cItpSpLinksetMtp3T05=_CItpSpLinksetMtp3T05_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,41),_CItpSpLinksetMtp3T05_Type())
-cItpSpLinksetMtp3T05.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T05.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T05.setUnits(_D)
-_CItpSpLinksetMtp3T06_Type=CItpTcTimerMtp3T06
-_CItpSpLinksetMtp3T06_Object=MibTableColumn
-cItpSpLinksetMtp3T06=_CItpSpLinksetMtp3T06_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,42),_CItpSpLinksetMtp3T06_Type())
-cItpSpLinksetMtp3T06.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T06.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T06.setUnits(_D)
-_CItpSpLinksetMtp3T07_Type=CItpTcTimerMtp3T07
-_CItpSpLinksetMtp3T07_Object=MibTableColumn
-cItpSpLinksetMtp3T07=_CItpSpLinksetMtp3T07_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,43),_CItpSpLinksetMtp3T07_Type())
-cItpSpLinksetMtp3T07.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T07.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T07.setUnits(_D)
-_CItpSpLinksetMtp3T08_Type=CItpTcTimerMtp3T08
-_CItpSpLinksetMtp3T08_Object=MibTableColumn
-cItpSpLinksetMtp3T08=_CItpSpLinksetMtp3T08_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,44),_CItpSpLinksetMtp3T08_Type())
-cItpSpLinksetMtp3T08.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T08.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T08.setUnits(_D)
-_CItpSpLinksetMtp3T10_Type=CItpTcTimerMtp3T10
-_CItpSpLinksetMtp3T10_Object=MibTableColumn
-cItpSpLinksetMtp3T10=_CItpSpLinksetMtp3T10_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,45),_CItpSpLinksetMtp3T10_Type())
-cItpSpLinksetMtp3T10.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T10.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T10.setUnits(_D)
-_CItpSpLinksetMtp3T11_Type=CItpTcTimerMtp3T11
-_CItpSpLinksetMtp3T11_Object=MibTableColumn
-cItpSpLinksetMtp3T11=_CItpSpLinksetMtp3T11_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,46),_CItpSpLinksetMtp3T11_Type())
-cItpSpLinksetMtp3T11.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T11.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T11.setUnits(_D)
-_CItpSpLinksetMtp3T12_Type=CItpTcTimerMtp3T12
-_CItpSpLinksetMtp3T12_Object=MibTableColumn
-cItpSpLinksetMtp3T12=_CItpSpLinksetMtp3T12_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,47),_CItpSpLinksetMtp3T12_Type())
-cItpSpLinksetMtp3T12.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T12.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T12.setUnits(_D)
-_CItpSpLinksetMtp3T13_Type=CItpTcTimerMtp3T13
-_CItpSpLinksetMtp3T13_Object=MibTableColumn
-cItpSpLinksetMtp3T13=_CItpSpLinksetMtp3T13_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,48),_CItpSpLinksetMtp3T13_Type())
-cItpSpLinksetMtp3T13.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T13.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T13.setUnits(_D)
-_CItpSpLinksetMtp3T14_Type=CItpTcTimerMtp3T14
-_CItpSpLinksetMtp3T14_Object=MibTableColumn
-cItpSpLinksetMtp3T14=_CItpSpLinksetMtp3T14_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,49),_CItpSpLinksetMtp3T14_Type())
-cItpSpLinksetMtp3T14.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T14.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T14.setUnits(_D)
-_CItpSpLinksetMtp3T15_Type=CItpTcTimerMtp3T15
-_CItpSpLinksetMtp3T15_Object=MibTableColumn
-cItpSpLinksetMtp3T15=_CItpSpLinksetMtp3T15_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,50),_CItpSpLinksetMtp3T15_Type())
-cItpSpLinksetMtp3T15.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T15.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T15.setUnits(_D)
-_CItpSpLinksetMtp3T16_Type=CItpTcTimerMtp3T16
-_CItpSpLinksetMtp3T16_Object=MibTableColumn
-cItpSpLinksetMtp3T16=_CItpSpLinksetMtp3T16_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,51),_CItpSpLinksetMtp3T16_Type())
-cItpSpLinksetMtp3T16.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T16.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T16.setUnits(_D)
-_CItpSpLinksetMtp3T17_Type=CItpTcTimerMtp3T17
-_CItpSpLinksetMtp3T17_Object=MibTableColumn
-cItpSpLinksetMtp3T17=_CItpSpLinksetMtp3T17_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,52),_CItpSpLinksetMtp3T17_Type())
-cItpSpLinksetMtp3T17.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T17.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T17.setUnits(_D)
-_CItpSpLinksetMtp3T18_Type=CItpTcTimerMtp3T18
-_CItpSpLinksetMtp3T18_Object=MibTableColumn
-cItpSpLinksetMtp3T18=_CItpSpLinksetMtp3T18_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,53),_CItpSpLinksetMtp3T18_Type())
-cItpSpLinksetMtp3T18.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T18.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T18.setUnits(_D)
-_CItpSpLinksetMtp3T19_Type=CItpTcTimerMtp3T19
-_CItpSpLinksetMtp3T19_Object=MibTableColumn
-cItpSpLinksetMtp3T19=_CItpSpLinksetMtp3T19_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,54),_CItpSpLinksetMtp3T19_Type())
-cItpSpLinksetMtp3T19.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T19.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T19.setUnits(_D)
-_CItpSpLinksetMtp3T20_Type=CItpTcTimerMtp3T20
-_CItpSpLinksetMtp3T20_Object=MibTableColumn
-cItpSpLinksetMtp3T20=_CItpSpLinksetMtp3T20_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,55),_CItpSpLinksetMtp3T20_Type())
-cItpSpLinksetMtp3T20.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T20.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T20.setUnits(_D)
-_CItpSpLinksetMtp3T21_Type=CItpTcTimerMtp3T21
-_CItpSpLinksetMtp3T21_Object=MibTableColumn
-cItpSpLinksetMtp3T21=_CItpSpLinksetMtp3T21_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,56),_CItpSpLinksetMtp3T21_Type())
-cItpSpLinksetMtp3T21.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T21.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T21.setUnits(_D)
-_CItpSpLinksetMtp3T22_Type=CItpTcTimerMtp3T22
-_CItpSpLinksetMtp3T22_Object=MibTableColumn
-cItpSpLinksetMtp3T22=_CItpSpLinksetMtp3T22_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,57),_CItpSpLinksetMtp3T22_Type())
-cItpSpLinksetMtp3T22.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T22.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T22.setUnits(_D)
-_CItpSpLinksetMtp3T23_Type=CItpTcTimerMtp3T23
-_CItpSpLinksetMtp3T23_Object=MibTableColumn
-cItpSpLinksetMtp3T23=_CItpSpLinksetMtp3T23_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,58),_CItpSpLinksetMtp3T23_Type())
-cItpSpLinksetMtp3T23.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T23.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T23.setUnits(_D)
-_CItpSpLinksetMtp3T24_Type=CItpTcTimerMtp3T24
-_CItpSpLinksetMtp3T24_Object=MibTableColumn
-cItpSpLinksetMtp3T24=_CItpSpLinksetMtp3T24_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,59),_CItpSpLinksetMtp3T24_Type())
-cItpSpLinksetMtp3T24.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T24.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T24.setUnits(_D)
-_CItpSpLinksetMtp3T25_Type=CItpTcTimerMtp3T25
-_CItpSpLinksetMtp3T25_Object=MibTableColumn
-cItpSpLinksetMtp3T25=_CItpSpLinksetMtp3T25_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,60),_CItpSpLinksetMtp3T25_Type())
-cItpSpLinksetMtp3T25.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T25.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T25.setUnits(_D)
-_CItpSpLinksetMtp3T26_Type=CItpTcTimerMtp3T26
-_CItpSpLinksetMtp3T26_Object=MibTableColumn
-cItpSpLinksetMtp3T26=_CItpSpLinksetMtp3T26_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,61),_CItpSpLinksetMtp3T26_Type())
-cItpSpLinksetMtp3T26.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T26.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T26.setUnits(_D)
-_CItpSpLinksetMtp3T27_Type=CItpTcTimerMtp3T27
-_CItpSpLinksetMtp3T27_Object=MibTableColumn
-cItpSpLinksetMtp3T27=_CItpSpLinksetMtp3T27_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,62),_CItpSpLinksetMtp3T27_Type())
-cItpSpLinksetMtp3T27.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T27.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T27.setUnits(_D)
-_CItpSpLinksetMtp3T28_Type=CItpTcTimerMtp3T28
-_CItpSpLinksetMtp3T28_Object=MibTableColumn
-cItpSpLinksetMtp3T28=_CItpSpLinksetMtp3T28_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,63),_CItpSpLinksetMtp3T28_Type())
-cItpSpLinksetMtp3T28.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T28.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T28.setUnits(_D)
-_CItpSpLinksetMtp3T29_Type=CItpTcTimerMtp3T29
-_CItpSpLinksetMtp3T29_Object=MibTableColumn
-cItpSpLinksetMtp3T29=_CItpSpLinksetMtp3T29_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,64),_CItpSpLinksetMtp3T29_Type())
-cItpSpLinksetMtp3T29.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T29.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T29.setUnits(_D)
-_CItpSpLinksetMtp3T30_Type=CItpTcTimerMtp3T30
-_CItpSpLinksetMtp3T30_Object=MibTableColumn
-cItpSpLinksetMtp3T30=_CItpSpLinksetMtp3T30_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,65),_CItpSpLinksetMtp3T30_Type())
-cItpSpLinksetMtp3T30.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T30.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T30.setUnits(_D)
-_CItpSpLinksetMtp3T31_Type=CItpTcTimerMtp3T31
-_CItpSpLinksetMtp3T31_Object=MibTableColumn
-cItpSpLinksetMtp3T31=_CItpSpLinksetMtp3T31_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,66),_CItpSpLinksetMtp3T31_Type())
-cItpSpLinksetMtp3T31.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T31.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T31.setUnits(_D)
-_CItpSpLinksetMtp3T32_Type=CItpTcTimerMtp3T32
-_CItpSpLinksetMtp3T32_Object=MibTableColumn
-cItpSpLinksetMtp3T32=_CItpSpLinksetMtp3T32_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,67),_CItpSpLinksetMtp3T32_Type())
-cItpSpLinksetMtp3T32.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T32.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T32.setUnits(_D)
-_CItpSpLinksetMtp3T33_Type=CItpTcTimerMtp3T33
-_CItpSpLinksetMtp3T33_Object=MibTableColumn
-cItpSpLinksetMtp3T33=_CItpSpLinksetMtp3T33_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,68),_CItpSpLinksetMtp3T33_Type())
-cItpSpLinksetMtp3T33.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T33.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T33.setUnits(_D)
-_CItpSpLinksetMtp3T34_Type=CItpTcTimerMtp3T34
-_CItpSpLinksetMtp3T34_Object=MibTableColumn
-cItpSpLinksetMtp3T34=_CItpSpLinksetMtp3T34_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,69),_CItpSpLinksetMtp3T34_Type())
-cItpSpLinksetMtp3T34.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T34.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetMtp3T34.setUnits(_D)
-_CItpSpLinksetTimerLinkTest_Type=CItpTcTimerLinkTest
-_CItpSpLinksetTimerLinkTest_Object=MibTableColumn
-cItpSpLinksetTimerLinkTest=_CItpSpLinksetTimerLinkTest_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,70),_CItpSpLinksetTimerLinkTest_Type())
-cItpSpLinksetTimerLinkTest.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetTimerLinkTest.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetTimerLinkTest.setUnits(_D)
-_CItpSpLinksetTimerLinkMessage_Type=CItpTcTimerLinkMessage
-_CItpSpLinksetTimerLinkMessage_Object=MibTableColumn
-cItpSpLinksetTimerLinkMessage=_CItpSpLinksetTimerLinkMessage_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,71),_CItpSpLinksetTimerLinkMessage_Type())
-cItpSpLinksetTimerLinkMessage.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetTimerLinkMessage.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetTimerLinkMessage.setUnits(_D)
-_CItpSpLinksetTimerLinkActRetry_Type=CItpTcTimerLinkActRetry
-_CItpSpLinksetTimerLinkActRetry_Object=MibTableColumn
-cItpSpLinksetTimerLinkActRetry=_CItpSpLinksetTimerLinkActRetry_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,72),_CItpSpLinksetTimerLinkActRetry_Type())
-cItpSpLinksetTimerLinkActRetry.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetTimerLinkActRetry.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetTimerLinkActRetry.setUnits(_D)
-class _CItpSpLinksetPlanCapacity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(56000,2147483647))
-_CItpSpLinksetPlanCapacity_Type.__name__=_J
-_CItpSpLinksetPlanCapacity_Object=MibTableColumn
-cItpSpLinksetPlanCapacity=_CItpSpLinksetPlanCapacity_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,73),_CItpSpLinksetPlanCapacity_Type())
-cItpSpLinksetPlanCapacity.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetPlanCapacity.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinksetPlanCapacity.setUnits('bps')
-class _CItpSpLinksetActPriority_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_CItpSpLinksetActPriority_Type.__name__=_H
-_CItpSpLinksetActPriority_Object=MibTableColumn
-cItpSpLinksetActPriority=_CItpSpLinksetActPriority_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,74),_CItpSpLinksetActPriority_Type())
-cItpSpLinksetActPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetActPriority.setStatus(_B)
-class _CItpSpLinksetType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('access',1),('bridge',2),('cross',3),('diagonal',4),('fullyAssoc',5)))
-_CItpSpLinksetType_Type.__name__=_J
-_CItpSpLinksetType_Object=MibTableColumn
-cItpSpLinksetType=_CItpSpLinksetType_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,75),_CItpSpLinksetType_Type())
-cItpSpLinksetType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetType.setStatus(_B)
-_CItpSpLinksetRowStatus_Type=RowStatus
-_CItpSpLinksetRowStatus_Object=MibTableColumn
-cItpSpLinksetRowStatus=_CItpSpLinksetRowStatus_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,76),_CItpSpLinksetRowStatus_Type())
-cItpSpLinksetRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetRowStatus.setStatus(_B)
-_CItpSpLinksetNi_Type=CItpTcNetworkIndicator
-_CItpSpLinksetNi_Object=MibTableColumn
-cItpSpLinksetNi=_CItpSpLinksetNi_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,77),_CItpSpLinksetNi_Type())
-cItpSpLinksetNi.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetNi.setStatus(_B)
-class _CItpSpLinksetDisplayName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,30))
-_CItpSpLinksetDisplayName_Type.__name__=_N
-_CItpSpLinksetDisplayName_Object=MibTableColumn
-cItpSpLinksetDisplayName=_CItpSpLinksetDisplayName_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,78),_CItpSpLinksetDisplayName_Type())
-cItpSpLinksetDisplayName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetDisplayName.setStatus(_B)
-class _CItpSpLinksetDescription_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,254))
-_CItpSpLinksetDescription_Type.__name__=_N
-_CItpSpLinksetDescription_Object=MibTableColumn
-cItpSpLinksetDescription=_CItpSpLinksetDescription_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,79),_CItpSpLinksetDescription_Type())
-cItpSpLinksetDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetDescription.setStatus(_B)
-_CItpSpLinksetVariant_Type=CItpTcSs7Variant
-_CItpSpLinksetVariant_Object=MibTableColumn
-cItpSpLinksetVariant=_CItpSpLinksetVariant_Object((1,3,6,1,4,1,9,9,232,1,3,1,1,80),_CItpSpLinksetVariant_Type())
-cItpSpLinksetVariant.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinksetVariant.setStatus(_B)
-_CItpSpLink_ObjectIdentity=ObjectIdentity
-cItpSpLink=_CItpSpLink_ObjectIdentity((1,3,6,1,4,1,9,9,232,1,4))
-_CItpSpLinkTable_Object=MibTable
-cItpSpLinkTable=_CItpSpLinkTable_Object((1,3,6,1,4,1,9,9,232,1,4,1))
-if mibBuilder.loadTexts:cItpSpLinkTable.setStatus(_B)
-_CItpSpLinkTableEntry_Object=MibTableRow
-cItpSpLinkTableEntry=_CItpSpLinkTableEntry_Object((1,3,6,1,4,1,9,9,232,1,4,1,1))
-cItpSpLinkTableEntry.setIndexNames((0,_A,_c),(0,_A,_E0))
-if mibBuilder.loadTexts:cItpSpLinkTableEntry.setStatus(_B)
-_CItpSpLinkSlc_Type=CItpTcLinkSLC
-_CItpSpLinkSlc_Object=MibTableColumn
-cItpSpLinkSlc=_CItpSpLinkSlc_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,1),_CItpSpLinkSlc_Type())
-cItpSpLinkSlc.setMaxAccess(_S)
-if mibBuilder.loadTexts:cItpSpLinkSlc.setStatus(_B)
-class _CItpSpLinkDescription_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,254))
-_CItpSpLinkDescription_Type.__name__=_N
-_CItpSpLinkDescription_Object=MibTableColumn
-cItpSpLinkDescription=_CItpSpLinkDescription_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,2),_CItpSpLinkDescription_Type())
-cItpSpLinkDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkDescription.setStatus(_B)
-class _CItpSpLinkState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_Dz,1),('failed',2),('shutdown',3),(_D_,4)))
-_CItpSpLinkState_Type.__name__=_J
-_CItpSpLinkState_Object=MibTableColumn
-cItpSpLinkState=_CItpSpLinkState_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,3),_CItpSpLinkState_Type())
-cItpSpLinkState.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkState.setStatus(_B)
-_CItpSpLinkType_Type=CItpTcLinkType
-_CItpSpLinkType_Object=MibTableColumn
-cItpSpLinkType=_CItpSpLinkType_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,4),_CItpSpLinkType_Type())
-cItpSpLinkType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkType.setStatus(_B)
-_CItpSpLinkifIndex_Type=InterfaceIndexOrZero
-_CItpSpLinkifIndex_Object=MibTableColumn
-cItpSpLinkifIndex=_CItpSpLinkifIndex_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,5),_CItpSpLinkifIndex_Type())
-cItpSpLinkifIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkifIndex.setStatus(_B)
-class _CItpSpLinkSctpAssociation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CItpSpLinkSctpAssociation_Type.__name__=_J
-_CItpSpLinkSctpAssociation_Object=MibTableColumn
-cItpSpLinkSctpAssociation=_CItpSpLinkSctpAssociation_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,6),_CItpSpLinkSctpAssociation_Type())
-cItpSpLinkSctpAssociation.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkSctpAssociation.setStatus(_B)
-_CItpSpLinkMtp3PacketsRcvd_Type=Counter32
-_CItpSpLinkMtp3PacketsRcvd_Object=MibTableColumn
-cItpSpLinkMtp3PacketsRcvd=_CItpSpLinkMtp3PacketsRcvd_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,7),_CItpSpLinkMtp3PacketsRcvd_Type())
-cItpSpLinkMtp3PacketsRcvd.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkMtp3PacketsRcvd.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3PacketsRcvd.setUnits(_T)
-_CItpSpLinkMtp3PacketsSent_Type=Counter32
-_CItpSpLinkMtp3PacketsSent_Object=MibTableColumn
-cItpSpLinkMtp3PacketsSent=_CItpSpLinkMtp3PacketsSent_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,8),_CItpSpLinkMtp3PacketsSent_Type())
-cItpSpLinkMtp3PacketsSent.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkMtp3PacketsSent.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3PacketsSent.setUnits(_T)
-_CItpSpLinkMtp3BytesRcvd_Type=Counter32
-_CItpSpLinkMtp3BytesRcvd_Object=MibTableColumn
-cItpSpLinkMtp3BytesRcvd=_CItpSpLinkMtp3BytesRcvd_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,9),_CItpSpLinkMtp3BytesRcvd_Type())
-cItpSpLinkMtp3BytesRcvd.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkMtp3BytesRcvd.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3BytesRcvd.setUnits(_Q)
-_CItpSpLinkMtp3BytesSent_Type=Counter32
-_CItpSpLinkMtp3BytesSent_Object=MibTableColumn
-cItpSpLinkMtp3BytesSent=_CItpSpLinkMtp3BytesSent_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,10),_CItpSpLinkMtp3BytesSent_Type())
-cItpSpLinkMtp3BytesSent.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkMtp3BytesSent.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3BytesSent.setUnits(_Q)
-_CItpSpLinkMtp2T01_Type=CItpTcTimerMtp2T01
-_CItpSpLinkMtp2T01_Object=MibTableColumn
-cItpSpLinkMtp2T01=_CItpSpLinkMtp2T01_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,11),_CItpSpLinkMtp2T01_Type())
-cItpSpLinkMtp2T01.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp2T01.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp2T01.setUnits(_D)
-_CItpSpLinkMtp2T02_Type=CItpTcTimerMtp2T02
-_CItpSpLinkMtp2T02_Object=MibTableColumn
-cItpSpLinkMtp2T02=_CItpSpLinkMtp2T02_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,12),_CItpSpLinkMtp2T02_Type())
-cItpSpLinkMtp2T02.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp2T02.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp2T02.setUnits(_D)
-_CItpSpLinkMtp2T03_Type=CItpTcTimerMtp2T03
-_CItpSpLinkMtp2T03_Object=MibTableColumn
-cItpSpLinkMtp2T03=_CItpSpLinkMtp2T03_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,13),_CItpSpLinkMtp2T03_Type())
-cItpSpLinkMtp2T03.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp2T03.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp2T03.setUnits(_D)
-_CItpSpLinkMtp2T04E_Type=CItpTcTimerMtp2T04E
-_CItpSpLinkMtp2T04E_Object=MibTableColumn
-cItpSpLinkMtp2T04E=_CItpSpLinkMtp2T04E_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,14),_CItpSpLinkMtp2T04E_Type())
-cItpSpLinkMtp2T04E.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp2T04E.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp2T04E.setUnits(_D)
-_CItpSpLinkMtp2T04N_Type=CItpTcTimerMtp2T04N
-_CItpSpLinkMtp2T04N_Object=MibTableColumn
-cItpSpLinkMtp2T04N=_CItpSpLinkMtp2T04N_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,15),_CItpSpLinkMtp2T04N_Type())
-cItpSpLinkMtp2T04N.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp2T04N.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp2T04N.setUnits(_D)
-_CItpSpLinkMtp2T05_Type=CItpTcTimerMtp2T05
-_CItpSpLinkMtp2T05_Object=MibTableColumn
-cItpSpLinkMtp2T05=_CItpSpLinkMtp2T05_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,16),_CItpSpLinkMtp2T05_Type())
-cItpSpLinkMtp2T05.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp2T05.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp2T05.setUnits(_D)
-_CItpSpLinkMtp2T06_Type=CItpTcTimerMtp2T06
-_CItpSpLinkMtp2T06_Object=MibTableColumn
-cItpSpLinkMtp2T06=_CItpSpLinkMtp2T06_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,17),_CItpSpLinkMtp2T06_Type())
-cItpSpLinkMtp2T06.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp2T06.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp2T06.setUnits(_D)
-_CItpSpLinkMtp2T07_Type=CItpTcTimerMtp2T07
-_CItpSpLinkMtp2T07_Object=MibTableColumn
-cItpSpLinkMtp2T07=_CItpSpLinkMtp2T07_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,18),_CItpSpLinkMtp2T07_Type())
-cItpSpLinkMtp2T07.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp2T07.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp2T07.setUnits(_D)
-_CItpSpLinkMtp3T01_Type=CItpTcTimerMtp3T01
-_CItpSpLinkMtp3T01_Object=MibTableColumn
-cItpSpLinkMtp3T01=_CItpSpLinkMtp3T01_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,19),_CItpSpLinkMtp3T01_Type())
-cItpSpLinkMtp3T01.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T01.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T01.setUnits(_D)
-_CItpSpLinkMtp3T02_Type=CItpTcTimerMtp3T02
-_CItpSpLinkMtp3T02_Object=MibTableColumn
-cItpSpLinkMtp3T02=_CItpSpLinkMtp3T02_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,20),_CItpSpLinkMtp3T02_Type())
-cItpSpLinkMtp3T02.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T02.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T02.setUnits(_D)
-_CItpSpLinkMtp3T03_Type=CItpTcTimerMtp3T03
-_CItpSpLinkMtp3T03_Object=MibTableColumn
-cItpSpLinkMtp3T03=_CItpSpLinkMtp3T03_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,21),_CItpSpLinkMtp3T03_Type())
-cItpSpLinkMtp3T03.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T03.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T03.setUnits(_D)
-_CItpSpLinkMtp3T04_Type=CItpTcTimerMtp3T04
-_CItpSpLinkMtp3T04_Object=MibTableColumn
-cItpSpLinkMtp3T04=_CItpSpLinkMtp3T04_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,22),_CItpSpLinkMtp3T04_Type())
-cItpSpLinkMtp3T04.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T04.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T04.setUnits(_D)
-_CItpSpLinkMtp3T05_Type=CItpTcTimerMtp3T05
-_CItpSpLinkMtp3T05_Object=MibTableColumn
-cItpSpLinkMtp3T05=_CItpSpLinkMtp3T05_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,23),_CItpSpLinkMtp3T05_Type())
-cItpSpLinkMtp3T05.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T05.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T05.setUnits(_D)
-_CItpSpLinkMtp3T06_Type=CItpTcTimerMtp3T06
-_CItpSpLinkMtp3T06_Object=MibTableColumn
-cItpSpLinkMtp3T06=_CItpSpLinkMtp3T06_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,24),_CItpSpLinkMtp3T06_Type())
-cItpSpLinkMtp3T06.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T06.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T06.setUnits(_D)
-_CItpSpLinkMtp3T07_Type=CItpTcTimerMtp3T07
-_CItpSpLinkMtp3T07_Object=MibTableColumn
-cItpSpLinkMtp3T07=_CItpSpLinkMtp3T07_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,25),_CItpSpLinkMtp3T07_Type())
-cItpSpLinkMtp3T07.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T07.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T07.setUnits(_D)
-_CItpSpLinkMtp3T08_Type=CItpTcTimerMtp3T08
-_CItpSpLinkMtp3T08_Object=MibTableColumn
-cItpSpLinkMtp3T08=_CItpSpLinkMtp3T08_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,26),_CItpSpLinkMtp3T08_Type())
-cItpSpLinkMtp3T08.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T08.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T08.setUnits(_D)
-_CItpSpLinkMtp3T10_Type=CItpTcTimerMtp3T10
-_CItpSpLinkMtp3T10_Object=MibTableColumn
-cItpSpLinkMtp3T10=_CItpSpLinkMtp3T10_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,27),_CItpSpLinkMtp3T10_Type())
-cItpSpLinkMtp3T10.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T10.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T10.setUnits(_D)
-_CItpSpLinkMtp3T11_Type=CItpTcTimerMtp3T11
-_CItpSpLinkMtp3T11_Object=MibTableColumn
-cItpSpLinkMtp3T11=_CItpSpLinkMtp3T11_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,28),_CItpSpLinkMtp3T11_Type())
-cItpSpLinkMtp3T11.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T11.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T11.setUnits(_D)
-_CItpSpLinkMtp3T12_Type=CItpTcTimerMtp3T12
-_CItpSpLinkMtp3T12_Object=MibTableColumn
-cItpSpLinkMtp3T12=_CItpSpLinkMtp3T12_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,29),_CItpSpLinkMtp3T12_Type())
-cItpSpLinkMtp3T12.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T12.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T12.setUnits(_D)
-_CItpSpLinkMtp3T13_Type=CItpTcTimerMtp3T13
-_CItpSpLinkMtp3T13_Object=MibTableColumn
-cItpSpLinkMtp3T13=_CItpSpLinkMtp3T13_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,30),_CItpSpLinkMtp3T13_Type())
-cItpSpLinkMtp3T13.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T13.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T13.setUnits(_D)
-_CItpSpLinkMtp3T14_Type=CItpTcTimerMtp3T14
-_CItpSpLinkMtp3T14_Object=MibTableColumn
-cItpSpLinkMtp3T14=_CItpSpLinkMtp3T14_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,31),_CItpSpLinkMtp3T14_Type())
-cItpSpLinkMtp3T14.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T14.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T14.setUnits(_D)
-_CItpSpLinkMtp3T15_Type=CItpTcTimerMtp3T15
-_CItpSpLinkMtp3T15_Object=MibTableColumn
-cItpSpLinkMtp3T15=_CItpSpLinkMtp3T15_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,32),_CItpSpLinkMtp3T15_Type())
-cItpSpLinkMtp3T15.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T15.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T15.setUnits(_D)
-_CItpSpLinkMtp3T16_Type=CItpTcTimerMtp3T16
-_CItpSpLinkMtp3T16_Object=MibTableColumn
-cItpSpLinkMtp3T16=_CItpSpLinkMtp3T16_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,33),_CItpSpLinkMtp3T16_Type())
-cItpSpLinkMtp3T16.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T16.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T16.setUnits(_D)
-_CItpSpLinkMtp3T17_Type=CItpTcTimerMtp3T17
-_CItpSpLinkMtp3T17_Object=MibTableColumn
-cItpSpLinkMtp3T17=_CItpSpLinkMtp3T17_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,34),_CItpSpLinkMtp3T17_Type())
-cItpSpLinkMtp3T17.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T17.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T17.setUnits(_D)
-_CItpSpLinkMtp3T18_Type=CItpTcTimerMtp3T18
-_CItpSpLinkMtp3T18_Object=MibTableColumn
-cItpSpLinkMtp3T18=_CItpSpLinkMtp3T18_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,35),_CItpSpLinkMtp3T18_Type())
-cItpSpLinkMtp3T18.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T18.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T18.setUnits(_D)
-_CItpSpLinkMtp3T19_Type=CItpTcTimerMtp3T19
-_CItpSpLinkMtp3T19_Object=MibTableColumn
-cItpSpLinkMtp3T19=_CItpSpLinkMtp3T19_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,36),_CItpSpLinkMtp3T19_Type())
-cItpSpLinkMtp3T19.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T19.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T19.setUnits(_D)
-_CItpSpLinkMtp3T20_Type=CItpTcTimerMtp3T20
-_CItpSpLinkMtp3T20_Object=MibTableColumn
-cItpSpLinkMtp3T20=_CItpSpLinkMtp3T20_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,37),_CItpSpLinkMtp3T20_Type())
-cItpSpLinkMtp3T20.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T20.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T20.setUnits(_D)
-_CItpSpLinkMtp3T21_Type=CItpTcTimerMtp3T21
-_CItpSpLinkMtp3T21_Object=MibTableColumn
-cItpSpLinkMtp3T21=_CItpSpLinkMtp3T21_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,38),_CItpSpLinkMtp3T21_Type())
-cItpSpLinkMtp3T21.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T21.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T21.setUnits(_D)
-_CItpSpLinkMtp3T22_Type=CItpTcTimerMtp3T22
-_CItpSpLinkMtp3T22_Object=MibTableColumn
-cItpSpLinkMtp3T22=_CItpSpLinkMtp3T22_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,39),_CItpSpLinkMtp3T22_Type())
-cItpSpLinkMtp3T22.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T22.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T22.setUnits(_D)
-_CItpSpLinkMtp3T23_Type=CItpTcTimerMtp3T23
-_CItpSpLinkMtp3T23_Object=MibTableColumn
-cItpSpLinkMtp3T23=_CItpSpLinkMtp3T23_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,40),_CItpSpLinkMtp3T23_Type())
-cItpSpLinkMtp3T23.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T23.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T23.setUnits(_D)
-_CItpSpLinkMtp3T24_Type=CItpTcTimerMtp3T24
-_CItpSpLinkMtp3T24_Object=MibTableColumn
-cItpSpLinkMtp3T24=_CItpSpLinkMtp3T24_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,41),_CItpSpLinkMtp3T24_Type())
-cItpSpLinkMtp3T24.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T24.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T24.setUnits(_D)
-_CItpSpLinkMtp3T25_Type=CItpTcTimerMtp3T25
-_CItpSpLinkMtp3T25_Object=MibTableColumn
-cItpSpLinkMtp3T25=_CItpSpLinkMtp3T25_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,42),_CItpSpLinkMtp3T25_Type())
-cItpSpLinkMtp3T25.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T25.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T25.setUnits(_D)
-_CItpSpLinkMtp3T26_Type=CItpTcTimerMtp3T26
-_CItpSpLinkMtp3T26_Object=MibTableColumn
-cItpSpLinkMtp3T26=_CItpSpLinkMtp3T26_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,43),_CItpSpLinkMtp3T26_Type())
-cItpSpLinkMtp3T26.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T26.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T26.setUnits(_D)
-_CItpSpLinkMtp3T27_Type=CItpTcTimerMtp3T27
-_CItpSpLinkMtp3T27_Object=MibTableColumn
-cItpSpLinkMtp3T27=_CItpSpLinkMtp3T27_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,44),_CItpSpLinkMtp3T27_Type())
-cItpSpLinkMtp3T27.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T27.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T27.setUnits(_D)
-_CItpSpLinkMtp3T28_Type=CItpTcTimerMtp3T28
-_CItpSpLinkMtp3T28_Object=MibTableColumn
-cItpSpLinkMtp3T28=_CItpSpLinkMtp3T28_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,45),_CItpSpLinkMtp3T28_Type())
-cItpSpLinkMtp3T28.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T28.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T28.setUnits(_D)
-_CItpSpLinkMtp3T29_Type=CItpTcTimerMtp3T29
-_CItpSpLinkMtp3T29_Object=MibTableColumn
-cItpSpLinkMtp3T29=_CItpSpLinkMtp3T29_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,46),_CItpSpLinkMtp3T29_Type())
-cItpSpLinkMtp3T29.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T29.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T29.setUnits(_D)
-_CItpSpLinkMtp3T30_Type=CItpTcTimerMtp3T30
-_CItpSpLinkMtp3T30_Object=MibTableColumn
-cItpSpLinkMtp3T30=_CItpSpLinkMtp3T30_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,47),_CItpSpLinkMtp3T30_Type())
-cItpSpLinkMtp3T30.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T30.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T30.setUnits(_D)
-_CItpSpLinkMtp3T31_Type=CItpTcTimerMtp3T31
-_CItpSpLinkMtp3T31_Object=MibTableColumn
-cItpSpLinkMtp3T31=_CItpSpLinkMtp3T31_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,48),_CItpSpLinkMtp3T31_Type())
-cItpSpLinkMtp3T31.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T31.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T31.setUnits(_D)
-_CItpSpLinkMtp3T32_Type=CItpTcTimerMtp3T32
-_CItpSpLinkMtp3T32_Object=MibTableColumn
-cItpSpLinkMtp3T32=_CItpSpLinkMtp3T32_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,49),_CItpSpLinkMtp3T32_Type())
-cItpSpLinkMtp3T32.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T32.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T32.setUnits(_D)
-_CItpSpLinkMtp3T33_Type=CItpTcTimerMtp3T33
-_CItpSpLinkMtp3T33_Object=MibTableColumn
-cItpSpLinkMtp3T33=_CItpSpLinkMtp3T33_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,50),_CItpSpLinkMtp3T33_Type())
-cItpSpLinkMtp3T33.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T33.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T33.setUnits(_D)
-_CItpSpLinkMtp3T34_Type=CItpTcTimerMtp3T34
-_CItpSpLinkMtp3T34_Object=MibTableColumn
-cItpSpLinkMtp3T34=_CItpSpLinkMtp3T34_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,51),_CItpSpLinkMtp3T34_Type())
-cItpSpLinkMtp3T34.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T34.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3T34.setUnits(_D)
-_CItpSpLinkTimerLinkTest_Type=CItpTcTimerLinkTest
-_CItpSpLinkTimerLinkTest_Object=MibTableColumn
-cItpSpLinkTimerLinkTest=_CItpSpLinkTimerLinkTest_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,52),_CItpSpLinkTimerLinkTest_Type())
-cItpSpLinkTimerLinkTest.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkTimerLinkTest.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkTimerLinkTest.setUnits(_D)
-_CItpSpLinkTimerLinkMessage_Type=CItpTcTimerLinkMessage
-_CItpSpLinkTimerLinkMessage_Object=MibTableColumn
-cItpSpLinkTimerLinkMessage=_CItpSpLinkTimerLinkMessage_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,53),_CItpSpLinkTimerLinkMessage_Type())
-cItpSpLinkTimerLinkMessage.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkTimerLinkMessage.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkTimerLinkMessage.setUnits(_D)
-_CItpSpLinkTimerLinkActRetry_Type=CItpTcTimerLinkActRetry
-_CItpSpLinkTimerLinkActRetry_Object=MibTableColumn
-cItpSpLinkTimerLinkActRetry=_CItpSpLinkTimerLinkActRetry_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,54),_CItpSpLinkTimerLinkActRetry_Type())
-cItpSpLinkTimerLinkActRetry.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkTimerLinkActRetry.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkTimerLinkActRetry.setUnits(_D)
-_CItpSpLinkXmitQueueDepth_Type=Gauge32
-_CItpSpLinkXmitQueueDepth_Object=MibTableColumn
-cItpSpLinkXmitQueueDepth=_CItpSpLinkXmitQueueDepth_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,55),_CItpSpLinkXmitQueueDepth_Type())
-cItpSpLinkXmitQueueDepth.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkXmitQueueDepth.setStatus(_B)
-_CItpSpLinkXmitQueueDepthHigh_Type=Unsigned32
-_CItpSpLinkXmitQueueDepthHigh_Object=MibTableColumn
-cItpSpLinkXmitQueueDepthHigh=_CItpSpLinkXmitQueueDepthHigh_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,56),_CItpSpLinkXmitQueueDepthHigh_Type())
-cItpSpLinkXmitQueueDepthHigh.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkXmitQueueDepthHigh.setStatus(_B)
-_CItpSpLinkXmitQueueDepthHighRT_Type=TimeStamp
-_CItpSpLinkXmitQueueDepthHighRT_Object=MibTableColumn
-cItpSpLinkXmitQueueDepthHighRT=_CItpSpLinkXmitQueueDepthHighRT_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,57),_CItpSpLinkXmitQueueDepthHighRT_Type())
-cItpSpLinkXmitQueueDepthHighRT.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkXmitQueueDepthHighRT.setStatus(_B)
-class _CItpSpLinkCongestionState_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3))
-_CItpSpLinkCongestionState_Type.__name__=_H
-_CItpSpLinkCongestionState_Object=MibTableColumn
-cItpSpLinkCongestionState=_CItpSpLinkCongestionState_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,58),_CItpSpLinkCongestionState_Type())
-cItpSpLinkCongestionState.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkCongestionState.setStatus(_B)
-class _CItpSpLinkCongestionAbate1_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CItpSpLinkCongestionAbate1_Type.__name__=_H
-_CItpSpLinkCongestionAbate1_Object=MibTableColumn
-cItpSpLinkCongestionAbate1=_CItpSpLinkCongestionAbate1_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,59),_CItpSpLinkCongestionAbate1_Type())
-cItpSpLinkCongestionAbate1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkCongestionAbate1.setStatus(_B)
-class _CItpSpLinkCongestionAbate2_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CItpSpLinkCongestionAbate2_Type.__name__=_H
-_CItpSpLinkCongestionAbate2_Object=MibTableColumn
-cItpSpLinkCongestionAbate2=_CItpSpLinkCongestionAbate2_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,60),_CItpSpLinkCongestionAbate2_Type())
-cItpSpLinkCongestionAbate2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkCongestionAbate2.setStatus(_B)
-class _CItpSpLinkCongestionAbate3_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CItpSpLinkCongestionAbate3_Type.__name__=_H
-_CItpSpLinkCongestionAbate3_Object=MibTableColumn
-cItpSpLinkCongestionAbate3=_CItpSpLinkCongestionAbate3_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,61),_CItpSpLinkCongestionAbate3_Type())
-cItpSpLinkCongestionAbate3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkCongestionAbate3.setStatus(_B)
-class _CItpSpLinkCongestionOnset1_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CItpSpLinkCongestionOnset1_Type.__name__=_H
-_CItpSpLinkCongestionOnset1_Object=MibTableColumn
-cItpSpLinkCongestionOnset1=_CItpSpLinkCongestionOnset1_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,62),_CItpSpLinkCongestionOnset1_Type())
-cItpSpLinkCongestionOnset1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkCongestionOnset1.setStatus(_B)
-class _CItpSpLinkCongestionOnset2_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CItpSpLinkCongestionOnset2_Type.__name__=_H
-_CItpSpLinkCongestionOnset2_Object=MibTableColumn
-cItpSpLinkCongestionOnset2=_CItpSpLinkCongestionOnset2_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,63),_CItpSpLinkCongestionOnset2_Type())
-cItpSpLinkCongestionOnset2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkCongestionOnset2.setStatus(_B)
-class _CItpSpLinkCongestionOnset3_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CItpSpLinkCongestionOnset3_Type.__name__=_H
-_CItpSpLinkCongestionOnset3_Object=MibTableColumn
-cItpSpLinkCongestionOnset3=_CItpSpLinkCongestionOnset3_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,64),_CItpSpLinkCongestionOnset3_Type())
-cItpSpLinkCongestionOnset3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkCongestionOnset3.setStatus(_B)
-class _CItpSpLinkSigLinkTest_Type(TruthValue):defaultValue=1
-_CItpSpLinkSigLinkTest_Type.__name__=_G
-_CItpSpLinkSigLinkTest_Object=MibTableColumn
-cItpSpLinkSigLinkTest=_CItpSpLinkSigLinkTest_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,65),_CItpSpLinkSigLinkTest_Type())
-cItpSpLinkSigLinkTest.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkSigLinkTest.setStatus(_B)
-_CItpSpLinkQ752T1E1_Type=TimeTicks
-_CItpSpLinkQ752T1E1_Object=MibTableColumn
-cItpSpLinkQ752T1E1=_CItpSpLinkQ752T1E1_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,66),_CItpSpLinkQ752T1E1_Type())
-cItpSpLinkQ752T1E1.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E1.setStatus(_B)
-_CItpSpLinkQ752T1E2_Type=Counter32
-_CItpSpLinkQ752T1E2_Object=MibTableColumn
-cItpSpLinkQ752T1E2=_CItpSpLinkQ752T1E2_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,67),_CItpSpLinkQ752T1E2_Type())
-cItpSpLinkQ752T1E2.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E2.setStatus(_B)
-_CItpSpLinkQ752T1E3_Type=Counter32
-_CItpSpLinkQ752T1E3_Object=MibTableColumn
-cItpSpLinkQ752T1E3=_CItpSpLinkQ752T1E3_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,68),_CItpSpLinkQ752T1E3_Type())
-cItpSpLinkQ752T1E3.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E3.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E3.setUnits(_I)
-_CItpSpLinkQ752T1E4_Type=Counter32
-_CItpSpLinkQ752T1E4_Object=MibTableColumn
-cItpSpLinkQ752T1E4=_CItpSpLinkQ752T1E4_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,69),_CItpSpLinkQ752T1E4_Type())
-cItpSpLinkQ752T1E4.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E4.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E4.setUnits(_I)
-_CItpSpLinkQ752T1E5_Type=Counter32
-_CItpSpLinkQ752T1E5_Object=MibTableColumn
-cItpSpLinkQ752T1E5=_CItpSpLinkQ752T1E5_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,70),_CItpSpLinkQ752T1E5_Type())
-cItpSpLinkQ752T1E5.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E5.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E5.setUnits(_I)
-_CItpSpLinkQ752T1E6_Type=Counter32
-_CItpSpLinkQ752T1E6_Object=MibTableColumn
-cItpSpLinkQ752T1E6=_CItpSpLinkQ752T1E6_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,71),_CItpSpLinkQ752T1E6_Type())
-cItpSpLinkQ752T1E6.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E6.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E6.setUnits(_I)
-_CItpSpLinkQ752T1E7_Type=Counter32
-_CItpSpLinkQ752T1E7_Object=MibTableColumn
-cItpSpLinkQ752T1E7=_CItpSpLinkQ752T1E7_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,72),_CItpSpLinkQ752T1E7_Type())
-cItpSpLinkQ752T1E7.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E7.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E7.setUnits(_I)
-_CItpSpLinkQ752T1E8_Type=Counter32
-_CItpSpLinkQ752T1E8_Object=MibTableColumn
-cItpSpLinkQ752T1E8=_CItpSpLinkQ752T1E8_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,73),_CItpSpLinkQ752T1E8_Type())
-cItpSpLinkQ752T1E8.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E8.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E8.setUnits(_I)
-_CItpSpLinkQ752T1E9_Type=Counter32
-_CItpSpLinkQ752T1E9_Object=MibTableColumn
-cItpSpLinkQ752T1E9=_CItpSpLinkQ752T1E9_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,74),_CItpSpLinkQ752T1E9_Type())
-cItpSpLinkQ752T1E9.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E9.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E9.setUnits('negative acknowledgements')
-_CItpSpLinkQ752T1E10_Type=Counter32
-_CItpSpLinkQ752T1E10_Object=MibTableColumn
-cItpSpLinkQ752T1E10=_CItpSpLinkQ752T1E10_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,75),_CItpSpLinkQ752T1E10_Type())
-cItpSpLinkQ752T1E10.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E10.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E10.setUnits(_I)
-_CItpSpLinkQ752T1E11_Type=Counter32
-_CItpSpLinkQ752T1E11_Object=MibTableColumn
-cItpSpLinkQ752T1E11=_CItpSpLinkQ752T1E11_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,76),_CItpSpLinkQ752T1E11_Type())
-cItpSpLinkQ752T1E11.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E11.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkQ752T1E11.setUnits(_I)
-_CItpSpLinkQ752T2E1_Type=TimeTicks
-_CItpSpLinkQ752T2E1_Object=MibTableColumn
-cItpSpLinkQ752T2E1=_CItpSpLinkQ752T2E1_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,77),_CItpSpLinkQ752T2E1_Type())
-cItpSpLinkQ752T2E1.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T2E1.setStatus(_B)
-_CItpSpLinkQ752T2E5_Type=TimeTicks
-_CItpSpLinkQ752T2E5_Object=MibTableColumn
-cItpSpLinkQ752T2E5=_CItpSpLinkQ752T2E5_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,78),_CItpSpLinkQ752T2E5_Type())
-cItpSpLinkQ752T2E5.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T2E5.setStatus(_B)
-_CItpSpLinkQ752T2E6_Type=TimeTicks
-_CItpSpLinkQ752T2E6_Object=MibTableColumn
-cItpSpLinkQ752T2E6=_CItpSpLinkQ752T2E6_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,79),_CItpSpLinkQ752T2E6_Type())
-cItpSpLinkQ752T2E6.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T2E6.setStatus(_B)
-_CItpSpLinkQ752T2E7_Type=TimeTicks
-_CItpSpLinkQ752T2E7_Object=MibTableColumn
-cItpSpLinkQ752T2E7=_CItpSpLinkQ752T2E7_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,80),_CItpSpLinkQ752T2E7_Type())
-cItpSpLinkQ752T2E7.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T2E7.setStatus(_B)
-_CItpSpLinkQ752T2E9_Type=TimeTicks
-_CItpSpLinkQ752T2E9_Object=MibTableColumn
-cItpSpLinkQ752T2E9=_CItpSpLinkQ752T2E9_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,81),_CItpSpLinkQ752T2E9_Type())
-cItpSpLinkQ752T2E9.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T2E9.setStatus(_B)
-_CItpSpLinkQ752T2E10_Type=Counter32
-_CItpSpLinkQ752T2E10_Object=MibTableColumn
-cItpSpLinkQ752T2E10=_CItpSpLinkQ752T2E10_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,82),_CItpSpLinkQ752T2E10_Type())
-cItpSpLinkQ752T2E10.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T2E10.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkQ752T2E10.setUnits(_I)
-_CItpSpLinkQ752T2E15_Type=TimeTicks
-_CItpSpLinkQ752T2E15_Object=MibTableColumn
-cItpSpLinkQ752T2E15=_CItpSpLinkQ752T2E15_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,83),_CItpSpLinkQ752T2E15_Type())
-cItpSpLinkQ752T2E15.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T2E15.setStatus(_B)
-_CItpSpLinkQ752T2E16_Type=Counter32
-_CItpSpLinkQ752T2E16_Object=MibTableColumn
-cItpSpLinkQ752T2E16=_CItpSpLinkQ752T2E16_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,84),_CItpSpLinkQ752T2E16_Type())
-cItpSpLinkQ752T2E16.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T2E16.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkQ752T2E16.setUnits(_I)
-_CItpSpLinkQ752T2E18_Type=Counter32
-_CItpSpLinkQ752T2E18_Object=MibTableColumn
-cItpSpLinkQ752T2E18=_CItpSpLinkQ752T2E18_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,85),_CItpSpLinkQ752T2E18_Type())
-cItpSpLinkQ752T2E18.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T2E18.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkQ752T2E18.setUnits(_I)
-_CItpSpLinkMtp3PacketsRetrans_Type=Counter32
-_CItpSpLinkMtp3PacketsRetrans_Object=MibTableColumn
-cItpSpLinkMtp3PacketsRetrans=_CItpSpLinkMtp3PacketsRetrans_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,86),_CItpSpLinkMtp3PacketsRetrans_Type())
-cItpSpLinkMtp3PacketsRetrans.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkMtp3PacketsRetrans.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3PacketsRetrans.setUnits(_T)
-_CItpSpLinkMtp3BytesRetrans_Type=Counter32
-_CItpSpLinkMtp3BytesRetrans_Object=MibTableColumn
-cItpSpLinkMtp3BytesRetrans=_CItpSpLinkMtp3BytesRetrans_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,87),_CItpSpLinkMtp3BytesRetrans_Type())
-cItpSpLinkMtp3BytesRetrans.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkMtp3BytesRetrans.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkMtp3BytesRetrans.setUnits(_Q)
-_CItpSpLinkQ752T3E6_Type=Counter32
-_CItpSpLinkQ752T3E6_Object=MibTableColumn
-cItpSpLinkQ752T3E6=_CItpSpLinkQ752T3E6_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,88),_CItpSpLinkQ752T3E6_Type())
-cItpSpLinkQ752T3E6.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T3E6.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkQ752T3E6.setUnits('events')
-_CItpSpLinkQ752T3E7_Type=TimeTicks
-_CItpSpLinkQ752T3E7_Object=MibTableColumn
-cItpSpLinkQ752T3E7=_CItpSpLinkQ752T3E7_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,89),_CItpSpLinkQ752T3E7_Type())
-cItpSpLinkQ752T3E7.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T3E7.setStatus(_B)
-_CItpSpLinkQ752T3E10L1_Type=Counter32
-_CItpSpLinkQ752T3E10L1_Object=MibTableColumn
-cItpSpLinkQ752T3E10L1=_CItpSpLinkQ752T3E10L1_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,90),_CItpSpLinkQ752T3E10L1_Type())
-cItpSpLinkQ752T3E10L1.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T3E10L1.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkQ752T3E10L1.setUnits(_d)
-_CItpSpLinkQ752T3E10L2_Type=Counter32
-_CItpSpLinkQ752T3E10L2_Object=MibTableColumn
-cItpSpLinkQ752T3E10L2=_CItpSpLinkQ752T3E10L2_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,91),_CItpSpLinkQ752T3E10L2_Type())
-cItpSpLinkQ752T3E10L2.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T3E10L2.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkQ752T3E10L2.setUnits(_d)
-_CItpSpLinkQ752T3E10L3_Type=Counter32
-_CItpSpLinkQ752T3E10L3_Object=MibTableColumn
-cItpSpLinkQ752T3E10L3=_CItpSpLinkQ752T3E10L3_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,92),_CItpSpLinkQ752T3E10L3_Type())
-cItpSpLinkQ752T3E10L3.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T3E10L3.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkQ752T3E10L3.setUnits(_d)
-_CItpSpLinkQ752T3E11L1_Type=Counter32
-_CItpSpLinkQ752T3E11L1_Object=MibTableColumn
-cItpSpLinkQ752T3E11L1=_CItpSpLinkQ752T3E11L1_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,93),_CItpSpLinkQ752T3E11L1_Type())
-cItpSpLinkQ752T3E11L1.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T3E11L1.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkQ752T3E11L1.setUnits(_Q)
-_CItpSpLinkQ752T3E11L2_Type=Counter32
-_CItpSpLinkQ752T3E11L2_Object=MibTableColumn
-cItpSpLinkQ752T3E11L2=_CItpSpLinkQ752T3E11L2_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,94),_CItpSpLinkQ752T3E11L2_Type())
-cItpSpLinkQ752T3E11L2.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T3E11L2.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkQ752T3E11L2.setUnits(_Q)
-_CItpSpLinkQ752T3E11L3_Type=Counter32
-_CItpSpLinkQ752T3E11L3_Object=MibTableColumn
-cItpSpLinkQ752T3E11L3=_CItpSpLinkQ752T3E11L3_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,95),_CItpSpLinkQ752T3E11L3_Type())
-cItpSpLinkQ752T3E11L3.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkQ752T3E11L3.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkQ752T3E11L3.setUnits(_Q)
-_CItpSpLinkIPType1_Type=InetAddressType
-_CItpSpLinkIPType1_Object=MibTableColumn
-cItpSpLinkIPType1=_CItpSpLinkIPType1_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,96),_CItpSpLinkIPType1_Type())
-cItpSpLinkIPType1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkIPType1.setStatus(_B)
-_CItpSpLinkIPType2_Type=InetAddressType
-_CItpSpLinkIPType2_Object=MibTableColumn
-cItpSpLinkIPType2=_CItpSpLinkIPType2_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,97),_CItpSpLinkIPType2_Type())
-cItpSpLinkIPType2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkIPType2.setStatus(_B)
-_CItpSpLinkIPType3_Type=InetAddressType
-_CItpSpLinkIPType3_Object=MibTableColumn
-cItpSpLinkIPType3=_CItpSpLinkIPType3_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,98),_CItpSpLinkIPType3_Type())
-cItpSpLinkIPType3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkIPType3.setStatus(_B)
-_CItpSpLinkIPType4_Type=InetAddressType
-_CItpSpLinkIPType4_Object=MibTableColumn
-cItpSpLinkIPType4=_CItpSpLinkIPType4_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,99),_CItpSpLinkIPType4_Type())
-cItpSpLinkIPType4.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkIPType4.setStatus(_B)
-_CItpSpLinkIPAddr1_Type=InetAddress
-_CItpSpLinkIPAddr1_Object=MibTableColumn
-cItpSpLinkIPAddr1=_CItpSpLinkIPAddr1_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,100),_CItpSpLinkIPAddr1_Type())
-cItpSpLinkIPAddr1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkIPAddr1.setStatus(_B)
-_CItpSpLinkIPAddr2_Type=InetAddress
-_CItpSpLinkIPAddr2_Object=MibTableColumn
-cItpSpLinkIPAddr2=_CItpSpLinkIPAddr2_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,101),_CItpSpLinkIPAddr2_Type())
-cItpSpLinkIPAddr2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkIPAddr2.setStatus(_B)
-_CItpSpLinkIPAddr3_Type=InetAddress
-_CItpSpLinkIPAddr3_Object=MibTableColumn
-cItpSpLinkIPAddr3=_CItpSpLinkIPAddr3_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,102),_CItpSpLinkIPAddr3_Type())
-cItpSpLinkIPAddr3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkIPAddr3.setStatus(_B)
-_CItpSpLinkIPAddr4_Type=InetAddress
-_CItpSpLinkIPAddr4_Object=MibTableColumn
-cItpSpLinkIPAddr4=_CItpSpLinkIPAddr4_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,103),_CItpSpLinkIPAddr4_Type())
-cItpSpLinkIPAddr4.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkIPAddr4.setStatus(_B)
-class _CItpSpLinkLocalPort_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CItpSpLinkLocalPort_Type.__name__=_H
-_CItpSpLinkLocalPort_Object=MibTableColumn
-cItpSpLinkLocalPort=_CItpSpLinkLocalPort_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,104),_CItpSpLinkLocalPort_Type())
-cItpSpLinkLocalPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkLocalPort.setStatus(_B)
-class _CItpSpLinkRemotePort_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CItpSpLinkRemotePort_Type.__name__=_H
-_CItpSpLinkRemotePort_Object=MibTableColumn
-cItpSpLinkRemotePort=_CItpSpLinkRemotePort_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,105),_CItpSpLinkRemotePort_Type())
-cItpSpLinkRemotePort.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkRemotePort.setStatus(_B)
-_CItpSpLinkQosClass_Type=CItpTcQos
-_CItpSpLinkQosClass_Object=MibTableColumn
-cItpSpLinkQosClass=_CItpSpLinkQosClass_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,106),_CItpSpLinkQosClass_Type())
-cItpSpLinkQosClass.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkQosClass.setStatus(_B)
-_CItpSpLinkRowStatus_Type=RowStatus
-_CItpSpLinkRowStatus_Object=MibTableColumn
-cItpSpLinkRowStatus=_CItpSpLinkRowStatus_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,107),_CItpSpLinkRowStatus_Type())
-cItpSpLinkRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkRowStatus.setStatus(_B)
-class _CItpSpLinkStateReason_Type(Bits):namedValues=NamedValues(*(('localInhibit',0),('remoteInhibit',1),('blocked',2)))
-_CItpSpLinkStateReason_Type.__name__=_b
-_CItpSpLinkStateReason_Object=MibTableColumn
-cItpSpLinkStateReason=_CItpSpLinkStateReason_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,108),_CItpSpLinkStateReason_Type())
-cItpSpLinkStateReason.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkStateReason.setStatus(_B)
-class _CItpSpLinkDisplayName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,30))
-_CItpSpLinkDisplayName_Type.__name__=_N
-_CItpSpLinkDisplayName_Object=MibTableColumn
-cItpSpLinkDisplayName=_CItpSpLinkDisplayName_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,109),_CItpSpLinkDisplayName_Type())
-cItpSpLinkDisplayName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkDisplayName.setStatus(_B)
-_CItpSpLinkDroppedPkts_Type=Counter32
-_CItpSpLinkDroppedPkts_Object=MibTableColumn
-cItpSpLinkDroppedPkts=_CItpSpLinkDroppedPkts_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,110),_CItpSpLinkDroppedPkts_Type())
-cItpSpLinkDroppedPkts.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkDroppedPkts.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkDroppedPkts.setUnits(_T)
-_CItpSpLinkTransmittedLssu_Type=Counter32
-_CItpSpLinkTransmittedLssu_Object=MibTableColumn
-cItpSpLinkTransmittedLssu=_CItpSpLinkTransmittedLssu_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,111),_CItpSpLinkTransmittedLssu_Type())
-cItpSpLinkTransmittedLssu.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkTransmittedLssu.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkTransmittedLssu.setUnits('LSSU')
-_CItpSpLinkReceivedLssu_Type=Counter32
-_CItpSpLinkReceivedLssu_Object=MibTableColumn
-cItpSpLinkReceivedLssu=_CItpSpLinkReceivedLssu_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,112),_CItpSpLinkReceivedLssu_Type())
-cItpSpLinkReceivedLssu.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkReceivedLssu.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkReceivedLssu.setUnits('LSSU')
-class _CItpSpLinkProtocolDetails_Type(Bits):namedValues=NamedValues(*(('tcbcBuffering',0),('tcocBuffering',1),('tlacAdjacentSpRestarting',2),('tlacEmergencyCoInProgress',3),('tlacChangebackInProgress',4),('tlacChangeoverInProgress',5),('tlacChangeoverFailed',6),('tlacInhibitRetry',7),('tlacManagementRequest',8),('tlacSpRestarting',9),('tsrcChangeOverComplete',10),('tsrcAdjacentSpRestart',11)))
-_CItpSpLinkProtocolDetails_Type.__name__=_b
-_CItpSpLinkProtocolDetails_Object=MibTableColumn
-cItpSpLinkProtocolDetails=_CItpSpLinkProtocolDetails_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,113),_CItpSpLinkProtocolDetails_Type())
-cItpSpLinkProtocolDetails.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkProtocolDetails.setStatus(_B)
-class _CItpSpLinkLsacState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_U,1),('inactive',2),('active',3),('activatingRestoring',4),('failed',5),('actT17wait',6),('actAnsiWaitDeloaded',7),('actItuWaitStmReady',8)))
-_CItpSpLinkLsacState_Type.__name__=_J
-_CItpSpLinkLsacState_Object=MibTableColumn
-cItpSpLinkLsacState=_CItpSpLinkLsacState_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,114),_CItpSpLinkLsacState_Type())
-cItpSpLinkLsacState.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkLsacState.setStatus(_B)
-class _CItpSpLinkTsrcState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_U,1),(_e,2),('wait5',3)))
-_CItpSpLinkTsrcState_Type.__name__=_J
-_CItpSpLinkTsrcState_Object=MibTableColumn
-cItpSpLinkTsrcState=_CItpSpLinkTsrcState_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,115),_CItpSpLinkTsrcState_Type())
-cItpSpLinkTsrcState.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkTsrcState.setStatus(_B)
-class _CItpSpLinkTcocState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_U,1),(_e,2),('wait2',3),('waitForAck',4),('retrieving',5),('wait5',6),('wait7',7),('wait8',8)))
-_CItpSpLinkTcocState_Type.__name__=_J
-_CItpSpLinkTcocState_Object=MibTableColumn
-cItpSpLinkTcocState=_CItpSpLinkTcocState_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,116),_CItpSpLinkTcocState_Type())
-cItpSpLinkTcocState.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkTcocState.setStatus(_B)
-_CItpSpLinkTcocLocalBSNT_Type=CItpSpSequenceNumber
-_CItpSpLinkTcocLocalBSNT_Object=MibTableColumn
-cItpSpLinkTcocLocalBSNT=_CItpSpLinkTcocLocalBSNT_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,117),_CItpSpLinkTcocLocalBSNT_Type())
-cItpSpLinkTcocLocalBSNT.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkTcocLocalBSNT.setStatus(_B)
-_CItpSpLinkTcocRemoteBSNT_Type=CItpSpSequenceNumber
-_CItpSpLinkTcocRemoteBSNT_Object=MibTableColumn
-cItpSpLinkTcocRemoteBSNT=_CItpSpLinkTcocRemoteBSNT_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,118),_CItpSpLinkTcocRemoteBSNT_Type())
-cItpSpLinkTcocRemoteBSNT.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkTcocRemoteBSNT.setStatus(_B)
-class _CItpSpLinkTcbcState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_U,1),(_e,2),('firstAttempt',3),('secondAttempt',4),('timeControlledDiversion',5)))
-_CItpSpLinkTcbcState_Type.__name__=_J
-_CItpSpLinkTcbcState_Object=MibTableColumn
-cItpSpLinkTcbcState=_CItpSpLinkTcbcState_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,119),_CItpSpLinkTcbcState_Type())
-cItpSpLinkTcbcState.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkTcbcState.setStatus(_B)
-_CItpSpLinkReceivedSIB_Type=Counter32
-_CItpSpLinkReceivedSIB_Object=MibTableColumn
-cItpSpLinkReceivedSIB=_CItpSpLinkReceivedSIB_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,120),_CItpSpLinkReceivedSIB_Type())
-cItpSpLinkReceivedSIB.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkReceivedSIB.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkReceivedSIB.setUnits('SIB')
-_CItpSpLinkTransmittedSIB_Type=Counter32
-_CItpSpLinkTransmittedSIB_Object=MibTableColumn
-cItpSpLinkTransmittedSIB=_CItpSpLinkTransmittedSIB_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,121),_CItpSpLinkTransmittedSIB_Type())
-cItpSpLinkTransmittedSIB.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkTransmittedSIB.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkTransmittedSIB.setUnits('SIB')
-_CItpSpLinkMtp2ExpiredT01_Type=Counter32
-_CItpSpLinkMtp2ExpiredT01_Object=MibTableColumn
-cItpSpLinkMtp2ExpiredT01=_CItpSpLinkMtp2ExpiredT01_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,122),_CItpSpLinkMtp2ExpiredT01_Type())
-cItpSpLinkMtp2ExpiredT01.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkMtp2ExpiredT01.setStatus(_B)
-_CItpSpLinkMtp2ExpiredT02_Type=Counter32
-_CItpSpLinkMtp2ExpiredT02_Object=MibTableColumn
-cItpSpLinkMtp2ExpiredT02=_CItpSpLinkMtp2ExpiredT02_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,123),_CItpSpLinkMtp2ExpiredT02_Type())
-cItpSpLinkMtp2ExpiredT02.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkMtp2ExpiredT02.setStatus(_B)
-_CItpSpLinkMtp2ExpiredT03_Type=Counter32
-_CItpSpLinkMtp2ExpiredT03_Object=MibTableColumn
-cItpSpLinkMtp2ExpiredT03=_CItpSpLinkMtp2ExpiredT03_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,124),_CItpSpLinkMtp2ExpiredT03_Type())
-cItpSpLinkMtp2ExpiredT03.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkMtp2ExpiredT03.setStatus(_B)
-_CItpSpLinkMtp2ExpiredT04_Type=Counter32
-_CItpSpLinkMtp2ExpiredT04_Object=MibTableColumn
-cItpSpLinkMtp2ExpiredT04=_CItpSpLinkMtp2ExpiredT04_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,125),_CItpSpLinkMtp2ExpiredT04_Type())
-cItpSpLinkMtp2ExpiredT04.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkMtp2ExpiredT04.setStatus(_B)
-_CItpSpLinkMtp2ExpiredT05_Type=Counter32
-_CItpSpLinkMtp2ExpiredT05_Object=MibTableColumn
-cItpSpLinkMtp2ExpiredT05=_CItpSpLinkMtp2ExpiredT05_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,126),_CItpSpLinkMtp2ExpiredT05_Type())
-cItpSpLinkMtp2ExpiredT05.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkMtp2ExpiredT05.setStatus(_B)
-_CItpSpLinkMtp2ExpiredT06_Type=Counter32
-_CItpSpLinkMtp2ExpiredT06_Object=MibTableColumn
-cItpSpLinkMtp2ExpiredT06=_CItpSpLinkMtp2ExpiredT06_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,127),_CItpSpLinkMtp2ExpiredT06_Type())
-cItpSpLinkMtp2ExpiredT06.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkMtp2ExpiredT06.setStatus(_B)
-_CItpSpLinkMtp2ExpiredT07_Type=Counter32
-_CItpSpLinkMtp2ExpiredT07_Object=MibTableColumn
-cItpSpLinkMtp2ExpiredT07=_CItpSpLinkMtp2ExpiredT07_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,128),_CItpSpLinkMtp2ExpiredT07_Type())
-cItpSpLinkMtp2ExpiredT07.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkMtp2ExpiredT07.setStatus(_B)
-_CItpSpLinkOMAERMCount_Type=Counter32
-_CItpSpLinkOMAERMCount_Object=MibTableColumn
-cItpSpLinkOMAERMCount=_CItpSpLinkOMAERMCount_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,129),_CItpSpLinkOMAERMCount_Type())
-cItpSpLinkOMAERMCount.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkOMAERMCount.setStatus(_B)
-_CItpSpLinkOMAERMFailCount_Type=Counter32
-_CItpSpLinkOMAERMFailCount_Object=MibTableColumn
-cItpSpLinkOMAERMFailCount=_CItpSpLinkOMAERMFailCount_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,130),_CItpSpLinkOMAERMFailCount_Type())
-cItpSpLinkOMAERMFailCount.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkOMAERMFailCount.setStatus(_B)
-_CItpSpLinkOMSURMCount_Type=Counter32
-_CItpSpLinkOMSURMCount_Object=MibTableColumn
-cItpSpLinkOMSURMCount=_CItpSpLinkOMSURMCount_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,131),_CItpSpLinkOMSURMCount_Type())
-cItpSpLinkOMSURMCount.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkOMSURMCount.setStatus(_B)
-_CItpSpLinkOMSURMFailCount_Type=Counter32
-_CItpSpLinkOMSURMFailCount_Object=MibTableColumn
-cItpSpLinkOMSURMFailCount=_CItpSpLinkOMSURMFailCount_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,132),_CItpSpLinkOMSURMFailCount_Type())
-cItpSpLinkOMSURMFailCount.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkOMSURMFailCount.setStatus(_B)
-_CItpSpLinkPlanCapacityRcvd_Type=CItpSpLinkCapacity
-_CItpSpLinkPlanCapacityRcvd_Object=MibTableColumn
-cItpSpLinkPlanCapacityRcvd=_CItpSpLinkPlanCapacityRcvd_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,133),_CItpSpLinkPlanCapacityRcvd_Type())
-cItpSpLinkPlanCapacityRcvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkPlanCapacityRcvd.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkPlanCapacityRcvd.setUnits(_E1)
-class _CItpSpLinkUtilThresholdRcvd_Type(CItpSpPercentThreshold):defaultValue=0
-_CItpSpLinkUtilThresholdRcvd_Type.__name__=_R
-_CItpSpLinkUtilThresholdRcvd_Object=MibTableColumn
-cItpSpLinkUtilThresholdRcvd=_CItpSpLinkUtilThresholdRcvd_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,134),_CItpSpLinkUtilThresholdRcvd_Type())
-cItpSpLinkUtilThresholdRcvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkUtilThresholdRcvd.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkUtilThresholdRcvd.setUnits(_P)
-_CItpSpLinkUtilizationRcvd_Type=CItpSpLinkUtilization
-_CItpSpLinkUtilizationRcvd_Object=MibTableColumn
-cItpSpLinkUtilizationRcvd=_CItpSpLinkUtilizationRcvd_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,135),_CItpSpLinkUtilizationRcvd_Type())
-cItpSpLinkUtilizationRcvd.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkUtilizationRcvd.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkUtilizationRcvd.setUnits(_P)
-_CItpSpLinkUtilStateRcvd_Type=CItpSpLinkUtilizationState
-_CItpSpLinkUtilStateRcvd_Object=MibTableColumn
-cItpSpLinkUtilStateRcvd=_CItpSpLinkUtilStateRcvd_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,136),_CItpSpLinkUtilStateRcvd_Type())
-cItpSpLinkUtilStateRcvd.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkUtilStateRcvd.setStatus(_B)
-_CItpSpLinkL2BytesRcvd_Type=Counter32
-_CItpSpLinkL2BytesRcvd_Object=MibTableColumn
-cItpSpLinkL2BytesRcvd=_CItpSpLinkL2BytesRcvd_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,137),_CItpSpLinkL2BytesRcvd_Type())
-cItpSpLinkL2BytesRcvd.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkL2BytesRcvd.setStatus(_B)
-_CItpSpLinkPlanCapacitySent_Type=CItpSpLinkCapacity
-_CItpSpLinkPlanCapacitySent_Object=MibTableColumn
-cItpSpLinkPlanCapacitySent=_CItpSpLinkPlanCapacitySent_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,138),_CItpSpLinkPlanCapacitySent_Type())
-cItpSpLinkPlanCapacitySent.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkPlanCapacitySent.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkPlanCapacitySent.setUnits(_E1)
-class _CItpSpLinkUtilThresholdSent_Type(CItpSpPercentThreshold):defaultValue=0
-_CItpSpLinkUtilThresholdSent_Type.__name__=_R
-_CItpSpLinkUtilThresholdSent_Object=MibTableColumn
-cItpSpLinkUtilThresholdSent=_CItpSpLinkUtilThresholdSent_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,139),_CItpSpLinkUtilThresholdSent_Type())
-cItpSpLinkUtilThresholdSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:cItpSpLinkUtilThresholdSent.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkUtilThresholdSent.setUnits(_P)
-_CItpSpLinkUtilizationSent_Type=CItpSpLinkUtilization
-_CItpSpLinkUtilizationSent_Object=MibTableColumn
-cItpSpLinkUtilizationSent=_CItpSpLinkUtilizationSent_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,140),_CItpSpLinkUtilizationSent_Type())
-cItpSpLinkUtilizationSent.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkUtilizationSent.setStatus(_B)
-if mibBuilder.loadTexts:cItpSpLinkUtilizationSent.setUnits(_P)
-_CItpSpLinkUtilStateSent_Type=CItpSpLinkUtilizationState
-_CItpSpLinkUtilStateSent_Object=MibTableColumn
-cItpSpLinkUtilStateSent=_CItpSpLinkUtilStateSent_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,141),_CItpSpLinkUtilStateSent_Type())
-cItpSpLinkUtilStateSent.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkUtilStateSent.setStatus(_B)
-_CItpSpLinkL2BytesSent_Type=Counter32
-_CItpSpLinkL2BytesSent_Object=MibTableColumn
-cItpSpLinkL2BytesSent=_CItpSpLinkL2BytesSent_Object((1,3,6,1,4,1,9,9,232,1,4,1,1,142),_CItpSpLinkL2BytesSent_Type())
-cItpSpLinkL2BytesSent.setMaxAccess(_E)
-if mibBuilder.loadTexts:cItpSpLinkL2BytesSent.setStatus(_B)
-_CItpSpNotificationsEnable_ObjectIdentity=ObjectIdentity
-cItpSpNotificationsEnable=_CItpSpNotificationsEnable_ObjectIdentity((1,3,6,1,4,1,9,9,232,1,5))
-class _CItpSpLsStateChangeNotifEnabled_Type(TruthValue):defaultValue=2
-_CItpSpLsStateChangeNotifEnabled_Type.__name__=_G
-_CItpSpLsStateChangeNotifEnabled_Object=MibScalar
-cItpSpLsStateChangeNotifEnabled=_CItpSpLsStateChangeNotifEnabled_Object((1,3,6,1,4,1,9,9,232,1,5,1),_CItpSpLsStateChangeNotifEnabled_Type())
-cItpSpLsStateChangeNotifEnabled.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpLsStateChangeNotifEnabled.setStatus(_B)
-class _CItpSpLnkStateChangeNotifEnabled_Type(TruthValue):defaultValue=2
-_CItpSpLnkStateChangeNotifEnabled_Type.__name__=_G
-_CItpSpLnkStateChangeNotifEnabled_Object=MibScalar
-cItpSpLnkStateChangeNotifEnabled=_CItpSpLnkStateChangeNotifEnabled_Object((1,3,6,1,4,1,9,9,232,1,5,2),_CItpSpLnkStateChangeNotifEnabled_Type())
-cItpSpLnkStateChangeNotifEnabled.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpLnkStateChangeNotifEnabled.setStatus(_B)
-class _CItpSpCongestionNotifEnabled_Type(TruthValue):defaultValue=2
-_CItpSpCongestionNotifEnabled_Type.__name__=_G
-_CItpSpCongestionNotifEnabled_Object=MibScalar
-cItpSpCongestionNotifEnabled=_CItpSpCongestionNotifEnabled_Object((1,3,6,1,4,1,9,9,232,1,5,3),_CItpSpCongestionNotifEnabled_Type())
-cItpSpCongestionNotifEnabled.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpCongestionNotifEnabled.setStatus(_B)
-class _CItpSpLinkUtilNotifEnabled_Type(TruthValue):defaultValue=2
-_CItpSpLinkUtilNotifEnabled_Type.__name__=_G
-_CItpSpLinkUtilNotifEnabled_Object=MibScalar
-cItpSpLinkUtilNotifEnabled=_CItpSpLinkUtilNotifEnabled_Object((1,3,6,1,4,1,9,9,232,1,5,4),_CItpSpLinkUtilNotifEnabled_Type())
-cItpSpLinkUtilNotifEnabled.setMaxAccess(_F)
-if mibBuilder.loadTexts:cItpSpLinkUtilNotifEnabled.setStatus(_B)
-_CItpSpMIBConformance_ObjectIdentity=ObjectIdentity
-cItpSpMIBConformance=_CItpSpMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,232,2))
-_CItpSpMIBCompliances_ObjectIdentity=ObjectIdentity
-cItpSpMIBCompliances=_CItpSpMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,232,2,1))
-_CItpSpMIBGroups_ObjectIdentity=ObjectIdentity
-cItpSpMIBGroups=_CItpSpMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,232,2,2))
-cItpSpScalarsGroup=ObjectGroup((1,3,6,1,4,1,9,9,232,2,2,1))
-cItpSpScalarsGroup.setObjects(*((_A,_f),(_A,_K),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS)))
-if mibBuilder.loadTexts:cItpSpScalarsGroup.setStatus(_B)
-cItpSpPointCodeGroup=ObjectGroup((1,3,6,1,4,1,9,9,232,2,2,2))
-cItpSpPointCodeGroup.setObjects(*((_A,_E2),(_A,_E3),(_A,_E4)))
-if mibBuilder.loadTexts:cItpSpPointCodeGroup.setStatus(_B)
-cItpSpLinksetGroup=ObjectGroup((1,3,6,1,4,1,9,9,232,2,2,3))
-cItpSpLinksetGroup.setObjects(*((_A,_AT),(_A,_L),(_A,_AU),(_A,_M),(_A,_V),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BE),(_A,_BF),(_A,_BG),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_BQ),(_A,_BR),(_A,_BS),(_A,_BT),(_A,_BU),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_E5),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_W),(_A,_Bc)))
-if mibBuilder.loadTexts:cItpSpLinksetGroup.setStatus(_B)
-cItpSpLinkGroup=ObjectGroup((1,3,6,1,4,1,9,9,232,2,2,4))
-cItpSpLinkGroup.setObjects(*((_A,_Bd),(_A,_X),(_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk),(_A,_Bl),(_A,_Bm),(_A,_Bn),(_A,_Bo),(_A,_Bp),(_A,_Bq),(_A,_Br),(_A,_Bs),(_A,_Bt),(_A,_Bu),(_A,_Bv),(_A,_Bw),(_A,_Bx),(_A,_By),(_A,_Bz),(_A,_B_),(_A,_C0),(_A,_C1),(_A,_C2),(_A,_C3),(_A,_C4),(_A,_C5),(_A,_C6),(_A,_C7),(_A,_C8),(_A,_C9),(_A,_CA),(_A,_CB),(_A,_CC),(_A,_CD),(_A,_CE),(_A,_CF),(_A,_CG),(_A,_CH),(_A,_CI),(_A,_CJ),(_A,_CK),(_A,_CL),(_A,_CM),(_A,_CN),(_A,_CO),(_A,_CP),(_A,_CQ),(_A,_CR),(_A,_CS),(_A,_CT),(_A,_CU),(_A,_Y),(_A,_CV),(_A,_CW),(_A,_CX),(_A,_CY),(_A,_CZ),(_A,_Ca),(_A,_Cb),(_A,_Cc),(_A,_Cd),(_A,_Ce),(_A,_Cf),(_A,_Cg),(_A,_Ch),(_A,_Ci),(_A,_Cj),(_A,_Ck),(_A,_Cl),(_A,_Cm),(_A,_Cn),(_A,_Co),(_A,_Cp),(_A,_Cq),(_A,_Cr),(_A,_Cs),(_A,_Ct),(_A,_Cu),(_A,_Cv),(_A,_Cw),(_A,_Cx),(_A,_Cy),(_A,_Cz),(_A,_C_),(_A,_D0),(_A,_D1),(_A,_D2),(_A,_D3),(_A,_D4),(_A,_D5),(_A,_D6),(_A,_D7),(_A,_D8),(_A,_D9),(_A,_DA),(_A,_DB),(_A,_DC),(_A,_DD),(_A,_DE),(_A,_DF),(_A,_DG),(_A,_Z),(_A,_O)))
-if mibBuilder.loadTexts:cItpSpLinkGroup.setStatus(_B)
-cItpSpNotificationsEnableGroup=ObjectGroup((1,3,6,1,4,1,9,9,232,2,2,5))
-cItpSpNotificationsEnableGroup.setObjects(*((_A,_DH),(_A,_DI),(_A,_DJ)))
-if mibBuilder.loadTexts:cItpSpNotificationsEnableGroup.setStatus(_B)
-cItpSpStatsGroup=ObjectGroup((1,3,6,1,4,1,9,9,232,2,2,7))
-cItpSpStatsGroup.setObjects(*((_A,_DK),(_A,_DL),(_A,_DM),(_A,_DN),(_A,_DO),(_A,_DP),(_A,_DQ),(_A,_DR),(_A,_DS),(_A,_DT),(_A,_DU),(_A,_DV),(_A,_DW),(_A,_DX),(_A,_DY),(_A,_DZ),(_A,_Da),(_A,_Db),(_A,_Dc),(_A,_Dd),(_A,_De),(_A,_Df),(_A,_Dg),(_A,_Dh),(_A,_Di),(_A,_Dj)))
-if mibBuilder.loadTexts:cItpSpStatsGroup.setStatus(_B)
-cItpSpScalarsGroupRev2=ObjectGroup((1,3,6,1,4,1,9,9,232,2,2,8))
-cItpSpScalarsGroupRev2.setObjects(*((_A,_f),(_A,_K),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_DK),(_A,_DL),(_A,_E6),(_A,_E7),(_A,_E8)))
-if mibBuilder.loadTexts:cItpSpScalarsGroupRev2.setStatus(_B)
-cItpSpLinksetGroupRev2=ObjectGroup((1,3,6,1,4,1,9,9,232,2,2,9))
-cItpSpLinksetGroupRev2.setObjects(*((_A,_AT),(_A,_L),(_A,_AU),(_A,_M),(_A,_V),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BE),(_A,_BF),(_A,_BG),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_BQ),(_A,_BR),(_A,_BS),(_A,_BT),(_A,_BU),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_W),(_A,_Bc),(_A,_DM)))
-if mibBuilder.loadTexts:cItpSpLinksetGroupRev2.setStatus(_B)
-cItpSpLinkGroupRev2=ObjectGroup((1,3,6,1,4,1,9,9,232,2,2,10))
-cItpSpLinkGroupRev2.setObjects(*((_A,_Bd),(_A,_X),(_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk),(_A,_Bl),(_A,_Bm),(_A,_Bn),(_A,_Bo),(_A,_Bp),(_A,_Bq),(_A,_Br),(_A,_Bs),(_A,_Bt),(_A,_Bu),(_A,_Bv),(_A,_Bw),(_A,_Bx),(_A,_By),(_A,_Bz),(_A,_B_),(_A,_C0),(_A,_C1),(_A,_C2),(_A,_C3),(_A,_C4),(_A,_C5),(_A,_C6),(_A,_C7),(_A,_C8),(_A,_C9),(_A,_CA),(_A,_CB),(_A,_CC),(_A,_CD),(_A,_CE),(_A,_CF),(_A,_CG),(_A,_CH),(_A,_CI),(_A,_CJ),(_A,_CK),(_A,_CL),(_A,_CM),(_A,_CN),(_A,_CO),(_A,_CP),(_A,_CQ),(_A,_CR),(_A,_CS),(_A,_CT),(_A,_CU),(_A,_Y),(_A,_CV),(_A,_CW),(_A,_CX),(_A,_CY),(_A,_CZ),(_A,_Ca),(_A,_Cb),(_A,_Cc),(_A,_Cd),(_A,_Ce),(_A,_Cf),(_A,_Cg),(_A,_Ch),(_A,_Ci),(_A,_Cj),(_A,_Ck),(_A,_Cl),(_A,_Cm),(_A,_Cn),(_A,_Co),(_A,_Cp),(_A,_Cq),(_A,_Cr),(_A,_Cs),(_A,_Ct),(_A,_Cu),(_A,_Cv),(_A,_Cw),(_A,_Cx),(_A,_Cy),(_A,_Cz),(_A,_C_),(_A,_D0),(_A,_D1),(_A,_D2),(_A,_D3),(_A,_D4),(_A,_D5),(_A,_D6),(_A,_D7),(_A,_D8),(_A,_D9),(_A,_DA),(_A,_DB),(_A,_DC),(_A,_DD),(_A,_DE),(_A,_DF),(_A,_DG),(_A,_Z),(_A,_O),(_A,_DN),(_A,_DO),(_A,_DP),(_A,_DQ),(_A,_DR),(_A,_DS),(_A,_DT),(_A,_DU),(_A,_DV),(_A,_DW),(_A,_DX),(_A,_DY),(_A,_DZ),(_A,_Da),(_A,_Db),(_A,_Dc),(_A,_Dd),(_A,_De),(_A,_Df),(_A,_Dg),(_A,_Dh),(_A,_Di),(_A,_Dj),(_A,_E9),(_A,_EA),(_A,_Dk),(_A,_Dl),(_A,_EB),(_A,_EC),(_A,_ED),(_A,_Dm),(_A,_Dn),(_A,_EE)))
-if mibBuilder.loadTexts:cItpSpLinkGroupRev2.setStatus(_B)
-cItpSpNotificationsEnableGroupRev2=ObjectGroup((1,3,6,1,4,1,9,9,232,2,2,11))
-cItpSpNotificationsEnableGroupRev2.setObjects(*((_A,_DH),(_A,_DI),(_A,_DJ),(_A,_EF)))
-if mibBuilder.loadTexts:cItpSpNotificationsEnableGroupRev2.setStatus(_B)
-cItpSpLinksetStateChange=NotificationType((1,3,6,1,4,1,9,9,232,0,0,1))
-cItpSpLinksetStateChange.setObjects(*((_A,_K),(_A,_V),(_A,_W),(_A,_L),(_A,_M)))
-if mibBuilder.loadTexts:cItpSpLinksetStateChange.setStatus(_B)
-cItpSpLinkStateChange=NotificationType((1,3,6,1,4,1,9,9,232,0,0,2))
-cItpSpLinkStateChange.setObjects(*((_A,_K),(_A,_X),(_A,_O),(_A,_L),(_A,_M),(_A,_Z)))
-if mibBuilder.loadTexts:cItpSpLinkStateChange.setStatus(_B)
-cItpSpCongestionChange=NotificationType((1,3,6,1,4,1,9,9,232,0,0,3))
-cItpSpCongestionChange.setObjects(*((_A,_K),(_A,_Y),(_A,_O),(_A,_L),(_A,_M)))
-if mibBuilder.loadTexts:cItpSpCongestionChange.setStatus(_B)
-cItpSpLinkRcvdUtilChange=NotificationType((1,3,6,1,4,1,9,9,232,0,0,4))
-cItpSpLinkRcvdUtilChange.setObjects(*((_A,_K),(_A,_Dl),(_A,_O),(_A,_L),(_A,_M),(_A,_Dk)))
-if mibBuilder.loadTexts:cItpSpLinkRcvdUtilChange.setStatus(_B)
-cItpSpLinkSentUtilChange=NotificationType((1,3,6,1,4,1,9,9,232,0,0,5))
-cItpSpLinkSentUtilChange.setObjects(*((_A,_K),(_A,_Dn),(_A,_O),(_A,_L),(_A,_M),(_A,_Dm)))
-if mibBuilder.loadTexts:cItpSpLinkSentUtilChange.setStatus(_B)
-cItpSpNotificationsGroup=NotificationGroup((1,3,6,1,4,1,9,9,232,2,2,6))
-cItpSpNotificationsGroup.setObjects(*((_A,_Do),(_A,_Dp),(_A,_Dq)))
-if mibBuilder.loadTexts:cItpSpNotificationsGroup.setStatus(_B)
-cItpSpNotificationsGroupRev2=NotificationGroup((1,3,6,1,4,1,9,9,232,2,2,12))
-cItpSpNotificationsGroupRev2.setObjects(*((_A,_Do),(_A,_Dp),(_A,_Dq),(_A,_EG),(_A,_EH)))
-if mibBuilder.loadTexts:cItpSpNotificationsGroupRev2.setStatus(_B)
-cItpSpMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,232,2,1,1))
-cItpSpMIBCompliance.setObjects(*((_A,_Dr),(_A,_a),(_A,_Ds),(_A,_Dt),(_A,_Du),(_A,_Dv)))
-if mibBuilder.loadTexts:cItpSpMIBCompliance.setStatus(_B)
-cItpSpMIBComplianceRev1=ModuleCompliance((1,3,6,1,4,1,9,9,232,2,1,2))
-cItpSpMIBComplianceRev1.setObjects(*((_A,_Dr),(_A,_a),(_A,_Ds),(_A,_Dt),(_A,_Du),(_A,_Dv),(_A,_EI)))
-if mibBuilder.loadTexts:cItpSpMIBComplianceRev1.setStatus(_B)
-cItpSpMIBComplianceRev2=ModuleCompliance((1,3,6,1,4,1,9,9,232,2,1,3))
-cItpSpMIBComplianceRev2.setObjects(*((_A,_a),(_A,_EJ),(_A,_EK),(_A,_EL),(_A,_EM),(_A,_EN)))
-if mibBuilder.loadTexts:cItpSpMIBComplianceRev2.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'CItpSpSequenceNumber':CItpSpSequenceNumber,_Dw:CItpSpSampleInterval,_R:CItpSpPercentThreshold,'CItpSpLinkUtilization':CItpSpLinkUtilization,'CItpSpLinkCapacity':CItpSpLinkCapacity,'CItpSpLinkUtilizationState':CItpSpLinkUtilizationState,'ciscoItpSpMIB':ciscoItpSpMIB,'cItpSpMIBNotifs':cItpSpMIBNotifs,'cItpSpNotifications':cItpSpNotifications,_Do:cItpSpLinksetStateChange,_Dp:cItpSpLinkStateChange,_Dq:cItpSpCongestionChange,_EG:cItpSpLinkRcvdUtilChange,_EH:cItpSpLinkSentUtilChange,'cItpSpMIBObjects':cItpSpMIBObjects,'cItpSpScalars':cItpSpScalars,_f:cItpSpVariant,_K:cItpSpCLLICode,_g:cItpSpDisplayName,_h:cItpSpDescription,_i:cItpSpMtp2T01,_j:cItpSpMtp2T02,_k:cItpSpMtp2T03,_l:cItpSpMtp2T04E,_m:cItpSpMtp2T04N,_n:cItpSpMtp2T05,_o:cItpSpMtp2T06,_p:cItpSpMtp2T07,_q:cItpSpMtp3T01,_r:cItpSpMtp3T02,_s:cItpSpMtp3T03,_t:cItpSpMtp3T04,_u:cItpSpMtp3T05,_v:cItpSpMtp3T06,_w:cItpSpMtp3T07,_x:cItpSpMtp3T08,_y:cItpSpMtp3T10,_z:cItpSpMtp3T11,_A0:cItpSpMtp3T12,_A1:cItpSpMtp3T13,_A2:cItpSpMtp3T14,_A3:cItpSpMtp3T15,_A4:cItpSpMtp3T16,_A5:cItpSpMtp3T17,_A6:cItpSpMtp3T18,_A7:cItpSpMtp3T19,_A8:cItpSpMtp3T20,_A9:cItpSpMtp3T21,_AA:cItpSpMtp3T22,_AB:cItpSpMtp3T23,_AC:cItpSpMtp3T24,_AD:cItpSpMtp3T25,_AE:cItpSpMtp3T26,_AF:cItpSpMtp3T27,_AG:cItpSpMtp3T28,_AH:cItpSpMtp3T29,_AI:cItpSpMtp3T30,_AJ:cItpSpMtp3T31,_AK:cItpSpMtp3T32,_AL:cItpSpMtp3T33,_AM:cItpSpMtp3T34,_AN:cItpSpTimerLinkTest,_AO:cItpSpTimerLinkMessage,_AP:cItpSpTimerLinkActRetry,_AQ:cItpSpTFR,_AR:cItpSpCongestionsLevels,_AS:cItpSpFastRestart,_DK:cItpSpDistSccpUnseq,_DL:cItpSpSummaryRoutingException,_E6:cItpSpUtilSampleInterval,_E7:cItpSpUtilThreshold,_E8:cItpSpUtilAbateDelta,'cItpSpPointCode':cItpSpPointCode,'cItpSpPointCodeTable':cItpSpPointCodeTable,'cItpSpPointCodeTableEntry':cItpSpPointCodeTableEntry,_Dx:cItpSpPointCodeNi,_Dy:cItpSpPointCodeBin,_E2:cItpSpPointCodeType,_E3:cItpSpPointCodeDisplay,_E4:cItpSpPointCodeRowStatus,'cItpSpLinkset':cItpSpLinkset,'cItpSpLinksetTable':cItpSpLinksetTable,'cItpSpLinksetTableEntry':cItpSpLinksetTableEntry,_c:cItpSpLinksetName,_AT:cItpSpLinksetSourcePointCode,_L:cItpSpLinksetSourceDisplayPC,_AU:cItpSpLinksetAdjacentPointCode,_M:cItpSpLinksetAdjacentDisplayPC,_V:cItpSpLinksetState,_AV:cItpSpLinksetInboundAcl,_AW:cItpSpLinksetOutboundAcl,_AX:cItpSpLinksetSnmmRTN,_AY:cItpSpLinksetSntmRTN,_AZ:cItpSpLinksetSpare2RTN,_Aa:cItpSpLinksetSccpRTN,_Ab:cItpSpLinksetTupRTN,_Ac:cItpSpLinksetIsupRTN,_Ad:cItpSpLinksetDupcRTN,_Ae:cItpSpLinksetDupfRTN,_Af:cItpSpLinksetMtupRTN,_Ag:cItpSpLinksetBisupRTN,_Ah:cItpSpLinksetSisupRTN,_Ai:cItpSpLinksetSpare11RTN,_Aj:cItpSpLinksetSpare12RTN,_Ak:cItpSpLinksetSpare13RTN,_Al:cItpSpLinksetSpare14RTN,_Am:cItpSpLinksetSpare15RTN,_An:cItpSpLinksetAccountingEnabled,_Ao:cItpSpLinksetNumLinks,_Ap:cItpSpLinksetDurationInService,_Aq:cItpSpLinksetDurationOutService,_Ar:cItpSpLinksetMtp2T01,_As:cItpSpLinksetMtp2T02,_At:cItpSpLinksetMtp2T03,_Au:cItpSpLinksetMtp2T04E,_Av:cItpSpLinksetMtp2T04N,_Aw:cItpSpLinksetMtp2T05,_Ax:cItpSpLinksetMtp2T06,_Ay:cItpSpLinksetMtp2T07,_Az:cItpSpLinksetMtp3T01,_A_:cItpSpLinksetMtp3T02,_B0:cItpSpLinksetMtp3T03,_B1:cItpSpLinksetMtp3T04,_B2:cItpSpLinksetMtp3T05,_B3:cItpSpLinksetMtp3T06,_B4:cItpSpLinksetMtp3T07,_B5:cItpSpLinksetMtp3T08,_B6:cItpSpLinksetMtp3T10,_B7:cItpSpLinksetMtp3T11,_B8:cItpSpLinksetMtp3T12,_B9:cItpSpLinksetMtp3T13,_BA:cItpSpLinksetMtp3T14,_BB:cItpSpLinksetMtp3T15,_BC:cItpSpLinksetMtp3T16,_BD:cItpSpLinksetMtp3T17,_BE:cItpSpLinksetMtp3T18,_BF:cItpSpLinksetMtp3T19,_BG:cItpSpLinksetMtp3T20,_BH:cItpSpLinksetMtp3T21,_BI:cItpSpLinksetMtp3T22,_BJ:cItpSpLinksetMtp3T23,_BK:cItpSpLinksetMtp3T24,_BL:cItpSpLinksetMtp3T25,_BM:cItpSpLinksetMtp3T26,_BN:cItpSpLinksetMtp3T27,_BO:cItpSpLinksetMtp3T28,_BP:cItpSpLinksetMtp3T29,_BQ:cItpSpLinksetMtp3T30,_BR:cItpSpLinksetMtp3T31,_BS:cItpSpLinksetMtp3T32,_BT:cItpSpLinksetMtp3T33,_BU:cItpSpLinksetMtp3T34,_BV:cItpSpLinksetTimerLinkTest,_BW:cItpSpLinksetTimerLinkMessage,_BX:cItpSpLinksetTimerLinkActRetry,_E5:cItpSpLinksetPlanCapacity,_BY:cItpSpLinksetActPriority,_BZ:cItpSpLinksetType,_Ba:cItpSpLinksetRowStatus,_Bb:cItpSpLinksetNi,_W:cItpSpLinksetDisplayName,_Bc:cItpSpLinksetDescription,_DM:cItpSpLinksetVariant,'cItpSpLink':cItpSpLink,'cItpSpLinkTable':cItpSpLinkTable,'cItpSpLinkTableEntry':cItpSpLinkTableEntry,_E0:cItpSpLinkSlc,_Bd:cItpSpLinkDescription,_X:cItpSpLinkState,_Be:cItpSpLinkType,_Bf:cItpSpLinkifIndex,_Bg:cItpSpLinkSctpAssociation,_Bh:cItpSpLinkMtp3PacketsRcvd,_Bi:cItpSpLinkMtp3PacketsSent,_Bj:cItpSpLinkMtp3BytesRcvd,_Bk:cItpSpLinkMtp3BytesSent,_Bl:cItpSpLinkMtp2T01,_Bm:cItpSpLinkMtp2T02,_Bn:cItpSpLinkMtp2T03,_Bo:cItpSpLinkMtp2T04E,_Bp:cItpSpLinkMtp2T04N,_Bq:cItpSpLinkMtp2T05,_Br:cItpSpLinkMtp2T06,_Bs:cItpSpLinkMtp2T07,_Bt:cItpSpLinkMtp3T01,_Bu:cItpSpLinkMtp3T02,_Bv:cItpSpLinkMtp3T03,_Bw:cItpSpLinkMtp3T04,_Bx:cItpSpLinkMtp3T05,_By:cItpSpLinkMtp3T06,_Bz:cItpSpLinkMtp3T07,_B_:cItpSpLinkMtp3T08,_C0:cItpSpLinkMtp3T10,_C1:cItpSpLinkMtp3T11,_C2:cItpSpLinkMtp3T12,_C3:cItpSpLinkMtp3T13,_C4:cItpSpLinkMtp3T14,_C5:cItpSpLinkMtp3T15,_C6:cItpSpLinkMtp3T16,_C7:cItpSpLinkMtp3T17,_C8:cItpSpLinkMtp3T18,_C9:cItpSpLinkMtp3T19,_CA:cItpSpLinkMtp3T20,_CB:cItpSpLinkMtp3T21,_CC:cItpSpLinkMtp3T22,_CD:cItpSpLinkMtp3T23,_CE:cItpSpLinkMtp3T24,_CF:cItpSpLinkMtp3T25,_CG:cItpSpLinkMtp3T26,_CH:cItpSpLinkMtp3T27,_CI:cItpSpLinkMtp3T28,_CJ:cItpSpLinkMtp3T29,_CK:cItpSpLinkMtp3T30,_CL:cItpSpLinkMtp3T31,_CM:cItpSpLinkMtp3T32,_CN:cItpSpLinkMtp3T33,_CO:cItpSpLinkMtp3T34,_CP:cItpSpLinkTimerLinkTest,_CQ:cItpSpLinkTimerLinkMessage,_CR:cItpSpLinkTimerLinkActRetry,_CS:cItpSpLinkXmitQueueDepth,_CT:cItpSpLinkXmitQueueDepthHigh,_CU:cItpSpLinkXmitQueueDepthHighRT,_Y:cItpSpLinkCongestionState,_CV:cItpSpLinkCongestionAbate1,_CW:cItpSpLinkCongestionAbate2,_CX:cItpSpLinkCongestionAbate3,_CY:cItpSpLinkCongestionOnset1,_CZ:cItpSpLinkCongestionOnset2,_Ca:cItpSpLinkCongestionOnset3,_Cb:cItpSpLinkSigLinkTest,_Cc:cItpSpLinkQ752T1E1,_Cd:cItpSpLinkQ752T1E2,_Ce:cItpSpLinkQ752T1E3,_Cf:cItpSpLinkQ752T1E4,_Cg:cItpSpLinkQ752T1E5,_Ch:cItpSpLinkQ752T1E6,_Ci:cItpSpLinkQ752T1E7,_Cj:cItpSpLinkQ752T1E8,_Ck:cItpSpLinkQ752T1E9,_Cl:cItpSpLinkQ752T1E10,_Cm:cItpSpLinkQ752T1E11,_Cn:cItpSpLinkQ752T2E1,_Co:cItpSpLinkQ752T2E5,_Cp:cItpSpLinkQ752T2E6,_Cq:cItpSpLinkQ752T2E7,_Cr:cItpSpLinkQ752T2E9,_Cs:cItpSpLinkQ752T2E10,_Ct:cItpSpLinkQ752T2E15,_Cu:cItpSpLinkQ752T2E16,_Cv:cItpSpLinkQ752T2E18,_Cw:cItpSpLinkMtp3PacketsRetrans,_Cx:cItpSpLinkMtp3BytesRetrans,_Cy:cItpSpLinkQ752T3E6,_Cz:cItpSpLinkQ752T3E7,_C_:cItpSpLinkQ752T3E10L1,_D0:cItpSpLinkQ752T3E10L2,_D1:cItpSpLinkQ752T3E10L3,_D2:cItpSpLinkQ752T3E11L1,_D3:cItpSpLinkQ752T3E11L2,_D4:cItpSpLinkQ752T3E11L3,_D5:cItpSpLinkIPType1,_D6:cItpSpLinkIPType2,_D7:cItpSpLinkIPType3,_D8:cItpSpLinkIPType4,_D9:cItpSpLinkIPAddr1,_DA:cItpSpLinkIPAddr2,_DB:cItpSpLinkIPAddr3,_DC:cItpSpLinkIPAddr4,_DD:cItpSpLinkLocalPort,_DE:cItpSpLinkRemotePort,_DF:cItpSpLinkQosClass,_DG:cItpSpLinkRowStatus,_Z:cItpSpLinkStateReason,_O:cItpSpLinkDisplayName,_DN:cItpSpLinkDroppedPkts,_DO:cItpSpLinkTransmittedLssu,_DP:cItpSpLinkReceivedLssu,_DQ:cItpSpLinkProtocolDetails,_DR:cItpSpLinkLsacState,_DS:cItpSpLinkTsrcState,_DT:cItpSpLinkTcocState,_DU:cItpSpLinkTcocLocalBSNT,_DV:cItpSpLinkTcocRemoteBSNT,_DW:cItpSpLinkTcbcState,_DX:cItpSpLinkReceivedSIB,_DY:cItpSpLinkTransmittedSIB,_DZ:cItpSpLinkMtp2ExpiredT01,_Da:cItpSpLinkMtp2ExpiredT02,_Db:cItpSpLinkMtp2ExpiredT03,_Dc:cItpSpLinkMtp2ExpiredT04,_Dd:cItpSpLinkMtp2ExpiredT05,_De:cItpSpLinkMtp2ExpiredT06,_Df:cItpSpLinkMtp2ExpiredT07,_Dg:cItpSpLinkOMAERMCount,_Dh:cItpSpLinkOMAERMFailCount,_Di:cItpSpLinkOMSURMCount,_Dj:cItpSpLinkOMSURMFailCount,_E9:cItpSpLinkPlanCapacityRcvd,_EA:cItpSpLinkUtilThresholdRcvd,_Dk:cItpSpLinkUtilizationRcvd,_Dl:cItpSpLinkUtilStateRcvd,_EB:cItpSpLinkL2BytesRcvd,_EC:cItpSpLinkPlanCapacitySent,_ED:cItpSpLinkUtilThresholdSent,_Dm:cItpSpLinkUtilizationSent,_Dn:cItpSpLinkUtilStateSent,_EE:cItpSpLinkL2BytesSent,'cItpSpNotificationsEnable':cItpSpNotificationsEnable,_DH:cItpSpLsStateChangeNotifEnabled,_DI:cItpSpLnkStateChangeNotifEnabled,_DJ:cItpSpCongestionNotifEnabled,_EF:cItpSpLinkUtilNotifEnabled,'cItpSpMIBConformance':cItpSpMIBConformance,'cItpSpMIBCompliances':cItpSpMIBCompliances,'cItpSpMIBCompliance':cItpSpMIBCompliance,'cItpSpMIBComplianceRev1':cItpSpMIBComplianceRev1,'cItpSpMIBComplianceRev2':cItpSpMIBComplianceRev2,'cItpSpMIBGroups':cItpSpMIBGroups,_Dr:cItpSpScalarsGroup,_a:cItpSpPointCodeGroup,_Ds:cItpSpLinksetGroup,_Dt:cItpSpLinkGroup,_Du:cItpSpNotificationsEnableGroup,_Dv:cItpSpNotificationsGroup,_EI:cItpSpStatsGroup,_EJ:cItpSpScalarsGroupRev2,_EK:cItpSpLinksetGroupRev2,_EL:cItpSpLinkGroupRev2,_EM:cItpSpNotificationsEnableGroupRev2,_EN:cItpSpNotificationsGroupRev2})
+#
+# PySNMP MIB module CISCO-ITP-SP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-ITP-SP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:59 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+CItpTcPointCode, CItpTcTimerMtp2T01, CItpTcTimerMtp3T25, CItpTcTimerMtp3T30, CItpTcTimerMtp3T33, CItpTcTimerMtp3T02, CItpTcTimerMtp3T26, CItpTcLinkType, CItpTcTimerMtp2T06, CItpTcTimerMtp3T07, CItpTcDisplayPC, CItpTcTimerMtp3T06, CItpTcTimerMtp3T12, CItpTcTimerMtp3T20, CItpTcTimerMtp3T21, CItpTcTimerMtp3T24, CItpTcTimerMtp3T10, CItpTcTimerMtp3T13, CItpTcCLLI, CItpTcNetworkIndicator, CItpTcTimerMtp3T01, CItpTcTimerMtp3T17, CItpTcTimerMtp2T07, CItpTcTimerMtp2T02, CItpTcTimerLinkMessage, CItpTcTimerMtp3T27, CItpTcSs7Variant, CItpTcTimerMtp3T19, CItpTcTimerMtp3T28, CItpTcRouteTableName, CItpTcTimerMtp2T04E, CItpTcTimerMtp3T32, CItpTcTimerMtp3T11, CItpTcTimerMtp2T03, CItpTcLinksetId, CItpTcTimerMtp3T18, CItpTcTimerLinkActRetry, CItpTcTimerMtp3T22, CItpTcTimerMtp3T03, CItpTcTimerMtp2T05, CItpTcTimerMtp3T04, CItpTcTimerMtp2T04N, CItpTcLinkSLC, CItpTcTimerMtp3T29, CItpTcTimerMtp3T05, CItpTcTimerMtp3T15, CItpTcPointCodeType, CItpTcQos, CItpTcTimerLinkTest, CItpTcTimerMtp3T14, CItpTcTimerMtp3T16, CItpTcTimerMtp3T08, CItpTcTimerMtp3T34, CItpTcTimerMtp3T23, CItpTcTimerMtp3T31, CItpTcAclId = mibBuilder.importSymbols("CISCO-ITP-TC-MIB", "CItpTcPointCode", "CItpTcTimerMtp2T01", "CItpTcTimerMtp3T25", "CItpTcTimerMtp3T30", "CItpTcTimerMtp3T33", "CItpTcTimerMtp3T02", "CItpTcTimerMtp3T26", "CItpTcLinkType", "CItpTcTimerMtp2T06", "CItpTcTimerMtp3T07", "CItpTcDisplayPC", "CItpTcTimerMtp3T06", "CItpTcTimerMtp3T12", "CItpTcTimerMtp3T20", "CItpTcTimerMtp3T21", "CItpTcTimerMtp3T24", "CItpTcTimerMtp3T10", "CItpTcTimerMtp3T13", "CItpTcCLLI", "CItpTcNetworkIndicator", "CItpTcTimerMtp3T01", "CItpTcTimerMtp3T17", "CItpTcTimerMtp2T07", "CItpTcTimerMtp2T02", "CItpTcTimerLinkMessage", "CItpTcTimerMtp3T27", "CItpTcSs7Variant", "CItpTcTimerMtp3T19", "CItpTcTimerMtp3T28", "CItpTcRouteTableName", "CItpTcTimerMtp2T04E", "CItpTcTimerMtp3T32", "CItpTcTimerMtp3T11", "CItpTcTimerMtp2T03", "CItpTcLinksetId", "CItpTcTimerMtp3T18", "CItpTcTimerLinkActRetry", "CItpTcTimerMtp3T22", "CItpTcTimerMtp3T03", "CItpTcTimerMtp2T05", "CItpTcTimerMtp3T04", "CItpTcTimerMtp2T04N", "CItpTcLinkSLC", "CItpTcTimerMtp3T29", "CItpTcTimerMtp3T05", "CItpTcTimerMtp3T15", "CItpTcPointCodeType", "CItpTcQos", "CItpTcTimerLinkTest", "CItpTcTimerMtp3T14", "CItpTcTimerMtp3T16", "CItpTcTimerMtp3T08", "CItpTcTimerMtp3T34", "CItpTcTimerMtp3T23", "CItpTcTimerMtp3T31", "CItpTcAclId")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TimeStamp, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "RowStatus", "TruthValue", "TextualConvention")
+ciscoItpSpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 232))
+ciscoItpSpMIB.setRevisions(('2003-02-18 00:00', '2002-03-07 00:00', '2002-01-23 00:00', '2001-08-29 00:00',))
+if mibBuilder.loadTexts: ciscoItpSpMIB.setLastUpdated('200302180000Z')
+if mibBuilder.loadTexts: ciscoItpSpMIB.setOrganization('Cisco Systems, Inc.')
+cItpSpMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 232, 0))
+cItpSpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 232, 1))
+cItpSpMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 232, 2))
+cItpSpScalars = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1))
+cItpSpPointCode = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 2))
+cItpSpLinkset = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3))
+cItpSpLink = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4))
+cItpSpNotificationsEnable = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 5))
+class CItpSpSequenceNumber(TextualConvention, Unsigned32):
+    status = 'deprecated'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 65535)
+
+class CItpSpSampleInterval(TextualConvention, Unsigned32):
+    status = 'deprecated'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(60, 3600)
+
+class CItpSpPercentThreshold(TextualConvention, Unsigned32):
+    status = 'deprecated'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 100)
+
+class CItpSpLinkUtilization(TextualConvention, Unsigned32):
+    status = 'deprecated'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 999)
+
+class CItpSpLinkCapacity(TextualConvention, Unsigned32):
+    status = 'deprecated'
+    subtypeSpec = Unsigned32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(56000, 2147483647), )
+class CItpSpLinkUtilizationState(TextualConvention, Integer32):
+    status = 'deprecated'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("unMonitored", 0), ("underThreshold", 1), ("overThreshold", 2))
+
+cItpSpVariant = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 1), CItpTcSs7Variant()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpVariant.setStatus('deprecated')
+cItpSpCLLICode = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 2), CItpTcCLLI()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpCLLICode.setStatus('deprecated')
+cItpSpDisplayName = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpDisplayName.setStatus('deprecated')
+cItpSpDescription = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 254))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpDescription.setStatus('deprecated')
+cItpSpMtp2T01 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 5), CItpTcTimerMtp2T01()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp2T01.setStatus('deprecated')
+cItpSpMtp2T02 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 6), CItpTcTimerMtp2T02()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp2T02.setStatus('deprecated')
+cItpSpMtp2T03 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 7), CItpTcTimerMtp2T03()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp2T03.setStatus('deprecated')
+cItpSpMtp2T04E = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 8), CItpTcTimerMtp2T04E()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp2T04E.setStatus('deprecated')
+cItpSpMtp2T04N = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 9), CItpTcTimerMtp2T04N()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp2T04N.setStatus('deprecated')
+cItpSpMtp2T05 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 10), CItpTcTimerMtp2T05()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp2T05.setStatus('deprecated')
+cItpSpMtp2T06 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 11), CItpTcTimerMtp2T06()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp2T06.setStatus('deprecated')
+cItpSpMtp2T07 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 12), CItpTcTimerMtp2T07()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp2T07.setStatus('deprecated')
+cItpSpMtp3T01 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 13), CItpTcTimerMtp3T01()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T01.setStatus('deprecated')
+cItpSpMtp3T02 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 14), CItpTcTimerMtp3T02()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T02.setStatus('deprecated')
+cItpSpMtp3T03 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 15), CItpTcTimerMtp3T03()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T03.setStatus('deprecated')
+cItpSpMtp3T04 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 16), CItpTcTimerMtp3T04()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T04.setStatus('deprecated')
+cItpSpMtp3T05 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 17), CItpTcTimerMtp3T05()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T05.setStatus('deprecated')
+cItpSpMtp3T06 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 18), CItpTcTimerMtp3T06()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T06.setStatus('deprecated')
+cItpSpMtp3T07 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 19), CItpTcTimerMtp3T07()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T07.setStatus('deprecated')
+cItpSpMtp3T08 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 20), CItpTcTimerMtp3T08()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T08.setStatus('deprecated')
+cItpSpMtp3T10 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 21), CItpTcTimerMtp3T10()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T10.setStatus('deprecated')
+cItpSpMtp3T11 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 22), CItpTcTimerMtp3T11()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T11.setStatus('deprecated')
+cItpSpMtp3T12 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 23), CItpTcTimerMtp3T12()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T12.setStatus('deprecated')
+cItpSpMtp3T13 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 24), CItpTcTimerMtp3T13()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T13.setStatus('deprecated')
+cItpSpMtp3T14 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 25), CItpTcTimerMtp3T14()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T14.setStatus('deprecated')
+cItpSpMtp3T15 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 26), CItpTcTimerMtp3T15()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T15.setStatus('deprecated')
+cItpSpMtp3T16 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 27), CItpTcTimerMtp3T16()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T16.setStatus('deprecated')
+cItpSpMtp3T17 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 28), CItpTcTimerMtp3T17()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T17.setStatus('deprecated')
+cItpSpMtp3T18 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 29), CItpTcTimerMtp3T18()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T18.setStatus('deprecated')
+cItpSpMtp3T19 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 30), CItpTcTimerMtp3T19()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T19.setStatus('deprecated')
+cItpSpMtp3T20 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 31), CItpTcTimerMtp3T20()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T20.setStatus('deprecated')
+cItpSpMtp3T21 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 32), CItpTcTimerMtp3T21()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T21.setStatus('deprecated')
+cItpSpMtp3T22 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 33), CItpTcTimerMtp3T22()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T22.setStatus('deprecated')
+cItpSpMtp3T23 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 34), CItpTcTimerMtp3T23()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T23.setStatus('deprecated')
+cItpSpMtp3T24 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 35), CItpTcTimerMtp3T24()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T24.setStatus('deprecated')
+cItpSpMtp3T25 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 36), CItpTcTimerMtp3T25()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T25.setStatus('deprecated')
+cItpSpMtp3T26 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 37), CItpTcTimerMtp3T26()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T26.setStatus('deprecated')
+cItpSpMtp3T27 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 38), CItpTcTimerMtp3T27()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T27.setStatus('deprecated')
+cItpSpMtp3T28 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 39), CItpTcTimerMtp3T28()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T28.setStatus('deprecated')
+cItpSpMtp3T29 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 40), CItpTcTimerMtp3T29()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T29.setStatus('deprecated')
+cItpSpMtp3T30 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 41), CItpTcTimerMtp3T30()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T30.setStatus('deprecated')
+cItpSpMtp3T31 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 42), CItpTcTimerMtp3T31()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T31.setStatus('deprecated')
+cItpSpMtp3T32 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 43), CItpTcTimerMtp3T32()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T32.setStatus('deprecated')
+cItpSpMtp3T33 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 44), CItpTcTimerMtp3T33()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T33.setStatus('deprecated')
+cItpSpMtp3T34 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 45), CItpTcTimerMtp3T34()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpMtp3T34.setStatus('deprecated')
+cItpSpTimerLinkTest = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 46), CItpTcTimerLinkTest()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpTimerLinkTest.setStatus('deprecated')
+cItpSpTimerLinkMessage = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 47), CItpTcTimerLinkMessage()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpTimerLinkMessage.setStatus('deprecated')
+cItpSpTimerLinkActRetry = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 48), CItpTcTimerLinkActRetry()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpTimerLinkActRetry.setStatus('deprecated')
+cItpSpTFR = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 49), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpTFR.setStatus('deprecated')
+cItpSpCongestionsLevels = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 50), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpCongestionsLevels.setStatus('deprecated')
+cItpSpFastRestart = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 51), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpFastRestart.setStatus('deprecated')
+cItpSpDistSccpUnseq = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 52), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpDistSccpUnseq.setStatus('deprecated')
+cItpSpSummaryRoutingException = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 53), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpSummaryRoutingException.setStatus('deprecated')
+cItpSpUtilSampleInterval = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 54), CItpSpSampleInterval().clone(300)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpUtilSampleInterval.setStatus('deprecated')
+cItpSpUtilThreshold = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 55), CItpSpPercentThreshold().clone(40)).setUnits('percent').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpUtilThreshold.setStatus('deprecated')
+cItpSpUtilAbateDelta = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 1, 56), CItpSpPercentThreshold()).setUnits('percent').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpUtilAbateDelta.setStatus('deprecated')
+cItpSpPointCodeTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 2, 1), )
+if mibBuilder.loadTexts: cItpSpPointCodeTable.setStatus('deprecated')
+cItpSpPointCodeTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 2, 1, 1), ).setIndexNames((0, "CISCO-ITP-SP-MIB", "cItpSpPointCodeNi"), (0, "CISCO-ITP-SP-MIB", "cItpSpPointCodeBin"))
+if mibBuilder.loadTexts: cItpSpPointCodeTableEntry.setStatus('deprecated')
+cItpSpPointCodeNi = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 2, 1, 1, 1), CItpTcNetworkIndicator())
+if mibBuilder.loadTexts: cItpSpPointCodeNi.setStatus('deprecated')
+cItpSpPointCodeBin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 2, 1, 1, 2), CItpTcPointCode())
+if mibBuilder.loadTexts: cItpSpPointCodeBin.setStatus('deprecated')
+cItpSpPointCodeType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 2, 1, 1, 3), CItpTcPointCodeType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpPointCodeType.setStatus('deprecated')
+cItpSpPointCodeDisplay = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 2, 1, 1, 4), CItpTcDisplayPC()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpPointCodeDisplay.setStatus('deprecated')
+cItpSpPointCodeRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 2, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpPointCodeRowStatus.setStatus('deprecated')
+cItpSpLinksetTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1), )
+if mibBuilder.loadTexts: cItpSpLinksetTable.setStatus('deprecated')
+cItpSpLinksetTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1), ).setIndexNames((0, "CISCO-ITP-SP-MIB", "cItpSpLinksetName"))
+if mibBuilder.loadTexts: cItpSpLinksetTableEntry.setStatus('deprecated')
+cItpSpLinksetName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 1), CItpTcLinksetId())
+if mibBuilder.loadTexts: cItpSpLinksetName.setStatus('deprecated')
+cItpSpLinksetSourcePointCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 2), CItpTcPointCode()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetSourcePointCode.setStatus('deprecated')
+cItpSpLinksetSourceDisplayPC = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 3), CItpTcDisplayPC()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinksetSourceDisplayPC.setStatus('deprecated')
+cItpSpLinksetAdjacentPointCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 4), CItpTcPointCode()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetAdjacentPointCode.setStatus('deprecated')
+cItpSpLinksetAdjacentDisplayPC = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 5), CItpTcDisplayPC()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinksetAdjacentDisplayPC.setStatus('deprecated')
+cItpSpLinksetState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("available", 1), ("shutdown", 2), ("unavailable", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinksetState.setStatus('deprecated')
+cItpSpLinksetInboundAcl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 7), CItpTcAclId()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetInboundAcl.setStatus('deprecated')
+cItpSpLinksetOutboundAcl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 8), CItpTcAclId()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetOutboundAcl.setStatus('deprecated')
+cItpSpLinksetSnmmRTN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 9), CItpTcRouteTableName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetSnmmRTN.setStatus('deprecated')
+cItpSpLinksetSntmRTN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 10), CItpTcRouteTableName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetSntmRTN.setStatus('deprecated')
+cItpSpLinksetSpare2RTN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 11), CItpTcRouteTableName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetSpare2RTN.setStatus('deprecated')
+cItpSpLinksetSccpRTN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 12), CItpTcRouteTableName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetSccpRTN.setStatus('deprecated')
+cItpSpLinksetTupRTN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 13), CItpTcRouteTableName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetTupRTN.setStatus('deprecated')
+cItpSpLinksetIsupRTN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 14), CItpTcRouteTableName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetIsupRTN.setStatus('deprecated')
+cItpSpLinksetDupcRTN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 15), CItpTcRouteTableName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetDupcRTN.setStatus('deprecated')
+cItpSpLinksetDupfRTN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 16), CItpTcRouteTableName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetDupfRTN.setStatus('deprecated')
+cItpSpLinksetMtupRTN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 17), CItpTcRouteTableName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtupRTN.setStatus('deprecated')
+cItpSpLinksetBisupRTN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 18), CItpTcRouteTableName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetBisupRTN.setStatus('deprecated')
+cItpSpLinksetSisupRTN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 19), CItpTcRouteTableName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetSisupRTN.setStatus('deprecated')
+cItpSpLinksetSpare11RTN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 20), CItpTcRouteTableName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetSpare11RTN.setStatus('deprecated')
+cItpSpLinksetSpare12RTN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 21), CItpTcRouteTableName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetSpare12RTN.setStatus('deprecated')
+cItpSpLinksetSpare13RTN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 22), CItpTcRouteTableName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetSpare13RTN.setStatus('deprecated')
+cItpSpLinksetSpare14RTN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 23), CItpTcRouteTableName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetSpare14RTN.setStatus('deprecated')
+cItpSpLinksetSpare15RTN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 24), CItpTcRouteTableName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetSpare15RTN.setStatus('deprecated')
+cItpSpLinksetAccountingEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 25), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetAccountingEnabled.setStatus('deprecated')
+cItpSpLinksetNumLinks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 26), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinksetNumLinks.setStatus('deprecated')
+cItpSpLinksetDurationInService = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 27), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinksetDurationInService.setStatus('deprecated')
+cItpSpLinksetDurationOutService = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 28), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinksetDurationOutService.setStatus('deprecated')
+cItpSpLinksetMtp2T01 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 29), CItpTcTimerMtp2T01()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp2T01.setStatus('deprecated')
+cItpSpLinksetMtp2T02 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 30), CItpTcTimerMtp2T02()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp2T02.setStatus('deprecated')
+cItpSpLinksetMtp2T03 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 31), CItpTcTimerMtp2T03()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp2T03.setStatus('deprecated')
+cItpSpLinksetMtp2T04E = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 32), CItpTcTimerMtp2T04E()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp2T04E.setStatus('deprecated')
+cItpSpLinksetMtp2T04N = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 33), CItpTcTimerMtp2T04N()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp2T04N.setStatus('deprecated')
+cItpSpLinksetMtp2T05 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 34), CItpTcTimerMtp2T05()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp2T05.setStatus('deprecated')
+cItpSpLinksetMtp2T06 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 35), CItpTcTimerMtp2T06()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp2T06.setStatus('deprecated')
+cItpSpLinksetMtp2T07 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 36), CItpTcTimerMtp2T07()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp2T07.setStatus('deprecated')
+cItpSpLinksetMtp3T01 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 37), CItpTcTimerMtp3T01()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T01.setStatus('deprecated')
+cItpSpLinksetMtp3T02 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 38), CItpTcTimerMtp3T02()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T02.setStatus('deprecated')
+cItpSpLinksetMtp3T03 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 39), CItpTcTimerMtp3T03()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T03.setStatus('deprecated')
+cItpSpLinksetMtp3T04 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 40), CItpTcTimerMtp3T04()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T04.setStatus('deprecated')
+cItpSpLinksetMtp3T05 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 41), CItpTcTimerMtp3T05()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T05.setStatus('deprecated')
+cItpSpLinksetMtp3T06 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 42), CItpTcTimerMtp3T06()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T06.setStatus('deprecated')
+cItpSpLinksetMtp3T07 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 43), CItpTcTimerMtp3T07()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T07.setStatus('deprecated')
+cItpSpLinksetMtp3T08 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 44), CItpTcTimerMtp3T08()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T08.setStatus('deprecated')
+cItpSpLinksetMtp3T10 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 45), CItpTcTimerMtp3T10()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T10.setStatus('deprecated')
+cItpSpLinksetMtp3T11 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 46), CItpTcTimerMtp3T11()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T11.setStatus('deprecated')
+cItpSpLinksetMtp3T12 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 47), CItpTcTimerMtp3T12()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T12.setStatus('deprecated')
+cItpSpLinksetMtp3T13 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 48), CItpTcTimerMtp3T13()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T13.setStatus('deprecated')
+cItpSpLinksetMtp3T14 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 49), CItpTcTimerMtp3T14()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T14.setStatus('deprecated')
+cItpSpLinksetMtp3T15 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 50), CItpTcTimerMtp3T15()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T15.setStatus('deprecated')
+cItpSpLinksetMtp3T16 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 51), CItpTcTimerMtp3T16()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T16.setStatus('deprecated')
+cItpSpLinksetMtp3T17 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 52), CItpTcTimerMtp3T17()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T17.setStatus('deprecated')
+cItpSpLinksetMtp3T18 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 53), CItpTcTimerMtp3T18()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T18.setStatus('deprecated')
+cItpSpLinksetMtp3T19 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 54), CItpTcTimerMtp3T19()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T19.setStatus('deprecated')
+cItpSpLinksetMtp3T20 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 55), CItpTcTimerMtp3T20()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T20.setStatus('deprecated')
+cItpSpLinksetMtp3T21 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 56), CItpTcTimerMtp3T21()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T21.setStatus('deprecated')
+cItpSpLinksetMtp3T22 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 57), CItpTcTimerMtp3T22()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T22.setStatus('deprecated')
+cItpSpLinksetMtp3T23 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 58), CItpTcTimerMtp3T23()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T23.setStatus('deprecated')
+cItpSpLinksetMtp3T24 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 59), CItpTcTimerMtp3T24()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T24.setStatus('deprecated')
+cItpSpLinksetMtp3T25 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 60), CItpTcTimerMtp3T25()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T25.setStatus('deprecated')
+cItpSpLinksetMtp3T26 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 61), CItpTcTimerMtp3T26()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T26.setStatus('deprecated')
+cItpSpLinksetMtp3T27 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 62), CItpTcTimerMtp3T27()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T27.setStatus('deprecated')
+cItpSpLinksetMtp3T28 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 63), CItpTcTimerMtp3T28()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T28.setStatus('deprecated')
+cItpSpLinksetMtp3T29 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 64), CItpTcTimerMtp3T29()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T29.setStatus('deprecated')
+cItpSpLinksetMtp3T30 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 65), CItpTcTimerMtp3T30()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T30.setStatus('deprecated')
+cItpSpLinksetMtp3T31 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 66), CItpTcTimerMtp3T31()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T31.setStatus('deprecated')
+cItpSpLinksetMtp3T32 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 67), CItpTcTimerMtp3T32()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T32.setStatus('deprecated')
+cItpSpLinksetMtp3T33 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 68), CItpTcTimerMtp3T33()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T33.setStatus('deprecated')
+cItpSpLinksetMtp3T34 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 69), CItpTcTimerMtp3T34()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetMtp3T34.setStatus('deprecated')
+cItpSpLinksetTimerLinkTest = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 70), CItpTcTimerLinkTest()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetTimerLinkTest.setStatus('deprecated')
+cItpSpLinksetTimerLinkMessage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 71), CItpTcTimerLinkMessage()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetTimerLinkMessage.setStatus('deprecated')
+cItpSpLinksetTimerLinkActRetry = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 72), CItpTcTimerLinkActRetry()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetTimerLinkActRetry.setStatus('deprecated')
+cItpSpLinksetPlanCapacity = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 73), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(56000, 2147483647), ))).setUnits('bps').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetPlanCapacity.setStatus('deprecated')
+cItpSpLinksetActPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 74), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetActPriority.setStatus('deprecated')
+cItpSpLinksetType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 75), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("access", 1), ("bridge", 2), ("cross", 3), ("diagonal", 4), ("fullyAssoc", 5)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetType.setStatus('deprecated')
+cItpSpLinksetRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 76), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetRowStatus.setStatus('deprecated')
+cItpSpLinksetNi = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 77), CItpTcNetworkIndicator()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetNi.setStatus('deprecated')
+cItpSpLinksetDisplayName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 78), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetDisplayName.setStatus('deprecated')
+cItpSpLinksetDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 79), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 254))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetDescription.setStatus('deprecated')
+cItpSpLinksetVariant = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 3, 1, 1, 80), CItpTcSs7Variant()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinksetVariant.setStatus('deprecated')
+cItpSpLinkTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1), )
+if mibBuilder.loadTexts: cItpSpLinkTable.setStatus('deprecated')
+cItpSpLinkTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1), ).setIndexNames((0, "CISCO-ITP-SP-MIB", "cItpSpLinksetName"), (0, "CISCO-ITP-SP-MIB", "cItpSpLinkSlc"))
+if mibBuilder.loadTexts: cItpSpLinkTableEntry.setStatus('deprecated')
+cItpSpLinkSlc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 1), CItpTcLinkSLC())
+if mibBuilder.loadTexts: cItpSpLinkSlc.setStatus('deprecated')
+cItpSpLinkDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 254))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkDescription.setStatus('deprecated')
+cItpSpLinkState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("available", 1), ("failed", 2), ("shutdown", 3), ("unavailable", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkState.setStatus('deprecated')
+cItpSpLinkType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 4), CItpTcLinkType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkType.setStatus('deprecated')
+cItpSpLinkifIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 5), InterfaceIndexOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkifIndex.setStatus('deprecated')
+cItpSpLinkSctpAssociation = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkSctpAssociation.setStatus('deprecated')
+cItpSpLinkMtp3PacketsRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 7), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkMtp3PacketsRcvd.setStatus('deprecated')
+cItpSpLinkMtp3PacketsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 8), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkMtp3PacketsSent.setStatus('deprecated')
+cItpSpLinkMtp3BytesRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 9), Counter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkMtp3BytesRcvd.setStatus('deprecated')
+cItpSpLinkMtp3BytesSent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 10), Counter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkMtp3BytesSent.setStatus('deprecated')
+cItpSpLinkMtp2T01 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 11), CItpTcTimerMtp2T01()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp2T01.setStatus('deprecated')
+cItpSpLinkMtp2T02 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 12), CItpTcTimerMtp2T02()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp2T02.setStatus('deprecated')
+cItpSpLinkMtp2T03 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 13), CItpTcTimerMtp2T03()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp2T03.setStatus('deprecated')
+cItpSpLinkMtp2T04E = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 14), CItpTcTimerMtp2T04E()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp2T04E.setStatus('deprecated')
+cItpSpLinkMtp2T04N = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 15), CItpTcTimerMtp2T04N()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp2T04N.setStatus('deprecated')
+cItpSpLinkMtp2T05 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 16), CItpTcTimerMtp2T05()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp2T05.setStatus('deprecated')
+cItpSpLinkMtp2T06 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 17), CItpTcTimerMtp2T06()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp2T06.setStatus('deprecated')
+cItpSpLinkMtp2T07 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 18), CItpTcTimerMtp2T07()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp2T07.setStatus('deprecated')
+cItpSpLinkMtp3T01 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 19), CItpTcTimerMtp3T01()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T01.setStatus('deprecated')
+cItpSpLinkMtp3T02 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 20), CItpTcTimerMtp3T02()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T02.setStatus('deprecated')
+cItpSpLinkMtp3T03 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 21), CItpTcTimerMtp3T03()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T03.setStatus('deprecated')
+cItpSpLinkMtp3T04 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 22), CItpTcTimerMtp3T04()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T04.setStatus('deprecated')
+cItpSpLinkMtp3T05 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 23), CItpTcTimerMtp3T05()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T05.setStatus('deprecated')
+cItpSpLinkMtp3T06 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 24), CItpTcTimerMtp3T06()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T06.setStatus('deprecated')
+cItpSpLinkMtp3T07 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 25), CItpTcTimerMtp3T07()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T07.setStatus('deprecated')
+cItpSpLinkMtp3T08 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 26), CItpTcTimerMtp3T08()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T08.setStatus('deprecated')
+cItpSpLinkMtp3T10 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 27), CItpTcTimerMtp3T10()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T10.setStatus('deprecated')
+cItpSpLinkMtp3T11 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 28), CItpTcTimerMtp3T11()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T11.setStatus('deprecated')
+cItpSpLinkMtp3T12 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 29), CItpTcTimerMtp3T12()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T12.setStatus('deprecated')
+cItpSpLinkMtp3T13 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 30), CItpTcTimerMtp3T13()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T13.setStatus('deprecated')
+cItpSpLinkMtp3T14 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 31), CItpTcTimerMtp3T14()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T14.setStatus('deprecated')
+cItpSpLinkMtp3T15 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 32), CItpTcTimerMtp3T15()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T15.setStatus('deprecated')
+cItpSpLinkMtp3T16 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 33), CItpTcTimerMtp3T16()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T16.setStatus('deprecated')
+cItpSpLinkMtp3T17 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 34), CItpTcTimerMtp3T17()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T17.setStatus('deprecated')
+cItpSpLinkMtp3T18 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 35), CItpTcTimerMtp3T18()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T18.setStatus('deprecated')
+cItpSpLinkMtp3T19 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 36), CItpTcTimerMtp3T19()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T19.setStatus('deprecated')
+cItpSpLinkMtp3T20 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 37), CItpTcTimerMtp3T20()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T20.setStatus('deprecated')
+cItpSpLinkMtp3T21 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 38), CItpTcTimerMtp3T21()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T21.setStatus('deprecated')
+cItpSpLinkMtp3T22 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 39), CItpTcTimerMtp3T22()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T22.setStatus('deprecated')
+cItpSpLinkMtp3T23 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 40), CItpTcTimerMtp3T23()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T23.setStatus('deprecated')
+cItpSpLinkMtp3T24 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 41), CItpTcTimerMtp3T24()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T24.setStatus('deprecated')
+cItpSpLinkMtp3T25 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 42), CItpTcTimerMtp3T25()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T25.setStatus('deprecated')
+cItpSpLinkMtp3T26 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 43), CItpTcTimerMtp3T26()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T26.setStatus('deprecated')
+cItpSpLinkMtp3T27 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 44), CItpTcTimerMtp3T27()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T27.setStatus('deprecated')
+cItpSpLinkMtp3T28 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 45), CItpTcTimerMtp3T28()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T28.setStatus('deprecated')
+cItpSpLinkMtp3T29 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 46), CItpTcTimerMtp3T29()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T29.setStatus('deprecated')
+cItpSpLinkMtp3T30 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 47), CItpTcTimerMtp3T30()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T30.setStatus('deprecated')
+cItpSpLinkMtp3T31 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 48), CItpTcTimerMtp3T31()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T31.setStatus('deprecated')
+cItpSpLinkMtp3T32 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 49), CItpTcTimerMtp3T32()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T32.setStatus('deprecated')
+cItpSpLinkMtp3T33 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 50), CItpTcTimerMtp3T33()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T33.setStatus('deprecated')
+cItpSpLinkMtp3T34 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 51), CItpTcTimerMtp3T34()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkMtp3T34.setStatus('deprecated')
+cItpSpLinkTimerLinkTest = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 52), CItpTcTimerLinkTest()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkTimerLinkTest.setStatus('deprecated')
+cItpSpLinkTimerLinkMessage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 53), CItpTcTimerLinkMessage()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkTimerLinkMessage.setStatus('deprecated')
+cItpSpLinkTimerLinkActRetry = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 54), CItpTcTimerLinkActRetry()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkTimerLinkActRetry.setStatus('deprecated')
+cItpSpLinkXmitQueueDepth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 55), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkXmitQueueDepth.setStatus('deprecated')
+cItpSpLinkXmitQueueDepthHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 56), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkXmitQueueDepthHigh.setStatus('deprecated')
+cItpSpLinkXmitQueueDepthHighRT = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 57), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkXmitQueueDepthHighRT.setStatus('deprecated')
+cItpSpLinkCongestionState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 58), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkCongestionState.setStatus('deprecated')
+cItpSpLinkCongestionAbate1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 59), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkCongestionAbate1.setStatus('deprecated')
+cItpSpLinkCongestionAbate2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 60), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkCongestionAbate2.setStatus('deprecated')
+cItpSpLinkCongestionAbate3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 61), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkCongestionAbate3.setStatus('deprecated')
+cItpSpLinkCongestionOnset1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 62), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkCongestionOnset1.setStatus('deprecated')
+cItpSpLinkCongestionOnset2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 63), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkCongestionOnset2.setStatus('deprecated')
+cItpSpLinkCongestionOnset3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 64), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkCongestionOnset3.setStatus('deprecated')
+cItpSpLinkSigLinkTest = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 65), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkSigLinkTest.setStatus('deprecated')
+cItpSpLinkQ752T1E1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 66), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T1E1.setStatus('deprecated')
+cItpSpLinkQ752T1E2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 67), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T1E2.setStatus('deprecated')
+cItpSpLinkQ752T1E3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 68), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T1E3.setStatus('deprecated')
+cItpSpLinkQ752T1E4 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 69), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T1E4.setStatus('deprecated')
+cItpSpLinkQ752T1E5 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 70), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T1E5.setStatus('deprecated')
+cItpSpLinkQ752T1E6 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 71), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T1E6.setStatus('deprecated')
+cItpSpLinkQ752T1E7 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 72), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T1E7.setStatus('deprecated')
+cItpSpLinkQ752T1E8 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 73), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T1E8.setStatus('deprecated')
+cItpSpLinkQ752T1E9 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 74), Counter32()).setUnits('negative acknowledgements').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T1E9.setStatus('deprecated')
+cItpSpLinkQ752T1E10 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 75), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T1E10.setStatus('deprecated')
+cItpSpLinkQ752T1E11 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 76), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T1E11.setStatus('deprecated')
+cItpSpLinkQ752T2E1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 77), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T2E1.setStatus('deprecated')
+cItpSpLinkQ752T2E5 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 78), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T2E5.setStatus('deprecated')
+cItpSpLinkQ752T2E6 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 79), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T2E6.setStatus('deprecated')
+cItpSpLinkQ752T2E7 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 80), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T2E7.setStatus('deprecated')
+cItpSpLinkQ752T2E9 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 81), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T2E9.setStatus('deprecated')
+cItpSpLinkQ752T2E10 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 82), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T2E10.setStatus('deprecated')
+cItpSpLinkQ752T2E15 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 83), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T2E15.setStatus('deprecated')
+cItpSpLinkQ752T2E16 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 84), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T2E16.setStatus('deprecated')
+cItpSpLinkQ752T2E18 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 85), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T2E18.setStatus('deprecated')
+cItpSpLinkMtp3PacketsRetrans = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 86), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkMtp3PacketsRetrans.setStatus('deprecated')
+cItpSpLinkMtp3BytesRetrans = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 87), Counter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkMtp3BytesRetrans.setStatus('deprecated')
+cItpSpLinkQ752T3E6 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 88), Counter32()).setUnits('events').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T3E6.setStatus('deprecated')
+cItpSpLinkQ752T3E7 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 89), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T3E7.setStatus('deprecated')
+cItpSpLinkQ752T3E10L1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 90), Counter32()).setUnits('Packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T3E10L1.setStatus('deprecated')
+cItpSpLinkQ752T3E10L2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 91), Counter32()).setUnits('Packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T3E10L2.setStatus('deprecated')
+cItpSpLinkQ752T3E10L3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 92), Counter32()).setUnits('Packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T3E10L3.setStatus('deprecated')
+cItpSpLinkQ752T3E11L1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 93), Counter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T3E11L1.setStatus('deprecated')
+cItpSpLinkQ752T3E11L2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 94), Counter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T3E11L2.setStatus('deprecated')
+cItpSpLinkQ752T3E11L3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 95), Counter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkQ752T3E11L3.setStatus('deprecated')
+cItpSpLinkIPType1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 96), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkIPType1.setStatus('deprecated')
+cItpSpLinkIPType2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 97), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkIPType2.setStatus('deprecated')
+cItpSpLinkIPType3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 98), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkIPType3.setStatus('deprecated')
+cItpSpLinkIPType4 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 99), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkIPType4.setStatus('deprecated')
+cItpSpLinkIPAddr1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 100), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkIPAddr1.setStatus('deprecated')
+cItpSpLinkIPAddr2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 101), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkIPAddr2.setStatus('deprecated')
+cItpSpLinkIPAddr3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 102), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkIPAddr3.setStatus('deprecated')
+cItpSpLinkIPAddr4 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 103), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkIPAddr4.setStatus('deprecated')
+cItpSpLinkLocalPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 104), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkLocalPort.setStatus('deprecated')
+cItpSpLinkRemotePort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 105), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkRemotePort.setStatus('deprecated')
+cItpSpLinkQosClass = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 106), CItpTcQos()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkQosClass.setStatus('deprecated')
+cItpSpLinkRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 107), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkRowStatus.setStatus('deprecated')
+cItpSpLinkStateReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 108), Bits().clone(namedValues=NamedValues(("localInhibit", 0), ("remoteInhibit", 1), ("blocked", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkStateReason.setStatus('deprecated')
+cItpSpLinkDisplayName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 109), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkDisplayName.setStatus('deprecated')
+cItpSpLinkDroppedPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 110), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkDroppedPkts.setStatus('deprecated')
+cItpSpLinkTransmittedLssu = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 111), Counter32()).setUnits('LSSU').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkTransmittedLssu.setStatus('deprecated')
+cItpSpLinkReceivedLssu = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 112), Counter32()).setUnits('LSSU').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkReceivedLssu.setStatus('deprecated')
+cItpSpLinkProtocolDetails = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 113), Bits().clone(namedValues=NamedValues(("tcbcBuffering", 0), ("tcocBuffering", 1), ("tlacAdjacentSpRestarting", 2), ("tlacEmergencyCoInProgress", 3), ("tlacChangebackInProgress", 4), ("tlacChangeoverInProgress", 5), ("tlacChangeoverFailed", 6), ("tlacInhibitRetry", 7), ("tlacManagementRequest", 8), ("tlacSpRestarting", 9), ("tsrcChangeOverComplete", 10), ("tsrcAdjacentSpRestart", 11)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkProtocolDetails.setStatus('deprecated')
+cItpSpLinkLsacState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 114), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("undefined", 1), ("inactive", 2), ("active", 3), ("activatingRestoring", 4), ("failed", 5), ("actT17wait", 6), ("actAnsiWaitDeloaded", 7), ("actItuWaitStmReady", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkLsacState.setStatus('deprecated')
+cItpSpLinkTsrcState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 115), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("undefined", 1), ("idle", 2), ("wait5", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkTsrcState.setStatus('deprecated')
+cItpSpLinkTcocState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 116), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("undefined", 1), ("idle", 2), ("wait2", 3), ("waitForAck", 4), ("retrieving", 5), ("wait5", 6), ("wait7", 7), ("wait8", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkTcocState.setStatus('deprecated')
+cItpSpLinkTcocLocalBSNT = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 117), CItpSpSequenceNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkTcocLocalBSNT.setStatus('deprecated')
+cItpSpLinkTcocRemoteBSNT = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 118), CItpSpSequenceNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkTcocRemoteBSNT.setStatus('deprecated')
+cItpSpLinkTcbcState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 119), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("undefined", 1), ("idle", 2), ("firstAttempt", 3), ("secondAttempt", 4), ("timeControlledDiversion", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkTcbcState.setStatus('deprecated')
+cItpSpLinkReceivedSIB = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 120), Counter32()).setUnits('SIB').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkReceivedSIB.setStatus('deprecated')
+cItpSpLinkTransmittedSIB = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 121), Counter32()).setUnits('SIB').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkTransmittedSIB.setStatus('deprecated')
+cItpSpLinkMtp2ExpiredT01 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 122), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkMtp2ExpiredT01.setStatus('deprecated')
+cItpSpLinkMtp2ExpiredT02 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 123), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkMtp2ExpiredT02.setStatus('deprecated')
+cItpSpLinkMtp2ExpiredT03 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 124), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkMtp2ExpiredT03.setStatus('deprecated')
+cItpSpLinkMtp2ExpiredT04 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 125), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkMtp2ExpiredT04.setStatus('deprecated')
+cItpSpLinkMtp2ExpiredT05 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 126), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkMtp2ExpiredT05.setStatus('deprecated')
+cItpSpLinkMtp2ExpiredT06 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 127), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkMtp2ExpiredT06.setStatus('deprecated')
+cItpSpLinkMtp2ExpiredT07 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 128), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkMtp2ExpiredT07.setStatus('deprecated')
+cItpSpLinkOMAERMCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 129), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkOMAERMCount.setStatus('deprecated')
+cItpSpLinkOMAERMFailCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 130), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkOMAERMFailCount.setStatus('deprecated')
+cItpSpLinkOMSURMCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 131), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkOMSURMCount.setStatus('deprecated')
+cItpSpLinkOMSURMFailCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 132), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkOMSURMFailCount.setStatus('deprecated')
+cItpSpLinkPlanCapacityRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 133), CItpSpLinkCapacity()).setUnits('bits per second').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkPlanCapacityRcvd.setStatus('deprecated')
+cItpSpLinkUtilThresholdRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 134), CItpSpPercentThreshold()).setUnits('percent').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkUtilThresholdRcvd.setStatus('deprecated')
+cItpSpLinkUtilizationRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 135), CItpSpLinkUtilization()).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkUtilizationRcvd.setStatus('deprecated')
+cItpSpLinkUtilStateRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 136), CItpSpLinkUtilizationState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkUtilStateRcvd.setStatus('deprecated')
+cItpSpLinkL2BytesRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 137), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkL2BytesRcvd.setStatus('deprecated')
+cItpSpLinkPlanCapacitySent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 138), CItpSpLinkCapacity()).setUnits('bits per second').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkPlanCapacitySent.setStatus('deprecated')
+cItpSpLinkUtilThresholdSent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 139), CItpSpPercentThreshold()).setUnits('percent').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cItpSpLinkUtilThresholdSent.setStatus('deprecated')
+cItpSpLinkUtilizationSent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 140), CItpSpLinkUtilization()).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkUtilizationSent.setStatus('deprecated')
+cItpSpLinkUtilStateSent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 141), CItpSpLinkUtilizationState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkUtilStateSent.setStatus('deprecated')
+cItpSpLinkL2BytesSent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 4, 1, 1, 142), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cItpSpLinkL2BytesSent.setStatus('deprecated')
+cItpSpLsStateChangeNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 5, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpLsStateChangeNotifEnabled.setStatus('deprecated')
+cItpSpLnkStateChangeNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 5, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpLnkStateChangeNotifEnabled.setStatus('deprecated')
+cItpSpCongestionNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 5, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpCongestionNotifEnabled.setStatus('deprecated')
+cItpSpLinkUtilNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 232, 1, 5, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cItpSpLinkUtilNotifEnabled.setStatus('deprecated')
+cItpSpNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 232, 0, 0))
+cItpSpLinksetStateChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 232, 0, 0, 1)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpCLLICode"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetState"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetDisplayName"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSourceDisplayPC"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetAdjacentDisplayPC"))
+if mibBuilder.loadTexts: cItpSpLinksetStateChange.setStatus('deprecated')
+cItpSpLinkStateChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 232, 0, 0, 2)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpCLLICode"), ("CISCO-ITP-SP-MIB", "cItpSpLinkState"), ("CISCO-ITP-SP-MIB", "cItpSpLinkDisplayName"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSourceDisplayPC"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetAdjacentDisplayPC"), ("CISCO-ITP-SP-MIB", "cItpSpLinkStateReason"))
+if mibBuilder.loadTexts: cItpSpLinkStateChange.setStatus('deprecated')
+cItpSpCongestionChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 232, 0, 0, 3)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpCLLICode"), ("CISCO-ITP-SP-MIB", "cItpSpLinkCongestionState"), ("CISCO-ITP-SP-MIB", "cItpSpLinkDisplayName"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSourceDisplayPC"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetAdjacentDisplayPC"))
+if mibBuilder.loadTexts: cItpSpCongestionChange.setStatus('deprecated')
+cItpSpLinkRcvdUtilChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 232, 0, 0, 4)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpCLLICode"), ("CISCO-ITP-SP-MIB", "cItpSpLinkUtilStateRcvd"), ("CISCO-ITP-SP-MIB", "cItpSpLinkDisplayName"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSourceDisplayPC"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetAdjacentDisplayPC"), ("CISCO-ITP-SP-MIB", "cItpSpLinkUtilizationRcvd"))
+if mibBuilder.loadTexts: cItpSpLinkRcvdUtilChange.setStatus('deprecated')
+cItpSpLinkSentUtilChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 232, 0, 0, 5)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpCLLICode"), ("CISCO-ITP-SP-MIB", "cItpSpLinkUtilStateSent"), ("CISCO-ITP-SP-MIB", "cItpSpLinkDisplayName"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSourceDisplayPC"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetAdjacentDisplayPC"), ("CISCO-ITP-SP-MIB", "cItpSpLinkUtilizationSent"))
+if mibBuilder.loadTexts: cItpSpLinkSentUtilChange.setStatus('deprecated')
+cItpSpMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 232, 2, 1))
+cItpSpMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 232, 2, 2))
+cItpSpMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 232, 2, 1, 1)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpScalarsGroup"), ("CISCO-ITP-SP-MIB", "cItpSpPointCodeGroup"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetGroup"), ("CISCO-ITP-SP-MIB", "cItpSpLinkGroup"), ("CISCO-ITP-SP-MIB", "cItpSpNotificationsEnableGroup"), ("CISCO-ITP-SP-MIB", "cItpSpNotificationsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cItpSpMIBCompliance = cItpSpMIBCompliance.setStatus('deprecated')
+cItpSpMIBComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 232, 2, 1, 2)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpScalarsGroup"), ("CISCO-ITP-SP-MIB", "cItpSpPointCodeGroup"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetGroup"), ("CISCO-ITP-SP-MIB", "cItpSpLinkGroup"), ("CISCO-ITP-SP-MIB", "cItpSpNotificationsEnableGroup"), ("CISCO-ITP-SP-MIB", "cItpSpNotificationsGroup"), ("CISCO-ITP-SP-MIB", "cItpSpStatsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cItpSpMIBComplianceRev1 = cItpSpMIBComplianceRev1.setStatus('deprecated')
+cItpSpMIBComplianceRev2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 232, 2, 1, 3)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpPointCodeGroup"), ("CISCO-ITP-SP-MIB", "cItpSpScalarsGroupRev2"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetGroupRev2"), ("CISCO-ITP-SP-MIB", "cItpSpLinkGroupRev2"), ("CISCO-ITP-SP-MIB", "cItpSpNotificationsEnableGroupRev2"), ("CISCO-ITP-SP-MIB", "cItpSpNotificationsGroupRev2"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cItpSpMIBComplianceRev2 = cItpSpMIBComplianceRev2.setStatus('deprecated')
+cItpSpScalarsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 232, 2, 2, 1)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpVariant"), ("CISCO-ITP-SP-MIB", "cItpSpCLLICode"), ("CISCO-ITP-SP-MIB", "cItpSpDisplayName"), ("CISCO-ITP-SP-MIB", "cItpSpDescription"), ("CISCO-ITP-SP-MIB", "cItpSpMtp2T01"), ("CISCO-ITP-SP-MIB", "cItpSpMtp2T02"), ("CISCO-ITP-SP-MIB", "cItpSpMtp2T03"), ("CISCO-ITP-SP-MIB", "cItpSpMtp2T04E"), ("CISCO-ITP-SP-MIB", "cItpSpMtp2T04N"), ("CISCO-ITP-SP-MIB", "cItpSpMtp2T05"), ("CISCO-ITP-SP-MIB", "cItpSpMtp2T06"), ("CISCO-ITP-SP-MIB", "cItpSpMtp2T07"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T01"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T02"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T03"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T04"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T05"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T06"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T07"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T08"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T10"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T11"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T12"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T13"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T14"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T15"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T16"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T17"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T18"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T19"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T20"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T21"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T22"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T23"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T24"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T25"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T26"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T27"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T28"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T29"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T30"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T31"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T32"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T33"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T34"), ("CISCO-ITP-SP-MIB", "cItpSpTimerLinkTest"), ("CISCO-ITP-SP-MIB", "cItpSpTimerLinkMessage"), ("CISCO-ITP-SP-MIB", "cItpSpTimerLinkActRetry"), ("CISCO-ITP-SP-MIB", "cItpSpTFR"), ("CISCO-ITP-SP-MIB", "cItpSpCongestionsLevels"), ("CISCO-ITP-SP-MIB", "cItpSpFastRestart"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cItpSpScalarsGroup = cItpSpScalarsGroup.setStatus('deprecated')
+cItpSpPointCodeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 232, 2, 2, 2)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpPointCodeType"), ("CISCO-ITP-SP-MIB", "cItpSpPointCodeDisplay"), ("CISCO-ITP-SP-MIB", "cItpSpPointCodeRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cItpSpPointCodeGroup = cItpSpPointCodeGroup.setStatus('deprecated')
+cItpSpLinksetGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 232, 2, 2, 3)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpLinksetSourcePointCode"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSourceDisplayPC"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetAdjacentPointCode"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetAdjacentDisplayPC"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetState"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetInboundAcl"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetOutboundAcl"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSnmmRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSntmRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSpare2RTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSccpRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetTupRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetIsupRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetDupcRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetDupfRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtupRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetBisupRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSisupRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSpare11RTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSpare12RTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSpare13RTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSpare14RTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSpare15RTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetAccountingEnabled"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetNumLinks"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetDurationInService"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetDurationOutService"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp2T01"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp2T02"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp2T03"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp2T04E"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp2T04N"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp2T05"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp2T06"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp2T07"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T01"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T02"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T03"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T04"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T05"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T06"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T07"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T08"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T10"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T11"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T12"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T13"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T14"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T15"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T16"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T17"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T18"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T19"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T20"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T21"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T22"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T23"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T24"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T25"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T26"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T27"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T28"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T29"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T30"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T31"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T32"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T33"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T34"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetTimerLinkTest"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetTimerLinkMessage"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetTimerLinkActRetry"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetPlanCapacity"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetActPriority"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetType"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetRowStatus"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetNi"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetDisplayName"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetDescription"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cItpSpLinksetGroup = cItpSpLinksetGroup.setStatus('deprecated')
+cItpSpLinkGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 232, 2, 2, 4)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpLinkDescription"), ("CISCO-ITP-SP-MIB", "cItpSpLinkState"), ("CISCO-ITP-SP-MIB", "cItpSpLinkType"), ("CISCO-ITP-SP-MIB", "cItpSpLinkifIndex"), ("CISCO-ITP-SP-MIB", "cItpSpLinkSctpAssociation"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3PacketsRcvd"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3PacketsSent"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3BytesRcvd"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3BytesSent"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2T01"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2T02"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2T03"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2T04E"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2T04N"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2T05"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2T06"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2T07"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T01"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T02"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T03"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T04"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T05"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T06"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T07"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T08"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T10"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T11"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T12"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T13"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T14"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T15"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T16"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T17"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T18"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T19"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T20"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T21"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T22"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T23"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T24"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T25"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T26"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T27"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T28"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T29"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T30"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T31"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T32"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T33"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T34"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTimerLinkTest"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTimerLinkMessage"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTimerLinkActRetry"), ("CISCO-ITP-SP-MIB", "cItpSpLinkXmitQueueDepth"), ("CISCO-ITP-SP-MIB", "cItpSpLinkXmitQueueDepthHigh"), ("CISCO-ITP-SP-MIB", "cItpSpLinkXmitQueueDepthHighRT"), ("CISCO-ITP-SP-MIB", "cItpSpLinkCongestionState"), ("CISCO-ITP-SP-MIB", "cItpSpLinkCongestionAbate1"), ("CISCO-ITP-SP-MIB", "cItpSpLinkCongestionAbate2"), ("CISCO-ITP-SP-MIB", "cItpSpLinkCongestionAbate3"), ("CISCO-ITP-SP-MIB", "cItpSpLinkCongestionOnset1"), ("CISCO-ITP-SP-MIB", "cItpSpLinkCongestionOnset2"), ("CISCO-ITP-SP-MIB", "cItpSpLinkCongestionOnset3"), ("CISCO-ITP-SP-MIB", "cItpSpLinkSigLinkTest"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E1"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E2"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E3"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E4"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E5"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E6"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E7"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E8"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E9"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E10"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E11"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T2E1"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T2E5"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T2E6"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T2E7"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T2E9"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T2E10"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T2E15"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T2E16"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T2E18"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3PacketsRetrans"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3BytesRetrans"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T3E6"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T3E7"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T3E10L1"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T3E10L2"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T3E10L3"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T3E11L1"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T3E11L2"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T3E11L3"), ("CISCO-ITP-SP-MIB", "cItpSpLinkIPType1"), ("CISCO-ITP-SP-MIB", "cItpSpLinkIPType2"), ("CISCO-ITP-SP-MIB", "cItpSpLinkIPType3"), ("CISCO-ITP-SP-MIB", "cItpSpLinkIPType4"), ("CISCO-ITP-SP-MIB", "cItpSpLinkIPAddr1"), ("CISCO-ITP-SP-MIB", "cItpSpLinkIPAddr2"), ("CISCO-ITP-SP-MIB", "cItpSpLinkIPAddr3"), ("CISCO-ITP-SP-MIB", "cItpSpLinkIPAddr4"), ("CISCO-ITP-SP-MIB", "cItpSpLinkLocalPort"), ("CISCO-ITP-SP-MIB", "cItpSpLinkRemotePort"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQosClass"), ("CISCO-ITP-SP-MIB", "cItpSpLinkRowStatus"), ("CISCO-ITP-SP-MIB", "cItpSpLinkStateReason"), ("CISCO-ITP-SP-MIB", "cItpSpLinkDisplayName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cItpSpLinkGroup = cItpSpLinkGroup.setStatus('deprecated')
+cItpSpNotificationsEnableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 232, 2, 2, 5)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpLsStateChangeNotifEnabled"), ("CISCO-ITP-SP-MIB", "cItpSpLnkStateChangeNotifEnabled"), ("CISCO-ITP-SP-MIB", "cItpSpCongestionNotifEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cItpSpNotificationsEnableGroup = cItpSpNotificationsEnableGroup.setStatus('deprecated')
+cItpSpNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 232, 2, 2, 6)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpLinksetStateChange"), ("CISCO-ITP-SP-MIB", "cItpSpLinkStateChange"), ("CISCO-ITP-SP-MIB", "cItpSpCongestionChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cItpSpNotificationsGroup = cItpSpNotificationsGroup.setStatus('deprecated')
+cItpSpStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 232, 2, 2, 7)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpDistSccpUnseq"), ("CISCO-ITP-SP-MIB", "cItpSpSummaryRoutingException"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetVariant"), ("CISCO-ITP-SP-MIB", "cItpSpLinkDroppedPkts"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTransmittedLssu"), ("CISCO-ITP-SP-MIB", "cItpSpLinkReceivedLssu"), ("CISCO-ITP-SP-MIB", "cItpSpLinkProtocolDetails"), ("CISCO-ITP-SP-MIB", "cItpSpLinkLsacState"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTsrcState"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTcocState"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTcocLocalBSNT"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTcocRemoteBSNT"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTcbcState"), ("CISCO-ITP-SP-MIB", "cItpSpLinkReceivedSIB"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTransmittedSIB"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2ExpiredT01"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2ExpiredT02"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2ExpiredT03"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2ExpiredT04"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2ExpiredT05"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2ExpiredT06"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2ExpiredT07"), ("CISCO-ITP-SP-MIB", "cItpSpLinkOMAERMCount"), ("CISCO-ITP-SP-MIB", "cItpSpLinkOMAERMFailCount"), ("CISCO-ITP-SP-MIB", "cItpSpLinkOMSURMCount"), ("CISCO-ITP-SP-MIB", "cItpSpLinkOMSURMFailCount"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cItpSpStatsGroup = cItpSpStatsGroup.setStatus('deprecated')
+cItpSpScalarsGroupRev2 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 232, 2, 2, 8)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpVariant"), ("CISCO-ITP-SP-MIB", "cItpSpCLLICode"), ("CISCO-ITP-SP-MIB", "cItpSpDisplayName"), ("CISCO-ITP-SP-MIB", "cItpSpDescription"), ("CISCO-ITP-SP-MIB", "cItpSpMtp2T01"), ("CISCO-ITP-SP-MIB", "cItpSpMtp2T02"), ("CISCO-ITP-SP-MIB", "cItpSpMtp2T03"), ("CISCO-ITP-SP-MIB", "cItpSpMtp2T04E"), ("CISCO-ITP-SP-MIB", "cItpSpMtp2T04N"), ("CISCO-ITP-SP-MIB", "cItpSpMtp2T05"), ("CISCO-ITP-SP-MIB", "cItpSpMtp2T06"), ("CISCO-ITP-SP-MIB", "cItpSpMtp2T07"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T01"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T02"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T03"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T04"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T05"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T06"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T07"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T08"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T10"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T11"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T12"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T13"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T14"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T15"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T16"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T17"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T18"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T19"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T20"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T21"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T22"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T23"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T24"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T25"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T26"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T27"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T28"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T29"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T30"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T31"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T32"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T33"), ("CISCO-ITP-SP-MIB", "cItpSpMtp3T34"), ("CISCO-ITP-SP-MIB", "cItpSpTimerLinkTest"), ("CISCO-ITP-SP-MIB", "cItpSpTimerLinkMessage"), ("CISCO-ITP-SP-MIB", "cItpSpTimerLinkActRetry"), ("CISCO-ITP-SP-MIB", "cItpSpTFR"), ("CISCO-ITP-SP-MIB", "cItpSpCongestionsLevels"), ("CISCO-ITP-SP-MIB", "cItpSpFastRestart"), ("CISCO-ITP-SP-MIB", "cItpSpDistSccpUnseq"), ("CISCO-ITP-SP-MIB", "cItpSpSummaryRoutingException"), ("CISCO-ITP-SP-MIB", "cItpSpUtilSampleInterval"), ("CISCO-ITP-SP-MIB", "cItpSpUtilThreshold"), ("CISCO-ITP-SP-MIB", "cItpSpUtilAbateDelta"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cItpSpScalarsGroupRev2 = cItpSpScalarsGroupRev2.setStatus('deprecated')
+cItpSpLinksetGroupRev2 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 232, 2, 2, 9)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpLinksetSourcePointCode"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSourceDisplayPC"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetAdjacentPointCode"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetAdjacentDisplayPC"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetState"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetInboundAcl"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetOutboundAcl"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSnmmRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSntmRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSpare2RTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSccpRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetTupRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetIsupRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetDupcRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetDupfRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtupRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetBisupRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSisupRTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSpare11RTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSpare12RTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSpare13RTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSpare14RTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetSpare15RTN"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetAccountingEnabled"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetNumLinks"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetDurationInService"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetDurationOutService"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp2T01"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp2T02"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp2T03"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp2T04E"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp2T04N"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp2T05"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp2T06"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp2T07"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T01"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T02"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T03"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T04"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T05"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T06"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T07"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T08"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T10"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T11"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T12"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T13"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T14"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T15"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T16"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T17"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T18"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T19"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T20"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T21"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T22"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T23"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T24"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T25"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T26"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T27"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T28"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T29"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T30"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T31"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T32"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T33"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetMtp3T34"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetTimerLinkTest"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetTimerLinkMessage"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetTimerLinkActRetry"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetActPriority"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetType"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetRowStatus"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetNi"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetDisplayName"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetDescription"), ("CISCO-ITP-SP-MIB", "cItpSpLinksetVariant"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cItpSpLinksetGroupRev2 = cItpSpLinksetGroupRev2.setStatus('deprecated')
+cItpSpLinkGroupRev2 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 232, 2, 2, 10)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpLinkDescription"), ("CISCO-ITP-SP-MIB", "cItpSpLinkState"), ("CISCO-ITP-SP-MIB", "cItpSpLinkType"), ("CISCO-ITP-SP-MIB", "cItpSpLinkifIndex"), ("CISCO-ITP-SP-MIB", "cItpSpLinkSctpAssociation"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3PacketsRcvd"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3PacketsSent"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3BytesRcvd"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3BytesSent"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2T01"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2T02"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2T03"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2T04E"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2T04N"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2T05"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2T06"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2T07"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T01"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T02"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T03"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T04"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T05"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T06"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T07"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T08"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T10"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T11"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T12"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T13"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T14"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T15"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T16"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T17"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T18"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T19"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T20"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T21"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T22"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T23"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T24"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T25"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T26"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T27"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T28"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T29"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T30"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T31"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T32"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T33"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3T34"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTimerLinkTest"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTimerLinkMessage"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTimerLinkActRetry"), ("CISCO-ITP-SP-MIB", "cItpSpLinkXmitQueueDepth"), ("CISCO-ITP-SP-MIB", "cItpSpLinkXmitQueueDepthHigh"), ("CISCO-ITP-SP-MIB", "cItpSpLinkXmitQueueDepthHighRT"), ("CISCO-ITP-SP-MIB", "cItpSpLinkCongestionState"), ("CISCO-ITP-SP-MIB", "cItpSpLinkCongestionAbate1"), ("CISCO-ITP-SP-MIB", "cItpSpLinkCongestionAbate2"), ("CISCO-ITP-SP-MIB", "cItpSpLinkCongestionAbate3"), ("CISCO-ITP-SP-MIB", "cItpSpLinkCongestionOnset1"), ("CISCO-ITP-SP-MIB", "cItpSpLinkCongestionOnset2"), ("CISCO-ITP-SP-MIB", "cItpSpLinkCongestionOnset3"), ("CISCO-ITP-SP-MIB", "cItpSpLinkSigLinkTest"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E1"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E2"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E3"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E4"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E5"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E6"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E7"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E8"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E9"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E10"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T1E11"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T2E1"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T2E5"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T2E6"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T2E7"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T2E9"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T2E10"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T2E15"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T2E16"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T2E18"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3PacketsRetrans"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp3BytesRetrans"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T3E6"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T3E7"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T3E10L1"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T3E10L2"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T3E10L3"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T3E11L1"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T3E11L2"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQ752T3E11L3"), ("CISCO-ITP-SP-MIB", "cItpSpLinkIPType1"), ("CISCO-ITP-SP-MIB", "cItpSpLinkIPType2"), ("CISCO-ITP-SP-MIB", "cItpSpLinkIPType3"), ("CISCO-ITP-SP-MIB", "cItpSpLinkIPType4"), ("CISCO-ITP-SP-MIB", "cItpSpLinkIPAddr1"), ("CISCO-ITP-SP-MIB", "cItpSpLinkIPAddr2"), ("CISCO-ITP-SP-MIB", "cItpSpLinkIPAddr3"), ("CISCO-ITP-SP-MIB", "cItpSpLinkIPAddr4"), ("CISCO-ITP-SP-MIB", "cItpSpLinkLocalPort"), ("CISCO-ITP-SP-MIB", "cItpSpLinkRemotePort"), ("CISCO-ITP-SP-MIB", "cItpSpLinkQosClass"), ("CISCO-ITP-SP-MIB", "cItpSpLinkRowStatus"), ("CISCO-ITP-SP-MIB", "cItpSpLinkStateReason"), ("CISCO-ITP-SP-MIB", "cItpSpLinkDisplayName"), ("CISCO-ITP-SP-MIB", "cItpSpLinkDroppedPkts"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTransmittedLssu"), ("CISCO-ITP-SP-MIB", "cItpSpLinkReceivedLssu"), ("CISCO-ITP-SP-MIB", "cItpSpLinkProtocolDetails"), ("CISCO-ITP-SP-MIB", "cItpSpLinkLsacState"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTsrcState"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTcocState"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTcocLocalBSNT"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTcocRemoteBSNT"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTcbcState"), ("CISCO-ITP-SP-MIB", "cItpSpLinkReceivedSIB"), ("CISCO-ITP-SP-MIB", "cItpSpLinkTransmittedSIB"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2ExpiredT01"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2ExpiredT02"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2ExpiredT03"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2ExpiredT04"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2ExpiredT05"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2ExpiredT06"), ("CISCO-ITP-SP-MIB", "cItpSpLinkMtp2ExpiredT07"), ("CISCO-ITP-SP-MIB", "cItpSpLinkOMAERMCount"), ("CISCO-ITP-SP-MIB", "cItpSpLinkOMAERMFailCount"), ("CISCO-ITP-SP-MIB", "cItpSpLinkOMSURMCount"), ("CISCO-ITP-SP-MIB", "cItpSpLinkOMSURMFailCount"), ("CISCO-ITP-SP-MIB", "cItpSpLinkPlanCapacityRcvd"), ("CISCO-ITP-SP-MIB", "cItpSpLinkUtilThresholdRcvd"), ("CISCO-ITP-SP-MIB", "cItpSpLinkUtilizationRcvd"), ("CISCO-ITP-SP-MIB", "cItpSpLinkUtilStateRcvd"), ("CISCO-ITP-SP-MIB", "cItpSpLinkL2BytesRcvd"), ("CISCO-ITP-SP-MIB", "cItpSpLinkPlanCapacitySent"), ("CISCO-ITP-SP-MIB", "cItpSpLinkUtilThresholdSent"), ("CISCO-ITP-SP-MIB", "cItpSpLinkUtilizationSent"), ("CISCO-ITP-SP-MIB", "cItpSpLinkUtilStateSent"), ("CISCO-ITP-SP-MIB", "cItpSpLinkL2BytesSent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cItpSpLinkGroupRev2 = cItpSpLinkGroupRev2.setStatus('deprecated')
+cItpSpNotificationsEnableGroupRev2 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 232, 2, 2, 11)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpLsStateChangeNotifEnabled"), ("CISCO-ITP-SP-MIB", "cItpSpLnkStateChangeNotifEnabled"), ("CISCO-ITP-SP-MIB", "cItpSpCongestionNotifEnabled"), ("CISCO-ITP-SP-MIB", "cItpSpLinkUtilNotifEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cItpSpNotificationsEnableGroupRev2 = cItpSpNotificationsEnableGroupRev2.setStatus('deprecated')
+cItpSpNotificationsGroupRev2 = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 232, 2, 2, 12)).setObjects(("CISCO-ITP-SP-MIB", "cItpSpLinksetStateChange"), ("CISCO-ITP-SP-MIB", "cItpSpLinkStateChange"), ("CISCO-ITP-SP-MIB", "cItpSpCongestionChange"), ("CISCO-ITP-SP-MIB", "cItpSpLinkRcvdUtilChange"), ("CISCO-ITP-SP-MIB", "cItpSpLinkSentUtilChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cItpSpNotificationsGroupRev2 = cItpSpNotificationsGroupRev2.setStatus('deprecated')
+mibBuilder.exportSymbols("CISCO-ITP-SP-MIB", cItpSpLinksetSpare13RTN=cItpSpLinksetSpare13RTN, cItpSpScalarsGroupRev2=cItpSpScalarsGroupRev2, cItpSpCLLICode=cItpSpCLLICode, cItpSpNotificationsGroupRev2=cItpSpNotificationsGroupRev2, cItpSpMtp3T18=cItpSpMtp3T18, cItpSpLinkSlc=cItpSpLinkSlc, cItpSpLinkMtp2T04E=cItpSpLinkMtp2T04E, cItpSpDescription=cItpSpDescription, cItpSpLinkTransmittedSIB=cItpSpLinkTransmittedSIB, cItpSpLinksetIsupRTN=cItpSpLinksetIsupRTN, cItpSpMtp3T11=cItpSpMtp3T11, cItpSpLinkQ752T3E10L1=cItpSpLinkQ752T3E10L1, cItpSpLinksetSccpRTN=cItpSpLinksetSccpRTN, cItpSpLinkifIndex=cItpSpLinkifIndex, cItpSpMtp3T03=cItpSpMtp3T03, cItpSpDisplayName=cItpSpDisplayName, cItpSpFastRestart=cItpSpFastRestart, cItpSpLinksetAccountingEnabled=cItpSpLinksetAccountingEnabled, cItpSpLinksetRowStatus=cItpSpLinksetRowStatus, cItpSpMtp3T19=cItpSpMtp3T19, cItpSpLinkMtp3T02=cItpSpLinkMtp3T02, cItpSpLinksetMtp3T06=cItpSpLinksetMtp3T06, cItpSpLinkQ752T2E16=cItpSpLinkQ752T2E16, cItpSpLinksetTimerLinkActRetry=cItpSpLinksetTimerLinkActRetry, cItpSpLinkMtp3T19=cItpSpLinkMtp3T19, cItpSpMtp2T07=cItpSpMtp2T07, cItpSpLinkL2BytesRcvd=cItpSpLinkL2BytesRcvd, cItpSpLinkCongestionAbate2=cItpSpLinkCongestionAbate2, cItpSpLinkMtp3PacketsRcvd=cItpSpLinkMtp3PacketsRcvd, cItpSpLinkMtp2ExpiredT04=cItpSpLinkMtp2ExpiredT04, cItpSpLinkQ752T1E5=cItpSpLinkQ752T1E5, cItpSpLinkXmitQueueDepthHigh=cItpSpLinkXmitQueueDepthHigh, cItpSpLinkUtilNotifEnabled=cItpSpLinkUtilNotifEnabled, cItpSpLinkMtp2ExpiredT06=cItpSpLinkMtp2ExpiredT06, cItpSpLinksetMtp2T01=cItpSpLinksetMtp2T01, cItpSpNotificationsEnableGroup=cItpSpNotificationsEnableGroup, cItpSpLinksetType=cItpSpLinksetType, cItpSpLinkMtp3T10=cItpSpLinkMtp3T10, cItpSpLinkCongestionOnset1=cItpSpLinkCongestionOnset1, cItpSpMIBConformance=cItpSpMIBConformance, cItpSpLinkIPAddr2=cItpSpLinkIPAddr2, cItpSpMtp3T25=cItpSpMtp3T25, cItpSpLinkQ752T1E2=cItpSpLinkQ752T1E2, cItpSpCongestionChange=cItpSpCongestionChange, cItpSpLinksetMtp3T12=cItpSpLinksetMtp3T12, cItpSpLinkQ752T2E1=cItpSpLinkQ752T2E1, cItpSpMtp3T20=cItpSpMtp3T20, cItpSpLinksetMtp3T20=cItpSpLinksetMtp3T20, cItpSpLinksetMtp2T02=cItpSpLinksetMtp2T02, cItpSpMtp2T03=cItpSpMtp2T03, cItpSpLinksetTimerLinkTest=cItpSpLinksetTimerLinkTest, CItpSpPercentThreshold=CItpSpPercentThreshold, cItpSpLinksetMtp3T13=cItpSpLinksetMtp3T13, cItpSpLinkXmitQueueDepth=cItpSpLinkXmitQueueDepth, cItpSpTFR=cItpSpTFR, cItpSpLinkMtp2T03=cItpSpLinkMtp2T03, cItpSpNotifications=cItpSpNotifications, cItpSpLinksetMtp3T01=cItpSpLinksetMtp3T01, cItpSpLinksetMtp3T24=cItpSpLinksetMtp3T24, cItpSpMtp3T01=cItpSpMtp3T01, cItpSpLinksetMtp3T04=cItpSpLinksetMtp3T04, cItpSpLinksetTimerLinkMessage=cItpSpLinksetTimerLinkMessage, cItpSpLinksetMtp3T22=cItpSpLinksetMtp3T22, cItpSpLinkMtp3T32=cItpSpLinkMtp3T32, cItpSpLinksetMtp3T14=cItpSpLinksetMtp3T14, cItpSpLinksetDurationInService=cItpSpLinksetDurationInService, cItpSpLinkTableEntry=cItpSpLinkTableEntry, cItpSpLinkIPAddr1=cItpSpLinkIPAddr1, cItpSpMtp3T12=cItpSpMtp3T12, cItpSpLinkQ752T1E3=cItpSpLinkQ752T1E3, cItpSpLinksetSpare2RTN=cItpSpLinksetSpare2RTN, cItpSpLinkL2BytesSent=cItpSpLinkL2BytesSent, cItpSpMtp3T26=cItpSpMtp3T26, cItpSpLinkGroupRev2=cItpSpLinkGroupRev2, cItpSpMIBObjects=cItpSpMIBObjects, cItpSpLinkMtp3T05=cItpSpLinkMtp3T05, cItpSpMtp3T32=cItpSpMtp3T32, cItpSpLinkQ752T2E10=cItpSpLinkQ752T2E10, cItpSpLinkMtp2T05=cItpSpLinkMtp2T05, cItpSpMIBComplianceRev2=cItpSpMIBComplianceRev2, cItpSpLinkTcocRemoteBSNT=cItpSpLinkTcocRemoteBSNT, cItpSpLinksetMtp3T05=cItpSpLinksetMtp3T05, CItpSpLinkUtilization=CItpSpLinkUtilization, cItpSpLinkPlanCapacitySent=cItpSpLinkPlanCapacitySent, cItpSpLinksetName=cItpSpLinksetName, cItpSpLinkMtp3BytesSent=cItpSpLinkMtp3BytesSent, cItpSpLinksetGroup=cItpSpLinksetGroup, cItpSpMtp3T22=cItpSpMtp3T22, cItpSpMtp3T02=cItpSpMtp3T02, cItpSpLinksetMtp3T10=cItpSpLinksetMtp3T10, cItpSpVariant=cItpSpVariant, cItpSpPointCodeGroup=cItpSpPointCodeGroup, cItpSpLinkMtp3BytesRetrans=cItpSpLinkMtp3BytesRetrans, cItpSpLinkMtp2ExpiredT07=cItpSpLinkMtp2ExpiredT07, cItpSpScalars=cItpSpScalars, cItpSpLinkMtp3PacketsSent=cItpSpLinkMtp3PacketsSent, cItpSpLinkQ752T1E10=cItpSpLinkQ752T1E10, cItpSpMtp3T24=cItpSpMtp3T24, CItpSpLinkUtilizationState=CItpSpLinkUtilizationState, cItpSpLinksetGroupRev2=cItpSpLinksetGroupRev2, cItpSpLinkCongestionState=cItpSpLinkCongestionState, cItpSpLinksetMtp3T30=cItpSpLinksetMtp3T30, cItpSpPointCodeNi=cItpSpPointCodeNi, cItpSpLinksetPlanCapacity=cItpSpLinksetPlanCapacity, cItpSpLinkMtp3T06=cItpSpLinkMtp3T06, cItpSpLinkset=cItpSpLinkset, cItpSpLinkMtp3PacketsRetrans=cItpSpLinkMtp3PacketsRetrans, cItpSpLinksetStateChange=cItpSpLinksetStateChange, cItpSpLink=cItpSpLink, cItpSpLinkLocalPort=cItpSpLinkLocalPort, cItpSpLinkIPType3=cItpSpLinkIPType3, cItpSpCongestionsLevels=cItpSpCongestionsLevels, cItpSpLinkMtp2ExpiredT01=cItpSpLinkMtp2ExpiredT01, cItpSpPointCodeDisplay=cItpSpPointCodeDisplay, cItpSpLinksetAdjacentPointCode=cItpSpLinksetAdjacentPointCode, cItpSpLinkMtp3T30=cItpSpLinkMtp3T30, cItpSpPointCode=cItpSpPointCode, cItpSpLinkMtp3T20=cItpSpLinkMtp3T20, cItpSpMtp3T28=cItpSpMtp3T28, cItpSpLinksetMtp3T27=cItpSpLinksetMtp3T27, cItpSpUtilAbateDelta=cItpSpUtilAbateDelta, cItpSpLinkState=cItpSpLinkState, cItpSpLinkMtp2T02=cItpSpLinkMtp2T02, cItpSpMtp3T05=cItpSpMtp3T05, cItpSpMIBCompliances=cItpSpMIBCompliances, cItpSpMtp3T33=cItpSpMtp3T33, cItpSpLinksetMtp2T03=cItpSpLinksetMtp2T03, cItpSpLinksetInboundAcl=cItpSpLinksetInboundAcl, cItpSpLinksetMtp3T21=cItpSpLinksetMtp3T21, cItpSpLinksetMtp3T25=cItpSpLinksetMtp3T25, cItpSpLinkQ752T1E1=cItpSpLinkQ752T1E1, cItpSpStatsGroup=cItpSpStatsGroup, cItpSpLinkMtp3T07=cItpSpLinkMtp3T07, cItpSpLinkType=cItpSpLinkType, cItpSpPointCodeTable=cItpSpPointCodeTable, CItpSpSampleInterval=CItpSpSampleInterval, cItpSpLinksetDescription=cItpSpLinksetDescription, cItpSpLinkXmitQueueDepthHighRT=cItpSpLinkXmitQueueDepthHighRT, cItpSpLinksetNumLinks=cItpSpLinksetNumLinks, cItpSpLinksetTable=cItpSpLinksetTable, cItpSpLinkOMAERMFailCount=cItpSpLinkOMAERMFailCount, cItpSpMtp3T21=cItpSpMtp3T21, cItpSpTimerLinkTest=cItpSpTimerLinkTest, cItpSpTimerLinkMessage=cItpSpTimerLinkMessage, cItpSpLinkRemotePort=cItpSpLinkRemotePort, cItpSpLinkMtp3T29=cItpSpLinkMtp3T29, cItpSpLinkQ752T1E11=cItpSpLinkQ752T1E11, cItpSpMtp3T08=cItpSpMtp3T08, cItpSpLinkUtilStateSent=cItpSpLinkUtilStateSent, cItpSpLinkMtp2T06=cItpSpLinkMtp2T06, cItpSpMtp3T17=cItpSpMtp3T17, cItpSpNotificationsEnable=cItpSpNotificationsEnable, cItpSpLinksetMtp3T34=cItpSpLinksetMtp3T34, cItpSpLinksetMtp3T11=cItpSpLinksetMtp3T11, cItpSpDistSccpUnseq=cItpSpDistSccpUnseq, cItpSpLinkTcbcState=cItpSpLinkTcbcState, cItpSpLinksetMtp3T29=cItpSpLinksetMtp3T29, cItpSpLinksetActPriority=cItpSpLinksetActPriority, cItpSpMtp3T34=cItpSpMtp3T34, cItpSpLinkOMAERMCount=cItpSpLinkOMAERMCount, cItpSpLinkTransmittedLssu=cItpSpLinkTransmittedLssu, cItpSpLinkUtilThresholdSent=cItpSpLinkUtilThresholdSent, cItpSpCongestionNotifEnabled=cItpSpCongestionNotifEnabled, cItpSpLinkMtp3T14=cItpSpLinkMtp3T14, cItpSpMIBGroups=cItpSpMIBGroups, cItpSpLinksetMtp3T19=cItpSpLinksetMtp3T19, cItpSpMtp3T04=cItpSpMtp3T04, cItpSpPointCodeBin=cItpSpPointCodeBin, cItpSpLinkMtp3T28=cItpSpLinkMtp3T28, cItpSpMtp3T06=cItpSpMtp3T06, cItpSpLinkTimerLinkActRetry=cItpSpLinkTimerLinkActRetry, cItpSpLinkIPType1=cItpSpLinkIPType1, cItpSpLinksetMtp3T15=cItpSpLinksetMtp3T15, cItpSpLinkQosClass=cItpSpLinkQosClass, cItpSpLinkMtp3T13=cItpSpLinkMtp3T13, cItpSpLinksetMtp2T07=cItpSpLinksetMtp2T07, cItpSpLinksetSourceDisplayPC=cItpSpLinksetSourceDisplayPC, cItpSpLinkMtp2ExpiredT02=cItpSpLinkMtp2ExpiredT02, cItpSpLinkCongestionAbate3=cItpSpLinkCongestionAbate3, cItpSpLinkMtp3T03=cItpSpLinkMtp3T03, cItpSpLinkQ752T3E6=cItpSpLinkQ752T3E6, cItpSpNotificationsEnableGroupRev2=cItpSpNotificationsEnableGroupRev2, cItpSpMtp2T05=cItpSpMtp2T05, cItpSpLinkQ752T2E6=cItpSpLinkQ752T2E6, cItpSpPointCodeType=cItpSpPointCodeType, cItpSpLinkMtp3T04=cItpSpLinkMtp3T04, cItpSpTimerLinkActRetry=cItpSpTimerLinkActRetry, cItpSpLinksetBisupRTN=cItpSpLinksetBisupRTN, cItpSpLinkMtp3T01=cItpSpLinkMtp3T01, cItpSpLinksetMtp2T06=cItpSpLinksetMtp2T06, cItpSpLinksetMtp3T32=cItpSpLinksetMtp3T32, cItpSpLinkMtp3T12=cItpSpLinkMtp3T12, PYSNMP_MODULE_ID=ciscoItpSpMIB, CItpSpLinkCapacity=CItpSpLinkCapacity, cItpSpMtp3T07=cItpSpMtp3T07, cItpSpLinkMtp3BytesRcvd=cItpSpLinkMtp3BytesRcvd, cItpSpLinkQ752T2E5=cItpSpLinkQ752T2E5, cItpSpLinkMtp3T27=cItpSpLinkMtp3T27, cItpSpLinkQ752T1E4=cItpSpLinkQ752T1E4, cItpSpUtilSampleInterval=cItpSpUtilSampleInterval, cItpSpMIBComplianceRev1=cItpSpMIBComplianceRev1, cItpSpLinkReceivedLssu=cItpSpLinkReceivedLssu, cItpSpLinkTcocState=cItpSpLinkTcocState, cItpSpLinkRcvdUtilChange=cItpSpLinkRcvdUtilChange, cItpSpLinksetMtp3T02=cItpSpLinksetMtp3T02, cItpSpScalarsGroup=cItpSpScalarsGroup, cItpSpMtp2T04E=cItpSpMtp2T04E, cItpSpLnkStateChangeNotifEnabled=cItpSpLnkStateChangeNotifEnabled, cItpSpLinksetMtupRTN=cItpSpLinksetMtupRTN, cItpSpLinkMtp3T11=cItpSpLinkMtp3T11, cItpSpLinkGroup=cItpSpLinkGroup, cItpSpLinkSigLinkTest=cItpSpLinkSigLinkTest, cItpSpLinkDisplayName=cItpSpLinkDisplayName, cItpSpLinkMtp3T25=cItpSpLinkMtp3T25, cItpSpLinkReceivedSIB=cItpSpLinkReceivedSIB, cItpSpLinkMtp3T34=cItpSpLinkMtp3T34, cItpSpLinksetSpare14RTN=cItpSpLinksetSpare14RTN, cItpSpLinkMtp3T33=cItpSpLinkMtp3T33, cItpSpMtp3T27=cItpSpMtp3T27, cItpSpLinksetMtp3T16=cItpSpLinksetMtp3T16, cItpSpLinkCongestionOnset2=cItpSpLinkCongestionOnset2, cItpSpLinksetOutboundAcl=cItpSpLinksetOutboundAcl, cItpSpLinkQ752T1E6=cItpSpLinkQ752T1E6, cItpSpLinkMtp2ExpiredT03=cItpSpLinkMtp2ExpiredT03, cItpSpLinksetState=cItpSpLinksetState, cItpSpMtp3T15=cItpSpMtp3T15, cItpSpLinkIPAddr3=cItpSpLinkIPAddr3, cItpSpLinksetSpare15RTN=cItpSpLinksetSpare15RTN, ciscoItpSpMIB=ciscoItpSpMIB, cItpSpLinksetSnmmRTN=cItpSpLinksetSnmmRTN, cItpSpLinkStateReason=cItpSpLinkStateReason, cItpSpLinkUtilizationRcvd=cItpSpLinkUtilizationRcvd, cItpSpLinkMtp3T08=cItpSpLinkMtp3T08, cItpSpLinkUtilThresholdRcvd=cItpSpLinkUtilThresholdRcvd, cItpSpLinksetSourcePointCode=cItpSpLinksetSourcePointCode, cItpSpMtp2T06=cItpSpMtp2T06, cItpSpLinkMtp2T04N=cItpSpLinkMtp2T04N, cItpSpMtp3T23=cItpSpMtp3T23, cItpSpLinkTcocLocalBSNT=cItpSpLinkTcocLocalBSNT, cItpSpLinksetMtp3T07=cItpSpLinksetMtp3T07, cItpSpMtp3T30=cItpSpMtp3T30, cItpSpLinksetMtp2T04E=cItpSpLinksetMtp2T04E, cItpSpLinksetMtp3T23=cItpSpLinksetMtp3T23, cItpSpLinkStateChange=cItpSpLinkStateChange, cItpSpLinksetSisupRTN=cItpSpLinksetSisupRTN, cItpSpPointCodeRowStatus=cItpSpPointCodeRowStatus, cItpSpLinkLsacState=cItpSpLinkLsacState, cItpSpMtp2T02=cItpSpMtp2T02, cItpSpLinksetNi=cItpSpLinksetNi, cItpSpLinkQ752T3E10L3=cItpSpLinkQ752T3E10L3, cItpSpLinkTimerLinkMessage=cItpSpLinkTimerLinkMessage, cItpSpLinksetTableEntry=cItpSpLinksetTableEntry, cItpSpLinksetTupRTN=cItpSpLinksetTupRTN, cItpSpLinksetMtp3T17=cItpSpLinksetMtp3T17)
+mibBuilder.exportSymbols("CISCO-ITP-SP-MIB", cItpSpLsStateChangeNotifEnabled=cItpSpLsStateChangeNotifEnabled, cItpSpLinkTsrcState=cItpSpLinkTsrcState, cItpSpMtp3T16=cItpSpMtp3T16, cItpSpLinksetMtp3T28=cItpSpLinksetMtp3T28, cItpSpLinkMtp3T31=cItpSpLinkMtp3T31, cItpSpLinksetDupfRTN=cItpSpLinksetDupfRTN, cItpSpLinkPlanCapacityRcvd=cItpSpLinkPlanCapacityRcvd, cItpSpMIBNotifs=cItpSpMIBNotifs, cItpSpLinksetDupcRTN=cItpSpLinksetDupcRTN, cItpSpSummaryRoutingException=cItpSpSummaryRoutingException, cItpSpLinksetMtp2T04N=cItpSpLinksetMtp2T04N, cItpSpLinksetVariant=cItpSpLinksetVariant, cItpSpLinkMtp3T18=cItpSpLinkMtp3T18, cItpSpLinkIPAddr4=cItpSpLinkIPAddr4, cItpSpLinkSentUtilChange=cItpSpLinkSentUtilChange, cItpSpLinkProtocolDetails=cItpSpLinkProtocolDetails, cItpSpLinkCongestionOnset3=cItpSpLinkCongestionOnset3, cItpSpLinksetMtp3T03=cItpSpLinksetMtp3T03, cItpSpLinkUtilStateRcvd=cItpSpLinkUtilStateRcvd, cItpSpLinkQ752T2E7=cItpSpLinkQ752T2E7, cItpSpLinkMtp3T17=cItpSpLinkMtp3T17, cItpSpLinkMtp3T26=cItpSpLinkMtp3T26, cItpSpLinkMtp3T15=cItpSpLinkMtp3T15, cItpSpLinkQ752T1E8=cItpSpLinkQ752T1E8, cItpSpLinksetMtp3T26=cItpSpLinksetMtp3T26, cItpSpLinkOMSURMCount=cItpSpLinkOMSURMCount, cItpSpLinksetDurationOutService=cItpSpLinksetDurationOutService, cItpSpLinkCongestionAbate1=cItpSpLinkCongestionAbate1, cItpSpLinkMtp2T07=cItpSpLinkMtp2T07, cItpSpMtp3T29=cItpSpMtp3T29, cItpSpLinksetSpare12RTN=cItpSpLinksetSpare12RTN, cItpSpLinkTimerLinkTest=cItpSpLinkTimerLinkTest, cItpSpUtilThreshold=cItpSpUtilThreshold, cItpSpLinkQ752T1E9=cItpSpLinkQ752T1E9, cItpSpMtp2T01=cItpSpMtp2T01, cItpSpMtp2T04N=cItpSpMtp2T04N, cItpSpLinksetDisplayName=cItpSpLinksetDisplayName, cItpSpLinkQ752T3E11L2=cItpSpLinkQ752T3E11L2, cItpSpNotificationsGroup=cItpSpNotificationsGroup, cItpSpMtp3T13=cItpSpMtp3T13, cItpSpLinkSctpAssociation=cItpSpLinkSctpAssociation, cItpSpLinksetMtp3T18=cItpSpLinksetMtp3T18, cItpSpMtp3T10=cItpSpMtp3T10, cItpSpLinkQ752T3E7=cItpSpLinkQ752T3E7, cItpSpLinkQ752T3E11L3=cItpSpLinkQ752T3E11L3, cItpSpLinkDescription=cItpSpLinkDescription, CItpSpSequenceNumber=CItpSpSequenceNumber, cItpSpLinkQ752T2E15=cItpSpLinkQ752T2E15, cItpSpLinkRowStatus=cItpSpLinkRowStatus, cItpSpPointCodeTableEntry=cItpSpPointCodeTableEntry, cItpSpLinkMtp3T23=cItpSpLinkMtp3T23, cItpSpLinkMtp3T21=cItpSpLinkMtp3T21, cItpSpLinksetMtp2T05=cItpSpLinksetMtp2T05, cItpSpLinkMtp3T24=cItpSpLinkMtp3T24, cItpSpLinksetMtp3T08=cItpSpLinksetMtp3T08, cItpSpLinkMtp3T16=cItpSpLinkMtp3T16, cItpSpLinkIPType2=cItpSpLinkIPType2, cItpSpLinkQ752T1E7=cItpSpLinkQ752T1E7, cItpSpMtp3T31=cItpSpMtp3T31, cItpSpLinkMtp2ExpiredT05=cItpSpLinkMtp2ExpiredT05, cItpSpMtp3T14=cItpSpMtp3T14, cItpSpLinkMtp2T01=cItpSpLinkMtp2T01, cItpSpLinksetMtp3T33=cItpSpLinksetMtp3T33, cItpSpLinkQ752T2E9=cItpSpLinkQ752T2E9, cItpSpLinkDroppedPkts=cItpSpLinkDroppedPkts, cItpSpLinkTable=cItpSpLinkTable, cItpSpLinkOMSURMFailCount=cItpSpLinkOMSURMFailCount, cItpSpMIBCompliance=cItpSpMIBCompliance, cItpSpLinkIPType4=cItpSpLinkIPType4, cItpSpLinkMtp3T22=cItpSpLinkMtp3T22, cItpSpLinksetAdjacentDisplayPC=cItpSpLinksetAdjacentDisplayPC, cItpSpLinksetSntmRTN=cItpSpLinksetSntmRTN, cItpSpLinkQ752T3E10L2=cItpSpLinkQ752T3E10L2, cItpSpLinkQ752T3E11L1=cItpSpLinkQ752T3E11L1, cItpSpLinkUtilizationSent=cItpSpLinkUtilizationSent, cItpSpLinksetSpare11RTN=cItpSpLinksetSpare11RTN, cItpSpLinkQ752T2E18=cItpSpLinkQ752T2E18, cItpSpLinksetMtp3T31=cItpSpLinksetMtp3T31)

@@ -1,1019 +1,397 @@
-_V='unknown'
-_U='unavailable'
-_T='available'
-_S='rcServiceCustomerName'
-_R='rcServiceNetworkInterfaceEndPointMapSVlan'
-_Q='TruthValue'
-_P='rcServiceNetworkInterfacePortIndex'
-_O='not-accessible'
-_N='rcServiceCosLabel'
-_M='rcServiceFarEndNetworkInterfaceID'
-_L='read-write'
-_K='rcServiceNetworkInterfaceID'
-_J='milli-percent'
-_I='OctetString'
-_H='rcServiceID'
-_G='Unsigned32'
-_F='microseconds'
-_E='Integer32'
-_D='read-create'
-_C='SWTICH-SERVICE-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_I,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-iscomSwitch,=mibBuilder.importSymbols('RAISECOM-BASE-MIB','iscomSwitch')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TimeInterval,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention','TimeInterval',_Q)
-rcService=ModuleIdentity((1,3,6,1,4,1,8886,6,1,75))
-_RcServiceScalar_ObjectIdentity=ObjectIdentity
-rcServiceScalar=_RcServiceScalar_ObjectIdentity((1,3,6,1,4,1,8886,6,1,75,1))
-class _RcServiceDefaultSdp1PortIndex_Type(Integer32):defaultValue=0
-_RcServiceDefaultSdp1PortIndex_Type.__name__=_E
-_RcServiceDefaultSdp1PortIndex_Object=MibScalar
-rcServiceDefaultSdp1PortIndex=_RcServiceDefaultSdp1PortIndex_Object((1,3,6,1,4,1,8886,6,1,75,1,1),_RcServiceDefaultSdp1PortIndex_Type())
-rcServiceDefaultSdp1PortIndex.setMaxAccess(_L)
-if mibBuilder.loadTexts:rcServiceDefaultSdp1PortIndex.setStatus(_A)
-class _RcServiceDefaultSdp2PortIndex_Type(Integer32):defaultValue=0
-_RcServiceDefaultSdp2PortIndex_Type.__name__=_E
-_RcServiceDefaultSdp2PortIndex_Object=MibScalar
-rcServiceDefaultSdp2PortIndex=_RcServiceDefaultSdp2PortIndex_Object((1,3,6,1,4,1,8886,6,1,75,1,2),_RcServiceDefaultSdp2PortIndex_Type())
-rcServiceDefaultSdp2PortIndex.setMaxAccess(_L)
-if mibBuilder.loadTexts:rcServiceDefaultSdp2PortIndex.setStatus(_A)
-_RcServiceEtherSamTrapEnable_Type=TruthValue
-_RcServiceEtherSamTrapEnable_Object=MibScalar
-rcServiceEtherSamTrapEnable=_RcServiceEtherSamTrapEnable_Object((1,3,6,1,4,1,8886,6,1,75,1,3),_RcServiceEtherSamTrapEnable_Type())
-rcServiceEtherSamTrapEnable.setMaxAccess(_L)
-if mibBuilder.loadTexts:rcServiceEtherSamTrapEnable.setStatus(_A)
-_RcServiceCosLabelNameTable_Object=MibTable
-rcServiceCosLabelNameTable=_RcServiceCosLabelNameTable_Object((1,3,6,1,4,1,8886,6,1,75,2))
-if mibBuilder.loadTexts:rcServiceCosLabelNameTable.setStatus(_A)
-_RcServiceCosLabelNameEntry_Object=MibTableRow
-rcServiceCosLabelNameEntry=_RcServiceCosLabelNameEntry_Object((1,3,6,1,4,1,8886,6,1,75,2,1))
-rcServiceCosLabelNameEntry.setIndexNames((0,_C,_N))
-if mibBuilder.loadTexts:rcServiceCosLabelNameEntry.setStatus(_A)
-class _RcServiceCosLabel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_RcServiceCosLabel_Type.__name__=_E
-_RcServiceCosLabel_Object=MibTableColumn
-rcServiceCosLabel=_RcServiceCosLabel_Object((1,3,6,1,4,1,8886,6,1,75,2,1,1),_RcServiceCosLabel_Type())
-rcServiceCosLabel.setMaxAccess(_O)
-if mibBuilder.loadTexts:rcServiceCosLabel.setStatus(_A)
-class _RcServiceCosLabelName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_RcServiceCosLabelName_Type.__name__=_I
-_RcServiceCosLabelName_Object=MibTableColumn
-rcServiceCosLabelName=_RcServiceCosLabelName_Object((1,3,6,1,4,1,8886,6,1,75,2,1,2),_RcServiceCosLabelName_Type())
-rcServiceCosLabelName.setMaxAccess(_L)
-if mibBuilder.loadTexts:rcServiceCosLabelName.setStatus(_A)
-_RcServiceNetworkInterfaceTable_Object=MibTable
-rcServiceNetworkInterfaceTable=_RcServiceNetworkInterfaceTable_Object((1,3,6,1,4,1,8886,6,1,75,3))
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceTable.setStatus(_A)
-_RcServiceNetworkInterfaceEntry_Object=MibTableRow
-rcServiceNetworkInterfaceEntry=_RcServiceNetworkInterfaceEntry_Object((1,3,6,1,4,1,8886,6,1,75,3,1))
-rcServiceNetworkInterfaceEntry.setIndexNames((0,_C,_P))
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceEntry.setStatus(_A)
-_RcServiceNetworkInterfacePortIndex_Type=Integer32
-_RcServiceNetworkInterfacePortIndex_Object=MibTableColumn
-rcServiceNetworkInterfacePortIndex=_RcServiceNetworkInterfacePortIndex_Object((1,3,6,1,4,1,8886,6,1,75,3,1,1),_RcServiceNetworkInterfacePortIndex_Type())
-rcServiceNetworkInterfacePortIndex.setMaxAccess(_O)
-if mibBuilder.loadTexts:rcServiceNetworkInterfacePortIndex.setStatus(_A)
-class _RcServiceNetworkInterfaceType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('inni',0),('enni',1),('uni',2),('channel',3)))
-_RcServiceNetworkInterfaceType_Type.__name__=_E
-_RcServiceNetworkInterfaceType_Object=MibTableColumn
-rcServiceNetworkInterfaceType=_RcServiceNetworkInterfaceType_Object((1,3,6,1,4,1,8886,6,1,75,3,1,2),_RcServiceNetworkInterfaceType_Type())
-rcServiceNetworkInterfaceType.setMaxAccess(_L)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceType.setStatus(_A)
-class _RcServiceNetworkInterfaceID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,45))
-_RcServiceNetworkInterfaceID_Type.__name__=_I
-_RcServiceNetworkInterfaceID_Object=MibTableColumn
-rcServiceNetworkInterfaceID=_RcServiceNetworkInterfaceID_Object((1,3,6,1,4,1,8886,6,1,75,3,1,3),_RcServiceNetworkInterfaceID_Type())
-rcServiceNetworkInterfaceID.setMaxAccess(_L)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceID.setStatus(_A)
-class _RcServiceNetworkInterfacePhysicalMedium_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,5,16,18,22,30,31,33,37)));namedValues=NamedValues(*(('dot3-unknownPhy',0),('dot3-10BASE-T',5),('dot3-100BASE-TX',16),('dot3-100BASE-FX',18),('dot3-1000BASE-X',22),('dot3-1000BASE-T',30),('dot3-10GBASE-X',31),('dot3-10GBASE-R',33),('dot3-10GBASE-W',37)))
-_RcServiceNetworkInterfacePhysicalMedium_Type.__name__=_E
-_RcServiceNetworkInterfacePhysicalMedium_Object=MibTableColumn
-rcServiceNetworkInterfacePhysicalMedium=_RcServiceNetworkInterfacePhysicalMedium_Object((1,3,6,1,4,1,8886,6,1,75,3,1,4),_RcServiceNetworkInterfacePhysicalMedium_Type())
-rcServiceNetworkInterfacePhysicalMedium.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfacePhysicalMedium.setStatus(_A)
-class _RcServiceNetworkInterfaceSpeed_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7)));namedValues=NamedValues(*(('speedUnknown',0),('m10',1),('m100',2),('autonegom10-100',3),('autonegom10-100-1000',4),('g1',5),('g10',6),('autonegofiber1000',7)))
-_RcServiceNetworkInterfaceSpeed_Type.__name__=_E
-_RcServiceNetworkInterfaceSpeed_Object=MibTableColumn
-rcServiceNetworkInterfaceSpeed=_RcServiceNetworkInterfaceSpeed_Object((1,3,6,1,4,1,8886,6,1,75,3,1,5),_RcServiceNetworkInterfaceSpeed_Type())
-rcServiceNetworkInterfaceSpeed.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceSpeed.setStatus(_A)
-class _RcServiceNetworkInterfaceDuplexMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('duplexUnknown',0),('duplexAutoNego',1),('duplexFull',2),('duplexHalf',3)))
-_RcServiceNetworkInterfaceDuplexMode_Type.__name__=_E
-_RcServiceNetworkInterfaceDuplexMode_Object=MibTableColumn
-rcServiceNetworkInterfaceDuplexMode=_RcServiceNetworkInterfaceDuplexMode_Object((1,3,6,1,4,1,8886,6,1,75,3,1,6),_RcServiceNetworkInterfaceDuplexMode_Type())
-rcServiceNetworkInterfaceDuplexMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceDuplexMode.setStatus(_A)
-class _RcServiceNetworkInterfaceMacLayer_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('ieee802dot3-2005',0))
-_RcServiceNetworkInterfaceMacLayer_Type.__name__=_E
-_RcServiceNetworkInterfaceMacLayer_Object=MibTableColumn
-rcServiceNetworkInterfaceMacLayer=_RcServiceNetworkInterfaceMacLayer_Object((1,3,6,1,4,1,8886,6,1,75,3,1,7),_RcServiceNetworkInterfaceMacLayer_Type())
-rcServiceNetworkInterfaceMacLayer.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceMacLayer.setStatus(_A)
-_RcServiceNetworkInterfaceMtu_Type=Integer32
-_RcServiceNetworkInterfaceMtu_Object=MibTableColumn
-rcServiceNetworkInterfaceMtu=_RcServiceNetworkInterfaceMtu_Object((1,3,6,1,4,1,8886,6,1,75,3,1,8),_RcServiceNetworkInterfaceMtu_Type())
-rcServiceNetworkInterfaceMtu.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceMtu.setStatus(_A)
-_RcServiceNetworkInterfaceServiceMultiplexing_Type=TruthValue
-_RcServiceNetworkInterfaceServiceMultiplexing_Object=MibTableColumn
-rcServiceNetworkInterfaceServiceMultiplexing=_RcServiceNetworkInterfaceServiceMultiplexing_Object((1,3,6,1,4,1,8886,6,1,75,3,1,9),_RcServiceNetworkInterfaceServiceMultiplexing_Type())
-rcServiceNetworkInterfaceServiceMultiplexing.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceServiceMultiplexing.setStatus(_A)
-_RcServiceNetworkInterfaceBundling_Type=TruthValue
-_RcServiceNetworkInterfaceBundling_Object=MibTableColumn
-rcServiceNetworkInterfaceBundling=_RcServiceNetworkInterfaceBundling_Object((1,3,6,1,4,1,8886,6,1,75,3,1,10),_RcServiceNetworkInterfaceBundling_Type())
-rcServiceNetworkInterfaceBundling.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceBundling.setStatus(_A)
-_RcServiceNetworkInterfaceAllToOneBundling_Type=TruthValue
-_RcServiceNetworkInterfaceAllToOneBundling_Object=MibTableColumn
-rcServiceNetworkInterfaceAllToOneBundling=_RcServiceNetworkInterfaceAllToOneBundling_Object((1,3,6,1,4,1,8886,6,1,75,3,1,11),_RcServiceNetworkInterfaceAllToOneBundling_Type())
-rcServiceNetworkInterfaceAllToOneBundling.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceAllToOneBundling.setStatus(_A)
-class _RcServiceNetworkInterfaceDefaultCVlan_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_RcServiceNetworkInterfaceDefaultCVlan_Type.__name__=_E
-_RcServiceNetworkInterfaceDefaultCVlan_Object=MibTableColumn
-rcServiceNetworkInterfaceDefaultCVlan=_RcServiceNetworkInterfaceDefaultCVlan_Object((1,3,6,1,4,1,8886,6,1,75,3,1,12),_RcServiceNetworkInterfaceDefaultCVlan_Type())
-rcServiceNetworkInterfaceDefaultCVlan.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceDefaultCVlan.setStatus(_A)
-_RcServiceNetworkInterfacMaxEvcs_Type=Integer32
-_RcServiceNetworkInterfacMaxEvcs_Object=MibTableColumn
-rcServiceNetworkInterfacMaxEvcs=_RcServiceNetworkInterfacMaxEvcs_Object((1,3,6,1,4,1,8886,6,1,75,3,1,13),_RcServiceNetworkInterfacMaxEvcs_Type())
-rcServiceNetworkInterfacMaxEvcs.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfacMaxEvcs.setStatus(_A)
-_RcServiceNetworkInterfaceMaxOvcs_Type=Integer32
-_RcServiceNetworkInterfaceMaxOvcs_Object=MibTableColumn
-rcServiceNetworkInterfaceMaxOvcs=_RcServiceNetworkInterfaceMaxOvcs_Object((1,3,6,1,4,1,8886,6,1,75,3,1,14),_RcServiceNetworkInterfaceMaxOvcs_Type())
-rcServiceNetworkInterfaceMaxOvcs.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceMaxOvcs.setStatus(_A)
-_RcServiceNetworkInterfaceInBwProfileIndex_Type=Integer32
-_RcServiceNetworkInterfaceInBwProfileIndex_Object=MibTableColumn
-rcServiceNetworkInterfaceInBwProfileIndex=_RcServiceNetworkInterfaceInBwProfileIndex_Object((1,3,6,1,4,1,8886,6,1,75,3,1,15),_RcServiceNetworkInterfaceInBwProfileIndex_Type())
-rcServiceNetworkInterfaceInBwProfileIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceInBwProfileIndex.setStatus(_A)
-_RcServiceNetworkInterfaceOutBwProfileIndex_Type=Integer32
-_RcServiceNetworkInterfaceOutBwProfileIndex_Object=MibTableColumn
-rcServiceNetworkInterfaceOutBwProfileIndex=_RcServiceNetworkInterfaceOutBwProfileIndex_Object((1,3,6,1,4,1,8886,6,1,75,3,1,16),_RcServiceNetworkInterfaceOutBwProfileIndex_Type())
-rcServiceNetworkInterfaceOutBwProfileIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceOutBwProfileIndex.setStatus(_A)
-_RcServiceNetworkInterfaceL2cpProfileIndex_Type=Integer32
-_RcServiceNetworkInterfaceL2cpProfileIndex_Object=MibTableColumn
-rcServiceNetworkInterfaceL2cpProfileIndex=_RcServiceNetworkInterfaceL2cpProfileIndex_Object((1,3,6,1,4,1,8886,6,1,75,3,1,17),_RcServiceNetworkInterfaceL2cpProfileIndex_Type())
-rcServiceNetworkInterfaceL2cpProfileIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceL2cpProfileIndex.setStatus(_A)
-class _RcServiceNetworkInterfaceFrameFormat_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('untag',0),('tag',1),('dtag',2)))
-_RcServiceNetworkInterfaceFrameFormat_Type.__name__=_E
-_RcServiceNetworkInterfaceFrameFormat_Object=MibTableColumn
-rcServiceNetworkInterfaceFrameFormat=_RcServiceNetworkInterfaceFrameFormat_Object((1,3,6,1,4,1,8886,6,1,75,3,1,18),_RcServiceNetworkInterfaceFrameFormat_Type())
-rcServiceNetworkInterfaceFrameFormat.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceFrameFormat.setStatus(_A)
-class _RcServiceNetworkInterfaceLinks_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2))
-_RcServiceNetworkInterfaceLinks_Type.__name__=_E
-_RcServiceNetworkInterfaceLinks_Object=MibTableColumn
-rcServiceNetworkInterfaceLinks=_RcServiceNetworkInterfaceLinks_Object((1,3,6,1,4,1,8886,6,1,75,3,1,19),_RcServiceNetworkInterfaceLinks_Type())
-rcServiceNetworkInterfaceLinks.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceLinks.setStatus(_A)
-class _RcServiceNetworkInterfaceResiliencyMechanisms_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('none',0),('linkaggregation',1),('other',2)))
-_RcServiceNetworkInterfaceResiliencyMechanisms_Type.__name__=_E
-_RcServiceNetworkInterfaceResiliencyMechanisms_Object=MibTableColumn
-rcServiceNetworkInterfaceResiliencyMechanisms=_RcServiceNetworkInterfaceResiliencyMechanisms_Object((1,3,6,1,4,1,8886,6,1,75,3,1,20),_RcServiceNetworkInterfaceResiliencyMechanisms_Type())
-rcServiceNetworkInterfaceResiliencyMechanisms.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceResiliencyMechanisms.setStatus(_A)
-_RcServiceNetworkInterfaceMaxEndPointPerOvc_Type=Integer32
-_RcServiceNetworkInterfaceMaxEndPointPerOvc_Object=MibTableColumn
-rcServiceNetworkInterfaceMaxEndPointPerOvc=_RcServiceNetworkInterfaceMaxEndPointPerOvc_Object((1,3,6,1,4,1,8886,6,1,75,3,1,21),_RcServiceNetworkInterfaceMaxEndPointPerOvc_Type())
-rcServiceNetworkInterfaceMaxEndPointPerOvc.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceMaxEndPointPerOvc.setStatus(_A)
-_RcServiceNetworkInterfaceEndPointMapTable_Object=MibTable
-rcServiceNetworkInterfaceEndPointMapTable=_RcServiceNetworkInterfaceEndPointMapTable_Object((1,3,6,1,4,1,8886,6,1,75,4))
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceEndPointMapTable.setStatus(_A)
-_RcServiceNetworkInterfaceEndPointMapEntry_Object=MibTableRow
-rcServiceNetworkInterfaceEndPointMapEntry=_RcServiceNetworkInterfaceEndPointMapEntry_Object((1,3,6,1,4,1,8886,6,1,75,4,1))
-rcServiceNetworkInterfaceEndPointMapEntry.setIndexNames((0,_C,_P),(0,_C,_R))
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceEndPointMapEntry.setStatus(_A)
-_RcServiceNetworkInterfaceEndPointMapSVlan_Type=Integer32
-_RcServiceNetworkInterfaceEndPointMapSVlan_Object=MibTableColumn
-rcServiceNetworkInterfaceEndPointMapSVlan=_RcServiceNetworkInterfaceEndPointMapSVlan_Object((1,3,6,1,4,1,8886,6,1,75,4,1,1),_RcServiceNetworkInterfaceEndPointMapSVlan_Type())
-rcServiceNetworkInterfaceEndPointMapSVlan.setMaxAccess(_O)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceEndPointMapSVlan.setStatus(_A)
-class _RcServiceNetworkInterfaceEndPointMapEndPointID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,91))
-_RcServiceNetworkInterfaceEndPointMapEndPointID_Type.__name__=_I
-_RcServiceNetworkInterfaceEndPointMapEndPointID_Object=MibTableColumn
-rcServiceNetworkInterfaceEndPointMapEndPointID=_RcServiceNetworkInterfaceEndPointMapEndPointID_Object((1,3,6,1,4,1,8886,6,1,75,4,1,2),_RcServiceNetworkInterfaceEndPointMapEndPointID_Type())
-rcServiceNetworkInterfaceEndPointMapEndPointID.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceEndPointMapEndPointID.setStatus(_A)
-class _RcServiceNetworkInterfaceEndPointMapEndPointType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('ovc-endpoint',0),('typex',1)))
-_RcServiceNetworkInterfaceEndPointMapEndPointType_Type.__name__=_E
-_RcServiceNetworkInterfaceEndPointMapEndPointType_Object=MibTableColumn
-rcServiceNetworkInterfaceEndPointMapEndPointType=_RcServiceNetworkInterfaceEndPointMapEndPointType_Object((1,3,6,1,4,1,8886,6,1,75,4,1,3),_RcServiceNetworkInterfaceEndPointMapEndPointType_Type())
-rcServiceNetworkInterfaceEndPointMapEndPointType.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceNetworkInterfaceEndPointMapEndPointType.setStatus(_A)
-_RcServiceTable_Object=MibTable
-rcServiceTable=_RcServiceTable_Object((1,3,6,1,4,1,8886,6,1,75,5))
-if mibBuilder.loadTexts:rcServiceTable.setStatus(_A)
-_RcServiceEntry_Object=MibTableRow
-rcServiceEntry=_RcServiceEntry_Object((1,3,6,1,4,1,8886,6,1,75,5,1))
-rcServiceEntry.setIndexNames((0,_C,_H))
-if mibBuilder.loadTexts:rcServiceEntry.setStatus(_A)
-class _RcServiceID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,45))
-_RcServiceID_Type.__name__=_I
-_RcServiceID_Object=MibTableColumn
-rcServiceID=_RcServiceID_Object((1,3,6,1,4,1,8886,6,1,75,5,1,1),_RcServiceID_Type())
-rcServiceID.setMaxAccess(_O)
-if mibBuilder.loadTexts:rcServiceID.setStatus(_A)
-class _RcServiceType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('eline',0),('elan',1),('etree',2),('eaccess',3)))
-_RcServiceType_Type.__name__=_E
-_RcServiceType_Object=MibTableColumn
-rcServiceType=_RcServiceType_Object((1,3,6,1,4,1,8886,6,1,75,5,1,2),_RcServiceType_Type())
-rcServiceType.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceType.setStatus(_A)
-class _RcServiceCustomerNameID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_RcServiceCustomerNameID_Type.__name__=_I
-_RcServiceCustomerNameID_Object=MibTableColumn
-rcServiceCustomerNameID=_RcServiceCustomerNameID_Object((1,3,6,1,4,1,8886,6,1,75,5,1,3),_RcServiceCustomerNameID_Type())
-rcServiceCustomerNameID.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceCustomerNameID.setStatus(_A)
-_RcServiceMaxUnis_Type=Integer32
-_RcServiceMaxUnis_Object=MibTableColumn
-rcServiceMaxUnis=_RcServiceMaxUnis_Object((1,3,6,1,4,1,8886,6,1,75,5,1,4),_RcServiceMaxUnis_Type())
-rcServiceMaxUnis.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceMaxUnis.setStatus(_A)
-_RcServiceMaxEnnis_Type=Integer32
-_RcServiceMaxEnnis_Object=MibTableColumn
-rcServiceMaxEnnis=_RcServiceMaxEnnis_Object((1,3,6,1,4,1,8886,6,1,75,5,1,5),_RcServiceMaxEnnis_Type())
-rcServiceMaxEnnis.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceMaxEnnis.setStatus(_A)
-_RcServiceMTU_Type=Integer32
-_RcServiceMTU_Object=MibTableColumn
-rcServiceMTU=_RcServiceMTU_Object((1,3,6,1,4,1,8886,6,1,75,5,1,6),_RcServiceMTU_Type())
-rcServiceMTU.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceMTU.setStatus(_A)
-_RcServiceCVlanPreservation_Type=TruthValue
-_RcServiceCVlanPreservation_Object=MibTableColumn
-rcServiceCVlanPreservation=_RcServiceCVlanPreservation_Object((1,3,6,1,4,1,8886,6,1,75,5,1,7),_RcServiceCVlanPreservation_Type())
-rcServiceCVlanPreservation.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceCVlanPreservation.setStatus(_A)
-_RcServiceCCosPreservation_Type=TruthValue
-_RcServiceCCosPreservation_Object=MibTableColumn
-rcServiceCCosPreservation=_RcServiceCCosPreservation_Object((1,3,6,1,4,1,8886,6,1,75,5,1,8),_RcServiceCCosPreservation_Type())
-rcServiceCCosPreservation.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceCCosPreservation.setStatus(_A)
-_RcServiceSVlanPreservation_Type=TruthValue
-_RcServiceSVlanPreservation_Object=MibTableColumn
-rcServiceSVlanPreservation=_RcServiceSVlanPreservation_Object((1,3,6,1,4,1,8886,6,1,75,5,1,9),_RcServiceSVlanPreservation_Type())
-rcServiceSVlanPreservation.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceSVlanPreservation.setStatus(_A)
-_RcServiceSCosPreservation_Type=TruthValue
-_RcServiceSCosPreservation_Object=MibTableColumn
-rcServiceSCosPreservation=_RcServiceSCosPreservation_Object((1,3,6,1,4,1,8886,6,1,75,5,1,10),_RcServiceSCosPreservation_Type())
-rcServiceSCosPreservation.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceSCosPreservation.setStatus(_A)
-_RcServiceColorForward_Type=TruthValue
-_RcServiceColorForward_Object=MibTableColumn
-rcServiceColorForward=_RcServiceColorForward_Object((1,3,6,1,4,1,8886,6,1,75,5,1,11),_RcServiceColorForward_Type())
-rcServiceColorForward.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceColorForward.setStatus(_A)
-_RcServiceUnicastDelivery_Type=TruthValue
-_RcServiceUnicastDelivery_Object=MibTableColumn
-rcServiceUnicastDelivery=_RcServiceUnicastDelivery_Object((1,3,6,1,4,1,8886,6,1,75,5,1,12),_RcServiceUnicastDelivery_Type())
-rcServiceUnicastDelivery.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceUnicastDelivery.setStatus(_A)
-_RcServiceMulticastDelivery_Type=TruthValue
-_RcServiceMulticastDelivery_Object=MibTableColumn
-rcServiceMulticastDelivery=_RcServiceMulticastDelivery_Object((1,3,6,1,4,1,8886,6,1,75,5,1,13),_RcServiceMulticastDelivery_Type())
-rcServiceMulticastDelivery.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceMulticastDelivery.setStatus(_A)
-_RcServiceBroadcastDelivery_Type=TruthValue
-_RcServiceBroadcastDelivery_Object=MibTableColumn
-rcServiceBroadcastDelivery=_RcServiceBroadcastDelivery_Object((1,3,6,1,4,1,8886,6,1,75,5,1,14),_RcServiceBroadcastDelivery_Type())
-rcServiceBroadcastDelivery.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceBroadcastDelivery.setStatus(_A)
-_RcServiceL2cpPass_Type=TruthValue
-_RcServiceL2cpPass_Object=MibTableColumn
-rcServiceL2cpPass=_RcServiceL2cpPass_Object((1,3,6,1,4,1,8886,6,1,75,5,1,15),_RcServiceL2cpPass_Type())
-rcServiceL2cpPass.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceL2cpPass.setStatus(_A)
-class _RcServiceCosType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('cos-unknown',0),('cos-baseon-service',1),('cos-baseon-cos',2),('cos-baseon-dscp',3)))
-_RcServiceCosType_Type.__name__=_E
-_RcServiceCosType_Object=MibTableColumn
-rcServiceCosType=_RcServiceCosType_Object((1,3,6,1,4,1,8886,6,1,75,5,1,16),_RcServiceCosType_Type())
-rcServiceCosType.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceCosType.setStatus(_A)
-_RcServiceVCCosLabel_Type=Integer32
-_RcServiceVCCosLabel_Object=MibTableColumn
-rcServiceVCCosLabel=_RcServiceVCCosLabel_Object((1,3,6,1,4,1,8886,6,1,75,5,1,17),_RcServiceVCCosLabel_Type())
-rcServiceVCCosLabel.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceVCCosLabel.setStatus(_A)
-_RcServiceCosMapProfileIndex_Type=Integer32
-_RcServiceCosMapProfileIndex_Object=MibTableColumn
-rcServiceCosMapProfileIndex=_RcServiceCosMapProfileIndex_Object((1,3,6,1,4,1,8886,6,1,75,5,1,18),_RcServiceCosMapProfileIndex_Type())
-rcServiceCosMapProfileIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceCosMapProfileIndex.setStatus(_A)
-_RcServiceDscpMapProfileIndex_Type=Integer32
-_RcServiceDscpMapProfileIndex_Object=MibTableColumn
-rcServiceDscpMapProfileIndex=_RcServiceDscpMapProfileIndex_Object((1,3,6,1,4,1,8886,6,1,75,5,1,19),_RcServiceDscpMapProfileIndex_Type())
-rcServiceDscpMapProfileIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceDscpMapProfileIndex.setStatus(_A)
-class _RcServiceSdpType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('sdp-none',0),('sdp-vlan',1),('sdp-mpls',2)))
-_RcServiceSdpType_Type.__name__=_E
-_RcServiceSdpType_Object=MibTableColumn
-rcServiceSdpType=_RcServiceSdpType_Object((1,3,6,1,4,1,8886,6,1,75,5,1,20),_RcServiceSdpType_Type())
-rcServiceSdpType.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceSdpType.setStatus(_A)
-_RcServiceSdpIndex_Type=Integer32
-_RcServiceSdpIndex_Object=MibTableColumn
-rcServiceSdpIndex=_RcServiceSdpIndex_Object((1,3,6,1,4,1,8886,6,1,75,5,1,21),_RcServiceSdpIndex_Type())
-rcServiceSdpIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceSdpIndex.setStatus(_A)
-_RcServicePTIndex_Type=Integer32
-_RcServicePTIndex_Object=MibTableColumn
-rcServicePTIndex=_RcServicePTIndex_Object((1,3,6,1,4,1,8886,6,1,75,5,1,22),_RcServicePTIndex_Type())
-rcServicePTIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServicePTIndex.setStatus(_A)
-_RcServiceMaintenanceTimeStart_Type=DateAndTime
-_RcServiceMaintenanceTimeStart_Object=MibTableColumn
-rcServiceMaintenanceTimeStart=_RcServiceMaintenanceTimeStart_Object((1,3,6,1,4,1,8886,6,1,75,5,1,23),_RcServiceMaintenanceTimeStart_Type())
-rcServiceMaintenanceTimeStart.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceMaintenanceTimeStart.setStatus(_A)
-_RcServiceMaintenanceTimeStop_Type=DateAndTime
-_RcServiceMaintenanceTimeStop_Object=MibTableColumn
-rcServiceMaintenanceTimeStop=_RcServiceMaintenanceTimeStop_Object((1,3,6,1,4,1,8886,6,1,75,5,1,24),_RcServiceMaintenanceTimeStop_Type())
-rcServiceMaintenanceTimeStop.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceMaintenanceTimeStop.setStatus(_A)
-_RcServicePerfermanceTestScheduleLife_Type=Unsigned32
-_RcServicePerfermanceTestScheduleLife_Object=MibTableColumn
-rcServicePerfermanceTestScheduleLife=_RcServicePerfermanceTestScheduleLife_Object((1,3,6,1,4,1,8886,6,1,75,5,1,25),_RcServicePerfermanceTestScheduleLife_Type())
-rcServicePerfermanceTestScheduleLife.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServicePerfermanceTestScheduleLife.setStatus(_A)
-_RcServicePerfermanceTestSchedulePeriod_Type=Unsigned32
-_RcServicePerfermanceTestSchedulePeriod_Object=MibTableColumn
-rcServicePerfermanceTestSchedulePeriod=_RcServicePerfermanceTestSchedulePeriod_Object((1,3,6,1,4,1,8886,6,1,75,5,1,26),_RcServicePerfermanceTestSchedulePeriod_Type())
-rcServicePerfermanceTestSchedulePeriod.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServicePerfermanceTestSchedulePeriod.setStatus(_A)
-_RcServicePerfermanceTestScheduleInterval_Type=Unsigned32
-_RcServicePerfermanceTestScheduleInterval_Object=MibTableColumn
-rcServicePerfermanceTestScheduleInterval=_RcServicePerfermanceTestScheduleInterval_Object((1,3,6,1,4,1,8886,6,1,75,5,1,27),_RcServicePerfermanceTestScheduleInterval_Type())
-rcServicePerfermanceTestScheduleInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServicePerfermanceTestScheduleInterval.setStatus(_A)
-_RcServicePerfermanceTestOperate_Type=TruthValue
-_RcServicePerfermanceTestOperate_Object=MibTableColumn
-rcServicePerfermanceTestOperate=_RcServicePerfermanceTestOperate_Object((1,3,6,1,4,1,8886,6,1,75,5,1,28),_RcServicePerfermanceTestOperate_Type())
-rcServicePerfermanceTestOperate.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServicePerfermanceTestOperate.setStatus(_A)
-class _RcServiceL2LoopbackEtherType_Type(Integer32):defaultValue=2208
-_RcServiceL2LoopbackEtherType_Type.__name__=_E
-_RcServiceL2LoopbackEtherType_Object=MibTableColumn
-rcServiceL2LoopbackEtherType=_RcServiceL2LoopbackEtherType_Object((1,3,6,1,4,1,8886,6,1,75,5,1,29),_RcServiceL2LoopbackEtherType_Type())
-rcServiceL2LoopbackEtherType.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceL2LoopbackEtherType.setStatus(_A)
-_RcServiceL2LoopbackOperate_Type=TruthValue
-_RcServiceL2LoopbackOperate_Object=MibTableColumn
-rcServiceL2LoopbackOperate=_RcServiceL2LoopbackOperate_Object((1,3,6,1,4,1,8886,6,1,75,5,1,30),_RcServiceL2LoopbackOperate_Type())
-rcServiceL2LoopbackOperate.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceL2LoopbackOperate.setStatus(_A)
-class _RcServiceEtherSamPerformanceDuration_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(5,1440))
-_RcServiceEtherSamPerformanceDuration_Type.__name__=_E
-_RcServiceEtherSamPerformanceDuration_Object=MibTableColumn
-rcServiceEtherSamPerformanceDuration=_RcServiceEtherSamPerformanceDuration_Object((1,3,6,1,4,1,8886,6,1,75,5,1,31),_RcServiceEtherSamPerformanceDuration_Type())
-rcServiceEtherSamPerformanceDuration.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceEtherSamPerformanceDuration.setStatus(_A)
-class _RcServiceEtherSamPerformanceBW_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100000))
-_RcServiceEtherSamPerformanceBW_Type.__name__=_G
-_RcServiceEtherSamPerformanceBW_Object=MibTableColumn
-rcServiceEtherSamPerformanceBW=_RcServiceEtherSamPerformanceBW_Object((1,3,6,1,4,1,8886,6,1,75,5,1,32),_RcServiceEtherSamPerformanceBW_Type())
-rcServiceEtherSamPerformanceBW.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceEtherSamPerformanceBW.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceEtherSamPerformanceBW.setUnits(_J)
-class _RcServiceEtherSamFlowProfileIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_RcServiceEtherSamFlowProfileIndex_Type.__name__=_E
-_RcServiceEtherSamFlowProfileIndex_Object=MibTableColumn
-rcServiceEtherSamFlowProfileIndex=_RcServiceEtherSamFlowProfileIndex_Object((1,3,6,1,4,1,8886,6,1,75,5,1,33),_RcServiceEtherSamFlowProfileIndex_Type())
-rcServiceEtherSamFlowProfileIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceEtherSamFlowProfileIndex.setStatus(_A)
-class _RcServiceEtherSamCfgBypassUni_Type(TruthValue):defaultValue=2
-_RcServiceEtherSamCfgBypassUni_Type.__name__=_Q
-_RcServiceEtherSamCfgBypassUni_Object=MibTableColumn
-rcServiceEtherSamCfgBypassUni=_RcServiceEtherSamCfgBypassUni_Object((1,3,6,1,4,1,8886,6,1,75,5,1,34),_RcServiceEtherSamCfgBypassUni_Type())
-rcServiceEtherSamCfgBypassUni.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceEtherSamCfgBypassUni.setStatus(_A)
-_RcServiceEtherSamTestElapsedTime_Type=TimeInterval
-_RcServiceEtherSamTestElapsedTime_Object=MibTableColumn
-rcServiceEtherSamTestElapsedTime=_RcServiceEtherSamTestElapsedTime_Object((1,3,6,1,4,1,8886,6,1,75,5,1,35),_RcServiceEtherSamTestElapsedTime_Type())
-rcServiceEtherSamTestElapsedTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceEtherSamTestElapsedTime.setStatus(_A)
-class _RcServiceEtherSamTestType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('configuration',1),('performance',2),('both',3),('rfc2544',4),('performance-inservice',5)))
-_RcServiceEtherSamTestType_Type.__name__=_E
-_RcServiceEtherSamTestType_Object=MibTableColumn
-rcServiceEtherSamTestType=_RcServiceEtherSamTestType_Object((1,3,6,1,4,1,8886,6,1,75,5,1,36),_RcServiceEtherSamTestType_Type())
-rcServiceEtherSamTestType.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceEtherSamTestType.setStatus(_A)
-_RcServiceEtherSamOperate_Type=TruthValue
-_RcServiceEtherSamOperate_Object=MibTableColumn
-rcServiceEtherSamOperate=_RcServiceEtherSamOperate_Object((1,3,6,1,4,1,8886,6,1,75,5,1,37),_RcServiceEtherSamOperate_Type())
-rcServiceEtherSamOperate.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceEtherSamOperate.setStatus(_A)
-class _RcServiceEtherSamTestResult_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('pass',1),('fail',2)))
-_RcServiceEtherSamTestResult_Type.__name__=_E
-_RcServiceEtherSamTestResult_Object=MibTableColumn
-rcServiceEtherSamTestResult=_RcServiceEtherSamTestResult_Object((1,3,6,1,4,1,8886,6,1,75,5,1,38),_RcServiceEtherSamTestResult_Type())
-rcServiceEtherSamTestResult.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceEtherSamTestResult.setStatus(_A)
-_RcServiceEtherSamTimeCfgWillTake_Type=TimeInterval
-_RcServiceEtherSamTimeCfgWillTake_Object=MibTableColumn
-rcServiceEtherSamTimeCfgWillTake=_RcServiceEtherSamTimeCfgWillTake_Object((1,3,6,1,4,1,8886,6,1,75,5,1,39),_RcServiceEtherSamTimeCfgWillTake_Type())
-rcServiceEtherSamTimeCfgWillTake.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceEtherSamTimeCfgWillTake.setStatus(_A)
-class _RcServiceEtherSamClearResult_Type(TruthValue):defaultValue=2
-_RcServiceEtherSamClearResult_Type.__name__=_Q
-_RcServiceEtherSamClearResult_Object=MibTableColumn
-rcServiceEtherSamClearResult=_RcServiceEtherSamClearResult_Object((1,3,6,1,4,1,8886,6,1,75,5,1,40),_RcServiceEtherSamClearResult_Type())
-rcServiceEtherSamClearResult.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceEtherSamClearResult.setStatus(_A)
-_RcServiceMdIndex_Type=Unsigned32
-_RcServiceMdIndex_Object=MibTableColumn
-rcServiceMdIndex=_RcServiceMdIndex_Object((1,3,6,1,4,1,8886,6,1,75,5,1,41),_RcServiceMdIndex_Type())
-rcServiceMdIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceMdIndex.setStatus(_A)
-_RcServiceMaIndex_Type=Unsigned32
-_RcServiceMaIndex_Object=MibTableColumn
-rcServiceMaIndex=_RcServiceMaIndex_Object((1,3,6,1,4,1,8886,6,1,75,5,1,42),_RcServiceMaIndex_Type())
-rcServiceMaIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceMaIndex.setStatus(_A)
-_RcServiceOperStatus_Type=TruthValue
-_RcServiceOperStatus_Object=MibTableColumn
-rcServiceOperStatus=_RcServiceOperStatus_Object((1,3,6,1,4,1,8886,6,1,75,5,1,43),_RcServiceOperStatus_Type())
-rcServiceOperStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceOperStatus.setStatus(_A)
-class _RcServiceCcStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('full-work',0),('part-work',1),('no-work',2)))
-_RcServiceCcStatus_Type.__name__=_E
-_RcServiceCcStatus_Object=MibTableColumn
-rcServiceCcStatus=_RcServiceCcStatus_Object((1,3,6,1,4,1,8886,6,1,75,5,1,44),_RcServiceCcStatus_Type())
-rcServiceCcStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceCcStatus.setStatus(_A)
-class _RcServicePerfermanceTestType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('lmLmm',1),('lmSlm',2)))
-_RcServicePerfermanceTestType_Type.__name__=_E
-_RcServicePerfermanceTestType_Object=MibTableColumn
-rcServicePerfermanceTestType=_RcServicePerfermanceTestType_Object((1,3,6,1,4,1,8886,6,1,75,5,1,45),_RcServicePerfermanceTestType_Type())
-rcServicePerfermanceTestType.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServicePerfermanceTestType.setStatus(_A)
-class _RcServiceEtherSamSlaJitterType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('dm',1),('l2loopback',2)))
-_RcServiceEtherSamSlaJitterType_Type.__name__=_E
-_RcServiceEtherSamSlaJitterType_Object=MibTableColumn
-rcServiceEtherSamSlaJitterType=_RcServiceEtherSamSlaJitterType_Object((1,3,6,1,4,1,8886,6,1,75,5,1,46),_RcServiceEtherSamSlaJitterType_Type())
-rcServiceEtherSamSlaJitterType.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceEtherSamSlaJitterType.setStatus(_A)
-_RcServiceRowStatus_Type=RowStatus
-_RcServiceRowStatus_Object=MibTableColumn
-rcServiceRowStatus=_RcServiceRowStatus_Object((1,3,6,1,4,1,8886,6,1,75,5,1,100),_RcServiceRowStatus_Type())
-rcServiceRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceRowStatus.setStatus(_A)
-_RcServiceCustomerTable_Object=MibTable
-rcServiceCustomerTable=_RcServiceCustomerTable_Object((1,3,6,1,4,1,8886,6,1,75,6))
-if mibBuilder.loadTexts:rcServiceCustomerTable.setStatus(_A)
-_RcServiceCustomerEntry_Object=MibTableRow
-rcServiceCustomerEntry=_RcServiceCustomerEntry_Object((1,3,6,1,4,1,8886,6,1,75,6,1))
-rcServiceCustomerEntry.setIndexNames((0,_C,_S))
-if mibBuilder.loadTexts:rcServiceCustomerEntry.setStatus(_A)
-class _RcServiceCustomerName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_RcServiceCustomerName_Type.__name__=_I
-_RcServiceCustomerName_Object=MibTableColumn
-rcServiceCustomerName=_RcServiceCustomerName_Object((1,3,6,1,4,1,8886,6,1,75,6,1,1),_RcServiceCustomerName_Type())
-rcServiceCustomerName.setMaxAccess(_O)
-if mibBuilder.loadTexts:rcServiceCustomerName.setStatus(_A)
-class _RcServiceCustomerContact_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_RcServiceCustomerContact_Type.__name__=_I
-_RcServiceCustomerContact_Object=MibTableColumn
-rcServiceCustomerContact=_RcServiceCustomerContact_Object((1,3,6,1,4,1,8886,6,1,75,6,1,2),_RcServiceCustomerContact_Type())
-rcServiceCustomerContact.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceCustomerContact.setStatus(_A)
-class _RcServiceCustomerPhone_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_RcServiceCustomerPhone_Type.__name__=_I
-_RcServiceCustomerPhone_Object=MibTableColumn
-rcServiceCustomerPhone=_RcServiceCustomerPhone_Object((1,3,6,1,4,1,8886,6,1,75,6,1,3),_RcServiceCustomerPhone_Type())
-rcServiceCustomerPhone.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceCustomerPhone.setStatus(_A)
-_RcServiceCustomerRowStatus_Type=RowStatus
-_RcServiceCustomerRowStatus_Object=MibTableColumn
-rcServiceCustomerRowStatus=_RcServiceCustomerRowStatus_Object((1,3,6,1,4,1,8886,6,1,75,6,1,4),_RcServiceCustomerRowStatus_Type())
-rcServiceCustomerRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceCustomerRowStatus.setStatus(_A)
-_RcServiceCosLabelTable_Object=MibTable
-rcServiceCosLabelTable=_RcServiceCosLabelTable_Object((1,3,6,1,4,1,8886,6,1,75,7))
-if mibBuilder.loadTexts:rcServiceCosLabelTable.setStatus(_A)
-_RcServiceCosLabelEntry_Object=MibTableRow
-rcServiceCosLabelEntry=_RcServiceCosLabelEntry_Object((1,3,6,1,4,1,8886,6,1,75,7,1))
-rcServiceCosLabelEntry.setIndexNames((0,_C,_H),(0,_C,_N))
-if mibBuilder.loadTexts:rcServiceCosLabelEntry.setStatus(_A)
-_RcServiceCosLabelPerfermanceTestEnable_Type=TruthValue
-_RcServiceCosLabelPerfermanceTestEnable_Object=MibTableColumn
-rcServiceCosLabelPerfermanceTestEnable=_RcServiceCosLabelPerfermanceTestEnable_Object((1,3,6,1,4,1,8886,6,1,75,7,1,1),_RcServiceCosLabelPerfermanceTestEnable_Type())
-rcServiceCosLabelPerfermanceTestEnable.setMaxAccess(_L)
-if mibBuilder.loadTexts:rcServiceCosLabelPerfermanceTestEnable.setStatus(_A)
-_RcServiceCosLabelEtherSAMEnable_Type=TruthValue
-_RcServiceCosLabelEtherSAMEnable_Object=MibTableColumn
-rcServiceCosLabelEtherSAMEnable=_RcServiceCosLabelEtherSAMEnable_Object((1,3,6,1,4,1,8886,6,1,75,7,1,2),_RcServiceCosLabelEtherSAMEnable_Type())
-rcServiceCosLabelEtherSAMEnable.setMaxAccess(_L)
-if mibBuilder.loadTexts:rcServiceCosLabelEtherSAMEnable.setStatus(_A)
-_RcServiceEndPointTable_Object=MibTable
-rcServiceEndPointTable=_RcServiceEndPointTable_Object((1,3,6,1,4,1,8886,6,1,75,8))
-if mibBuilder.loadTexts:rcServiceEndPointTable.setStatus(_A)
-_RcServiceEndPointEntry_Object=MibTableRow
-rcServiceEndPointEntry=_RcServiceEndPointEntry_Object((1,3,6,1,4,1,8886,6,1,75,8,1))
-rcServiceEndPointEntry.setIndexNames((0,_C,_H),(0,_C,_K))
-if mibBuilder.loadTexts:rcServiceEndPointEntry.setStatus(_A)
-class _RcServiceEndPointType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('evc-per-uni',1),('ovc-per-uni',2),('ovc-per-enni',3)))
-_RcServiceEndPointType_Type.__name__=_E
-_RcServiceEndPointType_Object=MibTableColumn
-rcServiceEndPointType=_RcServiceEndPointType_Object((1,3,6,1,4,1,8886,6,1,75,8,1,1),_RcServiceEndPointType_Type())
-rcServiceEndPointType.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceEndPointType.setStatus(_A)
-class _RcServiceEndPointMPType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('root',1),('leaf',2)))
-_RcServiceEndPointMPType_Type.__name__=_E
-_RcServiceEndPointMPType_Object=MibTableColumn
-rcServiceEndPointMPType=_RcServiceEndPointMPType_Object((1,3,6,1,4,1,8886,6,1,75,8,1,2),_RcServiceEndPointMPType_Type())
-rcServiceEndPointMPType.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceEndPointMPType.setStatus(_A)
-class _RcServiceEndPointMapCVlans_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(512,512));fixedLength=512
-_RcServiceEndPointMapCVlans_Type.__name__=_I
-_RcServiceEndPointMapCVlans_Object=MibTableColumn
-rcServiceEndPointMapCVlans=_RcServiceEndPointMapCVlans_Object((1,3,6,1,4,1,8886,6,1,75,8,1,3),_RcServiceEndPointMapCVlans_Type())
-rcServiceEndPointMapCVlans.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceEndPointMapCVlans.setStatus(_A)
-_RcServiceEndPointInBwProfileIndex_Type=Integer32
-_RcServiceEndPointInBwProfileIndex_Object=MibTableColumn
-rcServiceEndPointInBwProfileIndex=_RcServiceEndPointInBwProfileIndex_Object((1,3,6,1,4,1,8886,6,1,75,8,1,4),_RcServiceEndPointInBwProfileIndex_Type())
-rcServiceEndPointInBwProfileIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceEndPointInBwProfileIndex.setStatus(_A)
-_RcServiceEndPointOutBwProfileIndex_Type=Integer32
-_RcServiceEndPointOutBwProfileIndex_Object=MibTableColumn
-rcServiceEndPointOutBwProfileIndex=_RcServiceEndPointOutBwProfileIndex_Object((1,3,6,1,4,1,8886,6,1,75,8,1,5),_RcServiceEndPointOutBwProfileIndex_Type())
-rcServiceEndPointOutBwProfileIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceEndPointOutBwProfileIndex.setStatus(_A)
-class _RcServiceEndPointLMep_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8191))
-_RcServiceEndPointLMep_Type.__name__=_G
-_RcServiceEndPointLMep_Object=MibTableColumn
-rcServiceEndPointLMep=_RcServiceEndPointLMep_Object((1,3,6,1,4,1,8886,6,1,75,8,1,6),_RcServiceEndPointLMep_Type())
-rcServiceEndPointLMep.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceEndPointLMep.setStatus(_A)
-_RcServiceEndPointCCEnable_Type=TruthValue
-_RcServiceEndPointCCEnable_Object=MibTableColumn
-rcServiceEndPointCCEnable=_RcServiceEndPointCCEnable_Object((1,3,6,1,4,1,8886,6,1,75,8,1,7),_RcServiceEndPointCCEnable_Type())
-rcServiceEndPointCCEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceEndPointCCEnable.setStatus(_A)
-_RcServiceEndPointPMEnable_Type=TruthValue
-_RcServiceEndPointPMEnable_Object=MibTableColumn
-rcServiceEndPointPMEnable=_RcServiceEndPointPMEnable_Object((1,3,6,1,4,1,8886,6,1,75,8,1,8),_RcServiceEndPointPMEnable_Type())
-rcServiceEndPointPMEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceEndPointPMEnable.setStatus(_A)
-_RcServiceEndPointRowStatus_Type=RowStatus
-_RcServiceEndPointRowStatus_Object=MibTableColumn
-rcServiceEndPointRowStatus=_RcServiceEndPointRowStatus_Object((1,3,6,1,4,1,8886,6,1,75,8,1,100),_RcServiceEndPointRowStatus_Type())
-rcServiceEndPointRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceEndPointRowStatus.setStatus(_A)
-_RcServicesEndPointCosLabelTable_Object=MibTable
-rcServicesEndPointCosLabelTable=_RcServicesEndPointCosLabelTable_Object((1,3,6,1,4,1,8886,6,1,75,9))
-if mibBuilder.loadTexts:rcServicesEndPointCosLabelTable.setStatus(_A)
-_RcServicesEndPointCosLabelEntry_Object=MibTableRow
-rcServicesEndPointCosLabelEntry=_RcServicesEndPointCosLabelEntry_Object((1,3,6,1,4,1,8886,6,1,75,9,1))
-rcServicesEndPointCosLabelEntry.setIndexNames((0,_C,_H),(0,_C,_K),(0,_C,_N))
-if mibBuilder.loadTexts:rcServicesEndPointCosLabelEntry.setStatus(_A)
-_RcServiceEndPointCosLabelInBwProfileIndex_Type=Integer32
-_RcServiceEndPointCosLabelInBwProfileIndex_Object=MibTableColumn
-rcServiceEndPointCosLabelInBwProfileIndex=_RcServiceEndPointCosLabelInBwProfileIndex_Object((1,3,6,1,4,1,8886,6,1,75,9,1,1),_RcServiceEndPointCosLabelInBwProfileIndex_Type())
-rcServiceEndPointCosLabelInBwProfileIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceEndPointCosLabelInBwProfileIndex.setStatus(_A)
-_RcServiceEndPointCosLabelOutBwProfileIndex_Type=Integer32
-_RcServiceEndPointCosLabelOutBwProfileIndex_Object=MibTableColumn
-rcServiceEndPointCosLabelOutBwProfileIndex=_RcServiceEndPointCosLabelOutBwProfileIndex_Object((1,3,6,1,4,1,8886,6,1,75,9,1,2),_RcServiceEndPointCosLabelOutBwProfileIndex_Type())
-rcServiceEndPointCosLabelOutBwProfileIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceEndPointCosLabelOutBwProfileIndex.setStatus(_A)
-_RcServiceFarEndPointTable_Object=MibTable
-rcServiceFarEndPointTable=_RcServiceFarEndPointTable_Object((1,3,6,1,4,1,8886,6,1,75,10))
-if mibBuilder.loadTexts:rcServiceFarEndPointTable.setStatus(_A)
-_RcServiceFarEndPointEntry_Object=MibTableRow
-rcServiceFarEndPointEntry=_RcServiceFarEndPointEntry_Object((1,3,6,1,4,1,8886,6,1,75,10,1))
-rcServiceFarEndPointEntry.setIndexNames((0,_C,_H),(0,_C,_K),(0,_C,_M))
-if mibBuilder.loadTexts:rcServiceFarEndPointEntry.setStatus(_A)
-class _RcServiceFarEndNetworkInterfaceID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,45))
-_RcServiceFarEndNetworkInterfaceID_Type.__name__=_I
-_RcServiceFarEndNetworkInterfaceID_Object=MibTableColumn
-rcServiceFarEndNetworkInterfaceID=_RcServiceFarEndNetworkInterfaceID_Object((1,3,6,1,4,1,8886,6,1,75,10,1,1),_RcServiceFarEndNetworkInterfaceID_Type())
-rcServiceFarEndNetworkInterfaceID.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceFarEndNetworkInterfaceID.setStatus(_A)
-class _RcServiceFarEndPointRMep_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8191))
-_RcServiceFarEndPointRMep_Type.__name__=_G
-_RcServiceFarEndPointRMep_Object=MibTableColumn
-rcServiceFarEndPointRMep=_RcServiceFarEndPointRMep_Object((1,3,6,1,4,1,8886,6,1,75,10,1,2),_RcServiceFarEndPointRMep_Type())
-rcServiceFarEndPointRMep.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceFarEndPointRMep.setStatus(_A)
-_RcServiceFarEndPointPerfermanceTestEnable_Type=TruthValue
-_RcServiceFarEndPointPerfermanceTestEnable_Object=MibTableColumn
-rcServiceFarEndPointPerfermanceTestEnable=_RcServiceFarEndPointPerfermanceTestEnable_Object((1,3,6,1,4,1,8886,6,1,75,10,1,3),_RcServiceFarEndPointPerfermanceTestEnable_Type())
-rcServiceFarEndPointPerfermanceTestEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceFarEndPointPerfermanceTestEnable.setStatus(_A)
-_RcServiceFarEndPointEtherSAMEnable_Type=TruthValue
-_RcServiceFarEndPointEtherSAMEnable_Object=MibTableColumn
-rcServiceFarEndPointEtherSAMEnable=_RcServiceFarEndPointEtherSAMEnable_Object((1,3,6,1,4,1,8886,6,1,75,10,1,4),_RcServiceFarEndPointEtherSAMEnable_Type())
-rcServiceFarEndPointEtherSAMEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceFarEndPointEtherSAMEnable.setStatus(_A)
-_RcServiceFarEndPointL2LoopbackEnable_Type=TruthValue
-_RcServiceFarEndPointL2LoopbackEnable_Object=MibTableColumn
-rcServiceFarEndPointL2LoopbackEnable=_RcServiceFarEndPointL2LoopbackEnable_Object((1,3,6,1,4,1,8886,6,1,75,10,1,5),_RcServiceFarEndPointL2LoopbackEnable_Type())
-rcServiceFarEndPointL2LoopbackEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceFarEndPointL2LoopbackEnable.setStatus(_A)
-class _RcServiceFarEndPointCcStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*(('DEFECT-NONE',0),('DEFECT-RDI-CCM',1),('DEFECT-MAC-STATUS',2),('DEFECT-REMOTE-CCM',3),('DEFECT-ERROR-CCM',4),('DEFECT-XCON-CCM',5)))
-_RcServiceFarEndPointCcStatus_Type.__name__=_E
-_RcServiceFarEndPointCcStatus_Object=MibTableColumn
-rcServiceFarEndPointCcStatus=_RcServiceFarEndPointCcStatus_Object((1,3,6,1,4,1,8886,6,1,75,10,1,6),_RcServiceFarEndPointCcStatus_Type())
-rcServiceFarEndPointCcStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCcStatus.setStatus(_A)
-_RcServiceFarEndPointIPAddressType_Type=InetAddressType
-_RcServiceFarEndPointIPAddressType_Object=MibTableColumn
-rcServiceFarEndPointIPAddressType=_RcServiceFarEndPointIPAddressType_Object((1,3,6,1,4,1,8886,6,1,75,10,1,7),_RcServiceFarEndPointIPAddressType_Type())
-rcServiceFarEndPointIPAddressType.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceFarEndPointIPAddressType.setStatus(_A)
-_RcServiceFarEndPointIPAddress_Type=InetAddress
-_RcServiceFarEndPointIPAddress_Object=MibTableColumn
-rcServiceFarEndPointIPAddress=_RcServiceFarEndPointIPAddress_Object((1,3,6,1,4,1,8886,6,1,75,10,1,8),_RcServiceFarEndPointIPAddress_Type())
-rcServiceFarEndPointIPAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceFarEndPointIPAddress.setStatus(_A)
-_RcServiceFarEndPointMacAddress_Type=MacAddress
-_RcServiceFarEndPointMacAddress_Object=MibTableColumn
-rcServiceFarEndPointMacAddress=_RcServiceFarEndPointMacAddress_Object((1,3,6,1,4,1,8886,6,1,75,10,1,9),_RcServiceFarEndPointMacAddress_Type())
-rcServiceFarEndPointMacAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceFarEndPointMacAddress.setStatus(_A)
-class _RcServiceFarEndPointType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('farend-rmep',1),('farend-ip',2),('farend_mac',3)))
-_RcServiceFarEndPointType_Type.__name__=_E
-_RcServiceFarEndPointType_Object=MibTableColumn
-rcServiceFarEndPointType=_RcServiceFarEndPointType_Object((1,3,6,1,4,1,8886,6,1,75,10,1,10),_RcServiceFarEndPointType_Type())
-rcServiceFarEndPointType.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceFarEndPointType.setStatus(_A)
-_RcServiceFarEndPointRowStatus_Type=RowStatus
-_RcServiceFarEndPointRowStatus_Object=MibTableColumn
-rcServiceFarEndPointRowStatus=_RcServiceFarEndPointRowStatus_Object((1,3,6,1,4,1,8886,6,1,75,10,1,100),_RcServiceFarEndPointRowStatus_Type())
-rcServiceFarEndPointRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceFarEndPointRowStatus.setStatus(_A)
-_RcServiceFarEndPointCosLabelTable_Object=MibTable
-rcServiceFarEndPointCosLabelTable=_RcServiceFarEndPointCosLabelTable_Object((1,3,6,1,4,1,8886,6,1,75,11))
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelTable.setStatus(_A)
-_RcServiceFarEndPointCosLabelEntry_Object=MibTableRow
-rcServiceFarEndPointCosLabelEntry=_RcServiceFarEndPointCosLabelEntry_Object((1,3,6,1,4,1,8886,6,1,75,11,1))
-rcServiceFarEndPointCosLabelEntry.setIndexNames((0,_C,_H),(0,_C,_K),(0,_C,_M),(0,_C,_N))
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelEntry.setStatus(_A)
-_RcServiceFarEndPointCosLabelShortStartTime_Type=DateAndTime
-_RcServiceFarEndPointCosLabelShortStartTime_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortStartTime=_RcServiceFarEndPointCosLabelShortStartTime_Object((1,3,6,1,4,1,8886,6,1,75,11,1,1),_RcServiceFarEndPointCosLabelShortStartTime_Type())
-rcServiceFarEndPointCosLabelShortStartTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortStartTime.setStatus(_A)
-_RcServiceFarEndPointCosLabelShortTwowayFD_Type=Unsigned32
-_RcServiceFarEndPointCosLabelShortTwowayFD_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortTwowayFD=_RcServiceFarEndPointCosLabelShortTwowayFD_Object((1,3,6,1,4,1,8886,6,1,75,11,1,2),_RcServiceFarEndPointCosLabelShortTwowayFD_Type())
-rcServiceFarEndPointCosLabelShortTwowayFD.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortTwowayFD.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortTwowayFD.setUnits(_F)
-_RcServiceFarEndPointCosLabelShortTwowayMaxFD_Type=Unsigned32
-_RcServiceFarEndPointCosLabelShortTwowayMaxFD_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortTwowayMaxFD=_RcServiceFarEndPointCosLabelShortTwowayMaxFD_Object((1,3,6,1,4,1,8886,6,1,75,11,1,3),_RcServiceFarEndPointCosLabelShortTwowayMaxFD_Type())
-rcServiceFarEndPointCosLabelShortTwowayMaxFD.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortTwowayMaxFD.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortTwowayMaxFD.setUnits(_F)
-_RcServiceFarEndPointCosLabelShortTwowayMinFD_Type=Unsigned32
-_RcServiceFarEndPointCosLabelShortTwowayMinFD_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortTwowayMinFD=_RcServiceFarEndPointCosLabelShortTwowayMinFD_Object((1,3,6,1,4,1,8886,6,1,75,11,1,4),_RcServiceFarEndPointCosLabelShortTwowayMinFD_Type())
-rcServiceFarEndPointCosLabelShortTwowayMinFD.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortTwowayMinFD.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortTwowayMinFD.setUnits(_F)
-_RcServiceFarEndPointCosLabelShortTwowayMFD_Type=Unsigned32
-_RcServiceFarEndPointCosLabelShortTwowayMFD_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortTwowayMFD=_RcServiceFarEndPointCosLabelShortTwowayMFD_Object((1,3,6,1,4,1,8886,6,1,75,11,1,5),_RcServiceFarEndPointCosLabelShortTwowayMFD_Type())
-rcServiceFarEndPointCosLabelShortTwowayMFD.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortTwowayMFD.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortTwowayMFD.setUnits(_F)
-_RcServiceFarEndPointCosLabelShortTwowayFDR_Type=Unsigned32
-_RcServiceFarEndPointCosLabelShortTwowayFDR_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortTwowayFDR=_RcServiceFarEndPointCosLabelShortTwowayFDR_Object((1,3,6,1,4,1,8886,6,1,75,11,1,6),_RcServiceFarEndPointCosLabelShortTwowayFDR_Type())
-rcServiceFarEndPointCosLabelShortTwowayFDR.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortTwowayFDR.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortTwowayFDR.setUnits(_F)
-_RcServiceFarEndPointCosLabelShortTwowayIFDV_Type=Unsigned32
-_RcServiceFarEndPointCosLabelShortTwowayIFDV_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortTwowayIFDV=_RcServiceFarEndPointCosLabelShortTwowayIFDV_Object((1,3,6,1,4,1,8886,6,1,75,11,1,7),_RcServiceFarEndPointCosLabelShortTwowayIFDV_Type())
-rcServiceFarEndPointCosLabelShortTwowayIFDV.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortTwowayIFDV.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortTwowayIFDV.setUnits(_F)
-_RcServiceFarEndPointCosLabelShortTwowayMaxIFDV_Type=Unsigned32
-_RcServiceFarEndPointCosLabelShortTwowayMaxIFDV_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortTwowayMaxIFDV=_RcServiceFarEndPointCosLabelShortTwowayMaxIFDV_Object((1,3,6,1,4,1,8886,6,1,75,11,1,8),_RcServiceFarEndPointCosLabelShortTwowayMaxIFDV_Type())
-rcServiceFarEndPointCosLabelShortTwowayMaxIFDV.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortTwowayMaxIFDV.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortTwowayMaxIFDV.setUnits(_F)
-_RcServiceFarEndPointCosLabelShortTwowayMinIFDV_Type=Unsigned32
-_RcServiceFarEndPointCosLabelShortTwowayMinIFDV_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortTwowayMinIFDV=_RcServiceFarEndPointCosLabelShortTwowayMinIFDV_Object((1,3,6,1,4,1,8886,6,1,75,11,1,9),_RcServiceFarEndPointCosLabelShortTwowayMinIFDV_Type())
-rcServiceFarEndPointCosLabelShortTwowayMinIFDV.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortTwowayMinIFDV.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortTwowayMinIFDV.setUnits(_F)
-_RcServiceFarEndPointCosLabelShortTwowayMIFDV_Type=Unsigned32
-_RcServiceFarEndPointCosLabelShortTwowayMIFDV_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortTwowayMIFDV=_RcServiceFarEndPointCosLabelShortTwowayMIFDV_Object((1,3,6,1,4,1,8886,6,1,75,11,1,10),_RcServiceFarEndPointCosLabelShortTwowayMIFDV_Type())
-rcServiceFarEndPointCosLabelShortTwowayMIFDV.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortTwowayMIFDV.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortTwowayMIFDV.setUnits(_F)
-class _RcServiceFarEndPointCosLabelShortForwardFLR_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100000))
-_RcServiceFarEndPointCosLabelShortForwardFLR_Type.__name__=_G
-_RcServiceFarEndPointCosLabelShortForwardFLR_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortForwardFLR=_RcServiceFarEndPointCosLabelShortForwardFLR_Object((1,3,6,1,4,1,8886,6,1,75,11,1,11),_RcServiceFarEndPointCosLabelShortForwardFLR_Type())
-rcServiceFarEndPointCosLabelShortForwardFLR.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortForwardFLR.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortForwardFLR.setUnits(_J)
-class _RcServiceFarEndPointCosLabelShortBackwardFLR_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100000))
-_RcServiceFarEndPointCosLabelShortBackwardFLR_Type.__name__=_G
-_RcServiceFarEndPointCosLabelShortBackwardFLR_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortBackwardFLR=_RcServiceFarEndPointCosLabelShortBackwardFLR_Object((1,3,6,1,4,1,8886,6,1,75,11,1,12),_RcServiceFarEndPointCosLabelShortBackwardFLR_Type())
-rcServiceFarEndPointCosLabelShortBackwardFLR.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortBackwardFLR.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortBackwardFLR.setUnits(_J)
-class _RcServiceFarEndPointCosLabelShortForwardAvail_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100000))
-_RcServiceFarEndPointCosLabelShortForwardAvail_Type.__name__=_G
-_RcServiceFarEndPointCosLabelShortForwardAvail_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortForwardAvail=_RcServiceFarEndPointCosLabelShortForwardAvail_Object((1,3,6,1,4,1,8886,6,1,75,11,1,13),_RcServiceFarEndPointCosLabelShortForwardAvail_Type())
-rcServiceFarEndPointCosLabelShortForwardAvail.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortForwardAvail.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortForwardAvail.setUnits(_J)
-class _RcServiceFarEndPointCosLabelShortBackwardAvail_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100000))
-_RcServiceFarEndPointCosLabelShortBackwardAvail_Type.__name__=_G
-_RcServiceFarEndPointCosLabelShortBackwardAvail_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortBackwardAvail=_RcServiceFarEndPointCosLabelShortBackwardAvail_Object((1,3,6,1,4,1,8886,6,1,75,11,1,14),_RcServiceFarEndPointCosLabelShortBackwardAvail_Type())
-rcServiceFarEndPointCosLabelShortBackwardAvail.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortBackwardAvail.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortBackwardAvail.setUnits(_J)
-_RcServiceFarEndPointCosLabelShortForwardHLI_Type=Unsigned32
-_RcServiceFarEndPointCosLabelShortForwardHLI_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortForwardHLI=_RcServiceFarEndPointCosLabelShortForwardHLI_Object((1,3,6,1,4,1,8886,6,1,75,11,1,15),_RcServiceFarEndPointCosLabelShortForwardHLI_Type())
-rcServiceFarEndPointCosLabelShortForwardHLI.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortForwardHLI.setStatus(_A)
-_RcServiceFarEndPointCosLabelShortBackwardHLI_Type=Unsigned32
-_RcServiceFarEndPointCosLabelShortBackwardHLI_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortBackwardHLI=_RcServiceFarEndPointCosLabelShortBackwardHLI_Object((1,3,6,1,4,1,8886,6,1,75,11,1,16),_RcServiceFarEndPointCosLabelShortBackwardHLI_Type())
-rcServiceFarEndPointCosLabelShortBackwardHLI.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortBackwardHLI.setStatus(_A)
-_RcServiceFarEndPointCosLabelShortForwardCHLI_Type=Unsigned32
-_RcServiceFarEndPointCosLabelShortForwardCHLI_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortForwardCHLI=_RcServiceFarEndPointCosLabelShortForwardCHLI_Object((1,3,6,1,4,1,8886,6,1,75,11,1,17),_RcServiceFarEndPointCosLabelShortForwardCHLI_Type())
-rcServiceFarEndPointCosLabelShortForwardCHLI.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortForwardCHLI.setStatus(_A)
-_RcServiceFarEndPointCosLabelShortBackwardCHLI_Type=Unsigned32
-_RcServiceFarEndPointCosLabelShortBackwardCHLI_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortBackwardCHLI=_RcServiceFarEndPointCosLabelShortBackwardCHLI_Object((1,3,6,1,4,1,8886,6,1,75,11,1,18),_RcServiceFarEndPointCosLabelShortBackwardCHLI_Type())
-rcServiceFarEndPointCosLabelShortBackwardCHLI.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortBackwardCHLI.setStatus(_A)
-_RcServiceFarEndPointCosLabelShortForwardFrameLost_Type=Unsigned32
-_RcServiceFarEndPointCosLabelShortForwardFrameLost_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortForwardFrameLost=_RcServiceFarEndPointCosLabelShortForwardFrameLost_Object((1,3,6,1,4,1,8886,6,1,75,11,1,19),_RcServiceFarEndPointCosLabelShortForwardFrameLost_Type())
-rcServiceFarEndPointCosLabelShortForwardFrameLost.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortForwardFrameLost.setStatus(_A)
-_RcServiceFarEndPointCosLabelShortBackwardFrameLost_Type=Unsigned32
-_RcServiceFarEndPointCosLabelShortBackwardFrameLost_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortBackwardFrameLost=_RcServiceFarEndPointCosLabelShortBackwardFrameLost_Object((1,3,6,1,4,1,8886,6,1,75,11,1,20),_RcServiceFarEndPointCosLabelShortBackwardFrameLost_Type())
-rcServiceFarEndPointCosLabelShortBackwardFrameLost.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortBackwardFrameLost.setStatus(_A)
-_RcServiceFarEndPointCosLabelShortForwardUnAvailSeconds_Type=Unsigned32
-_RcServiceFarEndPointCosLabelShortForwardUnAvailSeconds_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortForwardUnAvailSeconds=_RcServiceFarEndPointCosLabelShortForwardUnAvailSeconds_Object((1,3,6,1,4,1,8886,6,1,75,11,1,21),_RcServiceFarEndPointCosLabelShortForwardUnAvailSeconds_Type())
-rcServiceFarEndPointCosLabelShortForwardUnAvailSeconds.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortForwardUnAvailSeconds.setStatus(_A)
-_RcServiceFarEndPointCosLabelShortBackwardUnAvailSeconds_Type=Unsigned32
-_RcServiceFarEndPointCosLabelShortBackwardUnAvailSeconds_Object=MibTableColumn
-rcServiceFarEndPointCosLabelShortBackwardUnAvailSeconds=_RcServiceFarEndPointCosLabelShortBackwardUnAvailSeconds_Object((1,3,6,1,4,1,8886,6,1,75,11,1,22),_RcServiceFarEndPointCosLabelShortBackwardUnAvailSeconds_Type())
-rcServiceFarEndPointCosLabelShortBackwardUnAvailSeconds.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelShortBackwardUnAvailSeconds.setStatus(_A)
-_RcServiceFarEndPointCosLabelLongStartTime_Type=DateAndTime
-_RcServiceFarEndPointCosLabelLongStartTime_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongStartTime=_RcServiceFarEndPointCosLabelLongStartTime_Object((1,3,6,1,4,1,8886,6,1,75,11,1,23),_RcServiceFarEndPointCosLabelLongStartTime_Type())
-rcServiceFarEndPointCosLabelLongStartTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongStartTime.setStatus(_A)
-_RcServiceFarEndPointCosLabelLongTwowayFD_Type=Unsigned32
-_RcServiceFarEndPointCosLabelLongTwowayFD_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongTwowayFD=_RcServiceFarEndPointCosLabelLongTwowayFD_Object((1,3,6,1,4,1,8886,6,1,75,11,1,24),_RcServiceFarEndPointCosLabelLongTwowayFD_Type())
-rcServiceFarEndPointCosLabelLongTwowayFD.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongTwowayFD.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongTwowayFD.setUnits(_F)
-_RcServiceFarEndPointCosLabelLongTwowayMaxFD_Type=Unsigned32
-_RcServiceFarEndPointCosLabelLongTwowayMaxFD_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongTwowayMaxFD=_RcServiceFarEndPointCosLabelLongTwowayMaxFD_Object((1,3,6,1,4,1,8886,6,1,75,11,1,25),_RcServiceFarEndPointCosLabelLongTwowayMaxFD_Type())
-rcServiceFarEndPointCosLabelLongTwowayMaxFD.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongTwowayMaxFD.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongTwowayMaxFD.setUnits(_F)
-_RcServiceFarEndPointCosLabelLongTwowayMinFD_Type=Unsigned32
-_RcServiceFarEndPointCosLabelLongTwowayMinFD_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongTwowayMinFD=_RcServiceFarEndPointCosLabelLongTwowayMinFD_Object((1,3,6,1,4,1,8886,6,1,75,11,1,26),_RcServiceFarEndPointCosLabelLongTwowayMinFD_Type())
-rcServiceFarEndPointCosLabelLongTwowayMinFD.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongTwowayMinFD.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongTwowayMinFD.setUnits(_F)
-_RcServiceFarEndPointCosLabelSlaConfigDMOperId_Type=Unsigned32
-_RcServiceFarEndPointCosLabelSlaConfigDMOperId_Object=MibTableColumn
-rcServiceFarEndPointCosLabelSlaConfigDMOperId=_RcServiceFarEndPointCosLabelSlaConfigDMOperId_Object((1,3,6,1,4,1,8886,6,1,75,11,1,27),_RcServiceFarEndPointCosLabelSlaConfigDMOperId_Type())
-rcServiceFarEndPointCosLabelSlaConfigDMOperId.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelSlaConfigDMOperId.setStatus(_A)
-_RcServiceFarEndPointCosLabelSlaConfigLMOperId_Type=Unsigned32
-_RcServiceFarEndPointCosLabelSlaConfigLMOperId_Object=MibTableColumn
-rcServiceFarEndPointCosLabelSlaConfigLMOperId=_RcServiceFarEndPointCosLabelSlaConfigLMOperId_Object((1,3,6,1,4,1,8886,6,1,75,11,1,28),_RcServiceFarEndPointCosLabelSlaConfigLMOperId_Type())
-rcServiceFarEndPointCosLabelSlaConfigLMOperId.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelSlaConfigLMOperId.setStatus(_A)
-_RcServiceFarEndPointCosLabelEtherSamServiceIndex_Type=Integer32
-_RcServiceFarEndPointCosLabelEtherSamServiceIndex_Object=MibTableColumn
-rcServiceFarEndPointCosLabelEtherSamServiceIndex=_RcServiceFarEndPointCosLabelEtherSamServiceIndex_Object((1,3,6,1,4,1,8886,6,1,75,11,1,29),_RcServiceFarEndPointCosLabelEtherSamServiceIndex_Type())
-rcServiceFarEndPointCosLabelEtherSamServiceIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelEtherSamServiceIndex.setStatus(_A)
-_RcServiceFarEndPointCosLabelLongTwowayMFD_Type=Unsigned32
-_RcServiceFarEndPointCosLabelLongTwowayMFD_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongTwowayMFD=_RcServiceFarEndPointCosLabelLongTwowayMFD_Object((1,3,6,1,4,1,8886,6,1,75,11,1,30),_RcServiceFarEndPointCosLabelLongTwowayMFD_Type())
-rcServiceFarEndPointCosLabelLongTwowayMFD.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongTwowayMFD.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongTwowayMFD.setUnits(_F)
-_RcServiceFarEndPointCosLabelLongTwowayFDR_Type=Unsigned32
-_RcServiceFarEndPointCosLabelLongTwowayFDR_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongTwowayFDR=_RcServiceFarEndPointCosLabelLongTwowayFDR_Object((1,3,6,1,4,1,8886,6,1,75,11,1,31),_RcServiceFarEndPointCosLabelLongTwowayFDR_Type())
-rcServiceFarEndPointCosLabelLongTwowayFDR.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongTwowayFDR.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongTwowayFDR.setUnits(_F)
-_RcServiceFarEndPointCosLabelLongTwowayIFDV_Type=Unsigned32
-_RcServiceFarEndPointCosLabelLongTwowayIFDV_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongTwowayIFDV=_RcServiceFarEndPointCosLabelLongTwowayIFDV_Object((1,3,6,1,4,1,8886,6,1,75,11,1,32),_RcServiceFarEndPointCosLabelLongTwowayIFDV_Type())
-rcServiceFarEndPointCosLabelLongTwowayIFDV.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongTwowayIFDV.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongTwowayIFDV.setUnits(_F)
-_RcServiceFarEndPointCosLabelLongTwowayMaxIFDV_Type=Unsigned32
-_RcServiceFarEndPointCosLabelLongTwowayMaxIFDV_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongTwowayMaxIFDV=_RcServiceFarEndPointCosLabelLongTwowayMaxIFDV_Object((1,3,6,1,4,1,8886,6,1,75,11,1,33),_RcServiceFarEndPointCosLabelLongTwowayMaxIFDV_Type())
-rcServiceFarEndPointCosLabelLongTwowayMaxIFDV.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongTwowayMaxIFDV.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongTwowayMaxIFDV.setUnits(_F)
-_RcServiceFarEndPointCosLabelLongTwowayMinIFDV_Type=Unsigned32
-_RcServiceFarEndPointCosLabelLongTwowayMinIFDV_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongTwowayMinIFDV=_RcServiceFarEndPointCosLabelLongTwowayMinIFDV_Object((1,3,6,1,4,1,8886,6,1,75,11,1,34),_RcServiceFarEndPointCosLabelLongTwowayMinIFDV_Type())
-rcServiceFarEndPointCosLabelLongTwowayMinIFDV.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongTwowayMinIFDV.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongTwowayMinIFDV.setUnits(_F)
-_RcServiceFarEndPointCosLabelLongTwowayMIFDV_Type=Unsigned32
-_RcServiceFarEndPointCosLabelLongTwowayMIFDV_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongTwowayMIFDV=_RcServiceFarEndPointCosLabelLongTwowayMIFDV_Object((1,3,6,1,4,1,8886,6,1,75,11,1,35),_RcServiceFarEndPointCosLabelLongTwowayMIFDV_Type())
-rcServiceFarEndPointCosLabelLongTwowayMIFDV.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongTwowayMIFDV.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongTwowayMIFDV.setUnits(_F)
-class _RcServiceFarEndPointCosLabelLongForwardFLR_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100000))
-_RcServiceFarEndPointCosLabelLongForwardFLR_Type.__name__=_G
-_RcServiceFarEndPointCosLabelLongForwardFLR_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongForwardFLR=_RcServiceFarEndPointCosLabelLongForwardFLR_Object((1,3,6,1,4,1,8886,6,1,75,11,1,36),_RcServiceFarEndPointCosLabelLongForwardFLR_Type())
-rcServiceFarEndPointCosLabelLongForwardFLR.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongForwardFLR.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongForwardFLR.setUnits(_J)
-class _RcServiceFarEndPointCosLabelLongBackwardFLR_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100000))
-_RcServiceFarEndPointCosLabelLongBackwardFLR_Type.__name__=_G
-_RcServiceFarEndPointCosLabelLongBackwardFLR_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongBackwardFLR=_RcServiceFarEndPointCosLabelLongBackwardFLR_Object((1,3,6,1,4,1,8886,6,1,75,11,1,37),_RcServiceFarEndPointCosLabelLongBackwardFLR_Type())
-rcServiceFarEndPointCosLabelLongBackwardFLR.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongBackwardFLR.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongBackwardFLR.setUnits(_J)
-class _RcServiceFarEndPointCosLabelLongForwardAvail_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100000))
-_RcServiceFarEndPointCosLabelLongForwardAvail_Type.__name__=_G
-_RcServiceFarEndPointCosLabelLongForwardAvail_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongForwardAvail=_RcServiceFarEndPointCosLabelLongForwardAvail_Object((1,3,6,1,4,1,8886,6,1,75,11,1,38),_RcServiceFarEndPointCosLabelLongForwardAvail_Type())
-rcServiceFarEndPointCosLabelLongForwardAvail.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongForwardAvail.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongForwardAvail.setUnits(_J)
-class _RcServiceFarEndPointCosLabelLongBackwardAvail_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100000))
-_RcServiceFarEndPointCosLabelLongBackwardAvail_Type.__name__=_G
-_RcServiceFarEndPointCosLabelLongBackwardAvail_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongBackwardAvail=_RcServiceFarEndPointCosLabelLongBackwardAvail_Object((1,3,6,1,4,1,8886,6,1,75,11,1,39),_RcServiceFarEndPointCosLabelLongBackwardAvail_Type())
-rcServiceFarEndPointCosLabelLongBackwardAvail.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongBackwardAvail.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongBackwardAvail.setUnits(_J)
-_RcServiceFarEndPointCosLabelLongForwardHLI_Type=Unsigned32
-_RcServiceFarEndPointCosLabelLongForwardHLI_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongForwardHLI=_RcServiceFarEndPointCosLabelLongForwardHLI_Object((1,3,6,1,4,1,8886,6,1,75,11,1,40),_RcServiceFarEndPointCosLabelLongForwardHLI_Type())
-rcServiceFarEndPointCosLabelLongForwardHLI.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongForwardHLI.setStatus(_A)
-_RcServiceFarEndPointCosLabelLongBackwardHLI_Type=Unsigned32
-_RcServiceFarEndPointCosLabelLongBackwardHLI_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongBackwardHLI=_RcServiceFarEndPointCosLabelLongBackwardHLI_Object((1,3,6,1,4,1,8886,6,1,75,11,1,41),_RcServiceFarEndPointCosLabelLongBackwardHLI_Type())
-rcServiceFarEndPointCosLabelLongBackwardHLI.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongBackwardHLI.setStatus(_A)
-_RcServiceFarEndPointCosLabelLongForwardCHLI_Type=Unsigned32
-_RcServiceFarEndPointCosLabelLongForwardCHLI_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongForwardCHLI=_RcServiceFarEndPointCosLabelLongForwardCHLI_Object((1,3,6,1,4,1,8886,6,1,75,11,1,42),_RcServiceFarEndPointCosLabelLongForwardCHLI_Type())
-rcServiceFarEndPointCosLabelLongForwardCHLI.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongForwardCHLI.setStatus(_A)
-_RcServiceFarEndPointCosLabelLongBackwardCHLI_Type=Unsigned32
-_RcServiceFarEndPointCosLabelLongBackwardCHLI_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongBackwardCHLI=_RcServiceFarEndPointCosLabelLongBackwardCHLI_Object((1,3,6,1,4,1,8886,6,1,75,11,1,43),_RcServiceFarEndPointCosLabelLongBackwardCHLI_Type())
-rcServiceFarEndPointCosLabelLongBackwardCHLI.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongBackwardCHLI.setStatus(_A)
-_RcServiceFarEndPointCosLabelLongForwardFrameLost_Type=Unsigned32
-_RcServiceFarEndPointCosLabelLongForwardFrameLost_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongForwardFrameLost=_RcServiceFarEndPointCosLabelLongForwardFrameLost_Object((1,3,6,1,4,1,8886,6,1,75,11,1,44),_RcServiceFarEndPointCosLabelLongForwardFrameLost_Type())
-rcServiceFarEndPointCosLabelLongForwardFrameLost.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongForwardFrameLost.setStatus(_A)
-_RcServiceFarEndPointCosLabelLongBackwardFrameLost_Type=Unsigned32
-_RcServiceFarEndPointCosLabelLongBackwardFrameLost_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongBackwardFrameLost=_RcServiceFarEndPointCosLabelLongBackwardFrameLost_Object((1,3,6,1,4,1,8886,6,1,75,11,1,45),_RcServiceFarEndPointCosLabelLongBackwardFrameLost_Type())
-rcServiceFarEndPointCosLabelLongBackwardFrameLost.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongBackwardFrameLost.setStatus(_A)
-_RcServiceFarEndPointCosLabelLongForwardUnAvailSeconds_Type=Unsigned32
-_RcServiceFarEndPointCosLabelLongForwardUnAvailSeconds_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongForwardUnAvailSeconds=_RcServiceFarEndPointCosLabelLongForwardUnAvailSeconds_Object((1,3,6,1,4,1,8886,6,1,75,11,1,46),_RcServiceFarEndPointCosLabelLongForwardUnAvailSeconds_Type())
-rcServiceFarEndPointCosLabelLongForwardUnAvailSeconds.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongForwardUnAvailSeconds.setStatus(_A)
-_RcServiceFarEndPointCosLabelLongBackwardUnAvailSeconds_Type=Unsigned32
-_RcServiceFarEndPointCosLabelLongBackwardUnAvailSeconds_Object=MibTableColumn
-rcServiceFarEndPointCosLabelLongBackwardUnAvailSeconds=_RcServiceFarEndPointCosLabelLongBackwardUnAvailSeconds_Object((1,3,6,1,4,1,8886,6,1,75,11,1,47),_RcServiceFarEndPointCosLabelLongBackwardUnAvailSeconds_Type())
-rcServiceFarEndPointCosLabelLongBackwardUnAvailSeconds.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelLongBackwardUnAvailSeconds.setStatus(_A)
-_RcServiceSdpTable_Object=MibTable
-rcServiceSdpTable=_RcServiceSdpTable_Object((1,3,6,1,4,1,8886,6,1,75,12))
-if mibBuilder.loadTexts:rcServiceSdpTable.setStatus(_A)
-_RcServiceSdpEntry_Object=MibTableRow
-rcServiceSdpEntry=_RcServiceSdpEntry_Object((1,3,6,1,4,1,8886,6,1,75,12,1))
-rcServiceSdpEntry.setIndexNames((0,_C,_H),(0,_C,_P))
-if mibBuilder.loadTexts:rcServiceSdpEntry.setStatus(_A)
-_RcServiceSdpRowStatus_Type=RowStatus
-_RcServiceSdpRowStatus_Object=MibTableColumn
-rcServiceSdpRowStatus=_RcServiceSdpRowStatus_Object((1,3,6,1,4,1,8886,6,1,75,12,1,100),_RcServiceSdpRowStatus_Type())
-rcServiceSdpRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcServiceSdpRowStatus.setStatus(_A)
-_RcServiceFarEndPointCosLabelCurrentTable_Object=MibTable
-rcServiceFarEndPointCosLabelCurrentTable=_RcServiceFarEndPointCosLabelCurrentTable_Object((1,3,6,1,4,1,8886,6,1,75,13))
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelCurrentTable.setStatus(_A)
-_RcServiceFarEndPointCosLabelCurrentEntry_Object=MibTableRow
-rcServiceFarEndPointCosLabelCurrentEntry=_RcServiceFarEndPointCosLabelCurrentEntry_Object((1,3,6,1,4,1,8886,6,1,75,13,1))
-rcServiceFarEndPointCosLabelCurrentEntry.setIndexNames((0,_C,_H),(0,_C,_K),(0,_C,_M),(0,_C,_N))
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelCurrentEntry.setStatus(_A)
-_RcServiceFarEndPointCosLabelCurrentTwowayFD_Type=Unsigned32
-_RcServiceFarEndPointCosLabelCurrentTwowayFD_Object=MibTableColumn
-rcServiceFarEndPointCosLabelCurrentTwowayFD=_RcServiceFarEndPointCosLabelCurrentTwowayFD_Object((1,3,6,1,4,1,8886,6,1,75,13,1,1),_RcServiceFarEndPointCosLabelCurrentTwowayFD_Type())
-rcServiceFarEndPointCosLabelCurrentTwowayFD.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelCurrentTwowayFD.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelCurrentTwowayFD.setUnits(_F)
-_RcServiceFarEndPointCosLabelCurrentTwowayIFDV_Type=Unsigned32
-_RcServiceFarEndPointCosLabelCurrentTwowayIFDV_Object=MibTableColumn
-rcServiceFarEndPointCosLabelCurrentTwowayIFDV=_RcServiceFarEndPointCosLabelCurrentTwowayIFDV_Object((1,3,6,1,4,1,8886,6,1,75,13,1,2),_RcServiceFarEndPointCosLabelCurrentTwowayIFDV_Type())
-rcServiceFarEndPointCosLabelCurrentTwowayIFDV.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelCurrentTwowayIFDV.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelCurrentTwowayIFDV.setUnits(_F)
-class _RcServiceFarEndPointCosLabelCurrentForwardFLR_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100000))
-_RcServiceFarEndPointCosLabelCurrentForwardFLR_Type.__name__=_G
-_RcServiceFarEndPointCosLabelCurrentForwardFLR_Object=MibTableColumn
-rcServiceFarEndPointCosLabelCurrentForwardFLR=_RcServiceFarEndPointCosLabelCurrentForwardFLR_Object((1,3,6,1,4,1,8886,6,1,75,13,1,3),_RcServiceFarEndPointCosLabelCurrentForwardFLR_Type())
-rcServiceFarEndPointCosLabelCurrentForwardFLR.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelCurrentForwardFLR.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelCurrentForwardFLR.setUnits(_J)
-class _RcServiceFarEndPointCosLabelCurrentBackwardFLR_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100000))
-_RcServiceFarEndPointCosLabelCurrentBackwardFLR_Type.__name__=_G
-_RcServiceFarEndPointCosLabelCurrentBackwardFLR_Object=MibTableColumn
-rcServiceFarEndPointCosLabelCurrentBackwardFLR=_RcServiceFarEndPointCosLabelCurrentBackwardFLR_Object((1,3,6,1,4,1,8886,6,1,75,13,1,4),_RcServiceFarEndPointCosLabelCurrentBackwardFLR_Type())
-rcServiceFarEndPointCosLabelCurrentBackwardFLR.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelCurrentBackwardFLR.setStatus(_A)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelCurrentBackwardFLR.setUnits(_J)
-_RcServiceFarEndPointCosLabelCurrentForwardFrameLost_Type=Unsigned32
-_RcServiceFarEndPointCosLabelCurrentForwardFrameLost_Object=MibTableColumn
-rcServiceFarEndPointCosLabelCurrentForwardFrameLost=_RcServiceFarEndPointCosLabelCurrentForwardFrameLost_Object((1,3,6,1,4,1,8886,6,1,75,13,1,5),_RcServiceFarEndPointCosLabelCurrentForwardFrameLost_Type())
-rcServiceFarEndPointCosLabelCurrentForwardFrameLost.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelCurrentForwardFrameLost.setStatus(_A)
-_RcServiceFarEndPointCosLabelCurrentBackwardFrameLost_Type=Unsigned32
-_RcServiceFarEndPointCosLabelCurrentBackwardFrameLost_Object=MibTableColumn
-rcServiceFarEndPointCosLabelCurrentBackwardFrameLost=_RcServiceFarEndPointCosLabelCurrentBackwardFrameLost_Object((1,3,6,1,4,1,8886,6,1,75,13,1,6),_RcServiceFarEndPointCosLabelCurrentBackwardFrameLost_Type())
-rcServiceFarEndPointCosLabelCurrentBackwardFrameLost.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelCurrentBackwardFrameLost.setStatus(_A)
-class _RcServiceFarEndPointCosLabelCurrentForwardAvailStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_T,1),(_U,2),(_V,3)))
-_RcServiceFarEndPointCosLabelCurrentForwardAvailStatus_Type.__name__=_E
-_RcServiceFarEndPointCosLabelCurrentForwardAvailStatus_Object=MibTableColumn
-rcServiceFarEndPointCosLabelCurrentForwardAvailStatus=_RcServiceFarEndPointCosLabelCurrentForwardAvailStatus_Object((1,3,6,1,4,1,8886,6,1,75,13,1,7),_RcServiceFarEndPointCosLabelCurrentForwardAvailStatus_Type())
-rcServiceFarEndPointCosLabelCurrentForwardAvailStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelCurrentForwardAvailStatus.setStatus(_A)
-class _RcServiceFarEndPointCosLabelCurrentBackwardAvailStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_T,1),(_U,2),(_V,3)))
-_RcServiceFarEndPointCosLabelCurrentBackwardAvailStatus_Type.__name__=_E
-_RcServiceFarEndPointCosLabelCurrentBackwardAvailStatus_Object=MibTableColumn
-rcServiceFarEndPointCosLabelCurrentBackwardAvailStatus=_RcServiceFarEndPointCosLabelCurrentBackwardAvailStatus_Object((1,3,6,1,4,1,8886,6,1,75,13,1,8),_RcServiceFarEndPointCosLabelCurrentBackwardAvailStatus_Type())
-rcServiceFarEndPointCosLabelCurrentBackwardAvailStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcServiceFarEndPointCosLabelCurrentBackwardAvailStatus.setStatus(_A)
-_RcServiceTrapGroup_ObjectIdentity=ObjectIdentity
-rcServiceTrapGroup=_RcServiceTrapGroup_ObjectIdentity((1,3,6,1,4,1,8886,6,1,75,14))
-rcServiceEtherSamCfgTestFailTrap=NotificationType((1,3,6,1,4,1,8886,6,1,75,14,1))
-rcServiceEtherSamCfgTestFailTrap.setObjects(*((_C,_H),(_C,_K),(_C,_M)))
-if mibBuilder.loadTexts:rcServiceEtherSamCfgTestFailTrap.setStatus(_A)
-rcServiceEtherSamCfgTestSuccessTrap=NotificationType((1,3,6,1,4,1,8886,6,1,75,14,2))
-rcServiceEtherSamCfgTestSuccessTrap.setObjects(*((_C,_H),(_C,_K),(_C,_M)))
-if mibBuilder.loadTexts:rcServiceEtherSamCfgTestSuccessTrap.setStatus(_A)
-rcServiceEtherSamPfmTestFailTrap=NotificationType((1,3,6,1,4,1,8886,6,1,75,14,3))
-rcServiceEtherSamPfmTestFailTrap.setObjects(*((_C,_H),(_C,_K),(_C,_M)))
-if mibBuilder.loadTexts:rcServiceEtherSamPfmTestFailTrap.setStatus(_A)
-rcServiceEtherSamPfmTestSuccessTrap=NotificationType((1,3,6,1,4,1,8886,6,1,75,14,4))
-rcServiceEtherSamPfmTestSuccessTrap.setObjects(*((_C,_H),(_C,_K),(_C,_M)))
-if mibBuilder.loadTexts:rcServiceEtherSamPfmTestSuccessTrap.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'rcService':rcService,'rcServiceScalar':rcServiceScalar,'rcServiceDefaultSdp1PortIndex':rcServiceDefaultSdp1PortIndex,'rcServiceDefaultSdp2PortIndex':rcServiceDefaultSdp2PortIndex,'rcServiceEtherSamTrapEnable':rcServiceEtherSamTrapEnable,'rcServiceCosLabelNameTable':rcServiceCosLabelNameTable,'rcServiceCosLabelNameEntry':rcServiceCosLabelNameEntry,_N:rcServiceCosLabel,'rcServiceCosLabelName':rcServiceCosLabelName,'rcServiceNetworkInterfaceTable':rcServiceNetworkInterfaceTable,'rcServiceNetworkInterfaceEntry':rcServiceNetworkInterfaceEntry,_P:rcServiceNetworkInterfacePortIndex,'rcServiceNetworkInterfaceType':rcServiceNetworkInterfaceType,_K:rcServiceNetworkInterfaceID,'rcServiceNetworkInterfacePhysicalMedium':rcServiceNetworkInterfacePhysicalMedium,'rcServiceNetworkInterfaceSpeed':rcServiceNetworkInterfaceSpeed,'rcServiceNetworkInterfaceDuplexMode':rcServiceNetworkInterfaceDuplexMode,'rcServiceNetworkInterfaceMacLayer':rcServiceNetworkInterfaceMacLayer,'rcServiceNetworkInterfaceMtu':rcServiceNetworkInterfaceMtu,'rcServiceNetworkInterfaceServiceMultiplexing':rcServiceNetworkInterfaceServiceMultiplexing,'rcServiceNetworkInterfaceBundling':rcServiceNetworkInterfaceBundling,'rcServiceNetworkInterfaceAllToOneBundling':rcServiceNetworkInterfaceAllToOneBundling,'rcServiceNetworkInterfaceDefaultCVlan':rcServiceNetworkInterfaceDefaultCVlan,'rcServiceNetworkInterfacMaxEvcs':rcServiceNetworkInterfacMaxEvcs,'rcServiceNetworkInterfaceMaxOvcs':rcServiceNetworkInterfaceMaxOvcs,'rcServiceNetworkInterfaceInBwProfileIndex':rcServiceNetworkInterfaceInBwProfileIndex,'rcServiceNetworkInterfaceOutBwProfileIndex':rcServiceNetworkInterfaceOutBwProfileIndex,'rcServiceNetworkInterfaceL2cpProfileIndex':rcServiceNetworkInterfaceL2cpProfileIndex,'rcServiceNetworkInterfaceFrameFormat':rcServiceNetworkInterfaceFrameFormat,'rcServiceNetworkInterfaceLinks':rcServiceNetworkInterfaceLinks,'rcServiceNetworkInterfaceResiliencyMechanisms':rcServiceNetworkInterfaceResiliencyMechanisms,'rcServiceNetworkInterfaceMaxEndPointPerOvc':rcServiceNetworkInterfaceMaxEndPointPerOvc,'rcServiceNetworkInterfaceEndPointMapTable':rcServiceNetworkInterfaceEndPointMapTable,'rcServiceNetworkInterfaceEndPointMapEntry':rcServiceNetworkInterfaceEndPointMapEntry,_R:rcServiceNetworkInterfaceEndPointMapSVlan,'rcServiceNetworkInterfaceEndPointMapEndPointID':rcServiceNetworkInterfaceEndPointMapEndPointID,'rcServiceNetworkInterfaceEndPointMapEndPointType':rcServiceNetworkInterfaceEndPointMapEndPointType,'rcServiceTable':rcServiceTable,'rcServiceEntry':rcServiceEntry,_H:rcServiceID,'rcServiceType':rcServiceType,'rcServiceCustomerNameID':rcServiceCustomerNameID,'rcServiceMaxUnis':rcServiceMaxUnis,'rcServiceMaxEnnis':rcServiceMaxEnnis,'rcServiceMTU':rcServiceMTU,'rcServiceCVlanPreservation':rcServiceCVlanPreservation,'rcServiceCCosPreservation':rcServiceCCosPreservation,'rcServiceSVlanPreservation':rcServiceSVlanPreservation,'rcServiceSCosPreservation':rcServiceSCosPreservation,'rcServiceColorForward':rcServiceColorForward,'rcServiceUnicastDelivery':rcServiceUnicastDelivery,'rcServiceMulticastDelivery':rcServiceMulticastDelivery,'rcServiceBroadcastDelivery':rcServiceBroadcastDelivery,'rcServiceL2cpPass':rcServiceL2cpPass,'rcServiceCosType':rcServiceCosType,'rcServiceVCCosLabel':rcServiceVCCosLabel,'rcServiceCosMapProfileIndex':rcServiceCosMapProfileIndex,'rcServiceDscpMapProfileIndex':rcServiceDscpMapProfileIndex,'rcServiceSdpType':rcServiceSdpType,'rcServiceSdpIndex':rcServiceSdpIndex,'rcServicePTIndex':rcServicePTIndex,'rcServiceMaintenanceTimeStart':rcServiceMaintenanceTimeStart,'rcServiceMaintenanceTimeStop':rcServiceMaintenanceTimeStop,'rcServicePerfermanceTestScheduleLife':rcServicePerfermanceTestScheduleLife,'rcServicePerfermanceTestSchedulePeriod':rcServicePerfermanceTestSchedulePeriod,'rcServicePerfermanceTestScheduleInterval':rcServicePerfermanceTestScheduleInterval,'rcServicePerfermanceTestOperate':rcServicePerfermanceTestOperate,'rcServiceL2LoopbackEtherType':rcServiceL2LoopbackEtherType,'rcServiceL2LoopbackOperate':rcServiceL2LoopbackOperate,'rcServiceEtherSamPerformanceDuration':rcServiceEtherSamPerformanceDuration,'rcServiceEtherSamPerformanceBW':rcServiceEtherSamPerformanceBW,'rcServiceEtherSamFlowProfileIndex':rcServiceEtherSamFlowProfileIndex,'rcServiceEtherSamCfgBypassUni':rcServiceEtherSamCfgBypassUni,'rcServiceEtherSamTestElapsedTime':rcServiceEtherSamTestElapsedTime,'rcServiceEtherSamTestType':rcServiceEtherSamTestType,'rcServiceEtherSamOperate':rcServiceEtherSamOperate,'rcServiceEtherSamTestResult':rcServiceEtherSamTestResult,'rcServiceEtherSamTimeCfgWillTake':rcServiceEtherSamTimeCfgWillTake,'rcServiceEtherSamClearResult':rcServiceEtherSamClearResult,'rcServiceMdIndex':rcServiceMdIndex,'rcServiceMaIndex':rcServiceMaIndex,'rcServiceOperStatus':rcServiceOperStatus,'rcServiceCcStatus':rcServiceCcStatus,'rcServicePerfermanceTestType':rcServicePerfermanceTestType,'rcServiceEtherSamSlaJitterType':rcServiceEtherSamSlaJitterType,'rcServiceRowStatus':rcServiceRowStatus,'rcServiceCustomerTable':rcServiceCustomerTable,'rcServiceCustomerEntry':rcServiceCustomerEntry,_S:rcServiceCustomerName,'rcServiceCustomerContact':rcServiceCustomerContact,'rcServiceCustomerPhone':rcServiceCustomerPhone,'rcServiceCustomerRowStatus':rcServiceCustomerRowStatus,'rcServiceCosLabelTable':rcServiceCosLabelTable,'rcServiceCosLabelEntry':rcServiceCosLabelEntry,'rcServiceCosLabelPerfermanceTestEnable':rcServiceCosLabelPerfermanceTestEnable,'rcServiceCosLabelEtherSAMEnable':rcServiceCosLabelEtherSAMEnable,'rcServiceEndPointTable':rcServiceEndPointTable,'rcServiceEndPointEntry':rcServiceEndPointEntry,'rcServiceEndPointType':rcServiceEndPointType,'rcServiceEndPointMPType':rcServiceEndPointMPType,'rcServiceEndPointMapCVlans':rcServiceEndPointMapCVlans,'rcServiceEndPointInBwProfileIndex':rcServiceEndPointInBwProfileIndex,'rcServiceEndPointOutBwProfileIndex':rcServiceEndPointOutBwProfileIndex,'rcServiceEndPointLMep':rcServiceEndPointLMep,'rcServiceEndPointCCEnable':rcServiceEndPointCCEnable,'rcServiceEndPointPMEnable':rcServiceEndPointPMEnable,'rcServiceEndPointRowStatus':rcServiceEndPointRowStatus,'rcServicesEndPointCosLabelTable':rcServicesEndPointCosLabelTable,'rcServicesEndPointCosLabelEntry':rcServicesEndPointCosLabelEntry,'rcServiceEndPointCosLabelInBwProfileIndex':rcServiceEndPointCosLabelInBwProfileIndex,'rcServiceEndPointCosLabelOutBwProfileIndex':rcServiceEndPointCosLabelOutBwProfileIndex,'rcServiceFarEndPointTable':rcServiceFarEndPointTable,'rcServiceFarEndPointEntry':rcServiceFarEndPointEntry,_M:rcServiceFarEndNetworkInterfaceID,'rcServiceFarEndPointRMep':rcServiceFarEndPointRMep,'rcServiceFarEndPointPerfermanceTestEnable':rcServiceFarEndPointPerfermanceTestEnable,'rcServiceFarEndPointEtherSAMEnable':rcServiceFarEndPointEtherSAMEnable,'rcServiceFarEndPointL2LoopbackEnable':rcServiceFarEndPointL2LoopbackEnable,'rcServiceFarEndPointCcStatus':rcServiceFarEndPointCcStatus,'rcServiceFarEndPointIPAddressType':rcServiceFarEndPointIPAddressType,'rcServiceFarEndPointIPAddress':rcServiceFarEndPointIPAddress,'rcServiceFarEndPointMacAddress':rcServiceFarEndPointMacAddress,'rcServiceFarEndPointType':rcServiceFarEndPointType,'rcServiceFarEndPointRowStatus':rcServiceFarEndPointRowStatus,'rcServiceFarEndPointCosLabelTable':rcServiceFarEndPointCosLabelTable,'rcServiceFarEndPointCosLabelEntry':rcServiceFarEndPointCosLabelEntry,'rcServiceFarEndPointCosLabelShortStartTime':rcServiceFarEndPointCosLabelShortStartTime,'rcServiceFarEndPointCosLabelShortTwowayFD':rcServiceFarEndPointCosLabelShortTwowayFD,'rcServiceFarEndPointCosLabelShortTwowayMaxFD':rcServiceFarEndPointCosLabelShortTwowayMaxFD,'rcServiceFarEndPointCosLabelShortTwowayMinFD':rcServiceFarEndPointCosLabelShortTwowayMinFD,'rcServiceFarEndPointCosLabelShortTwowayMFD':rcServiceFarEndPointCosLabelShortTwowayMFD,'rcServiceFarEndPointCosLabelShortTwowayFDR':rcServiceFarEndPointCosLabelShortTwowayFDR,'rcServiceFarEndPointCosLabelShortTwowayIFDV':rcServiceFarEndPointCosLabelShortTwowayIFDV,'rcServiceFarEndPointCosLabelShortTwowayMaxIFDV':rcServiceFarEndPointCosLabelShortTwowayMaxIFDV,'rcServiceFarEndPointCosLabelShortTwowayMinIFDV':rcServiceFarEndPointCosLabelShortTwowayMinIFDV,'rcServiceFarEndPointCosLabelShortTwowayMIFDV':rcServiceFarEndPointCosLabelShortTwowayMIFDV,'rcServiceFarEndPointCosLabelShortForwardFLR':rcServiceFarEndPointCosLabelShortForwardFLR,'rcServiceFarEndPointCosLabelShortBackwardFLR':rcServiceFarEndPointCosLabelShortBackwardFLR,'rcServiceFarEndPointCosLabelShortForwardAvail':rcServiceFarEndPointCosLabelShortForwardAvail,'rcServiceFarEndPointCosLabelShortBackwardAvail':rcServiceFarEndPointCosLabelShortBackwardAvail,'rcServiceFarEndPointCosLabelShortForwardHLI':rcServiceFarEndPointCosLabelShortForwardHLI,'rcServiceFarEndPointCosLabelShortBackwardHLI':rcServiceFarEndPointCosLabelShortBackwardHLI,'rcServiceFarEndPointCosLabelShortForwardCHLI':rcServiceFarEndPointCosLabelShortForwardCHLI,'rcServiceFarEndPointCosLabelShortBackwardCHLI':rcServiceFarEndPointCosLabelShortBackwardCHLI,'rcServiceFarEndPointCosLabelShortForwardFrameLost':rcServiceFarEndPointCosLabelShortForwardFrameLost,'rcServiceFarEndPointCosLabelShortBackwardFrameLost':rcServiceFarEndPointCosLabelShortBackwardFrameLost,'rcServiceFarEndPointCosLabelShortForwardUnAvailSeconds':rcServiceFarEndPointCosLabelShortForwardUnAvailSeconds,'rcServiceFarEndPointCosLabelShortBackwardUnAvailSeconds':rcServiceFarEndPointCosLabelShortBackwardUnAvailSeconds,'rcServiceFarEndPointCosLabelLongStartTime':rcServiceFarEndPointCosLabelLongStartTime,'rcServiceFarEndPointCosLabelLongTwowayFD':rcServiceFarEndPointCosLabelLongTwowayFD,'rcServiceFarEndPointCosLabelLongTwowayMaxFD':rcServiceFarEndPointCosLabelLongTwowayMaxFD,'rcServiceFarEndPointCosLabelLongTwowayMinFD':rcServiceFarEndPointCosLabelLongTwowayMinFD,'rcServiceFarEndPointCosLabelSlaConfigDMOperId':rcServiceFarEndPointCosLabelSlaConfigDMOperId,'rcServiceFarEndPointCosLabelSlaConfigLMOperId':rcServiceFarEndPointCosLabelSlaConfigLMOperId,'rcServiceFarEndPointCosLabelEtherSamServiceIndex':rcServiceFarEndPointCosLabelEtherSamServiceIndex,'rcServiceFarEndPointCosLabelLongTwowayMFD':rcServiceFarEndPointCosLabelLongTwowayMFD,'rcServiceFarEndPointCosLabelLongTwowayFDR':rcServiceFarEndPointCosLabelLongTwowayFDR,'rcServiceFarEndPointCosLabelLongTwowayIFDV':rcServiceFarEndPointCosLabelLongTwowayIFDV,'rcServiceFarEndPointCosLabelLongTwowayMaxIFDV':rcServiceFarEndPointCosLabelLongTwowayMaxIFDV,'rcServiceFarEndPointCosLabelLongTwowayMinIFDV':rcServiceFarEndPointCosLabelLongTwowayMinIFDV,'rcServiceFarEndPointCosLabelLongTwowayMIFDV':rcServiceFarEndPointCosLabelLongTwowayMIFDV,'rcServiceFarEndPointCosLabelLongForwardFLR':rcServiceFarEndPointCosLabelLongForwardFLR,'rcServiceFarEndPointCosLabelLongBackwardFLR':rcServiceFarEndPointCosLabelLongBackwardFLR,'rcServiceFarEndPointCosLabelLongForwardAvail':rcServiceFarEndPointCosLabelLongForwardAvail,'rcServiceFarEndPointCosLabelLongBackwardAvail':rcServiceFarEndPointCosLabelLongBackwardAvail,'rcServiceFarEndPointCosLabelLongForwardHLI':rcServiceFarEndPointCosLabelLongForwardHLI,'rcServiceFarEndPointCosLabelLongBackwardHLI':rcServiceFarEndPointCosLabelLongBackwardHLI,'rcServiceFarEndPointCosLabelLongForwardCHLI':rcServiceFarEndPointCosLabelLongForwardCHLI,'rcServiceFarEndPointCosLabelLongBackwardCHLI':rcServiceFarEndPointCosLabelLongBackwardCHLI,'rcServiceFarEndPointCosLabelLongForwardFrameLost':rcServiceFarEndPointCosLabelLongForwardFrameLost,'rcServiceFarEndPointCosLabelLongBackwardFrameLost':rcServiceFarEndPointCosLabelLongBackwardFrameLost,'rcServiceFarEndPointCosLabelLongForwardUnAvailSeconds':rcServiceFarEndPointCosLabelLongForwardUnAvailSeconds,'rcServiceFarEndPointCosLabelLongBackwardUnAvailSeconds':rcServiceFarEndPointCosLabelLongBackwardUnAvailSeconds,'rcServiceSdpTable':rcServiceSdpTable,'rcServiceSdpEntry':rcServiceSdpEntry,'rcServiceSdpRowStatus':rcServiceSdpRowStatus,'rcServiceFarEndPointCosLabelCurrentTable':rcServiceFarEndPointCosLabelCurrentTable,'rcServiceFarEndPointCosLabelCurrentEntry':rcServiceFarEndPointCosLabelCurrentEntry,'rcServiceFarEndPointCosLabelCurrentTwowayFD':rcServiceFarEndPointCosLabelCurrentTwowayFD,'rcServiceFarEndPointCosLabelCurrentTwowayIFDV':rcServiceFarEndPointCosLabelCurrentTwowayIFDV,'rcServiceFarEndPointCosLabelCurrentForwardFLR':rcServiceFarEndPointCosLabelCurrentForwardFLR,'rcServiceFarEndPointCosLabelCurrentBackwardFLR':rcServiceFarEndPointCosLabelCurrentBackwardFLR,'rcServiceFarEndPointCosLabelCurrentForwardFrameLost':rcServiceFarEndPointCosLabelCurrentForwardFrameLost,'rcServiceFarEndPointCosLabelCurrentBackwardFrameLost':rcServiceFarEndPointCosLabelCurrentBackwardFrameLost,'rcServiceFarEndPointCosLabelCurrentForwardAvailStatus':rcServiceFarEndPointCosLabelCurrentForwardAvailStatus,'rcServiceFarEndPointCosLabelCurrentBackwardAvailStatus':rcServiceFarEndPointCosLabelCurrentBackwardAvailStatus,'rcServiceTrapGroup':rcServiceTrapGroup,'rcServiceEtherSamCfgTestFailTrap':rcServiceEtherSamCfgTestFailTrap,'rcServiceEtherSamCfgTestSuccessTrap':rcServiceEtherSamCfgTestSuccessTrap,'rcServiceEtherSamPfmTestFailTrap':rcServiceEtherSamPfmTestFailTrap,'rcServiceEtherSamPfmTestSuccessTrap':rcServiceEtherSamPfmTestSuccessTrap})
+#
+# PySNMP MIB module SWTICH-SERVICE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/SWTICH-SERVICE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:31:05 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+iscomSwitch, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "iscomSwitch")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TimeInterval, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+rcService = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75))
+if mibBuilder.loadTexts: rcService.setLastUpdated('201305130000Z')
+if mibBuilder.loadTexts: rcService.setOrganization('Raisecom, Inc.')
+rcServiceScalar = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 1))
+rcServiceDefaultSdp1PortIndex = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 1, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcServiceDefaultSdp1PortIndex.setStatus('current')
+rcServiceDefaultSdp2PortIndex = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcServiceDefaultSdp2PortIndex.setStatus('current')
+rcServiceEtherSamTrapEnable = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 1, 3), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcServiceEtherSamTrapEnable.setStatus('current')
+rcServiceCosLabelNameTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 2), )
+if mibBuilder.loadTexts: rcServiceCosLabelNameTable.setStatus('current')
+rcServiceCosLabelNameEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 2, 1), ).setIndexNames((0, "SWTICH-SERVICE-MIB", "rcServiceCosLabel"))
+if mibBuilder.loadTexts: rcServiceCosLabelNameEntry.setStatus('current')
+rcServiceCosLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7)))
+if mibBuilder.loadTexts: rcServiceCosLabel.setStatus('current')
+rcServiceCosLabelName = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcServiceCosLabelName.setStatus('current')
+rcServiceNetworkInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3), )
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceTable.setStatus('current')
+rcServiceNetworkInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1), ).setIndexNames((0, "SWTICH-SERVICE-MIB", "rcServiceNetworkInterfacePortIndex"))
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceEntry.setStatus('current')
+rcServiceNetworkInterfacePortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 1), Integer32())
+if mibBuilder.loadTexts: rcServiceNetworkInterfacePortIndex.setStatus('current')
+rcServiceNetworkInterfaceType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("inni", 0), ("enni", 1), ("uni", 2), ("channel", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceType.setStatus('current')
+rcServiceNetworkInterfaceID = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 45))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceID.setStatus('current')
+rcServiceNetworkInterfacePhysicalMedium = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 5, 16, 18, 22, 30, 31, 33, 37))).clone(namedValues=NamedValues(("dot3-unknownPhy", 0), ("dot3-10BASE-T", 5), ("dot3-100BASE-TX", 16), ("dot3-100BASE-FX", 18), ("dot3-1000BASE-X", 22), ("dot3-1000BASE-T", 30), ("dot3-10GBASE-X", 31), ("dot3-10GBASE-R", 33), ("dot3-10GBASE-W", 37)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfacePhysicalMedium.setStatus('current')
+rcServiceNetworkInterfaceSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("speedUnknown", 0), ("m10", 1), ("m100", 2), ("autonegom10-100", 3), ("autonegom10-100-1000", 4), ("g1", 5), ("g10", 6), ("autonegofiber1000", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceSpeed.setStatus('current')
+rcServiceNetworkInterfaceDuplexMode = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("duplexUnknown", 0), ("duplexAutoNego", 1), ("duplexFull", 2), ("duplexHalf", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceDuplexMode.setStatus('current')
+rcServiceNetworkInterfaceMacLayer = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("ieee802dot3-2005", 0)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceMacLayer.setStatus('current')
+rcServiceNetworkInterfaceMtu = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceMtu.setStatus('current')
+rcServiceNetworkInterfaceServiceMultiplexing = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 9), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceServiceMultiplexing.setStatus('current')
+rcServiceNetworkInterfaceBundling = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 10), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceBundling.setStatus('current')
+rcServiceNetworkInterfaceAllToOneBundling = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 11), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceAllToOneBundling.setStatus('current')
+rcServiceNetworkInterfaceDefaultCVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceDefaultCVlan.setStatus('current')
+rcServiceNetworkInterfacMaxEvcs = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfacMaxEvcs.setStatus('current')
+rcServiceNetworkInterfaceMaxOvcs = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceMaxOvcs.setStatus('current')
+rcServiceNetworkInterfaceInBwProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 15), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceInBwProfileIndex.setStatus('current')
+rcServiceNetworkInterfaceOutBwProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 16), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceOutBwProfileIndex.setStatus('current')
+rcServiceNetworkInterfaceL2cpProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 17), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceL2cpProfileIndex.setStatus('current')
+rcServiceNetworkInterfaceFrameFormat = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("untag", 0), ("tag", 1), ("dtag", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceFrameFormat.setStatus('current')
+rcServiceNetworkInterfaceLinks = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceLinks.setStatus('current')
+rcServiceNetworkInterfaceResiliencyMechanisms = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("linkaggregation", 1), ("other", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceResiliencyMechanisms.setStatus('current')
+rcServiceNetworkInterfaceMaxEndPointPerOvc = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 3, 1, 21), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceMaxEndPointPerOvc.setStatus('current')
+rcServiceNetworkInterfaceEndPointMapTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 4), )
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceEndPointMapTable.setStatus('current')
+rcServiceNetworkInterfaceEndPointMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 4, 1), ).setIndexNames((0, "SWTICH-SERVICE-MIB", "rcServiceNetworkInterfacePortIndex"), (0, "SWTICH-SERVICE-MIB", "rcServiceNetworkInterfaceEndPointMapSVlan"))
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceEndPointMapEntry.setStatus('current')
+rcServiceNetworkInterfaceEndPointMapSVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 4, 1, 1), Integer32())
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceEndPointMapSVlan.setStatus('current')
+rcServiceNetworkInterfaceEndPointMapEndPointID = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 4, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 91))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceEndPointMapEndPointID.setStatus('current')
+rcServiceNetworkInterfaceEndPointMapEndPointType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("ovc-endpoint", 0), ("typex", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceNetworkInterfaceEndPointMapEndPointType.setStatus('current')
+rcServiceTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5), )
+if mibBuilder.loadTexts: rcServiceTable.setStatus('current')
+rcServiceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1), ).setIndexNames((0, "SWTICH-SERVICE-MIB", "rcServiceID"))
+if mibBuilder.loadTexts: rcServiceEntry.setStatus('current')
+rcServiceID = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 45)))
+if mibBuilder.loadTexts: rcServiceID.setStatus('current')
+rcServiceType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("eline", 0), ("elan", 1), ("etree", 2), ("eaccess", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceType.setStatus('current')
+rcServiceCustomerNameID = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceCustomerNameID.setStatus('current')
+rcServiceMaxUnis = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceMaxUnis.setStatus('current')
+rcServiceMaxEnnis = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceMaxEnnis.setStatus('current')
+rcServiceMTU = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceMTU.setStatus('current')
+rcServiceCVlanPreservation = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 7), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceCVlanPreservation.setStatus('current')
+rcServiceCCosPreservation = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 8), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceCCosPreservation.setStatus('current')
+rcServiceSVlanPreservation = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 9), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceSVlanPreservation.setStatus('current')
+rcServiceSCosPreservation = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 10), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceSCosPreservation.setStatus('current')
+rcServiceColorForward = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 11), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceColorForward.setStatus('current')
+rcServiceUnicastDelivery = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 12), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceUnicastDelivery.setStatus('current')
+rcServiceMulticastDelivery = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 13), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceMulticastDelivery.setStatus('current')
+rcServiceBroadcastDelivery = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 14), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceBroadcastDelivery.setStatus('current')
+rcServiceL2cpPass = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 15), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceL2cpPass.setStatus('current')
+rcServiceCosType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("cos-unknown", 0), ("cos-baseon-service", 1), ("cos-baseon-cos", 2), ("cos-baseon-dscp", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceCosType.setStatus('current')
+rcServiceVCCosLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 17), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceVCCosLabel.setStatus('current')
+rcServiceCosMapProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 18), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceCosMapProfileIndex.setStatus('current')
+rcServiceDscpMapProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 19), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceDscpMapProfileIndex.setStatus('current')
+rcServiceSdpType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("sdp-none", 0), ("sdp-vlan", 1), ("sdp-mpls", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceSdpType.setStatus('current')
+rcServiceSdpIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 21), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceSdpIndex.setStatus('current')
+rcServicePTIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 22), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServicePTIndex.setStatus('current')
+rcServiceMaintenanceTimeStart = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 23), DateAndTime()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceMaintenanceTimeStart.setStatus('current')
+rcServiceMaintenanceTimeStop = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 24), DateAndTime()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceMaintenanceTimeStop.setStatus('current')
+rcServicePerfermanceTestScheduleLife = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 25), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServicePerfermanceTestScheduleLife.setStatus('current')
+rcServicePerfermanceTestSchedulePeriod = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 26), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServicePerfermanceTestSchedulePeriod.setStatus('current')
+rcServicePerfermanceTestScheduleInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 27), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServicePerfermanceTestScheduleInterval.setStatus('current')
+rcServicePerfermanceTestOperate = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 28), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServicePerfermanceTestOperate.setStatus('current')
+rcServiceL2LoopbackEtherType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 29), Integer32().clone(2208)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceL2LoopbackEtherType.setStatus('current')
+rcServiceL2LoopbackOperate = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 30), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceL2LoopbackOperate.setStatus('current')
+rcServiceEtherSamPerformanceDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 31), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(5, 1440), ))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceEtherSamPerformanceDuration.setStatus('current')
+rcServiceEtherSamPerformanceBW = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 32), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100000))).setUnits('milli-percent').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceEtherSamPerformanceBW.setStatus('current')
+rcServiceEtherSamFlowProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 33), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceEtherSamFlowProfileIndex.setStatus('current')
+rcServiceEtherSamCfgBypassUni = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 34), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceEtherSamCfgBypassUni.setStatus('current')
+rcServiceEtherSamTestElapsedTime = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 35), TimeInterval()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceEtherSamTestElapsedTime.setStatus('current')
+rcServiceEtherSamTestType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 36), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("configuration", 1), ("performance", 2), ("both", 3), ("rfc2544", 4), ("performance-inservice", 5)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceEtherSamTestType.setStatus('current')
+rcServiceEtherSamOperate = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 37), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceEtherSamOperate.setStatus('current')
+rcServiceEtherSamTestResult = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 38), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("pass", 1), ("fail", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceEtherSamTestResult.setStatus('current')
+rcServiceEtherSamTimeCfgWillTake = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 39), TimeInterval()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceEtherSamTimeCfgWillTake.setStatus('current')
+rcServiceEtherSamClearResult = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 40), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceEtherSamClearResult.setStatus('current')
+rcServiceMdIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 41), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceMdIndex.setStatus('current')
+rcServiceMaIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 42), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceMaIndex.setStatus('current')
+rcServiceOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 43), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceOperStatus.setStatus('current')
+rcServiceCcStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 44), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("full-work", 0), ("part-work", 1), ("no-work", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceCcStatus.setStatus('current')
+rcServicePerfermanceTestType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 45), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("lmLmm", 1), ("lmSlm", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServicePerfermanceTestType.setStatus('current')
+rcServiceEtherSamSlaJitterType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 46), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("dm", 1), ("l2loopback", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceEtherSamSlaJitterType.setStatus('current')
+rcServiceRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 5, 1, 100), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceRowStatus.setStatus('current')
+rcServiceCustomerTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 6), )
+if mibBuilder.loadTexts: rcServiceCustomerTable.setStatus('current')
+rcServiceCustomerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 6, 1), ).setIndexNames((0, "SWTICH-SERVICE-MIB", "rcServiceCustomerName"))
+if mibBuilder.loadTexts: rcServiceCustomerEntry.setStatus('current')
+rcServiceCustomerName = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 6, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128)))
+if mibBuilder.loadTexts: rcServiceCustomerName.setStatus('current')
+rcServiceCustomerContact = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 6, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceCustomerContact.setStatus('current')
+rcServiceCustomerPhone = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 6, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceCustomerPhone.setStatus('current')
+rcServiceCustomerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 6, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceCustomerRowStatus.setStatus('current')
+rcServiceCosLabelTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 7), )
+if mibBuilder.loadTexts: rcServiceCosLabelTable.setStatus('current')
+rcServiceCosLabelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 7, 1), ).setIndexNames((0, "SWTICH-SERVICE-MIB", "rcServiceID"), (0, "SWTICH-SERVICE-MIB", "rcServiceCosLabel"))
+if mibBuilder.loadTexts: rcServiceCosLabelEntry.setStatus('current')
+rcServiceCosLabelPerfermanceTestEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 7, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcServiceCosLabelPerfermanceTestEnable.setStatus('current')
+rcServiceCosLabelEtherSAMEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 7, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcServiceCosLabelEtherSAMEnable.setStatus('current')
+rcServiceEndPointTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 8), )
+if mibBuilder.loadTexts: rcServiceEndPointTable.setStatus('current')
+rcServiceEndPointEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 8, 1), ).setIndexNames((0, "SWTICH-SERVICE-MIB", "rcServiceID"), (0, "SWTICH-SERVICE-MIB", "rcServiceNetworkInterfaceID"))
+if mibBuilder.loadTexts: rcServiceEndPointEntry.setStatus('current')
+rcServiceEndPointType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 8, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("evc-per-uni", 1), ("ovc-per-uni", 2), ("ovc-per-enni", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceEndPointType.setStatus('current')
+rcServiceEndPointMPType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 8, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("root", 1), ("leaf", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceEndPointMPType.setStatus('current')
+rcServiceEndPointMapCVlans = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 8, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(512, 512)).setFixedLength(512)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceEndPointMapCVlans.setStatus('current')
+rcServiceEndPointInBwProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 8, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceEndPointInBwProfileIndex.setStatus('current')
+rcServiceEndPointOutBwProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 8, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceEndPointOutBwProfileIndex.setStatus('current')
+rcServiceEndPointLMep = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 8, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 8191))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceEndPointLMep.setStatus('current')
+rcServiceEndPointCCEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 8, 1, 7), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceEndPointCCEnable.setStatus('current')
+rcServiceEndPointPMEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 8, 1, 8), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceEndPointPMEnable.setStatus('current')
+rcServiceEndPointRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 8, 1, 100), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceEndPointRowStatus.setStatus('current')
+rcServicesEndPointCosLabelTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 9), )
+if mibBuilder.loadTexts: rcServicesEndPointCosLabelTable.setStatus('current')
+rcServicesEndPointCosLabelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 9, 1), ).setIndexNames((0, "SWTICH-SERVICE-MIB", "rcServiceID"), (0, "SWTICH-SERVICE-MIB", "rcServiceNetworkInterfaceID"), (0, "SWTICH-SERVICE-MIB", "rcServiceCosLabel"))
+if mibBuilder.loadTexts: rcServicesEndPointCosLabelEntry.setStatus('current')
+rcServiceEndPointCosLabelInBwProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 9, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceEndPointCosLabelInBwProfileIndex.setStatus('current')
+rcServiceEndPointCosLabelOutBwProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 9, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceEndPointCosLabelOutBwProfileIndex.setStatus('current')
+rcServiceFarEndPointTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 10), )
+if mibBuilder.loadTexts: rcServiceFarEndPointTable.setStatus('current')
+rcServiceFarEndPointEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 10, 1), ).setIndexNames((0, "SWTICH-SERVICE-MIB", "rcServiceID"), (0, "SWTICH-SERVICE-MIB", "rcServiceNetworkInterfaceID"), (0, "SWTICH-SERVICE-MIB", "rcServiceFarEndNetworkInterfaceID"))
+if mibBuilder.loadTexts: rcServiceFarEndPointEntry.setStatus('current')
+rcServiceFarEndNetworkInterfaceID = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 10, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 45))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceFarEndNetworkInterfaceID.setStatus('current')
+rcServiceFarEndPointRMep = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 10, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 8191))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceFarEndPointRMep.setStatus('current')
+rcServiceFarEndPointPerfermanceTestEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 10, 1, 3), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceFarEndPointPerfermanceTestEnable.setStatus('current')
+rcServiceFarEndPointEtherSAMEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 10, 1, 4), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceFarEndPointEtherSAMEnable.setStatus('current')
+rcServiceFarEndPointL2LoopbackEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 10, 1, 5), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceFarEndPointL2LoopbackEnable.setStatus('current')
+rcServiceFarEndPointCcStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 10, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("DEFECT-NONE", 0), ("DEFECT-RDI-CCM", 1), ("DEFECT-MAC-STATUS", 2), ("DEFECT-REMOTE-CCM", 3), ("DEFECT-ERROR-CCM", 4), ("DEFECT-XCON-CCM", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCcStatus.setStatus('current')
+rcServiceFarEndPointIPAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 10, 1, 7), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceFarEndPointIPAddressType.setStatus('current')
+rcServiceFarEndPointIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 10, 1, 8), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceFarEndPointIPAddress.setStatus('current')
+rcServiceFarEndPointMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 10, 1, 9), MacAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceFarEndPointMacAddress.setStatus('current')
+rcServiceFarEndPointType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 10, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("farend-rmep", 1), ("farend-ip", 2), ("farend_mac", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceFarEndPointType.setStatus('current')
+rcServiceFarEndPointRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 10, 1, 100), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceFarEndPointRowStatus.setStatus('current')
+rcServiceFarEndPointCosLabelTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11), )
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelTable.setStatus('current')
+rcServiceFarEndPointCosLabelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1), ).setIndexNames((0, "SWTICH-SERVICE-MIB", "rcServiceID"), (0, "SWTICH-SERVICE-MIB", "rcServiceNetworkInterfaceID"), (0, "SWTICH-SERVICE-MIB", "rcServiceFarEndNetworkInterfaceID"), (0, "SWTICH-SERVICE-MIB", "rcServiceCosLabel"))
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelEntry.setStatus('current')
+rcServiceFarEndPointCosLabelShortStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 1), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortStartTime.setStatus('current')
+rcServiceFarEndPointCosLabelShortTwowayFD = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 2), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortTwowayFD.setStatus('current')
+rcServiceFarEndPointCosLabelShortTwowayMaxFD = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 3), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortTwowayMaxFD.setStatus('current')
+rcServiceFarEndPointCosLabelShortTwowayMinFD = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 4), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortTwowayMinFD.setStatus('current')
+rcServiceFarEndPointCosLabelShortTwowayMFD = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 5), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortTwowayMFD.setStatus('current')
+rcServiceFarEndPointCosLabelShortTwowayFDR = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 6), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortTwowayFDR.setStatus('current')
+rcServiceFarEndPointCosLabelShortTwowayIFDV = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 7), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortTwowayIFDV.setStatus('current')
+rcServiceFarEndPointCosLabelShortTwowayMaxIFDV = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 8), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortTwowayMaxIFDV.setStatus('current')
+rcServiceFarEndPointCosLabelShortTwowayMinIFDV = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 9), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortTwowayMinIFDV.setStatus('current')
+rcServiceFarEndPointCosLabelShortTwowayMIFDV = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 10), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortTwowayMIFDV.setStatus('current')
+rcServiceFarEndPointCosLabelShortForwardFLR = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100000))).setUnits('milli-percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortForwardFLR.setStatus('current')
+rcServiceFarEndPointCosLabelShortBackwardFLR = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100000))).setUnits('milli-percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortBackwardFLR.setStatus('current')
+rcServiceFarEndPointCosLabelShortForwardAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100000))).setUnits('milli-percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortForwardAvail.setStatus('current')
+rcServiceFarEndPointCosLabelShortBackwardAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100000))).setUnits('milli-percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortBackwardAvail.setStatus('current')
+rcServiceFarEndPointCosLabelShortForwardHLI = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 15), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortForwardHLI.setStatus('current')
+rcServiceFarEndPointCosLabelShortBackwardHLI = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 16), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortBackwardHLI.setStatus('current')
+rcServiceFarEndPointCosLabelShortForwardCHLI = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 17), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortForwardCHLI.setStatus('current')
+rcServiceFarEndPointCosLabelShortBackwardCHLI = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 18), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortBackwardCHLI.setStatus('current')
+rcServiceFarEndPointCosLabelShortForwardFrameLost = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 19), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortForwardFrameLost.setStatus('current')
+rcServiceFarEndPointCosLabelShortBackwardFrameLost = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 20), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortBackwardFrameLost.setStatus('current')
+rcServiceFarEndPointCosLabelShortForwardUnAvailSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 21), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortForwardUnAvailSeconds.setStatus('current')
+rcServiceFarEndPointCosLabelShortBackwardUnAvailSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 22), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelShortBackwardUnAvailSeconds.setStatus('current')
+rcServiceFarEndPointCosLabelLongStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 23), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongStartTime.setStatus('current')
+rcServiceFarEndPointCosLabelLongTwowayFD = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 24), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongTwowayFD.setStatus('current')
+rcServiceFarEndPointCosLabelLongTwowayMaxFD = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 25), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongTwowayMaxFD.setStatus('current')
+rcServiceFarEndPointCosLabelLongTwowayMinFD = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 26), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongTwowayMinFD.setStatus('current')
+rcServiceFarEndPointCosLabelSlaConfigDMOperId = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 27), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelSlaConfigDMOperId.setStatus('current')
+rcServiceFarEndPointCosLabelSlaConfigLMOperId = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 28), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelSlaConfigLMOperId.setStatus('current')
+rcServiceFarEndPointCosLabelEtherSamServiceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 29), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelEtherSamServiceIndex.setStatus('current')
+rcServiceFarEndPointCosLabelLongTwowayMFD = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 30), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongTwowayMFD.setStatus('current')
+rcServiceFarEndPointCosLabelLongTwowayFDR = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 31), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongTwowayFDR.setStatus('current')
+rcServiceFarEndPointCosLabelLongTwowayIFDV = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 32), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongTwowayIFDV.setStatus('current')
+rcServiceFarEndPointCosLabelLongTwowayMaxIFDV = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 33), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongTwowayMaxIFDV.setStatus('current')
+rcServiceFarEndPointCosLabelLongTwowayMinIFDV = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 34), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongTwowayMinIFDV.setStatus('current')
+rcServiceFarEndPointCosLabelLongTwowayMIFDV = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 35), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongTwowayMIFDV.setStatus('current')
+rcServiceFarEndPointCosLabelLongForwardFLR = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 36), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100000))).setUnits('milli-percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongForwardFLR.setStatus('current')
+rcServiceFarEndPointCosLabelLongBackwardFLR = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 37), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100000))).setUnits('milli-percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongBackwardFLR.setStatus('current')
+rcServiceFarEndPointCosLabelLongForwardAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 38), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100000))).setUnits('milli-percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongForwardAvail.setStatus('current')
+rcServiceFarEndPointCosLabelLongBackwardAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 39), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100000))).setUnits('milli-percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongBackwardAvail.setStatus('current')
+rcServiceFarEndPointCosLabelLongForwardHLI = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 40), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongForwardHLI.setStatus('current')
+rcServiceFarEndPointCosLabelLongBackwardHLI = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 41), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongBackwardHLI.setStatus('current')
+rcServiceFarEndPointCosLabelLongForwardCHLI = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 42), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongForwardCHLI.setStatus('current')
+rcServiceFarEndPointCosLabelLongBackwardCHLI = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 43), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongBackwardCHLI.setStatus('current')
+rcServiceFarEndPointCosLabelLongForwardFrameLost = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 44), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongForwardFrameLost.setStatus('current')
+rcServiceFarEndPointCosLabelLongBackwardFrameLost = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 45), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongBackwardFrameLost.setStatus('current')
+rcServiceFarEndPointCosLabelLongForwardUnAvailSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 46), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongForwardUnAvailSeconds.setStatus('current')
+rcServiceFarEndPointCosLabelLongBackwardUnAvailSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 11, 1, 47), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelLongBackwardUnAvailSeconds.setStatus('current')
+rcServiceSdpTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 12), )
+if mibBuilder.loadTexts: rcServiceSdpTable.setStatus('current')
+rcServiceSdpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 12, 1), ).setIndexNames((0, "SWTICH-SERVICE-MIB", "rcServiceID"), (0, "SWTICH-SERVICE-MIB", "rcServiceNetworkInterfacePortIndex"))
+if mibBuilder.loadTexts: rcServiceSdpEntry.setStatus('current')
+rcServiceSdpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 12, 1, 100), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcServiceSdpRowStatus.setStatus('current')
+rcServiceFarEndPointCosLabelCurrentTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 13), )
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelCurrentTable.setStatus('current')
+rcServiceFarEndPointCosLabelCurrentEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 13, 1), ).setIndexNames((0, "SWTICH-SERVICE-MIB", "rcServiceID"), (0, "SWTICH-SERVICE-MIB", "rcServiceNetworkInterfaceID"), (0, "SWTICH-SERVICE-MIB", "rcServiceFarEndNetworkInterfaceID"), (0, "SWTICH-SERVICE-MIB", "rcServiceCosLabel"))
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelCurrentEntry.setStatus('current')
+rcServiceFarEndPointCosLabelCurrentTwowayFD = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 13, 1, 1), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelCurrentTwowayFD.setStatus('current')
+rcServiceFarEndPointCosLabelCurrentTwowayIFDV = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 13, 1, 2), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelCurrentTwowayIFDV.setStatus('current')
+rcServiceFarEndPointCosLabelCurrentForwardFLR = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 13, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100000))).setUnits('milli-percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelCurrentForwardFLR.setStatus('current')
+rcServiceFarEndPointCosLabelCurrentBackwardFLR = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 13, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100000))).setUnits('milli-percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelCurrentBackwardFLR.setStatus('current')
+rcServiceFarEndPointCosLabelCurrentForwardFrameLost = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 13, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelCurrentForwardFrameLost.setStatus('current')
+rcServiceFarEndPointCosLabelCurrentBackwardFrameLost = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 13, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelCurrentBackwardFrameLost.setStatus('current')
+rcServiceFarEndPointCosLabelCurrentForwardAvailStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 13, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("available", 1), ("unavailable", 2), ("unknown", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelCurrentForwardAvailStatus.setStatus('current')
+rcServiceFarEndPointCosLabelCurrentBackwardAvailStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 13, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("available", 1), ("unavailable", 2), ("unknown", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcServiceFarEndPointCosLabelCurrentBackwardAvailStatus.setStatus('current')
+rcServiceTrapGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 14))
+rcServiceEtherSamCfgTestFailTrap = NotificationType((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 14, 1)).setObjects(("SWTICH-SERVICE-MIB", "rcServiceID"), ("SWTICH-SERVICE-MIB", "rcServiceNetworkInterfaceID"), ("SWTICH-SERVICE-MIB", "rcServiceFarEndNetworkInterfaceID"))
+if mibBuilder.loadTexts: rcServiceEtherSamCfgTestFailTrap.setStatus('current')
+rcServiceEtherSamCfgTestSuccessTrap = NotificationType((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 14, 2)).setObjects(("SWTICH-SERVICE-MIB", "rcServiceID"), ("SWTICH-SERVICE-MIB", "rcServiceNetworkInterfaceID"), ("SWTICH-SERVICE-MIB", "rcServiceFarEndNetworkInterfaceID"))
+if mibBuilder.loadTexts: rcServiceEtherSamCfgTestSuccessTrap.setStatus('current')
+rcServiceEtherSamPfmTestFailTrap = NotificationType((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 14, 3)).setObjects(("SWTICH-SERVICE-MIB", "rcServiceID"), ("SWTICH-SERVICE-MIB", "rcServiceNetworkInterfaceID"), ("SWTICH-SERVICE-MIB", "rcServiceFarEndNetworkInterfaceID"))
+if mibBuilder.loadTexts: rcServiceEtherSamPfmTestFailTrap.setStatus('current')
+rcServiceEtherSamPfmTestSuccessTrap = NotificationType((1, 3, 6, 1, 4, 1, 8886, 6, 1, 75, 14, 4)).setObjects(("SWTICH-SERVICE-MIB", "rcServiceID"), ("SWTICH-SERVICE-MIB", "rcServiceNetworkInterfaceID"), ("SWTICH-SERVICE-MIB", "rcServiceFarEndNetworkInterfaceID"))
+if mibBuilder.loadTexts: rcServiceEtherSamPfmTestSuccessTrap.setStatus('current')
+mibBuilder.exportSymbols("SWTICH-SERVICE-MIB", rcServiceNetworkInterfaceL2cpProfileIndex=rcServiceNetworkInterfaceL2cpProfileIndex, rcServiceFarEndPointCosLabelCurrentForwardFrameLost=rcServiceFarEndPointCosLabelCurrentForwardFrameLost, rcServiceVCCosLabel=rcServiceVCCosLabel, rcServiceNetworkInterfaceType=rcServiceNetworkInterfaceType, rcServiceEtherSamCfgTestFailTrap=rcServiceEtherSamCfgTestFailTrap, rcServiceEtherSamOperate=rcServiceEtherSamOperate, rcServiceCustomerPhone=rcServiceCustomerPhone, rcServiceMaintenanceTimeStart=rcServiceMaintenanceTimeStart, rcServiceFarEndPointCosLabelCurrentTwowayFD=rcServiceFarEndPointCosLabelCurrentTwowayFD, rcServiceEtherSamFlowProfileIndex=rcServiceEtherSamFlowProfileIndex, rcServiceFarEndPointType=rcServiceFarEndPointType, rcServiceCCosPreservation=rcServiceCCosPreservation, rcServiceFarEndPointCosLabelTable=rcServiceFarEndPointCosLabelTable, rcServiceFarEndPointCosLabelLongBackwardAvail=rcServiceFarEndPointCosLabelLongBackwardAvail, rcServiceFarEndPointCosLabelCurrentTwowayIFDV=rcServiceFarEndPointCosLabelCurrentTwowayIFDV, rcServiceScalar=rcServiceScalar, rcServiceEtherSamTestResult=rcServiceEtherSamTestResult, rcServiceFarEndPointCosLabelShortBackwardAvail=rcServiceFarEndPointCosLabelShortBackwardAvail, rcServiceEndPointCosLabelOutBwProfileIndex=rcServiceEndPointCosLabelOutBwProfileIndex, rcServiceNetworkInterfaceSpeed=rcServiceNetworkInterfaceSpeed, rcServiceFarEndPointCosLabelLongTwowayMIFDV=rcServiceFarEndPointCosLabelLongTwowayMIFDV, rcServiceFarEndPointCosLabelShortTwowayMinIFDV=rcServiceFarEndPointCosLabelShortTwowayMinIFDV, rcServiceEtherSamSlaJitterType=rcServiceEtherSamSlaJitterType, rcServiceFarEndPointEtherSAMEnable=rcServiceFarEndPointEtherSAMEnable, rcServiceMTU=rcServiceMTU, rcServiceEndPointLMep=rcServiceEndPointLMep, rcServiceFarEndPointCosLabelShortBackwardFrameLost=rcServiceFarEndPointCosLabelShortBackwardFrameLost, rcServiceCosLabelEntry=rcServiceCosLabelEntry, rcServiceFarEndPointCosLabelShortTwowayIFDV=rcServiceFarEndPointCosLabelShortTwowayIFDV, rcServiceFarEndPointCosLabelShortTwowayFD=rcServiceFarEndPointCosLabelShortTwowayFD, rcServiceCVlanPreservation=rcServiceCVlanPreservation, rcServiceMaIndex=rcServiceMaIndex, rcServiceEndPointMapCVlans=rcServiceEndPointMapCVlans, rcServicePerfermanceTestType=rcServicePerfermanceTestType, rcServiceNetworkInterfaceEndPointMapEndPointID=rcServiceNetworkInterfaceEndPointMapEndPointID, rcServiceNetworkInterfaceID=rcServiceNetworkInterfaceID, rcServiceDscpMapProfileIndex=rcServiceDscpMapProfileIndex, rcServiceCustomerContact=rcServiceCustomerContact, rcServiceCustomerRowStatus=rcServiceCustomerRowStatus, rcServiceFarEndPointCosLabelLongForwardFLR=rcServiceFarEndPointCosLabelLongForwardFLR, rcServiceCustomerEntry=rcServiceCustomerEntry, rcServiceCustomerTable=rcServiceCustomerTable, rcServiceMdIndex=rcServiceMdIndex, rcServiceCosLabelNameTable=rcServiceCosLabelNameTable, rcServiceFarEndPointCosLabelShortForwardFrameLost=rcServiceFarEndPointCosLabelShortForwardFrameLost, rcServicePerfermanceTestScheduleInterval=rcServicePerfermanceTestScheduleInterval, rcServiceEndPointCCEnable=rcServiceEndPointCCEnable, rcServiceFarEndPointCosLabelCurrentBackwardFLR=rcServiceFarEndPointCosLabelCurrentBackwardFLR, rcServiceEtherSamTrapEnable=rcServiceEtherSamTrapEnable, rcServiceNetworkInterfaceDuplexMode=rcServiceNetworkInterfaceDuplexMode, rcServiceFarEndPointCosLabelShortTwowayFDR=rcServiceFarEndPointCosLabelShortTwowayFDR, rcServiceSdpTable=rcServiceSdpTable, rcServiceNetworkInterfaceEndPointMapTable=rcServiceNetworkInterfaceEndPointMapTable, rcServiceID=rcServiceID, rcServicesEndPointCosLabelEntry=rcServicesEndPointCosLabelEntry, rcServiceEtherSamCfgTestSuccessTrap=rcServiceEtherSamCfgTestSuccessTrap, rcServiceL2cpPass=rcServiceL2cpPass, rcServiceNetworkInterfaceEntry=rcServiceNetworkInterfaceEntry, rcServiceFarEndPointCosLabelShortBackwardHLI=rcServiceFarEndPointCosLabelShortBackwardHLI, rcServiceEndPointPMEnable=rcServiceEndPointPMEnable, rcServiceFarEndPointCosLabelCurrentBackwardAvailStatus=rcServiceFarEndPointCosLabelCurrentBackwardAvailStatus, rcServiceNetworkInterfaceEndPointMapEndPointType=rcServiceNetworkInterfaceEndPointMapEndPointType, rcServiceCosLabelEtherSAMEnable=rcServiceCosLabelEtherSAMEnable, PYSNMP_MODULE_ID=rcService, rcServiceNetworkInterfaceInBwProfileIndex=rcServiceNetworkInterfaceInBwProfileIndex, rcServiceFarEndPointCosLabelShortTwowayMFD=rcServiceFarEndPointCosLabelShortTwowayMFD, rcServiceNetworkInterfacePortIndex=rcServiceNetworkInterfacePortIndex, rcServiceFarEndPointL2LoopbackEnable=rcServiceFarEndPointL2LoopbackEnable, rcServiceFarEndPointCosLabelCurrentForwardAvailStatus=rcServiceFarEndPointCosLabelCurrentForwardAvailStatus, rcServiceFarEndPointCosLabelShortStartTime=rcServiceFarEndPointCosLabelShortStartTime, rcServiceFarEndPointCosLabelLongTwowayMaxFD=rcServiceFarEndPointCosLabelLongTwowayMaxFD, rcServiceFarEndPointCosLabelShortTwowayMIFDV=rcServiceFarEndPointCosLabelShortTwowayMIFDV, rcServicePerfermanceTestScheduleLife=rcServicePerfermanceTestScheduleLife, rcServicePerfermanceTestOperate=rcServicePerfermanceTestOperate, rcServiceMaintenanceTimeStop=rcServiceMaintenanceTimeStop, rcServiceCosLabelPerfermanceTestEnable=rcServiceCosLabelPerfermanceTestEnable, rcServiceCustomerNameID=rcServiceCustomerNameID, rcServiceEtherSamTestElapsedTime=rcServiceEtherSamTestElapsedTime, rcServiceFarEndPointCosLabelLongStartTime=rcServiceFarEndPointCosLabelLongStartTime, rcServiceFarEndPointMacAddress=rcServiceFarEndPointMacAddress, rcServiceNetworkInterfaceMtu=rcServiceNetworkInterfaceMtu, rcServiceEndPointEntry=rcServiceEndPointEntry, rcServiceType=rcServiceType, rcServiceCustomerName=rcServiceCustomerName, rcServiceMulticastDelivery=rcServiceMulticastDelivery, rcServiceBroadcastDelivery=rcServiceBroadcastDelivery, rcServiceMaxEnnis=rcServiceMaxEnnis, rcServicesEndPointCosLabelTable=rcServicesEndPointCosLabelTable, rcServiceFarEndPointCosLabelShortTwowayMaxIFDV=rcServiceFarEndPointCosLabelShortTwowayMaxIFDV, rcServiceFarEndPointCosLabelShortBackwardFLR=rcServiceFarEndPointCosLabelShortBackwardFLR, rcServiceFarEndPointCosLabelLongBackwardHLI=rcServiceFarEndPointCosLabelLongBackwardHLI, rcServiceFarEndPointCosLabelLongForwardUnAvailSeconds=rcServiceFarEndPointCosLabelLongForwardUnAvailSeconds, rcServiceEtherSamTimeCfgWillTake=rcServiceEtherSamTimeCfgWillTake, rcServiceFarEndPointTable=rcServiceFarEndPointTable, rcServiceFarEndPointCosLabelLongTwowayMinIFDV=rcServiceFarEndPointCosLabelLongTwowayMinIFDV, rcServiceFarEndPointCosLabelEntry=rcServiceFarEndPointCosLabelEntry, rcServiceCosLabel=rcServiceCosLabel, rcServiceFarEndPointCosLabelShortBackwardCHLI=rcServiceFarEndPointCosLabelShortBackwardCHLI, rcServiceNetworkInterfaceServiceMultiplexing=rcServiceNetworkInterfaceServiceMultiplexing, rcServiceL2LoopbackOperate=rcServiceL2LoopbackOperate, rcServiceNetworkInterfacMaxEvcs=rcServiceNetworkInterfacMaxEvcs, rcServiceEndPointType=rcServiceEndPointType, rcServiceFarEndPointCosLabelLongForwardFrameLost=rcServiceFarEndPointCosLabelLongForwardFrameLost, rcServiceEtherSamPerformanceBW=rcServiceEtherSamPerformanceBW, rcServiceNetworkInterfaceBundling=rcServiceNetworkInterfaceBundling, rcServiceFarEndPointCosLabelCurrentForwardFLR=rcServiceFarEndPointCosLabelCurrentForwardFLR, rcServiceTrapGroup=rcServiceTrapGroup, rcServiceEtherSamPerformanceDuration=rcServiceEtherSamPerformanceDuration, rcServiceFarEndPointCosLabelLongTwowayFDR=rcServiceFarEndPointCosLabelLongTwowayFDR, rcServiceFarEndPointIPAddress=rcServiceFarEndPointIPAddress, rcServiceNetworkInterfacePhysicalMedium=rcServiceNetworkInterfacePhysicalMedium, rcServiceFarEndPointCosLabelShortForwardAvail=rcServiceFarEndPointCosLabelShortForwardAvail, rcServiceRowStatus=rcServiceRowStatus, rcServiceMaxUnis=rcServiceMaxUnis, rcServiceEtherSamCfgBypassUni=rcServiceEtherSamCfgBypassUni, rcServiceTable=rcServiceTable, rcServicePTIndex=rcServicePTIndex, rcService=rcService, rcServiceFarEndPointCosLabelLongTwowayFD=rcServiceFarEndPointCosLabelLongTwowayFD, rcServiceFarEndPointCosLabelEtherSamServiceIndex=rcServiceFarEndPointCosLabelEtherSamServiceIndex, rcServiceNetworkInterfaceOutBwProfileIndex=rcServiceNetworkInterfaceOutBwProfileIndex, rcServiceOperStatus=rcServiceOperStatus, rcServiceNetworkInterfaceMaxOvcs=rcServiceNetworkInterfaceMaxOvcs, rcServiceNetworkInterfaceMaxEndPointPerOvc=rcServiceNetworkInterfaceMaxEndPointPerOvc, rcServiceNetworkInterfaceEndPointMapEntry=rcServiceNetworkInterfaceEndPointMapEntry, rcServiceEndPointCosLabelInBwProfileIndex=rcServiceEndPointCosLabelInBwProfileIndex, rcServiceEtherSamPfmTestFailTrap=rcServiceEtherSamPfmTestFailTrap, rcServiceSCosPreservation=rcServiceSCosPreservation, rcServiceFarEndPointPerfermanceTestEnable=rcServiceFarEndPointPerfermanceTestEnable, rcServiceFarEndPointCosLabelShortForwardCHLI=rcServiceFarEndPointCosLabelShortForwardCHLI, rcServiceDefaultSdp2PortIndex=rcServiceDefaultSdp2PortIndex, rcServiceFarEndPointEntry=rcServiceFarEndPointEntry, rcServiceEndPointMPType=rcServiceEndPointMPType, rcServiceSdpRowStatus=rcServiceSdpRowStatus, rcServiceColorForward=rcServiceColorForward, rcServiceSdpType=rcServiceSdpType, rcServiceFarEndPointCosLabelLongTwowayMaxIFDV=rcServiceFarEndPointCosLabelLongTwowayMaxIFDV, rcServiceFarEndPointIPAddressType=rcServiceFarEndPointIPAddressType, rcServiceFarEndPointCosLabelCurrentTable=rcServiceFarEndPointCosLabelCurrentTable, rcServiceNetworkInterfaceAllToOneBundling=rcServiceNetworkInterfaceAllToOneBundling, rcServiceNetworkInterfaceFrameFormat=rcServiceNetworkInterfaceFrameFormat, rcServiceSdpEntry=rcServiceSdpEntry, rcServiceFarEndPointCosLabelLongTwowayMFD=rcServiceFarEndPointCosLabelLongTwowayMFD, rcServiceCosMapProfileIndex=rcServiceCosMapProfileIndex, rcServiceEndPointRowStatus=rcServiceEndPointRowStatus, rcServiceFarEndPointCosLabelSlaConfigDMOperId=rcServiceFarEndPointCosLabelSlaConfigDMOperId, rcServiceFarEndPointCosLabelLongBackwardCHLI=rcServiceFarEndPointCosLabelLongBackwardCHLI, rcServiceEndPointInBwProfileIndex=rcServiceEndPointInBwProfileIndex, rcServiceFarEndPointCosLabelCurrentBackwardFrameLost=rcServiceFarEndPointCosLabelCurrentBackwardFrameLost, rcServiceSdpIndex=rcServiceSdpIndex, rcServiceFarEndPointCosLabelLongTwowayIFDV=rcServiceFarEndPointCosLabelLongTwowayIFDV, rcServiceFarEndPointCosLabelLongForwardHLI=rcServiceFarEndPointCosLabelLongForwardHLI, rcServiceDefaultSdp1PortIndex=rcServiceDefaultSdp1PortIndex, rcServicePerfermanceTestSchedulePeriod=rcServicePerfermanceTestSchedulePeriod, rcServiceFarEndPointCcStatus=rcServiceFarEndPointCcStatus, rcServiceNetworkInterfaceLinks=rcServiceNetworkInterfaceLinks, rcServiceFarEndPointCosLabelShortForwardHLI=rcServiceFarEndPointCosLabelShortForwardHLI, rcServiceNetworkInterfaceMacLayer=rcServiceNetworkInterfaceMacLayer, rcServiceFarEndPointRMep=rcServiceFarEndPointRMep, rcServiceFarEndPointCosLabelShortTwowayMaxFD=rcServiceFarEndPointCosLabelShortTwowayMaxFD, rcServiceFarEndPointCosLabelLongForwardAvail=rcServiceFarEndPointCosLabelLongForwardAvail, rcServiceFarEndPointCosLabelLongForwardCHLI=rcServiceFarEndPointCosLabelLongForwardCHLI, rcServiceFarEndPointCosLabelShortForwardUnAvailSeconds=rcServiceFarEndPointCosLabelShortForwardUnAvailSeconds, rcServiceFarEndPointCosLabelCurrentEntry=rcServiceFarEndPointCosLabelCurrentEntry, rcServiceEntry=rcServiceEntry, rcServiceUnicastDelivery=rcServiceUnicastDelivery, rcServiceNetworkInterfaceDefaultCVlan=rcServiceNetworkInterfaceDefaultCVlan, rcServiceCosLabelTable=rcServiceCosLabelTable, rcServiceFarEndPointCosLabelLongBackwardUnAvailSeconds=rcServiceFarEndPointCosLabelLongBackwardUnAvailSeconds, rcServiceCosLabelName=rcServiceCosLabelName, rcServiceL2LoopbackEtherType=rcServiceL2LoopbackEtherType, rcServiceEtherSamClearResult=rcServiceEtherSamClearResult, rcServiceCcStatus=rcServiceCcStatus, rcServiceFarEndPointCosLabelLongBackwardFLR=rcServiceFarEndPointCosLabelLongBackwardFLR, rcServiceNetworkInterfaceEndPointMapSVlan=rcServiceNetworkInterfaceEndPointMapSVlan, rcServiceCosType=rcServiceCosType, rcServiceFarEndPointCosLabelSlaConfigLMOperId=rcServiceFarEndPointCosLabelSlaConfigLMOperId, rcServiceEtherSamPfmTestSuccessTrap=rcServiceEtherSamPfmTestSuccessTrap, rcServiceEndPointTable=rcServiceEndPointTable, rcServiceFarEndPointCosLabelShortForwardFLR=rcServiceFarEndPointCosLabelShortForwardFLR, rcServiceFarEndPointCosLabelShortTwowayMinFD=rcServiceFarEndPointCosLabelShortTwowayMinFD, rcServiceFarEndPointRowStatus=rcServiceFarEndPointRowStatus, rcServiceFarEndPointCosLabelLongTwowayMinFD=rcServiceFarEndPointCosLabelLongTwowayMinFD, rcServiceFarEndPointCosLabelLongBackwardFrameLost=rcServiceFarEndPointCosLabelLongBackwardFrameLost, rcServiceNetworkInterfaceTable=rcServiceNetworkInterfaceTable, rcServiceEtherSamTestType=rcServiceEtherSamTestType, rcServiceCosLabelNameEntry=rcServiceCosLabelNameEntry, rcServiceNetworkInterfaceResiliencyMechanisms=rcServiceNetworkInterfaceResiliencyMechanisms, rcServiceSVlanPreservation=rcServiceSVlanPreservation, rcServiceEndPointOutBwProfileIndex=rcServiceEndPointOutBwProfileIndex, rcServiceFarEndPointCosLabelShortBackwardUnAvailSeconds=rcServiceFarEndPointCosLabelShortBackwardUnAvailSeconds, rcServiceFarEndNetworkInterfaceID=rcServiceFarEndNetworkInterfaceID)

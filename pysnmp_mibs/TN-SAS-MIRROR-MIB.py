@@ -1,56 +1,40 @@
-_G='tnMirrorDestinationExtnEntry'
-_F='tnMirrorSourcePortExtnEntry'
-_E='TProfileOrNone'
-_D='TN-SAS-MIRROR-MIB'
-_C='read-create'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-tnMirrorDestinationEntry,tnMirrorSourcePortEntry=mibBuilder.importSymbols('TN-MIRROR-MIB','tnMirrorDestinationEntry','tnMirrorSourcePortEntry')
-TProfileOrNone,=mibBuilder.importSymbols('TN-TC-MIB',_E)
-tnSASModules,tnSASObjs,tnSRMIBModules,tnSRNotifyPrefix,tnSRObjs=mibBuilder.importSymbols('TROPIC-GLOBAL-REG','tnSASModules','tnSASObjs','tnSRMIBModules','tnSRNotifyPrefix','tnSRObjs')
-tnSASMirrorMIBModule=ModuleIdentity((1,3,6,1,4,1,7483,7,2,1,1,13))
-if mibBuilder.loadTexts:tnSASMirrorMIBModule.setRevisions(('2011-05-01 00:00',))
-_TnSASMirrorObjects_ObjectIdentity=ObjectIdentity
-tnSASMirrorObjects=_TnSASMirrorObjects_ObjectIdentity((1,3,6,1,4,1,7483,7,2,2,2,13))
-_TnMirrorSourcePortExtnTable_Object=MibTable
-tnMirrorSourcePortExtnTable=_TnMirrorSourcePortExtnTable_Object((1,3,6,1,4,1,7483,7,2,2,2,13,1))
-if mibBuilder.loadTexts:tnMirrorSourcePortExtnTable.setStatus(_A)
-_TnMirrorSourcePortExtnEntry_Object=MibTableRow
-tnMirrorSourcePortExtnEntry=_TnMirrorSourcePortExtnEntry_Object((1,3,6,1,4,1,7483,7,2,2,2,13,1,1))
-if mibBuilder.loadTexts:tnMirrorSourcePortExtnEntry.setStatus(_A)
-class _TnMirrorSourcePortEgressMirroringType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('true-egress-mirroring',1),('normal-egress-mirroring',2)))
-_TnMirrorSourcePortEgressMirroringType_Type.__name__=_B
-_TnMirrorSourcePortEgressMirroringType_Object=MibTableColumn
-tnMirrorSourcePortEgressMirroringType=_TnMirrorSourcePortEgressMirroringType_Object((1,3,6,1,4,1,7483,7,2,2,2,13,1,1,1),_TnMirrorSourcePortEgressMirroringType_Type())
-tnMirrorSourcePortEgressMirroringType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnMirrorSourcePortEgressMirroringType.setStatus(_A)
-_TnMirrorDestinationExtnTable_Object=MibTable
-tnMirrorDestinationExtnTable=_TnMirrorDestinationExtnTable_Object((1,3,6,1,4,1,7483,7,2,2,2,13,2))
-if mibBuilder.loadTexts:tnMirrorDestinationExtnTable.setStatus(_A)
-_TnMirrorDestinationExtnEntry_Object=MibTableRow
-tnMirrorDestinationExtnEntry=_TnMirrorDestinationExtnEntry_Object((1,3,6,1,4,1,7483,7,2,2,2,13,2,1))
-if mibBuilder.loadTexts:tnMirrorDestinationExtnEntry.setStatus(_A)
-class _TnMirrorDestinationFCProfile_Type(TProfileOrNone):defaultValue=2
-_TnMirrorDestinationFCProfile_Type.__name__=_E
-_TnMirrorDestinationFCProfile_Object=MibTableColumn
-tnMirrorDestinationFCProfile=_TnMirrorDestinationFCProfile_Object((1,3,6,1,4,1,7483,7,2,2,2,13,2,1,1),_TnMirrorDestinationFCProfile_Type())
-tnMirrorDestinationFCProfile.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnMirrorDestinationFCProfile.setStatus(_A)
-class _TnMirrorDestinationMirrorSourceType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('local',1),('remote',2),('both',3)))
-_TnMirrorDestinationMirrorSourceType_Type.__name__=_B
-_TnMirrorDestinationMirrorSourceType_Object=MibTableColumn
-tnMirrorDestinationMirrorSourceType=_TnMirrorDestinationMirrorSourceType_Object((1,3,6,1,4,1,7483,7,2,2,2,13,2,1,2),_TnMirrorDestinationMirrorSourceType_Type())
-tnMirrorDestinationMirrorSourceType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnMirrorDestinationMirrorSourceType.setStatus(_A)
-tnMirrorSourcePortEntry.registerAugmentions((_D,_F))
+#
+# PySNMP MIB module TN-SAS-MIRROR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TN-SAS-MIRROR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:20:06 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tnMirrorSourcePortEntry, tnMirrorDestinationEntry = mibBuilder.importSymbols("TN-MIRROR-MIB", "tnMirrorSourcePortEntry", "tnMirrorDestinationEntry")
+TProfileOrNone, = mibBuilder.importSymbols("TN-TC-MIB", "TProfileOrNone")
+tnSRMIBModules, tnSRNotifyPrefix, tnSASObjs, tnSRObjs, tnSASModules = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnSRMIBModules", "tnSRNotifyPrefix", "tnSASObjs", "tnSRObjs", "tnSASModules")
+tnSASMirrorMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 7483, 7, 2, 1, 1, 13))
+tnSASMirrorMIBModule.setRevisions(('2011-05-01 00:00',))
+if mibBuilder.loadTexts: tnSASMirrorMIBModule.setLastUpdated('201105010000Z')
+if mibBuilder.loadTexts: tnSASMirrorMIBModule.setOrganization('Alcatel')
+tnSASMirrorObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 7, 2, 2, 2, 13))
+tnMirrorSourcePortExtnTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 7, 2, 2, 2, 13, 1), )
+if mibBuilder.loadTexts: tnMirrorSourcePortExtnTable.setStatus('current')
+tnMirrorSourcePortExtnEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 7, 2, 2, 2, 13, 1, 1), )
+tnMirrorSourcePortEntry.registerAugmentions(("TN-SAS-MIRROR-MIB", "tnMirrorSourcePortExtnEntry"))
 tnMirrorSourcePortExtnEntry.setIndexNames(*tnMirrorSourcePortEntry.getIndexNames())
-tnMirrorDestinationEntry.registerAugmentions((_D,_G))
+if mibBuilder.loadTexts: tnMirrorSourcePortExtnEntry.setStatus('current')
+tnMirrorSourcePortEgressMirroringType = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 7, 2, 2, 2, 13, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("true-egress-mirroring", 1), ("normal-egress-mirroring", 2))).clone('true-egress-mirroring')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnMirrorSourcePortEgressMirroringType.setStatus('current')
+tnMirrorDestinationExtnTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 7, 2, 2, 2, 13, 2), )
+if mibBuilder.loadTexts: tnMirrorDestinationExtnTable.setStatus('current')
+tnMirrorDestinationExtnEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 7, 2, 2, 2, 13, 2, 1), )
+tnMirrorDestinationEntry.registerAugmentions(("TN-SAS-MIRROR-MIB", "tnMirrorDestinationExtnEntry"))
 tnMirrorDestinationExtnEntry.setIndexNames(*tnMirrorDestinationEntry.getIndexNames())
-mibBuilder.exportSymbols(_D,**{'tnSASMirrorMIBModule':tnSASMirrorMIBModule,'tnSASMirrorObjects':tnSASMirrorObjects,'tnMirrorSourcePortExtnTable':tnMirrorSourcePortExtnTable,_F:tnMirrorSourcePortExtnEntry,'tnMirrorSourcePortEgressMirroringType':tnMirrorSourcePortEgressMirroringType,'tnMirrorDestinationExtnTable':tnMirrorDestinationExtnTable,_G:tnMirrorDestinationExtnEntry,'tnMirrorDestinationFCProfile':tnMirrorDestinationFCProfile,'tnMirrorDestinationMirrorSourceType':tnMirrorDestinationMirrorSourceType})
+if mibBuilder.loadTexts: tnMirrorDestinationExtnEntry.setStatus('current')
+tnMirrorDestinationFCProfile = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 7, 2, 2, 2, 13, 2, 1, 1), TProfileOrNone().clone('out')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnMirrorDestinationFCProfile.setStatus('current')
+tnMirrorDestinationMirrorSourceType = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 7, 2, 2, 2, 13, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("local", 1), ("remote", 2), ("both", 3))).clone('local')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnMirrorDestinationMirrorSourceType.setStatus('current')
+mibBuilder.exportSymbols("TN-SAS-MIRROR-MIB", tnMirrorSourcePortEgressMirroringType=tnMirrorSourcePortEgressMirroringType, tnMirrorDestinationMirrorSourceType=tnMirrorDestinationMirrorSourceType, tnMirrorSourcePortExtnEntry=tnMirrorSourcePortExtnEntry, tnMirrorDestinationExtnTable=tnMirrorDestinationExtnTable, tnMirrorSourcePortExtnTable=tnMirrorSourcePortExtnTable, tnMirrorDestinationExtnEntry=tnMirrorDestinationExtnEntry, PYSNMP_MODULE_ID=tnSASMirrorMIBModule, tnSASMirrorObjects=tnSASMirrorObjects, tnMirrorDestinationFCProfile=tnMirrorDestinationFCProfile, tnSASMirrorMIBModule=tnSASMirrorMIBModule)

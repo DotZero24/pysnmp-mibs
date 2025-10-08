@@ -1,50 +1,34 @@
-_E='snsPolicyIndex'
-_D='STORMSHIELD-POLICY-MIB'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-stormshieldMIB,=mibBuilder.importSymbols('STORMSHIELD-SMI-MIB','stormshieldMIB')
-snsPolicy=ModuleIdentity((1,3,6,1,4,1,11256,1,8))
-if mibBuilder.loadTexts:snsPolicy.setRevisions(('2017-02-20 00:00',))
-_SnsPolicyTable_Object=MibTable
-snsPolicyTable=_SnsPolicyTable_Object((1,3,6,1,4,1,11256,1,8,1))
-if mibBuilder.loadTexts:snsPolicyTable.setStatus(_A)
-_SnsPolicyEntry_Object=MibTableRow
-snsPolicyEntry=_SnsPolicyEntry_Object((1,3,6,1,4,1,11256,1,8,1,1))
-snsPolicyEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:snsPolicyEntry.setStatus(_A)
-class _SnsPolicyIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_SnsPolicyIndex_Type.__name__=_C
-_SnsPolicyIndex_Object=MibTableColumn
-snsPolicyIndex=_SnsPolicyIndex_Object((1,3,6,1,4,1,11256,1,8,1,1,1),_SnsPolicyIndex_Type())
-snsPolicyIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:snsPolicyIndex.setStatus(_A)
-_SnsPolicyName_Type=SnmpAdminString
-_SnsPolicyName_Object=MibTableColumn
-snsPolicyName=_SnsPolicyName_Object((1,3,6,1,4,1,11256,1,8,1,1,2),_SnsPolicyName_Type())
-snsPolicyName.setMaxAccess(_B)
-if mibBuilder.loadTexts:snsPolicyName.setStatus(_A)
-_SnsPolicySlotName_Type=SnmpAdminString
-_SnsPolicySlotName_Object=MibTableColumn
-snsPolicySlotName=_SnsPolicySlotName_Object((1,3,6,1,4,1,11256,1,8,1,1,3),_SnsPolicySlotName_Type())
-snsPolicySlotName.setMaxAccess(_B)
-if mibBuilder.loadTexts:snsPolicySlotName.setStatus(_A)
-_SnsPolicyActive_Type=DisplayString
-_SnsPolicyActive_Object=MibTableColumn
-snsPolicyActive=_SnsPolicyActive_Object((1,3,6,1,4,1,11256,1,8,1,1,4),_SnsPolicyActive_Type())
-snsPolicyActive.setMaxAccess(_B)
-if mibBuilder.loadTexts:snsPolicyActive.setStatus(_A)
-_SnsPolicySync_Type=Integer32
-_SnsPolicySync_Object=MibTableColumn
-snsPolicySync=_SnsPolicySync_Object((1,3,6,1,4,1,11256,1,8,1,1,5),_SnsPolicySync_Type())
-snsPolicySync.setMaxAccess(_B)
-if mibBuilder.loadTexts:snsPolicySync.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'snsPolicy':snsPolicy,'snsPolicyTable':snsPolicyTable,'snsPolicyEntry':snsPolicyEntry,_E:snsPolicyIndex,'snsPolicyName':snsPolicyName,'snsPolicySlotName':snsPolicySlotName,'snsPolicyActive':snsPolicyActive,'snsPolicySync':snsPolicySync})
+#
+# PySNMP MIB module STORMSHIELD-POLICY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/stormshield/STORMSHIELD-POLICY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:17 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
+snsPolicy = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 8))
+snsPolicy.setRevisions(('2017-02-20 00:00',))
+if mibBuilder.loadTexts: snsPolicy.setLastUpdated('201702200000Z')
+if mibBuilder.loadTexts: snsPolicy.setOrganization('Stormshield')
+snsPolicyTable = MibTable((1, 3, 6, 1, 4, 1, 11256, 1, 8, 1), )
+if mibBuilder.loadTexts: snsPolicyTable.setStatus('current')
+snsPolicyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11256, 1, 8, 1, 1), ).setIndexNames((0, "STORMSHIELD-POLICY-MIB", "snsPolicyIndex"))
+if mibBuilder.loadTexts: snsPolicyEntry.setStatus('current')
+snsPolicyIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 8, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsPolicyIndex.setStatus('current')
+snsPolicyName = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 8, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsPolicyName.setStatus('current')
+snsPolicySlotName = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 8, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsPolicySlotName.setStatus('current')
+snsPolicyActive = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 8, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsPolicyActive.setStatus('current')
+snsPolicySync = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 8, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsPolicySync.setStatus('current')
+mibBuilder.exportSymbols("STORMSHIELD-POLICY-MIB", snsPolicyName=snsPolicyName, snsPolicySlotName=snsPolicySlotName, snsPolicyActive=snsPolicyActive, snsPolicyIndex=snsPolicyIndex, snsPolicySync=snsPolicySync, snsPolicy=snsPolicy, snsPolicyEntry=snsPolicyEntry, snsPolicyTable=snsPolicyTable, PYSNMP_MODULE_ID=snsPolicy)

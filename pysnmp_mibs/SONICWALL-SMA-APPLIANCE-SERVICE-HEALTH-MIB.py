@@ -1,49 +1,35 @@
-_E='serviceId'
-_D='serviceDescription'
-_C='read-only'
-_B='SONICWALL-SMA-APPLIANCE-SERVICE-HEALTH-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InternationalDisplayString,=mibBuilder.importSymbols('HOST-RESOURCES-MIB','InternationalDisplayString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-sonicwallSMAAppliance,=mibBuilder.importSymbols('SONICWALL-SMA-MIB','sonicwallSMAAppliance')
-sonicwallServiceHealth=ModuleIdentity((1,3,6,1,4,1,8741,8,1,3))
-_ServiceTable_Object=MibTable
-serviceTable=_ServiceTable_Object((1,3,6,1,4,1,8741,8,1,3,1))
-if mibBuilder.loadTexts:serviceTable.setStatus(_A)
-_ServiceEntry_Object=MibTableRow
-serviceEntry=_ServiceEntry_Object((1,3,6,1,4,1,8741,8,1,3,1,1))
-serviceEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:serviceEntry.setStatus(_A)
-_ServiceId_Type=Integer32
-_ServiceId_Object=MibTableColumn
-serviceId=_ServiceId_Object((1,3,6,1,4,1,8741,8,1,3,1,1,1),_ServiceId_Type())
-serviceId.setMaxAccess(_C)
-if mibBuilder.loadTexts:serviceId.setStatus(_A)
-_ServiceDescription_Type=InternationalDisplayString
-_ServiceDescription_Object=MibTableColumn
-serviceDescription=_ServiceDescription_Object((1,3,6,1,4,1,8741,8,1,3,1,1,2),_ServiceDescription_Type())
-serviceDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:serviceDescription.setStatus(_A)
-_ServiceState_Type=Integer32
-_ServiceState_Object=MibTableColumn
-serviceState=_ServiceState_Object((1,3,6,1,4,1,8741,8,1,3,1,1,3),_ServiceState_Type())
-serviceState.setMaxAccess(_C)
-if mibBuilder.loadTexts:serviceState.setStatus(_A)
-_ServiceTableRowStatus_Type=RowStatus
-_ServiceTableRowStatus_Object=MibTableColumn
-serviceTableRowStatus=_ServiceTableRowStatus_Object((1,3,6,1,4,1,8741,8,1,3,1,1,4),_ServiceTableRowStatus_Type())
-serviceTableRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:serviceTableRowStatus.setStatus(_A)
-asapServiceUp=NotificationType((1,3,6,1,4,1,8741,8,1,3,2))
-asapServiceUp.setObjects((_B,_D))
-if mibBuilder.loadTexts:asapServiceUp.setStatus(_A)
-asapServiceDown=NotificationType((1,3,6,1,4,1,8741,8,1,3,3))
-asapServiceDown.setObjects((_B,_D))
-if mibBuilder.loadTexts:asapServiceDown.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'sonicwallServiceHealth':sonicwallServiceHealth,'serviceTable':serviceTable,'serviceEntry':serviceEntry,_E:serviceId,_D:serviceDescription,'serviceState':serviceState,'serviceTableRowStatus':serviceTableRowStatus,'asapServiceUp':asapServiceUp,'asapServiceDown':asapServiceDown})
+#
+# PySNMP MIB module SONICWALL-SMA-APPLIANCE-SERVICE-HEALTH-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/sonicwall/SONICWALL-SMA-APPLIANCE-SERVICE-HEALTH-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InternationalDisplayString, = mibBuilder.importSymbols("HOST-RESOURCES-MIB", "InternationalDisplayString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+sonicwallSMAAppliance, = mibBuilder.importSymbols("SONICWALL-SMA-MIB", "sonicwallSMAAppliance")
+sonicwallServiceHealth = ModuleIdentity((1, 3, 6, 1, 4, 1, 8741, 8, 1, 3))
+if mibBuilder.loadTexts: sonicwallServiceHealth.setLastUpdated('201804090001Z')
+if mibBuilder.loadTexts: sonicwallServiceHealth.setOrganization('SonicWall')
+serviceTable = MibTable((1, 3, 6, 1, 4, 1, 8741, 8, 1, 3, 1), )
+if mibBuilder.loadTexts: serviceTable.setStatus('current')
+serviceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8741, 8, 1, 3, 1, 1), ).setIndexNames((0, "SONICWALL-SMA-APPLIANCE-SERVICE-HEALTH-MIB", "serviceId"))
+if mibBuilder.loadTexts: serviceEntry.setStatus('current')
+serviceId = MibTableColumn((1, 3, 6, 1, 4, 1, 8741, 8, 1, 3, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: serviceId.setStatus('current')
+serviceDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 8741, 8, 1, 3, 1, 1, 2), InternationalDisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: serviceDescription.setStatus('current')
+serviceState = MibTableColumn((1, 3, 6, 1, 4, 1, 8741, 8, 1, 3, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: serviceState.setStatus('current')
+serviceTableRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8741, 8, 1, 3, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: serviceTableRowStatus.setStatus('current')
+asapServiceUp = NotificationType((1, 3, 6, 1, 4, 1, 8741, 8, 1, 3, 2)).setObjects(("SONICWALL-SMA-APPLIANCE-SERVICE-HEALTH-MIB", "serviceDescription"))
+if mibBuilder.loadTexts: asapServiceUp.setStatus('current')
+asapServiceDown = NotificationType((1, 3, 6, 1, 4, 1, 8741, 8, 1, 3, 3)).setObjects(("SONICWALL-SMA-APPLIANCE-SERVICE-HEALTH-MIB", "serviceDescription"))
+if mibBuilder.loadTexts: asapServiceDown.setStatus('current')
+mibBuilder.exportSymbols("SONICWALL-SMA-APPLIANCE-SERVICE-HEALTH-MIB", asapServiceDown=asapServiceDown, serviceTable=serviceTable, asapServiceUp=asapServiceUp, serviceTableRowStatus=serviceTableRowStatus, serviceState=serviceState, sonicwallServiceHealth=sonicwallServiceHealth, serviceEntry=serviceEntry, serviceId=serviceId, serviceDescription=serviceDescription, PYSNMP_MODULE_ID=sonicwallServiceHealth)

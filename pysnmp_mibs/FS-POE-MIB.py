@@ -1,83 +1,47 @@
-_G='2012-02-14 00:00'
-_F='read-write'
-_E='read-only'
-_D='ifPoeIndex'
-_C='FS-POE-MIB'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fsMgmt,=mibBuilder.importSymbols('FS-SMI','fsMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-fsPoeMIB=ModuleIdentity((1,3,6,1,4,1,52642,1,1,10,2,110))
-if mibBuilder.loadTexts:fsPoeMIB.setRevisions((_G,_G))
-_FsPoeConfigMIBObjects_ObjectIdentity=ObjectIdentity
-fsPoeConfigMIBObjects=_FsPoeConfigMIBObjects_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,110,1))
-_FsIfPoeTable_Object=MibTable
-fsIfPoeTable=_FsIfPoeTable_Object((1,3,6,1,4,1,52642,1,1,10,2,110,1,1))
-if mibBuilder.loadTexts:fsIfPoeTable.setStatus(_A)
-_FsIfPoeEntry_Object=MibTableRow
-fsIfPoeEntry=_FsIfPoeEntry_Object((1,3,6,1,4,1,52642,1,1,10,2,110,1,1,1))
-fsIfPoeEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:fsIfPoeEntry.setStatus(_A)
-class _IfPoeIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_IfPoeIndex_Type.__name__=_B
-_IfPoeIndex_Object=MibTableColumn
-ifPoeIndex=_IfPoeIndex_Object((1,3,6,1,4,1,52642,1,1,10,2,110,1,1,1,1),_IfPoeIndex_Type())
-ifPoeIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:ifPoeIndex.setStatus(_A)
-_IfIsPoe_Type=TruthValue
-_IfIsPoe_Object=MibTableColumn
-ifIsPoe=_IfIsPoe_Object((1,3,6,1,4,1,52642,1,1,10,2,110,1,1,1,2),_IfIsPoe_Type())
-ifIsPoe.setMaxAccess(_E)
-if mibBuilder.loadTexts:ifIsPoe.setStatus(_A)
-class _IfPoeEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_IfPoeEnable_Type.__name__=_B
-_IfPoeEnable_Object=MibTableColumn
-ifPoeEnable=_IfPoeEnable_Object((1,3,6,1,4,1,52642,1,1,10,2,110,1,1,1,3),_IfPoeEnable_Type())
-ifPoeEnable.setMaxAccess(_F)
-if mibBuilder.loadTexts:ifPoeEnable.setStatus(_A)
-class _IfPoePwrStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('on',1),('off',2)))
-_IfPoePwrStatus_Type.__name__=_B
-_IfPoePwrStatus_Object=MibTableColumn
-ifPoePwrStatus=_IfPoePwrStatus_Object((1,3,6,1,4,1,52642,1,1,10,2,110,1,1,1,4),_IfPoePwrStatus_Type())
-ifPoePwrStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ifPoePwrStatus.setStatus(_A)
-class _IfPoeMaxPwrSet_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_IfPoeMaxPwrSet_Type.__name__=_B
-_IfPoeMaxPwrSet_Object=MibTableColumn
-ifPoeMaxPwrSet=_IfPoeMaxPwrSet_Object((1,3,6,1,4,1,52642,1,1,10,2,110,1,1,1,5),_IfPoeMaxPwrSet_Type())
-ifPoeMaxPwrSet.setMaxAccess(_F)
-if mibBuilder.loadTexts:ifPoeMaxPwrSet.setStatus(_A)
-class _IfPoePriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('critical',1),('high',2),('low',3)))
-_IfPoePriority_Type.__name__=_B
-_IfPoePriority_Object=MibTableColumn
-ifPoePriority=_IfPoePriority_Object((1,3,6,1,4,1,52642,1,1,10,2,110,1,1,1,6),_IfPoePriority_Type())
-ifPoePriority.setMaxAccess(_F)
-if mibBuilder.loadTexts:ifPoePriority.setStatus(_A)
-_IfPoeConsumingPwr_Type=Integer32
-_IfPoeConsumingPwr_Object=MibTableColumn
-ifPoeConsumingPwr=_IfPoeConsumingPwr_Object((1,3,6,1,4,1,52642,1,1,10,2,110,1,1,1,7),_IfPoeConsumingPwr_Type())
-ifPoeConsumingPwr.setMaxAccess(_E)
-if mibBuilder.loadTexts:ifPoeConsumingPwr.setStatus(_A)
-_IfIsHPoe_Type=TruthValue
-_IfIsHPoe_Object=MibTableColumn
-ifIsHPoe=_IfIsHPoe_Object((1,3,6,1,4,1,52642,1,1,10,2,110,1,1,1,8),_IfIsHPoe_Type())
-ifIsHPoe.setMaxAccess(_E)
-if mibBuilder.loadTexts:ifIsHPoe.setStatus(_A)
-_FsPoeTraps_ObjectIdentity=ObjectIdentity
-fsPoeTraps=_FsPoeTraps_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,110,2))
-ifPoePowerOffTrap=NotificationType((1,3,6,1,4,1,52642,1,1,10,2,110,2,1))
-ifPoePowerOffTrap.setObjects((_C,_D))
-if mibBuilder.loadTexts:ifPoePowerOffTrap.setStatus(_A)
-ifPoePowerOnTrap=NotificationType((1,3,6,1,4,1,52642,1,1,10,2,110,2,2))
-ifPoePowerOnTrap.setObjects((_C,_D))
-if mibBuilder.loadTexts:ifPoePowerOnTrap.setStatus(_A)
-ifPoePboxAbnormalTrap=NotificationType((1,3,6,1,4,1,52642,1,1,10,2,110,2,3))
-ifPoePboxAbnormalTrap.setObjects((_C,_D))
-if mibBuilder.loadTexts:ifPoePboxAbnormalTrap.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'fsPoeMIB':fsPoeMIB,'fsPoeConfigMIBObjects':fsPoeConfigMIBObjects,'fsIfPoeTable':fsIfPoeTable,'fsIfPoeEntry':fsIfPoeEntry,_D:ifPoeIndex,'ifIsPoe':ifIsPoe,'ifPoeEnable':ifPoeEnable,'ifPoePwrStatus':ifPoePwrStatus,'ifPoeMaxPwrSet':ifPoeMaxPwrSet,'ifPoePriority':ifPoePriority,'ifPoeConsumingPwr':ifPoeConsumingPwr,'ifIsHPoe':ifIsHPoe,'fsPoeTraps':fsPoeTraps,'ifPoePowerOffTrap':ifPoePowerOffTrap,'ifPoePowerOnTrap':ifPoePowerOnTrap,'ifPoePboxAbnormalTrap':ifPoePboxAbnormalTrap})
+#
+# PySNMP MIB module FS-POE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fscom/FS-POE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:24 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+fsMgmt, = mibBuilder.importSymbols("FS-SMI", "fsMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+fsPoeMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 110))
+fsPoeMIB.setRevisions(('2012-02-14 00:00', '2012-02-14 00:00',))
+if mibBuilder.loadTexts: fsPoeMIB.setLastUpdated('201202140000Z')
+if mibBuilder.loadTexts: fsPoeMIB.setOrganization('FS.COM Inc..')
+fsPoeConfigMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 110, 1))
+fsIfPoeTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 110, 1, 1), )
+if mibBuilder.loadTexts: fsIfPoeTable.setStatus('current')
+fsIfPoeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 110, 1, 1, 1), ).setIndexNames((0, "FS-POE-MIB", "ifPoeIndex"))
+if mibBuilder.loadTexts: fsIfPoeEntry.setStatus('current')
+ifPoeIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 110, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifPoeIndex.setStatus('current')
+ifIsPoe = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 110, 1, 1, 1, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifIsPoe.setStatus('current')
+ifPoeEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 110, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ifPoeEnable.setStatus('current')
+ifPoePwrStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 110, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("on", 1), ("off", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifPoePwrStatus.setStatus('current')
+ifPoeMaxPwrSet = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 110, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ifPoeMaxPwrSet.setStatus('current')
+ifPoePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 110, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("critical", 1), ("high", 2), ("low", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ifPoePriority.setStatus('current')
+ifPoeConsumingPwr = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 110, 1, 1, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifPoeConsumingPwr.setStatus('current')
+ifIsHPoe = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 110, 1, 1, 1, 8), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifIsHPoe.setStatus('current')
+fsPoeTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 110, 2))
+ifPoePowerOffTrap = NotificationType((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 110, 2, 1)).setObjects(("FS-POE-MIB", "ifPoeIndex"))
+if mibBuilder.loadTexts: ifPoePowerOffTrap.setStatus('current')
+ifPoePowerOnTrap = NotificationType((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 110, 2, 2)).setObjects(("FS-POE-MIB", "ifPoeIndex"))
+if mibBuilder.loadTexts: ifPoePowerOnTrap.setStatus('current')
+ifPoePboxAbnormalTrap = NotificationType((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 110, 2, 3)).setObjects(("FS-POE-MIB", "ifPoeIndex"))
+if mibBuilder.loadTexts: ifPoePboxAbnormalTrap.setStatus('current')
+mibBuilder.exportSymbols("FS-POE-MIB", fsPoeMIB=fsPoeMIB, ifPoeMaxPwrSet=ifPoeMaxPwrSet, PYSNMP_MODULE_ID=fsPoeMIB, ifPoeIndex=ifPoeIndex, ifIsPoe=ifIsPoe, fsPoeTraps=fsPoeTraps, ifPoePowerOnTrap=ifPoePowerOnTrap, ifPoeEnable=ifPoeEnable, fsPoeConfigMIBObjects=fsPoeConfigMIBObjects, ifPoePwrStatus=ifPoePwrStatus, ifPoeConsumingPwr=ifPoeConsumingPwr, ifIsHPoe=ifIsHPoe, ifPoePboxAbnormalTrap=ifPoePboxAbnormalTrap, ifPoePriority=ifPoePriority, fsIfPoeEntry=fsIfPoeEntry, fsIfPoeTable=fsIfPoeTable, ifPoePowerOffTrap=ifPoePowerOffTrap)

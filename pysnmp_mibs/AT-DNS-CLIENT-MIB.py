@@ -1,61 +1,36 @@
-_I='read-write'
-_H='atDNSServerIndex'
-_G='AT-DNS-CLIENT-MIB'
-_F='read-only'
-_E='RowStatus'
-_D='IpAddress'
-_C='InetAddressType'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-modules,=mibBuilder.importSymbols('AT-SMI-MIB','modules')
-InetAddressType,=mibBuilder.importSymbols('INET-ADDRESS-MIB',_C)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,_D,'ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress',_E,'TextualConvention')
-atDNSClient=ModuleIdentity((1,3,6,1,4,1,207,8,4,4,4,501,1))
-if mibBuilder.loadTexts:atDNSClient.setRevisions(('2010-06-14 04:45','2008-09-18 12:00'))
-_AtDns_ObjectIdentity=ObjectIdentity
-atDns=_AtDns_ObjectIdentity((1,3,6,1,4,1,207,8,4,4,4,501))
-if mibBuilder.loadTexts:atDns.setStatus(_A)
-class _AtDNSServerIndexNext_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AtDNSServerIndexNext_Type.__name__=_B
-_AtDNSServerIndexNext_Object=MibScalar
-atDNSServerIndexNext=_AtDNSServerIndexNext_Object((1,3,6,1,4,1,207,8,4,4,4,501,1,1),_AtDNSServerIndexNext_Type())
-atDNSServerIndexNext.setMaxAccess(_F)
-if mibBuilder.loadTexts:atDNSServerIndexNext.setStatus(_A)
-_AtDNSServerTable_Object=MibTable
-atDNSServerTable=_AtDNSServerTable_Object((1,3,6,1,4,1,207,8,4,4,4,501,1,2))
-if mibBuilder.loadTexts:atDNSServerTable.setStatus(_A)
-_AtDNSServerEntry_Object=MibTableRow
-atDNSServerEntry=_AtDNSServerEntry_Object((1,3,6,1,4,1,207,8,4,4,4,501,1,2,1))
-atDNSServerEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:atDNSServerEntry.setStatus(_A)
-class _AtDNSServerIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_AtDNSServerIndex_Type.__name__=_B
-_AtDNSServerIndex_Object=MibTableColumn
-atDNSServerIndex=_AtDNSServerIndex_Object((1,3,6,1,4,1,207,8,4,4,4,501,1,2,1,1),_AtDNSServerIndex_Type())
-atDNSServerIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:atDNSServerIndex.setStatus(_A)
-class _AtDNSServerAddrType_Type(InetAddressType):defaultValue=1
-_AtDNSServerAddrType_Type.__name__=_C
-_AtDNSServerAddrType_Object=MibTableColumn
-atDNSServerAddrType=_AtDNSServerAddrType_Object((1,3,6,1,4,1,207,8,4,4,4,501,1,2,1,2),_AtDNSServerAddrType_Type())
-atDNSServerAddrType.setMaxAccess(_F)
-if mibBuilder.loadTexts:atDNSServerAddrType.setStatus(_A)
-class _AtDNSServerAddr_Type(IpAddress):defaultHexValue='00000000'
-_AtDNSServerAddr_Type.__name__=_D
-_AtDNSServerAddr_Object=MibTableColumn
-atDNSServerAddr=_AtDNSServerAddr_Object((1,3,6,1,4,1,207,8,4,4,4,501,1,2,1,3),_AtDNSServerAddr_Type())
-atDNSServerAddr.setMaxAccess(_I)
-if mibBuilder.loadTexts:atDNSServerAddr.setStatus(_A)
-class _AtDNSServerStatus_Type(RowStatus):defaultValue=1
-_AtDNSServerStatus_Type.__name__=_E
-_AtDNSServerStatus_Object=MibTableColumn
-atDNSServerStatus=_AtDNSServerStatus_Object((1,3,6,1,4,1,207,8,4,4,4,501,1,2,1,4),_AtDNSServerStatus_Type())
-atDNSServerStatus.setMaxAccess(_I)
-if mibBuilder.loadTexts:atDNSServerStatus.setStatus(_A)
-mibBuilder.exportSymbols(_G,**{'atDns':atDns,'atDNSClient':atDNSClient,'atDNSServerIndexNext':atDNSServerIndexNext,'atDNSServerTable':atDNSServerTable,'atDNSServerEntry':atDNSServerEntry,_H:atDNSServerIndex,'atDNSServerAddrType':atDNSServerAddrType,'atDNSServerAddr':atDNSServerAddr,'atDNSServerStatus':atDNSServerStatus})
+#
+# PySNMP MIB module AT-DNS-CLIENT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/allied/AT-DNS-CLIENT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:44:37 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+modules, = mibBuilder.importSymbols("AT-SMI-MIB", "modules")
+InetAddressType, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+atDNSClient = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 501, 1))
+atDNSClient.setRevisions(('2010-06-14 04:45', '2008-09-18 12:00',))
+if mibBuilder.loadTexts: atDNSClient.setLastUpdated('201006140445Z')
+if mibBuilder.loadTexts: atDNSClient.setOrganization('Allied Telesis, Inc')
+atDns = ObjectIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 501))
+if mibBuilder.loadTexts: atDns.setStatus('current')
+atDNSServerIndexNext = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 501, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atDNSServerIndexNext.setStatus('current')
+atDNSServerTable = MibTable((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 501, 1, 2), )
+if mibBuilder.loadTexts: atDNSServerTable.setStatus('current')
+atDNSServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 501, 1, 2, 1), ).setIndexNames((0, "AT-DNS-CLIENT-MIB", "atDNSServerIndex"))
+if mibBuilder.loadTexts: atDNSServerEntry.setStatus('current')
+atDNSServerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 501, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
+if mibBuilder.loadTexts: atDNSServerIndex.setStatus('current')
+atDNSServerAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 501, 1, 2, 1, 2), InetAddressType().clone('ipv4')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atDNSServerAddrType.setStatus('current')
+atDNSServerAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 501, 1, 2, 1, 3), IpAddress().clone(hexValue="00000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atDNSServerAddr.setStatus('current')
+atDNSServerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 501, 1, 2, 1, 4), RowStatus().clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atDNSServerStatus.setStatus('current')
+mibBuilder.exportSymbols("AT-DNS-CLIENT-MIB", atDNSServerTable=atDNSServerTable, PYSNMP_MODULE_ID=atDNSClient, atDNSClient=atDNSClient, atDNSServerIndex=atDNSServerIndex, atDNSServerIndexNext=atDNSServerIndexNext, atDNSServerAddrType=atDNSServerAddrType, atDNSServerStatus=atDNSServerStatus, atDNSServerEntry=atDNSServerEntry, atDNSServerAddr=atDNSServerAddr, atDns=atDns)

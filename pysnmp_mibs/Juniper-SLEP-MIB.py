@@ -1,122 +1,68 @@
-_T='juniSlepGroup2'
-_S='juniSlepGroup'
-_R='juniSlepDownWhenLooped'
-_Q='obsolete'
-_P='juniSlepIfStatsIndex'
-_O='not-accessible'
-_N='juniSlepIfIndex'
-_M='Integer32'
-_L='JuniEnable'
-_K='juniSlepLinkStatusBadFCSs'
-_J='juniSlepLinkStatusTooLongPackets'
-_I='juniSlepKeepAliveFailures'
-_H='juniSlepIfRowStatus'
-_G='juniSlepIfLowerIfIndex'
-_F='juniSlepKeepAliveTimer'
-_E='juniSlepNextIfIndex'
-_D='read-create'
-_C='read-only'
-_B='current'
-_A='Juniper-SLEP-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,InterfaceIndexOrZero=mibBuilder.importSymbols('IF-MIB','InterfaceIndex','InterfaceIndexOrZero')
-juniMibs,=mibBuilder.importSymbols('Juniper-MIBs','juniMibs')
-JuniEnable,JuniNextIfIndex=mibBuilder.importSymbols('Juniper-TC',_L,'JuniNextIfIndex')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_M,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-juniSlepMIBS=ModuleIdentity((1,3,6,1,4,1,4874,2,2,15))
-if mibBuilder.loadTexts:juniSlepMIBS.setRevisions(('2002-09-16 21:44','2001-04-03 19:10','2000-01-03 00:00'))
-_JuniSlepObjects_ObjectIdentity=ObjectIdentity
-juniSlepObjects=_JuniSlepObjects_ObjectIdentity((1,3,6,1,4,1,4874,2,2,15,1))
-_JuniSlepIfLayer_ObjectIdentity=ObjectIdentity
-juniSlepIfLayer=_JuniSlepIfLayer_ObjectIdentity((1,3,6,1,4,1,4874,2,2,15,1,1))
-_JuniSlepNextIfIndex_Type=JuniNextIfIndex
-_JuniSlepNextIfIndex_Object=MibScalar
-juniSlepNextIfIndex=_JuniSlepNextIfIndex_Object((1,3,6,1,4,1,4874,2,2,15,1,1,1),_JuniSlepNextIfIndex_Type())
-juniSlepNextIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniSlepNextIfIndex.setStatus(_B)
-_JuniSlepIfTable_Object=MibTable
-juniSlepIfTable=_JuniSlepIfTable_Object((1,3,6,1,4,1,4874,2,2,15,1,1,2))
-if mibBuilder.loadTexts:juniSlepIfTable.setStatus(_B)
-_JuniSlepIfEntry_Object=MibTableRow
-juniSlepIfEntry=_JuniSlepIfEntry_Object((1,3,6,1,4,1,4874,2,2,15,1,1,2,1))
-juniSlepIfEntry.setIndexNames((0,_A,_N))
-if mibBuilder.loadTexts:juniSlepIfEntry.setStatus(_B)
-_JuniSlepIfIndex_Type=InterfaceIndex
-_JuniSlepIfIndex_Object=MibTableColumn
-juniSlepIfIndex=_JuniSlepIfIndex_Object((1,3,6,1,4,1,4874,2,2,15,1,1,2,1,1),_JuniSlepIfIndex_Type())
-juniSlepIfIndex.setMaxAccess(_O)
-if mibBuilder.loadTexts:juniSlepIfIndex.setStatus(_B)
-class _JuniSlepKeepAliveTimer_Type(Integer32):defaultValue=10;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,6553))
-_JuniSlepKeepAliveTimer_Type.__name__=_M
-_JuniSlepKeepAliveTimer_Object=MibTableColumn
-juniSlepKeepAliveTimer=_JuniSlepKeepAliveTimer_Object((1,3,6,1,4,1,4874,2,2,15,1,1,2,1,2),_JuniSlepKeepAliveTimer_Type())
-juniSlepKeepAliveTimer.setMaxAccess(_D)
-if mibBuilder.loadTexts:juniSlepKeepAliveTimer.setStatus(_B)
-if mibBuilder.loadTexts:juniSlepKeepAliveTimer.setUnits('seconds')
-_JuniSlepIfLowerIfIndex_Type=InterfaceIndexOrZero
-_JuniSlepIfLowerIfIndex_Object=MibTableColumn
-juniSlepIfLowerIfIndex=_JuniSlepIfLowerIfIndex_Object((1,3,6,1,4,1,4874,2,2,15,1,1,2,1,3),_JuniSlepIfLowerIfIndex_Type())
-juniSlepIfLowerIfIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:juniSlepIfLowerIfIndex.setStatus(_B)
-_JuniSlepIfRowStatus_Type=RowStatus
-_JuniSlepIfRowStatus_Object=MibTableColumn
-juniSlepIfRowStatus=_JuniSlepIfRowStatus_Object((1,3,6,1,4,1,4874,2,2,15,1,1,2,1,4),_JuniSlepIfRowStatus_Type())
-juniSlepIfRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:juniSlepIfRowStatus.setStatus(_B)
-class _JuniSlepDownWhenLooped_Type(JuniEnable):defaultValue=0
-_JuniSlepDownWhenLooped_Type.__name__=_L
-_JuniSlepDownWhenLooped_Object=MibTableColumn
-juniSlepDownWhenLooped=_JuniSlepDownWhenLooped_Object((1,3,6,1,4,1,4874,2,2,15,1,1,2,1,5),_JuniSlepDownWhenLooped_Type())
-juniSlepDownWhenLooped.setMaxAccess(_D)
-if mibBuilder.loadTexts:juniSlepDownWhenLooped.setStatus(_B)
-_JuniSlepIfStatisticsTable_Object=MibTable
-juniSlepIfStatisticsTable=_JuniSlepIfStatisticsTable_Object((1,3,6,1,4,1,4874,2,2,15,1,1,3))
-if mibBuilder.loadTexts:juniSlepIfStatisticsTable.setStatus(_B)
-_JuniSlepIfStatisticsEntry_Object=MibTableRow
-juniSlepIfStatisticsEntry=_JuniSlepIfStatisticsEntry_Object((1,3,6,1,4,1,4874,2,2,15,1,1,3,1))
-juniSlepIfStatisticsEntry.setIndexNames((0,_A,_P))
-if mibBuilder.loadTexts:juniSlepIfStatisticsEntry.setStatus(_B)
-_JuniSlepIfStatsIndex_Type=InterfaceIndex
-_JuniSlepIfStatsIndex_Object=MibTableColumn
-juniSlepIfStatsIndex=_JuniSlepIfStatsIndex_Object((1,3,6,1,4,1,4874,2,2,15,1,1,3,1,1),_JuniSlepIfStatsIndex_Type())
-juniSlepIfStatsIndex.setMaxAccess(_O)
-if mibBuilder.loadTexts:juniSlepIfStatsIndex.setStatus(_B)
-_JuniSlepKeepAliveFailures_Type=Counter32
-_JuniSlepKeepAliveFailures_Object=MibTableColumn
-juniSlepKeepAliveFailures=_JuniSlepKeepAliveFailures_Object((1,3,6,1,4,1,4874,2,2,15,1,1,3,1,2),_JuniSlepKeepAliveFailures_Type())
-juniSlepKeepAliveFailures.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniSlepKeepAliveFailures.setStatus(_B)
-_JuniSlepLinkStatusTooLongPackets_Type=Counter32
-_JuniSlepLinkStatusTooLongPackets_Object=MibTableColumn
-juniSlepLinkStatusTooLongPackets=_JuniSlepLinkStatusTooLongPackets_Object((1,3,6,1,4,1,4874,2,2,15,1,1,3,1,3),_JuniSlepLinkStatusTooLongPackets_Type())
-juniSlepLinkStatusTooLongPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniSlepLinkStatusTooLongPackets.setStatus(_B)
-_JuniSlepLinkStatusBadFCSs_Type=Counter32
-_JuniSlepLinkStatusBadFCSs_Object=MibTableColumn
-juniSlepLinkStatusBadFCSs=_JuniSlepLinkStatusBadFCSs_Object((1,3,6,1,4,1,4874,2,2,15,1,1,3,1,4),_JuniSlepLinkStatusBadFCSs_Type())
-juniSlepLinkStatusBadFCSs.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniSlepLinkStatusBadFCSs.setStatus(_B)
-_JuniSlepConformance_ObjectIdentity=ObjectIdentity
-juniSlepConformance=_JuniSlepConformance_ObjectIdentity((1,3,6,1,4,1,4874,2,2,15,4))
-_JuniSlepCompliances_ObjectIdentity=ObjectIdentity
-juniSlepCompliances=_JuniSlepCompliances_ObjectIdentity((1,3,6,1,4,1,4874,2,2,15,4,1))
-_JuniSlepGroups_ObjectIdentity=ObjectIdentity
-juniSlepGroups=_JuniSlepGroups_ObjectIdentity((1,3,6,1,4,1,4874,2,2,15,4,2))
-juniSlepGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,15,4,2,1))
-juniSlepGroup.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:juniSlepGroup.setStatus(_Q)
-juniSlepGroup2=ObjectGroup((1,3,6,1,4,1,4874,2,2,15,4,2,2))
-juniSlepGroup2.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_R),(_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:juniSlepGroup2.setStatus(_B)
-juniSlepCompliance=ModuleCompliance((1,3,6,1,4,1,4874,2,2,15,4,1,1))
-juniSlepCompliance.setObjects((_A,_S))
-if mibBuilder.loadTexts:juniSlepCompliance.setStatus(_Q)
-juniSlepCompliance2=ModuleCompliance((1,3,6,1,4,1,4874,2,2,15,4,1,2))
-juniSlepCompliance2.setObjects((_A,_T))
-if mibBuilder.loadTexts:juniSlepCompliance2.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'juniSlepMIBS':juniSlepMIBS,'juniSlepObjects':juniSlepObjects,'juniSlepIfLayer':juniSlepIfLayer,_E:juniSlepNextIfIndex,'juniSlepIfTable':juniSlepIfTable,'juniSlepIfEntry':juniSlepIfEntry,_N:juniSlepIfIndex,_F:juniSlepKeepAliveTimer,_G:juniSlepIfLowerIfIndex,_H:juniSlepIfRowStatus,_R:juniSlepDownWhenLooped,'juniSlepIfStatisticsTable':juniSlepIfStatisticsTable,'juniSlepIfStatisticsEntry':juniSlepIfStatisticsEntry,_P:juniSlepIfStatsIndex,_I:juniSlepKeepAliveFailures,_J:juniSlepLinkStatusTooLongPackets,_K:juniSlepLinkStatusBadFCSs,'juniSlepConformance':juniSlepConformance,'juniSlepCompliances':juniSlepCompliances,'juniSlepCompliance':juniSlepCompliance,'juniSlepCompliance2':juniSlepCompliance2,'juniSlepGroups':juniSlepGroups,_S:juniSlepGroup,_T:juniSlepGroup2})
+#
+# PySNMP MIB module Juniper-SLEP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/junose/Juniper-SLEP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:23:02 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndexOrZero, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "InterfaceIndex")
+juniMibs, = mibBuilder.importSymbols("Juniper-MIBs", "juniMibs")
+JuniNextIfIndex, JuniEnable = mibBuilder.importSymbols("Juniper-TC", "JuniNextIfIndex", "JuniEnable")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+juniSlepMIBS = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15))
+juniSlepMIBS.setRevisions(('2002-09-16 21:44', '2001-04-03 19:10', '2000-01-03 00:00',))
+if mibBuilder.loadTexts: juniSlepMIBS.setLastUpdated('200209162144Z')
+if mibBuilder.loadTexts: juniSlepMIBS.setOrganization('Juniper Networks, Inc.')
+juniSlepObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 1))
+juniSlepIfLayer = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 1, 1))
+juniSlepNextIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 1, 1, 1), JuniNextIfIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniSlepNextIfIndex.setStatus('current')
+juniSlepIfTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 1, 1, 2), )
+if mibBuilder.loadTexts: juniSlepIfTable.setStatus('current')
+juniSlepIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 1, 1, 2, 1), ).setIndexNames((0, "Juniper-SLEP-MIB", "juniSlepIfIndex"))
+if mibBuilder.loadTexts: juniSlepIfEntry.setStatus('current')
+juniSlepIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 1, 1, 2, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: juniSlepIfIndex.setStatus('current')
+juniSlepKeepAliveTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 6553)).clone(10)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniSlepKeepAliveTimer.setStatus('current')
+juniSlepIfLowerIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 1, 1, 2, 1, 3), InterfaceIndexOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniSlepIfLowerIfIndex.setStatus('current')
+juniSlepIfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 1, 1, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniSlepIfRowStatus.setStatus('current')
+juniSlepDownWhenLooped = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 1, 1, 2, 1, 5), JuniEnable().clone('disable')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniSlepDownWhenLooped.setStatus('current')
+juniSlepIfStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 1, 1, 3), )
+if mibBuilder.loadTexts: juniSlepIfStatisticsTable.setStatus('current')
+juniSlepIfStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 1, 1, 3, 1), ).setIndexNames((0, "Juniper-SLEP-MIB", "juniSlepIfStatsIndex"))
+if mibBuilder.loadTexts: juniSlepIfStatisticsEntry.setStatus('current')
+juniSlepIfStatsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 1, 1, 3, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: juniSlepIfStatsIndex.setStatus('current')
+juniSlepKeepAliveFailures = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 1, 1, 3, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniSlepKeepAliveFailures.setStatus('current')
+juniSlepLinkStatusTooLongPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 1, 1, 3, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniSlepLinkStatusTooLongPackets.setStatus('current')
+juniSlepLinkStatusBadFCSs = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 1, 1, 3, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniSlepLinkStatusBadFCSs.setStatus('current')
+juniSlepConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 4))
+juniSlepCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 4, 1))
+juniSlepGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 4, 2))
+juniSlepCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 4, 1, 1)).setObjects(("Juniper-SLEP-MIB", "juniSlepGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniSlepCompliance = juniSlepCompliance.setStatus('obsolete')
+juniSlepCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 4, 1, 2)).setObjects(("Juniper-SLEP-MIB", "juniSlepGroup2"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniSlepCompliance2 = juniSlepCompliance2.setStatus('current')
+juniSlepGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 4, 2, 1)).setObjects(("Juniper-SLEP-MIB", "juniSlepNextIfIndex"), ("Juniper-SLEP-MIB", "juniSlepKeepAliveTimer"), ("Juniper-SLEP-MIB", "juniSlepIfLowerIfIndex"), ("Juniper-SLEP-MIB", "juniSlepIfRowStatus"), ("Juniper-SLEP-MIB", "juniSlepKeepAliveFailures"), ("Juniper-SLEP-MIB", "juniSlepLinkStatusTooLongPackets"), ("Juniper-SLEP-MIB", "juniSlepLinkStatusBadFCSs"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniSlepGroup = juniSlepGroup.setStatus('obsolete')
+juniSlepGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 15, 4, 2, 2)).setObjects(("Juniper-SLEP-MIB", "juniSlepNextIfIndex"), ("Juniper-SLEP-MIB", "juniSlepKeepAliveTimer"), ("Juniper-SLEP-MIB", "juniSlepIfLowerIfIndex"), ("Juniper-SLEP-MIB", "juniSlepIfRowStatus"), ("Juniper-SLEP-MIB", "juniSlepDownWhenLooped"), ("Juniper-SLEP-MIB", "juniSlepKeepAliveFailures"), ("Juniper-SLEP-MIB", "juniSlepLinkStatusTooLongPackets"), ("Juniper-SLEP-MIB", "juniSlepLinkStatusBadFCSs"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniSlepGroup2 = juniSlepGroup2.setStatus('current')
+mibBuilder.exportSymbols("Juniper-SLEP-MIB", juniSlepMIBS=juniSlepMIBS, juniSlepLinkStatusTooLongPackets=juniSlepLinkStatusTooLongPackets, juniSlepKeepAliveFailures=juniSlepKeepAliveFailures, juniSlepGroup2=juniSlepGroup2, PYSNMP_MODULE_ID=juniSlepMIBS, juniSlepIfStatisticsTable=juniSlepIfStatisticsTable, juniSlepConformance=juniSlepConformance, juniSlepIfStatsIndex=juniSlepIfStatsIndex, juniSlepIfLayer=juniSlepIfLayer, juniSlepIfIndex=juniSlepIfIndex, juniSlepIfRowStatus=juniSlepIfRowStatus, juniSlepLinkStatusBadFCSs=juniSlepLinkStatusBadFCSs, juniSlepCompliances=juniSlepCompliances, juniSlepIfEntry=juniSlepIfEntry, juniSlepCompliance2=juniSlepCompliance2, juniSlepObjects=juniSlepObjects, juniSlepGroups=juniSlepGroups, juniSlepNextIfIndex=juniSlepNextIfIndex, juniSlepIfLowerIfIndex=juniSlepIfLowerIfIndex, juniSlepKeepAliveTimer=juniSlepKeepAliveTimer, juniSlepCompliance=juniSlepCompliance, juniSlepGroup=juniSlepGroup, juniSlepIfTable=juniSlepIfTable, juniSlepDownWhenLooped=juniSlepDownWhenLooped, juniSlepIfStatisticsEntry=juniSlepIfStatisticsEntry)

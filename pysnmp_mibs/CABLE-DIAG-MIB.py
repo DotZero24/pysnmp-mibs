@@ -1,108 +1,49 @@
-_O='processing'
-_N='swEtherCableDiagPortIndex'
-_M='CABLE-DIAG-MIB'
-_L='no-cable'
-_K='count'
-_J='unknown'
-_I='crosstalk'
-_H='open-short'
-_G='short'
-_F='open'
-_E='ok'
-_D='other'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlink_common_mgmt,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlink-common-mgmt')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-swCableDiagMIB=ModuleIdentity((1,3,6,1,4,1,171,12,58))
-_SwCableDiagCtrl_ObjectIdentity=ObjectIdentity
-swCableDiagCtrl=_SwCableDiagCtrl_ObjectIdentity((1,3,6,1,4,1,171,12,58,1))
-_SwEtherCableDiagTable_Object=MibTable
-swEtherCableDiagTable=_SwEtherCableDiagTable_Object((1,3,6,1,4,1,171,12,58,1,1))
-if mibBuilder.loadTexts:swEtherCableDiagTable.setStatus(_A)
-_SwEtherCableDiagEntry_Object=MibTableRow
-swEtherCableDiagEntry=_SwEtherCableDiagEntry_Object((1,3,6,1,4,1,171,12,58,1,1,1))
-swEtherCableDiagEntry.setIndexNames((0,_M,_N))
-if mibBuilder.loadTexts:swEtherCableDiagEntry.setStatus(_A)
-class _SwEtherCableDiagPortIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_SwEtherCableDiagPortIndex_Type.__name__=_C
-_SwEtherCableDiagPortIndex_Object=MibTableColumn
-swEtherCableDiagPortIndex=_SwEtherCableDiagPortIndex_Object((1,3,6,1,4,1,171,12,58,1,1,1,1),_SwEtherCableDiagPortIndex_Type())
-swEtherCableDiagPortIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:swEtherCableDiagPortIndex.setStatus(_A)
-class _SwEtherCableDiagPortType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('fastEthernet',0),('gigaEthernet',1),(_D,2)))
-_SwEtherCableDiagPortType_Type.__name__=_C
-_SwEtherCableDiagPortType_Object=MibTableColumn
-swEtherCableDiagPortType=_SwEtherCableDiagPortType_Object((1,3,6,1,4,1,171,12,58,1,1,1,2),_SwEtherCableDiagPortType_Type())
-swEtherCableDiagPortType.setMaxAccess(_B)
-if mibBuilder.loadTexts:swEtherCableDiagPortType.setStatus(_A)
-class _SwEtherCableDiagLinkStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('link-down',0),('link-up',1),(_D,2)))
-_SwEtherCableDiagLinkStatus_Type.__name__=_C
-_SwEtherCableDiagLinkStatus_Object=MibTableColumn
-swEtherCableDiagLinkStatus=_SwEtherCableDiagLinkStatus_Object((1,3,6,1,4,1,171,12,58,1,1,1,3),_SwEtherCableDiagLinkStatus_Type())
-swEtherCableDiagLinkStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:swEtherCableDiagLinkStatus.setStatus(_A)
-class _SwEtherCableDiagPair1Status_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_E,0),(_F,1),(_G,2),(_H,3),(_I,4),(_J,5),(_K,6),(_L,7),(_D,8)))
-_SwEtherCableDiagPair1Status_Type.__name__=_C
-_SwEtherCableDiagPair1Status_Object=MibTableColumn
-swEtherCableDiagPair1Status=_SwEtherCableDiagPair1Status_Object((1,3,6,1,4,1,171,12,58,1,1,1,4),_SwEtherCableDiagPair1Status_Type())
-swEtherCableDiagPair1Status.setMaxAccess(_B)
-if mibBuilder.loadTexts:swEtherCableDiagPair1Status.setStatus(_A)
-class _SwEtherCableDiagPair2Status_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_E,0),(_F,1),(_G,2),(_H,3),(_I,4),(_J,5),(_K,6),(_L,7),(_D,8)))
-_SwEtherCableDiagPair2Status_Type.__name__=_C
-_SwEtherCableDiagPair2Status_Object=MibTableColumn
-swEtherCableDiagPair2Status=_SwEtherCableDiagPair2Status_Object((1,3,6,1,4,1,171,12,58,1,1,1,5),_SwEtherCableDiagPair2Status_Type())
-swEtherCableDiagPair2Status.setMaxAccess(_B)
-if mibBuilder.loadTexts:swEtherCableDiagPair2Status.setStatus(_A)
-class _SwEtherCableDiagPair3Status_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_E,0),(_F,1),(_G,2),(_H,3),(_I,4),(_J,5),(_K,6),(_L,7),(_D,8)))
-_SwEtherCableDiagPair3Status_Type.__name__=_C
-_SwEtherCableDiagPair3Status_Object=MibTableColumn
-swEtherCableDiagPair3Status=_SwEtherCableDiagPair3Status_Object((1,3,6,1,4,1,171,12,58,1,1,1,6),_SwEtherCableDiagPair3Status_Type())
-swEtherCableDiagPair3Status.setMaxAccess(_B)
-if mibBuilder.loadTexts:swEtherCableDiagPair3Status.setStatus(_A)
-class _SwEtherCableDiagPair4Status_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_E,0),(_F,1),(_G,2),(_H,3),(_I,4),(_J,5),(_K,6),(_L,7),(_D,8)))
-_SwEtherCableDiagPair4Status_Type.__name__=_C
-_SwEtherCableDiagPair4Status_Object=MibTableColumn
-swEtherCableDiagPair4Status=_SwEtherCableDiagPair4Status_Object((1,3,6,1,4,1,171,12,58,1,1,1,7),_SwEtherCableDiagPair4Status_Type())
-swEtherCableDiagPair4Status.setMaxAccess(_B)
-if mibBuilder.loadTexts:swEtherCableDiagPair4Status.setStatus(_A)
-_SwEtherCableDiagPair1Length_Type=Integer32
-_SwEtherCableDiagPair1Length_Object=MibTableColumn
-swEtherCableDiagPair1Length=_SwEtherCableDiagPair1Length_Object((1,3,6,1,4,1,171,12,58,1,1,1,8),_SwEtherCableDiagPair1Length_Type())
-swEtherCableDiagPair1Length.setMaxAccess(_B)
-if mibBuilder.loadTexts:swEtherCableDiagPair1Length.setStatus(_A)
-_SwEtherCableDiagPair2Length_Type=Integer32
-_SwEtherCableDiagPair2Length_Object=MibTableColumn
-swEtherCableDiagPair2Length=_SwEtherCableDiagPair2Length_Object((1,3,6,1,4,1,171,12,58,1,1,1,9),_SwEtherCableDiagPair2Length_Type())
-swEtherCableDiagPair2Length.setMaxAccess(_B)
-if mibBuilder.loadTexts:swEtherCableDiagPair2Length.setStatus(_A)
-_SwEtherCableDiagPair3Length_Type=Integer32
-_SwEtherCableDiagPair3Length_Object=MibTableColumn
-swEtherCableDiagPair3Length=_SwEtherCableDiagPair3Length_Object((1,3,6,1,4,1,171,12,58,1,1,1,10),_SwEtherCableDiagPair3Length_Type())
-swEtherCableDiagPair3Length.setMaxAccess(_B)
-if mibBuilder.loadTexts:swEtherCableDiagPair3Length.setStatus(_A)
-_SwEtherCableDiagPair4Length_Type=Integer32
-_SwEtherCableDiagPair4Length_Object=MibTableColumn
-swEtherCableDiagPair4Length=_SwEtherCableDiagPair4Length_Object((1,3,6,1,4,1,171,12,58,1,1,1,11),_SwEtherCableDiagPair4Length_Type())
-swEtherCableDiagPair4Length.setMaxAccess(_B)
-if mibBuilder.loadTexts:swEtherCableDiagPair4Length.setStatus(_A)
-class _SwEtherCableDiagAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('action',1),(_O,2),(_D,3)))
-_SwEtherCableDiagAction_Type.__name__=_C
-_SwEtherCableDiagAction_Object=MibTableColumn
-swEtherCableDiagAction=_SwEtherCableDiagAction_Object((1,3,6,1,4,1,171,12,58,1,1,1,12),_SwEtherCableDiagAction_Type())
-swEtherCableDiagAction.setMaxAccess('read-write')
-if mibBuilder.loadTexts:swEtherCableDiagAction.setStatus(_A)
-class _SwEtherCableDiagStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('not-run',1),(_O,2),('last-test-ok',3),('last-test-failed',4)))
-_SwEtherCableDiagStatus_Type.__name__=_C
-_SwEtherCableDiagStatus_Object=MibTableColumn
-swEtherCableDiagStatus=_SwEtherCableDiagStatus_Object((1,3,6,1,4,1,171,12,58,1,1,1,13),_SwEtherCableDiagStatus_Type())
-swEtherCableDiagStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:swEtherCableDiagStatus.setStatus(_A)
-mibBuilder.exportSymbols(_M,**{'swCableDiagMIB':swCableDiagMIB,'swCableDiagCtrl':swCableDiagCtrl,'swEtherCableDiagTable':swEtherCableDiagTable,'swEtherCableDiagEntry':swEtherCableDiagEntry,_N:swEtherCableDiagPortIndex,'swEtherCableDiagPortType':swEtherCableDiagPortType,'swEtherCableDiagLinkStatus':swEtherCableDiagLinkStatus,'swEtherCableDiagPair1Status':swEtherCableDiagPair1Status,'swEtherCableDiagPair2Status':swEtherCableDiagPair2Status,'swEtherCableDiagPair3Status':swEtherCableDiagPair3Status,'swEtherCableDiagPair4Status':swEtherCableDiagPair4Status,'swEtherCableDiagPair1Length':swEtherCableDiagPair1Length,'swEtherCableDiagPair2Length':swEtherCableDiagPair2Length,'swEtherCableDiagPair3Length':swEtherCableDiagPair3Length,'swEtherCableDiagPair4Length':swEtherCableDiagPair4Length,'swEtherCableDiagAction':swEtherCableDiagAction,'swEtherCableDiagStatus':swEtherCableDiagStatus})
+#
+# PySNMP MIB module CABLE-DIAG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/CABLE-DIAG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:33:39 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+swCableDiagMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 58))
+if mibBuilder.loadTexts: swCableDiagMIB.setLastUpdated('0808110000Z')
+if mibBuilder.loadTexts: swCableDiagMIB.setOrganization('D-Link, Inc.')
+swCableDiagCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 58, 1))
+swEtherCableDiagTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1), )
+if mibBuilder.loadTexts: swEtherCableDiagTable.setStatus('current')
+swEtherCableDiagEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1), ).setIndexNames((0, "CABLE-DIAG-MIB", "swEtherCableDiagPortIndex"))
+if mibBuilder.loadTexts: swEtherCableDiagEntry.setStatus('current')
+swEtherCableDiagPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swEtherCableDiagPortIndex.setStatus('current')
+swEtherCableDiagPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("fastEthernet", 0), ("gigaEthernet", 1), ("other", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swEtherCableDiagPortType.setStatus('current')
+swEtherCableDiagLinkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("link-down", 0), ("link-up", 1), ("other", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swEtherCableDiagLinkStatus.setStatus('current')
+swEtherCableDiagPair1Status = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("ok", 0), ("open", 1), ("short", 2), ("open-short", 3), ("crosstalk", 4), ("unknown", 5), ("count", 6), ("no-cable", 7), ("other", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swEtherCableDiagPair1Status.setStatus('current')
+swEtherCableDiagPair2Status = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("ok", 0), ("open", 1), ("short", 2), ("open-short", 3), ("crosstalk", 4), ("unknown", 5), ("count", 6), ("no-cable", 7), ("other", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swEtherCableDiagPair2Status.setStatus('current')
+swEtherCableDiagPair3Status = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("ok", 0), ("open", 1), ("short", 2), ("open-short", 3), ("crosstalk", 4), ("unknown", 5), ("count", 6), ("no-cable", 7), ("other", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swEtherCableDiagPair3Status.setStatus('current')
+swEtherCableDiagPair4Status = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("ok", 0), ("open", 1), ("short", 2), ("open-short", 3), ("crosstalk", 4), ("unknown", 5), ("count", 6), ("no-cable", 7), ("other", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swEtherCableDiagPair4Status.setStatus('current')
+swEtherCableDiagPair1Length = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swEtherCableDiagPair1Length.setStatus('current')
+swEtherCableDiagPair2Length = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swEtherCableDiagPair2Length.setStatus('current')
+swEtherCableDiagPair3Length = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swEtherCableDiagPair3Length.setStatus('current')
+swEtherCableDiagPair4Length = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swEtherCableDiagPair4Length.setStatus('current')
+swEtherCableDiagAction = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("action", 1), ("processing", 2), ("other", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swEtherCableDiagAction.setStatus('current')
+swEtherCableDiagStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("not-run", 1), ("processing", 2), ("last-test-ok", 3), ("last-test-failed", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swEtherCableDiagStatus.setStatus('current')
+mibBuilder.exportSymbols("CABLE-DIAG-MIB", PYSNMP_MODULE_ID=swCableDiagMIB, swCableDiagMIB=swCableDiagMIB, swEtherCableDiagPair3Length=swEtherCableDiagPair3Length, swEtherCableDiagPair4Status=swEtherCableDiagPair4Status, swEtherCableDiagStatus=swEtherCableDiagStatus, swEtherCableDiagAction=swEtherCableDiagAction, swEtherCableDiagPair2Status=swEtherCableDiagPair2Status, swEtherCableDiagPortIndex=swEtherCableDiagPortIndex, swEtherCableDiagPair1Status=swEtherCableDiagPair1Status, swEtherCableDiagTable=swEtherCableDiagTable, swEtherCableDiagLinkStatus=swEtherCableDiagLinkStatus, swEtherCableDiagEntry=swEtherCableDiagEntry, swEtherCableDiagPair1Length=swEtherCableDiagPair1Length, swEtherCableDiagPair4Length=swEtherCableDiagPair4Length, swEtherCableDiagPortType=swEtherCableDiagPortType, swCableDiagCtrl=swCableDiagCtrl, swEtherCableDiagPair2Length=swEtherCableDiagPair2Length, swEtherCableDiagPair3Status=swEtherCableDiagPair3Status)

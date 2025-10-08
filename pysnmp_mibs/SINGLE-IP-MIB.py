@@ -1,331 +1,146 @@
-_S='swSingleIPNBMacAddr'
-_R='swSingleIPNBReceivedPort'
-_Q='swSingleIPGroupMacAddr'
-_P='swSingleIPCaSID'
-_O='enabled'
-_N='disabled'
-_M='read-create'
-_L='OctetString'
-_K='ifIndex'
-_J='IF-MIB'
-_I='swSingleIPMSTrapMessage'
-_H='read-write'
-_G='Integer32'
-_F='swSingleIPMSMacAddr'
-_E='swSingleIPMSID'
-_D='DisplayString'
-_C='read-only'
-_B='SINGLE-IP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_L,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlink_common_mgmt,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlink-common-mgmt')
-ifIndex,=mibBuilder.importSymbols(_J,_K)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_D,'MacAddress','PhysAddress','RowStatus','TextualConvention')
-swSingleIPMIB=ModuleIdentity((1,3,6,1,4,1,171,12,8))
-_SwSingleIPMgmt_ObjectIdentity=ObjectIdentity
-swSingleIPMgmt=_SwSingleIPMgmt_ObjectIdentity((1,3,6,1,4,1,171,12,8,1))
-_SwSingleIPInfo_ObjectIdentity=ObjectIdentity
-swSingleIPInfo=_SwSingleIPInfo_ObjectIdentity((1,3,6,1,4,1,171,12,8,1,1))
-class _SwSingleIPVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwSingleIPVersion_Type.__name__=_D
-_SwSingleIPVersion_Object=MibScalar
-swSingleIPVersion=_SwSingleIPVersion_Object((1,3,6,1,4,1,171,12,8,1,1,1),_SwSingleIPVersion_Type())
-swSingleIPVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPVersion.setStatus(_A)
-class _SwSingleIPCapability_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwSingleIPCapability_Type.__name__=_D
-_SwSingleIPCapability_Object=MibScalar
-swSingleIPCapability=_SwSingleIPCapability_Object((1,3,6,1,4,1,171,12,8,1,1,2),_SwSingleIPCapability_Type())
-swSingleIPCapability.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPCapability.setStatus(_A)
-class _SwSingleIPPlatform_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwSingleIPPlatform_Type.__name__=_D
-_SwSingleIPPlatform_Object=MibScalar
-swSingleIPPlatform=_SwSingleIPPlatform_Object((1,3,6,1,4,1,171,12,8,1,1,3),_SwSingleIPPlatform_Type())
-swSingleIPPlatform.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPPlatform.setStatus(_A)
-_SwSingleIPCtrl_ObjectIdentity=ObjectIdentity
-swSingleIPCtrl=_SwSingleIPCtrl_ObjectIdentity((1,3,6,1,4,1,171,12,8,1,2))
-class _SwSingleIPAdmin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('other',1),(_N,2),(_O,3)))
-_SwSingleIPAdmin_Type.__name__=_G
-_SwSingleIPAdmin_Object=MibScalar
-swSingleIPAdmin=_SwSingleIPAdmin_Object((1,3,6,1,4,1,171,12,8,1,2,1),_SwSingleIPAdmin_Type())
-swSingleIPAdmin.setMaxAccess(_H)
-if mibBuilder.loadTexts:swSingleIPAdmin.setStatus(_A)
-class _SwSingleIPRoleState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('cs',1),('cas',2),('ms',3)))
-_SwSingleIPRoleState_Type.__name__=_G
-_SwSingleIPRoleState_Object=MibScalar
-swSingleIPRoleState=_SwSingleIPRoleState_Object((1,3,6,1,4,1,171,12,8,1,2,2),_SwSingleIPRoleState_Type())
-swSingleIPRoleState.setMaxAccess(_H)
-if mibBuilder.loadTexts:swSingleIPRoleState.setStatus(_A)
-class _SwSingleIPHoldtime_Type(Integer32):defaultValue=100;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,255))
-_SwSingleIPHoldtime_Type.__name__=_G
-_SwSingleIPHoldtime_Object=MibScalar
-swSingleIPHoldtime=_SwSingleIPHoldtime_Object((1,3,6,1,4,1,171,12,8,1,2,3),_SwSingleIPHoldtime_Type())
-swSingleIPHoldtime.setMaxAccess(_H)
-if mibBuilder.loadTexts:swSingleIPHoldtime.setStatus(_A)
-class _SwSingleIPTimeInterval_Type(Integer32):defaultValue=30;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(30,90))
-_SwSingleIPTimeInterval_Type.__name__=_G
-_SwSingleIPTimeInterval_Object=MibScalar
-swSingleIPTimeInterval=_SwSingleIPTimeInterval_Object((1,3,6,1,4,1,171,12,8,1,2,4),_SwSingleIPTimeInterval_Type())
-swSingleIPTimeInterval.setMaxAccess(_H)
-if mibBuilder.loadTexts:swSingleIPTimeInterval.setStatus(_A)
-class _SwSingleIPCSGroupName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwSingleIPCSGroupName_Type.__name__=_D
-_SwSingleIPCSGroupName_Object=MibScalar
-swSingleIPCSGroupName=_SwSingleIPCSGroupName_Object((1,3,6,1,4,1,171,12,8,1,2,5),_SwSingleIPCSGroupName_Type())
-swSingleIPCSGroupName.setMaxAccess(_H)
-if mibBuilder.loadTexts:swSingleIPCSGroupName.setStatus(_A)
-_SwSingleIPTrapMgmt_ObjectIdentity=ObjectIdentity
-swSingleIPTrapMgmt=_SwSingleIPTrapMgmt_ObjectIdentity((1,3,6,1,4,1,171,12,8,1,2,6))
-class _SwSingleIPTrapStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_O,1),(_N,2)))
-_SwSingleIPTrapStatus_Type.__name__=_G
-_SwSingleIPTrapStatus_Object=MibScalar
-swSingleIPTrapStatus=_SwSingleIPTrapStatus_Object((1,3,6,1,4,1,171,12,8,1,2,6,1),_SwSingleIPTrapStatus_Type())
-swSingleIPTrapStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:swSingleIPTrapStatus.setStatus(_A)
-_SwSingleIPMSTable_Object=MibTable
-swSingleIPMSTable=_SwSingleIPMSTable_Object((1,3,6,1,4,1,171,12,8,1,3))
-if mibBuilder.loadTexts:swSingleIPMSTable.setStatus(_A)
-_SwSingleIPMSEntry_Object=MibTableRow
-swSingleIPMSEntry=_SwSingleIPMSEntry_Object((1,3,6,1,4,1,171,12,8,1,3,1))
-swSingleIPMSEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:swSingleIPMSEntry.setStatus(_A)
-class _SwSingleIPMSID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
-_SwSingleIPMSID_Type.__name__=_G
-_SwSingleIPMSID_Object=MibTableColumn
-swSingleIPMSID=_SwSingleIPMSID_Object((1,3,6,1,4,1,171,12,8,1,3,1,1),_SwSingleIPMSID_Type())
-swSingleIPMSID.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPMSID.setStatus(_A)
-class _SwSingleIPMSDeviceName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwSingleIPMSDeviceName_Type.__name__=_D
-_SwSingleIPMSDeviceName_Object=MibTableColumn
-swSingleIPMSDeviceName=_SwSingleIPMSDeviceName_Object((1,3,6,1,4,1,171,12,8,1,3,1,2),_SwSingleIPMSDeviceName_Type())
-swSingleIPMSDeviceName.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPMSDeviceName.setStatus(_A)
-_SwSingleIPMSMacAddr_Type=MacAddress
-_SwSingleIPMSMacAddr_Object=MibTableColumn
-swSingleIPMSMacAddr=_SwSingleIPMSMacAddr_Object((1,3,6,1,4,1,171,12,8,1,3,1,3),_SwSingleIPMSMacAddr_Type())
-swSingleIPMSMacAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPMSMacAddr.setStatus(_A)
-class _SwSingleIPMSFirmwareVer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwSingleIPMSFirmwareVer_Type.__name__=_D
-_SwSingleIPMSFirmwareVer_Object=MibTableColumn
-swSingleIPMSFirmwareVer=_SwSingleIPMSFirmwareVer_Object((1,3,6,1,4,1,171,12,8,1,3,1,4),_SwSingleIPMSFirmwareVer_Type())
-swSingleIPMSFirmwareVer.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPMSFirmwareVer.setStatus(_A)
-class _SwSingleIPMSCapability_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwSingleIPMSCapability_Type.__name__=_D
-_SwSingleIPMSCapability_Object=MibTableColumn
-swSingleIPMSCapability=_SwSingleIPMSCapability_Object((1,3,6,1,4,1,171,12,8,1,3,1,5),_SwSingleIPMSCapability_Type())
-swSingleIPMSCapability.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPMSCapability.setStatus(_A)
-class _SwSingleIPMSPlatform_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwSingleIPMSPlatform_Type.__name__=_D
-_SwSingleIPMSPlatform_Object=MibTableColumn
-swSingleIPMSPlatform=_SwSingleIPMSPlatform_Object((1,3,6,1,4,1,171,12,8,1,3,1,6),_SwSingleIPMSPlatform_Type())
-swSingleIPMSPlatform.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPMSPlatform.setStatus(_A)
-_SwSingleIPMSHoldtime_Type=Integer32
-_SwSingleIPMSHoldtime_Object=MibTableColumn
-swSingleIPMSHoldtime=_SwSingleIPMSHoldtime_Object((1,3,6,1,4,1,171,12,8,1,3,1,7),_SwSingleIPMSHoldtime_Type())
-swSingleIPMSHoldtime.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPMSHoldtime.setStatus(_A)
-_SwSingleIPMSCasSource_Type=Integer32
-_SwSingleIPMSCasSource_Object=MibTableColumn
-swSingleIPMSCasSource=_SwSingleIPMSCasSource_Object((1,3,6,1,4,1,171,12,8,1,3,1,8),_SwSingleIPMSCasSource_Type())
-swSingleIPMSCasSource.setMaxAccess(_M)
-if mibBuilder.loadTexts:swSingleIPMSCasSource.setStatus(_A)
-class _SwSingleIPMSPassword_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_SwSingleIPMSPassword_Type.__name__=_L
-_SwSingleIPMSPassword_Object=MibTableColumn
-swSingleIPMSPassword=_SwSingleIPMSPassword_Object((1,3,6,1,4,1,171,12,8,1,3,1,9),_SwSingleIPMSPassword_Type())
-swSingleIPMSPassword.setMaxAccess(_M)
-if mibBuilder.loadTexts:swSingleIPMSPassword.setStatus(_A)
-_SwSingleIPMSRowStatus_Type=RowStatus
-_SwSingleIPMSRowStatus_Object=MibTableColumn
-swSingleIPMSRowStatus=_SwSingleIPMSRowStatus_Object((1,3,6,1,4,1,171,12,8,1,3,1,10),_SwSingleIPMSRowStatus_Type())
-swSingleIPMSRowStatus.setMaxAccess(_M)
-if mibBuilder.loadTexts:swSingleIPMSRowStatus.setStatus(_A)
-_SwSingleIPCaSTable_Object=MibTable
-swSingleIPCaSTable=_SwSingleIPCaSTable_Object((1,3,6,1,4,1,171,12,8,1,4))
-if mibBuilder.loadTexts:swSingleIPCaSTable.setStatus(_A)
-_SwSingleIPCaSEntry_Object=MibTableRow
-swSingleIPCaSEntry=_SwSingleIPCaSEntry_Object((1,3,6,1,4,1,171,12,8,1,4,1))
-swSingleIPCaSEntry.setIndexNames((0,_B,_P))
-if mibBuilder.loadTexts:swSingleIPCaSEntry.setStatus(_A)
-class _SwSingleIPCaSID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_SwSingleIPCaSID_Type.__name__=_G
-_SwSingleIPCaSID_Object=MibTableColumn
-swSingleIPCaSID=_SwSingleIPCaSID_Object((1,3,6,1,4,1,171,12,8,1,4,1,1),_SwSingleIPCaSID_Type())
-swSingleIPCaSID.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPCaSID.setStatus(_A)
-class _SwSingleIPCaSDeviceName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwSingleIPCaSDeviceName_Type.__name__=_D
-_SwSingleIPCaSDeviceName_Object=MibTableColumn
-swSingleIPCaSDeviceName=_SwSingleIPCaSDeviceName_Object((1,3,6,1,4,1,171,12,8,1,4,1,2),_SwSingleIPCaSDeviceName_Type())
-swSingleIPCaSDeviceName.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPCaSDeviceName.setStatus(_A)
-_SwSingleIPCaSMacAddr_Type=MacAddress
-_SwSingleIPCaSMacAddr_Object=MibTableColumn
-swSingleIPCaSMacAddr=_SwSingleIPCaSMacAddr_Object((1,3,6,1,4,1,171,12,8,1,4,1,3),_SwSingleIPCaSMacAddr_Type())
-swSingleIPCaSMacAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPCaSMacAddr.setStatus(_A)
-class _SwSingleIPCaSFirmwareVer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwSingleIPCaSFirmwareVer_Type.__name__=_D
-_SwSingleIPCaSFirmwareVer_Object=MibTableColumn
-swSingleIPCaSFirmwareVer=_SwSingleIPCaSFirmwareVer_Object((1,3,6,1,4,1,171,12,8,1,4,1,4),_SwSingleIPCaSFirmwareVer_Type())
-swSingleIPCaSFirmwareVer.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPCaSFirmwareVer.setStatus(_A)
-class _SwSingleIPCaSCapability_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwSingleIPCaSCapability_Type.__name__=_D
-_SwSingleIPCaSCapability_Object=MibTableColumn
-swSingleIPCaSCapability=_SwSingleIPCaSCapability_Object((1,3,6,1,4,1,171,12,8,1,4,1,5),_SwSingleIPCaSCapability_Type())
-swSingleIPCaSCapability.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPCaSCapability.setStatus(_A)
-class _SwSingleIPCaSPlatform_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwSingleIPCaSPlatform_Type.__name__=_D
-_SwSingleIPCaSPlatform_Object=MibTableColumn
-swSingleIPCaSPlatform=_SwSingleIPCaSPlatform_Object((1,3,6,1,4,1,171,12,8,1,4,1,6),_SwSingleIPCaSPlatform_Type())
-swSingleIPCaSPlatform.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPCaSPlatform.setStatus(_A)
-_SwSingleIPCaSHoldtime_Type=Integer32
-_SwSingleIPCaSHoldtime_Object=MibTableColumn
-swSingleIPCaSHoldtime=_SwSingleIPCaSHoldtime_Object((1,3,6,1,4,1,171,12,8,1,4,1,7),_SwSingleIPCaSHoldtime_Type())
-swSingleIPCaSHoldtime.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPCaSHoldtime.setStatus(_A)
-_SwSingleIPGroupTable_Object=MibTable
-swSingleIPGroupTable=_SwSingleIPGroupTable_Object((1,3,6,1,4,1,171,12,8,1,5))
-if mibBuilder.loadTexts:swSingleIPGroupTable.setStatus(_A)
-_SwSingleIPGroupEntry_Object=MibTableRow
-swSingleIPGroupEntry=_SwSingleIPGroupEntry_Object((1,3,6,1,4,1,171,12,8,1,5,1))
-swSingleIPGroupEntry.setIndexNames((0,_B,_Q))
-if mibBuilder.loadTexts:swSingleIPGroupEntry.setStatus(_A)
-_SwSingleIPGroupMacAddr_Type=MacAddress
-_SwSingleIPGroupMacAddr_Object=MibTableColumn
-swSingleIPGroupMacAddr=_SwSingleIPGroupMacAddr_Object((1,3,6,1,4,1,171,12,8,1,5,1,1),_SwSingleIPGroupMacAddr_Type())
-swSingleIPGroupMacAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPGroupMacAddr.setStatus(_A)
-class _SwSingleIPGroupName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwSingleIPGroupName_Type.__name__=_D
-_SwSingleIPGroupName_Object=MibTableColumn
-swSingleIPGroupName=_SwSingleIPGroupName_Object((1,3,6,1,4,1,171,12,8,1,5,1,2),_SwSingleIPGroupName_Type())
-swSingleIPGroupName.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPGroupName.setStatus(_A)
-class _SwSingleIPGroupDeviceName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwSingleIPGroupDeviceName_Type.__name__=_D
-_SwSingleIPGroupDeviceName_Object=MibTableColumn
-swSingleIPGroupDeviceName=_SwSingleIPGroupDeviceName_Object((1,3,6,1,4,1,171,12,8,1,5,1,3),_SwSingleIPGroupDeviceName_Type())
-swSingleIPGroupDeviceName.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPGroupDeviceName.setStatus(_A)
-_SwSingleIPGroupMSNumber_Type=Integer32
-_SwSingleIPGroupMSNumber_Object=MibTableColumn
-swSingleIPGroupMSNumber=_SwSingleIPGroupMSNumber_Object((1,3,6,1,4,1,171,12,8,1,5,1,4),_SwSingleIPGroupMSNumber_Type())
-swSingleIPGroupMSNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPGroupMSNumber.setStatus(_A)
-class _SwSingleIPGroupFirmwareVer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwSingleIPGroupFirmwareVer_Type.__name__=_D
-_SwSingleIPGroupFirmwareVer_Object=MibTableColumn
-swSingleIPGroupFirmwareVer=_SwSingleIPGroupFirmwareVer_Object((1,3,6,1,4,1,171,12,8,1,5,1,5),_SwSingleIPGroupFirmwareVer_Type())
-swSingleIPGroupFirmwareVer.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPGroupFirmwareVer.setStatus(_A)
-class _SwSingleIPGroupCapability_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwSingleIPGroupCapability_Type.__name__=_D
-_SwSingleIPGroupCapability_Object=MibTableColumn
-swSingleIPGroupCapability=_SwSingleIPGroupCapability_Object((1,3,6,1,4,1,171,12,8,1,5,1,6),_SwSingleIPGroupCapability_Type())
-swSingleIPGroupCapability.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPGroupCapability.setStatus(_A)
-class _SwSingleIPGroupPlatform_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwSingleIPGroupPlatform_Type.__name__=_D
-_SwSingleIPGroupPlatform_Object=MibTableColumn
-swSingleIPGroupPlatform=_SwSingleIPGroupPlatform_Object((1,3,6,1,4,1,171,12,8,1,5,1,7),_SwSingleIPGroupPlatform_Type())
-swSingleIPGroupPlatform.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPGroupPlatform.setStatus(_A)
-_SwSingleIPGroupHoldtime_Type=Integer32
-_SwSingleIPGroupHoldtime_Object=MibTableColumn
-swSingleIPGroupHoldtime=_SwSingleIPGroupHoldtime_Object((1,3,6,1,4,1,171,12,8,1,5,1,8),_SwSingleIPGroupHoldtime_Type())
-swSingleIPGroupHoldtime.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPGroupHoldtime.setStatus(_A)
-_SwSingleIPNeighborTable_Object=MibTable
-swSingleIPNeighborTable=_SwSingleIPNeighborTable_Object((1,3,6,1,4,1,171,12,8,1,6))
-if mibBuilder.loadTexts:swSingleIPNeighborTable.setStatus(_A)
-_SwSingleIPNeighborEntry_Object=MibTableRow
-swSingleIPNeighborEntry=_SwSingleIPNeighborEntry_Object((1,3,6,1,4,1,171,12,8,1,6,1))
-swSingleIPNeighborEntry.setIndexNames((0,_B,_R),(0,_B,_S))
-if mibBuilder.loadTexts:swSingleIPNeighborEntry.setStatus(_A)
-_SwSingleIPNBReceivedPort_Type=Integer32
-_SwSingleIPNBReceivedPort_Object=MibTableColumn
-swSingleIPNBReceivedPort=_SwSingleIPNBReceivedPort_Object((1,3,6,1,4,1,171,12,8,1,6,1,1),_SwSingleIPNBReceivedPort_Type())
-swSingleIPNBReceivedPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPNBReceivedPort.setStatus(_A)
-_SwSingleIPNBMacAddr_Type=MacAddress
-_SwSingleIPNBMacAddr_Object=MibTableColumn
-swSingleIPNBMacAddr=_SwSingleIPNBMacAddr_Object((1,3,6,1,4,1,171,12,8,1,6,1,2),_SwSingleIPNBMacAddr_Type())
-swSingleIPNBMacAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPNBMacAddr.setStatus(_A)
-class _SwSingleIPNBRoleState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('commander',1),('candidate',2),('member',3)))
-_SwSingleIPNBRoleState_Type.__name__=_G
-_SwSingleIPNBRoleState_Object=MibTableColumn
-swSingleIPNBRoleState=_SwSingleIPNBRoleState_Object((1,3,6,1,4,1,171,12,8,1,6,1,3),_SwSingleIPNBRoleState_Type())
-swSingleIPNBRoleState.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPNBRoleState.setStatus(_A)
-_SingleIPMSNotify_ObjectIdentity=ObjectIdentity
-singleIPMSNotify=_SingleIPMSNotify_ObjectIdentity((1,3,6,1,4,1,171,12,8,6))
-_SingleIPMSNotifyPrefix_ObjectIdentity=ObjectIdentity
-singleIPMSNotifyPrefix=_SingleIPMSNotifyPrefix_ObjectIdentity((1,3,6,1,4,1,171,12,8,6,0))
-_SingleIPNotifyBidings_ObjectIdentity=ObjectIdentity
-singleIPNotifyBidings=_SingleIPNotifyBidings_ObjectIdentity((1,3,6,1,4,1,171,12,8,6,1))
-class _SwSingleIPMSTrapMessage_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1024))
-_SwSingleIPMSTrapMessage_Type.__name__=_L
-_SwSingleIPMSTrapMessage_Object=MibScalar
-swSingleIPMSTrapMessage=_SwSingleIPMSTrapMessage_Object((1,3,6,1,4,1,171,12,8,6,1,1),_SwSingleIPMSTrapMessage_Type())
-swSingleIPMSTrapMessage.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSingleIPMSTrapMessage.setStatus(_A)
-swSingleIPMSColdStart=NotificationType((1,3,6,1,4,1,171,12,8,6,0,11))
-swSingleIPMSColdStart.setObjects(*((_B,_E),(_B,_F)))
-if mibBuilder.loadTexts:swSingleIPMSColdStart.setStatus(_A)
-swSingleIPMSWarmStart=NotificationType((1,3,6,1,4,1,171,12,8,6,0,12))
-swSingleIPMSWarmStart.setObjects(*((_B,_E),(_B,_F)))
-if mibBuilder.loadTexts:swSingleIPMSWarmStart.setStatus(_A)
-swSingleIPMSLinkDown=NotificationType((1,3,6,1,4,1,171,12,8,6,0,13))
-swSingleIPMSLinkDown.setObjects(*((_B,_E),(_B,_F),(_J,_K)))
-if mibBuilder.loadTexts:swSingleIPMSLinkDown.setStatus(_A)
-swSingleIPMSLinkUp=NotificationType((1,3,6,1,4,1,171,12,8,6,0,14))
-swSingleIPMSLinkUp.setObjects(*((_B,_E),(_B,_F),(_J,_K)))
-if mibBuilder.loadTexts:swSingleIPMSLinkUp.setStatus(_A)
-swSingleIPMSAuthFail=NotificationType((1,3,6,1,4,1,171,12,8,6,0,15))
-swSingleIPMSAuthFail.setObjects(*((_B,_E),(_B,_F)))
-if mibBuilder.loadTexts:swSingleIPMSAuthFail.setStatus(_A)
-swSingleIPMSnewRoot=NotificationType((1,3,6,1,4,1,171,12,8,6,0,16))
-swSingleIPMSnewRoot.setObjects(*((_B,_E),(_B,_F)))
-if mibBuilder.loadTexts:swSingleIPMSnewRoot.setStatus(_A)
-swSingleIPMSTopologyChange=NotificationType((1,3,6,1,4,1,171,12,8,6,0,17))
-swSingleIPMSTopologyChange.setObjects(*((_B,_E),(_B,_F)))
-if mibBuilder.loadTexts:swSingleIPMSTopologyChange.setStatus(_A)
-swSingleIPMSrisingAlarm=NotificationType((1,3,6,1,4,1,171,12,8,6,0,18))
-swSingleIPMSrisingAlarm.setObjects(*((_B,_E),(_B,_F)))
-if mibBuilder.loadTexts:swSingleIPMSrisingAlarm.setStatus(_A)
-swSingleIPMSfallingAlarm=NotificationType((1,3,6,1,4,1,171,12,8,6,0,19))
-swSingleIPMSfallingAlarm.setObjects(*((_B,_E),(_B,_F)))
-if mibBuilder.loadTexts:swSingleIPMSfallingAlarm.setStatus(_A)
-swSingleIPMSmacNotification=NotificationType((1,3,6,1,4,1,171,12,8,6,0,20))
-swSingleIPMSmacNotification.setObjects(*((_B,_E),(_B,_F),(_B,_I)))
-if mibBuilder.loadTexts:swSingleIPMSmacNotification.setStatus(_A)
-swSingleIPMSPortTypeChange=NotificationType((1,3,6,1,4,1,171,12,8,6,0,21))
-swSingleIPMSPortTypeChange.setObjects(*((_B,_E),(_B,_F),(_J,_K),(_B,_I)))
-if mibBuilder.loadTexts:swSingleIPMSPortTypeChange.setStatus(_A)
-swSingleIPMSPowerStatusChg=NotificationType((1,3,6,1,4,1,171,12,8,6,0,22))
-swSingleIPMSPowerStatusChg.setObjects(*((_B,_E),(_B,_F),(_B,_I)))
-if mibBuilder.loadTexts:swSingleIPMSPowerStatusChg.setStatus(_A)
-swSingleIPMSPowerFailure=NotificationType((1,3,6,1,4,1,171,12,8,6,0,23))
-swSingleIPMSPowerFailure.setObjects(*((_B,_E),(_B,_F),(_B,_I)))
-if mibBuilder.loadTexts:swSingleIPMSPowerFailure.setStatus(_A)
-swSingleIPMSPowerRecover=NotificationType((1,3,6,1,4,1,171,12,8,6,0,24))
-swSingleIPMSPowerRecover.setObjects(*((_B,_E),(_B,_F),(_B,_I)))
-if mibBuilder.loadTexts:swSingleIPMSPowerRecover.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'swSingleIPMIB':swSingleIPMIB,'swSingleIPMgmt':swSingleIPMgmt,'swSingleIPInfo':swSingleIPInfo,'swSingleIPVersion':swSingleIPVersion,'swSingleIPCapability':swSingleIPCapability,'swSingleIPPlatform':swSingleIPPlatform,'swSingleIPCtrl':swSingleIPCtrl,'swSingleIPAdmin':swSingleIPAdmin,'swSingleIPRoleState':swSingleIPRoleState,'swSingleIPHoldtime':swSingleIPHoldtime,'swSingleIPTimeInterval':swSingleIPTimeInterval,'swSingleIPCSGroupName':swSingleIPCSGroupName,'swSingleIPTrapMgmt':swSingleIPTrapMgmt,'swSingleIPTrapStatus':swSingleIPTrapStatus,'swSingleIPMSTable':swSingleIPMSTable,'swSingleIPMSEntry':swSingleIPMSEntry,_E:swSingleIPMSID,'swSingleIPMSDeviceName':swSingleIPMSDeviceName,_F:swSingleIPMSMacAddr,'swSingleIPMSFirmwareVer':swSingleIPMSFirmwareVer,'swSingleIPMSCapability':swSingleIPMSCapability,'swSingleIPMSPlatform':swSingleIPMSPlatform,'swSingleIPMSHoldtime':swSingleIPMSHoldtime,'swSingleIPMSCasSource':swSingleIPMSCasSource,'swSingleIPMSPassword':swSingleIPMSPassword,'swSingleIPMSRowStatus':swSingleIPMSRowStatus,'swSingleIPCaSTable':swSingleIPCaSTable,'swSingleIPCaSEntry':swSingleIPCaSEntry,_P:swSingleIPCaSID,'swSingleIPCaSDeviceName':swSingleIPCaSDeviceName,'swSingleIPCaSMacAddr':swSingleIPCaSMacAddr,'swSingleIPCaSFirmwareVer':swSingleIPCaSFirmwareVer,'swSingleIPCaSCapability':swSingleIPCaSCapability,'swSingleIPCaSPlatform':swSingleIPCaSPlatform,'swSingleIPCaSHoldtime':swSingleIPCaSHoldtime,'swSingleIPGroupTable':swSingleIPGroupTable,'swSingleIPGroupEntry':swSingleIPGroupEntry,_Q:swSingleIPGroupMacAddr,'swSingleIPGroupName':swSingleIPGroupName,'swSingleIPGroupDeviceName':swSingleIPGroupDeviceName,'swSingleIPGroupMSNumber':swSingleIPGroupMSNumber,'swSingleIPGroupFirmwareVer':swSingleIPGroupFirmwareVer,'swSingleIPGroupCapability':swSingleIPGroupCapability,'swSingleIPGroupPlatform':swSingleIPGroupPlatform,'swSingleIPGroupHoldtime':swSingleIPGroupHoldtime,'swSingleIPNeighborTable':swSingleIPNeighborTable,'swSingleIPNeighborEntry':swSingleIPNeighborEntry,_R:swSingleIPNBReceivedPort,_S:swSingleIPNBMacAddr,'swSingleIPNBRoleState':swSingleIPNBRoleState,'singleIPMSNotify':singleIPMSNotify,'singleIPMSNotifyPrefix':singleIPMSNotifyPrefix,'swSingleIPMSColdStart':swSingleIPMSColdStart,'swSingleIPMSWarmStart':swSingleIPMSWarmStart,'swSingleIPMSLinkDown':swSingleIPMSLinkDown,'swSingleIPMSLinkUp':swSingleIPMSLinkUp,'swSingleIPMSAuthFail':swSingleIPMSAuthFail,'swSingleIPMSnewRoot':swSingleIPMSnewRoot,'swSingleIPMSTopologyChange':swSingleIPMSTopologyChange,'swSingleIPMSrisingAlarm':swSingleIPMSrisingAlarm,'swSingleIPMSfallingAlarm':swSingleIPMSfallingAlarm,'swSingleIPMSmacNotification':swSingleIPMSmacNotification,'swSingleIPMSPortTypeChange':swSingleIPMSPortTypeChange,'swSingleIPMSPowerStatusChg':swSingleIPMSPowerStatusChg,'swSingleIPMSPowerFailure':swSingleIPMSPowerFailure,'swSingleIPMSPowerRecover':swSingleIPMSPowerRecover,'singleIPNotifyBidings':singleIPNotifyBidings,_I:swSingleIPMSTrapMessage})
+#
+# PySNMP MIB module SINGLE-IP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/SINGLE-IP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:34:42 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+swSingleIPMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 8))
+if mibBuilder.loadTexts: swSingleIPMIB.setLastUpdated('0901210000Z')
+if mibBuilder.loadTexts: swSingleIPMIB.setOrganization('D-Link Corp.')
+swSingleIPMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 8, 1))
+swSingleIPInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 1))
+swSingleIPCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 2))
+swSingleIPVersion = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPVersion.setStatus('current')
+swSingleIPCapability = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPCapability.setStatus('current')
+swSingleIPPlatform = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPPlatform.setStatus('current')
+swSingleIPAdmin = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSingleIPAdmin.setStatus('current')
+swSingleIPRoleState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("cs", 1), ("cas", 2), ("ms", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSingleIPRoleState.setStatus('current')
+swSingleIPHoldtime = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(100, 255)).clone(100)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSingleIPHoldtime.setStatus('current')
+swSingleIPTimeInterval = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(30, 90)).clone(30)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSingleIPTimeInterval.setStatus('current')
+swSingleIPCSGroupName = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 2, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSingleIPCSGroupName.setStatus('current')
+swSingleIPTrapMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 2, 6))
+swSingleIPTrapStatus = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 2, 6, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSingleIPTrapStatus.setStatus('current')
+swSingleIPMSTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 3), )
+if mibBuilder.loadTexts: swSingleIPMSTable.setStatus('current')
+swSingleIPMSEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 3, 1), ).setIndexNames((0, "SINGLE-IP-MIB", "swSingleIPMSID"))
+if mibBuilder.loadTexts: swSingleIPMSEntry.setStatus('current')
+swSingleIPMSID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPMSID.setStatus('current')
+swSingleIPMSDeviceName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 3, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPMSDeviceName.setStatus('current')
+swSingleIPMSMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 3, 1, 3), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPMSMacAddr.setStatus('current')
+swSingleIPMSFirmwareVer = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 3, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPMSFirmwareVer.setStatus('current')
+swSingleIPMSCapability = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 3, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPMSCapability.setStatus('current')
+swSingleIPMSPlatform = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 3, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPMSPlatform.setStatus('current')
+swSingleIPMSHoldtime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 3, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPMSHoldtime.setStatus('current')
+swSingleIPMSCasSource = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 3, 1, 8), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swSingleIPMSCasSource.setStatus('current')
+swSingleIPMSPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 3, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swSingleIPMSPassword.setStatus('current')
+swSingleIPMSRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 3, 1, 10), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swSingleIPMSRowStatus.setStatus('current')
+swSingleIPCaSTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 4), )
+if mibBuilder.loadTexts: swSingleIPCaSTable.setStatus('current')
+swSingleIPCaSEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 4, 1), ).setIndexNames((0, "SINGLE-IP-MIB", "swSingleIPCaSID"))
+if mibBuilder.loadTexts: swSingleIPCaSEntry.setStatus('current')
+swSingleIPCaSID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPCaSID.setStatus('current')
+swSingleIPCaSDeviceName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 4, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPCaSDeviceName.setStatus('current')
+swSingleIPCaSMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 4, 1, 3), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPCaSMacAddr.setStatus('current')
+swSingleIPCaSFirmwareVer = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 4, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPCaSFirmwareVer.setStatus('current')
+swSingleIPCaSCapability = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 4, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPCaSCapability.setStatus('current')
+swSingleIPCaSPlatform = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 4, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPCaSPlatform.setStatus('current')
+swSingleIPCaSHoldtime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 4, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPCaSHoldtime.setStatus('current')
+swSingleIPGroupTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 5), )
+if mibBuilder.loadTexts: swSingleIPGroupTable.setStatus('current')
+swSingleIPGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 5, 1), ).setIndexNames((0, "SINGLE-IP-MIB", "swSingleIPGroupMacAddr"))
+if mibBuilder.loadTexts: swSingleIPGroupEntry.setStatus('current')
+swSingleIPGroupMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 5, 1, 1), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPGroupMacAddr.setStatus('current')
+swSingleIPGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 5, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPGroupName.setStatus('current')
+swSingleIPGroupDeviceName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 5, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPGroupDeviceName.setStatus('current')
+swSingleIPGroupMSNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 5, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPGroupMSNumber.setStatus('current')
+swSingleIPGroupFirmwareVer = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 5, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPGroupFirmwareVer.setStatus('current')
+swSingleIPGroupCapability = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 5, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPGroupCapability.setStatus('current')
+swSingleIPGroupPlatform = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 5, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPGroupPlatform.setStatus('current')
+swSingleIPGroupHoldtime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 5, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPGroupHoldtime.setStatus('current')
+swSingleIPNeighborTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 6), )
+if mibBuilder.loadTexts: swSingleIPNeighborTable.setStatus('current')
+swSingleIPNeighborEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 6, 1), ).setIndexNames((0, "SINGLE-IP-MIB", "swSingleIPNBReceivedPort"), (0, "SINGLE-IP-MIB", "swSingleIPNBMacAddr"))
+if mibBuilder.loadTexts: swSingleIPNeighborEntry.setStatus('current')
+swSingleIPNBReceivedPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 6, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPNBReceivedPort.setStatus('current')
+swSingleIPNBMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 6, 1, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPNBMacAddr.setStatus('current')
+swSingleIPNBRoleState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 8, 1, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("commander", 1), ("candidate", 2), ("member", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPNBRoleState.setStatus('current')
+singleIPMSNotify = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 8, 6))
+singleIPMSNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 8, 6, 0))
+swSingleIPMSColdStart = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 8, 6, 0, 11)).setObjects(("SINGLE-IP-MIB", "swSingleIPMSID"), ("SINGLE-IP-MIB", "swSingleIPMSMacAddr"))
+if mibBuilder.loadTexts: swSingleIPMSColdStart.setStatus('current')
+swSingleIPMSWarmStart = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 8, 6, 0, 12)).setObjects(("SINGLE-IP-MIB", "swSingleIPMSID"), ("SINGLE-IP-MIB", "swSingleIPMSMacAddr"))
+if mibBuilder.loadTexts: swSingleIPMSWarmStart.setStatus('current')
+swSingleIPMSLinkDown = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 8, 6, 0, 13)).setObjects(("SINGLE-IP-MIB", "swSingleIPMSID"), ("SINGLE-IP-MIB", "swSingleIPMSMacAddr"), ("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: swSingleIPMSLinkDown.setStatus('current')
+swSingleIPMSLinkUp = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 8, 6, 0, 14)).setObjects(("SINGLE-IP-MIB", "swSingleIPMSID"), ("SINGLE-IP-MIB", "swSingleIPMSMacAddr"), ("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: swSingleIPMSLinkUp.setStatus('current')
+swSingleIPMSAuthFail = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 8, 6, 0, 15)).setObjects(("SINGLE-IP-MIB", "swSingleIPMSID"), ("SINGLE-IP-MIB", "swSingleIPMSMacAddr"))
+if mibBuilder.loadTexts: swSingleIPMSAuthFail.setStatus('current')
+swSingleIPMSnewRoot = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 8, 6, 0, 16)).setObjects(("SINGLE-IP-MIB", "swSingleIPMSID"), ("SINGLE-IP-MIB", "swSingleIPMSMacAddr"))
+if mibBuilder.loadTexts: swSingleIPMSnewRoot.setStatus('current')
+swSingleIPMSTopologyChange = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 8, 6, 0, 17)).setObjects(("SINGLE-IP-MIB", "swSingleIPMSID"), ("SINGLE-IP-MIB", "swSingleIPMSMacAddr"))
+if mibBuilder.loadTexts: swSingleIPMSTopologyChange.setStatus('current')
+swSingleIPMSrisingAlarm = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 8, 6, 0, 18)).setObjects(("SINGLE-IP-MIB", "swSingleIPMSID"), ("SINGLE-IP-MIB", "swSingleIPMSMacAddr"))
+if mibBuilder.loadTexts: swSingleIPMSrisingAlarm.setStatus('current')
+swSingleIPMSfallingAlarm = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 8, 6, 0, 19)).setObjects(("SINGLE-IP-MIB", "swSingleIPMSID"), ("SINGLE-IP-MIB", "swSingleIPMSMacAddr"))
+if mibBuilder.loadTexts: swSingleIPMSfallingAlarm.setStatus('current')
+swSingleIPMSmacNotification = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 8, 6, 0, 20)).setObjects(("SINGLE-IP-MIB", "swSingleIPMSID"), ("SINGLE-IP-MIB", "swSingleIPMSMacAddr"), ("SINGLE-IP-MIB", "swSingleIPMSTrapMessage"))
+if mibBuilder.loadTexts: swSingleIPMSmacNotification.setStatus('current')
+swSingleIPMSPortTypeChange = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 8, 6, 0, 21)).setObjects(("SINGLE-IP-MIB", "swSingleIPMSID"), ("SINGLE-IP-MIB", "swSingleIPMSMacAddr"), ("IF-MIB", "ifIndex"), ("SINGLE-IP-MIB", "swSingleIPMSTrapMessage"))
+if mibBuilder.loadTexts: swSingleIPMSPortTypeChange.setStatus('current')
+swSingleIPMSPowerStatusChg = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 8, 6, 0, 22)).setObjects(("SINGLE-IP-MIB", "swSingleIPMSID"), ("SINGLE-IP-MIB", "swSingleIPMSMacAddr"), ("SINGLE-IP-MIB", "swSingleIPMSTrapMessage"))
+if mibBuilder.loadTexts: swSingleIPMSPowerStatusChg.setStatus('current')
+swSingleIPMSPowerFailure = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 8, 6, 0, 23)).setObjects(("SINGLE-IP-MIB", "swSingleIPMSID"), ("SINGLE-IP-MIB", "swSingleIPMSMacAddr"), ("SINGLE-IP-MIB", "swSingleIPMSTrapMessage"))
+if mibBuilder.loadTexts: swSingleIPMSPowerFailure.setStatus('current')
+swSingleIPMSPowerRecover = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 8, 6, 0, 24)).setObjects(("SINGLE-IP-MIB", "swSingleIPMSID"), ("SINGLE-IP-MIB", "swSingleIPMSMacAddr"), ("SINGLE-IP-MIB", "swSingleIPMSTrapMessage"))
+if mibBuilder.loadTexts: swSingleIPMSPowerRecover.setStatus('current')
+singleIPNotifyBidings = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 8, 6, 1))
+swSingleIPMSTrapMessage = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 8, 6, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 1024))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSingleIPMSTrapMessage.setStatus('current')
+mibBuilder.exportSymbols("SINGLE-IP-MIB", swSingleIPCSGroupName=swSingleIPCSGroupName, swSingleIPMSRowStatus=swSingleIPMSRowStatus, swSingleIPCaSDeviceName=swSingleIPCaSDeviceName, swSingleIPMSEntry=swSingleIPMSEntry, swSingleIPGroupMSNumber=swSingleIPGroupMSNumber, swSingleIPCaSFirmwareVer=swSingleIPCaSFirmwareVer, swSingleIPCaSMacAddr=swSingleIPCaSMacAddr, swSingleIPMSPowerStatusChg=swSingleIPMSPowerStatusChg, swSingleIPCtrl=swSingleIPCtrl, swSingleIPInfo=swSingleIPInfo, swSingleIPAdmin=swSingleIPAdmin, singleIPMSNotifyPrefix=singleIPMSNotifyPrefix, swSingleIPCapability=swSingleIPCapability, PYSNMP_MODULE_ID=swSingleIPMIB, swSingleIPMSDeviceName=swSingleIPMSDeviceName, swSingleIPGroupDeviceName=swSingleIPGroupDeviceName, swSingleIPMSWarmStart=swSingleIPMSWarmStart, swSingleIPMSHoldtime=swSingleIPMSHoldtime, singleIPMSNotify=singleIPMSNotify, swSingleIPMSCasSource=swSingleIPMSCasSource, swSingleIPMSPassword=swSingleIPMSPassword, swSingleIPTrapMgmt=swSingleIPTrapMgmt, swSingleIPGroupMacAddr=swSingleIPGroupMacAddr, swSingleIPGroupFirmwareVer=swSingleIPGroupFirmwareVer, swSingleIPMSLinkUp=swSingleIPMSLinkUp, swSingleIPMSTrapMessage=swSingleIPMSTrapMessage, swSingleIPGroupPlatform=swSingleIPGroupPlatform, swSingleIPCaSPlatform=swSingleIPCaSPlatform, swSingleIPNBReceivedPort=swSingleIPNBReceivedPort, singleIPNotifyBidings=singleIPNotifyBidings, swSingleIPMSMacAddr=swSingleIPMSMacAddr, swSingleIPMSfallingAlarm=swSingleIPMSfallingAlarm, swSingleIPCaSCapability=swSingleIPCaSCapability, swSingleIPGroupName=swSingleIPGroupName, swSingleIPMSTable=swSingleIPMSTable, swSingleIPTrapStatus=swSingleIPTrapStatus, swSingleIPMSPortTypeChange=swSingleIPMSPortTypeChange, swSingleIPMSPowerRecover=swSingleIPMSPowerRecover, swSingleIPMSTopologyChange=swSingleIPMSTopologyChange, swSingleIPGroupEntry=swSingleIPGroupEntry, swSingleIPPlatform=swSingleIPPlatform, swSingleIPNeighborTable=swSingleIPNeighborTable, swSingleIPMSColdStart=swSingleIPMSColdStart, swSingleIPCaSTable=swSingleIPCaSTable, swSingleIPRoleState=swSingleIPRoleState, swSingleIPGroupCapability=swSingleIPGroupCapability, swSingleIPCaSHoldtime=swSingleIPCaSHoldtime, swSingleIPGroupTable=swSingleIPGroupTable, swSingleIPNBMacAddr=swSingleIPNBMacAddr, swSingleIPMSFirmwareVer=swSingleIPMSFirmwareVer, swSingleIPMSID=swSingleIPMSID, swSingleIPMSPlatform=swSingleIPMSPlatform, swSingleIPTimeInterval=swSingleIPTimeInterval, swSingleIPNBRoleState=swSingleIPNBRoleState, swSingleIPMgmt=swSingleIPMgmt, swSingleIPMSnewRoot=swSingleIPMSnewRoot, swSingleIPMSrisingAlarm=swSingleIPMSrisingAlarm, swSingleIPMIB=swSingleIPMIB, swSingleIPCaSID=swSingleIPCaSID, swSingleIPMSCapability=swSingleIPMSCapability, swSingleIPNeighborEntry=swSingleIPNeighborEntry, swSingleIPCaSEntry=swSingleIPCaSEntry, swSingleIPMSmacNotification=swSingleIPMSmacNotification, swSingleIPGroupHoldtime=swSingleIPGroupHoldtime, swSingleIPVersion=swSingleIPVersion, swSingleIPMSPowerFailure=swSingleIPMSPowerFailure, swSingleIPHoldtime=swSingleIPHoldtime, swSingleIPMSLinkDown=swSingleIPMSLinkDown, swSingleIPMSAuthFail=swSingleIPMSAuthFail)

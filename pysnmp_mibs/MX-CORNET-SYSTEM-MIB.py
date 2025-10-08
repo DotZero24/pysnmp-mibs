@@ -1,409 +1,172 @@
-_A6='corNetSystemServicesGroupVer1'
-_A5='corNetSystemDataGroupVer1'
-_A4='corNetSystemFaultManagementGroupVer1'
-_A3='corNetSystemSecurityGroupVer1'
-_A2='corNetSystemInitializationGroupVer1'
-_A1='corNetSystemRegistrationGroupVer1'
-_A0='corNetFaultManagementJitterBufferTrap'
-_z='corNetFaultManagementPacketsLostTrap'
-_y='corNetFaultManagementLanTrap'
-_x='corNetFaultManagementAuthenticationFailureTrap'
-_w='corNetFaultManagementRebootTrap'
-_v='corNetSystemServicesTimeoutInterDigit'
-_u='corNetSystemServices2StageEndKey'
-_t='corNetSystemServices2StageTimeout'
-_s='corNetSystemServices2StageEndingMethod'
-_r='corNetSystemCallFeaturesEnable'
-_q='corNetSystemServiceFirstDigitTimer'
-_p='corNetSystemService2StageFlag'
-_o='corNetSystemServiceActivationSequence'
-_n='corNetSystemServiceKbKeyCode'
-_m='corNetSystemServiceEnable'
-_l='corNetSystemServiceName'
-_k='corNetSystemDataVoiceOnlyModeEnable'
-_j='corNetSystemDataRfc2833DefaultPayloadType'
-_i='corNetSystemDataRfc2198DefaultPayloadType'
-_h='corNetSystemDataRfc2198RedundancyLevel'
-_g='ipAddressStatusCorNetFaultManagementTrapPort'
-_f='ipAddressStatusCorNetFaultManagementHost'
-_e='ipAddressConfigCorNetFaultManagementTrapPort'
-_d='ipAddressConfigCorNetFaultManagementHost'
-_c='corNetSystemFaultManagementTrapsMaximumJitterBufferUnderrunRatio'
-_b='corNetSystemFaultManagementTrapsMaximumJitterBufferOverrunRatio'
-_a='corNetSystemFaultManagementTrapsMaximumPacketsLostRatio'
-_Z='corNetSystemFaultManagementTrapsReportDelay'
-_Y='corNetSystemFaultManagementTrapsComputePeriod'
-_X='corNetSystemFaultManagementTrapsEnable'
-_W='corNetSystemSecurityLevel'
-_V='corNetSystemSecurityPassword'
-_U='corNetSystemInitEmergencyNumber'
-_T='corNetSystemRegLocationIdentifierNumber'
-_S='corNetSystemRegSubscriberNumber'
-_R='normal'
-_Q='corNetFaultManagementJitterBufferStatus'
-_P='corNetFaultManagementPacketsLostStatus'
-_O='corNetSystemServicesIndex'
-_N='sysMacAddress'
-_M='sysObjectID'
-_L='MxIpPort'
-_K='MxIpHostName'
-_J='MxEnableState'
-_I='Integer32'
-_H='read-only'
-_G='ifIndex'
-_F='IF-MIB'
-_E='OctetString'
-_D='Unsigned32'
-_C='read-write'
-_B='MX-CORNET-SYSTEM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_E,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_F,_G)
-corNet,ipAddressConfigCorNet,ipAddressConfigCorNetStatic,ipAddressStatusCorNet=mibBuilder.importSymbols('MX-CORNET-MIB','corNet','ipAddressConfigCorNet','ipAddressConfigCorNetStatic','ipAddressStatusCorNet')
-ipAddressConfig,ipAddressStatus,mediatrixMgmt=mibBuilder.importSymbols('MX-SMI','ipAddressConfig','ipAddressStatus','mediatrixMgmt')
-MxAdvancedIpPort,MxEnableState,MxIpHostName,MxIpPort=mibBuilder.importSymbols('MX-TC','MxAdvancedIpPort',_J,_K,_L)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_I,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-corNetSystemMIB=ModuleIdentity((1,3,6,1,4,1,4935,20,40,1))
-if mibBuilder.loadTexts:corNetSystemMIB.setRevisions(('2006-07-17 00:00','2005-12-02 00:00','2005-07-07 00:00','2005-06-27 00:00','2005-06-10 00:00','2005-05-16 00:00','2005-05-06 00:00','2004-06-15 00:00'))
-_IpAddressStatusCorNetPbxIfTable_Object=MibTable
-ipAddressStatusCorNetPbxIfTable=_IpAddressStatusCorNetPbxIfTable_Object((1,3,6,1,4,1,4935,10,1,130,10))
-if mibBuilder.loadTexts:ipAddressStatusCorNetPbxIfTable.setStatus(_A)
-_IpAddressStatusCorNetPbxIfEntry_Object=MibTableRow
-ipAddressStatusCorNetPbxIfEntry=_IpAddressStatusCorNetPbxIfEntry_Object((1,3,6,1,4,1,4935,10,1,130,10,1))
-ipAddressStatusCorNetPbxIfEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:ipAddressStatusCorNetPbxIfEntry.setStatus(_A)
-class _IpAddressStatusCorNetPbxHost_Type(MxIpHostName):defaultValue=OctetString('')
-_IpAddressStatusCorNetPbxHost_Type.__name__=_K
-_IpAddressStatusCorNetPbxHost_Object=MibTableColumn
-ipAddressStatusCorNetPbxHost=_IpAddressStatusCorNetPbxHost_Object((1,3,6,1,4,1,4935,10,1,130,10,1,10),_IpAddressStatusCorNetPbxHost_Type())
-ipAddressStatusCorNetPbxHost.setMaxAccess(_H)
-if mibBuilder.loadTexts:ipAddressStatusCorNetPbxHost.setStatus(_A)
-class _IpAddressStatusCorNetPbxPort_Type(MxIpPort):defaultValue=4060
-_IpAddressStatusCorNetPbxPort_Type.__name__=_L
-_IpAddressStatusCorNetPbxPort_Object=MibTableColumn
-ipAddressStatusCorNetPbxPort=_IpAddressStatusCorNetPbxPort_Object((1,3,6,1,4,1,4935,10,1,130,10,1,20),_IpAddressStatusCorNetPbxPort_Type())
-ipAddressStatusCorNetPbxPort.setMaxAccess(_H)
-if mibBuilder.loadTexts:ipAddressStatusCorNetPbxPort.setStatus(_A)
-class _IpAddressStatusCorNetFaultManagementHost_Type(MxIpHostName):defaultValue=OctetString('')
-_IpAddressStatusCorNetFaultManagementHost_Type.__name__=_K
-_IpAddressStatusCorNetFaultManagementHost_Object=MibScalar
-ipAddressStatusCorNetFaultManagementHost=_IpAddressStatusCorNetFaultManagementHost_Object((1,3,6,1,4,1,4935,10,1,130,20),_IpAddressStatusCorNetFaultManagementHost_Type())
-ipAddressStatusCorNetFaultManagementHost.setMaxAccess(_H)
-if mibBuilder.loadTexts:ipAddressStatusCorNetFaultManagementHost.setStatus(_A)
-class _IpAddressStatusCorNetFaultManagementTrapPort_Type(MxIpPort):defaultValue=162
-_IpAddressStatusCorNetFaultManagementTrapPort_Type.__name__=_L
-_IpAddressStatusCorNetFaultManagementTrapPort_Object=MibScalar
-ipAddressStatusCorNetFaultManagementTrapPort=_IpAddressStatusCorNetFaultManagementTrapPort_Object((1,3,6,1,4,1,4935,10,1,130,30),_IpAddressStatusCorNetFaultManagementTrapPort_Type())
-ipAddressStatusCorNetFaultManagementTrapPort.setMaxAccess(_H)
-if mibBuilder.loadTexts:ipAddressStatusCorNetFaultManagementTrapPort.setStatus(_A)
-_CorNetFaultManagementStatus_ObjectIdentity=ObjectIdentity
-corNetFaultManagementStatus=_CorNetFaultManagementStatus_ObjectIdentity((1,3,6,1,4,1,4935,10,80))
-class _CorNetFaultManagementPacketsLostStatus_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_R,0),('error',1)))
-_CorNetFaultManagementPacketsLostStatus_Type.__name__=_I
-_CorNetFaultManagementPacketsLostStatus_Object=MibScalar
-corNetFaultManagementPacketsLostStatus=_CorNetFaultManagementPacketsLostStatus_Object((1,3,6,1,4,1,4935,10,80,5),_CorNetFaultManagementPacketsLostStatus_Type())
-corNetFaultManagementPacketsLostStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:corNetFaultManagementPacketsLostStatus.setStatus(_A)
-class _CorNetFaultManagementJitterBufferStatus_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_R,0),('overrun',1),('underrun',2)))
-_CorNetFaultManagementJitterBufferStatus_Type.__name__=_I
-_CorNetFaultManagementJitterBufferStatus_Object=MibScalar
-corNetFaultManagementJitterBufferStatus=_CorNetFaultManagementJitterBufferStatus_Object((1,3,6,1,4,1,4935,10,80,10),_CorNetFaultManagementJitterBufferStatus_Type())
-corNetFaultManagementJitterBufferStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:corNetFaultManagementJitterBufferStatus.setStatus(_A)
-_IpAddressConfigCorNetPbxIfTable_Object=MibTable
-ipAddressConfigCorNetPbxIfTable=_IpAddressConfigCorNetPbxIfTable_Object((1,3,6,1,4,1,4935,15,1,130,10,10))
-if mibBuilder.loadTexts:ipAddressConfigCorNetPbxIfTable.setStatus(_A)
-_IpAddressConfigCorNetPbxIfEntry_Object=MibTableRow
-ipAddressConfigCorNetPbxIfEntry=_IpAddressConfigCorNetPbxIfEntry_Object((1,3,6,1,4,1,4935,15,1,130,10,10,1))
-ipAddressConfigCorNetPbxIfEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:ipAddressConfigCorNetPbxIfEntry.setStatus(_A)
-class _IpAddressConfigCorNetPbxHost_Type(MxIpHostName):defaultValue=OctetString('')
-_IpAddressConfigCorNetPbxHost_Type.__name__=_K
-_IpAddressConfigCorNetPbxHost_Object=MibTableColumn
-ipAddressConfigCorNetPbxHost=_IpAddressConfigCorNetPbxHost_Object((1,3,6,1,4,1,4935,15,1,130,10,10,1,10),_IpAddressConfigCorNetPbxHost_Type())
-ipAddressConfigCorNetPbxHost.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipAddressConfigCorNetPbxHost.setStatus(_A)
-class _IpAddressConfigCorNetPbxPort_Type(MxIpPort):defaultValue=4060
-_IpAddressConfigCorNetPbxPort_Type.__name__=_L
-_IpAddressConfigCorNetPbxPort_Object=MibTableColumn
-ipAddressConfigCorNetPbxPort=_IpAddressConfigCorNetPbxPort_Object((1,3,6,1,4,1,4935,15,1,130,10,10,1,20),_IpAddressConfigCorNetPbxPort_Type())
-ipAddressConfigCorNetPbxPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipAddressConfigCorNetPbxPort.setStatus(_A)
-class _IpAddressConfigCorNetFaultManagementHost_Type(MxIpHostName):defaultValue=OctetString('')
-_IpAddressConfigCorNetFaultManagementHost_Type.__name__=_K
-_IpAddressConfigCorNetFaultManagementHost_Object=MibScalar
-ipAddressConfigCorNetFaultManagementHost=_IpAddressConfigCorNetFaultManagementHost_Object((1,3,6,1,4,1,4935,15,1,130,10,20),_IpAddressConfigCorNetFaultManagementHost_Type())
-ipAddressConfigCorNetFaultManagementHost.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipAddressConfigCorNetFaultManagementHost.setStatus(_A)
-class _IpAddressConfigCorNetFaultManagementTrapPort_Type(MxIpPort):defaultValue=162
-_IpAddressConfigCorNetFaultManagementTrapPort_Type.__name__=_L
-_IpAddressConfigCorNetFaultManagementTrapPort_Object=MibScalar
-ipAddressConfigCorNetFaultManagementTrapPort=_IpAddressConfigCorNetFaultManagementTrapPort_Object((1,3,6,1,4,1,4935,15,1,130,10,30),_IpAddressConfigCorNetFaultManagementTrapPort_Type())
-ipAddressConfigCorNetFaultManagementTrapPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipAddressConfigCorNetFaultManagementTrapPort.setStatus(_A)
-_CorNetSystemMIBObjects_ObjectIdentity=ObjectIdentity
-corNetSystemMIBObjects=_CorNetSystemMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,20,40,1,1))
-_CorNetSystemRegistration_ObjectIdentity=ObjectIdentity
-corNetSystemRegistration=_CorNetSystemRegistration_ObjectIdentity((1,3,6,1,4,1,4935,20,40,1,1,10))
-_CorNetSystemRegistrationIfTable_Object=MibTable
-corNetSystemRegistrationIfTable=_CorNetSystemRegistrationIfTable_Object((1,3,6,1,4,1,4935,20,40,1,1,10,10))
-if mibBuilder.loadTexts:corNetSystemRegistrationIfTable.setStatus(_A)
-_CorNetSystemRegistrationIfEntry_Object=MibTableRow
-corNetSystemRegistrationIfEntry=_CorNetSystemRegistrationIfEntry_Object((1,3,6,1,4,1,4935,20,40,1,1,10,10,1))
-corNetSystemRegistrationIfEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:corNetSystemRegistrationIfEntry.setStatus(_A)
-class _CorNetSystemRegSubscriberNumber_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_CorNetSystemRegSubscriberNumber_Type.__name__=_E
-_CorNetSystemRegSubscriberNumber_Object=MibTableColumn
-corNetSystemRegSubscriberNumber=_CorNetSystemRegSubscriberNumber_Object((1,3,6,1,4,1,4935,20,40,1,1,10,10,1,10),_CorNetSystemRegSubscriberNumber_Type())
-corNetSystemRegSubscriberNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemRegSubscriberNumber.setStatus(_A)
-class _CorNetSystemRegLocationIdentifierNumber_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_CorNetSystemRegLocationIdentifierNumber_Type.__name__=_E
-_CorNetSystemRegLocationIdentifierNumber_Object=MibTableColumn
-corNetSystemRegLocationIdentifierNumber=_CorNetSystemRegLocationIdentifierNumber_Object((1,3,6,1,4,1,4935,20,40,1,1,10,10,1,20),_CorNetSystemRegLocationIdentifierNumber_Type())
-corNetSystemRegLocationIdentifierNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemRegLocationIdentifierNumber.setStatus(_A)
-_CorNetSystemInitialization_ObjectIdentity=ObjectIdentity
-corNetSystemInitialization=_CorNetSystemInitialization_ObjectIdentity((1,3,6,1,4,1,4935,20,40,1,1,20))
-_CorNetSystemInitializationIfTable_Object=MibTable
-corNetSystemInitializationIfTable=_CorNetSystemInitializationIfTable_Object((1,3,6,1,4,1,4935,20,40,1,1,20,10))
-if mibBuilder.loadTexts:corNetSystemInitializationIfTable.setStatus(_A)
-_CorNetSystemInitializationIfEntry_Object=MibTableRow
-corNetSystemInitializationIfEntry=_CorNetSystemInitializationIfEntry_Object((1,3,6,1,4,1,4935,20,40,1,1,20,10,1))
-corNetSystemInitializationIfEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:corNetSystemInitializationIfEntry.setStatus(_A)
-class _CorNetSystemInitEmergencyNumber_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_CorNetSystemInitEmergencyNumber_Type.__name__=_E
-_CorNetSystemInitEmergencyNumber_Object=MibTableColumn
-corNetSystemInitEmergencyNumber=_CorNetSystemInitEmergencyNumber_Object((1,3,6,1,4,1,4935,20,40,1,1,20,10,1,10),_CorNetSystemInitEmergencyNumber_Type())
-corNetSystemInitEmergencyNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemInitEmergencyNumber.setStatus(_A)
-_CorNetSystemSecurity_ObjectIdentity=ObjectIdentity
-corNetSystemSecurity=_CorNetSystemSecurity_ObjectIdentity((1,3,6,1,4,1,4935,20,40,1,1,25))
-_CorNetSystemSecurityIfTable_Object=MibTable
-corNetSystemSecurityIfTable=_CorNetSystemSecurityIfTable_Object((1,3,6,1,4,1,4935,20,40,1,1,25,10))
-if mibBuilder.loadTexts:corNetSystemSecurityIfTable.setStatus(_A)
-_CorNetSystemSecurityIfEntry_Object=MibTableRow
-corNetSystemSecurityIfEntry=_CorNetSystemSecurityIfEntry_Object((1,3,6,1,4,1,4935,20,40,1,1,25,10,1))
-corNetSystemSecurityIfEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:corNetSystemSecurityIfEntry.setStatus(_A)
-class _CorNetSystemSecurityPassword_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_CorNetSystemSecurityPassword_Type.__name__=_E
-_CorNetSystemSecurityPassword_Object=MibTableColumn
-corNetSystemSecurityPassword=_CorNetSystemSecurityPassword_Object((1,3,6,1,4,1,4935,20,40,1,1,25,10,1,10),_CorNetSystemSecurityPassword_Type())
-corNetSystemSecurityPassword.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemSecurityPassword.setStatus(_A)
-class _CorNetSystemSecurityLevel_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('none',0),('reduced',1),('full',2)))
-_CorNetSystemSecurityLevel_Type.__name__=_I
-_CorNetSystemSecurityLevel_Object=MibTableColumn
-corNetSystemSecurityLevel=_CorNetSystemSecurityLevel_Object((1,3,6,1,4,1,4935,20,40,1,1,25,10,1,50),_CorNetSystemSecurityLevel_Type())
-corNetSystemSecurityLevel.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemSecurityLevel.setStatus(_A)
-_CorNetSystemFaultManagement_ObjectIdentity=ObjectIdentity
-corNetSystemFaultManagement=_CorNetSystemFaultManagement_ObjectIdentity((1,3,6,1,4,1,4935,20,40,1,1,30))
-class _CorNetSystemFaultManagementTrapsEnable_Type(MxEnableState):defaultValue=1
-_CorNetSystemFaultManagementTrapsEnable_Type.__name__=_J
-_CorNetSystemFaultManagementTrapsEnable_Object=MibScalar
-corNetSystemFaultManagementTrapsEnable=_CorNetSystemFaultManagementTrapsEnable_Object((1,3,6,1,4,1,4935,20,40,1,1,30,10),_CorNetSystemFaultManagementTrapsEnable_Type())
-corNetSystemFaultManagementTrapsEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemFaultManagementTrapsEnable.setStatus(_A)
-class _CorNetSystemFaultManagementTrapsComputePeriod_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,30))
-_CorNetSystemFaultManagementTrapsComputePeriod_Type.__name__=_D
-_CorNetSystemFaultManagementTrapsComputePeriod_Object=MibScalar
-corNetSystemFaultManagementTrapsComputePeriod=_CorNetSystemFaultManagementTrapsComputePeriod_Object((1,3,6,1,4,1,4935,20,40,1,1,30,20),_CorNetSystemFaultManagementTrapsComputePeriod_Type())
-corNetSystemFaultManagementTrapsComputePeriod.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemFaultManagementTrapsComputePeriod.setStatus(_A)
-class _CorNetSystemFaultManagementTrapsReportDelay_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,60))
-_CorNetSystemFaultManagementTrapsReportDelay_Type.__name__=_D
-_CorNetSystemFaultManagementTrapsReportDelay_Object=MibScalar
-corNetSystemFaultManagementTrapsReportDelay=_CorNetSystemFaultManagementTrapsReportDelay_Object((1,3,6,1,4,1,4935,20,40,1,1,30,30),_CorNetSystemFaultManagementTrapsReportDelay_Type())
-corNetSystemFaultManagementTrapsReportDelay.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemFaultManagementTrapsReportDelay.setStatus(_A)
-class _CorNetSystemFaultManagementTrapsMaximumPacketsLostRatio_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_CorNetSystemFaultManagementTrapsMaximumPacketsLostRatio_Type.__name__=_D
-_CorNetSystemFaultManagementTrapsMaximumPacketsLostRatio_Object=MibScalar
-corNetSystemFaultManagementTrapsMaximumPacketsLostRatio=_CorNetSystemFaultManagementTrapsMaximumPacketsLostRatio_Object((1,3,6,1,4,1,4935,20,40,1,1,30,40),_CorNetSystemFaultManagementTrapsMaximumPacketsLostRatio_Type())
-corNetSystemFaultManagementTrapsMaximumPacketsLostRatio.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemFaultManagementTrapsMaximumPacketsLostRatio.setStatus(_A)
-class _CorNetSystemFaultManagementTrapsMaximumJitterBufferOverrunRatio_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_CorNetSystemFaultManagementTrapsMaximumJitterBufferOverrunRatio_Type.__name__=_D
-_CorNetSystemFaultManagementTrapsMaximumJitterBufferOverrunRatio_Object=MibScalar
-corNetSystemFaultManagementTrapsMaximumJitterBufferOverrunRatio=_CorNetSystemFaultManagementTrapsMaximumJitterBufferOverrunRatio_Object((1,3,6,1,4,1,4935,20,40,1,1,30,50),_CorNetSystemFaultManagementTrapsMaximumJitterBufferOverrunRatio_Type())
-corNetSystemFaultManagementTrapsMaximumJitterBufferOverrunRatio.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemFaultManagementTrapsMaximumJitterBufferOverrunRatio.setStatus(_A)
-class _CorNetSystemFaultManagementTrapsMaximumJitterBufferUnderrunRatio_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_CorNetSystemFaultManagementTrapsMaximumJitterBufferUnderrunRatio_Type.__name__=_D
-_CorNetSystemFaultManagementTrapsMaximumJitterBufferUnderrunRatio_Object=MibScalar
-corNetSystemFaultManagementTrapsMaximumJitterBufferUnderrunRatio=_CorNetSystemFaultManagementTrapsMaximumJitterBufferUnderrunRatio_Object((1,3,6,1,4,1,4935,20,40,1,1,30,60),_CorNetSystemFaultManagementTrapsMaximumJitterBufferUnderrunRatio_Type())
-corNetSystemFaultManagementTrapsMaximumJitterBufferUnderrunRatio.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemFaultManagementTrapsMaximumJitterBufferUnderrunRatio.setStatus(_A)
-_CorNetSystemData_ObjectIdentity=ObjectIdentity
-corNetSystemData=_CorNetSystemData_ObjectIdentity((1,3,6,1,4,1,4935,20,40,1,1,50))
-_CorNetSystemDataIfTable_Object=MibTable
-corNetSystemDataIfTable=_CorNetSystemDataIfTable_Object((1,3,6,1,4,1,4935,20,40,1,1,50,10))
-if mibBuilder.loadTexts:corNetSystemDataIfTable.setStatus(_A)
-_CorNetSystemDataIfEntry_Object=MibTableRow
-corNetSystemDataIfEntry=_CorNetSystemDataIfEntry_Object((1,3,6,1,4,1,4935,20,40,1,1,50,10,1))
-corNetSystemDataIfEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:corNetSystemDataIfEntry.setStatus(_A)
-class _CorNetSystemDataRfc2198RedundancyLevel_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,5))
-_CorNetSystemDataRfc2198RedundancyLevel_Type.__name__=_D
-_CorNetSystemDataRfc2198RedundancyLevel_Object=MibTableColumn
-corNetSystemDataRfc2198RedundancyLevel=_CorNetSystemDataRfc2198RedundancyLevel_Object((1,3,6,1,4,1,4935,20,40,1,1,50,10,1,50),_CorNetSystemDataRfc2198RedundancyLevel_Type())
-corNetSystemDataRfc2198RedundancyLevel.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemDataRfc2198RedundancyLevel.setStatus(_A)
-class _CorNetSystemDataRfc2198DefaultPayloadType_Type(Unsigned32):defaultValue=99;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(96,127))
-_CorNetSystemDataRfc2198DefaultPayloadType_Type.__name__=_D
-_CorNetSystemDataRfc2198DefaultPayloadType_Object=MibTableColumn
-corNetSystemDataRfc2198DefaultPayloadType=_CorNetSystemDataRfc2198DefaultPayloadType_Object((1,3,6,1,4,1,4935,20,40,1,1,50,10,1,70),_CorNetSystemDataRfc2198DefaultPayloadType_Type())
-corNetSystemDataRfc2198DefaultPayloadType.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemDataRfc2198DefaultPayloadType.setStatus(_A)
-class _CorNetSystemDataRfc2833DefaultPayloadType_Type(Unsigned32):defaultValue=98;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(96,127))
-_CorNetSystemDataRfc2833DefaultPayloadType_Type.__name__=_D
-_CorNetSystemDataRfc2833DefaultPayloadType_Object=MibTableColumn
-corNetSystemDataRfc2833DefaultPayloadType=_CorNetSystemDataRfc2833DefaultPayloadType_Object((1,3,6,1,4,1,4935,20,40,1,1,50,10,1,90),_CorNetSystemDataRfc2833DefaultPayloadType_Type())
-corNetSystemDataRfc2833DefaultPayloadType.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemDataRfc2833DefaultPayloadType.setStatus(_A)
-class _CorNetSystemDataVoiceOnlyModeEnable_Type(MxEnableState):defaultValue=0
-_CorNetSystemDataVoiceOnlyModeEnable_Type.__name__=_J
-_CorNetSystemDataVoiceOnlyModeEnable_Object=MibTableColumn
-corNetSystemDataVoiceOnlyModeEnable=_CorNetSystemDataVoiceOnlyModeEnable_Object((1,3,6,1,4,1,4935,20,40,1,1,50,10,1,150),_CorNetSystemDataVoiceOnlyModeEnable_Type())
-corNetSystemDataVoiceOnlyModeEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemDataVoiceOnlyModeEnable.setStatus(_A)
-_CorNetSystemServices_ObjectIdentity=ObjectIdentity
-corNetSystemServices=_CorNetSystemServices_ObjectIdentity((1,3,6,1,4,1,4935,20,40,1,1,100))
-_CorNetSystemServicesTable_Object=MibTable
-corNetSystemServicesTable=_CorNetSystemServicesTable_Object((1,3,6,1,4,1,4935,20,40,1,1,100,100))
-if mibBuilder.loadTexts:corNetSystemServicesTable.setStatus(_A)
-_CorNetSystemServicesEntry_Object=MibTableRow
-corNetSystemServicesEntry=_CorNetSystemServicesEntry_Object((1,3,6,1,4,1,4935,20,40,1,1,100,100,1))
-corNetSystemServicesEntry.setIndexNames((0,_B,_O))
-if mibBuilder.loadTexts:corNetSystemServicesEntry.setStatus(_A)
-class _CorNetSystemServicesIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_CorNetSystemServicesIndex_Type.__name__=_D
-_CorNetSystemServicesIndex_Object=MibTableColumn
-corNetSystemServicesIndex=_CorNetSystemServicesIndex_Object((1,3,6,1,4,1,4935,20,40,1,1,100,100,1,5),_CorNetSystemServicesIndex_Type())
-corNetSystemServicesIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:corNetSystemServicesIndex.setStatus(_A)
-class _CorNetSystemServiceName_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
-_CorNetSystemServiceName_Type.__name__=_E
-_CorNetSystemServiceName_Object=MibTableColumn
-corNetSystemServiceName=_CorNetSystemServiceName_Object((1,3,6,1,4,1,4935,20,40,1,1,100,100,1,10),_CorNetSystemServiceName_Type())
-corNetSystemServiceName.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemServiceName.setStatus(_A)
-class _CorNetSystemServiceEnable_Type(MxEnableState):defaultValue=0
-_CorNetSystemServiceEnable_Type.__name__=_J
-_CorNetSystemServiceEnable_Object=MibTableColumn
-corNetSystemServiceEnable=_CorNetSystemServiceEnable_Object((1,3,6,1,4,1,4935,20,40,1,1,100,100,1,15),_CorNetSystemServiceEnable_Type())
-corNetSystemServiceEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemServiceEnable.setStatus(_A)
-class _CorNetSystemServiceKbKeyCode_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,63))
-_CorNetSystemServiceKbKeyCode_Type.__name__=_D
-_CorNetSystemServiceKbKeyCode_Object=MibTableColumn
-corNetSystemServiceKbKeyCode=_CorNetSystemServiceKbKeyCode_Object((1,3,6,1,4,1,4935,20,40,1,1,100,100,1,20),_CorNetSystemServiceKbKeyCode_Type())
-corNetSystemServiceKbKeyCode.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemServiceKbKeyCode.setStatus(_A)
-class _CorNetSystemServiceActivationSequence_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
-_CorNetSystemServiceActivationSequence_Type.__name__=_E
-_CorNetSystemServiceActivationSequence_Object=MibTableColumn
-corNetSystemServiceActivationSequence=_CorNetSystemServiceActivationSequence_Object((1,3,6,1,4,1,4935,20,40,1,1,100,100,1,25),_CorNetSystemServiceActivationSequence_Type())
-corNetSystemServiceActivationSequence.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemServiceActivationSequence.setStatus(_A)
-class _CorNetSystemService2StageFlag_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('no',0),('yes',1)))
-_CorNetSystemService2StageFlag_Type.__name__=_I
-_CorNetSystemService2StageFlag_Object=MibTableColumn
-corNetSystemService2StageFlag=_CorNetSystemService2StageFlag_Object((1,3,6,1,4,1,4935,20,40,1,1,100,100,1,30),_CorNetSystemService2StageFlag_Type())
-corNetSystemService2StageFlag.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemService2StageFlag.setStatus(_A)
-class _CorNetSystemServiceFirstDigitTimer_Type(Unsigned32):defaultValue=20000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1000,180000))
-_CorNetSystemServiceFirstDigitTimer_Type.__name__=_D
-_CorNetSystemServiceFirstDigitTimer_Object=MibTableColumn
-corNetSystemServiceFirstDigitTimer=_CorNetSystemServiceFirstDigitTimer_Object((1,3,6,1,4,1,4935,20,40,1,1,100,100,1,35),_CorNetSystemServiceFirstDigitTimer_Type())
-corNetSystemServiceFirstDigitTimer.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemServiceFirstDigitTimer.setStatus(_A)
-class _CorNetSystemCallFeaturesEnable_Type(MxEnableState):defaultValue=0
-_CorNetSystemCallFeaturesEnable_Type.__name__=_J
-_CorNetSystemCallFeaturesEnable_Object=MibScalar
-corNetSystemCallFeaturesEnable=_CorNetSystemCallFeaturesEnable_Object((1,3,6,1,4,1,4935,20,40,1,1,100,150),_CorNetSystemCallFeaturesEnable_Type())
-corNetSystemCallFeaturesEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemCallFeaturesEnable.setStatus(_A)
-class _CorNetSystemServices2StageEndingMethod_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('timer',0),('endCharacter',1)))
-_CorNetSystemServices2StageEndingMethod_Type.__name__=_I
-_CorNetSystemServices2StageEndingMethod_Object=MibScalar
-corNetSystemServices2StageEndingMethod=_CorNetSystemServices2StageEndingMethod_Object((1,3,6,1,4,1,4935,20,40,1,1,100,200),_CorNetSystemServices2StageEndingMethod_Type())
-corNetSystemServices2StageEndingMethod.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemServices2StageEndingMethod.setStatus(_A)
-class _CorNetSystemServices2StageTimeout_Type(Unsigned32):defaultValue=4000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(500,10000))
-_CorNetSystemServices2StageTimeout_Type.__name__=_D
-_CorNetSystemServices2StageTimeout_Object=MibScalar
-corNetSystemServices2StageTimeout=_CorNetSystemServices2StageTimeout_Object((1,3,6,1,4,1,4935,20,40,1,1,100,250),_CorNetSystemServices2StageTimeout_Type())
-corNetSystemServices2StageTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemServices2StageTimeout.setStatus(_A)
-class _CorNetSystemServices2StageEndKey_Type(OctetString):defaultValue=OctetString('#');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
-_CorNetSystemServices2StageEndKey_Type.__name__=_E
-_CorNetSystemServices2StageEndKey_Object=MibScalar
-corNetSystemServices2StageEndKey=_CorNetSystemServices2StageEndKey_Object((1,3,6,1,4,1,4935,20,40,1,1,100,300),_CorNetSystemServices2StageEndKey_Type())
-corNetSystemServices2StageEndKey.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemServices2StageEndKey.setStatus(_A)
-class _CorNetSystemServicesTimeoutInterDigit_Type(Unsigned32):defaultValue=4000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(500,10000))
-_CorNetSystemServicesTimeoutInterDigit_Type.__name__=_D
-_CorNetSystemServicesTimeoutInterDigit_Object=MibScalar
-corNetSystemServicesTimeoutInterDigit=_CorNetSystemServicesTimeoutInterDigit_Object((1,3,6,1,4,1,4935,20,40,1,1,100,350),_CorNetSystemServicesTimeoutInterDigit_Type())
-corNetSystemServicesTimeoutInterDigit.setMaxAccess(_C)
-if mibBuilder.loadTexts:corNetSystemServicesTimeoutInterDigit.setStatus(_A)
-_CorNetSystemConformance_ObjectIdentity=ObjectIdentity
-corNetSystemConformance=_CorNetSystemConformance_ObjectIdentity((1,3,6,1,4,1,4935,20,40,1,2))
-_CorNetSystemCompliances_ObjectIdentity=ObjectIdentity
-corNetSystemCompliances=_CorNetSystemCompliances_ObjectIdentity((1,3,6,1,4,1,4935,20,40,1,2,1))
-_CorNetSystemGroups_ObjectIdentity=ObjectIdentity
-corNetSystemGroups=_CorNetSystemGroups_ObjectIdentity((1,3,6,1,4,1,4935,20,40,1,2,2))
-_CorNetSystemEvents_ObjectIdentity=ObjectIdentity
-corNetSystemEvents=_CorNetSystemEvents_ObjectIdentity((1,3,6,1,4,1,4935,20,40,1,3))
-_CorNetSystemFaultManagementNotifications_ObjectIdentity=ObjectIdentity
-corNetSystemFaultManagementNotifications=_CorNetSystemFaultManagementNotifications_ObjectIdentity((1,3,6,1,4,1,4935,20,40,1,3,5))
-corNetSystemRegistrationGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,20,40,1,2,2,5))
-corNetSystemRegistrationGroupVer1.setObjects(*((_B,_S),(_B,_T)))
-if mibBuilder.loadTexts:corNetSystemRegistrationGroupVer1.setStatus(_A)
-corNetSystemInitializationGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,20,40,1,2,2,10))
-corNetSystemInitializationGroupVer1.setObjects((_B,_U))
-if mibBuilder.loadTexts:corNetSystemInitializationGroupVer1.setStatus(_A)
-corNetSystemSecurityGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,20,40,1,2,2,13))
-corNetSystemSecurityGroupVer1.setObjects(*((_B,_V),(_B,_W)))
-if mibBuilder.loadTexts:corNetSystemSecurityGroupVer1.setStatus(_A)
-corNetSystemFaultManagementGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,20,40,1,2,2,15))
-corNetSystemFaultManagementGroupVer1.setObjects(*((_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_P),(_B,_Q),(_B,_d),(_B,_e),(_B,_f),(_B,_g)))
-if mibBuilder.loadTexts:corNetSystemFaultManagementGroupVer1.setStatus(_A)
-corNetSystemDataGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,20,40,1,2,2,50))
-corNetSystemDataGroupVer1.setObjects(*((_B,_h),(_B,_i),(_B,_j),(_B,_k)))
-if mibBuilder.loadTexts:corNetSystemDataGroupVer1.setStatus(_A)
-corNetSystemServicesGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,20,40,1,2,2,100))
-corNetSystemServicesGroupVer1.setObjects(*((_B,_O),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v)))
-if mibBuilder.loadTexts:corNetSystemServicesGroupVer1.setStatus(_A)
-corNetFaultManagementRebootTrap=NotificationType((1,3,6,1,4,1,4935,20,40,1,3,5,1050))
-corNetFaultManagementRebootTrap.setObjects(*((_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:corNetFaultManagementRebootTrap.setStatus(_A)
-corNetFaultManagementAuthenticationFailureTrap=NotificationType((1,3,6,1,4,1,4935,20,40,1,3,5,1150))
-corNetFaultManagementAuthenticationFailureTrap.setObjects(*((_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:corNetFaultManagementAuthenticationFailureTrap.setStatus(_A)
-corNetFaultManagementLanTrap=NotificationType((1,3,6,1,4,1,4935,20,40,1,3,5,1250))
-corNetFaultManagementLanTrap.setObjects(*((_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:corNetFaultManagementLanTrap.setStatus(_A)
-corNetFaultManagementPacketsLostTrap=NotificationType((1,3,6,1,4,1,4935,20,40,1,3,5,1350))
-corNetFaultManagementPacketsLostTrap.setObjects(*((_B,_M),(_B,_N),(_B,_P)))
-if mibBuilder.loadTexts:corNetFaultManagementPacketsLostTrap.setStatus(_A)
-corNetFaultManagementJitterBufferTrap=NotificationType((1,3,6,1,4,1,4935,20,40,1,3,5,1450))
-corNetFaultManagementJitterBufferTrap.setObjects(*((_B,_M),(_B,_N),(_B,_Q)))
-if mibBuilder.loadTexts:corNetFaultManagementJitterBufferTrap.setStatus(_A)
-corNetSystemFaultManagementNotificationsGroupVer1=NotificationGroup((1,3,6,1,4,1,4935,20,40,1,2,2,20))
-corNetSystemFaultManagementNotificationsGroupVer1.setObjects(*((_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0)))
-if mibBuilder.loadTexts:corNetSystemFaultManagementNotificationsGroupVer1.setStatus(_A)
-corNetSystemBasicComplVer1=ModuleCompliance((1,3,6,1,4,1,4935,20,40,1,2,1,5))
-corNetSystemBasicComplVer1.setObjects(*((_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6)))
-if mibBuilder.loadTexts:corNetSystemBasicComplVer1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ipAddressStatusCorNetPbxIfTable':ipAddressStatusCorNetPbxIfTable,'ipAddressStatusCorNetPbxIfEntry':ipAddressStatusCorNetPbxIfEntry,'ipAddressStatusCorNetPbxHost':ipAddressStatusCorNetPbxHost,'ipAddressStatusCorNetPbxPort':ipAddressStatusCorNetPbxPort,_f:ipAddressStatusCorNetFaultManagementHost,_g:ipAddressStatusCorNetFaultManagementTrapPort,'corNetFaultManagementStatus':corNetFaultManagementStatus,_P:corNetFaultManagementPacketsLostStatus,_Q:corNetFaultManagementJitterBufferStatus,'ipAddressConfigCorNetPbxIfTable':ipAddressConfigCorNetPbxIfTable,'ipAddressConfigCorNetPbxIfEntry':ipAddressConfigCorNetPbxIfEntry,'ipAddressConfigCorNetPbxHost':ipAddressConfigCorNetPbxHost,'ipAddressConfigCorNetPbxPort':ipAddressConfigCorNetPbxPort,_d:ipAddressConfigCorNetFaultManagementHost,_e:ipAddressConfigCorNetFaultManagementTrapPort,'corNetSystemMIB':corNetSystemMIB,'corNetSystemMIBObjects':corNetSystemMIBObjects,'corNetSystemRegistration':corNetSystemRegistration,'corNetSystemRegistrationIfTable':corNetSystemRegistrationIfTable,'corNetSystemRegistrationIfEntry':corNetSystemRegistrationIfEntry,_S:corNetSystemRegSubscriberNumber,_T:corNetSystemRegLocationIdentifierNumber,'corNetSystemInitialization':corNetSystemInitialization,'corNetSystemInitializationIfTable':corNetSystemInitializationIfTable,'corNetSystemInitializationIfEntry':corNetSystemInitializationIfEntry,_U:corNetSystemInitEmergencyNumber,'corNetSystemSecurity':corNetSystemSecurity,'corNetSystemSecurityIfTable':corNetSystemSecurityIfTable,'corNetSystemSecurityIfEntry':corNetSystemSecurityIfEntry,_V:corNetSystemSecurityPassword,_W:corNetSystemSecurityLevel,'corNetSystemFaultManagement':corNetSystemFaultManagement,_X:corNetSystemFaultManagementTrapsEnable,_Y:corNetSystemFaultManagementTrapsComputePeriod,_Z:corNetSystemFaultManagementTrapsReportDelay,_a:corNetSystemFaultManagementTrapsMaximumPacketsLostRatio,_b:corNetSystemFaultManagementTrapsMaximumJitterBufferOverrunRatio,_c:corNetSystemFaultManagementTrapsMaximumJitterBufferUnderrunRatio,'corNetSystemData':corNetSystemData,'corNetSystemDataIfTable':corNetSystemDataIfTable,'corNetSystemDataIfEntry':corNetSystemDataIfEntry,_h:corNetSystemDataRfc2198RedundancyLevel,_i:corNetSystemDataRfc2198DefaultPayloadType,_j:corNetSystemDataRfc2833DefaultPayloadType,_k:corNetSystemDataVoiceOnlyModeEnable,'corNetSystemServices':corNetSystemServices,'corNetSystemServicesTable':corNetSystemServicesTable,'corNetSystemServicesEntry':corNetSystemServicesEntry,_O:corNetSystemServicesIndex,_l:corNetSystemServiceName,_m:corNetSystemServiceEnable,_n:corNetSystemServiceKbKeyCode,_o:corNetSystemServiceActivationSequence,_p:corNetSystemService2StageFlag,_q:corNetSystemServiceFirstDigitTimer,_r:corNetSystemCallFeaturesEnable,_s:corNetSystemServices2StageEndingMethod,_t:corNetSystemServices2StageTimeout,_u:corNetSystemServices2StageEndKey,_v:corNetSystemServicesTimeoutInterDigit,'corNetSystemConformance':corNetSystemConformance,'corNetSystemCompliances':corNetSystemCompliances,'corNetSystemBasicComplVer1':corNetSystemBasicComplVer1,'corNetSystemGroups':corNetSystemGroups,_A1:corNetSystemRegistrationGroupVer1,_A2:corNetSystemInitializationGroupVer1,_A3:corNetSystemSecurityGroupVer1,_A4:corNetSystemFaultManagementGroupVer1,'corNetSystemFaultManagementNotificationsGroupVer1':corNetSystemFaultManagementNotificationsGroupVer1,_A5:corNetSystemDataGroupVer1,_A6:corNetSystemServicesGroupVer1,'corNetSystemEvents':corNetSystemEvents,'corNetSystemFaultManagementNotifications':corNetSystemFaultManagementNotifications,_w:corNetFaultManagementRebootTrap,_x:corNetFaultManagementAuthenticationFailureTrap,_y:corNetFaultManagementLanTrap,_z:corNetFaultManagementPacketsLostTrap,_A0:corNetFaultManagementJitterBufferTrap})
+#
+# PySNMP MIB module MX-CORNET-SYSTEM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-CORNET-SYSTEM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:07 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ipAddressConfigCorNet, corNet, ipAddressConfigCorNetStatic, ipAddressStatusCorNet = mibBuilder.importSymbols("MX-CORNET-MIB", "ipAddressConfigCorNet", "corNet", "ipAddressConfigCorNetStatic", "ipAddressStatusCorNet")
+ipAddressStatus, mediatrixMgmt, ipAddressConfig = mibBuilder.importSymbols("MX-SMI", "ipAddressStatus", "mediatrixMgmt", "ipAddressConfig")
+MxIpHostName, MxEnableState, MxAdvancedIpPort, MxIpPort = mibBuilder.importSymbols("MX-TC", "MxIpHostName", "MxEnableState", "MxAdvancedIpPort", "MxIpPort")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+corNetSystemMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1))
+corNetSystemMIB.setRevisions(('2006-07-17 00:00', '2005-12-02 00:00', '2005-07-07 00:00', '2005-06-27 00:00', '2005-06-10 00:00', '2005-05-16 00:00', '2005-05-06 00:00', '2004-06-15 00:00',))
+if mibBuilder.loadTexts: corNetSystemMIB.setLastUpdated('200607170000Z')
+if mibBuilder.loadTexts: corNetSystemMIB.setOrganization('Mediatrix Telecom, Inc.')
+corNetSystemMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1))
+corNetSystemConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 2))
+corNetSystemEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 3))
+corNetSystemRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 10))
+corNetSystemRegistrationIfTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 10, 10), )
+if mibBuilder.loadTexts: corNetSystemRegistrationIfTable.setStatus('current')
+corNetSystemRegistrationIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 10, 10, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: corNetSystemRegistrationIfEntry.setStatus('current')
+corNetSystemRegSubscriberNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 10, 10, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemRegSubscriberNumber.setStatus('current')
+corNetSystemRegLocationIdentifierNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 10, 10, 1, 20), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemRegLocationIdentifierNumber.setStatus('current')
+corNetSystemInitialization = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 20))
+corNetSystemInitializationIfTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 20, 10), )
+if mibBuilder.loadTexts: corNetSystemInitializationIfTable.setStatus('current')
+corNetSystemInitializationIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 20, 10, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: corNetSystemInitializationIfEntry.setStatus('current')
+corNetSystemInitEmergencyNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 20, 10, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemInitEmergencyNumber.setStatus('current')
+corNetSystemSecurity = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 25))
+corNetSystemSecurityIfTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 25, 10), )
+if mibBuilder.loadTexts: corNetSystemSecurityIfTable.setStatus('current')
+corNetSystemSecurityIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 25, 10, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: corNetSystemSecurityIfEntry.setStatus('current')
+corNetSystemSecurityPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 25, 10, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemSecurityPassword.setStatus('current')
+corNetSystemSecurityLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 25, 10, 1, 50), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("reduced", 1), ("full", 2))).clone('none')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemSecurityLevel.setStatus('current')
+corNetSystemFaultManagement = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 30))
+corNetSystemFaultManagementTrapsEnable = MibScalar((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 30, 10), MxEnableState().clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemFaultManagementTrapsEnable.setStatus('current')
+corNetSystemFaultManagementTrapsComputePeriod = MibScalar((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 30, 20), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 30)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemFaultManagementTrapsComputePeriod.setStatus('current')
+corNetSystemFaultManagementTrapsReportDelay = MibScalar((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 30, 30), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 60)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemFaultManagementTrapsReportDelay.setStatus('current')
+corNetSystemFaultManagementTrapsMaximumPacketsLostRatio = MibScalar((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 30, 40), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 100)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemFaultManagementTrapsMaximumPacketsLostRatio.setStatus('current')
+corNetSystemFaultManagementTrapsMaximumJitterBufferOverrunRatio = MibScalar((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 30, 50), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 100)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemFaultManagementTrapsMaximumJitterBufferOverrunRatio.setStatus('current')
+corNetSystemFaultManagementTrapsMaximumJitterBufferUnderrunRatio = MibScalar((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 30, 60), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 100)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemFaultManagementTrapsMaximumJitterBufferUnderrunRatio.setStatus('current')
+corNetSystemData = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 50))
+corNetSystemDataIfTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 50, 10), )
+if mibBuilder.loadTexts: corNetSystemDataIfTable.setStatus('current')
+corNetSystemDataIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 50, 10, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: corNetSystemDataIfEntry.setStatus('current')
+corNetSystemDataRfc2198RedundancyLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 50, 10, 1, 50), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 5))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemDataRfc2198RedundancyLevel.setStatus('current')
+corNetSystemDataRfc2198DefaultPayloadType = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 50, 10, 1, 70), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(96, 127)).clone(99)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemDataRfc2198DefaultPayloadType.setStatus('current')
+corNetSystemDataRfc2833DefaultPayloadType = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 50, 10, 1, 90), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(96, 127)).clone(98)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemDataRfc2833DefaultPayloadType.setStatus('current')
+corNetSystemDataVoiceOnlyModeEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 50, 10, 1, 150), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemDataVoiceOnlyModeEnable.setStatus('current')
+corNetSystemServices = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 100))
+corNetSystemServicesTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 100, 100), )
+if mibBuilder.loadTexts: corNetSystemServicesTable.setStatus('current')
+corNetSystemServicesEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 100, 100, 1), ).setIndexNames((0, "MX-CORNET-SYSTEM-MIB", "corNetSystemServicesIndex"))
+if mibBuilder.loadTexts: corNetSystemServicesEntry.setStatus('current')
+corNetSystemServicesIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 100, 100, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: corNetSystemServicesIndex.setStatus('current')
+corNetSystemServiceName = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 100, 100, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemServiceName.setStatus('current')
+corNetSystemServiceEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 100, 100, 1, 15), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemServiceEnable.setStatus('current')
+corNetSystemServiceKbKeyCode = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 100, 100, 1, 20), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemServiceKbKeyCode.setStatus('current')
+corNetSystemServiceActivationSequence = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 100, 100, 1, 25), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemServiceActivationSequence.setStatus('current')
+corNetSystemService2StageFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 100, 100, 1, 30), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1))).clone('no')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemService2StageFlag.setStatus('current')
+corNetSystemServiceFirstDigitTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 100, 100, 1, 35), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1000, 180000)).clone(20000)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemServiceFirstDigitTimer.setStatus('current')
+corNetSystemCallFeaturesEnable = MibScalar((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 100, 150), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemCallFeaturesEnable.setStatus('current')
+corNetSystemServices2StageEndingMethod = MibScalar((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 100, 200), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("timer", 0), ("endCharacter", 1))).clone('timer')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemServices2StageEndingMethod.setStatus('current')
+corNetSystemServices2StageTimeout = MibScalar((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 100, 250), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(500, 10000)).clone(4000)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemServices2StageTimeout.setStatus('current')
+corNetSystemServices2StageEndKey = MibScalar((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 100, 300), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1).clone('#')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemServices2StageEndKey.setStatus('current')
+corNetSystemServicesTimeoutInterDigit = MibScalar((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 1, 100, 350), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(500, 10000)).clone(4000)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetSystemServicesTimeoutInterDigit.setStatus('current')
+corNetFaultManagementStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 10, 80))
+corNetFaultManagementPacketsLostStatus = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 80, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("normal", 0), ("error", 1))).clone('normal')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: corNetFaultManagementPacketsLostStatus.setStatus('current')
+corNetFaultManagementJitterBufferStatus = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 80, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("normal", 0), ("overrun", 1), ("underrun", 2))).clone('normal')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: corNetFaultManagementJitterBufferStatus.setStatus('current')
+ipAddressStatusCorNetPbxIfTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 10, 1, 130, 10), )
+if mibBuilder.loadTexts: ipAddressStatusCorNetPbxIfTable.setStatus('current')
+ipAddressStatusCorNetPbxIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 10, 1, 130, 10, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: ipAddressStatusCorNetPbxIfEntry.setStatus('current')
+ipAddressStatusCorNetPbxHost = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 10, 1, 130, 10, 1, 10), MxIpHostName()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipAddressStatusCorNetPbxHost.setStatus('current')
+ipAddressStatusCorNetPbxPort = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 10, 1, 130, 10, 1, 20), MxIpPort().clone(4060)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipAddressStatusCorNetPbxPort.setStatus('current')
+ipAddressStatusCorNetFaultManagementHost = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 1, 130, 20), MxIpHostName()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipAddressStatusCorNetFaultManagementHost.setStatus('current')
+ipAddressStatusCorNetFaultManagementTrapPort = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 1, 130, 30), MxIpPort().clone(162)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipAddressStatusCorNetFaultManagementTrapPort.setStatus('current')
+ipAddressConfigCorNetPbxIfTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 15, 1, 130, 10, 10), )
+if mibBuilder.loadTexts: ipAddressConfigCorNetPbxIfTable.setStatus('current')
+ipAddressConfigCorNetPbxIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 15, 1, 130, 10, 10, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: ipAddressConfigCorNetPbxIfEntry.setStatus('current')
+ipAddressConfigCorNetPbxHost = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 1, 130, 10, 10, 1, 10), MxIpHostName()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipAddressConfigCorNetPbxHost.setStatus('current')
+ipAddressConfigCorNetPbxPort = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 1, 130, 10, 10, 1, 20), MxIpPort().clone(4060)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipAddressConfigCorNetPbxPort.setStatus('current')
+ipAddressConfigCorNetFaultManagementHost = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 1, 130, 10, 20), MxIpHostName()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipAddressConfigCorNetFaultManagementHost.setStatus('current')
+ipAddressConfigCorNetFaultManagementTrapPort = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 1, 130, 10, 30), MxIpPort().clone(162)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipAddressConfigCorNetFaultManagementTrapPort.setStatus('current')
+corNetSystemCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 2, 1))
+corNetSystemBasicComplVer1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 2, 1, 5)).setObjects(("MX-CORNET-SYSTEM-MIB", "corNetSystemRegistrationGroupVer1"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemInitializationGroupVer1"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemSecurityGroupVer1"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemFaultManagementGroupVer1"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemDataGroupVer1"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemServicesGroupVer1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    corNetSystemBasicComplVer1 = corNetSystemBasicComplVer1.setStatus('current')
+corNetSystemGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 2, 2))
+corNetSystemRegistrationGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 2, 2, 5)).setObjects(("MX-CORNET-SYSTEM-MIB", "corNetSystemRegSubscriberNumber"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemRegLocationIdentifierNumber"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    corNetSystemRegistrationGroupVer1 = corNetSystemRegistrationGroupVer1.setStatus('current')
+corNetSystemInitializationGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 2, 2, 10)).setObjects(("MX-CORNET-SYSTEM-MIB", "corNetSystemInitEmergencyNumber"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    corNetSystemInitializationGroupVer1 = corNetSystemInitializationGroupVer1.setStatus('current')
+corNetSystemSecurityGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 2, 2, 13)).setObjects(("MX-CORNET-SYSTEM-MIB", "corNetSystemSecurityPassword"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemSecurityLevel"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    corNetSystemSecurityGroupVer1 = corNetSystemSecurityGroupVer1.setStatus('current')
+corNetSystemFaultManagementGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 2, 2, 15)).setObjects(("MX-CORNET-SYSTEM-MIB", "corNetSystemFaultManagementTrapsEnable"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemFaultManagementTrapsComputePeriod"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemFaultManagementTrapsReportDelay"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemFaultManagementTrapsMaximumPacketsLostRatio"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemFaultManagementTrapsMaximumJitterBufferOverrunRatio"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemFaultManagementTrapsMaximumJitterBufferUnderrunRatio"), ("MX-CORNET-SYSTEM-MIB", "corNetFaultManagementPacketsLostStatus"), ("MX-CORNET-SYSTEM-MIB", "corNetFaultManagementJitterBufferStatus"), ("MX-CORNET-SYSTEM-MIB", "ipAddressConfigCorNetFaultManagementHost"), ("MX-CORNET-SYSTEM-MIB", "ipAddressConfigCorNetFaultManagementTrapPort"), ("MX-CORNET-SYSTEM-MIB", "ipAddressStatusCorNetFaultManagementHost"), ("MX-CORNET-SYSTEM-MIB", "ipAddressStatusCorNetFaultManagementTrapPort"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    corNetSystemFaultManagementGroupVer1 = corNetSystemFaultManagementGroupVer1.setStatus('current')
+corNetSystemFaultManagementNotificationsGroupVer1 = NotificationGroup((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 2, 2, 20)).setObjects(("MX-CORNET-SYSTEM-MIB", "corNetFaultManagementRebootTrap"), ("MX-CORNET-SYSTEM-MIB", "corNetFaultManagementAuthenticationFailureTrap"), ("MX-CORNET-SYSTEM-MIB", "corNetFaultManagementLanTrap"), ("MX-CORNET-SYSTEM-MIB", "corNetFaultManagementPacketsLostTrap"), ("MX-CORNET-SYSTEM-MIB", "corNetFaultManagementJitterBufferTrap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    corNetSystemFaultManagementNotificationsGroupVer1 = corNetSystemFaultManagementNotificationsGroupVer1.setStatus('current')
+corNetSystemDataGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 2, 2, 50)).setObjects(("MX-CORNET-SYSTEM-MIB", "corNetSystemDataRfc2198RedundancyLevel"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemDataRfc2198DefaultPayloadType"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemDataRfc2833DefaultPayloadType"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemDataVoiceOnlyModeEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    corNetSystemDataGroupVer1 = corNetSystemDataGroupVer1.setStatus('current')
+corNetSystemServicesGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 2, 2, 100)).setObjects(("MX-CORNET-SYSTEM-MIB", "corNetSystemServicesIndex"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemServiceName"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemServiceEnable"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemServiceKbKeyCode"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemServiceActivationSequence"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemService2StageFlag"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemServiceFirstDigitTimer"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemCallFeaturesEnable"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemServices2StageEndingMethod"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemServices2StageTimeout"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemServices2StageEndKey"), ("MX-CORNET-SYSTEM-MIB", "corNetSystemServicesTimeoutInterDigit"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    corNetSystemServicesGroupVer1 = corNetSystemServicesGroupVer1.setStatus('current')
+corNetSystemFaultManagementNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 3, 5))
+corNetFaultManagementRebootTrap = NotificationType((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 3, 5, 1050)).setObjects(("MX-CORNET-SYSTEM-MIB", "sysObjectID"), ("MX-CORNET-SYSTEM-MIB", "sysMacAddress"))
+if mibBuilder.loadTexts: corNetFaultManagementRebootTrap.setStatus('current')
+corNetFaultManagementAuthenticationFailureTrap = NotificationType((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 3, 5, 1150)).setObjects(("MX-CORNET-SYSTEM-MIB", "sysObjectID"), ("MX-CORNET-SYSTEM-MIB", "sysMacAddress"))
+if mibBuilder.loadTexts: corNetFaultManagementAuthenticationFailureTrap.setStatus('current')
+corNetFaultManagementLanTrap = NotificationType((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 3, 5, 1250)).setObjects(("MX-CORNET-SYSTEM-MIB", "sysObjectID"), ("MX-CORNET-SYSTEM-MIB", "sysMacAddress"))
+if mibBuilder.loadTexts: corNetFaultManagementLanTrap.setStatus('current')
+corNetFaultManagementPacketsLostTrap = NotificationType((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 3, 5, 1350)).setObjects(("MX-CORNET-SYSTEM-MIB", "sysObjectID"), ("MX-CORNET-SYSTEM-MIB", "sysMacAddress"), ("MX-CORNET-SYSTEM-MIB", "corNetFaultManagementPacketsLostStatus"))
+if mibBuilder.loadTexts: corNetFaultManagementPacketsLostTrap.setStatus('current')
+corNetFaultManagementJitterBufferTrap = NotificationType((1, 3, 6, 1, 4, 1, 4935, 20, 40, 1, 3, 5, 1450)).setObjects(("MX-CORNET-SYSTEM-MIB", "sysObjectID"), ("MX-CORNET-SYSTEM-MIB", "sysMacAddress"), ("MX-CORNET-SYSTEM-MIB", "corNetFaultManagementJitterBufferStatus"))
+if mibBuilder.loadTexts: corNetFaultManagementJitterBufferTrap.setStatus('current')
+mibBuilder.exportSymbols("MX-CORNET-SYSTEM-MIB", corNetSystemEvents=corNetSystemEvents, corNetFaultManagementPacketsLostStatus=corNetFaultManagementPacketsLostStatus, corNetSystemSecurityIfTable=corNetSystemSecurityIfTable, corNetSystemServices=corNetSystemServices, corNetSystemRegSubscriberNumber=corNetSystemRegSubscriberNumber, corNetSystemCallFeaturesEnable=corNetSystemCallFeaturesEnable, corNetSystemFaultManagementGroupVer1=corNetSystemFaultManagementGroupVer1, corNetSystemDataIfTable=corNetSystemDataIfTable, corNetSystemServices2StageTimeout=corNetSystemServices2StageTimeout, corNetSystemMIB=corNetSystemMIB, corNetSystemServiceFirstDigitTimer=corNetSystemServiceFirstDigitTimer, corNetSystemDataGroupVer1=corNetSystemDataGroupVer1, corNetSystemRegistrationGroupVer1=corNetSystemRegistrationGroupVer1, corNetSystemBasicComplVer1=corNetSystemBasicComplVer1, corNetSystemFaultManagementNotificationsGroupVer1=corNetSystemFaultManagementNotificationsGroupVer1, corNetSystemServices2StageEndKey=corNetSystemServices2StageEndKey, ipAddressConfigCorNetPbxIfTable=ipAddressConfigCorNetPbxIfTable, corNetSystemFaultManagementTrapsReportDelay=corNetSystemFaultManagementTrapsReportDelay, corNetSystemServices2StageEndingMethod=corNetSystemServices2StageEndingMethod, corNetSystemInitializationIfTable=corNetSystemInitializationIfTable, corNetSystemData=corNetSystemData, corNetSystemInitEmergencyNumber=corNetSystemInitEmergencyNumber, ipAddressStatusCorNetPbxHost=ipAddressStatusCorNetPbxHost, corNetSystemGroups=corNetSystemGroups, ipAddressConfigCorNetPbxPort=ipAddressConfigCorNetPbxPort, corNetSystemRegistration=corNetSystemRegistration, corNetSystemFaultManagementTrapsMaximumJitterBufferUnderrunRatio=corNetSystemFaultManagementTrapsMaximumJitterBufferUnderrunRatio, corNetSystemRegistrationIfEntry=corNetSystemRegistrationIfEntry, corNetSystemFaultManagement=corNetSystemFaultManagement, corNetSystemDataIfEntry=corNetSystemDataIfEntry, ipAddressConfigCorNetFaultManagementHost=ipAddressConfigCorNetFaultManagementHost, corNetSystemRegLocationIdentifierNumber=corNetSystemRegLocationIdentifierNumber, corNetSystemServiceKbKeyCode=corNetSystemServiceKbKeyCode, corNetSystemFaultManagementTrapsMaximumPacketsLostRatio=corNetSystemFaultManagementTrapsMaximumPacketsLostRatio, corNetSystemServiceActivationSequence=corNetSystemServiceActivationSequence, corNetSystemServicesTimeoutInterDigit=corNetSystemServicesTimeoutInterDigit, corNetSystemServicesIndex=corNetSystemServicesIndex, corNetSystemFaultManagementTrapsEnable=corNetSystemFaultManagementTrapsEnable, corNetSystemServiceName=corNetSystemServiceName, ipAddressStatusCorNetPbxPort=ipAddressStatusCorNetPbxPort, corNetSystemInitialization=corNetSystemInitialization, ipAddressStatusCorNetFaultManagementTrapPort=ipAddressStatusCorNetFaultManagementTrapPort, ipAddressStatusCorNetPbxIfTable=ipAddressStatusCorNetPbxIfTable, corNetFaultManagementRebootTrap=corNetFaultManagementRebootTrap, corNetSystemDataRfc2198RedundancyLevel=corNetSystemDataRfc2198RedundancyLevel, corNetSystemRegistrationIfTable=corNetSystemRegistrationIfTable, ipAddressStatusCorNetPbxIfEntry=ipAddressStatusCorNetPbxIfEntry, corNetFaultManagementJitterBufferStatus=corNetFaultManagementJitterBufferStatus, corNetSystemCompliances=corNetSystemCompliances, corNetSystemDataRfc2198DefaultPayloadType=corNetSystemDataRfc2198DefaultPayloadType, corNetFaultManagementAuthenticationFailureTrap=corNetFaultManagementAuthenticationFailureTrap, corNetSystemDataRfc2833DefaultPayloadType=corNetSystemDataRfc2833DefaultPayloadType, ipAddressStatusCorNetFaultManagementHost=ipAddressStatusCorNetFaultManagementHost, corNetSystemSecurityLevel=corNetSystemSecurityLevel, PYSNMP_MODULE_ID=corNetSystemMIB, corNetSystemSecurityGroupVer1=corNetSystemSecurityGroupVer1, corNetSystemService2StageFlag=corNetSystemService2StageFlag, corNetSystemServicesEntry=corNetSystemServicesEntry, corNetFaultManagementJitterBufferTrap=corNetFaultManagementJitterBufferTrap, corNetSystemServicesGroupVer1=corNetSystemServicesGroupVer1, corNetSystemSecurityPassword=corNetSystemSecurityPassword, corNetSystemFaultManagementTrapsMaximumJitterBufferOverrunRatio=corNetSystemFaultManagementTrapsMaximumJitterBufferOverrunRatio, corNetFaultManagementStatus=corNetFaultManagementStatus, corNetSystemFaultManagementTrapsComputePeriod=corNetSystemFaultManagementTrapsComputePeriod, corNetSystemSecurity=corNetSystemSecurity, corNetSystemMIBObjects=corNetSystemMIBObjects, corNetSystemDataVoiceOnlyModeEnable=corNetSystemDataVoiceOnlyModeEnable, corNetSystemServicesTable=corNetSystemServicesTable, ipAddressConfigCorNetPbxIfEntry=ipAddressConfigCorNetPbxIfEntry, ipAddressConfigCorNetPbxHost=ipAddressConfigCorNetPbxHost, corNetSystemSecurityIfEntry=corNetSystemSecurityIfEntry, ipAddressConfigCorNetFaultManagementTrapPort=ipAddressConfigCorNetFaultManagementTrapPort, corNetSystemServiceEnable=corNetSystemServiceEnable, corNetSystemConformance=corNetSystemConformance, corNetSystemInitializationIfEntry=corNetSystemInitializationIfEntry, corNetFaultManagementLanTrap=corNetFaultManagementLanTrap, corNetSystemInitializationGroupVer1=corNetSystemInitializationGroupVer1, corNetSystemFaultManagementNotifications=corNetSystemFaultManagementNotifications, corNetFaultManagementPacketsLostTrap=corNetFaultManagementPacketsLostTrap)

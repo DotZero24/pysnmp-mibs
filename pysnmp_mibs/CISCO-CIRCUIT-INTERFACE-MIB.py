@@ -1,56 +1,41 @@
-_I='ciscoCircuitInterfaceGroup'
-_H='cciStatus'
-_G='cciDescr'
-_F='read-create'
-_E='SnmpAdminString'
-_D='ifIndex'
-_C='IF-MIB'
-_B='CISCO-CIRCUIT-INTERFACE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ifIndex,=mibBuilder.importSymbols(_C,_D)
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_E)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-ciscoCircuitInterfaceMIB=ModuleIdentity((1,3,6,1,4,1,9,9,160))
-if mibBuilder.loadTexts:ciscoCircuitInterfaceMIB.setRevisions(('2000-05-09 00:00',))
-_CiscoCircuitInterfaceMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoCircuitInterfaceMIBObjects=_CiscoCircuitInterfaceMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,160,1))
-_CciDescription_ObjectIdentity=ObjectIdentity
-cciDescription=_CciDescription_ObjectIdentity((1,3,6,1,4,1,9,9,160,1,1))
-_CciDescriptionTable_Object=MibTable
-cciDescriptionTable=_CciDescriptionTable_Object((1,3,6,1,4,1,9,9,160,1,1,1))
-if mibBuilder.loadTexts:cciDescriptionTable.setStatus(_A)
-_CciDescriptionEntry_Object=MibTableRow
-cciDescriptionEntry=_CciDescriptionEntry_Object((1,3,6,1,4,1,9,9,160,1,1,1,1))
-cciDescriptionEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:cciDescriptionEntry.setStatus(_A)
-class _CciDescr_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_CciDescr_Type.__name__=_E
-_CciDescr_Object=MibTableColumn
-cciDescr=_CciDescr_Object((1,3,6,1,4,1,9,9,160,1,1,1,1,1),_CciDescr_Type())
-cciDescr.setMaxAccess(_F)
-if mibBuilder.loadTexts:cciDescr.setStatus(_A)
-_CciStatus_Type=RowStatus
-_CciStatus_Object=MibTableColumn
-cciStatus=_CciStatus_Object((1,3,6,1,4,1,9,9,160,1,1,1,1,2),_CciStatus_Type())
-cciStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:cciStatus.setStatus(_A)
-_CiscoCircuitInterfaceMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoCircuitInterfaceMIBConformance=_CiscoCircuitInterfaceMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,160,3))
-_CiscoCircuitInterfaceMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoCircuitInterfaceMIBCompliances=_CiscoCircuitInterfaceMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,160,3,1))
-_CiscoCircuitInterfaceMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoCircuitInterfaceMIBGroups=_CiscoCircuitInterfaceMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,160,3,2))
-ciscoCircuitInterfaceGroup=ObjectGroup((1,3,6,1,4,1,9,9,160,3,2,1))
-ciscoCircuitInterfaceGroup.setObjects(*((_B,_G),(_B,_H)))
-if mibBuilder.loadTexts:ciscoCircuitInterfaceGroup.setStatus(_A)
-ciscoCircuitInterfaceMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,160,3,1,1))
-ciscoCircuitInterfaceMIBCompliance.setObjects((_B,_I))
-if mibBuilder.loadTexts:ciscoCircuitInterfaceMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoCircuitInterfaceMIB':ciscoCircuitInterfaceMIB,'ciscoCircuitInterfaceMIBObjects':ciscoCircuitInterfaceMIBObjects,'cciDescription':cciDescription,'cciDescriptionTable':cciDescriptionTable,'cciDescriptionEntry':cciDescriptionEntry,_G:cciDescr,_H:cciStatus,'ciscoCircuitInterfaceMIBConformance':ciscoCircuitInterfaceMIBConformance,'ciscoCircuitInterfaceMIBCompliances':ciscoCircuitInterfaceMIBCompliances,'ciscoCircuitInterfaceMIBCompliance':ciscoCircuitInterfaceMIBCompliance,'ciscoCircuitInterfaceMIBGroups':ciscoCircuitInterfaceMIBGroups,_I:ciscoCircuitInterfaceGroup})
+#
+# PySNMP MIB module CISCO-CIRCUIT-INTERFACE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-CIRCUIT-INTERFACE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:36 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ciscoCircuitInterfaceMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 160))
+ciscoCircuitInterfaceMIB.setRevisions(('2000-05-09 00:00',))
+if mibBuilder.loadTexts: ciscoCircuitInterfaceMIB.setLastUpdated('200005090000Z')
+if mibBuilder.loadTexts: ciscoCircuitInterfaceMIB.setOrganization('Cisco Systems, Inc.')
+ciscoCircuitInterfaceMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 160, 1))
+cciDescription = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 160, 1, 1))
+cciDescriptionTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 160, 1, 1, 1), )
+if mibBuilder.loadTexts: cciDescriptionTable.setStatus('current')
+cciDescriptionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 160, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cciDescriptionEntry.setStatus('current')
+cciDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 160, 1, 1, 1, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cciDescr.setStatus('current')
+cciStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 160, 1, 1, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cciStatus.setStatus('current')
+ciscoCircuitInterfaceMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 160, 3))
+ciscoCircuitInterfaceMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 160, 3, 1))
+ciscoCircuitInterfaceMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 160, 3, 2))
+ciscoCircuitInterfaceMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 160, 3, 1, 1)).setObjects(("CISCO-CIRCUIT-INTERFACE-MIB", "ciscoCircuitInterfaceGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCircuitInterfaceMIBCompliance = ciscoCircuitInterfaceMIBCompliance.setStatus('current')
+ciscoCircuitInterfaceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 160, 3, 2, 1)).setObjects(("CISCO-CIRCUIT-INTERFACE-MIB", "cciDescr"), ("CISCO-CIRCUIT-INTERFACE-MIB", "cciStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCircuitInterfaceGroup = ciscoCircuitInterfaceGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-CIRCUIT-INTERFACE-MIB", ciscoCircuitInterfaceMIBGroups=ciscoCircuitInterfaceMIBGroups, cciDescription=cciDescription, cciDescr=cciDescr, cciStatus=cciStatus, ciscoCircuitInterfaceGroup=ciscoCircuitInterfaceGroup, ciscoCircuitInterfaceMIB=ciscoCircuitInterfaceMIB, cciDescriptionEntry=cciDescriptionEntry, cciDescriptionTable=cciDescriptionTable, ciscoCircuitInterfaceMIBCompliance=ciscoCircuitInterfaceMIBCompliance, ciscoCircuitInterfaceMIBCompliances=ciscoCircuitInterfaceMIBCompliances, PYSNMP_MODULE_ID=ciscoCircuitInterfaceMIB, ciscoCircuitInterfaceMIBObjects=ciscoCircuitInterfaceMIBObjects, ciscoCircuitInterfaceMIBConformance=ciscoCircuitInterfaceMIBConformance)

@@ -1,110 +1,60 @@
-_P='hpnicfFtmNotificationGroup'
-_O='hpnicfFtmConfigGroup'
-_N='hpnicfFtmUnitNameChange'
-_M='hpnicfFtmUnitIDChange'
-_L='hpnicfFtmFabricType'
-_K='hpnicfFtmFabricVlanID'
-_J='hpnicfFtmAuthValue'
-_I='hpnicfFtmAuthMode'
-_H='hpnicfFtmUnitName'
-_G='hpnicfFtmUnitID'
-_F='read-only'
-_E='hpnicfFtmIndex'
-_D='read-write'
-_C='Integer32'
-_B='HPN-ICF-FTM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpnicfCommon,=mibBuilder.importSymbols('HPN-ICF-OID-MIB','hpnicfCommon')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-hpnicfFtmManMIB=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,15,2,1,1))
-_HpnicfFtm_ObjectIdentity=ObjectIdentity
-hpnicfFtm=_HpnicfFtm_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,1))
-_HpnicfFtmManMIBObjects_ObjectIdentity=ObjectIdentity
-hpnicfFtmManMIBObjects=_HpnicfFtmManMIBObjects_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,1,1,1))
-_HpnicfFtmUnitTable_Object=MibTable
-hpnicfFtmUnitTable=_HpnicfFtmUnitTable_Object((1,3,6,1,4,1,11,2,14,11,15,2,1,1,1,1))
-if mibBuilder.loadTexts:hpnicfFtmUnitTable.setStatus(_A)
-_HpnicfFtmUnitEntry_Object=MibTableRow
-hpnicfFtmUnitEntry=_HpnicfFtmUnitEntry_Object((1,3,6,1,4,1,11,2,14,11,15,2,1,1,1,1,1))
-hpnicfFtmUnitEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:hpnicfFtmUnitEntry.setStatus(_A)
-_HpnicfFtmIndex_Type=Integer32
-_HpnicfFtmIndex_Object=MibTableColumn
-hpnicfFtmIndex=_HpnicfFtmIndex_Object((1,3,6,1,4,1,11,2,14,11,15,2,1,1,1,1,1,1),_HpnicfFtmIndex_Type())
-hpnicfFtmIndex.setMaxAccess('accessible-for-notify')
-if mibBuilder.loadTexts:hpnicfFtmIndex.setStatus(_A)
-_HpnicfFtmUnitID_Type=Integer32
-_HpnicfFtmUnitID_Object=MibTableColumn
-hpnicfFtmUnitID=_HpnicfFtmUnitID_Object((1,3,6,1,4,1,11,2,14,11,15,2,1,1,1,1,1,2),_HpnicfFtmUnitID_Type())
-hpnicfFtmUnitID.setMaxAccess(_D)
-if mibBuilder.loadTexts:hpnicfFtmUnitID.setStatus(_A)
-_HpnicfFtmUnitName_Type=OctetString
-_HpnicfFtmUnitName_Object=MibTableColumn
-hpnicfFtmUnitName=_HpnicfFtmUnitName_Object((1,3,6,1,4,1,11,2,14,11,15,2,1,1,1,1,1,3),_HpnicfFtmUnitName_Type())
-hpnicfFtmUnitName.setMaxAccess(_D)
-if mibBuilder.loadTexts:hpnicfFtmUnitName.setStatus(_A)
-class _HpnicfFtmUnitRole_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('master',0),('slave',1)))
-_HpnicfFtmUnitRole_Type.__name__=_C
-_HpnicfFtmUnitRole_Object=MibTableColumn
-hpnicfFtmUnitRole=_HpnicfFtmUnitRole_Object((1,3,6,1,4,1,11,2,14,11,15,2,1,1,1,1,1,4),_HpnicfFtmUnitRole_Type())
-hpnicfFtmUnitRole.setMaxAccess(_F)
-if mibBuilder.loadTexts:hpnicfFtmUnitRole.setStatus(_A)
-class _HpnicfFtmNumberMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('automatic',0),('manual',1)))
-_HpnicfFtmNumberMode_Type.__name__=_C
-_HpnicfFtmNumberMode_Object=MibTableColumn
-hpnicfFtmNumberMode=_HpnicfFtmNumberMode_Object((1,3,6,1,4,1,11,2,14,11,15,2,1,1,1,1,1,5),_HpnicfFtmNumberMode_Type())
-hpnicfFtmNumberMode.setMaxAccess(_F)
-if mibBuilder.loadTexts:hpnicfFtmNumberMode.setStatus(_A)
-class _HpnicfFtmAuthMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('ftm-none',0),('ftm-simple',1),('ftm-md5',2)))
-_HpnicfFtmAuthMode_Type.__name__=_C
-_HpnicfFtmAuthMode_Object=MibScalar
-hpnicfFtmAuthMode=_HpnicfFtmAuthMode_Object((1,3,6,1,4,1,11,2,14,11,15,2,1,1,1,2),_HpnicfFtmAuthMode_Type())
-hpnicfFtmAuthMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:hpnicfFtmAuthMode.setStatus(_A)
-_HpnicfFtmAuthValue_Type=OctetString
-_HpnicfFtmAuthValue_Object=MibScalar
-hpnicfFtmAuthValue=_HpnicfFtmAuthValue_Object((1,3,6,1,4,1,11,2,14,11,15,2,1,1,1,3),_HpnicfFtmAuthValue_Type())
-hpnicfFtmAuthValue.setMaxAccess(_D)
-if mibBuilder.loadTexts:hpnicfFtmAuthValue.setStatus(_A)
-class _HpnicfFtmFabricVlanID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(2,4094))
-_HpnicfFtmFabricVlanID_Type.__name__=_C
-_HpnicfFtmFabricVlanID_Object=MibScalar
-hpnicfFtmFabricVlanID=_HpnicfFtmFabricVlanID_Object((1,3,6,1,4,1,11,2,14,11,15,2,1,1,1,4),_HpnicfFtmFabricVlanID_Type())
-hpnicfFtmFabricVlanID.setMaxAccess(_D)
-if mibBuilder.loadTexts:hpnicfFtmFabricVlanID.setStatus(_A)
-class _HpnicfFtmFabricType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('outofStack',1),('line',2),('ring',3),('mesh',4)))
-_HpnicfFtmFabricType_Type.__name__=_C
-_HpnicfFtmFabricType_Object=MibScalar
-hpnicfFtmFabricType=_HpnicfFtmFabricType_Object((1,3,6,1,4,1,11,2,14,11,15,2,1,1,1,5),_HpnicfFtmFabricType_Type())
-hpnicfFtmFabricType.setMaxAccess(_F)
-if mibBuilder.loadTexts:hpnicfFtmFabricType.setStatus(_A)
-_HpnicfFtmManMIBComformance_ObjectIdentity=ObjectIdentity
-hpnicfFtmManMIBComformance=_HpnicfFtmManMIBComformance_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,1,1,2))
-_HpnicfFtmMIBCompliances_ObjectIdentity=ObjectIdentity
-hpnicfFtmMIBCompliances=_HpnicfFtmMIBCompliances_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,1,1,2,1))
-_HpnicfFtmMIBGroups_ObjectIdentity=ObjectIdentity
-hpnicfFtmMIBGroups=_HpnicfFtmMIBGroups_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,1,1,2,2))
-_HpnicfFtmManMIBNotification_ObjectIdentity=ObjectIdentity
-hpnicfFtmManMIBNotification=_HpnicfFtmManMIBNotification_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,1,1,3))
-hpnicfFtmConfigGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,15,2,1,1,2,2,1))
-hpnicfFtmConfigGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L)))
-if mibBuilder.loadTexts:hpnicfFtmConfigGroup.setStatus(_A)
-hpnicfFtmUnitIDChange=NotificationType((1,3,6,1,4,1,11,2,14,11,15,2,1,1,3,1))
-hpnicfFtmUnitIDChange.setObjects(*((_B,_E),(_B,_G)))
-if mibBuilder.loadTexts:hpnicfFtmUnitIDChange.setStatus(_A)
-hpnicfFtmUnitNameChange=NotificationType((1,3,6,1,4,1,11,2,14,11,15,2,1,1,3,2))
-hpnicfFtmUnitNameChange.setObjects(*((_B,_E),(_B,_H)))
-if mibBuilder.loadTexts:hpnicfFtmUnitNameChange.setStatus(_A)
-hpnicfFtmNotificationGroup=NotificationGroup((1,3,6,1,4,1,11,2,14,11,15,2,1,1,2,2,2))
-hpnicfFtmNotificationGroup.setObjects(*((_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:hpnicfFtmNotificationGroup.setStatus(_A)
-hpnicfFtmMIBCompliance=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,15,2,1,1,2,1,1))
-hpnicfFtmMIBCompliance.setObjects(*((_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:hpnicfFtmMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'hpnicfFtm':hpnicfFtm,'hpnicfFtmManMIB':hpnicfFtmManMIB,'hpnicfFtmManMIBObjects':hpnicfFtmManMIBObjects,'hpnicfFtmUnitTable':hpnicfFtmUnitTable,'hpnicfFtmUnitEntry':hpnicfFtmUnitEntry,_E:hpnicfFtmIndex,_G:hpnicfFtmUnitID,_H:hpnicfFtmUnitName,'hpnicfFtmUnitRole':hpnicfFtmUnitRole,'hpnicfFtmNumberMode':hpnicfFtmNumberMode,_I:hpnicfFtmAuthMode,_J:hpnicfFtmAuthValue,_K:hpnicfFtmFabricVlanID,_L:hpnicfFtmFabricType,'hpnicfFtmManMIBComformance':hpnicfFtmManMIBComformance,'hpnicfFtmMIBCompliances':hpnicfFtmMIBCompliances,'hpnicfFtmMIBCompliance':hpnicfFtmMIBCompliance,'hpnicfFtmMIBGroups':hpnicfFtmMIBGroups,_O:hpnicfFtmConfigGroup,_P:hpnicfFtmNotificationGroup,'hpnicfFtmManMIBNotification':hpnicfFtmManMIBNotification,_M:hpnicfFtmUnitIDChange,_N:hpnicfFtmUnitNameChange})
+#
+# PySNMP MIB module HPN-ICF-FTM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-FTM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:59 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hpnicfFtmManMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1))
+if mibBuilder.loadTexts: hpnicfFtmManMIB.setLastUpdated('200401131055Z')
+if mibBuilder.loadTexts: hpnicfFtmManMIB.setOrganization('')
+hpnicfFtm = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1))
+hpnicfFtmManMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 1))
+hpnicfFtmUnitTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 1, 1), )
+if mibBuilder.loadTexts: hpnicfFtmUnitTable.setStatus('current')
+hpnicfFtmUnitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 1, 1, 1), ).setIndexNames((0, "HPN-ICF-FTM-MIB", "hpnicfFtmIndex"))
+if mibBuilder.loadTexts: hpnicfFtmUnitEntry.setStatus('current')
+hpnicfFtmIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 1, 1, 1, 1), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: hpnicfFtmIndex.setStatus('current')
+hpnicfFtmUnitID = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 1, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfFtmUnitID.setStatus('current')
+hpnicfFtmUnitName = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 1, 1, 1, 3), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfFtmUnitName.setStatus('current')
+hpnicfFtmUnitRole = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("master", 0), ("slave", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfFtmUnitRole.setStatus('current')
+hpnicfFtmNumberMode = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("automatic", 0), ("manual", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfFtmNumberMode.setStatus('current')
+hpnicfFtmAuthMode = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("ftm-none", 0), ("ftm-simple", 1), ("ftm-md5", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfFtmAuthMode.setStatus('current')
+hpnicfFtmAuthValue = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 1, 3), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfFtmAuthValue.setStatus('current')
+hpnicfFtmFabricVlanID = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(2, 4094))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfFtmFabricVlanID.setStatus('current')
+hpnicfFtmFabricType = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("outofStack", 1), ("line", 2), ("ring", 3), ("mesh", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfFtmFabricType.setStatus('current')
+hpnicfFtmManMIBNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 3))
+hpnicfFtmUnitIDChange = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 3, 1)).setObjects(("HPN-ICF-FTM-MIB", "hpnicfFtmIndex"), ("HPN-ICF-FTM-MIB", "hpnicfFtmUnitID"))
+if mibBuilder.loadTexts: hpnicfFtmUnitIDChange.setStatus('current')
+hpnicfFtmUnitNameChange = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 3, 2)).setObjects(("HPN-ICF-FTM-MIB", "hpnicfFtmIndex"), ("HPN-ICF-FTM-MIB", "hpnicfFtmUnitName"))
+if mibBuilder.loadTexts: hpnicfFtmUnitNameChange.setStatus('current')
+hpnicfFtmManMIBComformance = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 2))
+hpnicfFtmMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 2, 1))
+hpnicfFtmMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 2, 1, 1)).setObjects(("HPN-ICF-FTM-MIB", "hpnicfFtmConfigGroup"), ("HPN-ICF-FTM-MIB", "hpnicfFtmNotificationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpnicfFtmMIBCompliance = hpnicfFtmMIBCompliance.setStatus('current')
+hpnicfFtmMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 2, 2))
+hpnicfFtmConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 2, 2, 1)).setObjects(("HPN-ICF-FTM-MIB", "hpnicfFtmUnitID"), ("HPN-ICF-FTM-MIB", "hpnicfFtmUnitName"), ("HPN-ICF-FTM-MIB", "hpnicfFtmAuthMode"), ("HPN-ICF-FTM-MIB", "hpnicfFtmAuthValue"), ("HPN-ICF-FTM-MIB", "hpnicfFtmFabricVlanID"), ("HPN-ICF-FTM-MIB", "hpnicfFtmFabricType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpnicfFtmConfigGroup = hpnicfFtmConfigGroup.setStatus('current')
+hpnicfFtmNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 1, 1, 2, 2, 2)).setObjects(("HPN-ICF-FTM-MIB", "hpnicfFtmUnitIDChange"), ("HPN-ICF-FTM-MIB", "hpnicfFtmUnitNameChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpnicfFtmNotificationGroup = hpnicfFtmNotificationGroup.setStatus('current')
+mibBuilder.exportSymbols("HPN-ICF-FTM-MIB", hpnicfFtmFabricType=hpnicfFtmFabricType, hpnicfFtmAuthValue=hpnicfFtmAuthValue, hpnicfFtmUnitName=hpnicfFtmUnitName, hpnicfFtmNumberMode=hpnicfFtmNumberMode, hpnicfFtmUnitTable=hpnicfFtmUnitTable, hpnicfFtmUnitIDChange=hpnicfFtmUnitIDChange, hpnicfFtmFabricVlanID=hpnicfFtmFabricVlanID, hpnicfFtmMIBCompliance=hpnicfFtmMIBCompliance, hpnicfFtmMIBGroups=hpnicfFtmMIBGroups, hpnicfFtmAuthMode=hpnicfFtmAuthMode, hpnicfFtmManMIBObjects=hpnicfFtmManMIBObjects, hpnicfFtmUnitNameChange=hpnicfFtmUnitNameChange, hpnicfFtmMIBCompliances=hpnicfFtmMIBCompliances, hpnicfFtmUnitEntry=hpnicfFtmUnitEntry, hpnicfFtmManMIBComformance=hpnicfFtmManMIBComformance, hpnicfFtmIndex=hpnicfFtmIndex, hpnicfFtm=hpnicfFtm, hpnicfFtmUnitID=hpnicfFtmUnitID, PYSNMP_MODULE_ID=hpnicfFtmManMIB, hpnicfFtmManMIBNotification=hpnicfFtmManMIBNotification, hpnicfFtmManMIB=hpnicfFtmManMIB, hpnicfFtmUnitRole=hpnicfFtmUnitRole, hpnicfFtmConfigGroup=hpnicfFtmConfigGroup, hpnicfFtmNotificationGroup=hpnicfFtmNotificationGroup)

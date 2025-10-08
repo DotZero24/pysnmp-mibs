@@ -1,38 +1,30 @@
-_C='read-only'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mellanoxPowerCycle,=mibBuilder.importSymbols('MELLANOX-SMI-MIB','mellanoxPowerCycle')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-mellanoxPowerCycleMib=ModuleIdentity((1,3,6,1,4,1,33049,10,1))
-if mibBuilder.loadTexts:mellanoxPowerCycleMib.setRevisions(('2018-06-04 00:00',))
-_MellanoxPowerCycleMibObjects_ObjectIdentity=ObjectIdentity
-mellanoxPowerCycleMibObjects=_MellanoxPowerCycleMibObjects_ObjectIdentity((1,3,6,1,4,1,33049,10,1,1))
-_MellanoxPowerCycleCmd_ObjectIdentity=ObjectIdentity
-mellanoxPowerCycleCmd=_MellanoxPowerCycleCmd_ObjectIdentity((1,3,6,1,4,1,33049,10,1,1,2))
-class _MellanoxPowerCycleCmdExecute_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('mellanoxPowerCycleCmdExecuteReload',1),('mellanoxPowerCycleCmdExecuteReloadDiscard',2),('mellanoxPowerCycleCmdExecuteReloadForce',3),('mellanoxPowerCycleCmdExecuteReloadSlave',4)))
-_MellanoxPowerCycleCmdExecute_Type.__name__=_B
-_MellanoxPowerCycleCmdExecute_Object=MibScalar
-mellanoxPowerCycleCmdExecute=_MellanoxPowerCycleCmdExecute_Object((1,3,6,1,4,1,33049,10,1,1,2,1),_MellanoxPowerCycleCmdExecute_Type())
-mellanoxPowerCycleCmdExecute.setMaxAccess('read-write')
-if mibBuilder.loadTexts:mellanoxPowerCycleCmdExecute.setStatus(_A)
-_MellanoxPowerCycleCmdStatus_Type=Integer32
-_MellanoxPowerCycleCmdStatus_Object=MibScalar
-mellanoxPowerCycleCmdStatus=_MellanoxPowerCycleCmdStatus_Object((1,3,6,1,4,1,33049,10,1,1,2,2),_MellanoxPowerCycleCmdStatus_Type())
-mellanoxPowerCycleCmdStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:mellanoxPowerCycleCmdStatus.setStatus(_A)
-_MellanoxPowerCycleCmdStatusString_Type=OctetString
-_MellanoxPowerCycleCmdStatusString_Object=MibScalar
-mellanoxPowerCycleCmdStatusString=_MellanoxPowerCycleCmdStatusString_Object((1,3,6,1,4,1,33049,10,1,1,2,3),_MellanoxPowerCycleCmdStatusString_Type())
-mellanoxPowerCycleCmdStatusString.setMaxAccess(_C)
-if mibBuilder.loadTexts:mellanoxPowerCycleCmdStatusString.setStatus(_A)
-_MellanoxPowerCycleNotifications_ObjectIdentity=ObjectIdentity
-mellanoxPowerCycleNotifications=_MellanoxPowerCycleNotifications_ObjectIdentity((1,3,6,1,4,1,33049,10,1,1,3))
-mellanoxPowerCyclePlannedReload=NotificationType((1,3,6,1,4,1,33049,10,1,1,3,1))
-if mibBuilder.loadTexts:mellanoxPowerCyclePlannedReload.setStatus(_A)
-mibBuilder.exportSymbols('MELLANOX-POWER-CYCLE-MIB',**{'mellanoxPowerCycleMib':mellanoxPowerCycleMib,'mellanoxPowerCycleMibObjects':mellanoxPowerCycleMibObjects,'mellanoxPowerCycleCmd':mellanoxPowerCycleCmd,'mellanoxPowerCycleCmdExecute':mellanoxPowerCycleCmdExecute,'mellanoxPowerCycleCmdStatus':mellanoxPowerCycleCmdStatus,'mellanoxPowerCycleCmdStatusString':mellanoxPowerCycleCmdStatusString,'mellanoxPowerCycleNotifications':mellanoxPowerCycleNotifications,'mellanoxPowerCyclePlannedReload':mellanoxPowerCyclePlannedReload})
+#
+# PySNMP MIB module MELLANOX-POWER-CYCLE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mellanox/MELLANOX-POWER-CYCLE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:06 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mellanoxPowerCycle, = mibBuilder.importSymbols("MELLANOX-SMI-MIB", "mellanoxPowerCycle")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+mellanoxPowerCycleMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 33049, 10, 1))
+mellanoxPowerCycleMib.setRevisions(('2018-06-04 00:00',))
+if mibBuilder.loadTexts: mellanoxPowerCycleMib.setLastUpdated('201806040000Z')
+if mibBuilder.loadTexts: mellanoxPowerCycleMib.setOrganization('Mellanox Technologies, Inc.')
+mellanoxPowerCycleMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 33049, 10, 1, 1))
+mellanoxPowerCycleCmd = MibIdentifier((1, 3, 6, 1, 4, 1, 33049, 10, 1, 1, 2))
+mellanoxPowerCycleNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 33049, 10, 1, 1, 3))
+mellanoxPowerCycleCmdExecute = MibScalar((1, 3, 6, 1, 4, 1, 33049, 10, 1, 1, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("mellanoxPowerCycleCmdExecuteReload", 1), ("mellanoxPowerCycleCmdExecuteReloadDiscard", 2), ("mellanoxPowerCycleCmdExecuteReloadForce", 3), ("mellanoxPowerCycleCmdExecuteReloadSlave", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mellanoxPowerCycleCmdExecute.setStatus('current')
+mellanoxPowerCycleCmdStatus = MibScalar((1, 3, 6, 1, 4, 1, 33049, 10, 1, 1, 2, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mellanoxPowerCycleCmdStatus.setStatus('current')
+mellanoxPowerCycleCmdStatusString = MibScalar((1, 3, 6, 1, 4, 1, 33049, 10, 1, 1, 2, 3), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mellanoxPowerCycleCmdStatusString.setStatus('current')
+mellanoxPowerCyclePlannedReload = NotificationType((1, 3, 6, 1, 4, 1, 33049, 10, 1, 1, 3, 1))
+if mibBuilder.loadTexts: mellanoxPowerCyclePlannedReload.setStatus('current')
+mibBuilder.exportSymbols("MELLANOX-POWER-CYCLE-MIB", mellanoxPowerCycleCmdStatusString=mellanoxPowerCycleCmdStatusString, mellanoxPowerCycleNotifications=mellanoxPowerCycleNotifications, mellanoxPowerCycleMibObjects=mellanoxPowerCycleMibObjects, PYSNMP_MODULE_ID=mellanoxPowerCycleMib, mellanoxPowerCycleMib=mellanoxPowerCycleMib, mellanoxPowerCyclePlannedReload=mellanoxPowerCyclePlannedReload, mellanoxPowerCycleCmdExecute=mellanoxPowerCycleCmdExecute, mellanoxPowerCycleCmdStatus=mellanoxPowerCycleCmdStatus, mellanoxPowerCycleCmd=mellanoxPowerCycleCmd)

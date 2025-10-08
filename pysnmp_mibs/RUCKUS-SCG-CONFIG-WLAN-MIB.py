@@ -1,148 +1,65 @@
-_J='ruckusSCGConfigWLANID'
-_I='RUCKUS-SCG-CONFIG-WLAN-MIB'
-_H='DisplayString'
-_G='disable'
-_F='enable'
-_E='read-only'
-_D='OctetString'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-IANAifType,=mibBuilder.importSymbols('IANAifType-MIB','IANAifType')
-Ipv6Address,=mibBuilder.importSymbols('IPV6-TC','Ipv6Address')
-ruckusSCGWLANModule,=mibBuilder.importSymbols('RUCKUS-ROOT-MIB','ruckusSCGWLANModule')
-RuckusAdminStatus,RuckusRadioMode,RuckusRateLimiting,RuckusSSID,RuckusdB=mibBuilder.importSymbols('RUCKUS-TC-MIB','RuckusAdminStatus','RuckusRadioMode','RuckusRateLimiting','RuckusSSID','RuckusdB')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_H,'MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-ruckusSCGConfigWLANMIB=ModuleIdentity((1,3,6,1,4,1,25053,1,3,2,2))
-_RuckusSCGConfigWLANObjects_ObjectIdentity=ObjectIdentity
-ruckusSCGConfigWLANObjects=_RuckusSCGConfigWLANObjects_ObjectIdentity((1,3,6,1,4,1,25053,1,3,2,2,1))
-_RuckusSCGConfigWLAN_ObjectIdentity=ObjectIdentity
-ruckusSCGConfigWLAN=_RuckusSCGConfigWLAN_ObjectIdentity((1,3,6,1,4,1,25053,1,3,2,2,1,1))
-_RuckusSCGConfigWLANTable_Object=MibTable
-ruckusSCGConfigWLANTable=_RuckusSCGConfigWLANTable_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1))
-if mibBuilder.loadTexts:ruckusSCGConfigWLANTable.setStatus(_A)
-_RuckusSCGConfigWLANEntry_Object=MibTableRow
-ruckusSCGConfigWLANEntry=_RuckusSCGConfigWLANEntry_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1))
-ruckusSCGConfigWLANEntry.setIndexNames((0,_I,_J))
-if mibBuilder.loadTexts:ruckusSCGConfigWLANEntry.setStatus(_A)
-class _RuckusSCGConfigWLANID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_RuckusSCGConfigWLANID_Type.__name__=_B
-_RuckusSCGConfigWLANID_Object=MibTableColumn
-ruckusSCGConfigWLANID=_RuckusSCGConfigWLANID_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1,1),_RuckusSCGConfigWLANID_Type())
-ruckusSCGConfigWLANID.setMaxAccess(_E)
-if mibBuilder.loadTexts:ruckusSCGConfigWLANID.setStatus(_A)
-class _RuckusSCGConfigWLANSSID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,32))
-_RuckusSCGConfigWLANSSID_Type.__name__=_D
-_RuckusSCGConfigWLANSSID_Object=MibTableColumn
-ruckusSCGConfigWLANSSID=_RuckusSCGConfigWLANSSID_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1,2),_RuckusSCGConfigWLANSSID_Type())
-ruckusSCGConfigWLANSSID.setMaxAccess(_E)
-if mibBuilder.loadTexts:ruckusSCGConfigWLANSSID.setStatus(_A)
-class _RuckusSCGConfigWLANDescription_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_RuckusSCGConfigWLANDescription_Type.__name__=_H
-_RuckusSCGConfigWLANDescription_Object=MibTableColumn
-ruckusSCGConfigWLANDescription=_RuckusSCGConfigWLANDescription_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1,3),_RuckusSCGConfigWLANDescription_Type())
-ruckusSCGConfigWLANDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:ruckusSCGConfigWLANDescription.setStatus(_A)
-class _RuckusSCGConfigWLANName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,32))
-_RuckusSCGConfigWLANName_Type.__name__=_D
-_RuckusSCGConfigWLANName_Object=MibTableColumn
-ruckusSCGConfigWLANName=_RuckusSCGConfigWLANName_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1,4),_RuckusSCGConfigWLANName_Type())
-ruckusSCGConfigWLANName.setMaxAccess(_E)
-if mibBuilder.loadTexts:ruckusSCGConfigWLANName.setStatus(_A)
-class _RuckusSCGZoneName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_RuckusSCGZoneName_Type.__name__=_D
-_RuckusSCGZoneName_Object=MibTableColumn
-ruckusSCGZoneName=_RuckusSCGZoneName_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1,5),_RuckusSCGZoneName_Type())
-ruckusSCGZoneName.setMaxAccess(_E)
-if mibBuilder.loadTexts:ruckusSCGZoneName.setStatus(_A)
-class _RuckusSCGConfigWLANWLANServiceType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('standardUsage',1),('hotspot',2),('guest',3),('webauth',4),('hotspot20',5),('hotspot20-osen',6)))
-_RuckusSCGConfigWLANWLANServiceType_Type.__name__=_B
-_RuckusSCGConfigWLANWLANServiceType_Object=MibTableColumn
-ruckusSCGConfigWLANWLANServiceType=_RuckusSCGConfigWLANWLANServiceType_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1,8),_RuckusSCGConfigWLANWLANServiceType_Type())
-ruckusSCGConfigWLANWLANServiceType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ruckusSCGConfigWLANWLANServiceType.setStatus(_A)
-class _RuckusSCGConfigWLANAuthentication_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('open',1),('eap',2),('mac-address',3)))
-_RuckusSCGConfigWLANAuthentication_Type.__name__=_B
-_RuckusSCGConfigWLANAuthentication_Object=MibTableColumn
-ruckusSCGConfigWLANAuthentication=_RuckusSCGConfigWLANAuthentication_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1,10),_RuckusSCGConfigWLANAuthentication_Type())
-ruckusSCGConfigWLANAuthentication.setMaxAccess(_E)
-if mibBuilder.loadTexts:ruckusSCGConfigWLANAuthentication.setStatus(_A)
-class _RuckusSCGConfigWLANEncryption_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('wpa2',1),('wpa-Mixed',2),('wep-64',3),('wep-128',4),('none-enc',5)))
-_RuckusSCGConfigWLANEncryption_Type.__name__=_B
-_RuckusSCGConfigWLANEncryption_Object=MibTableColumn
-ruckusSCGConfigWLANEncryption=_RuckusSCGConfigWLANEncryption_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1,12),_RuckusSCGConfigWLANEncryption_Type())
-ruckusSCGConfigWLANEncryption.setMaxAccess(_C)
-if mibBuilder.loadTexts:ruckusSCGConfigWLANEncryption.setStatus(_A)
-class _RuckusSCGConfigWLANWEPKeyIndex_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
-_RuckusSCGConfigWLANWEPKeyIndex_Type.__name__=_B
-_RuckusSCGConfigWLANWEPKeyIndex_Object=MibTableColumn
-ruckusSCGConfigWLANWEPKeyIndex=_RuckusSCGConfigWLANWEPKeyIndex_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1,15),_RuckusSCGConfigWLANWEPKeyIndex_Type())
-ruckusSCGConfigWLANWEPKeyIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ruckusSCGConfigWLANWEPKeyIndex.setStatus(_A)
-class _RuckusSCGConfigWLANWEPKey_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(10,10),ValueSizeConstraint(26,26))
-_RuckusSCGConfigWLANWEPKey_Type.__name__=_D
-_RuckusSCGConfigWLANWEPKey_Object=MibTableColumn
-ruckusSCGConfigWLANWEPKey=_RuckusSCGConfigWLANWEPKey_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1,16),_RuckusSCGConfigWLANWEPKey_Type())
-ruckusSCGConfigWLANWEPKey.setMaxAccess(_C)
-if mibBuilder.loadTexts:ruckusSCGConfigWLANWEPKey.setStatus(_A)
-class _RuckusSCGConfigWLANWPACipherType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('aes',1),('tkipaes',2),('null',3)))
-_RuckusSCGConfigWLANWPACipherType_Type.__name__=_B
-_RuckusSCGConfigWLANWPACipherType_Object=MibTableColumn
-ruckusSCGConfigWLANWPACipherType=_RuckusSCGConfigWLANWPACipherType_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1,20),_RuckusSCGConfigWLANWPACipherType_Type())
-ruckusSCGConfigWLANWPACipherType.setMaxAccess(_C)
-if mibBuilder.loadTexts:ruckusSCGConfigWLANWPACipherType.setStatus(_A)
-class _RuckusSCGConfigWLANWPAKey_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,63),ValueSizeConstraint(64,64))
-_RuckusSCGConfigWLANWPAKey_Type.__name__=_D
-_RuckusSCGConfigWLANWPAKey_Object=MibTableColumn
-ruckusSCGConfigWLANWPAKey=_RuckusSCGConfigWLANWPAKey_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1,21),_RuckusSCGConfigWLANWPAKey_Type())
-ruckusSCGConfigWLANWPAKey.setMaxAccess(_C)
-if mibBuilder.loadTexts:ruckusSCGConfigWLANWPAKey.setStatus(_A)
-class _RuckusSCGConfigWLANWirelessClientIsolation_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_RuckusSCGConfigWLANWirelessClientIsolation_Type.__name__=_B
-_RuckusSCGConfigWLANWirelessClientIsolation_Object=MibTableColumn
-ruckusSCGConfigWLANWirelessClientIsolation=_RuckusSCGConfigWLANWirelessClientIsolation_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1,28),_RuckusSCGConfigWLANWirelessClientIsolation_Type())
-ruckusSCGConfigWLANWirelessClientIsolation.setMaxAccess(_C)
-if mibBuilder.loadTexts:ruckusSCGConfigWLANWirelessClientIsolation.setStatus(_A)
-class _RuckusSCGConfigWLANZeroITActivation_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_RuckusSCGConfigWLANZeroITActivation_Type.__name__=_B
-_RuckusSCGConfigWLANZeroITActivation_Object=MibTableColumn
-ruckusSCGConfigWLANZeroITActivation=_RuckusSCGConfigWLANZeroITActivation_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1,30),_RuckusSCGConfigWLANZeroITActivation_Type())
-ruckusSCGConfigWLANZeroITActivation.setMaxAccess(_C)
-if mibBuilder.loadTexts:ruckusSCGConfigWLANZeroITActivation.setStatus(_A)
-class _RuckusSCGConfigWLANServicePriority_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('high',1),('low',2)))
-_RuckusSCGConfigWLANServicePriority_Type.__name__=_B
-_RuckusSCGConfigWLANServicePriority_Object=MibTableColumn
-ruckusSCGConfigWLANServicePriority=_RuckusSCGConfigWLANServicePriority_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1,32),_RuckusSCGConfigWLANServicePriority_Type())
-ruckusSCGConfigWLANServicePriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:ruckusSCGConfigWLANServicePriority.setStatus(_A)
-class _RuckusSCGConfigWLANAccountingUpdateInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,60))
-_RuckusSCGConfigWLANAccountingUpdateInterval_Type.__name__=_B
-_RuckusSCGConfigWLANAccountingUpdateInterval_Object=MibTableColumn
-ruckusSCGConfigWLANAccountingUpdateInterval=_RuckusSCGConfigWLANAccountingUpdateInterval_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1,36),_RuckusSCGConfigWLANAccountingUpdateInterval_Type())
-ruckusSCGConfigWLANAccountingUpdateInterval.setMaxAccess(_C)
-if mibBuilder.loadTexts:ruckusSCGConfigWLANAccountingUpdateInterval.setStatus(_A)
-class _RuckusSCGConfigWLANVlanID_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_RuckusSCGConfigWLANVlanID_Type.__name__=_B
-_RuckusSCGConfigWLANVlanID_Object=MibTableColumn
-ruckusSCGConfigWLANVlanID=_RuckusSCGConfigWLANVlanID_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1,45),_RuckusSCGConfigWLANVlanID_Type())
-ruckusSCGConfigWLANVlanID.setMaxAccess(_C)
-if mibBuilder.loadTexts:ruckusSCGConfigWLANVlanID.setStatus(_A)
-class _RuckusSCGConfigWLANHideSSID_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_RuckusSCGConfigWLANHideSSID_Type.__name__=_B
-_RuckusSCGConfigWLANHideSSID_Object=MibTableColumn
-ruckusSCGConfigWLANHideSSID=_RuckusSCGConfigWLANHideSSID_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1,50),_RuckusSCGConfigWLANHideSSID_Type())
-ruckusSCGConfigWLANHideSSID.setMaxAccess(_C)
-if mibBuilder.loadTexts:ruckusSCGConfigWLANHideSSID.setStatus(_A)
-class _RuckusSCGConfigWLANMaxClientsPerAP_Type(Integer32):defaultValue=100;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,512))
-_RuckusSCGConfigWLANMaxClientsPerAP_Type.__name__=_B
-_RuckusSCGConfigWLANMaxClientsPerAP_Object=MibTableColumn
-ruckusSCGConfigWLANMaxClientsPerAP=_RuckusSCGConfigWLANMaxClientsPerAP_Object((1,3,6,1,4,1,25053,1,3,2,2,1,1,1,1,55),_RuckusSCGConfigWLANMaxClientsPerAP_Type())
-ruckusSCGConfigWLANMaxClientsPerAP.setMaxAccess(_C)
-if mibBuilder.loadTexts:ruckusSCGConfigWLANMaxClientsPerAP.setStatus(_A)
-mibBuilder.exportSymbols(_I,**{'ruckusSCGConfigWLANMIB':ruckusSCGConfigWLANMIB,'ruckusSCGConfigWLANObjects':ruckusSCGConfigWLANObjects,'ruckusSCGConfigWLAN':ruckusSCGConfigWLAN,'ruckusSCGConfigWLANTable':ruckusSCGConfigWLANTable,'ruckusSCGConfigWLANEntry':ruckusSCGConfigWLANEntry,_J:ruckusSCGConfigWLANID,'ruckusSCGConfigWLANSSID':ruckusSCGConfigWLANSSID,'ruckusSCGConfigWLANDescription':ruckusSCGConfigWLANDescription,'ruckusSCGConfigWLANName':ruckusSCGConfigWLANName,'ruckusSCGZoneName':ruckusSCGZoneName,'ruckusSCGConfigWLANWLANServiceType':ruckusSCGConfigWLANWLANServiceType,'ruckusSCGConfigWLANAuthentication':ruckusSCGConfigWLANAuthentication,'ruckusSCGConfigWLANEncryption':ruckusSCGConfigWLANEncryption,'ruckusSCGConfigWLANWEPKeyIndex':ruckusSCGConfigWLANWEPKeyIndex,'ruckusSCGConfigWLANWEPKey':ruckusSCGConfigWLANWEPKey,'ruckusSCGConfigWLANWPACipherType':ruckusSCGConfigWLANWPACipherType,'ruckusSCGConfigWLANWPAKey':ruckusSCGConfigWLANWPAKey,'ruckusSCGConfigWLANWirelessClientIsolation':ruckusSCGConfigWLANWirelessClientIsolation,'ruckusSCGConfigWLANZeroITActivation':ruckusSCGConfigWLANZeroITActivation,'ruckusSCGConfigWLANServicePriority':ruckusSCGConfigWLANServicePriority,'ruckusSCGConfigWLANAccountingUpdateInterval':ruckusSCGConfigWLANAccountingUpdateInterval,'ruckusSCGConfigWLANVlanID':ruckusSCGConfigWLANVlanID,'ruckusSCGConfigWLANHideSSID':ruckusSCGConfigWLANHideSSID,'ruckusSCGConfigWLANMaxClientsPerAP':ruckusSCGConfigWLANMaxClientsPerAP})
+#
+# PySNMP MIB module RUCKUS-SCG-CONFIG-WLAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ruckus/RUCKUS-SCG-CONFIG-WLAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+IANAifType, = mibBuilder.importSymbols("IANAifType-MIB", "IANAifType")
+Ipv6Address, = mibBuilder.importSymbols("IPV6-TC", "Ipv6Address")
+ruckusSCGWLANModule, = mibBuilder.importSymbols("RUCKUS-ROOT-MIB", "ruckusSCGWLANModule")
+RuckusRadioMode, RuckusRateLimiting, RuckusAdminStatus, RuckusSSID, RuckusdB = mibBuilder.importSymbols("RUCKUS-TC-MIB", "RuckusRadioMode", "RuckusRateLimiting", "RuckusAdminStatus", "RuckusSSID", "RuckusdB")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, PhysAddress, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "PhysAddress", "TruthValue", "TextualConvention")
+ruckusSCGConfigWLANMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2))
+if mibBuilder.loadTexts: ruckusSCGConfigWLANMIB.setLastUpdated('201503191100Z')
+if mibBuilder.loadTexts: ruckusSCGConfigWLANMIB.setOrganization('Ruckus Wireless, Inc.')
+ruckusSCGConfigWLANObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1))
+ruckusSCGConfigWLAN = MibIdentifier((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1))
+ruckusSCGConfigWLANTable = MibTable((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1), )
+if mibBuilder.loadTexts: ruckusSCGConfigWLANTable.setStatus('current')
+ruckusSCGConfigWLANEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1), ).setIndexNames((0, "RUCKUS-SCG-CONFIG-WLAN-MIB", "ruckusSCGConfigWLANID"))
+if mibBuilder.loadTexts: ruckusSCGConfigWLANEntry.setStatus('current')
+ruckusSCGConfigWLANID = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ruckusSCGConfigWLANID.setStatus('current')
+ruckusSCGConfigWLANSSID = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ruckusSCGConfigWLANSSID.setStatus('current')
+ruckusSCGConfigWLANDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusSCGConfigWLANDescription.setStatus('current')
+ruckusSCGConfigWLANName = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ruckusSCGConfigWLANName.setStatus('current')
+ruckusSCGZoneName = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ruckusSCGZoneName.setStatus('current')
+ruckusSCGConfigWLANWLANServiceType = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("standardUsage", 1), ("hotspot", 2), ("guest", 3), ("webauth", 4), ("hotspot20", 5), ("hotspot20-osen", 6))).clone('standardUsage')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ruckusSCGConfigWLANWLANServiceType.setStatus('current')
+ruckusSCGConfigWLANAuthentication = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("open", 1), ("eap", 2), ("mac-address", 3))).clone('open')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ruckusSCGConfigWLANAuthentication.setStatus('current')
+ruckusSCGConfigWLANEncryption = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("wpa2", 1), ("wpa-Mixed", 2), ("wep-64", 3), ("wep-128", 4), ("none-enc", 5))).clone('none-enc')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusSCGConfigWLANEncryption.setStatus('current')
+ruckusSCGConfigWLANWEPKeyIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusSCGConfigWLANWEPKeyIndex.setStatus('current')
+ruckusSCGConfigWLANWEPKey = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1, 16), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(10, 10), ValueSizeConstraint(26, 26), ))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusSCGConfigWLANWEPKey.setStatus('current')
+ruckusSCGConfigWLANWPACipherType = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("aes", 1), ("tkipaes", 2), ("null", 3))).clone('aes')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusSCGConfigWLANWPACipherType.setStatus('current')
+ruckusSCGConfigWLANWPAKey = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1, 21), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(8, 63), ValueSizeConstraint(64, 64), ))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusSCGConfigWLANWPAKey.setStatus('current')
+ruckusSCGConfigWLANWirelessClientIsolation = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1, 28), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusSCGConfigWLANWirelessClientIsolation.setStatus('current')
+ruckusSCGConfigWLANZeroITActivation = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1, 30), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusSCGConfigWLANZeroITActivation.setStatus('current')
+ruckusSCGConfigWLANServicePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1, 32), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("high", 1), ("low", 2))).clone('high')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusSCGConfigWLANServicePriority.setStatus('current')
+ruckusSCGConfigWLANAccountingUpdateInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1, 36), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 60))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusSCGConfigWLANAccountingUpdateInterval.setStatus('current')
+ruckusSCGConfigWLANVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1, 45), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusSCGConfigWLANVlanID.setStatus('current')
+ruckusSCGConfigWLANHideSSID = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1, 50), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusSCGConfigWLANHideSSID.setStatus('current')
+ruckusSCGConfigWLANMaxClientsPerAP = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 3, 2, 2, 1, 1, 1, 1, 55), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 512)).clone(100)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusSCGConfigWLANMaxClientsPerAP.setStatus('current')
+mibBuilder.exportSymbols("RUCKUS-SCG-CONFIG-WLAN-MIB", ruckusSCGConfigWLANZeroITActivation=ruckusSCGConfigWLANZeroITActivation, ruckusSCGZoneName=ruckusSCGZoneName, ruckusSCGConfigWLANMaxClientsPerAP=ruckusSCGConfigWLANMaxClientsPerAP, ruckusSCGConfigWLANAuthentication=ruckusSCGConfigWLANAuthentication, ruckusSCGConfigWLANName=ruckusSCGConfigWLANName, ruckusSCGConfigWLANDescription=ruckusSCGConfigWLANDescription, ruckusSCGConfigWLANEntry=ruckusSCGConfigWLANEntry, ruckusSCGConfigWLANWPAKey=ruckusSCGConfigWLANWPAKey, ruckusSCGConfigWLANEncryption=ruckusSCGConfigWLANEncryption, ruckusSCGConfigWLAN=ruckusSCGConfigWLAN, ruckusSCGConfigWLANMIB=ruckusSCGConfigWLANMIB, ruckusSCGConfigWLANWEPKey=ruckusSCGConfigWLANWEPKey, ruckusSCGConfigWLANAccountingUpdateInterval=ruckusSCGConfigWLANAccountingUpdateInterval, ruckusSCGConfigWLANObjects=ruckusSCGConfigWLANObjects, ruckusSCGConfigWLANVlanID=ruckusSCGConfigWLANVlanID, ruckusSCGConfigWLANID=ruckusSCGConfigWLANID, ruckusSCGConfigWLANTable=ruckusSCGConfigWLANTable, ruckusSCGConfigWLANSSID=ruckusSCGConfigWLANSSID, ruckusSCGConfigWLANWPACipherType=ruckusSCGConfigWLANWPACipherType, ruckusSCGConfigWLANWEPKeyIndex=ruckusSCGConfigWLANWEPKeyIndex, ruckusSCGConfigWLANWirelessClientIsolation=ruckusSCGConfigWLANWirelessClientIsolation, ruckusSCGConfigWLANHideSSID=ruckusSCGConfigWLANHideSSID, ruckusSCGConfigWLANWLANServiceType=ruckusSCGConfigWLANWLANServiceType, ruckusSCGConfigWLANServicePriority=ruckusSCGConfigWLANServicePriority, PYSNMP_MODULE_ID=ruckusSCGConfigWLANMIB)

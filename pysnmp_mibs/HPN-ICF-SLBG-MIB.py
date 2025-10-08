@@ -1,65 +1,41 @@
-_F='hpnicfSlbgPortIndex'
-_E='read-create'
-_D='not-accessible'
-_C='hpnicfSlbgGroupNumber'
-_B='HPN-ICF-SLBG-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpnicfCommon,=mibBuilder.importSymbols('HPN-ICF-OID-MIB','hpnicfCommon')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-hpnicfSlbg=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,15,2,130))
-if mibBuilder.loadTexts:hpnicfSlbg.setRevisions(('2012-10-16 00:00',))
-_HpnicfSlbgMibTable_ObjectIdentity=ObjectIdentity
-hpnicfSlbgMibTable=_HpnicfSlbgMibTable_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,130,1))
-_HpnicfSlbgGroupTable_Object=MibTable
-hpnicfSlbgGroupTable=_HpnicfSlbgGroupTable_Object((1,3,6,1,4,1,11,2,14,11,15,2,130,1,1))
-if mibBuilder.loadTexts:hpnicfSlbgGroupTable.setStatus(_A)
-_HpnicfSlbgGroupEntry_Object=MibTableRow
-hpnicfSlbgGroupEntry=_HpnicfSlbgGroupEntry_Object((1,3,6,1,4,1,11,2,14,11,15,2,130,1,1,1))
-hpnicfSlbgGroupEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:hpnicfSlbgGroupEntry.setStatus(_A)
-_HpnicfSlbgGroupNumber_Type=Unsigned32
-_HpnicfSlbgGroupNumber_Object=MibTableColumn
-hpnicfSlbgGroupNumber=_HpnicfSlbgGroupNumber_Object((1,3,6,1,4,1,11,2,14,11,15,2,130,1,1,1,1),_HpnicfSlbgGroupNumber_Type())
-hpnicfSlbgGroupNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:hpnicfSlbgGroupNumber.setStatus(_A)
-class _HpnicfSlbgGroupSrvType_Type(Bits):namedValues=NamedValues(*(('ipv6',0),('ipv6mc',1),('tunnel',2),('multicastTunnel',3),('mpls',4)))
-_HpnicfSlbgGroupSrvType_Type.__name__='Bits'
-_HpnicfSlbgGroupSrvType_Object=MibTableColumn
-hpnicfSlbgGroupSrvType=_HpnicfSlbgGroupSrvType_Object((1,3,6,1,4,1,11,2,14,11,15,2,130,1,1,1,2),_HpnicfSlbgGroupSrvType_Type())
-hpnicfSlbgGroupSrvType.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfSlbgGroupSrvType.setStatus(_A)
-_HpnicfSlbgGroupRowStatus_Type=RowStatus
-_HpnicfSlbgGroupRowStatus_Object=MibTableColumn
-hpnicfSlbgGroupRowStatus=_HpnicfSlbgGroupRowStatus_Object((1,3,6,1,4,1,11,2,14,11,15,2,130,1,1,1,3),_HpnicfSlbgGroupRowStatus_Type())
-hpnicfSlbgGroupRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfSlbgGroupRowStatus.setStatus(_A)
-_HpnicfSlbgPortTable_Object=MibTable
-hpnicfSlbgPortTable=_HpnicfSlbgPortTable_Object((1,3,6,1,4,1,11,2,14,11,15,2,130,1,2))
-if mibBuilder.loadTexts:hpnicfSlbgPortTable.setStatus(_A)
-_HpnicfSlbgPortEntry_Object=MibTableRow
-hpnicfSlbgPortEntry=_HpnicfSlbgPortEntry_Object((1,3,6,1,4,1,11,2,14,11,15,2,130,1,2,1))
-hpnicfSlbgPortEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:hpnicfSlbgPortEntry.setStatus(_A)
-_HpnicfSlbgPortIndex_Type=InterfaceIndex
-_HpnicfSlbgPortIndex_Object=MibTableColumn
-hpnicfSlbgPortIndex=_HpnicfSlbgPortIndex_Object((1,3,6,1,4,1,11,2,14,11,15,2,130,1,2,1,1),_HpnicfSlbgPortIndex_Type())
-hpnicfSlbgPortIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:hpnicfSlbgPortIndex.setStatus(_A)
-_HpnicfSlbgPortAttachedGroupNumber_Type=Unsigned32
-_HpnicfSlbgPortAttachedGroupNumber_Object=MibTableColumn
-hpnicfSlbgPortAttachedGroupNumber=_HpnicfSlbgPortAttachedGroupNumber_Object((1,3,6,1,4,1,11,2,14,11,15,2,130,1,2,1,2),_HpnicfSlbgPortAttachedGroupNumber_Type())
-hpnicfSlbgPortAttachedGroupNumber.setMaxAccess('read-write')
-if mibBuilder.loadTexts:hpnicfSlbgPortAttachedGroupNumber.setStatus(_A)
-_HpnicfSlbgPortSelectedGroupNumber_Type=Unsigned32
-_HpnicfSlbgPortSelectedGroupNumber_Object=MibTableColumn
-hpnicfSlbgPortSelectedGroupNumber=_HpnicfSlbgPortSelectedGroupNumber_Object((1,3,6,1,4,1,11,2,14,11,15,2,130,1,2,1,3),_HpnicfSlbgPortSelectedGroupNumber_Type())
-hpnicfSlbgPortSelectedGroupNumber.setMaxAccess('read-only')
-if mibBuilder.loadTexts:hpnicfSlbgPortSelectedGroupNumber.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'hpnicfSlbg':hpnicfSlbg,'hpnicfSlbgMibTable':hpnicfSlbgMibTable,'hpnicfSlbgGroupTable':hpnicfSlbgGroupTable,'hpnicfSlbgGroupEntry':hpnicfSlbgGroupEntry,_C:hpnicfSlbgGroupNumber,'hpnicfSlbgGroupSrvType':hpnicfSlbgGroupSrvType,'hpnicfSlbgGroupRowStatus':hpnicfSlbgGroupRowStatus,'hpnicfSlbgPortTable':hpnicfSlbgPortTable,'hpnicfSlbgPortEntry':hpnicfSlbgPortEntry,_F:hpnicfSlbgPortIndex,'hpnicfSlbgPortAttachedGroupNumber':hpnicfSlbgPortAttachedGroupNumber,'hpnicfSlbgPortSelectedGroupNumber':hpnicfSlbgPortSelectedGroupNumber})
+#
+# PySNMP MIB module HPN-ICF-SLBG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-SLBG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:44 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+hpnicfSlbg = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 130))
+hpnicfSlbg.setRevisions(('2012-10-16 00:00',))
+if mibBuilder.loadTexts: hpnicfSlbg.setLastUpdated('201210160000Z')
+if mibBuilder.loadTexts: hpnicfSlbg.setOrganization('')
+hpnicfSlbgMibTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 130, 1))
+hpnicfSlbgGroupTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 130, 1, 1), )
+if mibBuilder.loadTexts: hpnicfSlbgGroupTable.setStatus('current')
+hpnicfSlbgGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 130, 1, 1, 1), ).setIndexNames((0, "HPN-ICF-SLBG-MIB", "hpnicfSlbgGroupNumber"))
+if mibBuilder.loadTexts: hpnicfSlbgGroupEntry.setStatus('current')
+hpnicfSlbgGroupNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 130, 1, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: hpnicfSlbgGroupNumber.setStatus('current')
+hpnicfSlbgGroupSrvType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 130, 1, 1, 1, 2), Bits().clone(namedValues=NamedValues(("ipv6", 0), ("ipv6mc", 1), ("tunnel", 2), ("multicastTunnel", 3), ("mpls", 4)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpnicfSlbgGroupSrvType.setStatus('current')
+hpnicfSlbgGroupRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 130, 1, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpnicfSlbgGroupRowStatus.setStatus('current')
+hpnicfSlbgPortTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 130, 1, 2), )
+if mibBuilder.loadTexts: hpnicfSlbgPortTable.setStatus('current')
+hpnicfSlbgPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 130, 1, 2, 1), ).setIndexNames((0, "HPN-ICF-SLBG-MIB", "hpnicfSlbgPortIndex"))
+if mibBuilder.loadTexts: hpnicfSlbgPortEntry.setStatus('current')
+hpnicfSlbgPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 130, 1, 2, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: hpnicfSlbgPortIndex.setStatus('current')
+hpnicfSlbgPortAttachedGroupNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 130, 1, 2, 1, 2), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfSlbgPortAttachedGroupNumber.setStatus('current')
+hpnicfSlbgPortSelectedGroupNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 130, 1, 2, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfSlbgPortSelectedGroupNumber.setStatus('current')
+mibBuilder.exportSymbols("HPN-ICF-SLBG-MIB", hpnicfSlbgPortIndex=hpnicfSlbgPortIndex, hpnicfSlbgMibTable=hpnicfSlbgMibTable, hpnicfSlbgGroupRowStatus=hpnicfSlbgGroupRowStatus, PYSNMP_MODULE_ID=hpnicfSlbg, hpnicfSlbgPortSelectedGroupNumber=hpnicfSlbgPortSelectedGroupNumber, hpnicfSlbgGroupSrvType=hpnicfSlbgGroupSrvType, hpnicfSlbg=hpnicfSlbg, hpnicfSlbgPortTable=hpnicfSlbgPortTable, hpnicfSlbgGroupNumber=hpnicfSlbgGroupNumber, hpnicfSlbgPortEntry=hpnicfSlbgPortEntry, hpnicfSlbgPortAttachedGroupNumber=hpnicfSlbgPortAttachedGroupNumber, hpnicfSlbgGroupTable=hpnicfSlbgGroupTable, hpnicfSlbgGroupEntry=hpnicfSlbgGroupEntry)

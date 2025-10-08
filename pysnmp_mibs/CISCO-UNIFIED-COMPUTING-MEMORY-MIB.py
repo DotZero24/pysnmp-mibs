@@ -1,1353 +1,568 @@
-_Q='cucsMemoryUnitEnvStatsHistInstanceId'
-_P='cucsMemoryUnitEnvStatsInstanceId'
-_O='cucsMemoryUnitInstanceId'
-_N='cucsMemoryRuntimeHistInstanceId'
-_M='cucsMemoryRuntimeInstanceId'
-_L='cucsMemoryQualInstanceId'
-_K='cucsMemoryErrorStatsInstanceId'
-_J='cucsMemoryBufferUnitEnvStatsHistInstanceId'
-_I='cucsMemoryBufferUnitEnvStatsInstanceId'
-_H='cucsMemoryBufferUnitInstanceId'
-_G='cucsMemoryArrayEnvStatsHistInstanceId'
-_F='cucsMemoryArrayEnvStatsInstanceId'
-_E='cucsMemoryArrayInstanceId'
-_D='not-accessible'
-_C='CISCO-UNIFIED-COMPUTING-MEMORY-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-CiscoAlarmSeverity,CiscoInetAddressMask,CiscoNetworkAddress,TimeIntervalSec,Unsigned64=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity','CiscoInetAddressMask','CiscoNetworkAddress','TimeIntervalSec','Unsigned64')
-CucsManagedObjectDn,CucsManagedObjectId,ciscoUnifiedComputingMIBObjects=mibBuilder.importSymbols('CISCO-UNIFIED-COMPUTING-MIB','CucsManagedObjectDn','CucsManagedObjectId','ciscoUnifiedComputingMIBObjects')
-CucsEquipmentOperability,CucsEquipmentPowerState,CucsEquipmentPresence,CucsEquipmentSensorThresholdStatus,CucsMemoryAdminState,CucsMemoryArrayEnvStatsHistThresholded,CucsMemoryArrayEnvStatsThresholded,CucsMemoryArrayId,CucsMemoryBufferUnitEnvStatsHistThresholded,CucsMemoryBufferUnitEnvStatsThresholded,CucsMemoryBufferUnitId,CucsMemoryErrorCorrection,CucsMemoryErrorStatsThresholded,CucsMemoryFormFactor,CucsMemoryIssues,CucsMemoryRuntimeHistThresholded,CucsMemoryRuntimeThresholded,CucsMemoryRuntimeType,CucsMemoryType,CucsMemoryUnitEnvStatsHistThresholded,CucsMemoryUnitEnvStatsThresholded,CucsMemoryUnitId,CucsMemoryUnitOperability,CucsMemoryVisibility=mibBuilder.importSymbols('CISCO-UNIFIED-COMPUTING-TC-MIB','CucsEquipmentOperability','CucsEquipmentPowerState','CucsEquipmentPresence','CucsEquipmentSensorThresholdStatus','CucsMemoryAdminState','CucsMemoryArrayEnvStatsHistThresholded','CucsMemoryArrayEnvStatsThresholded','CucsMemoryArrayId','CucsMemoryBufferUnitEnvStatsHistThresholded','CucsMemoryBufferUnitEnvStatsThresholded','CucsMemoryBufferUnitId','CucsMemoryErrorCorrection','CucsMemoryErrorStatsThresholded','CucsMemoryFormFactor','CucsMemoryIssues','CucsMemoryRuntimeHistThresholded','CucsMemoryRuntimeThresholded','CucsMemoryRuntimeType','CucsMemoryType','CucsMemoryUnitEnvStatsHistThresholded','CucsMemoryUnitEnvStatsThresholded','CucsMemoryUnitId','CucsMemoryUnitOperability','CucsMemoryVisibility')
-InetAddressIPv4,InetAddressIPv6=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowPointer','TextualConvention','TimeInterval','TimeStamp','TruthValue')
-cucsMemoryObjects=ModuleIdentity((1,3,6,1,4,1,9,9,719,1,30))
-_CucsMemoryArrayTable_Object=MibTable
-cucsMemoryArrayTable=_CucsMemoryArrayTable_Object((1,3,6,1,4,1,9,9,719,1,30,1))
-if mibBuilder.loadTexts:cucsMemoryArrayTable.setStatus(_A)
-_CucsMemoryArrayEntry_Object=MibTableRow
-cucsMemoryArrayEntry=_CucsMemoryArrayEntry_Object((1,3,6,1,4,1,9,9,719,1,30,1,1))
-cucsMemoryArrayEntry.setIndexNames((0,_C,_E))
-if mibBuilder.loadTexts:cucsMemoryArrayEntry.setStatus(_A)
-_CucsMemoryArrayInstanceId_Type=CucsManagedObjectId
-_CucsMemoryArrayInstanceId_Object=MibTableColumn
-cucsMemoryArrayInstanceId=_CucsMemoryArrayInstanceId_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,1),_CucsMemoryArrayInstanceId_Type())
-cucsMemoryArrayInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsMemoryArrayInstanceId.setStatus(_A)
-_CucsMemoryArrayDn_Type=CucsManagedObjectDn
-_CucsMemoryArrayDn_Object=MibTableColumn
-cucsMemoryArrayDn=_CucsMemoryArrayDn_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,2),_CucsMemoryArrayDn_Type())
-cucsMemoryArrayDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayDn.setStatus(_A)
-_CucsMemoryArrayRn_Type=SnmpAdminString
-_CucsMemoryArrayRn_Object=MibTableColumn
-cucsMemoryArrayRn=_CucsMemoryArrayRn_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,3),_CucsMemoryArrayRn_Type())
-cucsMemoryArrayRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayRn.setStatus(_A)
-_CucsMemoryArrayCpuId_Type=Gauge32
-_CucsMemoryArrayCpuId_Object=MibTableColumn
-cucsMemoryArrayCpuId=_CucsMemoryArrayCpuId_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,4),_CucsMemoryArrayCpuId_Type())
-cucsMemoryArrayCpuId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayCpuId.setStatus(_A)
-_CucsMemoryArrayCurrCapacity_Type=Gauge32
-_CucsMemoryArrayCurrCapacity_Object=MibTableColumn
-cucsMemoryArrayCurrCapacity=_CucsMemoryArrayCurrCapacity_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,5),_CucsMemoryArrayCurrCapacity_Type())
-cucsMemoryArrayCurrCapacity.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayCurrCapacity.setStatus(_A)
-_CucsMemoryArrayErrorCorrection_Type=CucsMemoryErrorCorrection
-_CucsMemoryArrayErrorCorrection_Object=MibTableColumn
-cucsMemoryArrayErrorCorrection=_CucsMemoryArrayErrorCorrection_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,6),_CucsMemoryArrayErrorCorrection_Type())
-cucsMemoryArrayErrorCorrection.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayErrorCorrection.setStatus(_A)
-_CucsMemoryArrayId_Type=CucsMemoryArrayId
-_CucsMemoryArrayId_Object=MibTableColumn
-cucsMemoryArrayId=_CucsMemoryArrayId_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,7),_CucsMemoryArrayId_Type())
-cucsMemoryArrayId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayId.setStatus(_A)
-_CucsMemoryArrayMaxCapacity_Type=Gauge32
-_CucsMemoryArrayMaxCapacity_Object=MibTableColumn
-cucsMemoryArrayMaxCapacity=_CucsMemoryArrayMaxCapacity_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,8),_CucsMemoryArrayMaxCapacity_Type())
-cucsMemoryArrayMaxCapacity.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayMaxCapacity.setStatus(_A)
-_CucsMemoryArrayMaxDevices_Type=Gauge32
-_CucsMemoryArrayMaxDevices_Object=MibTableColumn
-cucsMemoryArrayMaxDevices=_CucsMemoryArrayMaxDevices_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,9),_CucsMemoryArrayMaxDevices_Type())
-cucsMemoryArrayMaxDevices.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayMaxDevices.setStatus(_A)
-_CucsMemoryArrayModel_Type=SnmpAdminString
-_CucsMemoryArrayModel_Object=MibTableColumn
-cucsMemoryArrayModel=_CucsMemoryArrayModel_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,10),_CucsMemoryArrayModel_Type())
-cucsMemoryArrayModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayModel.setStatus(_A)
-_CucsMemoryArrayOperState_Type=CucsEquipmentOperability
-_CucsMemoryArrayOperState_Object=MibTableColumn
-cucsMemoryArrayOperState=_CucsMemoryArrayOperState_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,11),_CucsMemoryArrayOperState_Type())
-cucsMemoryArrayOperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayOperState.setStatus(_A)
-_CucsMemoryArrayOperability_Type=CucsEquipmentOperability
-_CucsMemoryArrayOperability_Object=MibTableColumn
-cucsMemoryArrayOperability=_CucsMemoryArrayOperability_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,12),_CucsMemoryArrayOperability_Type())
-cucsMemoryArrayOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayOperability.setStatus(_A)
-_CucsMemoryArrayPerf_Type=CucsEquipmentSensorThresholdStatus
-_CucsMemoryArrayPerf_Object=MibTableColumn
-cucsMemoryArrayPerf=_CucsMemoryArrayPerf_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,13),_CucsMemoryArrayPerf_Type())
-cucsMemoryArrayPerf.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayPerf.setStatus(_A)
-_CucsMemoryArrayPopulated_Type=Gauge32
-_CucsMemoryArrayPopulated_Object=MibTableColumn
-cucsMemoryArrayPopulated=_CucsMemoryArrayPopulated_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,14),_CucsMemoryArrayPopulated_Type())
-cucsMemoryArrayPopulated.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayPopulated.setStatus(_A)
-_CucsMemoryArrayPower_Type=CucsEquipmentPowerState
-_CucsMemoryArrayPower_Object=MibTableColumn
-cucsMemoryArrayPower=_CucsMemoryArrayPower_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,15),_CucsMemoryArrayPower_Type())
-cucsMemoryArrayPower.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayPower.setStatus(_A)
-_CucsMemoryArrayPresence_Type=CucsEquipmentPresence
-_CucsMemoryArrayPresence_Object=MibTableColumn
-cucsMemoryArrayPresence=_CucsMemoryArrayPresence_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,16),_CucsMemoryArrayPresence_Type())
-cucsMemoryArrayPresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayPresence.setStatus(_A)
-_CucsMemoryArrayRevision_Type=SnmpAdminString
-_CucsMemoryArrayRevision_Object=MibTableColumn
-cucsMemoryArrayRevision=_CucsMemoryArrayRevision_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,17),_CucsMemoryArrayRevision_Type())
-cucsMemoryArrayRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayRevision.setStatus(_A)
-_CucsMemoryArraySerial_Type=SnmpAdminString
-_CucsMemoryArraySerial_Object=MibTableColumn
-cucsMemoryArraySerial=_CucsMemoryArraySerial_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,18),_CucsMemoryArraySerial_Type())
-cucsMemoryArraySerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArraySerial.setStatus(_A)
-_CucsMemoryArrayThermal_Type=CucsEquipmentSensorThresholdStatus
-_CucsMemoryArrayThermal_Object=MibTableColumn
-cucsMemoryArrayThermal=_CucsMemoryArrayThermal_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,19),_CucsMemoryArrayThermal_Type())
-cucsMemoryArrayThermal.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayThermal.setStatus(_A)
-_CucsMemoryArrayVendor_Type=SnmpAdminString
-_CucsMemoryArrayVendor_Object=MibTableColumn
-cucsMemoryArrayVendor=_CucsMemoryArrayVendor_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,20),_CucsMemoryArrayVendor_Type())
-cucsMemoryArrayVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayVendor.setStatus(_A)
-_CucsMemoryArrayVoltage_Type=CucsEquipmentSensorThresholdStatus
-_CucsMemoryArrayVoltage_Object=MibTableColumn
-cucsMemoryArrayVoltage=_CucsMemoryArrayVoltage_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,21),_CucsMemoryArrayVoltage_Type())
-cucsMemoryArrayVoltage.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayVoltage.setStatus(_A)
-_CucsMemoryArrayOperQualifierReason_Type=SnmpAdminString
-_CucsMemoryArrayOperQualifierReason_Object=MibTableColumn
-cucsMemoryArrayOperQualifierReason=_CucsMemoryArrayOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,22),_CucsMemoryArrayOperQualifierReason_Type())
-cucsMemoryArrayOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayOperQualifierReason.setStatus(_A)
-_CucsMemoryArrayLocationDn_Type=SnmpAdminString
-_CucsMemoryArrayLocationDn_Object=MibTableColumn
-cucsMemoryArrayLocationDn=_CucsMemoryArrayLocationDn_Object((1,3,6,1,4,1,9,9,719,1,30,1,1,23),_CucsMemoryArrayLocationDn_Type())
-cucsMemoryArrayLocationDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayLocationDn.setStatus(_A)
-_CucsMemoryArrayEnvStatsTable_Object=MibTable
-cucsMemoryArrayEnvStatsTable=_CucsMemoryArrayEnvStatsTable_Object((1,3,6,1,4,1,9,9,719,1,30,2))
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsTable.setStatus(_A)
-_CucsMemoryArrayEnvStatsEntry_Object=MibTableRow
-cucsMemoryArrayEnvStatsEntry=_CucsMemoryArrayEnvStatsEntry_Object((1,3,6,1,4,1,9,9,719,1,30,2,1))
-cucsMemoryArrayEnvStatsEntry.setIndexNames((0,_C,_F))
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsEntry.setStatus(_A)
-_CucsMemoryArrayEnvStatsInstanceId_Type=CucsManagedObjectId
-_CucsMemoryArrayEnvStatsInstanceId_Object=MibTableColumn
-cucsMemoryArrayEnvStatsInstanceId=_CucsMemoryArrayEnvStatsInstanceId_Object((1,3,6,1,4,1,9,9,719,1,30,2,1,1),_CucsMemoryArrayEnvStatsInstanceId_Type())
-cucsMemoryArrayEnvStatsInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsInstanceId.setStatus(_A)
-_CucsMemoryArrayEnvStatsDn_Type=CucsManagedObjectDn
-_CucsMemoryArrayEnvStatsDn_Object=MibTableColumn
-cucsMemoryArrayEnvStatsDn=_CucsMemoryArrayEnvStatsDn_Object((1,3,6,1,4,1,9,9,719,1,30,2,1,2),_CucsMemoryArrayEnvStatsDn_Type())
-cucsMemoryArrayEnvStatsDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsDn.setStatus(_A)
-_CucsMemoryArrayEnvStatsRn_Type=SnmpAdminString
-_CucsMemoryArrayEnvStatsRn_Object=MibTableColumn
-cucsMemoryArrayEnvStatsRn=_CucsMemoryArrayEnvStatsRn_Object((1,3,6,1,4,1,9,9,719,1,30,2,1,3),_CucsMemoryArrayEnvStatsRn_Type())
-cucsMemoryArrayEnvStatsRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsRn.setStatus(_A)
-_CucsMemoryArrayEnvStatsInputCurrent_Type=Integer32
-_CucsMemoryArrayEnvStatsInputCurrent_Object=MibTableColumn
-cucsMemoryArrayEnvStatsInputCurrent=_CucsMemoryArrayEnvStatsInputCurrent_Object((1,3,6,1,4,1,9,9,719,1,30,2,1,4),_CucsMemoryArrayEnvStatsInputCurrent_Type())
-cucsMemoryArrayEnvStatsInputCurrent.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsInputCurrent.setStatus(_A)
-_CucsMemoryArrayEnvStatsInputCurrentAvg_Type=Integer32
-_CucsMemoryArrayEnvStatsInputCurrentAvg_Object=MibTableColumn
-cucsMemoryArrayEnvStatsInputCurrentAvg=_CucsMemoryArrayEnvStatsInputCurrentAvg_Object((1,3,6,1,4,1,9,9,719,1,30,2,1,5),_CucsMemoryArrayEnvStatsInputCurrentAvg_Type())
-cucsMemoryArrayEnvStatsInputCurrentAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsInputCurrentAvg.setStatus(_A)
-_CucsMemoryArrayEnvStatsInputCurrentMax_Type=Integer32
-_CucsMemoryArrayEnvStatsInputCurrentMax_Object=MibTableColumn
-cucsMemoryArrayEnvStatsInputCurrentMax=_CucsMemoryArrayEnvStatsInputCurrentMax_Object((1,3,6,1,4,1,9,9,719,1,30,2,1,6),_CucsMemoryArrayEnvStatsInputCurrentMax_Type())
-cucsMemoryArrayEnvStatsInputCurrentMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsInputCurrentMax.setStatus(_A)
-_CucsMemoryArrayEnvStatsInputCurrentMin_Type=Integer32
-_CucsMemoryArrayEnvStatsInputCurrentMin_Object=MibTableColumn
-cucsMemoryArrayEnvStatsInputCurrentMin=_CucsMemoryArrayEnvStatsInputCurrentMin_Object((1,3,6,1,4,1,9,9,719,1,30,2,1,7),_CucsMemoryArrayEnvStatsInputCurrentMin_Type())
-cucsMemoryArrayEnvStatsInputCurrentMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsInputCurrentMin.setStatus(_A)
-_CucsMemoryArrayEnvStatsIntervals_Type=Gauge32
-_CucsMemoryArrayEnvStatsIntervals_Object=MibTableColumn
-cucsMemoryArrayEnvStatsIntervals=_CucsMemoryArrayEnvStatsIntervals_Object((1,3,6,1,4,1,9,9,719,1,30,2,1,8),_CucsMemoryArrayEnvStatsIntervals_Type())
-cucsMemoryArrayEnvStatsIntervals.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsIntervals.setStatus(_A)
-_CucsMemoryArrayEnvStatsSuspect_Type=TruthValue
-_CucsMemoryArrayEnvStatsSuspect_Object=MibTableColumn
-cucsMemoryArrayEnvStatsSuspect=_CucsMemoryArrayEnvStatsSuspect_Object((1,3,6,1,4,1,9,9,719,1,30,2,1,9),_CucsMemoryArrayEnvStatsSuspect_Type())
-cucsMemoryArrayEnvStatsSuspect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsSuspect.setStatus(_A)
-_CucsMemoryArrayEnvStatsThresholded_Type=CucsMemoryArrayEnvStatsThresholded
-_CucsMemoryArrayEnvStatsThresholded_Object=MibTableColumn
-cucsMemoryArrayEnvStatsThresholded=_CucsMemoryArrayEnvStatsThresholded_Object((1,3,6,1,4,1,9,9,719,1,30,2,1,10),_CucsMemoryArrayEnvStatsThresholded_Type())
-cucsMemoryArrayEnvStatsThresholded.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsThresholded.setStatus(_A)
-_CucsMemoryArrayEnvStatsTimeCollected_Type=DateAndTime
-_CucsMemoryArrayEnvStatsTimeCollected_Object=MibTableColumn
-cucsMemoryArrayEnvStatsTimeCollected=_CucsMemoryArrayEnvStatsTimeCollected_Object((1,3,6,1,4,1,9,9,719,1,30,2,1,11),_CucsMemoryArrayEnvStatsTimeCollected_Type())
-cucsMemoryArrayEnvStatsTimeCollected.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsTimeCollected.setStatus(_A)
-_CucsMemoryArrayEnvStatsUpdate_Type=Gauge32
-_CucsMemoryArrayEnvStatsUpdate_Object=MibTableColumn
-cucsMemoryArrayEnvStatsUpdate=_CucsMemoryArrayEnvStatsUpdate_Object((1,3,6,1,4,1,9,9,719,1,30,2,1,12),_CucsMemoryArrayEnvStatsUpdate_Type())
-cucsMemoryArrayEnvStatsUpdate.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsUpdate.setStatus(_A)
-_CucsMemoryArrayEnvStatsHistTable_Object=MibTable
-cucsMemoryArrayEnvStatsHistTable=_CucsMemoryArrayEnvStatsHistTable_Object((1,3,6,1,4,1,9,9,719,1,30,3))
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsHistTable.setStatus(_A)
-_CucsMemoryArrayEnvStatsHistEntry_Object=MibTableRow
-cucsMemoryArrayEnvStatsHistEntry=_CucsMemoryArrayEnvStatsHistEntry_Object((1,3,6,1,4,1,9,9,719,1,30,3,1))
-cucsMemoryArrayEnvStatsHistEntry.setIndexNames((0,_C,_G))
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsHistEntry.setStatus(_A)
-_CucsMemoryArrayEnvStatsHistInstanceId_Type=CucsManagedObjectId
-_CucsMemoryArrayEnvStatsHistInstanceId_Object=MibTableColumn
-cucsMemoryArrayEnvStatsHistInstanceId=_CucsMemoryArrayEnvStatsHistInstanceId_Object((1,3,6,1,4,1,9,9,719,1,30,3,1,1),_CucsMemoryArrayEnvStatsHistInstanceId_Type())
-cucsMemoryArrayEnvStatsHistInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsHistInstanceId.setStatus(_A)
-_CucsMemoryArrayEnvStatsHistDn_Type=CucsManagedObjectDn
-_CucsMemoryArrayEnvStatsHistDn_Object=MibTableColumn
-cucsMemoryArrayEnvStatsHistDn=_CucsMemoryArrayEnvStatsHistDn_Object((1,3,6,1,4,1,9,9,719,1,30,3,1,2),_CucsMemoryArrayEnvStatsHistDn_Type())
-cucsMemoryArrayEnvStatsHistDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsHistDn.setStatus(_A)
-_CucsMemoryArrayEnvStatsHistRn_Type=SnmpAdminString
-_CucsMemoryArrayEnvStatsHistRn_Object=MibTableColumn
-cucsMemoryArrayEnvStatsHistRn=_CucsMemoryArrayEnvStatsHistRn_Object((1,3,6,1,4,1,9,9,719,1,30,3,1,3),_CucsMemoryArrayEnvStatsHistRn_Type())
-cucsMemoryArrayEnvStatsHistRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsHistRn.setStatus(_A)
-_CucsMemoryArrayEnvStatsHistId_Type=Unsigned64
-_CucsMemoryArrayEnvStatsHistId_Object=MibTableColumn
-cucsMemoryArrayEnvStatsHistId=_CucsMemoryArrayEnvStatsHistId_Object((1,3,6,1,4,1,9,9,719,1,30,3,1,4),_CucsMemoryArrayEnvStatsHistId_Type())
-cucsMemoryArrayEnvStatsHistId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsHistId.setStatus(_A)
-_CucsMemoryArrayEnvStatsHistInputCurrent_Type=Integer32
-_CucsMemoryArrayEnvStatsHistInputCurrent_Object=MibTableColumn
-cucsMemoryArrayEnvStatsHistInputCurrent=_CucsMemoryArrayEnvStatsHistInputCurrent_Object((1,3,6,1,4,1,9,9,719,1,30,3,1,5),_CucsMemoryArrayEnvStatsHistInputCurrent_Type())
-cucsMemoryArrayEnvStatsHistInputCurrent.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsHistInputCurrent.setStatus(_A)
-_CucsMemoryArrayEnvStatsHistInputCurrentAvg_Type=Integer32
-_CucsMemoryArrayEnvStatsHistInputCurrentAvg_Object=MibTableColumn
-cucsMemoryArrayEnvStatsHistInputCurrentAvg=_CucsMemoryArrayEnvStatsHistInputCurrentAvg_Object((1,3,6,1,4,1,9,9,719,1,30,3,1,6),_CucsMemoryArrayEnvStatsHistInputCurrentAvg_Type())
-cucsMemoryArrayEnvStatsHistInputCurrentAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsHistInputCurrentAvg.setStatus(_A)
-_CucsMemoryArrayEnvStatsHistInputCurrentMax_Type=Integer32
-_CucsMemoryArrayEnvStatsHistInputCurrentMax_Object=MibTableColumn
-cucsMemoryArrayEnvStatsHistInputCurrentMax=_CucsMemoryArrayEnvStatsHistInputCurrentMax_Object((1,3,6,1,4,1,9,9,719,1,30,3,1,7),_CucsMemoryArrayEnvStatsHistInputCurrentMax_Type())
-cucsMemoryArrayEnvStatsHistInputCurrentMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsHistInputCurrentMax.setStatus(_A)
-_CucsMemoryArrayEnvStatsHistInputCurrentMin_Type=Integer32
-_CucsMemoryArrayEnvStatsHistInputCurrentMin_Object=MibTableColumn
-cucsMemoryArrayEnvStatsHistInputCurrentMin=_CucsMemoryArrayEnvStatsHistInputCurrentMin_Object((1,3,6,1,4,1,9,9,719,1,30,3,1,8),_CucsMemoryArrayEnvStatsHistInputCurrentMin_Type())
-cucsMemoryArrayEnvStatsHistInputCurrentMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsHistInputCurrentMin.setStatus(_A)
-_CucsMemoryArrayEnvStatsHistMostRecent_Type=TruthValue
-_CucsMemoryArrayEnvStatsHistMostRecent_Object=MibTableColumn
-cucsMemoryArrayEnvStatsHistMostRecent=_CucsMemoryArrayEnvStatsHistMostRecent_Object((1,3,6,1,4,1,9,9,719,1,30,3,1,9),_CucsMemoryArrayEnvStatsHistMostRecent_Type())
-cucsMemoryArrayEnvStatsHistMostRecent.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsHistMostRecent.setStatus(_A)
-_CucsMemoryArrayEnvStatsHistSuspect_Type=TruthValue
-_CucsMemoryArrayEnvStatsHistSuspect_Object=MibTableColumn
-cucsMemoryArrayEnvStatsHistSuspect=_CucsMemoryArrayEnvStatsHistSuspect_Object((1,3,6,1,4,1,9,9,719,1,30,3,1,10),_CucsMemoryArrayEnvStatsHistSuspect_Type())
-cucsMemoryArrayEnvStatsHistSuspect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsHistSuspect.setStatus(_A)
-_CucsMemoryArrayEnvStatsHistThresholded_Type=CucsMemoryArrayEnvStatsHistThresholded
-_CucsMemoryArrayEnvStatsHistThresholded_Object=MibTableColumn
-cucsMemoryArrayEnvStatsHistThresholded=_CucsMemoryArrayEnvStatsHistThresholded_Object((1,3,6,1,4,1,9,9,719,1,30,3,1,11),_CucsMemoryArrayEnvStatsHistThresholded_Type())
-cucsMemoryArrayEnvStatsHistThresholded.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsHistThresholded.setStatus(_A)
-_CucsMemoryArrayEnvStatsHistTimeCollected_Type=DateAndTime
-_CucsMemoryArrayEnvStatsHistTimeCollected_Object=MibTableColumn
-cucsMemoryArrayEnvStatsHistTimeCollected=_CucsMemoryArrayEnvStatsHistTimeCollected_Object((1,3,6,1,4,1,9,9,719,1,30,3,1,12),_CucsMemoryArrayEnvStatsHistTimeCollected_Type())
-cucsMemoryArrayEnvStatsHistTimeCollected.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryArrayEnvStatsHistTimeCollected.setStatus(_A)
-_CucsMemoryBufferUnitTable_Object=MibTable
-cucsMemoryBufferUnitTable=_CucsMemoryBufferUnitTable_Object((1,3,6,1,4,1,9,9,719,1,30,4))
-if mibBuilder.loadTexts:cucsMemoryBufferUnitTable.setStatus(_A)
-_CucsMemoryBufferUnitEntry_Object=MibTableRow
-cucsMemoryBufferUnitEntry=_CucsMemoryBufferUnitEntry_Object((1,3,6,1,4,1,9,9,719,1,30,4,1))
-cucsMemoryBufferUnitEntry.setIndexNames((0,_C,_H))
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEntry.setStatus(_A)
-_CucsMemoryBufferUnitInstanceId_Type=CucsManagedObjectId
-_CucsMemoryBufferUnitInstanceId_Object=MibTableColumn
-cucsMemoryBufferUnitInstanceId=_CucsMemoryBufferUnitInstanceId_Object((1,3,6,1,4,1,9,9,719,1,30,4,1,1),_CucsMemoryBufferUnitInstanceId_Type())
-cucsMemoryBufferUnitInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitInstanceId.setStatus(_A)
-_CucsMemoryBufferUnitDn_Type=CucsManagedObjectDn
-_CucsMemoryBufferUnitDn_Object=MibTableColumn
-cucsMemoryBufferUnitDn=_CucsMemoryBufferUnitDn_Object((1,3,6,1,4,1,9,9,719,1,30,4,1,2),_CucsMemoryBufferUnitDn_Type())
-cucsMemoryBufferUnitDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitDn.setStatus(_A)
-_CucsMemoryBufferUnitRn_Type=SnmpAdminString
-_CucsMemoryBufferUnitRn_Object=MibTableColumn
-cucsMemoryBufferUnitRn=_CucsMemoryBufferUnitRn_Object((1,3,6,1,4,1,9,9,719,1,30,4,1,3),_CucsMemoryBufferUnitRn_Type())
-cucsMemoryBufferUnitRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitRn.setStatus(_A)
-_CucsMemoryBufferUnitId_Type=CucsMemoryBufferUnitId
-_CucsMemoryBufferUnitId_Object=MibTableColumn
-cucsMemoryBufferUnitId=_CucsMemoryBufferUnitId_Object((1,3,6,1,4,1,9,9,719,1,30,4,1,4),_CucsMemoryBufferUnitId_Type())
-cucsMemoryBufferUnitId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitId.setStatus(_A)
-_CucsMemoryBufferUnitModel_Type=SnmpAdminString
-_CucsMemoryBufferUnitModel_Object=MibTableColumn
-cucsMemoryBufferUnitModel=_CucsMemoryBufferUnitModel_Object((1,3,6,1,4,1,9,9,719,1,30,4,1,5),_CucsMemoryBufferUnitModel_Type())
-cucsMemoryBufferUnitModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitModel.setStatus(_A)
-_CucsMemoryBufferUnitOperState_Type=CucsEquipmentOperability
-_CucsMemoryBufferUnitOperState_Object=MibTableColumn
-cucsMemoryBufferUnitOperState=_CucsMemoryBufferUnitOperState_Object((1,3,6,1,4,1,9,9,719,1,30,4,1,6),_CucsMemoryBufferUnitOperState_Type())
-cucsMemoryBufferUnitOperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitOperState.setStatus(_A)
-_CucsMemoryBufferUnitOperability_Type=CucsEquipmentOperability
-_CucsMemoryBufferUnitOperability_Object=MibTableColumn
-cucsMemoryBufferUnitOperability=_CucsMemoryBufferUnitOperability_Object((1,3,6,1,4,1,9,9,719,1,30,4,1,7),_CucsMemoryBufferUnitOperability_Type())
-cucsMemoryBufferUnitOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitOperability.setStatus(_A)
-_CucsMemoryBufferUnitPerf_Type=CucsEquipmentSensorThresholdStatus
-_CucsMemoryBufferUnitPerf_Object=MibTableColumn
-cucsMemoryBufferUnitPerf=_CucsMemoryBufferUnitPerf_Object((1,3,6,1,4,1,9,9,719,1,30,4,1,8),_CucsMemoryBufferUnitPerf_Type())
-cucsMemoryBufferUnitPerf.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitPerf.setStatus(_A)
-_CucsMemoryBufferUnitPower_Type=CucsEquipmentPowerState
-_CucsMemoryBufferUnitPower_Object=MibTableColumn
-cucsMemoryBufferUnitPower=_CucsMemoryBufferUnitPower_Object((1,3,6,1,4,1,9,9,719,1,30,4,1,9),_CucsMemoryBufferUnitPower_Type())
-cucsMemoryBufferUnitPower.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitPower.setStatus(_A)
-_CucsMemoryBufferUnitPresence_Type=CucsEquipmentPresence
-_CucsMemoryBufferUnitPresence_Object=MibTableColumn
-cucsMemoryBufferUnitPresence=_CucsMemoryBufferUnitPresence_Object((1,3,6,1,4,1,9,9,719,1,30,4,1,10),_CucsMemoryBufferUnitPresence_Type())
-cucsMemoryBufferUnitPresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitPresence.setStatus(_A)
-_CucsMemoryBufferUnitRevision_Type=SnmpAdminString
-_CucsMemoryBufferUnitRevision_Object=MibTableColumn
-cucsMemoryBufferUnitRevision=_CucsMemoryBufferUnitRevision_Object((1,3,6,1,4,1,9,9,719,1,30,4,1,11),_CucsMemoryBufferUnitRevision_Type())
-cucsMemoryBufferUnitRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitRevision.setStatus(_A)
-_CucsMemoryBufferUnitSerial_Type=SnmpAdminString
-_CucsMemoryBufferUnitSerial_Object=MibTableColumn
-cucsMemoryBufferUnitSerial=_CucsMemoryBufferUnitSerial_Object((1,3,6,1,4,1,9,9,719,1,30,4,1,12),_CucsMemoryBufferUnitSerial_Type())
-cucsMemoryBufferUnitSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitSerial.setStatus(_A)
-_CucsMemoryBufferUnitThermal_Type=CucsEquipmentSensorThresholdStatus
-_CucsMemoryBufferUnitThermal_Object=MibTableColumn
-cucsMemoryBufferUnitThermal=_CucsMemoryBufferUnitThermal_Object((1,3,6,1,4,1,9,9,719,1,30,4,1,13),_CucsMemoryBufferUnitThermal_Type())
-cucsMemoryBufferUnitThermal.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitThermal.setStatus(_A)
-_CucsMemoryBufferUnitVendor_Type=SnmpAdminString
-_CucsMemoryBufferUnitVendor_Object=MibTableColumn
-cucsMemoryBufferUnitVendor=_CucsMemoryBufferUnitVendor_Object((1,3,6,1,4,1,9,9,719,1,30,4,1,14),_CucsMemoryBufferUnitVendor_Type())
-cucsMemoryBufferUnitVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitVendor.setStatus(_A)
-_CucsMemoryBufferUnitVoltage_Type=CucsEquipmentSensorThresholdStatus
-_CucsMemoryBufferUnitVoltage_Object=MibTableColumn
-cucsMemoryBufferUnitVoltage=_CucsMemoryBufferUnitVoltage_Object((1,3,6,1,4,1,9,9,719,1,30,4,1,15),_CucsMemoryBufferUnitVoltage_Type())
-cucsMemoryBufferUnitVoltage.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitVoltage.setStatus(_A)
-_CucsMemoryBufferUnitOperQualifierReason_Type=SnmpAdminString
-_CucsMemoryBufferUnitOperQualifierReason_Object=MibTableColumn
-cucsMemoryBufferUnitOperQualifierReason=_CucsMemoryBufferUnitOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,30,4,1,16),_CucsMemoryBufferUnitOperQualifierReason_Type())
-cucsMemoryBufferUnitOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitOperQualifierReason.setStatus(_A)
-_CucsMemoryBufferUnitLocationDn_Type=SnmpAdminString
-_CucsMemoryBufferUnitLocationDn_Object=MibTableColumn
-cucsMemoryBufferUnitLocationDn=_CucsMemoryBufferUnitLocationDn_Object((1,3,6,1,4,1,9,9,719,1,30,4,1,17),_CucsMemoryBufferUnitLocationDn_Type())
-cucsMemoryBufferUnitLocationDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitLocationDn.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsTable_Object=MibTable
-cucsMemoryBufferUnitEnvStatsTable=_CucsMemoryBufferUnitEnvStatsTable_Object((1,3,6,1,4,1,9,9,719,1,30,5))
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsTable.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsEntry_Object=MibTableRow
-cucsMemoryBufferUnitEnvStatsEntry=_CucsMemoryBufferUnitEnvStatsEntry_Object((1,3,6,1,4,1,9,9,719,1,30,5,1))
-cucsMemoryBufferUnitEnvStatsEntry.setIndexNames((0,_C,_I))
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsEntry.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsInstanceId_Type=CucsManagedObjectId
-_CucsMemoryBufferUnitEnvStatsInstanceId_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsInstanceId=_CucsMemoryBufferUnitEnvStatsInstanceId_Object((1,3,6,1,4,1,9,9,719,1,30,5,1,1),_CucsMemoryBufferUnitEnvStatsInstanceId_Type())
-cucsMemoryBufferUnitEnvStatsInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsInstanceId.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsDn_Type=CucsManagedObjectDn
-_CucsMemoryBufferUnitEnvStatsDn_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsDn=_CucsMemoryBufferUnitEnvStatsDn_Object((1,3,6,1,4,1,9,9,719,1,30,5,1,2),_CucsMemoryBufferUnitEnvStatsDn_Type())
-cucsMemoryBufferUnitEnvStatsDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsDn.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsRn_Type=SnmpAdminString
-_CucsMemoryBufferUnitEnvStatsRn_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsRn=_CucsMemoryBufferUnitEnvStatsRn_Object((1,3,6,1,4,1,9,9,719,1,30,5,1,3),_CucsMemoryBufferUnitEnvStatsRn_Type())
-cucsMemoryBufferUnitEnvStatsRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsRn.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsIntervals_Type=Gauge32
-_CucsMemoryBufferUnitEnvStatsIntervals_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsIntervals=_CucsMemoryBufferUnitEnvStatsIntervals_Object((1,3,6,1,4,1,9,9,719,1,30,5,1,4),_CucsMemoryBufferUnitEnvStatsIntervals_Type())
-cucsMemoryBufferUnitEnvStatsIntervals.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsIntervals.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsSuspect_Type=TruthValue
-_CucsMemoryBufferUnitEnvStatsSuspect_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsSuspect=_CucsMemoryBufferUnitEnvStatsSuspect_Object((1,3,6,1,4,1,9,9,719,1,30,5,1,5),_CucsMemoryBufferUnitEnvStatsSuspect_Type())
-cucsMemoryBufferUnitEnvStatsSuspect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsSuspect.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsTemperature_Type=Integer32
-_CucsMemoryBufferUnitEnvStatsTemperature_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsTemperature=_CucsMemoryBufferUnitEnvStatsTemperature_Object((1,3,6,1,4,1,9,9,719,1,30,5,1,6),_CucsMemoryBufferUnitEnvStatsTemperature_Type())
-cucsMemoryBufferUnitEnvStatsTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsTemperature.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsTemperatureAvg_Type=Integer32
-_CucsMemoryBufferUnitEnvStatsTemperatureAvg_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsTemperatureAvg=_CucsMemoryBufferUnitEnvStatsTemperatureAvg_Object((1,3,6,1,4,1,9,9,719,1,30,5,1,7),_CucsMemoryBufferUnitEnvStatsTemperatureAvg_Type())
-cucsMemoryBufferUnitEnvStatsTemperatureAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsTemperatureAvg.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsTemperatureMax_Type=Integer32
-_CucsMemoryBufferUnitEnvStatsTemperatureMax_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsTemperatureMax=_CucsMemoryBufferUnitEnvStatsTemperatureMax_Object((1,3,6,1,4,1,9,9,719,1,30,5,1,8),_CucsMemoryBufferUnitEnvStatsTemperatureMax_Type())
-cucsMemoryBufferUnitEnvStatsTemperatureMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsTemperatureMax.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsTemperatureMin_Type=Integer32
-_CucsMemoryBufferUnitEnvStatsTemperatureMin_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsTemperatureMin=_CucsMemoryBufferUnitEnvStatsTemperatureMin_Object((1,3,6,1,4,1,9,9,719,1,30,5,1,9),_CucsMemoryBufferUnitEnvStatsTemperatureMin_Type())
-cucsMemoryBufferUnitEnvStatsTemperatureMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsTemperatureMin.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsThresholded_Type=CucsMemoryBufferUnitEnvStatsThresholded
-_CucsMemoryBufferUnitEnvStatsThresholded_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsThresholded=_CucsMemoryBufferUnitEnvStatsThresholded_Object((1,3,6,1,4,1,9,9,719,1,30,5,1,10),_CucsMemoryBufferUnitEnvStatsThresholded_Type())
-cucsMemoryBufferUnitEnvStatsThresholded.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsThresholded.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsTimeCollected_Type=DateAndTime
-_CucsMemoryBufferUnitEnvStatsTimeCollected_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsTimeCollected=_CucsMemoryBufferUnitEnvStatsTimeCollected_Object((1,3,6,1,4,1,9,9,719,1,30,5,1,11),_CucsMemoryBufferUnitEnvStatsTimeCollected_Type())
-cucsMemoryBufferUnitEnvStatsTimeCollected.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsTimeCollected.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsUpdate_Type=Gauge32
-_CucsMemoryBufferUnitEnvStatsUpdate_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsUpdate=_CucsMemoryBufferUnitEnvStatsUpdate_Object((1,3,6,1,4,1,9,9,719,1,30,5,1,12),_CucsMemoryBufferUnitEnvStatsUpdate_Type())
-cucsMemoryBufferUnitEnvStatsUpdate.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsUpdate.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsHistTable_Object=MibTable
-cucsMemoryBufferUnitEnvStatsHistTable=_CucsMemoryBufferUnitEnvStatsHistTable_Object((1,3,6,1,4,1,9,9,719,1,30,6))
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsHistTable.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsHistEntry_Object=MibTableRow
-cucsMemoryBufferUnitEnvStatsHistEntry=_CucsMemoryBufferUnitEnvStatsHistEntry_Object((1,3,6,1,4,1,9,9,719,1,30,6,1))
-cucsMemoryBufferUnitEnvStatsHistEntry.setIndexNames((0,_C,_J))
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsHistEntry.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsHistInstanceId_Type=CucsManagedObjectId
-_CucsMemoryBufferUnitEnvStatsHistInstanceId_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsHistInstanceId=_CucsMemoryBufferUnitEnvStatsHistInstanceId_Object((1,3,6,1,4,1,9,9,719,1,30,6,1,1),_CucsMemoryBufferUnitEnvStatsHistInstanceId_Type())
-cucsMemoryBufferUnitEnvStatsHistInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsHistInstanceId.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsHistDn_Type=CucsManagedObjectDn
-_CucsMemoryBufferUnitEnvStatsHistDn_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsHistDn=_CucsMemoryBufferUnitEnvStatsHistDn_Object((1,3,6,1,4,1,9,9,719,1,30,6,1,2),_CucsMemoryBufferUnitEnvStatsHistDn_Type())
-cucsMemoryBufferUnitEnvStatsHistDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsHistDn.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsHistRn_Type=SnmpAdminString
-_CucsMemoryBufferUnitEnvStatsHistRn_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsHistRn=_CucsMemoryBufferUnitEnvStatsHistRn_Object((1,3,6,1,4,1,9,9,719,1,30,6,1,3),_CucsMemoryBufferUnitEnvStatsHistRn_Type())
-cucsMemoryBufferUnitEnvStatsHistRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsHistRn.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsHistId_Type=Unsigned64
-_CucsMemoryBufferUnitEnvStatsHistId_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsHistId=_CucsMemoryBufferUnitEnvStatsHistId_Object((1,3,6,1,4,1,9,9,719,1,30,6,1,4),_CucsMemoryBufferUnitEnvStatsHistId_Type())
-cucsMemoryBufferUnitEnvStatsHistId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsHistId.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsHistMostRecent_Type=TruthValue
-_CucsMemoryBufferUnitEnvStatsHistMostRecent_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsHistMostRecent=_CucsMemoryBufferUnitEnvStatsHistMostRecent_Object((1,3,6,1,4,1,9,9,719,1,30,6,1,5),_CucsMemoryBufferUnitEnvStatsHistMostRecent_Type())
-cucsMemoryBufferUnitEnvStatsHistMostRecent.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsHistMostRecent.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsHistSuspect_Type=TruthValue
-_CucsMemoryBufferUnitEnvStatsHistSuspect_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsHistSuspect=_CucsMemoryBufferUnitEnvStatsHistSuspect_Object((1,3,6,1,4,1,9,9,719,1,30,6,1,6),_CucsMemoryBufferUnitEnvStatsHistSuspect_Type())
-cucsMemoryBufferUnitEnvStatsHistSuspect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsHistSuspect.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsHistTemperature_Type=Integer32
-_CucsMemoryBufferUnitEnvStatsHistTemperature_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsHistTemperature=_CucsMemoryBufferUnitEnvStatsHistTemperature_Object((1,3,6,1,4,1,9,9,719,1,30,6,1,7),_CucsMemoryBufferUnitEnvStatsHistTemperature_Type())
-cucsMemoryBufferUnitEnvStatsHistTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsHistTemperature.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsHistTemperatureAvg_Type=Integer32
-_CucsMemoryBufferUnitEnvStatsHistTemperatureAvg_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsHistTemperatureAvg=_CucsMemoryBufferUnitEnvStatsHistTemperatureAvg_Object((1,3,6,1,4,1,9,9,719,1,30,6,1,8),_CucsMemoryBufferUnitEnvStatsHistTemperatureAvg_Type())
-cucsMemoryBufferUnitEnvStatsHistTemperatureAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsHistTemperatureAvg.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsHistTemperatureMax_Type=Integer32
-_CucsMemoryBufferUnitEnvStatsHistTemperatureMax_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsHistTemperatureMax=_CucsMemoryBufferUnitEnvStatsHistTemperatureMax_Object((1,3,6,1,4,1,9,9,719,1,30,6,1,9),_CucsMemoryBufferUnitEnvStatsHistTemperatureMax_Type())
-cucsMemoryBufferUnitEnvStatsHistTemperatureMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsHistTemperatureMax.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsHistTemperatureMin_Type=Integer32
-_CucsMemoryBufferUnitEnvStatsHistTemperatureMin_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsHistTemperatureMin=_CucsMemoryBufferUnitEnvStatsHistTemperatureMin_Object((1,3,6,1,4,1,9,9,719,1,30,6,1,10),_CucsMemoryBufferUnitEnvStatsHistTemperatureMin_Type())
-cucsMemoryBufferUnitEnvStatsHistTemperatureMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsHistTemperatureMin.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsHistThresholded_Type=CucsMemoryBufferUnitEnvStatsHistThresholded
-_CucsMemoryBufferUnitEnvStatsHistThresholded_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsHistThresholded=_CucsMemoryBufferUnitEnvStatsHistThresholded_Object((1,3,6,1,4,1,9,9,719,1,30,6,1,11),_CucsMemoryBufferUnitEnvStatsHistThresholded_Type())
-cucsMemoryBufferUnitEnvStatsHistThresholded.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsHistThresholded.setStatus(_A)
-_CucsMemoryBufferUnitEnvStatsHistTimeCollected_Type=DateAndTime
-_CucsMemoryBufferUnitEnvStatsHistTimeCollected_Object=MibTableColumn
-cucsMemoryBufferUnitEnvStatsHistTimeCollected=_CucsMemoryBufferUnitEnvStatsHistTimeCollected_Object((1,3,6,1,4,1,9,9,719,1,30,6,1,12),_CucsMemoryBufferUnitEnvStatsHistTimeCollected_Type())
-cucsMemoryBufferUnitEnvStatsHistTimeCollected.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryBufferUnitEnvStatsHistTimeCollected.setStatus(_A)
-_CucsMemoryErrorStatsTable_Object=MibTable
-cucsMemoryErrorStatsTable=_CucsMemoryErrorStatsTable_Object((1,3,6,1,4,1,9,9,719,1,30,7))
-if mibBuilder.loadTexts:cucsMemoryErrorStatsTable.setStatus(_A)
-_CucsMemoryErrorStatsEntry_Object=MibTableRow
-cucsMemoryErrorStatsEntry=_CucsMemoryErrorStatsEntry_Object((1,3,6,1,4,1,9,9,719,1,30,7,1))
-cucsMemoryErrorStatsEntry.setIndexNames((0,_C,_K))
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEntry.setStatus(_A)
-_CucsMemoryErrorStatsInstanceId_Type=CucsManagedObjectId
-_CucsMemoryErrorStatsInstanceId_Object=MibTableColumn
-cucsMemoryErrorStatsInstanceId=_CucsMemoryErrorStatsInstanceId_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,1),_CucsMemoryErrorStatsInstanceId_Type())
-cucsMemoryErrorStatsInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsInstanceId.setStatus(_A)
-_CucsMemoryErrorStatsDn_Type=CucsManagedObjectDn
-_CucsMemoryErrorStatsDn_Object=MibTableColumn
-cucsMemoryErrorStatsDn=_CucsMemoryErrorStatsDn_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,2),_CucsMemoryErrorStatsDn_Type())
-cucsMemoryErrorStatsDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsDn.setStatus(_A)
-_CucsMemoryErrorStatsRn_Type=SnmpAdminString
-_CucsMemoryErrorStatsRn_Object=MibTableColumn
-cucsMemoryErrorStatsRn=_CucsMemoryErrorStatsRn_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,3),_CucsMemoryErrorStatsRn_Type())
-cucsMemoryErrorStatsRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsRn.setStatus(_A)
-_CucsMemoryErrorStatsAddressParityErrors_Type=Counter32
-_CucsMemoryErrorStatsAddressParityErrors_Object=MibTableColumn
-cucsMemoryErrorStatsAddressParityErrors=_CucsMemoryErrorStatsAddressParityErrors_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,4),_CucsMemoryErrorStatsAddressParityErrors_Type())
-cucsMemoryErrorStatsAddressParityErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsAddressParityErrors.setStatus(_A)
-_CucsMemoryErrorStatsAddressParityErrors15Min_Type=Gauge32
-_CucsMemoryErrorStatsAddressParityErrors15Min_Object=MibTableColumn
-cucsMemoryErrorStatsAddressParityErrors15Min=_CucsMemoryErrorStatsAddressParityErrors15Min_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,5),_CucsMemoryErrorStatsAddressParityErrors15Min_Type())
-cucsMemoryErrorStatsAddressParityErrors15Min.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsAddressParityErrors15Min.setStatus(_A)
-_CucsMemoryErrorStatsAddressParityErrors15MinH_Type=Gauge32
-_CucsMemoryErrorStatsAddressParityErrors15MinH_Object=MibTableColumn
-cucsMemoryErrorStatsAddressParityErrors15MinH=_CucsMemoryErrorStatsAddressParityErrors15MinH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,6),_CucsMemoryErrorStatsAddressParityErrors15MinH_Type())
-cucsMemoryErrorStatsAddressParityErrors15MinH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsAddressParityErrors15MinH.setStatus(_A)
-_CucsMemoryErrorStatsAddressParityErrors1Day_Type=Gauge32
-_CucsMemoryErrorStatsAddressParityErrors1Day_Object=MibTableColumn
-cucsMemoryErrorStatsAddressParityErrors1Day=_CucsMemoryErrorStatsAddressParityErrors1Day_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,7),_CucsMemoryErrorStatsAddressParityErrors1Day_Type())
-cucsMemoryErrorStatsAddressParityErrors1Day.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsAddressParityErrors1Day.setStatus(_A)
-_CucsMemoryErrorStatsAddressParityErrors1DayH_Type=Gauge32
-_CucsMemoryErrorStatsAddressParityErrors1DayH_Object=MibTableColumn
-cucsMemoryErrorStatsAddressParityErrors1DayH=_CucsMemoryErrorStatsAddressParityErrors1DayH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,8),_CucsMemoryErrorStatsAddressParityErrors1DayH_Type())
-cucsMemoryErrorStatsAddressParityErrors1DayH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsAddressParityErrors1DayH.setStatus(_A)
-_CucsMemoryErrorStatsAddressParityErrors1Hour_Type=Gauge32
-_CucsMemoryErrorStatsAddressParityErrors1Hour_Object=MibTableColumn
-cucsMemoryErrorStatsAddressParityErrors1Hour=_CucsMemoryErrorStatsAddressParityErrors1Hour_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,9),_CucsMemoryErrorStatsAddressParityErrors1Hour_Type())
-cucsMemoryErrorStatsAddressParityErrors1Hour.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsAddressParityErrors1Hour.setStatus(_A)
-_CucsMemoryErrorStatsAddressParityErrors1HourH_Type=Gauge32
-_CucsMemoryErrorStatsAddressParityErrors1HourH_Object=MibTableColumn
-cucsMemoryErrorStatsAddressParityErrors1HourH=_CucsMemoryErrorStatsAddressParityErrors1HourH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,10),_CucsMemoryErrorStatsAddressParityErrors1HourH_Type())
-cucsMemoryErrorStatsAddressParityErrors1HourH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsAddressParityErrors1HourH.setStatus(_A)
-_CucsMemoryErrorStatsAddressParityErrors1Week_Type=Gauge32
-_CucsMemoryErrorStatsAddressParityErrors1Week_Object=MibTableColumn
-cucsMemoryErrorStatsAddressParityErrors1Week=_CucsMemoryErrorStatsAddressParityErrors1Week_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,11),_CucsMemoryErrorStatsAddressParityErrors1Week_Type())
-cucsMemoryErrorStatsAddressParityErrors1Week.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsAddressParityErrors1Week.setStatus(_A)
-_CucsMemoryErrorStatsAddressParityErrors1WeekH_Type=Gauge32
-_CucsMemoryErrorStatsAddressParityErrors1WeekH_Object=MibTableColumn
-cucsMemoryErrorStatsAddressParityErrors1WeekH=_CucsMemoryErrorStatsAddressParityErrors1WeekH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,12),_CucsMemoryErrorStatsAddressParityErrors1WeekH_Type())
-cucsMemoryErrorStatsAddressParityErrors1WeekH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsAddressParityErrors1WeekH.setStatus(_A)
-_CucsMemoryErrorStatsEccMultibitErrors_Type=Counter32
-_CucsMemoryErrorStatsEccMultibitErrors_Object=MibTableColumn
-cucsMemoryErrorStatsEccMultibitErrors=_CucsMemoryErrorStatsEccMultibitErrors_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,13),_CucsMemoryErrorStatsEccMultibitErrors_Type())
-cucsMemoryErrorStatsEccMultibitErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccMultibitErrors.setStatus(_A)
-_CucsMemoryErrorStatsEccMultibitErrors15Min_Type=Gauge32
-_CucsMemoryErrorStatsEccMultibitErrors15Min_Object=MibTableColumn
-cucsMemoryErrorStatsEccMultibitErrors15Min=_CucsMemoryErrorStatsEccMultibitErrors15Min_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,14),_CucsMemoryErrorStatsEccMultibitErrors15Min_Type())
-cucsMemoryErrorStatsEccMultibitErrors15Min.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccMultibitErrors15Min.setStatus(_A)
-_CucsMemoryErrorStatsEccMultibitErrors15MinH_Type=Gauge32
-_CucsMemoryErrorStatsEccMultibitErrors15MinH_Object=MibTableColumn
-cucsMemoryErrorStatsEccMultibitErrors15MinH=_CucsMemoryErrorStatsEccMultibitErrors15MinH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,15),_CucsMemoryErrorStatsEccMultibitErrors15MinH_Type())
-cucsMemoryErrorStatsEccMultibitErrors15MinH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccMultibitErrors15MinH.setStatus(_A)
-_CucsMemoryErrorStatsEccMultibitErrors1Day_Type=Gauge32
-_CucsMemoryErrorStatsEccMultibitErrors1Day_Object=MibTableColumn
-cucsMemoryErrorStatsEccMultibitErrors1Day=_CucsMemoryErrorStatsEccMultibitErrors1Day_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,16),_CucsMemoryErrorStatsEccMultibitErrors1Day_Type())
-cucsMemoryErrorStatsEccMultibitErrors1Day.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccMultibitErrors1Day.setStatus(_A)
-_CucsMemoryErrorStatsEccMultibitErrors1DayH_Type=Gauge32
-_CucsMemoryErrorStatsEccMultibitErrors1DayH_Object=MibTableColumn
-cucsMemoryErrorStatsEccMultibitErrors1DayH=_CucsMemoryErrorStatsEccMultibitErrors1DayH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,17),_CucsMemoryErrorStatsEccMultibitErrors1DayH_Type())
-cucsMemoryErrorStatsEccMultibitErrors1DayH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccMultibitErrors1DayH.setStatus(_A)
-_CucsMemoryErrorStatsEccMultibitErrors1Hour_Type=Gauge32
-_CucsMemoryErrorStatsEccMultibitErrors1Hour_Object=MibTableColumn
-cucsMemoryErrorStatsEccMultibitErrors1Hour=_CucsMemoryErrorStatsEccMultibitErrors1Hour_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,18),_CucsMemoryErrorStatsEccMultibitErrors1Hour_Type())
-cucsMemoryErrorStatsEccMultibitErrors1Hour.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccMultibitErrors1Hour.setStatus(_A)
-_CucsMemoryErrorStatsEccMultibitErrors1HourH_Type=Gauge32
-_CucsMemoryErrorStatsEccMultibitErrors1HourH_Object=MibTableColumn
-cucsMemoryErrorStatsEccMultibitErrors1HourH=_CucsMemoryErrorStatsEccMultibitErrors1HourH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,19),_CucsMemoryErrorStatsEccMultibitErrors1HourH_Type())
-cucsMemoryErrorStatsEccMultibitErrors1HourH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccMultibitErrors1HourH.setStatus(_A)
-_CucsMemoryErrorStatsEccMultibitErrors1Week_Type=Gauge32
-_CucsMemoryErrorStatsEccMultibitErrors1Week_Object=MibTableColumn
-cucsMemoryErrorStatsEccMultibitErrors1Week=_CucsMemoryErrorStatsEccMultibitErrors1Week_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,20),_CucsMemoryErrorStatsEccMultibitErrors1Week_Type())
-cucsMemoryErrorStatsEccMultibitErrors1Week.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccMultibitErrors1Week.setStatus(_A)
-_CucsMemoryErrorStatsEccMultibitErrors1WeekH_Type=Gauge32
-_CucsMemoryErrorStatsEccMultibitErrors1WeekH_Object=MibTableColumn
-cucsMemoryErrorStatsEccMultibitErrors1WeekH=_CucsMemoryErrorStatsEccMultibitErrors1WeekH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,21),_CucsMemoryErrorStatsEccMultibitErrors1WeekH_Type())
-cucsMemoryErrorStatsEccMultibitErrors1WeekH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccMultibitErrors1WeekH.setStatus(_A)
-_CucsMemoryErrorStatsEccSinglebitErrors_Type=Counter32
-_CucsMemoryErrorStatsEccSinglebitErrors_Object=MibTableColumn
-cucsMemoryErrorStatsEccSinglebitErrors=_CucsMemoryErrorStatsEccSinglebitErrors_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,22),_CucsMemoryErrorStatsEccSinglebitErrors_Type())
-cucsMemoryErrorStatsEccSinglebitErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccSinglebitErrors.setStatus(_A)
-_CucsMemoryErrorStatsEccSinglebitErrors15Min_Type=Gauge32
-_CucsMemoryErrorStatsEccSinglebitErrors15Min_Object=MibTableColumn
-cucsMemoryErrorStatsEccSinglebitErrors15Min=_CucsMemoryErrorStatsEccSinglebitErrors15Min_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,23),_CucsMemoryErrorStatsEccSinglebitErrors15Min_Type())
-cucsMemoryErrorStatsEccSinglebitErrors15Min.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccSinglebitErrors15Min.setStatus(_A)
-_CucsMemoryErrorStatsEccSinglebitErrors15MinH_Type=Gauge32
-_CucsMemoryErrorStatsEccSinglebitErrors15MinH_Object=MibTableColumn
-cucsMemoryErrorStatsEccSinglebitErrors15MinH=_CucsMemoryErrorStatsEccSinglebitErrors15MinH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,24),_CucsMemoryErrorStatsEccSinglebitErrors15MinH_Type())
-cucsMemoryErrorStatsEccSinglebitErrors15MinH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccSinglebitErrors15MinH.setStatus(_A)
-_CucsMemoryErrorStatsEccSinglebitErrors1Day_Type=Gauge32
-_CucsMemoryErrorStatsEccSinglebitErrors1Day_Object=MibTableColumn
-cucsMemoryErrorStatsEccSinglebitErrors1Day=_CucsMemoryErrorStatsEccSinglebitErrors1Day_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,25),_CucsMemoryErrorStatsEccSinglebitErrors1Day_Type())
-cucsMemoryErrorStatsEccSinglebitErrors1Day.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccSinglebitErrors1Day.setStatus(_A)
-_CucsMemoryErrorStatsEccSinglebitErrors1DayH_Type=Gauge32
-_CucsMemoryErrorStatsEccSinglebitErrors1DayH_Object=MibTableColumn
-cucsMemoryErrorStatsEccSinglebitErrors1DayH=_CucsMemoryErrorStatsEccSinglebitErrors1DayH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,26),_CucsMemoryErrorStatsEccSinglebitErrors1DayH_Type())
-cucsMemoryErrorStatsEccSinglebitErrors1DayH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccSinglebitErrors1DayH.setStatus(_A)
-_CucsMemoryErrorStatsEccSinglebitErrors1Hour_Type=Gauge32
-_CucsMemoryErrorStatsEccSinglebitErrors1Hour_Object=MibTableColumn
-cucsMemoryErrorStatsEccSinglebitErrors1Hour=_CucsMemoryErrorStatsEccSinglebitErrors1Hour_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,27),_CucsMemoryErrorStatsEccSinglebitErrors1Hour_Type())
-cucsMemoryErrorStatsEccSinglebitErrors1Hour.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccSinglebitErrors1Hour.setStatus(_A)
-_CucsMemoryErrorStatsEccSinglebitErrors1HourH_Type=Gauge32
-_CucsMemoryErrorStatsEccSinglebitErrors1HourH_Object=MibTableColumn
-cucsMemoryErrorStatsEccSinglebitErrors1HourH=_CucsMemoryErrorStatsEccSinglebitErrors1HourH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,28),_CucsMemoryErrorStatsEccSinglebitErrors1HourH_Type())
-cucsMemoryErrorStatsEccSinglebitErrors1HourH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccSinglebitErrors1HourH.setStatus(_A)
-_CucsMemoryErrorStatsEccSinglebitErrors1Week_Type=Gauge32
-_CucsMemoryErrorStatsEccSinglebitErrors1Week_Object=MibTableColumn
-cucsMemoryErrorStatsEccSinglebitErrors1Week=_CucsMemoryErrorStatsEccSinglebitErrors1Week_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,29),_CucsMemoryErrorStatsEccSinglebitErrors1Week_Type())
-cucsMemoryErrorStatsEccSinglebitErrors1Week.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccSinglebitErrors1Week.setStatus(_A)
-_CucsMemoryErrorStatsEccSinglebitErrors1WeekH_Type=Gauge32
-_CucsMemoryErrorStatsEccSinglebitErrors1WeekH_Object=MibTableColumn
-cucsMemoryErrorStatsEccSinglebitErrors1WeekH=_CucsMemoryErrorStatsEccSinglebitErrors1WeekH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,30),_CucsMemoryErrorStatsEccSinglebitErrors1WeekH_Type())
-cucsMemoryErrorStatsEccSinglebitErrors1WeekH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccSinglebitErrors1WeekH.setStatus(_A)
-_CucsMemoryErrorStatsIntervals_Type=Gauge32
-_CucsMemoryErrorStatsIntervals_Object=MibTableColumn
-cucsMemoryErrorStatsIntervals=_CucsMemoryErrorStatsIntervals_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,31),_CucsMemoryErrorStatsIntervals_Type())
-cucsMemoryErrorStatsIntervals.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsIntervals.setStatus(_A)
-_CucsMemoryErrorStatsMismatchErrors_Type=Counter32
-_CucsMemoryErrorStatsMismatchErrors_Object=MibTableColumn
-cucsMemoryErrorStatsMismatchErrors=_CucsMemoryErrorStatsMismatchErrors_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,32),_CucsMemoryErrorStatsMismatchErrors_Type())
-cucsMemoryErrorStatsMismatchErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsMismatchErrors.setStatus(_A)
-_CucsMemoryErrorStatsMismatchErrors15Min_Type=Gauge32
-_CucsMemoryErrorStatsMismatchErrors15Min_Object=MibTableColumn
-cucsMemoryErrorStatsMismatchErrors15Min=_CucsMemoryErrorStatsMismatchErrors15Min_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,33),_CucsMemoryErrorStatsMismatchErrors15Min_Type())
-cucsMemoryErrorStatsMismatchErrors15Min.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsMismatchErrors15Min.setStatus(_A)
-_CucsMemoryErrorStatsMismatchErrors15MinH_Type=Gauge32
-_CucsMemoryErrorStatsMismatchErrors15MinH_Object=MibTableColumn
-cucsMemoryErrorStatsMismatchErrors15MinH=_CucsMemoryErrorStatsMismatchErrors15MinH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,34),_CucsMemoryErrorStatsMismatchErrors15MinH_Type())
-cucsMemoryErrorStatsMismatchErrors15MinH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsMismatchErrors15MinH.setStatus(_A)
-_CucsMemoryErrorStatsMismatchErrors1Day_Type=Gauge32
-_CucsMemoryErrorStatsMismatchErrors1Day_Object=MibTableColumn
-cucsMemoryErrorStatsMismatchErrors1Day=_CucsMemoryErrorStatsMismatchErrors1Day_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,35),_CucsMemoryErrorStatsMismatchErrors1Day_Type())
-cucsMemoryErrorStatsMismatchErrors1Day.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsMismatchErrors1Day.setStatus(_A)
-_CucsMemoryErrorStatsMismatchErrors1DayH_Type=Gauge32
-_CucsMemoryErrorStatsMismatchErrors1DayH_Object=MibTableColumn
-cucsMemoryErrorStatsMismatchErrors1DayH=_CucsMemoryErrorStatsMismatchErrors1DayH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,36),_CucsMemoryErrorStatsMismatchErrors1DayH_Type())
-cucsMemoryErrorStatsMismatchErrors1DayH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsMismatchErrors1DayH.setStatus(_A)
-_CucsMemoryErrorStatsMismatchErrors1Hour_Type=Gauge32
-_CucsMemoryErrorStatsMismatchErrors1Hour_Object=MibTableColumn
-cucsMemoryErrorStatsMismatchErrors1Hour=_CucsMemoryErrorStatsMismatchErrors1Hour_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,37),_CucsMemoryErrorStatsMismatchErrors1Hour_Type())
-cucsMemoryErrorStatsMismatchErrors1Hour.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsMismatchErrors1Hour.setStatus(_A)
-_CucsMemoryErrorStatsMismatchErrors1HourH_Type=Gauge32
-_CucsMemoryErrorStatsMismatchErrors1HourH_Object=MibTableColumn
-cucsMemoryErrorStatsMismatchErrors1HourH=_CucsMemoryErrorStatsMismatchErrors1HourH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,38),_CucsMemoryErrorStatsMismatchErrors1HourH_Type())
-cucsMemoryErrorStatsMismatchErrors1HourH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsMismatchErrors1HourH.setStatus(_A)
-_CucsMemoryErrorStatsMismatchErrors1Week_Type=Gauge32
-_CucsMemoryErrorStatsMismatchErrors1Week_Object=MibTableColumn
-cucsMemoryErrorStatsMismatchErrors1Week=_CucsMemoryErrorStatsMismatchErrors1Week_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,39),_CucsMemoryErrorStatsMismatchErrors1Week_Type())
-cucsMemoryErrorStatsMismatchErrors1Week.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsMismatchErrors1Week.setStatus(_A)
-_CucsMemoryErrorStatsMismatchErrors1WeekH_Type=Gauge32
-_CucsMemoryErrorStatsMismatchErrors1WeekH_Object=MibTableColumn
-cucsMemoryErrorStatsMismatchErrors1WeekH=_CucsMemoryErrorStatsMismatchErrors1WeekH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,40),_CucsMemoryErrorStatsMismatchErrors1WeekH_Type())
-cucsMemoryErrorStatsMismatchErrors1WeekH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsMismatchErrors1WeekH.setStatus(_A)
-_CucsMemoryErrorStatsSuspect_Type=TruthValue
-_CucsMemoryErrorStatsSuspect_Object=MibTableColumn
-cucsMemoryErrorStatsSuspect=_CucsMemoryErrorStatsSuspect_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,41),_CucsMemoryErrorStatsSuspect_Type())
-cucsMemoryErrorStatsSuspect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsSuspect.setStatus(_A)
-_CucsMemoryErrorStatsThresholded_Type=CucsMemoryErrorStatsThresholded
-_CucsMemoryErrorStatsThresholded_Object=MibTableColumn
-cucsMemoryErrorStatsThresholded=_CucsMemoryErrorStatsThresholded_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,42),_CucsMemoryErrorStatsThresholded_Type())
-cucsMemoryErrorStatsThresholded.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsThresholded.setStatus(_A)
-_CucsMemoryErrorStatsTimeCollected_Type=DateAndTime
-_CucsMemoryErrorStatsTimeCollected_Object=MibTableColumn
-cucsMemoryErrorStatsTimeCollected=_CucsMemoryErrorStatsTimeCollected_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,43),_CucsMemoryErrorStatsTimeCollected_Type())
-cucsMemoryErrorStatsTimeCollected.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsTimeCollected.setStatus(_A)
-_CucsMemoryErrorStatsUpdate_Type=Gauge32
-_CucsMemoryErrorStatsUpdate_Object=MibTableColumn
-cucsMemoryErrorStatsUpdate=_CucsMemoryErrorStatsUpdate_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,44),_CucsMemoryErrorStatsUpdate_Type())
-cucsMemoryErrorStatsUpdate.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsUpdate.setStatus(_A)
-_CucsMemoryErrorStatsAddressParityErrors2Weeks_Type=Gauge32
-_CucsMemoryErrorStatsAddressParityErrors2Weeks_Object=MibTableColumn
-cucsMemoryErrorStatsAddressParityErrors2Weeks=_CucsMemoryErrorStatsAddressParityErrors2Weeks_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,45),_CucsMemoryErrorStatsAddressParityErrors2Weeks_Type())
-cucsMemoryErrorStatsAddressParityErrors2Weeks.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsAddressParityErrors2Weeks.setStatus(_A)
-_CucsMemoryErrorStatsAddressParityErrors2WeeksH_Type=Gauge32
-_CucsMemoryErrorStatsAddressParityErrors2WeeksH_Object=MibTableColumn
-cucsMemoryErrorStatsAddressParityErrors2WeeksH=_CucsMemoryErrorStatsAddressParityErrors2WeeksH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,46),_CucsMemoryErrorStatsAddressParityErrors2WeeksH_Type())
-cucsMemoryErrorStatsAddressParityErrors2WeeksH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsAddressParityErrors2WeeksH.setStatus(_A)
-_CucsMemoryErrorStatsEccMultibitErrors2Weeks_Type=Gauge32
-_CucsMemoryErrorStatsEccMultibitErrors2Weeks_Object=MibTableColumn
-cucsMemoryErrorStatsEccMultibitErrors2Weeks=_CucsMemoryErrorStatsEccMultibitErrors2Weeks_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,47),_CucsMemoryErrorStatsEccMultibitErrors2Weeks_Type())
-cucsMemoryErrorStatsEccMultibitErrors2Weeks.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccMultibitErrors2Weeks.setStatus(_A)
-_CucsMemoryErrorStatsEccMultibitErrors2WeeksH_Type=Gauge32
-_CucsMemoryErrorStatsEccMultibitErrors2WeeksH_Object=MibTableColumn
-cucsMemoryErrorStatsEccMultibitErrors2WeeksH=_CucsMemoryErrorStatsEccMultibitErrors2WeeksH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,48),_CucsMemoryErrorStatsEccMultibitErrors2WeeksH_Type())
-cucsMemoryErrorStatsEccMultibitErrors2WeeksH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccMultibitErrors2WeeksH.setStatus(_A)
-_CucsMemoryErrorStatsEccSinglebitErrors2Weeks_Type=Gauge32
-_CucsMemoryErrorStatsEccSinglebitErrors2Weeks_Object=MibTableColumn
-cucsMemoryErrorStatsEccSinglebitErrors2Weeks=_CucsMemoryErrorStatsEccSinglebitErrors2Weeks_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,49),_CucsMemoryErrorStatsEccSinglebitErrors2Weeks_Type())
-cucsMemoryErrorStatsEccSinglebitErrors2Weeks.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccSinglebitErrors2Weeks.setStatus(_A)
-_CucsMemoryErrorStatsEccSinglebitErrors2WeeksH_Type=Gauge32
-_CucsMemoryErrorStatsEccSinglebitErrors2WeeksH_Object=MibTableColumn
-cucsMemoryErrorStatsEccSinglebitErrors2WeeksH=_CucsMemoryErrorStatsEccSinglebitErrors2WeeksH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,50),_CucsMemoryErrorStatsEccSinglebitErrors2WeeksH_Type())
-cucsMemoryErrorStatsEccSinglebitErrors2WeeksH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsEccSinglebitErrors2WeeksH.setStatus(_A)
-_CucsMemoryErrorStatsMismatchErrors2Weeks_Type=Gauge32
-_CucsMemoryErrorStatsMismatchErrors2Weeks_Object=MibTableColumn
-cucsMemoryErrorStatsMismatchErrors2Weeks=_CucsMemoryErrorStatsMismatchErrors2Weeks_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,51),_CucsMemoryErrorStatsMismatchErrors2Weeks_Type())
-cucsMemoryErrorStatsMismatchErrors2Weeks.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsMismatchErrors2Weeks.setStatus(_A)
-_CucsMemoryErrorStatsMismatchErrors2WeeksH_Type=Gauge32
-_CucsMemoryErrorStatsMismatchErrors2WeeksH_Object=MibTableColumn
-cucsMemoryErrorStatsMismatchErrors2WeeksH=_CucsMemoryErrorStatsMismatchErrors2WeeksH_Object((1,3,6,1,4,1,9,9,719,1,30,7,1,52),_CucsMemoryErrorStatsMismatchErrors2WeeksH_Type())
-cucsMemoryErrorStatsMismatchErrors2WeeksH.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryErrorStatsMismatchErrors2WeeksH.setStatus(_A)
-_CucsMemoryQualTable_Object=MibTable
-cucsMemoryQualTable=_CucsMemoryQualTable_Object((1,3,6,1,4,1,9,9,719,1,30,8))
-if mibBuilder.loadTexts:cucsMemoryQualTable.setStatus(_A)
-_CucsMemoryQualEntry_Object=MibTableRow
-cucsMemoryQualEntry=_CucsMemoryQualEntry_Object((1,3,6,1,4,1,9,9,719,1,30,8,1))
-cucsMemoryQualEntry.setIndexNames((0,_C,_L))
-if mibBuilder.loadTexts:cucsMemoryQualEntry.setStatus(_A)
-_CucsMemoryQualInstanceId_Type=CucsManagedObjectId
-_CucsMemoryQualInstanceId_Object=MibTableColumn
-cucsMemoryQualInstanceId=_CucsMemoryQualInstanceId_Object((1,3,6,1,4,1,9,9,719,1,30,8,1,1),_CucsMemoryQualInstanceId_Type())
-cucsMemoryQualInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsMemoryQualInstanceId.setStatus(_A)
-_CucsMemoryQualDn_Type=CucsManagedObjectDn
-_CucsMemoryQualDn_Object=MibTableColumn
-cucsMemoryQualDn=_CucsMemoryQualDn_Object((1,3,6,1,4,1,9,9,719,1,30,8,1,2),_CucsMemoryQualDn_Type())
-cucsMemoryQualDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryQualDn.setStatus(_A)
-_CucsMemoryQualRn_Type=SnmpAdminString
-_CucsMemoryQualRn_Object=MibTableColumn
-cucsMemoryQualRn=_CucsMemoryQualRn_Object((1,3,6,1,4,1,9,9,719,1,30,8,1,3),_CucsMemoryQualRn_Type())
-cucsMemoryQualRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryQualRn.setStatus(_A)
-_CucsMemoryQualClock_Type=Gauge32
-_CucsMemoryQualClock_Object=MibTableColumn
-cucsMemoryQualClock=_CucsMemoryQualClock_Object((1,3,6,1,4,1,9,9,719,1,30,8,1,4),_CucsMemoryQualClock_Type())
-cucsMemoryQualClock.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryQualClock.setStatus(_A)
-_CucsMemoryQualLatency_Type=Integer32
-_CucsMemoryQualLatency_Object=MibTableColumn
-cucsMemoryQualLatency=_CucsMemoryQualLatency_Object((1,3,6,1,4,1,9,9,719,1,30,8,1,5),_CucsMemoryQualLatency_Type())
-cucsMemoryQualLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryQualLatency.setStatus(_A)
-_CucsMemoryQualMaxCap_Type=Gauge32
-_CucsMemoryQualMaxCap_Object=MibTableColumn
-cucsMemoryQualMaxCap=_CucsMemoryQualMaxCap_Object((1,3,6,1,4,1,9,9,719,1,30,8,1,6),_CucsMemoryQualMaxCap_Type())
-cucsMemoryQualMaxCap.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryQualMaxCap.setStatus(_A)
-_CucsMemoryQualMinCap_Type=Gauge32
-_CucsMemoryQualMinCap_Object=MibTableColumn
-cucsMemoryQualMinCap=_CucsMemoryQualMinCap_Object((1,3,6,1,4,1,9,9,719,1,30,8,1,7),_CucsMemoryQualMinCap_Type())
-cucsMemoryQualMinCap.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryQualMinCap.setStatus(_A)
-_CucsMemoryQualSpeed_Type=Gauge32
-_CucsMemoryQualSpeed_Object=MibTableColumn
-cucsMemoryQualSpeed=_CucsMemoryQualSpeed_Object((1,3,6,1,4,1,9,9,719,1,30,8,1,8),_CucsMemoryQualSpeed_Type())
-cucsMemoryQualSpeed.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryQualSpeed.setStatus(_A)
-_CucsMemoryQualUnits_Type=Gauge32
-_CucsMemoryQualUnits_Object=MibTableColumn
-cucsMemoryQualUnits=_CucsMemoryQualUnits_Object((1,3,6,1,4,1,9,9,719,1,30,8,1,9),_CucsMemoryQualUnits_Type())
-cucsMemoryQualUnits.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryQualUnits.setStatus(_A)
-_CucsMemoryQualWidth_Type=Gauge32
-_CucsMemoryQualWidth_Object=MibTableColumn
-cucsMemoryQualWidth=_CucsMemoryQualWidth_Object((1,3,6,1,4,1,9,9,719,1,30,8,1,10),_CucsMemoryQualWidth_Type())
-cucsMemoryQualWidth.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryQualWidth.setStatus(_A)
-_CucsMemoryRuntimeTable_Object=MibTable
-cucsMemoryRuntimeTable=_CucsMemoryRuntimeTable_Object((1,3,6,1,4,1,9,9,719,1,30,9))
-if mibBuilder.loadTexts:cucsMemoryRuntimeTable.setStatus(_A)
-_CucsMemoryRuntimeEntry_Object=MibTableRow
-cucsMemoryRuntimeEntry=_CucsMemoryRuntimeEntry_Object((1,3,6,1,4,1,9,9,719,1,30,9,1))
-cucsMemoryRuntimeEntry.setIndexNames((0,_C,_M))
-if mibBuilder.loadTexts:cucsMemoryRuntimeEntry.setStatus(_A)
-_CucsMemoryRuntimeInstanceId_Type=CucsManagedObjectId
-_CucsMemoryRuntimeInstanceId_Object=MibTableColumn
-cucsMemoryRuntimeInstanceId=_CucsMemoryRuntimeInstanceId_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,1),_CucsMemoryRuntimeInstanceId_Type())
-cucsMemoryRuntimeInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsMemoryRuntimeInstanceId.setStatus(_A)
-_CucsMemoryRuntimeDn_Type=CucsManagedObjectDn
-_CucsMemoryRuntimeDn_Object=MibTableColumn
-cucsMemoryRuntimeDn=_CucsMemoryRuntimeDn_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,2),_CucsMemoryRuntimeDn_Type())
-cucsMemoryRuntimeDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeDn.setStatus(_A)
-_CucsMemoryRuntimeRn_Type=SnmpAdminString
-_CucsMemoryRuntimeRn_Object=MibTableColumn
-cucsMemoryRuntimeRn=_CucsMemoryRuntimeRn_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,3),_CucsMemoryRuntimeRn_Type())
-cucsMemoryRuntimeRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeRn.setStatus(_A)
-_CucsMemoryRuntimeAvailable_Type=Gauge32
-_CucsMemoryRuntimeAvailable_Object=MibTableColumn
-cucsMemoryRuntimeAvailable=_CucsMemoryRuntimeAvailable_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,4),_CucsMemoryRuntimeAvailable_Type())
-cucsMemoryRuntimeAvailable.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeAvailable.setStatus(_A)
-_CucsMemoryRuntimeAvailableAvg_Type=Gauge32
-_CucsMemoryRuntimeAvailableAvg_Object=MibTableColumn
-cucsMemoryRuntimeAvailableAvg=_CucsMemoryRuntimeAvailableAvg_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,5),_CucsMemoryRuntimeAvailableAvg_Type())
-cucsMemoryRuntimeAvailableAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeAvailableAvg.setStatus(_A)
-_CucsMemoryRuntimeAvailableMax_Type=Gauge32
-_CucsMemoryRuntimeAvailableMax_Object=MibTableColumn
-cucsMemoryRuntimeAvailableMax=_CucsMemoryRuntimeAvailableMax_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,6),_CucsMemoryRuntimeAvailableMax_Type())
-cucsMemoryRuntimeAvailableMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeAvailableMax.setStatus(_A)
-_CucsMemoryRuntimeAvailableMin_Type=Gauge32
-_CucsMemoryRuntimeAvailableMin_Object=MibTableColumn
-cucsMemoryRuntimeAvailableMin=_CucsMemoryRuntimeAvailableMin_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,7),_CucsMemoryRuntimeAvailableMin_Type())
-cucsMemoryRuntimeAvailableMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeAvailableMin.setStatus(_A)
-_CucsMemoryRuntimeCached_Type=Gauge32
-_CucsMemoryRuntimeCached_Object=MibTableColumn
-cucsMemoryRuntimeCached=_CucsMemoryRuntimeCached_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,8),_CucsMemoryRuntimeCached_Type())
-cucsMemoryRuntimeCached.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeCached.setStatus(_A)
-_CucsMemoryRuntimeCachedAvg_Type=Gauge32
-_CucsMemoryRuntimeCachedAvg_Object=MibTableColumn
-cucsMemoryRuntimeCachedAvg=_CucsMemoryRuntimeCachedAvg_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,9),_CucsMemoryRuntimeCachedAvg_Type())
-cucsMemoryRuntimeCachedAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeCachedAvg.setStatus(_A)
-_CucsMemoryRuntimeCachedMax_Type=Gauge32
-_CucsMemoryRuntimeCachedMax_Object=MibTableColumn
-cucsMemoryRuntimeCachedMax=_CucsMemoryRuntimeCachedMax_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,10),_CucsMemoryRuntimeCachedMax_Type())
-cucsMemoryRuntimeCachedMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeCachedMax.setStatus(_A)
-_CucsMemoryRuntimeCachedMin_Type=Gauge32
-_CucsMemoryRuntimeCachedMin_Object=MibTableColumn
-cucsMemoryRuntimeCachedMin=_CucsMemoryRuntimeCachedMin_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,11),_CucsMemoryRuntimeCachedMin_Type())
-cucsMemoryRuntimeCachedMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeCachedMin.setStatus(_A)
-_CucsMemoryRuntimeIntervals_Type=Gauge32
-_CucsMemoryRuntimeIntervals_Object=MibTableColumn
-cucsMemoryRuntimeIntervals=_CucsMemoryRuntimeIntervals_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,12),_CucsMemoryRuntimeIntervals_Type())
-cucsMemoryRuntimeIntervals.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeIntervals.setStatus(_A)
-_CucsMemoryRuntimeSuspect_Type=TruthValue
-_CucsMemoryRuntimeSuspect_Object=MibTableColumn
-cucsMemoryRuntimeSuspect=_CucsMemoryRuntimeSuspect_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,13),_CucsMemoryRuntimeSuspect_Type())
-cucsMemoryRuntimeSuspect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeSuspect.setStatus(_A)
-_CucsMemoryRuntimeThresholded_Type=CucsMemoryRuntimeThresholded
-_CucsMemoryRuntimeThresholded_Object=MibTableColumn
-cucsMemoryRuntimeThresholded=_CucsMemoryRuntimeThresholded_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,14),_CucsMemoryRuntimeThresholded_Type())
-cucsMemoryRuntimeThresholded.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeThresholded.setStatus(_A)
-_CucsMemoryRuntimeTimeCollected_Type=DateAndTime
-_CucsMemoryRuntimeTimeCollected_Object=MibTableColumn
-cucsMemoryRuntimeTimeCollected=_CucsMemoryRuntimeTimeCollected_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,15),_CucsMemoryRuntimeTimeCollected_Type())
-cucsMemoryRuntimeTimeCollected.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeTimeCollected.setStatus(_A)
-_CucsMemoryRuntimeTotal_Type=Gauge32
-_CucsMemoryRuntimeTotal_Object=MibTableColumn
-cucsMemoryRuntimeTotal=_CucsMemoryRuntimeTotal_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,16),_CucsMemoryRuntimeTotal_Type())
-cucsMemoryRuntimeTotal.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeTotal.setStatus(_A)
-_CucsMemoryRuntimeTotalAvg_Type=Gauge32
-_CucsMemoryRuntimeTotalAvg_Object=MibTableColumn
-cucsMemoryRuntimeTotalAvg=_CucsMemoryRuntimeTotalAvg_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,17),_CucsMemoryRuntimeTotalAvg_Type())
-cucsMemoryRuntimeTotalAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeTotalAvg.setStatus(_A)
-_CucsMemoryRuntimeTotalMax_Type=Gauge32
-_CucsMemoryRuntimeTotalMax_Object=MibTableColumn
-cucsMemoryRuntimeTotalMax=_CucsMemoryRuntimeTotalMax_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,18),_CucsMemoryRuntimeTotalMax_Type())
-cucsMemoryRuntimeTotalMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeTotalMax.setStatus(_A)
-_CucsMemoryRuntimeTotalMin_Type=Gauge32
-_CucsMemoryRuntimeTotalMin_Object=MibTableColumn
-cucsMemoryRuntimeTotalMin=_CucsMemoryRuntimeTotalMin_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,19),_CucsMemoryRuntimeTotalMin_Type())
-cucsMemoryRuntimeTotalMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeTotalMin.setStatus(_A)
-_CucsMemoryRuntimeType_Type=CucsMemoryRuntimeType
-_CucsMemoryRuntimeType_Object=MibTableColumn
-cucsMemoryRuntimeType=_CucsMemoryRuntimeType_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,20),_CucsMemoryRuntimeType_Type())
-cucsMemoryRuntimeType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeType.setStatus(_A)
-_CucsMemoryRuntimeUpdate_Type=Gauge32
-_CucsMemoryRuntimeUpdate_Object=MibTableColumn
-cucsMemoryRuntimeUpdate=_CucsMemoryRuntimeUpdate_Object((1,3,6,1,4,1,9,9,719,1,30,9,1,21),_CucsMemoryRuntimeUpdate_Type())
-cucsMemoryRuntimeUpdate.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeUpdate.setStatus(_A)
-_CucsMemoryRuntimeHistTable_Object=MibTable
-cucsMemoryRuntimeHistTable=_CucsMemoryRuntimeHistTable_Object((1,3,6,1,4,1,9,9,719,1,30,10))
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistTable.setStatus(_A)
-_CucsMemoryRuntimeHistEntry_Object=MibTableRow
-cucsMemoryRuntimeHistEntry=_CucsMemoryRuntimeHistEntry_Object((1,3,6,1,4,1,9,9,719,1,30,10,1))
-cucsMemoryRuntimeHistEntry.setIndexNames((0,_C,_N))
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistEntry.setStatus(_A)
-_CucsMemoryRuntimeHistInstanceId_Type=CucsManagedObjectId
-_CucsMemoryRuntimeHistInstanceId_Object=MibTableColumn
-cucsMemoryRuntimeHistInstanceId=_CucsMemoryRuntimeHistInstanceId_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,1),_CucsMemoryRuntimeHistInstanceId_Type())
-cucsMemoryRuntimeHistInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistInstanceId.setStatus(_A)
-_CucsMemoryRuntimeHistDn_Type=CucsManagedObjectDn
-_CucsMemoryRuntimeHistDn_Object=MibTableColumn
-cucsMemoryRuntimeHistDn=_CucsMemoryRuntimeHistDn_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,2),_CucsMemoryRuntimeHistDn_Type())
-cucsMemoryRuntimeHistDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistDn.setStatus(_A)
-_CucsMemoryRuntimeHistRn_Type=SnmpAdminString
-_CucsMemoryRuntimeHistRn_Object=MibTableColumn
-cucsMemoryRuntimeHistRn=_CucsMemoryRuntimeHistRn_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,3),_CucsMemoryRuntimeHistRn_Type())
-cucsMemoryRuntimeHistRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistRn.setStatus(_A)
-_CucsMemoryRuntimeHistAvailable_Type=Gauge32
-_CucsMemoryRuntimeHistAvailable_Object=MibTableColumn
-cucsMemoryRuntimeHistAvailable=_CucsMemoryRuntimeHistAvailable_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,4),_CucsMemoryRuntimeHistAvailable_Type())
-cucsMemoryRuntimeHistAvailable.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistAvailable.setStatus(_A)
-_CucsMemoryRuntimeHistAvailableAvg_Type=Gauge32
-_CucsMemoryRuntimeHistAvailableAvg_Object=MibTableColumn
-cucsMemoryRuntimeHistAvailableAvg=_CucsMemoryRuntimeHistAvailableAvg_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,5),_CucsMemoryRuntimeHistAvailableAvg_Type())
-cucsMemoryRuntimeHistAvailableAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistAvailableAvg.setStatus(_A)
-_CucsMemoryRuntimeHistAvailableMax_Type=Gauge32
-_CucsMemoryRuntimeHistAvailableMax_Object=MibTableColumn
-cucsMemoryRuntimeHistAvailableMax=_CucsMemoryRuntimeHistAvailableMax_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,6),_CucsMemoryRuntimeHistAvailableMax_Type())
-cucsMemoryRuntimeHistAvailableMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistAvailableMax.setStatus(_A)
-_CucsMemoryRuntimeHistAvailableMin_Type=Gauge32
-_CucsMemoryRuntimeHistAvailableMin_Object=MibTableColumn
-cucsMemoryRuntimeHistAvailableMin=_CucsMemoryRuntimeHistAvailableMin_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,7),_CucsMemoryRuntimeHistAvailableMin_Type())
-cucsMemoryRuntimeHistAvailableMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistAvailableMin.setStatus(_A)
-_CucsMemoryRuntimeHistCached_Type=Gauge32
-_CucsMemoryRuntimeHistCached_Object=MibTableColumn
-cucsMemoryRuntimeHistCached=_CucsMemoryRuntimeHistCached_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,8),_CucsMemoryRuntimeHistCached_Type())
-cucsMemoryRuntimeHistCached.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistCached.setStatus(_A)
-_CucsMemoryRuntimeHistCachedAvg_Type=Gauge32
-_CucsMemoryRuntimeHistCachedAvg_Object=MibTableColumn
-cucsMemoryRuntimeHistCachedAvg=_CucsMemoryRuntimeHistCachedAvg_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,9),_CucsMemoryRuntimeHistCachedAvg_Type())
-cucsMemoryRuntimeHistCachedAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistCachedAvg.setStatus(_A)
-_CucsMemoryRuntimeHistCachedMax_Type=Gauge32
-_CucsMemoryRuntimeHistCachedMax_Object=MibTableColumn
-cucsMemoryRuntimeHistCachedMax=_CucsMemoryRuntimeHistCachedMax_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,10),_CucsMemoryRuntimeHistCachedMax_Type())
-cucsMemoryRuntimeHistCachedMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistCachedMax.setStatus(_A)
-_CucsMemoryRuntimeHistCachedMin_Type=Gauge32
-_CucsMemoryRuntimeHistCachedMin_Object=MibTableColumn
-cucsMemoryRuntimeHistCachedMin=_CucsMemoryRuntimeHistCachedMin_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,11),_CucsMemoryRuntimeHistCachedMin_Type())
-cucsMemoryRuntimeHistCachedMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistCachedMin.setStatus(_A)
-_CucsMemoryRuntimeHistId_Type=Unsigned64
-_CucsMemoryRuntimeHistId_Object=MibTableColumn
-cucsMemoryRuntimeHistId=_CucsMemoryRuntimeHistId_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,12),_CucsMemoryRuntimeHistId_Type())
-cucsMemoryRuntimeHistId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistId.setStatus(_A)
-_CucsMemoryRuntimeHistMostRecent_Type=TruthValue
-_CucsMemoryRuntimeHistMostRecent_Object=MibTableColumn
-cucsMemoryRuntimeHistMostRecent=_CucsMemoryRuntimeHistMostRecent_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,13),_CucsMemoryRuntimeHistMostRecent_Type())
-cucsMemoryRuntimeHistMostRecent.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistMostRecent.setStatus(_A)
-_CucsMemoryRuntimeHistSuspect_Type=TruthValue
-_CucsMemoryRuntimeHistSuspect_Object=MibTableColumn
-cucsMemoryRuntimeHistSuspect=_CucsMemoryRuntimeHistSuspect_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,14),_CucsMemoryRuntimeHistSuspect_Type())
-cucsMemoryRuntimeHistSuspect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistSuspect.setStatus(_A)
-_CucsMemoryRuntimeHistThresholded_Type=CucsMemoryRuntimeHistThresholded
-_CucsMemoryRuntimeHistThresholded_Object=MibTableColumn
-cucsMemoryRuntimeHistThresholded=_CucsMemoryRuntimeHistThresholded_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,15),_CucsMemoryRuntimeHistThresholded_Type())
-cucsMemoryRuntimeHistThresholded.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistThresholded.setStatus(_A)
-_CucsMemoryRuntimeHistTimeCollected_Type=DateAndTime
-_CucsMemoryRuntimeHistTimeCollected_Object=MibTableColumn
-cucsMemoryRuntimeHistTimeCollected=_CucsMemoryRuntimeHistTimeCollected_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,16),_CucsMemoryRuntimeHistTimeCollected_Type())
-cucsMemoryRuntimeHistTimeCollected.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistTimeCollected.setStatus(_A)
-_CucsMemoryRuntimeHistTotal_Type=Gauge32
-_CucsMemoryRuntimeHistTotal_Object=MibTableColumn
-cucsMemoryRuntimeHistTotal=_CucsMemoryRuntimeHistTotal_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,17),_CucsMemoryRuntimeHistTotal_Type())
-cucsMemoryRuntimeHistTotal.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistTotal.setStatus(_A)
-_CucsMemoryRuntimeHistTotalAvg_Type=Gauge32
-_CucsMemoryRuntimeHistTotalAvg_Object=MibTableColumn
-cucsMemoryRuntimeHistTotalAvg=_CucsMemoryRuntimeHistTotalAvg_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,18),_CucsMemoryRuntimeHistTotalAvg_Type())
-cucsMemoryRuntimeHistTotalAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistTotalAvg.setStatus(_A)
-_CucsMemoryRuntimeHistTotalMax_Type=Gauge32
-_CucsMemoryRuntimeHistTotalMax_Object=MibTableColumn
-cucsMemoryRuntimeHistTotalMax=_CucsMemoryRuntimeHistTotalMax_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,19),_CucsMemoryRuntimeHistTotalMax_Type())
-cucsMemoryRuntimeHistTotalMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistTotalMax.setStatus(_A)
-_CucsMemoryRuntimeHistTotalMin_Type=Gauge32
-_CucsMemoryRuntimeHistTotalMin_Object=MibTableColumn
-cucsMemoryRuntimeHistTotalMin=_CucsMemoryRuntimeHistTotalMin_Object((1,3,6,1,4,1,9,9,719,1,30,10,1,20),_CucsMemoryRuntimeHistTotalMin_Type())
-cucsMemoryRuntimeHistTotalMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryRuntimeHistTotalMin.setStatus(_A)
-_CucsMemoryUnitTable_Object=MibTable
-cucsMemoryUnitTable=_CucsMemoryUnitTable_Object((1,3,6,1,4,1,9,9,719,1,30,11))
-if mibBuilder.loadTexts:cucsMemoryUnitTable.setStatus(_A)
-_CucsMemoryUnitEntry_Object=MibTableRow
-cucsMemoryUnitEntry=_CucsMemoryUnitEntry_Object((1,3,6,1,4,1,9,9,719,1,30,11,1))
-cucsMemoryUnitEntry.setIndexNames((0,_C,_O))
-if mibBuilder.loadTexts:cucsMemoryUnitEntry.setStatus(_A)
-_CucsMemoryUnitInstanceId_Type=CucsManagedObjectId
-_CucsMemoryUnitInstanceId_Object=MibTableColumn
-cucsMemoryUnitInstanceId=_CucsMemoryUnitInstanceId_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,1),_CucsMemoryUnitInstanceId_Type())
-cucsMemoryUnitInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsMemoryUnitInstanceId.setStatus(_A)
-_CucsMemoryUnitDn_Type=CucsManagedObjectDn
-_CucsMemoryUnitDn_Object=MibTableColumn
-cucsMemoryUnitDn=_CucsMemoryUnitDn_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,2),_CucsMemoryUnitDn_Type())
-cucsMemoryUnitDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitDn.setStatus(_A)
-_CucsMemoryUnitRn_Type=SnmpAdminString
-_CucsMemoryUnitRn_Object=MibTableColumn
-cucsMemoryUnitRn=_CucsMemoryUnitRn_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,3),_CucsMemoryUnitRn_Type())
-cucsMemoryUnitRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitRn.setStatus(_A)
-_CucsMemoryUnitArray_Type=Gauge32
-_CucsMemoryUnitArray_Object=MibTableColumn
-cucsMemoryUnitArray=_CucsMemoryUnitArray_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,4),_CucsMemoryUnitArray_Type())
-cucsMemoryUnitArray.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitArray.setStatus(_A)
-_CucsMemoryUnitBank_Type=Gauge32
-_CucsMemoryUnitBank_Object=MibTableColumn
-cucsMemoryUnitBank=_CucsMemoryUnitBank_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,5),_CucsMemoryUnitBank_Type())
-cucsMemoryUnitBank.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitBank.setStatus(_A)
-_CucsMemoryUnitCapacity_Type=Gauge32
-_CucsMemoryUnitCapacity_Object=MibTableColumn
-cucsMemoryUnitCapacity=_CucsMemoryUnitCapacity_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,6),_CucsMemoryUnitCapacity_Type())
-cucsMemoryUnitCapacity.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitCapacity.setStatus(_A)
-_CucsMemoryUnitClock_Type=Gauge32
-_CucsMemoryUnitClock_Object=MibTableColumn
-cucsMemoryUnitClock=_CucsMemoryUnitClock_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,7),_CucsMemoryUnitClock_Type())
-cucsMemoryUnitClock.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitClock.setStatus(_A)
-_CucsMemoryUnitFormFactor_Type=CucsMemoryFormFactor
-_CucsMemoryUnitFormFactor_Object=MibTableColumn
-cucsMemoryUnitFormFactor=_CucsMemoryUnitFormFactor_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,8),_CucsMemoryUnitFormFactor_Type())
-cucsMemoryUnitFormFactor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitFormFactor.setStatus(_A)
-_CucsMemoryUnitId_Type=CucsMemoryUnitId
-_CucsMemoryUnitId_Object=MibTableColumn
-cucsMemoryUnitId=_CucsMemoryUnitId_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,9),_CucsMemoryUnitId_Type())
-cucsMemoryUnitId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitId.setStatus(_A)
-_CucsMemoryUnitLatency_Type=Integer32
-_CucsMemoryUnitLatency_Object=MibTableColumn
-cucsMemoryUnitLatency=_CucsMemoryUnitLatency_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,10),_CucsMemoryUnitLatency_Type())
-cucsMemoryUnitLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitLatency.setStatus(_A)
-_CucsMemoryUnitLocation_Type=SnmpAdminString
-_CucsMemoryUnitLocation_Object=MibTableColumn
-cucsMemoryUnitLocation=_CucsMemoryUnitLocation_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,11),_CucsMemoryUnitLocation_Type())
-cucsMemoryUnitLocation.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitLocation.setStatus(_A)
-_CucsMemoryUnitModel_Type=SnmpAdminString
-_CucsMemoryUnitModel_Object=MibTableColumn
-cucsMemoryUnitModel=_CucsMemoryUnitModel_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,12),_CucsMemoryUnitModel_Type())
-cucsMemoryUnitModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitModel.setStatus(_A)
-_CucsMemoryUnitOperState_Type=CucsEquipmentOperability
-_CucsMemoryUnitOperState_Object=MibTableColumn
-cucsMemoryUnitOperState=_CucsMemoryUnitOperState_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,13),_CucsMemoryUnitOperState_Type())
-cucsMemoryUnitOperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitOperState.setStatus(_A)
-_CucsMemoryUnitOperability_Type=CucsMemoryUnitOperability
-_CucsMemoryUnitOperability_Object=MibTableColumn
-cucsMemoryUnitOperability=_CucsMemoryUnitOperability_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,14),_CucsMemoryUnitOperability_Type())
-cucsMemoryUnitOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitOperability.setStatus(_A)
-_CucsMemoryUnitPerf_Type=CucsEquipmentSensorThresholdStatus
-_CucsMemoryUnitPerf_Object=MibTableColumn
-cucsMemoryUnitPerf=_CucsMemoryUnitPerf_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,15),_CucsMemoryUnitPerf_Type())
-cucsMemoryUnitPerf.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitPerf.setStatus(_A)
-_CucsMemoryUnitPower_Type=CucsEquipmentPowerState
-_CucsMemoryUnitPower_Object=MibTableColumn
-cucsMemoryUnitPower=_CucsMemoryUnitPower_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,16),_CucsMemoryUnitPower_Type())
-cucsMemoryUnitPower.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitPower.setStatus(_A)
-_CucsMemoryUnitPresence_Type=CucsEquipmentPresence
-_CucsMemoryUnitPresence_Object=MibTableColumn
-cucsMemoryUnitPresence=_CucsMemoryUnitPresence_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,17),_CucsMemoryUnitPresence_Type())
-cucsMemoryUnitPresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitPresence.setStatus(_A)
-_CucsMemoryUnitRevision_Type=SnmpAdminString
-_CucsMemoryUnitRevision_Object=MibTableColumn
-cucsMemoryUnitRevision=_CucsMemoryUnitRevision_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,18),_CucsMemoryUnitRevision_Type())
-cucsMemoryUnitRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitRevision.setStatus(_A)
-_CucsMemoryUnitSerial_Type=SnmpAdminString
-_CucsMemoryUnitSerial_Object=MibTableColumn
-cucsMemoryUnitSerial=_CucsMemoryUnitSerial_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,19),_CucsMemoryUnitSerial_Type())
-cucsMemoryUnitSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitSerial.setStatus(_A)
-_CucsMemoryUnitSet_Type=Gauge32
-_CucsMemoryUnitSet_Object=MibTableColumn
-cucsMemoryUnitSet=_CucsMemoryUnitSet_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,20),_CucsMemoryUnitSet_Type())
-cucsMemoryUnitSet.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitSet.setStatus(_A)
-_CucsMemoryUnitSpeed_Type=Gauge32
-_CucsMemoryUnitSpeed_Object=MibTableColumn
-cucsMemoryUnitSpeed=_CucsMemoryUnitSpeed_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,21),_CucsMemoryUnitSpeed_Type())
-cucsMemoryUnitSpeed.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitSpeed.setStatus(_A)
-_CucsMemoryUnitThermal_Type=CucsEquipmentSensorThresholdStatus
-_CucsMemoryUnitThermal_Object=MibTableColumn
-cucsMemoryUnitThermal=_CucsMemoryUnitThermal_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,22),_CucsMemoryUnitThermal_Type())
-cucsMemoryUnitThermal.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitThermal.setStatus(_A)
-_CucsMemoryUnitType_Type=CucsMemoryType
-_CucsMemoryUnitType_Object=MibTableColumn
-cucsMemoryUnitType=_CucsMemoryUnitType_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,23),_CucsMemoryUnitType_Type())
-cucsMemoryUnitType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitType.setStatus(_A)
-_CucsMemoryUnitVendor_Type=SnmpAdminString
-_CucsMemoryUnitVendor_Object=MibTableColumn
-cucsMemoryUnitVendor=_CucsMemoryUnitVendor_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,24),_CucsMemoryUnitVendor_Type())
-cucsMemoryUnitVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitVendor.setStatus(_A)
-_CucsMemoryUnitVisibility_Type=CucsMemoryVisibility
-_CucsMemoryUnitVisibility_Object=MibTableColumn
-cucsMemoryUnitVisibility=_CucsMemoryUnitVisibility_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,25),_CucsMemoryUnitVisibility_Type())
-cucsMemoryUnitVisibility.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitVisibility.setStatus(_A)
-_CucsMemoryUnitVoltage_Type=CucsEquipmentSensorThresholdStatus
-_CucsMemoryUnitVoltage_Object=MibTableColumn
-cucsMemoryUnitVoltage=_CucsMemoryUnitVoltage_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,26),_CucsMemoryUnitVoltage_Type())
-cucsMemoryUnitVoltage.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitVoltage.setStatus(_A)
-_CucsMemoryUnitWidth_Type=Gauge32
-_CucsMemoryUnitWidth_Object=MibTableColumn
-cucsMemoryUnitWidth=_CucsMemoryUnitWidth_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,27),_CucsMemoryUnitWidth_Type())
-cucsMemoryUnitWidth.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitWidth.setStatus(_A)
-_CucsMemoryUnitAdminState_Type=CucsMemoryAdminState
-_CucsMemoryUnitAdminState_Object=MibTableColumn
-cucsMemoryUnitAdminState=_CucsMemoryUnitAdminState_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,28),_CucsMemoryUnitAdminState_Type())
-cucsMemoryUnitAdminState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitAdminState.setStatus(_A)
-_CucsMemoryUnitOperQualifier_Type=CucsMemoryIssues
-_CucsMemoryUnitOperQualifier_Object=MibTableColumn
-cucsMemoryUnitOperQualifier=_CucsMemoryUnitOperQualifier_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,29),_CucsMemoryUnitOperQualifier_Type())
-cucsMemoryUnitOperQualifier.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitOperQualifier.setStatus(_A)
-_CucsMemoryUnitOperQualifierReason_Type=SnmpAdminString
-_CucsMemoryUnitOperQualifierReason_Object=MibTableColumn
-cucsMemoryUnitOperQualifierReason=_CucsMemoryUnitOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,30),_CucsMemoryUnitOperQualifierReason_Type())
-cucsMemoryUnitOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitOperQualifierReason.setStatus(_A)
-_CucsMemoryUnitLocationDn_Type=SnmpAdminString
-_CucsMemoryUnitLocationDn_Object=MibTableColumn
-cucsMemoryUnitLocationDn=_CucsMemoryUnitLocationDn_Object((1,3,6,1,4,1,9,9,719,1,30,11,1,31),_CucsMemoryUnitLocationDn_Type())
-cucsMemoryUnitLocationDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitLocationDn.setStatus(_A)
-_CucsMemoryUnitEnvStatsTable_Object=MibTable
-cucsMemoryUnitEnvStatsTable=_CucsMemoryUnitEnvStatsTable_Object((1,3,6,1,4,1,9,9,719,1,30,12))
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsTable.setStatus(_A)
-_CucsMemoryUnitEnvStatsEntry_Object=MibTableRow
-cucsMemoryUnitEnvStatsEntry=_CucsMemoryUnitEnvStatsEntry_Object((1,3,6,1,4,1,9,9,719,1,30,12,1))
-cucsMemoryUnitEnvStatsEntry.setIndexNames((0,_C,_P))
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsEntry.setStatus(_A)
-_CucsMemoryUnitEnvStatsInstanceId_Type=CucsManagedObjectId
-_CucsMemoryUnitEnvStatsInstanceId_Object=MibTableColumn
-cucsMemoryUnitEnvStatsInstanceId=_CucsMemoryUnitEnvStatsInstanceId_Object((1,3,6,1,4,1,9,9,719,1,30,12,1,1),_CucsMemoryUnitEnvStatsInstanceId_Type())
-cucsMemoryUnitEnvStatsInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsInstanceId.setStatus(_A)
-_CucsMemoryUnitEnvStatsDn_Type=CucsManagedObjectDn
-_CucsMemoryUnitEnvStatsDn_Object=MibTableColumn
-cucsMemoryUnitEnvStatsDn=_CucsMemoryUnitEnvStatsDn_Object((1,3,6,1,4,1,9,9,719,1,30,12,1,2),_CucsMemoryUnitEnvStatsDn_Type())
-cucsMemoryUnitEnvStatsDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsDn.setStatus(_A)
-_CucsMemoryUnitEnvStatsRn_Type=SnmpAdminString
-_CucsMemoryUnitEnvStatsRn_Object=MibTableColumn
-cucsMemoryUnitEnvStatsRn=_CucsMemoryUnitEnvStatsRn_Object((1,3,6,1,4,1,9,9,719,1,30,12,1,3),_CucsMemoryUnitEnvStatsRn_Type())
-cucsMemoryUnitEnvStatsRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsRn.setStatus(_A)
-_CucsMemoryUnitEnvStatsIntervals_Type=Gauge32
-_CucsMemoryUnitEnvStatsIntervals_Object=MibTableColumn
-cucsMemoryUnitEnvStatsIntervals=_CucsMemoryUnitEnvStatsIntervals_Object((1,3,6,1,4,1,9,9,719,1,30,12,1,4),_CucsMemoryUnitEnvStatsIntervals_Type())
-cucsMemoryUnitEnvStatsIntervals.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsIntervals.setStatus(_A)
-_CucsMemoryUnitEnvStatsSuspect_Type=TruthValue
-_CucsMemoryUnitEnvStatsSuspect_Object=MibTableColumn
-cucsMemoryUnitEnvStatsSuspect=_CucsMemoryUnitEnvStatsSuspect_Object((1,3,6,1,4,1,9,9,719,1,30,12,1,5),_CucsMemoryUnitEnvStatsSuspect_Type())
-cucsMemoryUnitEnvStatsSuspect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsSuspect.setStatus(_A)
-_CucsMemoryUnitEnvStatsTemperature_Type=Integer32
-_CucsMemoryUnitEnvStatsTemperature_Object=MibTableColumn
-cucsMemoryUnitEnvStatsTemperature=_CucsMemoryUnitEnvStatsTemperature_Object((1,3,6,1,4,1,9,9,719,1,30,12,1,6),_CucsMemoryUnitEnvStatsTemperature_Type())
-cucsMemoryUnitEnvStatsTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsTemperature.setStatus(_A)
-_CucsMemoryUnitEnvStatsTemperatureAvg_Type=Integer32
-_CucsMemoryUnitEnvStatsTemperatureAvg_Object=MibTableColumn
-cucsMemoryUnitEnvStatsTemperatureAvg=_CucsMemoryUnitEnvStatsTemperatureAvg_Object((1,3,6,1,4,1,9,9,719,1,30,12,1,7),_CucsMemoryUnitEnvStatsTemperatureAvg_Type())
-cucsMemoryUnitEnvStatsTemperatureAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsTemperatureAvg.setStatus(_A)
-_CucsMemoryUnitEnvStatsTemperatureMax_Type=Integer32
-_CucsMemoryUnitEnvStatsTemperatureMax_Object=MibTableColumn
-cucsMemoryUnitEnvStatsTemperatureMax=_CucsMemoryUnitEnvStatsTemperatureMax_Object((1,3,6,1,4,1,9,9,719,1,30,12,1,8),_CucsMemoryUnitEnvStatsTemperatureMax_Type())
-cucsMemoryUnitEnvStatsTemperatureMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsTemperatureMax.setStatus(_A)
-_CucsMemoryUnitEnvStatsTemperatureMin_Type=Integer32
-_CucsMemoryUnitEnvStatsTemperatureMin_Object=MibTableColumn
-cucsMemoryUnitEnvStatsTemperatureMin=_CucsMemoryUnitEnvStatsTemperatureMin_Object((1,3,6,1,4,1,9,9,719,1,30,12,1,9),_CucsMemoryUnitEnvStatsTemperatureMin_Type())
-cucsMemoryUnitEnvStatsTemperatureMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsTemperatureMin.setStatus(_A)
-_CucsMemoryUnitEnvStatsThresholded_Type=CucsMemoryUnitEnvStatsThresholded
-_CucsMemoryUnitEnvStatsThresholded_Object=MibTableColumn
-cucsMemoryUnitEnvStatsThresholded=_CucsMemoryUnitEnvStatsThresholded_Object((1,3,6,1,4,1,9,9,719,1,30,12,1,10),_CucsMemoryUnitEnvStatsThresholded_Type())
-cucsMemoryUnitEnvStatsThresholded.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsThresholded.setStatus(_A)
-_CucsMemoryUnitEnvStatsTimeCollected_Type=DateAndTime
-_CucsMemoryUnitEnvStatsTimeCollected_Object=MibTableColumn
-cucsMemoryUnitEnvStatsTimeCollected=_CucsMemoryUnitEnvStatsTimeCollected_Object((1,3,6,1,4,1,9,9,719,1,30,12,1,11),_CucsMemoryUnitEnvStatsTimeCollected_Type())
-cucsMemoryUnitEnvStatsTimeCollected.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsTimeCollected.setStatus(_A)
-_CucsMemoryUnitEnvStatsUpdate_Type=Gauge32
-_CucsMemoryUnitEnvStatsUpdate_Object=MibTableColumn
-cucsMemoryUnitEnvStatsUpdate=_CucsMemoryUnitEnvStatsUpdate_Object((1,3,6,1,4,1,9,9,719,1,30,12,1,12),_CucsMemoryUnitEnvStatsUpdate_Type())
-cucsMemoryUnitEnvStatsUpdate.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsUpdate.setStatus(_A)
-_CucsMemoryUnitEnvStatsHistTable_Object=MibTable
-cucsMemoryUnitEnvStatsHistTable=_CucsMemoryUnitEnvStatsHistTable_Object((1,3,6,1,4,1,9,9,719,1,30,13))
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsHistTable.setStatus(_A)
-_CucsMemoryUnitEnvStatsHistEntry_Object=MibTableRow
-cucsMemoryUnitEnvStatsHistEntry=_CucsMemoryUnitEnvStatsHistEntry_Object((1,3,6,1,4,1,9,9,719,1,30,13,1))
-cucsMemoryUnitEnvStatsHistEntry.setIndexNames((0,_C,_Q))
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsHistEntry.setStatus(_A)
-_CucsMemoryUnitEnvStatsHistInstanceId_Type=CucsManagedObjectId
-_CucsMemoryUnitEnvStatsHistInstanceId_Object=MibTableColumn
-cucsMemoryUnitEnvStatsHistInstanceId=_CucsMemoryUnitEnvStatsHistInstanceId_Object((1,3,6,1,4,1,9,9,719,1,30,13,1,1),_CucsMemoryUnitEnvStatsHistInstanceId_Type())
-cucsMemoryUnitEnvStatsHistInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsHistInstanceId.setStatus(_A)
-_CucsMemoryUnitEnvStatsHistDn_Type=CucsManagedObjectDn
-_CucsMemoryUnitEnvStatsHistDn_Object=MibTableColumn
-cucsMemoryUnitEnvStatsHistDn=_CucsMemoryUnitEnvStatsHistDn_Object((1,3,6,1,4,1,9,9,719,1,30,13,1,2),_CucsMemoryUnitEnvStatsHistDn_Type())
-cucsMemoryUnitEnvStatsHistDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsHistDn.setStatus(_A)
-_CucsMemoryUnitEnvStatsHistRn_Type=SnmpAdminString
-_CucsMemoryUnitEnvStatsHistRn_Object=MibTableColumn
-cucsMemoryUnitEnvStatsHistRn=_CucsMemoryUnitEnvStatsHistRn_Object((1,3,6,1,4,1,9,9,719,1,30,13,1,3),_CucsMemoryUnitEnvStatsHistRn_Type())
-cucsMemoryUnitEnvStatsHistRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsHistRn.setStatus(_A)
-_CucsMemoryUnitEnvStatsHistId_Type=Unsigned64
-_CucsMemoryUnitEnvStatsHistId_Object=MibTableColumn
-cucsMemoryUnitEnvStatsHistId=_CucsMemoryUnitEnvStatsHistId_Object((1,3,6,1,4,1,9,9,719,1,30,13,1,4),_CucsMemoryUnitEnvStatsHistId_Type())
-cucsMemoryUnitEnvStatsHistId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsHistId.setStatus(_A)
-_CucsMemoryUnitEnvStatsHistMostRecent_Type=TruthValue
-_CucsMemoryUnitEnvStatsHistMostRecent_Object=MibTableColumn
-cucsMemoryUnitEnvStatsHistMostRecent=_CucsMemoryUnitEnvStatsHistMostRecent_Object((1,3,6,1,4,1,9,9,719,1,30,13,1,5),_CucsMemoryUnitEnvStatsHistMostRecent_Type())
-cucsMemoryUnitEnvStatsHistMostRecent.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsHistMostRecent.setStatus(_A)
-_CucsMemoryUnitEnvStatsHistSuspect_Type=TruthValue
-_CucsMemoryUnitEnvStatsHistSuspect_Object=MibTableColumn
-cucsMemoryUnitEnvStatsHistSuspect=_CucsMemoryUnitEnvStatsHistSuspect_Object((1,3,6,1,4,1,9,9,719,1,30,13,1,6),_CucsMemoryUnitEnvStatsHistSuspect_Type())
-cucsMemoryUnitEnvStatsHistSuspect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsHistSuspect.setStatus(_A)
-_CucsMemoryUnitEnvStatsHistTemperature_Type=Integer32
-_CucsMemoryUnitEnvStatsHistTemperature_Object=MibTableColumn
-cucsMemoryUnitEnvStatsHistTemperature=_CucsMemoryUnitEnvStatsHistTemperature_Object((1,3,6,1,4,1,9,9,719,1,30,13,1,7),_CucsMemoryUnitEnvStatsHistTemperature_Type())
-cucsMemoryUnitEnvStatsHistTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsHistTemperature.setStatus(_A)
-_CucsMemoryUnitEnvStatsHistTemperatureAvg_Type=Integer32
-_CucsMemoryUnitEnvStatsHistTemperatureAvg_Object=MibTableColumn
-cucsMemoryUnitEnvStatsHistTemperatureAvg=_CucsMemoryUnitEnvStatsHistTemperatureAvg_Object((1,3,6,1,4,1,9,9,719,1,30,13,1,8),_CucsMemoryUnitEnvStatsHistTemperatureAvg_Type())
-cucsMemoryUnitEnvStatsHistTemperatureAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsHistTemperatureAvg.setStatus(_A)
-_CucsMemoryUnitEnvStatsHistTemperatureMax_Type=Integer32
-_CucsMemoryUnitEnvStatsHistTemperatureMax_Object=MibTableColumn
-cucsMemoryUnitEnvStatsHistTemperatureMax=_CucsMemoryUnitEnvStatsHistTemperatureMax_Object((1,3,6,1,4,1,9,9,719,1,30,13,1,9),_CucsMemoryUnitEnvStatsHistTemperatureMax_Type())
-cucsMemoryUnitEnvStatsHistTemperatureMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsHistTemperatureMax.setStatus(_A)
-_CucsMemoryUnitEnvStatsHistTemperatureMin_Type=Integer32
-_CucsMemoryUnitEnvStatsHistTemperatureMin_Object=MibTableColumn
-cucsMemoryUnitEnvStatsHistTemperatureMin=_CucsMemoryUnitEnvStatsHistTemperatureMin_Object((1,3,6,1,4,1,9,9,719,1,30,13,1,10),_CucsMemoryUnitEnvStatsHistTemperatureMin_Type())
-cucsMemoryUnitEnvStatsHistTemperatureMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsHistTemperatureMin.setStatus(_A)
-_CucsMemoryUnitEnvStatsHistThresholded_Type=CucsMemoryUnitEnvStatsHistThresholded
-_CucsMemoryUnitEnvStatsHistThresholded_Object=MibTableColumn
-cucsMemoryUnitEnvStatsHistThresholded=_CucsMemoryUnitEnvStatsHistThresholded_Object((1,3,6,1,4,1,9,9,719,1,30,13,1,11),_CucsMemoryUnitEnvStatsHistThresholded_Type())
-cucsMemoryUnitEnvStatsHistThresholded.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsHistThresholded.setStatus(_A)
-_CucsMemoryUnitEnvStatsHistTimeCollected_Type=DateAndTime
-_CucsMemoryUnitEnvStatsHistTimeCollected_Object=MibTableColumn
-cucsMemoryUnitEnvStatsHistTimeCollected=_CucsMemoryUnitEnvStatsHistTimeCollected_Object((1,3,6,1,4,1,9,9,719,1,30,13,1,12),_CucsMemoryUnitEnvStatsHistTimeCollected_Type())
-cucsMemoryUnitEnvStatsHistTimeCollected.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsMemoryUnitEnvStatsHistTimeCollected.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'cucsMemoryObjects':cucsMemoryObjects,'cucsMemoryArrayTable':cucsMemoryArrayTable,'cucsMemoryArrayEntry':cucsMemoryArrayEntry,_E:cucsMemoryArrayInstanceId,'cucsMemoryArrayDn':cucsMemoryArrayDn,'cucsMemoryArrayRn':cucsMemoryArrayRn,'cucsMemoryArrayCpuId':cucsMemoryArrayCpuId,'cucsMemoryArrayCurrCapacity':cucsMemoryArrayCurrCapacity,'cucsMemoryArrayErrorCorrection':cucsMemoryArrayErrorCorrection,'cucsMemoryArrayId':cucsMemoryArrayId,'cucsMemoryArrayMaxCapacity':cucsMemoryArrayMaxCapacity,'cucsMemoryArrayMaxDevices':cucsMemoryArrayMaxDevices,'cucsMemoryArrayModel':cucsMemoryArrayModel,'cucsMemoryArrayOperState':cucsMemoryArrayOperState,'cucsMemoryArrayOperability':cucsMemoryArrayOperability,'cucsMemoryArrayPerf':cucsMemoryArrayPerf,'cucsMemoryArrayPopulated':cucsMemoryArrayPopulated,'cucsMemoryArrayPower':cucsMemoryArrayPower,'cucsMemoryArrayPresence':cucsMemoryArrayPresence,'cucsMemoryArrayRevision':cucsMemoryArrayRevision,'cucsMemoryArraySerial':cucsMemoryArraySerial,'cucsMemoryArrayThermal':cucsMemoryArrayThermal,'cucsMemoryArrayVendor':cucsMemoryArrayVendor,'cucsMemoryArrayVoltage':cucsMemoryArrayVoltage,'cucsMemoryArrayOperQualifierReason':cucsMemoryArrayOperQualifierReason,'cucsMemoryArrayLocationDn':cucsMemoryArrayLocationDn,'cucsMemoryArrayEnvStatsTable':cucsMemoryArrayEnvStatsTable,'cucsMemoryArrayEnvStatsEntry':cucsMemoryArrayEnvStatsEntry,_F:cucsMemoryArrayEnvStatsInstanceId,'cucsMemoryArrayEnvStatsDn':cucsMemoryArrayEnvStatsDn,'cucsMemoryArrayEnvStatsRn':cucsMemoryArrayEnvStatsRn,'cucsMemoryArrayEnvStatsInputCurrent':cucsMemoryArrayEnvStatsInputCurrent,'cucsMemoryArrayEnvStatsInputCurrentAvg':cucsMemoryArrayEnvStatsInputCurrentAvg,'cucsMemoryArrayEnvStatsInputCurrentMax':cucsMemoryArrayEnvStatsInputCurrentMax,'cucsMemoryArrayEnvStatsInputCurrentMin':cucsMemoryArrayEnvStatsInputCurrentMin,'cucsMemoryArrayEnvStatsIntervals':cucsMemoryArrayEnvStatsIntervals,'cucsMemoryArrayEnvStatsSuspect':cucsMemoryArrayEnvStatsSuspect,'cucsMemoryArrayEnvStatsThresholded':cucsMemoryArrayEnvStatsThresholded,'cucsMemoryArrayEnvStatsTimeCollected':cucsMemoryArrayEnvStatsTimeCollected,'cucsMemoryArrayEnvStatsUpdate':cucsMemoryArrayEnvStatsUpdate,'cucsMemoryArrayEnvStatsHistTable':cucsMemoryArrayEnvStatsHistTable,'cucsMemoryArrayEnvStatsHistEntry':cucsMemoryArrayEnvStatsHistEntry,_G:cucsMemoryArrayEnvStatsHistInstanceId,'cucsMemoryArrayEnvStatsHistDn':cucsMemoryArrayEnvStatsHistDn,'cucsMemoryArrayEnvStatsHistRn':cucsMemoryArrayEnvStatsHistRn,'cucsMemoryArrayEnvStatsHistId':cucsMemoryArrayEnvStatsHistId,'cucsMemoryArrayEnvStatsHistInputCurrent':cucsMemoryArrayEnvStatsHistInputCurrent,'cucsMemoryArrayEnvStatsHistInputCurrentAvg':cucsMemoryArrayEnvStatsHistInputCurrentAvg,'cucsMemoryArrayEnvStatsHistInputCurrentMax':cucsMemoryArrayEnvStatsHistInputCurrentMax,'cucsMemoryArrayEnvStatsHistInputCurrentMin':cucsMemoryArrayEnvStatsHistInputCurrentMin,'cucsMemoryArrayEnvStatsHistMostRecent':cucsMemoryArrayEnvStatsHistMostRecent,'cucsMemoryArrayEnvStatsHistSuspect':cucsMemoryArrayEnvStatsHistSuspect,'cucsMemoryArrayEnvStatsHistThresholded':cucsMemoryArrayEnvStatsHistThresholded,'cucsMemoryArrayEnvStatsHistTimeCollected':cucsMemoryArrayEnvStatsHistTimeCollected,'cucsMemoryBufferUnitTable':cucsMemoryBufferUnitTable,'cucsMemoryBufferUnitEntry':cucsMemoryBufferUnitEntry,_H:cucsMemoryBufferUnitInstanceId,'cucsMemoryBufferUnitDn':cucsMemoryBufferUnitDn,'cucsMemoryBufferUnitRn':cucsMemoryBufferUnitRn,'cucsMemoryBufferUnitId':cucsMemoryBufferUnitId,'cucsMemoryBufferUnitModel':cucsMemoryBufferUnitModel,'cucsMemoryBufferUnitOperState':cucsMemoryBufferUnitOperState,'cucsMemoryBufferUnitOperability':cucsMemoryBufferUnitOperability,'cucsMemoryBufferUnitPerf':cucsMemoryBufferUnitPerf,'cucsMemoryBufferUnitPower':cucsMemoryBufferUnitPower,'cucsMemoryBufferUnitPresence':cucsMemoryBufferUnitPresence,'cucsMemoryBufferUnitRevision':cucsMemoryBufferUnitRevision,'cucsMemoryBufferUnitSerial':cucsMemoryBufferUnitSerial,'cucsMemoryBufferUnitThermal':cucsMemoryBufferUnitThermal,'cucsMemoryBufferUnitVendor':cucsMemoryBufferUnitVendor,'cucsMemoryBufferUnitVoltage':cucsMemoryBufferUnitVoltage,'cucsMemoryBufferUnitOperQualifierReason':cucsMemoryBufferUnitOperQualifierReason,'cucsMemoryBufferUnitLocationDn':cucsMemoryBufferUnitLocationDn,'cucsMemoryBufferUnitEnvStatsTable':cucsMemoryBufferUnitEnvStatsTable,'cucsMemoryBufferUnitEnvStatsEntry':cucsMemoryBufferUnitEnvStatsEntry,_I:cucsMemoryBufferUnitEnvStatsInstanceId,'cucsMemoryBufferUnitEnvStatsDn':cucsMemoryBufferUnitEnvStatsDn,'cucsMemoryBufferUnitEnvStatsRn':cucsMemoryBufferUnitEnvStatsRn,'cucsMemoryBufferUnitEnvStatsIntervals':cucsMemoryBufferUnitEnvStatsIntervals,'cucsMemoryBufferUnitEnvStatsSuspect':cucsMemoryBufferUnitEnvStatsSuspect,'cucsMemoryBufferUnitEnvStatsTemperature':cucsMemoryBufferUnitEnvStatsTemperature,'cucsMemoryBufferUnitEnvStatsTemperatureAvg':cucsMemoryBufferUnitEnvStatsTemperatureAvg,'cucsMemoryBufferUnitEnvStatsTemperatureMax':cucsMemoryBufferUnitEnvStatsTemperatureMax,'cucsMemoryBufferUnitEnvStatsTemperatureMin':cucsMemoryBufferUnitEnvStatsTemperatureMin,'cucsMemoryBufferUnitEnvStatsThresholded':cucsMemoryBufferUnitEnvStatsThresholded,'cucsMemoryBufferUnitEnvStatsTimeCollected':cucsMemoryBufferUnitEnvStatsTimeCollected,'cucsMemoryBufferUnitEnvStatsUpdate':cucsMemoryBufferUnitEnvStatsUpdate,'cucsMemoryBufferUnitEnvStatsHistTable':cucsMemoryBufferUnitEnvStatsHistTable,'cucsMemoryBufferUnitEnvStatsHistEntry':cucsMemoryBufferUnitEnvStatsHistEntry,_J:cucsMemoryBufferUnitEnvStatsHistInstanceId,'cucsMemoryBufferUnitEnvStatsHistDn':cucsMemoryBufferUnitEnvStatsHistDn,'cucsMemoryBufferUnitEnvStatsHistRn':cucsMemoryBufferUnitEnvStatsHistRn,'cucsMemoryBufferUnitEnvStatsHistId':cucsMemoryBufferUnitEnvStatsHistId,'cucsMemoryBufferUnitEnvStatsHistMostRecent':cucsMemoryBufferUnitEnvStatsHistMostRecent,'cucsMemoryBufferUnitEnvStatsHistSuspect':cucsMemoryBufferUnitEnvStatsHistSuspect,'cucsMemoryBufferUnitEnvStatsHistTemperature':cucsMemoryBufferUnitEnvStatsHistTemperature,'cucsMemoryBufferUnitEnvStatsHistTemperatureAvg':cucsMemoryBufferUnitEnvStatsHistTemperatureAvg,'cucsMemoryBufferUnitEnvStatsHistTemperatureMax':cucsMemoryBufferUnitEnvStatsHistTemperatureMax,'cucsMemoryBufferUnitEnvStatsHistTemperatureMin':cucsMemoryBufferUnitEnvStatsHistTemperatureMin,'cucsMemoryBufferUnitEnvStatsHistThresholded':cucsMemoryBufferUnitEnvStatsHistThresholded,'cucsMemoryBufferUnitEnvStatsHistTimeCollected':cucsMemoryBufferUnitEnvStatsHistTimeCollected,'cucsMemoryErrorStatsTable':cucsMemoryErrorStatsTable,'cucsMemoryErrorStatsEntry':cucsMemoryErrorStatsEntry,_K:cucsMemoryErrorStatsInstanceId,'cucsMemoryErrorStatsDn':cucsMemoryErrorStatsDn,'cucsMemoryErrorStatsRn':cucsMemoryErrorStatsRn,'cucsMemoryErrorStatsAddressParityErrors':cucsMemoryErrorStatsAddressParityErrors,'cucsMemoryErrorStatsAddressParityErrors15Min':cucsMemoryErrorStatsAddressParityErrors15Min,'cucsMemoryErrorStatsAddressParityErrors15MinH':cucsMemoryErrorStatsAddressParityErrors15MinH,'cucsMemoryErrorStatsAddressParityErrors1Day':cucsMemoryErrorStatsAddressParityErrors1Day,'cucsMemoryErrorStatsAddressParityErrors1DayH':cucsMemoryErrorStatsAddressParityErrors1DayH,'cucsMemoryErrorStatsAddressParityErrors1Hour':cucsMemoryErrorStatsAddressParityErrors1Hour,'cucsMemoryErrorStatsAddressParityErrors1HourH':cucsMemoryErrorStatsAddressParityErrors1HourH,'cucsMemoryErrorStatsAddressParityErrors1Week':cucsMemoryErrorStatsAddressParityErrors1Week,'cucsMemoryErrorStatsAddressParityErrors1WeekH':cucsMemoryErrorStatsAddressParityErrors1WeekH,'cucsMemoryErrorStatsEccMultibitErrors':cucsMemoryErrorStatsEccMultibitErrors,'cucsMemoryErrorStatsEccMultibitErrors15Min':cucsMemoryErrorStatsEccMultibitErrors15Min,'cucsMemoryErrorStatsEccMultibitErrors15MinH':cucsMemoryErrorStatsEccMultibitErrors15MinH,'cucsMemoryErrorStatsEccMultibitErrors1Day':cucsMemoryErrorStatsEccMultibitErrors1Day,'cucsMemoryErrorStatsEccMultibitErrors1DayH':cucsMemoryErrorStatsEccMultibitErrors1DayH,'cucsMemoryErrorStatsEccMultibitErrors1Hour':cucsMemoryErrorStatsEccMultibitErrors1Hour,'cucsMemoryErrorStatsEccMultibitErrors1HourH':cucsMemoryErrorStatsEccMultibitErrors1HourH,'cucsMemoryErrorStatsEccMultibitErrors1Week':cucsMemoryErrorStatsEccMultibitErrors1Week,'cucsMemoryErrorStatsEccMultibitErrors1WeekH':cucsMemoryErrorStatsEccMultibitErrors1WeekH,'cucsMemoryErrorStatsEccSinglebitErrors':cucsMemoryErrorStatsEccSinglebitErrors,'cucsMemoryErrorStatsEccSinglebitErrors15Min':cucsMemoryErrorStatsEccSinglebitErrors15Min,'cucsMemoryErrorStatsEccSinglebitErrors15MinH':cucsMemoryErrorStatsEccSinglebitErrors15MinH,'cucsMemoryErrorStatsEccSinglebitErrors1Day':cucsMemoryErrorStatsEccSinglebitErrors1Day,'cucsMemoryErrorStatsEccSinglebitErrors1DayH':cucsMemoryErrorStatsEccSinglebitErrors1DayH,'cucsMemoryErrorStatsEccSinglebitErrors1Hour':cucsMemoryErrorStatsEccSinglebitErrors1Hour,'cucsMemoryErrorStatsEccSinglebitErrors1HourH':cucsMemoryErrorStatsEccSinglebitErrors1HourH,'cucsMemoryErrorStatsEccSinglebitErrors1Week':cucsMemoryErrorStatsEccSinglebitErrors1Week,'cucsMemoryErrorStatsEccSinglebitErrors1WeekH':cucsMemoryErrorStatsEccSinglebitErrors1WeekH,'cucsMemoryErrorStatsIntervals':cucsMemoryErrorStatsIntervals,'cucsMemoryErrorStatsMismatchErrors':cucsMemoryErrorStatsMismatchErrors,'cucsMemoryErrorStatsMismatchErrors15Min':cucsMemoryErrorStatsMismatchErrors15Min,'cucsMemoryErrorStatsMismatchErrors15MinH':cucsMemoryErrorStatsMismatchErrors15MinH,'cucsMemoryErrorStatsMismatchErrors1Day':cucsMemoryErrorStatsMismatchErrors1Day,'cucsMemoryErrorStatsMismatchErrors1DayH':cucsMemoryErrorStatsMismatchErrors1DayH,'cucsMemoryErrorStatsMismatchErrors1Hour':cucsMemoryErrorStatsMismatchErrors1Hour,'cucsMemoryErrorStatsMismatchErrors1HourH':cucsMemoryErrorStatsMismatchErrors1HourH,'cucsMemoryErrorStatsMismatchErrors1Week':cucsMemoryErrorStatsMismatchErrors1Week,'cucsMemoryErrorStatsMismatchErrors1WeekH':cucsMemoryErrorStatsMismatchErrors1WeekH,'cucsMemoryErrorStatsSuspect':cucsMemoryErrorStatsSuspect,'cucsMemoryErrorStatsThresholded':cucsMemoryErrorStatsThresholded,'cucsMemoryErrorStatsTimeCollected':cucsMemoryErrorStatsTimeCollected,'cucsMemoryErrorStatsUpdate':cucsMemoryErrorStatsUpdate,'cucsMemoryErrorStatsAddressParityErrors2Weeks':cucsMemoryErrorStatsAddressParityErrors2Weeks,'cucsMemoryErrorStatsAddressParityErrors2WeeksH':cucsMemoryErrorStatsAddressParityErrors2WeeksH,'cucsMemoryErrorStatsEccMultibitErrors2Weeks':cucsMemoryErrorStatsEccMultibitErrors2Weeks,'cucsMemoryErrorStatsEccMultibitErrors2WeeksH':cucsMemoryErrorStatsEccMultibitErrors2WeeksH,'cucsMemoryErrorStatsEccSinglebitErrors2Weeks':cucsMemoryErrorStatsEccSinglebitErrors2Weeks,'cucsMemoryErrorStatsEccSinglebitErrors2WeeksH':cucsMemoryErrorStatsEccSinglebitErrors2WeeksH,'cucsMemoryErrorStatsMismatchErrors2Weeks':cucsMemoryErrorStatsMismatchErrors2Weeks,'cucsMemoryErrorStatsMismatchErrors2WeeksH':cucsMemoryErrorStatsMismatchErrors2WeeksH,'cucsMemoryQualTable':cucsMemoryQualTable,'cucsMemoryQualEntry':cucsMemoryQualEntry,_L:cucsMemoryQualInstanceId,'cucsMemoryQualDn':cucsMemoryQualDn,'cucsMemoryQualRn':cucsMemoryQualRn,'cucsMemoryQualClock':cucsMemoryQualClock,'cucsMemoryQualLatency':cucsMemoryQualLatency,'cucsMemoryQualMaxCap':cucsMemoryQualMaxCap,'cucsMemoryQualMinCap':cucsMemoryQualMinCap,'cucsMemoryQualSpeed':cucsMemoryQualSpeed,'cucsMemoryQualUnits':cucsMemoryQualUnits,'cucsMemoryQualWidth':cucsMemoryQualWidth,'cucsMemoryRuntimeTable':cucsMemoryRuntimeTable,'cucsMemoryRuntimeEntry':cucsMemoryRuntimeEntry,_M:cucsMemoryRuntimeInstanceId,'cucsMemoryRuntimeDn':cucsMemoryRuntimeDn,'cucsMemoryRuntimeRn':cucsMemoryRuntimeRn,'cucsMemoryRuntimeAvailable':cucsMemoryRuntimeAvailable,'cucsMemoryRuntimeAvailableAvg':cucsMemoryRuntimeAvailableAvg,'cucsMemoryRuntimeAvailableMax':cucsMemoryRuntimeAvailableMax,'cucsMemoryRuntimeAvailableMin':cucsMemoryRuntimeAvailableMin,'cucsMemoryRuntimeCached':cucsMemoryRuntimeCached,'cucsMemoryRuntimeCachedAvg':cucsMemoryRuntimeCachedAvg,'cucsMemoryRuntimeCachedMax':cucsMemoryRuntimeCachedMax,'cucsMemoryRuntimeCachedMin':cucsMemoryRuntimeCachedMin,'cucsMemoryRuntimeIntervals':cucsMemoryRuntimeIntervals,'cucsMemoryRuntimeSuspect':cucsMemoryRuntimeSuspect,'cucsMemoryRuntimeThresholded':cucsMemoryRuntimeThresholded,'cucsMemoryRuntimeTimeCollected':cucsMemoryRuntimeTimeCollected,'cucsMemoryRuntimeTotal':cucsMemoryRuntimeTotal,'cucsMemoryRuntimeTotalAvg':cucsMemoryRuntimeTotalAvg,'cucsMemoryRuntimeTotalMax':cucsMemoryRuntimeTotalMax,'cucsMemoryRuntimeTotalMin':cucsMemoryRuntimeTotalMin,'cucsMemoryRuntimeType':cucsMemoryRuntimeType,'cucsMemoryRuntimeUpdate':cucsMemoryRuntimeUpdate,'cucsMemoryRuntimeHistTable':cucsMemoryRuntimeHistTable,'cucsMemoryRuntimeHistEntry':cucsMemoryRuntimeHistEntry,_N:cucsMemoryRuntimeHistInstanceId,'cucsMemoryRuntimeHistDn':cucsMemoryRuntimeHistDn,'cucsMemoryRuntimeHistRn':cucsMemoryRuntimeHistRn,'cucsMemoryRuntimeHistAvailable':cucsMemoryRuntimeHistAvailable,'cucsMemoryRuntimeHistAvailableAvg':cucsMemoryRuntimeHistAvailableAvg,'cucsMemoryRuntimeHistAvailableMax':cucsMemoryRuntimeHistAvailableMax,'cucsMemoryRuntimeHistAvailableMin':cucsMemoryRuntimeHistAvailableMin,'cucsMemoryRuntimeHistCached':cucsMemoryRuntimeHistCached,'cucsMemoryRuntimeHistCachedAvg':cucsMemoryRuntimeHistCachedAvg,'cucsMemoryRuntimeHistCachedMax':cucsMemoryRuntimeHistCachedMax,'cucsMemoryRuntimeHistCachedMin':cucsMemoryRuntimeHistCachedMin,'cucsMemoryRuntimeHistId':cucsMemoryRuntimeHistId,'cucsMemoryRuntimeHistMostRecent':cucsMemoryRuntimeHistMostRecent,'cucsMemoryRuntimeHistSuspect':cucsMemoryRuntimeHistSuspect,'cucsMemoryRuntimeHistThresholded':cucsMemoryRuntimeHistThresholded,'cucsMemoryRuntimeHistTimeCollected':cucsMemoryRuntimeHistTimeCollected,'cucsMemoryRuntimeHistTotal':cucsMemoryRuntimeHistTotal,'cucsMemoryRuntimeHistTotalAvg':cucsMemoryRuntimeHistTotalAvg,'cucsMemoryRuntimeHistTotalMax':cucsMemoryRuntimeHistTotalMax,'cucsMemoryRuntimeHistTotalMin':cucsMemoryRuntimeHistTotalMin,'cucsMemoryUnitTable':cucsMemoryUnitTable,'cucsMemoryUnitEntry':cucsMemoryUnitEntry,_O:cucsMemoryUnitInstanceId,'cucsMemoryUnitDn':cucsMemoryUnitDn,'cucsMemoryUnitRn':cucsMemoryUnitRn,'cucsMemoryUnitArray':cucsMemoryUnitArray,'cucsMemoryUnitBank':cucsMemoryUnitBank,'cucsMemoryUnitCapacity':cucsMemoryUnitCapacity,'cucsMemoryUnitClock':cucsMemoryUnitClock,'cucsMemoryUnitFormFactor':cucsMemoryUnitFormFactor,'cucsMemoryUnitId':cucsMemoryUnitId,'cucsMemoryUnitLatency':cucsMemoryUnitLatency,'cucsMemoryUnitLocation':cucsMemoryUnitLocation,'cucsMemoryUnitModel':cucsMemoryUnitModel,'cucsMemoryUnitOperState':cucsMemoryUnitOperState,'cucsMemoryUnitOperability':cucsMemoryUnitOperability,'cucsMemoryUnitPerf':cucsMemoryUnitPerf,'cucsMemoryUnitPower':cucsMemoryUnitPower,'cucsMemoryUnitPresence':cucsMemoryUnitPresence,'cucsMemoryUnitRevision':cucsMemoryUnitRevision,'cucsMemoryUnitSerial':cucsMemoryUnitSerial,'cucsMemoryUnitSet':cucsMemoryUnitSet,'cucsMemoryUnitSpeed':cucsMemoryUnitSpeed,'cucsMemoryUnitThermal':cucsMemoryUnitThermal,'cucsMemoryUnitType':cucsMemoryUnitType,'cucsMemoryUnitVendor':cucsMemoryUnitVendor,'cucsMemoryUnitVisibility':cucsMemoryUnitVisibility,'cucsMemoryUnitVoltage':cucsMemoryUnitVoltage,'cucsMemoryUnitWidth':cucsMemoryUnitWidth,'cucsMemoryUnitAdminState':cucsMemoryUnitAdminState,'cucsMemoryUnitOperQualifier':cucsMemoryUnitOperQualifier,'cucsMemoryUnitOperQualifierReason':cucsMemoryUnitOperQualifierReason,'cucsMemoryUnitLocationDn':cucsMemoryUnitLocationDn,'cucsMemoryUnitEnvStatsTable':cucsMemoryUnitEnvStatsTable,'cucsMemoryUnitEnvStatsEntry':cucsMemoryUnitEnvStatsEntry,_P:cucsMemoryUnitEnvStatsInstanceId,'cucsMemoryUnitEnvStatsDn':cucsMemoryUnitEnvStatsDn,'cucsMemoryUnitEnvStatsRn':cucsMemoryUnitEnvStatsRn,'cucsMemoryUnitEnvStatsIntervals':cucsMemoryUnitEnvStatsIntervals,'cucsMemoryUnitEnvStatsSuspect':cucsMemoryUnitEnvStatsSuspect,'cucsMemoryUnitEnvStatsTemperature':cucsMemoryUnitEnvStatsTemperature,'cucsMemoryUnitEnvStatsTemperatureAvg':cucsMemoryUnitEnvStatsTemperatureAvg,'cucsMemoryUnitEnvStatsTemperatureMax':cucsMemoryUnitEnvStatsTemperatureMax,'cucsMemoryUnitEnvStatsTemperatureMin':cucsMemoryUnitEnvStatsTemperatureMin,'cucsMemoryUnitEnvStatsThresholded':cucsMemoryUnitEnvStatsThresholded,'cucsMemoryUnitEnvStatsTimeCollected':cucsMemoryUnitEnvStatsTimeCollected,'cucsMemoryUnitEnvStatsUpdate':cucsMemoryUnitEnvStatsUpdate,'cucsMemoryUnitEnvStatsHistTable':cucsMemoryUnitEnvStatsHistTable,'cucsMemoryUnitEnvStatsHistEntry':cucsMemoryUnitEnvStatsHistEntry,_Q:cucsMemoryUnitEnvStatsHistInstanceId,'cucsMemoryUnitEnvStatsHistDn':cucsMemoryUnitEnvStatsHistDn,'cucsMemoryUnitEnvStatsHistRn':cucsMemoryUnitEnvStatsHistRn,'cucsMemoryUnitEnvStatsHistId':cucsMemoryUnitEnvStatsHistId,'cucsMemoryUnitEnvStatsHistMostRecent':cucsMemoryUnitEnvStatsHistMostRecent,'cucsMemoryUnitEnvStatsHistSuspect':cucsMemoryUnitEnvStatsHistSuspect,'cucsMemoryUnitEnvStatsHistTemperature':cucsMemoryUnitEnvStatsHistTemperature,'cucsMemoryUnitEnvStatsHistTemperatureAvg':cucsMemoryUnitEnvStatsHistTemperatureAvg,'cucsMemoryUnitEnvStatsHistTemperatureMax':cucsMemoryUnitEnvStatsHistTemperatureMax,'cucsMemoryUnitEnvStatsHistTemperatureMin':cucsMemoryUnitEnvStatsHistTemperatureMin,'cucsMemoryUnitEnvStatsHistThresholded':cucsMemoryUnitEnvStatsHistThresholded,'cucsMemoryUnitEnvStatsHistTimeCollected':cucsMemoryUnitEnvStatsHistTimeCollected})
+#
+# PySNMP MIB module CISCO-UNIFIED-COMPUTING-MEMORY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-UNIFIED-COMPUTING-MEMORY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:57 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+Unsigned64, CiscoAlarmSeverity, CiscoInetAddressMask, TimeIntervalSec, CiscoNetworkAddress = mibBuilder.importSymbols("CISCO-TC", "Unsigned64", "CiscoAlarmSeverity", "CiscoInetAddressMask", "TimeIntervalSec", "CiscoNetworkAddress")
+CucsManagedObjectId, ciscoUnifiedComputingMIBObjects, CucsManagedObjectDn = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-MIB", "CucsManagedObjectId", "ciscoUnifiedComputingMIBObjects", "CucsManagedObjectDn")
+CucsMemoryArrayEnvStatsHistThresholded, CucsMemoryAdminState, CucsMemoryVisibility, CucsMemoryBufferUnitEnvStatsHistThresholded, CucsMemoryRuntimeHistThresholded, CucsMemoryErrorCorrection, CucsMemoryFormFactor, CucsMemoryRuntimeThresholded, CucsMemoryUnitOperability, CucsMemoryUnitEnvStatsHistThresholded, CucsMemoryErrorStatsThresholded, CucsMemoryArrayEnvStatsThresholded, CucsEquipmentPresence, CucsMemoryRuntimeType, CucsMemoryType, CucsMemoryArrayId, CucsMemoryUnitEnvStatsThresholded, CucsMemoryIssues, CucsEquipmentPowerState, CucsMemoryBufferUnitId, CucsMemoryUnitId, CucsEquipmentOperability, CucsEquipmentSensorThresholdStatus, CucsMemoryBufferUnitEnvStatsThresholded = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-TC-MIB", "CucsMemoryArrayEnvStatsHistThresholded", "CucsMemoryAdminState", "CucsMemoryVisibility", "CucsMemoryBufferUnitEnvStatsHistThresholded", "CucsMemoryRuntimeHistThresholded", "CucsMemoryErrorCorrection", "CucsMemoryFormFactor", "CucsMemoryRuntimeThresholded", "CucsMemoryUnitOperability", "CucsMemoryUnitEnvStatsHistThresholded", "CucsMemoryErrorStatsThresholded", "CucsMemoryArrayEnvStatsThresholded", "CucsEquipmentPresence", "CucsMemoryRuntimeType", "CucsMemoryType", "CucsMemoryArrayId", "CucsMemoryUnitEnvStatsThresholded", "CucsMemoryIssues", "CucsEquipmentPowerState", "CucsMemoryBufferUnitId", "CucsMemoryUnitId", "CucsEquipmentOperability", "CucsEquipmentSensorThresholdStatus", "CucsMemoryBufferUnitEnvStatsThresholded")
+InetAddressIPv6, InetAddressIPv4 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv6", "InetAddressIPv4")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, MacAddress, TimeInterval, TimeStamp, TruthValue, DateAndTime, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "TimeStamp", "TruthValue", "DateAndTime", "RowPointer", "TextualConvention")
+cucsMemoryObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30))
+if mibBuilder.loadTexts: cucsMemoryObjects.setLastUpdated('201807260000Z')
+if mibBuilder.loadTexts: cucsMemoryObjects.setOrganization('Cisco Systems Inc.')
+cucsMemoryArrayTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1), )
+if mibBuilder.loadTexts: cucsMemoryArrayTable.setStatus('current')
+cucsMemoryArrayEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-MEMORY-MIB", "cucsMemoryArrayInstanceId"))
+if mibBuilder.loadTexts: cucsMemoryArrayEntry.setStatus('current')
+cucsMemoryArrayInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsMemoryArrayInstanceId.setStatus('current')
+cucsMemoryArrayDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayDn.setStatus('current')
+cucsMemoryArrayRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayRn.setStatus('current')
+cucsMemoryArrayCpuId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayCpuId.setStatus('current')
+cucsMemoryArrayCurrCapacity = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayCurrCapacity.setStatus('current')
+cucsMemoryArrayErrorCorrection = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 6), CucsMemoryErrorCorrection()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayErrorCorrection.setStatus('current')
+cucsMemoryArrayId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 7), CucsMemoryArrayId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayId.setStatus('current')
+cucsMemoryArrayMaxCapacity = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayMaxCapacity.setStatus('current')
+cucsMemoryArrayMaxDevices = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayMaxDevices.setStatus('current')
+cucsMemoryArrayModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayModel.setStatus('current')
+cucsMemoryArrayOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 11), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayOperState.setStatus('current')
+cucsMemoryArrayOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 12), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayOperability.setStatus('current')
+cucsMemoryArrayPerf = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 13), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayPerf.setStatus('current')
+cucsMemoryArrayPopulated = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 14), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayPopulated.setStatus('current')
+cucsMemoryArrayPower = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 15), CucsEquipmentPowerState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayPower.setStatus('current')
+cucsMemoryArrayPresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 16), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayPresence.setStatus('current')
+cucsMemoryArrayRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 17), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayRevision.setStatus('current')
+cucsMemoryArraySerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 18), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArraySerial.setStatus('current')
+cucsMemoryArrayThermal = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 19), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayThermal.setStatus('current')
+cucsMemoryArrayVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 20), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayVendor.setStatus('current')
+cucsMemoryArrayVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 21), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayVoltage.setStatus('current')
+cucsMemoryArrayOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 22), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayOperQualifierReason.setStatus('current')
+cucsMemoryArrayLocationDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 1, 1, 23), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayLocationDn.setStatus('current')
+cucsMemoryArrayEnvStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 2), )
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsTable.setStatus('current')
+cucsMemoryArrayEnvStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 2, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-MEMORY-MIB", "cucsMemoryArrayEnvStatsInstanceId"))
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsEntry.setStatus('current')
+cucsMemoryArrayEnvStatsInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 2, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsInstanceId.setStatus('current')
+cucsMemoryArrayEnvStatsDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 2, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsDn.setStatus('current')
+cucsMemoryArrayEnvStatsRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 2, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsRn.setStatus('current')
+cucsMemoryArrayEnvStatsInputCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 2, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsInputCurrent.setStatus('current')
+cucsMemoryArrayEnvStatsInputCurrentAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 2, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsInputCurrentAvg.setStatus('current')
+cucsMemoryArrayEnvStatsInputCurrentMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 2, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsInputCurrentMax.setStatus('current')
+cucsMemoryArrayEnvStatsInputCurrentMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 2, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsInputCurrentMin.setStatus('current')
+cucsMemoryArrayEnvStatsIntervals = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 2, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsIntervals.setStatus('current')
+cucsMemoryArrayEnvStatsSuspect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 2, 1, 9), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsSuspect.setStatus('current')
+cucsMemoryArrayEnvStatsThresholded = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 2, 1, 10), CucsMemoryArrayEnvStatsThresholded()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsThresholded.setStatus('current')
+cucsMemoryArrayEnvStatsTimeCollected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 2, 1, 11), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsTimeCollected.setStatus('current')
+cucsMemoryArrayEnvStatsUpdate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 2, 1, 12), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsUpdate.setStatus('current')
+cucsMemoryArrayEnvStatsHistTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 3), )
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsHistTable.setStatus('current')
+cucsMemoryArrayEnvStatsHistEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 3, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-MEMORY-MIB", "cucsMemoryArrayEnvStatsHistInstanceId"))
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsHistEntry.setStatus('current')
+cucsMemoryArrayEnvStatsHistInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 3, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsHistInstanceId.setStatus('current')
+cucsMemoryArrayEnvStatsHistDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 3, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsHistDn.setStatus('current')
+cucsMemoryArrayEnvStatsHistRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 3, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsHistRn.setStatus('current')
+cucsMemoryArrayEnvStatsHistId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 3, 1, 4), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsHistId.setStatus('current')
+cucsMemoryArrayEnvStatsHistInputCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 3, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsHistInputCurrent.setStatus('current')
+cucsMemoryArrayEnvStatsHistInputCurrentAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 3, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsHistInputCurrentAvg.setStatus('current')
+cucsMemoryArrayEnvStatsHistInputCurrentMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 3, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsHistInputCurrentMax.setStatus('current')
+cucsMemoryArrayEnvStatsHistInputCurrentMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 3, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsHistInputCurrentMin.setStatus('current')
+cucsMemoryArrayEnvStatsHistMostRecent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 3, 1, 9), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsHistMostRecent.setStatus('current')
+cucsMemoryArrayEnvStatsHistSuspect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 3, 1, 10), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsHistSuspect.setStatus('current')
+cucsMemoryArrayEnvStatsHistThresholded = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 3, 1, 11), CucsMemoryArrayEnvStatsHistThresholded()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsHistThresholded.setStatus('current')
+cucsMemoryArrayEnvStatsHistTimeCollected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 3, 1, 12), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryArrayEnvStatsHistTimeCollected.setStatus('current')
+cucsMemoryBufferUnitTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 4), )
+if mibBuilder.loadTexts: cucsMemoryBufferUnitTable.setStatus('current')
+cucsMemoryBufferUnitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 4, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-MEMORY-MIB", "cucsMemoryBufferUnitInstanceId"))
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEntry.setStatus('current')
+cucsMemoryBufferUnitInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 4, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsMemoryBufferUnitInstanceId.setStatus('current')
+cucsMemoryBufferUnitDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 4, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitDn.setStatus('current')
+cucsMemoryBufferUnitRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 4, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitRn.setStatus('current')
+cucsMemoryBufferUnitId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 4, 1, 4), CucsMemoryBufferUnitId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitId.setStatus('current')
+cucsMemoryBufferUnitModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 4, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitModel.setStatus('current')
+cucsMemoryBufferUnitOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 4, 1, 6), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitOperState.setStatus('current')
+cucsMemoryBufferUnitOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 4, 1, 7), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitOperability.setStatus('current')
+cucsMemoryBufferUnitPerf = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 4, 1, 8), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitPerf.setStatus('current')
+cucsMemoryBufferUnitPower = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 4, 1, 9), CucsEquipmentPowerState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitPower.setStatus('current')
+cucsMemoryBufferUnitPresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 4, 1, 10), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitPresence.setStatus('current')
+cucsMemoryBufferUnitRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 4, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitRevision.setStatus('current')
+cucsMemoryBufferUnitSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 4, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitSerial.setStatus('current')
+cucsMemoryBufferUnitThermal = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 4, 1, 13), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitThermal.setStatus('current')
+cucsMemoryBufferUnitVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 4, 1, 14), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitVendor.setStatus('current')
+cucsMemoryBufferUnitVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 4, 1, 15), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitVoltage.setStatus('current')
+cucsMemoryBufferUnitOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 4, 1, 16), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitOperQualifierReason.setStatus('current')
+cucsMemoryBufferUnitLocationDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 4, 1, 17), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitLocationDn.setStatus('current')
+cucsMemoryBufferUnitEnvStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 5), )
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsTable.setStatus('current')
+cucsMemoryBufferUnitEnvStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 5, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-MEMORY-MIB", "cucsMemoryBufferUnitEnvStatsInstanceId"))
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsEntry.setStatus('current')
+cucsMemoryBufferUnitEnvStatsInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 5, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsInstanceId.setStatus('current')
+cucsMemoryBufferUnitEnvStatsDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 5, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsDn.setStatus('current')
+cucsMemoryBufferUnitEnvStatsRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 5, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsRn.setStatus('current')
+cucsMemoryBufferUnitEnvStatsIntervals = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 5, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsIntervals.setStatus('current')
+cucsMemoryBufferUnitEnvStatsSuspect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 5, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsSuspect.setStatus('current')
+cucsMemoryBufferUnitEnvStatsTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 5, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsTemperature.setStatus('current')
+cucsMemoryBufferUnitEnvStatsTemperatureAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 5, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsTemperatureAvg.setStatus('current')
+cucsMemoryBufferUnitEnvStatsTemperatureMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 5, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsTemperatureMax.setStatus('current')
+cucsMemoryBufferUnitEnvStatsTemperatureMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 5, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsTemperatureMin.setStatus('current')
+cucsMemoryBufferUnitEnvStatsThresholded = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 5, 1, 10), CucsMemoryBufferUnitEnvStatsThresholded()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsThresholded.setStatus('current')
+cucsMemoryBufferUnitEnvStatsTimeCollected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 5, 1, 11), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsTimeCollected.setStatus('current')
+cucsMemoryBufferUnitEnvStatsUpdate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 5, 1, 12), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsUpdate.setStatus('current')
+cucsMemoryBufferUnitEnvStatsHistTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 6), )
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsHistTable.setStatus('current')
+cucsMemoryBufferUnitEnvStatsHistEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 6, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-MEMORY-MIB", "cucsMemoryBufferUnitEnvStatsHistInstanceId"))
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsHistEntry.setStatus('current')
+cucsMemoryBufferUnitEnvStatsHistInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 6, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsHistInstanceId.setStatus('current')
+cucsMemoryBufferUnitEnvStatsHistDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 6, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsHistDn.setStatus('current')
+cucsMemoryBufferUnitEnvStatsHistRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 6, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsHistRn.setStatus('current')
+cucsMemoryBufferUnitEnvStatsHistId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 6, 1, 4), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsHistId.setStatus('current')
+cucsMemoryBufferUnitEnvStatsHistMostRecent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 6, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsHistMostRecent.setStatus('current')
+cucsMemoryBufferUnitEnvStatsHistSuspect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 6, 1, 6), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsHistSuspect.setStatus('current')
+cucsMemoryBufferUnitEnvStatsHistTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 6, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsHistTemperature.setStatus('current')
+cucsMemoryBufferUnitEnvStatsHistTemperatureAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 6, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsHistTemperatureAvg.setStatus('current')
+cucsMemoryBufferUnitEnvStatsHistTemperatureMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 6, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsHistTemperatureMax.setStatus('current')
+cucsMemoryBufferUnitEnvStatsHistTemperatureMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 6, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsHistTemperatureMin.setStatus('current')
+cucsMemoryBufferUnitEnvStatsHistThresholded = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 6, 1, 11), CucsMemoryBufferUnitEnvStatsHistThresholded()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsHistThresholded.setStatus('current')
+cucsMemoryBufferUnitEnvStatsHistTimeCollected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 6, 1, 12), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryBufferUnitEnvStatsHistTimeCollected.setStatus('current')
+cucsMemoryErrorStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7), )
+if mibBuilder.loadTexts: cucsMemoryErrorStatsTable.setStatus('current')
+cucsMemoryErrorStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-MEMORY-MIB", "cucsMemoryErrorStatsInstanceId"))
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEntry.setStatus('current')
+cucsMemoryErrorStatsInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsMemoryErrorStatsInstanceId.setStatus('current')
+cucsMemoryErrorStatsDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsDn.setStatus('current')
+cucsMemoryErrorStatsRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsRn.setStatus('current')
+cucsMemoryErrorStatsAddressParityErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsAddressParityErrors.setStatus('current')
+cucsMemoryErrorStatsAddressParityErrors15Min = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsAddressParityErrors15Min.setStatus('current')
+cucsMemoryErrorStatsAddressParityErrors15MinH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsAddressParityErrors15MinH.setStatus('current')
+cucsMemoryErrorStatsAddressParityErrors1Day = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsAddressParityErrors1Day.setStatus('current')
+cucsMemoryErrorStatsAddressParityErrors1DayH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsAddressParityErrors1DayH.setStatus('current')
+cucsMemoryErrorStatsAddressParityErrors1Hour = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsAddressParityErrors1Hour.setStatus('current')
+cucsMemoryErrorStatsAddressParityErrors1HourH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 10), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsAddressParityErrors1HourH.setStatus('current')
+cucsMemoryErrorStatsAddressParityErrors1Week = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 11), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsAddressParityErrors1Week.setStatus('current')
+cucsMemoryErrorStatsAddressParityErrors1WeekH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 12), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsAddressParityErrors1WeekH.setStatus('current')
+cucsMemoryErrorStatsEccMultibitErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccMultibitErrors.setStatus('current')
+cucsMemoryErrorStatsEccMultibitErrors15Min = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 14), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccMultibitErrors15Min.setStatus('current')
+cucsMemoryErrorStatsEccMultibitErrors15MinH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 15), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccMultibitErrors15MinH.setStatus('current')
+cucsMemoryErrorStatsEccMultibitErrors1Day = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 16), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccMultibitErrors1Day.setStatus('current')
+cucsMemoryErrorStatsEccMultibitErrors1DayH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 17), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccMultibitErrors1DayH.setStatus('current')
+cucsMemoryErrorStatsEccMultibitErrors1Hour = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 18), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccMultibitErrors1Hour.setStatus('current')
+cucsMemoryErrorStatsEccMultibitErrors1HourH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 19), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccMultibitErrors1HourH.setStatus('current')
+cucsMemoryErrorStatsEccMultibitErrors1Week = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 20), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccMultibitErrors1Week.setStatus('current')
+cucsMemoryErrorStatsEccMultibitErrors1WeekH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 21), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccMultibitErrors1WeekH.setStatus('current')
+cucsMemoryErrorStatsEccSinglebitErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 22), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccSinglebitErrors.setStatus('current')
+cucsMemoryErrorStatsEccSinglebitErrors15Min = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 23), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccSinglebitErrors15Min.setStatus('current')
+cucsMemoryErrorStatsEccSinglebitErrors15MinH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 24), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccSinglebitErrors15MinH.setStatus('current')
+cucsMemoryErrorStatsEccSinglebitErrors1Day = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 25), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccSinglebitErrors1Day.setStatus('current')
+cucsMemoryErrorStatsEccSinglebitErrors1DayH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 26), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccSinglebitErrors1DayH.setStatus('current')
+cucsMemoryErrorStatsEccSinglebitErrors1Hour = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 27), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccSinglebitErrors1Hour.setStatus('current')
+cucsMemoryErrorStatsEccSinglebitErrors1HourH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 28), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccSinglebitErrors1HourH.setStatus('current')
+cucsMemoryErrorStatsEccSinglebitErrors1Week = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 29), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccSinglebitErrors1Week.setStatus('current')
+cucsMemoryErrorStatsEccSinglebitErrors1WeekH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 30), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccSinglebitErrors1WeekH.setStatus('current')
+cucsMemoryErrorStatsIntervals = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 31), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsIntervals.setStatus('current')
+cucsMemoryErrorStatsMismatchErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 32), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsMismatchErrors.setStatus('current')
+cucsMemoryErrorStatsMismatchErrors15Min = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 33), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsMismatchErrors15Min.setStatus('current')
+cucsMemoryErrorStatsMismatchErrors15MinH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 34), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsMismatchErrors15MinH.setStatus('current')
+cucsMemoryErrorStatsMismatchErrors1Day = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 35), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsMismatchErrors1Day.setStatus('current')
+cucsMemoryErrorStatsMismatchErrors1DayH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 36), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsMismatchErrors1DayH.setStatus('current')
+cucsMemoryErrorStatsMismatchErrors1Hour = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 37), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsMismatchErrors1Hour.setStatus('current')
+cucsMemoryErrorStatsMismatchErrors1HourH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 38), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsMismatchErrors1HourH.setStatus('current')
+cucsMemoryErrorStatsMismatchErrors1Week = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 39), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsMismatchErrors1Week.setStatus('current')
+cucsMemoryErrorStatsMismatchErrors1WeekH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 40), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsMismatchErrors1WeekH.setStatus('current')
+cucsMemoryErrorStatsSuspect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 41), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsSuspect.setStatus('current')
+cucsMemoryErrorStatsThresholded = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 42), CucsMemoryErrorStatsThresholded()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsThresholded.setStatus('current')
+cucsMemoryErrorStatsTimeCollected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 43), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsTimeCollected.setStatus('current')
+cucsMemoryErrorStatsUpdate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 44), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsUpdate.setStatus('current')
+cucsMemoryErrorStatsAddressParityErrors2Weeks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 45), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsAddressParityErrors2Weeks.setStatus('current')
+cucsMemoryErrorStatsAddressParityErrors2WeeksH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 46), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsAddressParityErrors2WeeksH.setStatus('current')
+cucsMemoryErrorStatsEccMultibitErrors2Weeks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 47), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccMultibitErrors2Weeks.setStatus('current')
+cucsMemoryErrorStatsEccMultibitErrors2WeeksH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 48), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccMultibitErrors2WeeksH.setStatus('current')
+cucsMemoryErrorStatsEccSinglebitErrors2Weeks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 49), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccSinglebitErrors2Weeks.setStatus('current')
+cucsMemoryErrorStatsEccSinglebitErrors2WeeksH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 50), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsEccSinglebitErrors2WeeksH.setStatus('current')
+cucsMemoryErrorStatsMismatchErrors2Weeks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 51), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsMismatchErrors2Weeks.setStatus('current')
+cucsMemoryErrorStatsMismatchErrors2WeeksH = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 7, 1, 52), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryErrorStatsMismatchErrors2WeeksH.setStatus('current')
+cucsMemoryQualTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 8), )
+if mibBuilder.loadTexts: cucsMemoryQualTable.setStatus('current')
+cucsMemoryQualEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 8, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-MEMORY-MIB", "cucsMemoryQualInstanceId"))
+if mibBuilder.loadTexts: cucsMemoryQualEntry.setStatus('current')
+cucsMemoryQualInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 8, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsMemoryQualInstanceId.setStatus('current')
+cucsMemoryQualDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 8, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryQualDn.setStatus('current')
+cucsMemoryQualRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 8, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryQualRn.setStatus('current')
+cucsMemoryQualClock = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 8, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryQualClock.setStatus('current')
+cucsMemoryQualLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 8, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryQualLatency.setStatus('current')
+cucsMemoryQualMaxCap = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 8, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryQualMaxCap.setStatus('current')
+cucsMemoryQualMinCap = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 8, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryQualMinCap.setStatus('current')
+cucsMemoryQualSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 8, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryQualSpeed.setStatus('current')
+cucsMemoryQualUnits = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 8, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryQualUnits.setStatus('current')
+cucsMemoryQualWidth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 8, 1, 10), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryQualWidth.setStatus('current')
+cucsMemoryRuntimeTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9), )
+if mibBuilder.loadTexts: cucsMemoryRuntimeTable.setStatus('current')
+cucsMemoryRuntimeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-MEMORY-MIB", "cucsMemoryRuntimeInstanceId"))
+if mibBuilder.loadTexts: cucsMemoryRuntimeEntry.setStatus('current')
+cucsMemoryRuntimeInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsMemoryRuntimeInstanceId.setStatus('current')
+cucsMemoryRuntimeDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeDn.setStatus('current')
+cucsMemoryRuntimeRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeRn.setStatus('current')
+cucsMemoryRuntimeAvailable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeAvailable.setStatus('current')
+cucsMemoryRuntimeAvailableAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeAvailableAvg.setStatus('current')
+cucsMemoryRuntimeAvailableMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeAvailableMax.setStatus('current')
+cucsMemoryRuntimeAvailableMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeAvailableMin.setStatus('current')
+cucsMemoryRuntimeCached = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeCached.setStatus('current')
+cucsMemoryRuntimeCachedAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeCachedAvg.setStatus('current')
+cucsMemoryRuntimeCachedMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 10), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeCachedMax.setStatus('current')
+cucsMemoryRuntimeCachedMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 11), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeCachedMin.setStatus('current')
+cucsMemoryRuntimeIntervals = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 12), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeIntervals.setStatus('current')
+cucsMemoryRuntimeSuspect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 13), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeSuspect.setStatus('current')
+cucsMemoryRuntimeThresholded = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 14), CucsMemoryRuntimeThresholded()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeThresholded.setStatus('current')
+cucsMemoryRuntimeTimeCollected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 15), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeTimeCollected.setStatus('current')
+cucsMemoryRuntimeTotal = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 16), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeTotal.setStatus('current')
+cucsMemoryRuntimeTotalAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 17), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeTotalAvg.setStatus('current')
+cucsMemoryRuntimeTotalMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 18), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeTotalMax.setStatus('current')
+cucsMemoryRuntimeTotalMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 19), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeTotalMin.setStatus('current')
+cucsMemoryRuntimeType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 20), CucsMemoryRuntimeType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeType.setStatus('current')
+cucsMemoryRuntimeUpdate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 9, 1, 21), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeUpdate.setStatus('current')
+cucsMemoryRuntimeHistTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10), )
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistTable.setStatus('current')
+cucsMemoryRuntimeHistEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-MEMORY-MIB", "cucsMemoryRuntimeHistInstanceId"))
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistEntry.setStatus('current')
+cucsMemoryRuntimeHistInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistInstanceId.setStatus('current')
+cucsMemoryRuntimeHistDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistDn.setStatus('current')
+cucsMemoryRuntimeHistRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistRn.setStatus('current')
+cucsMemoryRuntimeHistAvailable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistAvailable.setStatus('current')
+cucsMemoryRuntimeHistAvailableAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistAvailableAvg.setStatus('current')
+cucsMemoryRuntimeHistAvailableMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistAvailableMax.setStatus('current')
+cucsMemoryRuntimeHistAvailableMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistAvailableMin.setStatus('current')
+cucsMemoryRuntimeHistCached = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistCached.setStatus('current')
+cucsMemoryRuntimeHistCachedAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistCachedAvg.setStatus('current')
+cucsMemoryRuntimeHistCachedMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 10), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistCachedMax.setStatus('current')
+cucsMemoryRuntimeHistCachedMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 11), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistCachedMin.setStatus('current')
+cucsMemoryRuntimeHistId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 12), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistId.setStatus('current')
+cucsMemoryRuntimeHistMostRecent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 13), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistMostRecent.setStatus('current')
+cucsMemoryRuntimeHistSuspect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 14), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistSuspect.setStatus('current')
+cucsMemoryRuntimeHistThresholded = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 15), CucsMemoryRuntimeHistThresholded()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistThresholded.setStatus('current')
+cucsMemoryRuntimeHistTimeCollected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 16), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistTimeCollected.setStatus('current')
+cucsMemoryRuntimeHistTotal = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 17), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistTotal.setStatus('current')
+cucsMemoryRuntimeHistTotalAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 18), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistTotalAvg.setStatus('current')
+cucsMemoryRuntimeHistTotalMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 19), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistTotalMax.setStatus('current')
+cucsMemoryRuntimeHistTotalMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 10, 1, 20), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryRuntimeHistTotalMin.setStatus('current')
+cucsMemoryUnitTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11), )
+if mibBuilder.loadTexts: cucsMemoryUnitTable.setStatus('current')
+cucsMemoryUnitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-MEMORY-MIB", "cucsMemoryUnitInstanceId"))
+if mibBuilder.loadTexts: cucsMemoryUnitEntry.setStatus('current')
+cucsMemoryUnitInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsMemoryUnitInstanceId.setStatus('current')
+cucsMemoryUnitDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitDn.setStatus('current')
+cucsMemoryUnitRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitRn.setStatus('current')
+cucsMemoryUnitArray = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitArray.setStatus('current')
+cucsMemoryUnitBank = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitBank.setStatus('current')
+cucsMemoryUnitCapacity = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitCapacity.setStatus('current')
+cucsMemoryUnitClock = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitClock.setStatus('current')
+cucsMemoryUnitFormFactor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 8), CucsMemoryFormFactor()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitFormFactor.setStatus('current')
+cucsMemoryUnitId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 9), CucsMemoryUnitId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitId.setStatus('current')
+cucsMemoryUnitLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitLatency.setStatus('current')
+cucsMemoryUnitLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitLocation.setStatus('current')
+cucsMemoryUnitModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitModel.setStatus('current')
+cucsMemoryUnitOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 13), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitOperState.setStatus('current')
+cucsMemoryUnitOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 14), CucsMemoryUnitOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitOperability.setStatus('current')
+cucsMemoryUnitPerf = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 15), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitPerf.setStatus('current')
+cucsMemoryUnitPower = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 16), CucsEquipmentPowerState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitPower.setStatus('current')
+cucsMemoryUnitPresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 17), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitPresence.setStatus('current')
+cucsMemoryUnitRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 18), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitRevision.setStatus('current')
+cucsMemoryUnitSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 19), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitSerial.setStatus('current')
+cucsMemoryUnitSet = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 20), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitSet.setStatus('current')
+cucsMemoryUnitSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 21), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitSpeed.setStatus('current')
+cucsMemoryUnitThermal = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 22), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitThermal.setStatus('current')
+cucsMemoryUnitType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 23), CucsMemoryType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitType.setStatus('current')
+cucsMemoryUnitVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 24), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitVendor.setStatus('current')
+cucsMemoryUnitVisibility = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 25), CucsMemoryVisibility()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitVisibility.setStatus('current')
+cucsMemoryUnitVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 26), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitVoltage.setStatus('current')
+cucsMemoryUnitWidth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 27), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitWidth.setStatus('current')
+cucsMemoryUnitAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 28), CucsMemoryAdminState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitAdminState.setStatus('current')
+cucsMemoryUnitOperQualifier = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 29), CucsMemoryIssues()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitOperQualifier.setStatus('current')
+cucsMemoryUnitOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 30), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitOperQualifierReason.setStatus('current')
+cucsMemoryUnitLocationDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 11, 1, 31), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitLocationDn.setStatus('current')
+cucsMemoryUnitEnvStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 12), )
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsTable.setStatus('current')
+cucsMemoryUnitEnvStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 12, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-MEMORY-MIB", "cucsMemoryUnitEnvStatsInstanceId"))
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsEntry.setStatus('current')
+cucsMemoryUnitEnvStatsInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 12, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsInstanceId.setStatus('current')
+cucsMemoryUnitEnvStatsDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 12, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsDn.setStatus('current')
+cucsMemoryUnitEnvStatsRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 12, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsRn.setStatus('current')
+cucsMemoryUnitEnvStatsIntervals = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 12, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsIntervals.setStatus('current')
+cucsMemoryUnitEnvStatsSuspect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 12, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsSuspect.setStatus('current')
+cucsMemoryUnitEnvStatsTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 12, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsTemperature.setStatus('current')
+cucsMemoryUnitEnvStatsTemperatureAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 12, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsTemperatureAvg.setStatus('current')
+cucsMemoryUnitEnvStatsTemperatureMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 12, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsTemperatureMax.setStatus('current')
+cucsMemoryUnitEnvStatsTemperatureMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 12, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsTemperatureMin.setStatus('current')
+cucsMemoryUnitEnvStatsThresholded = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 12, 1, 10), CucsMemoryUnitEnvStatsThresholded()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsThresholded.setStatus('current')
+cucsMemoryUnitEnvStatsTimeCollected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 12, 1, 11), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsTimeCollected.setStatus('current')
+cucsMemoryUnitEnvStatsUpdate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 12, 1, 12), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsUpdate.setStatus('current')
+cucsMemoryUnitEnvStatsHistTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 13), )
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsHistTable.setStatus('current')
+cucsMemoryUnitEnvStatsHistEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 13, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-MEMORY-MIB", "cucsMemoryUnitEnvStatsHistInstanceId"))
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsHistEntry.setStatus('current')
+cucsMemoryUnitEnvStatsHistInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 13, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsHistInstanceId.setStatus('current')
+cucsMemoryUnitEnvStatsHistDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 13, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsHistDn.setStatus('current')
+cucsMemoryUnitEnvStatsHistRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 13, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsHistRn.setStatus('current')
+cucsMemoryUnitEnvStatsHistId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 13, 1, 4), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsHistId.setStatus('current')
+cucsMemoryUnitEnvStatsHistMostRecent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 13, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsHistMostRecent.setStatus('current')
+cucsMemoryUnitEnvStatsHistSuspect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 13, 1, 6), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsHistSuspect.setStatus('current')
+cucsMemoryUnitEnvStatsHistTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 13, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsHistTemperature.setStatus('current')
+cucsMemoryUnitEnvStatsHistTemperatureAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 13, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsHistTemperatureAvg.setStatus('current')
+cucsMemoryUnitEnvStatsHistTemperatureMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 13, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsHistTemperatureMax.setStatus('current')
+cucsMemoryUnitEnvStatsHistTemperatureMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 13, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsHistTemperatureMin.setStatus('current')
+cucsMemoryUnitEnvStatsHistThresholded = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 13, 1, 11), CucsMemoryUnitEnvStatsHistThresholded()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsHistThresholded.setStatus('current')
+cucsMemoryUnitEnvStatsHistTimeCollected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 30, 13, 1, 12), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsMemoryUnitEnvStatsHistTimeCollected.setStatus('current')
+mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-MEMORY-MIB", cucsMemoryErrorStatsEccMultibitErrors=cucsMemoryErrorStatsEccMultibitErrors, cucsMemoryRuntimeHistDn=cucsMemoryRuntimeHistDn, cucsMemoryArrayEnvStatsHistRn=cucsMemoryArrayEnvStatsHistRn, cucsMemoryBufferUnitEnvStatsHistId=cucsMemoryBufferUnitEnvStatsHistId, cucsMemoryRuntimeHistAvailableMin=cucsMemoryRuntimeHistAvailableMin, cucsMemoryArrayEnvStatsHistId=cucsMemoryArrayEnvStatsHistId, cucsMemoryBufferUnitEnvStatsIntervals=cucsMemoryBufferUnitEnvStatsIntervals, cucsMemoryErrorStatsEccMultibitErrors1DayH=cucsMemoryErrorStatsEccMultibitErrors1DayH, cucsMemoryErrorStatsMismatchErrors1Week=cucsMemoryErrorStatsMismatchErrors1Week, cucsMemoryUnitEnvStatsTemperatureAvg=cucsMemoryUnitEnvStatsTemperatureAvg, cucsMemoryArrayOperability=cucsMemoryArrayOperability, cucsMemoryUnitFormFactor=cucsMemoryUnitFormFactor, cucsMemoryUnitEnvStatsSuspect=cucsMemoryUnitEnvStatsSuspect, cucsMemoryUnitBank=cucsMemoryUnitBank, cucsMemoryErrorStatsRn=cucsMemoryErrorStatsRn, cucsMemoryArrayId=cucsMemoryArrayId, cucsMemoryRuntimeHistEntry=cucsMemoryRuntimeHistEntry, cucsMemoryBufferUnitEnvStatsHistDn=cucsMemoryBufferUnitEnvStatsHistDn, cucsMemoryBufferUnitEnvStatsRn=cucsMemoryBufferUnitEnvStatsRn, cucsMemoryQualUnits=cucsMemoryQualUnits, cucsMemoryUnitEnvStatsHistTemperature=cucsMemoryUnitEnvStatsHistTemperature, cucsMemoryRuntimeHistAvailableMax=cucsMemoryRuntimeHistAvailableMax, cucsMemoryArrayEnvStatsSuspect=cucsMemoryArrayEnvStatsSuspect, cucsMemoryArraySerial=cucsMemoryArraySerial, cucsMemoryUnitLatency=cucsMemoryUnitLatency, cucsMemoryRuntimeEntry=cucsMemoryRuntimeEntry, cucsMemoryBufferUnitEnvStatsHistRn=cucsMemoryBufferUnitEnvStatsHistRn, cucsMemoryUnitPresence=cucsMemoryUnitPresence, cucsMemoryRuntimeHistInstanceId=cucsMemoryRuntimeHistInstanceId, cucsMemoryBufferUnitPower=cucsMemoryBufferUnitPower, cucsMemoryBufferUnitEntry=cucsMemoryBufferUnitEntry, cucsMemoryRuntimeCachedAvg=cucsMemoryRuntimeCachedAvg, cucsMemoryUnitSpeed=cucsMemoryUnitSpeed, cucsMemoryErrorStatsEccSinglebitErrors15Min=cucsMemoryErrorStatsEccSinglebitErrors15Min, cucsMemoryErrorStatsTimeCollected=cucsMemoryErrorStatsTimeCollected, cucsMemoryUnitOperQualifierReason=cucsMemoryUnitOperQualifierReason, cucsMemoryBufferUnitEnvStatsHistThresholded=cucsMemoryBufferUnitEnvStatsHistThresholded, cucsMemoryErrorStatsEccSinglebitErrors1HourH=cucsMemoryErrorStatsEccSinglebitErrors1HourH, cucsMemoryRuntimeHistCachedMin=cucsMemoryRuntimeHistCachedMin, cucsMemoryUnitEnvStatsTimeCollected=cucsMemoryUnitEnvStatsTimeCollected, cucsMemoryArrayInstanceId=cucsMemoryArrayInstanceId, cucsMemoryErrorStatsMismatchErrors2WeeksH=cucsMemoryErrorStatsMismatchErrors2WeeksH, cucsMemoryBufferUnitEnvStatsTable=cucsMemoryBufferUnitEnvStatsTable, cucsMemoryQualClock=cucsMemoryQualClock, cucsMemoryQualMaxCap=cucsMemoryQualMaxCap, cucsMemoryBufferUnitEnvStatsTimeCollected=cucsMemoryBufferUnitEnvStatsTimeCollected, cucsMemoryErrorStatsAddressParityErrors15Min=cucsMemoryErrorStatsAddressParityErrors15Min, cucsMemoryRuntimeHistAvailableAvg=cucsMemoryRuntimeHistAvailableAvg, cucsMemoryUnitRn=cucsMemoryUnitRn, cucsMemoryUnitEnvStatsEntry=cucsMemoryUnitEnvStatsEntry, cucsMemoryUnitEnvStatsHistEntry=cucsMemoryUnitEnvStatsHistEntry, cucsMemoryUnitSet=cucsMemoryUnitSet, cucsMemoryUnitEnvStatsHistDn=cucsMemoryUnitEnvStatsHistDn, cucsMemoryRuntimeCachedMax=cucsMemoryRuntimeCachedMax, cucsMemoryArrayCurrCapacity=cucsMemoryArrayCurrCapacity, cucsMemoryRuntimeCached=cucsMemoryRuntimeCached, cucsMemoryUnitEnvStatsThresholded=cucsMemoryUnitEnvStatsThresholded, cucsMemoryUnitEnvStatsHistInstanceId=cucsMemoryUnitEnvStatsHistInstanceId, cucsMemoryErrorStatsEccMultibitErrors2WeeksH=cucsMemoryErrorStatsEccMultibitErrors2WeeksH, cucsMemoryErrorStatsAddressParityErrors2WeeksH=cucsMemoryErrorStatsAddressParityErrors2WeeksH, cucsMemoryErrorStatsMismatchErrors15Min=cucsMemoryErrorStatsMismatchErrors15Min, cucsMemoryRuntimeHistTotalAvg=cucsMemoryRuntimeHistTotalAvg, cucsMemoryUnitEnvStatsUpdate=cucsMemoryUnitEnvStatsUpdate, cucsMemoryBufferUnitOperState=cucsMemoryBufferUnitOperState, cucsMemoryArrayEnvStatsIntervals=cucsMemoryArrayEnvStatsIntervals, cucsMemoryBufferUnitEnvStatsSuspect=cucsMemoryBufferUnitEnvStatsSuspect, cucsMemoryErrorStatsEccMultibitErrors1HourH=cucsMemoryErrorStatsEccMultibitErrors1HourH, cucsMemoryRuntimeCachedMin=cucsMemoryRuntimeCachedMin, cucsMemoryRuntimeHistTotal=cucsMemoryRuntimeHistTotal, cucsMemoryErrorStatsIntervals=cucsMemoryErrorStatsIntervals, cucsMemoryUnitPower=cucsMemoryUnitPower, cucsMemoryQualMinCap=cucsMemoryQualMinCap, PYSNMP_MODULE_ID=cucsMemoryObjects, cucsMemoryBufferUnitEnvStatsHistSuspect=cucsMemoryBufferUnitEnvStatsHistSuspect, cucsMemoryUnitOperQualifier=cucsMemoryUnitOperQualifier, cucsMemoryArrayEnvStatsTimeCollected=cucsMemoryArrayEnvStatsTimeCollected, cucsMemoryArrayEntry=cucsMemoryArrayEntry, cucsMemoryErrorStatsSuspect=cucsMemoryErrorStatsSuspect, cucsMemoryBufferUnitEnvStatsHistTemperature=cucsMemoryBufferUnitEnvStatsHistTemperature, cucsMemoryUnitPerf=cucsMemoryUnitPerf, cucsMemoryErrorStatsMismatchErrors1HourH=cucsMemoryErrorStatsMismatchErrors1HourH, cucsMemoryUnitClock=cucsMemoryUnitClock, cucsMemoryUnitEnvStatsTemperature=cucsMemoryUnitEnvStatsTemperature, cucsMemoryQualRn=cucsMemoryQualRn, cucsMemoryErrorStatsEccMultibitErrors1Hour=cucsMemoryErrorStatsEccMultibitErrors1Hour, cucsMemoryErrorStatsThresholded=cucsMemoryErrorStatsThresholded, cucsMemoryUnitEnvStatsHistTemperatureAvg=cucsMemoryUnitEnvStatsHistTemperatureAvg, cucsMemoryArrayEnvStatsInputCurrentAvg=cucsMemoryArrayEnvStatsInputCurrentAvg, cucsMemoryArrayCpuId=cucsMemoryArrayCpuId, cucsMemoryErrorStatsTable=cucsMemoryErrorStatsTable, cucsMemoryBufferUnitEnvStatsHistTemperatureMax=cucsMemoryBufferUnitEnvStatsHistTemperatureMax, cucsMemoryBufferUnitVendor=cucsMemoryBufferUnitVendor, cucsMemoryArrayPopulated=cucsMemoryArrayPopulated, cucsMemoryErrorStatsEccMultibitErrors15MinH=cucsMemoryErrorStatsEccMultibitErrors15MinH, cucsMemoryErrorStatsMismatchErrors1Hour=cucsMemoryErrorStatsMismatchErrors1Hour, cucsMemoryErrorStatsEccMultibitErrors15Min=cucsMemoryErrorStatsEccMultibitErrors15Min, cucsMemoryArrayEnvStatsHistMostRecent=cucsMemoryArrayEnvStatsHistMostRecent, cucsMemoryBufferUnitVoltage=cucsMemoryBufferUnitVoltage, cucsMemoryBufferUnitRn=cucsMemoryBufferUnitRn, cucsMemoryErrorStatsAddressParityErrors1Hour=cucsMemoryErrorStatsAddressParityErrors1Hour, cucsMemoryUnitOperState=cucsMemoryUnitOperState, cucsMemoryRuntimeAvailableMax=cucsMemoryRuntimeAvailableMax, cucsMemoryUnitEnvStatsHistTemperatureMin=cucsMemoryUnitEnvStatsHistTemperatureMin, cucsMemoryArrayEnvStatsHistDn=cucsMemoryArrayEnvStatsHistDn, cucsMemoryUnitAdminState=cucsMemoryUnitAdminState, cucsMemoryRuntimeHistAvailable=cucsMemoryRuntimeHistAvailable, cucsMemoryBufferUnitInstanceId=cucsMemoryBufferUnitInstanceId, cucsMemoryArrayMaxDevices=cucsMemoryArrayMaxDevices, cucsMemoryBufferUnitEnvStatsThresholded=cucsMemoryBufferUnitEnvStatsThresholded, cucsMemoryQualEntry=cucsMemoryQualEntry, cucsMemoryUnitWidth=cucsMemoryUnitWidth, cucsMemoryUnitRevision=cucsMemoryUnitRevision, cucsMemoryErrorStatsEccSinglebitErrors2WeeksH=cucsMemoryErrorStatsEccSinglebitErrors2WeeksH, cucsMemoryArrayEnvStatsHistInputCurrent=cucsMemoryArrayEnvStatsHistInputCurrent, cucsMemoryErrorStatsDn=cucsMemoryErrorStatsDn, cucsMemoryQualInstanceId=cucsMemoryQualInstanceId, cucsMemoryArrayOperQualifierReason=cucsMemoryArrayOperQualifierReason, cucsMemoryArrayEnvStatsDn=cucsMemoryArrayEnvStatsDn, cucsMemoryErrorStatsEccSinglebitErrors2Weeks=cucsMemoryErrorStatsEccSinglebitErrors2Weeks, cucsMemoryQualDn=cucsMemoryQualDn, cucsMemoryQualWidth=cucsMemoryQualWidth, cucsMemoryRuntimeUpdate=cucsMemoryRuntimeUpdate, cucsMemoryUnitTable=cucsMemoryUnitTable, cucsMemoryErrorStatsMismatchErrors=cucsMemoryErrorStatsMismatchErrors, cucsMemoryArrayThermal=cucsMemoryArrayThermal, cucsMemoryArrayVoltage=cucsMemoryArrayVoltage, cucsMemoryUnitCapacity=cucsMemoryUnitCapacity, cucsMemoryUnitVisibility=cucsMemoryUnitVisibility, cucsMemoryArrayModel=cucsMemoryArrayModel, cucsMemoryArrayVendor=cucsMemoryArrayVendor, cucsMemoryErrorStatsEccMultibitErrors1Day=cucsMemoryErrorStatsEccMultibitErrors1Day, cucsMemoryErrorStatsEccMultibitErrors2Weeks=cucsMemoryErrorStatsEccMultibitErrors2Weeks, cucsMemoryBufferUnitEnvStatsTemperatureMax=cucsMemoryBufferUnitEnvStatsTemperatureMax, cucsMemoryArrayEnvStatsHistEntry=cucsMemoryArrayEnvStatsHistEntry, cucsMemoryArrayDn=cucsMemoryArrayDn, cucsMemoryErrorStatsEccSinglebitErrors=cucsMemoryErrorStatsEccSinglebitErrors, cucsMemoryErrorStatsAddressParityErrors1HourH=cucsMemoryErrorStatsAddressParityErrors1HourH, cucsMemoryRuntimeHistCachedAvg=cucsMemoryRuntimeHistCachedAvg, cucsMemoryUnitEnvStatsDn=cucsMemoryUnitEnvStatsDn, cucsMemoryErrorStatsAddressParityErrors15MinH=cucsMemoryErrorStatsAddressParityErrors15MinH, cucsMemoryUnitDn=cucsMemoryUnitDn, cucsMemoryUnitEnvStatsHistTable=cucsMemoryUnitEnvStatsHistTable, cucsMemoryRuntimeTotalMax=cucsMemoryRuntimeTotalMax, cucsMemoryUnitEnvStatsHistMostRecent=cucsMemoryUnitEnvStatsHistMostRecent, cucsMemoryUnitEnvStatsHistSuspect=cucsMemoryUnitEnvStatsHistSuspect, cucsMemoryArrayRevision=cucsMemoryArrayRevision, cucsMemoryUnitEnvStatsTable=cucsMemoryUnitEnvStatsTable, cucsMemoryUnitEnvStatsHistRn=cucsMemoryUnitEnvStatsHistRn, cucsMemoryBufferUnitEnvStatsHistInstanceId=cucsMemoryBufferUnitEnvStatsHistInstanceId, cucsMemoryBufferUnitId=cucsMemoryBufferUnitId, cucsMemoryArrayEnvStatsThresholded=cucsMemoryArrayEnvStatsThresholded, cucsMemoryErrorStatsAddressParityErrors1Day=cucsMemoryErrorStatsAddressParityErrors1Day, cucsMemoryBufferUnitEnvStatsHistEntry=cucsMemoryBufferUnitEnvStatsHistEntry, cucsMemoryRuntimeTable=cucsMemoryRuntimeTable, cucsMemoryRuntimeAvailable=cucsMemoryRuntimeAvailable, cucsMemoryErrorStatsUpdate=cucsMemoryErrorStatsUpdate, cucsMemoryRuntimeHistThresholded=cucsMemoryRuntimeHistThresholded, cucsMemoryBufferUnitEnvStatsEntry=cucsMemoryBufferUnitEnvStatsEntry, cucsMemoryArrayPresence=cucsMemoryArrayPresence, cucsMemoryBufferUnitModel=cucsMemoryBufferUnitModel, cucsMemoryArrayEnvStatsHistInputCurrentAvg=cucsMemoryArrayEnvStatsHistInputCurrentAvg, cucsMemoryErrorStatsAddressParityErrors=cucsMemoryErrorStatsAddressParityErrors, cucsMemoryRuntimeAvailableMin=cucsMemoryRuntimeAvailableMin, cucsMemoryQualTable=cucsMemoryQualTable, cucsMemoryRuntimeRn=cucsMemoryRuntimeRn, cucsMemoryArrayEnvStatsHistInputCurrentMax=cucsMemoryArrayEnvStatsHistInputCurrentMax, cucsMemoryErrorStatsEccMultibitErrors1WeekH=cucsMemoryErrorStatsEccMultibitErrors1WeekH, cucsMemoryArrayRn=cucsMemoryArrayRn, cucsMemoryBufferUnitEnvStatsHistTimeCollected=cucsMemoryBufferUnitEnvStatsHistTimeCollected, cucsMemoryRuntimeTotalMin=cucsMemoryRuntimeTotalMin, cucsMemoryRuntimeType=cucsMemoryRuntimeType, cucsMemoryArrayEnvStatsTable=cucsMemoryArrayEnvStatsTable, cucsMemoryRuntimeHistRn=cucsMemoryRuntimeHistRn, cucsMemoryErrorStatsMismatchErrors1DayH=cucsMemoryErrorStatsMismatchErrors1DayH, cucsMemoryArrayEnvStatsHistTable=cucsMemoryArrayEnvStatsHistTable, cucsMemoryErrorStatsEntry=cucsMemoryErrorStatsEntry, cucsMemoryRuntimeTotalAvg=cucsMemoryRuntimeTotalAvg, cucsMemoryErrorStatsMismatchErrors1Day=cucsMemoryErrorStatsMismatchErrors1Day, cucsMemoryUnitArray=cucsMemoryUnitArray, cucsMemoryUnitEnvStatsRn=cucsMemoryUnitEnvStatsRn, cucsMemoryUnitEnvStatsHistId=cucsMemoryUnitEnvStatsHistId, cucsMemoryBufferUnitPresence=cucsMemoryBufferUnitPresence, cucsMemoryArrayMaxCapacity=cucsMemoryArrayMaxCapacity, cucsMemoryBufferUnitRevision=cucsMemoryBufferUnitRevision, cucsMemoryBufferUnitEnvStatsTemperatureAvg=cucsMemoryBufferUnitEnvStatsTemperatureAvg, cucsMemoryUnitEnvStatsHistTimeCollected=cucsMemoryUnitEnvStatsHistTimeCollected, cucsMemoryBufferUnitLocationDn=cucsMemoryBufferUnitLocationDn, cucsMemoryErrorStatsEccSinglebitErrors1WeekH=cucsMemoryErrorStatsEccSinglebitErrors1WeekH, cucsMemoryArrayLocationDn=cucsMemoryArrayLocationDn, cucsMemoryErrorStatsAddressParityErrors2Weeks=cucsMemoryErrorStatsAddressParityErrors2Weeks, cucsMemoryBufferUnitOperability=cucsMemoryBufferUnitOperability, cucsMemoryUnitEnvStatsTemperatureMax=cucsMemoryUnitEnvStatsTemperatureMax, cucsMemoryArrayEnvStatsInputCurrentMax=cucsMemoryArrayEnvStatsInputCurrentMax, cucsMemoryQualSpeed=cucsMemoryQualSpeed, cucsMemoryArrayTable=cucsMemoryArrayTable, cucsMemoryBufferUnitEnvStatsHistMostRecent=cucsMemoryBufferUnitEnvStatsHistMostRecent, cucsMemoryUnitOperability=cucsMemoryUnitOperability, cucsMemoryArrayErrorCorrection=cucsMemoryArrayErrorCorrection, cucsMemoryRuntimeHistTable=cucsMemoryRuntimeHistTable, cucsMemoryErrorStatsAddressParityErrors1DayH=cucsMemoryErrorStatsAddressParityErrors1DayH, cucsMemoryUnitInstanceId=cucsMemoryUnitInstanceId, cucsMemoryUnitVendor=cucsMemoryUnitVendor, cucsMemoryUnitEntry=cucsMemoryUnitEntry, cucsMemoryBufferUnitEnvStatsDn=cucsMemoryBufferUnitEnvStatsDn, cucsMemoryRuntimeThresholded=cucsMemoryRuntimeThresholded, cucsMemoryErrorStatsInstanceId=cucsMemoryErrorStatsInstanceId, cucsMemoryBufferUnitEnvStatsUpdate=cucsMemoryBufferUnitEnvStatsUpdate, cucsMemoryArrayEnvStatsInputCurrentMin=cucsMemoryArrayEnvStatsInputCurrentMin, cucsMemoryRuntimeSuspect=cucsMemoryRuntimeSuspect, cucsMemoryBufferUnitEnvStatsHistTemperatureMin=cucsMemoryBufferUnitEnvStatsHistTemperatureMin, cucsMemoryRuntimeHistCached=cucsMemoryRuntimeHistCached, cucsMemoryRuntimeHistTotalMin=cucsMemoryRuntimeHistTotalMin, cucsMemoryRuntimeHistSuspect=cucsMemoryRuntimeHistSuspect, cucsMemoryUnitType=cucsMemoryUnitType, cucsMemoryArrayEnvStatsInputCurrent=cucsMemoryArrayEnvStatsInputCurrent, cucsMemoryBufferUnitTable=cucsMemoryBufferUnitTable, cucsMemoryErrorStatsAddressParityErrors1Week=cucsMemoryErrorStatsAddressParityErrors1Week, cucsMemoryUnitEnvStatsTemperatureMin=cucsMemoryUnitEnvStatsTemperatureMin, cucsMemoryRuntimeHistTimeCollected=cucsMemoryRuntimeHistTimeCollected, cucsMemoryArrayPower=cucsMemoryArrayPower, cucsMemoryUnitEnvStatsInstanceId=cucsMemoryUnitEnvStatsInstanceId, cucsMemoryErrorStatsMismatchErrors15MinH=cucsMemoryErrorStatsMismatchErrors15MinH, cucsMemoryArrayEnvStatsHistTimeCollected=cucsMemoryArrayEnvStatsHistTimeCollected, cucsMemoryUnitEnvStatsHistThresholded=cucsMemoryUnitEnvStatsHistThresholded, cucsMemoryUnitSerial=cucsMemoryUnitSerial, cucsMemoryBufferUnitEnvStatsInstanceId=cucsMemoryBufferUnitEnvStatsInstanceId, cucsMemoryUnitEnvStatsIntervals=cucsMemoryUnitEnvStatsIntervals, cucsMemoryRuntimeDn=cucsMemoryRuntimeDn, cucsMemoryBufferUnitEnvStatsHistTemperatureAvg=cucsMemoryBufferUnitEnvStatsHistTemperatureAvg, cucsMemoryErrorStatsAddressParityErrors1WeekH=cucsMemoryErrorStatsAddressParityErrors1WeekH, cucsMemoryBufferUnitPerf=cucsMemoryBufferUnitPerf, cucsMemoryArrayPerf=cucsMemoryArrayPerf, cucsMemoryBufferUnitThermal=cucsMemoryBufferUnitThermal, cucsMemoryBufferUnitDn=cucsMemoryBufferUnitDn, cucsMemoryErrorStatsEccSinglebitErrors1Week=cucsMemoryErrorStatsEccSinglebitErrors1Week, cucsMemoryUnitVoltage=cucsMemoryUnitVoltage, cucsMemoryArrayEnvStatsRn=cucsMemoryArrayEnvStatsRn, cucsMemoryArrayEnvStatsHistSuspect=cucsMemoryArrayEnvStatsHistSuspect, cucsMemoryErrorStatsMismatchErrors1WeekH=cucsMemoryErrorStatsMismatchErrors1WeekH, cucsMemoryArrayEnvStatsHistInstanceId=cucsMemoryArrayEnvStatsHistInstanceId, cucsMemoryArrayEnvStatsHistThresholded=cucsMemoryArrayEnvStatsHistThresholded, cucsMemoryRuntimeHistTotalMax=cucsMemoryRuntimeHistTotalMax, cucsMemoryRuntimeTimeCollected=cucsMemoryRuntimeTimeCollected, cucsMemoryErrorStatsEccSinglebitErrors1Day=cucsMemoryErrorStatsEccSinglebitErrors1Day, cucsMemoryRuntimeTotal=cucsMemoryRuntimeTotal, cucsMemoryBufferUnitEnvStatsTemperatureMin=cucsMemoryBufferUnitEnvStatsTemperatureMin, cucsMemoryUnitModel=cucsMemoryUnitModel, cucsMemoryUnitThermal=cucsMemoryUnitThermal, cucsMemoryBufferUnitEnvStatsHistTable=cucsMemoryBufferUnitEnvStatsHistTable, cucsMemoryErrorStatsEccSinglebitErrors1DayH=cucsMemoryErrorStatsEccSinglebitErrors1DayH, cucsMemoryUnitId=cucsMemoryUnitId, cucsMemoryUnitLocation=cucsMemoryUnitLocation, cucsMemoryErrorStatsEccMultibitErrors1Week=cucsMemoryErrorStatsEccMultibitErrors1Week, cucsMemoryObjects=cucsMemoryObjects)
+mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-MEMORY-MIB", cucsMemoryArrayOperState=cucsMemoryArrayOperState, cucsMemoryErrorStatsMismatchErrors2Weeks=cucsMemoryErrorStatsMismatchErrors2Weeks, cucsMemoryRuntimeInstanceId=cucsMemoryRuntimeInstanceId, cucsMemoryRuntimeHistCachedMax=cucsMemoryRuntimeHistCachedMax, cucsMemoryErrorStatsEccSinglebitErrors1Hour=cucsMemoryErrorStatsEccSinglebitErrors1Hour, cucsMemoryArrayEnvStatsEntry=cucsMemoryArrayEnvStatsEntry, cucsMemoryBufferUnitOperQualifierReason=cucsMemoryBufferUnitOperQualifierReason, cucsMemoryBufferUnitSerial=cucsMemoryBufferUnitSerial, cucsMemoryQualLatency=cucsMemoryQualLatency, cucsMemoryBufferUnitEnvStatsTemperature=cucsMemoryBufferUnitEnvStatsTemperature, cucsMemoryRuntimeIntervals=cucsMemoryRuntimeIntervals, cucsMemoryRuntimeHistId=cucsMemoryRuntimeHistId, cucsMemoryUnitLocationDn=cucsMemoryUnitLocationDn, cucsMemoryRuntimeAvailableAvg=cucsMemoryRuntimeAvailableAvg, cucsMemoryRuntimeHistMostRecent=cucsMemoryRuntimeHistMostRecent, cucsMemoryUnitEnvStatsHistTemperatureMax=cucsMemoryUnitEnvStatsHistTemperatureMax, cucsMemoryErrorStatsEccSinglebitErrors15MinH=cucsMemoryErrorStatsEccSinglebitErrors15MinH, cucsMemoryArrayEnvStatsUpdate=cucsMemoryArrayEnvStatsUpdate, cucsMemoryArrayEnvStatsHistInputCurrentMin=cucsMemoryArrayEnvStatsHistInputCurrentMin, cucsMemoryArrayEnvStatsInstanceId=cucsMemoryArrayEnvStatsInstanceId)

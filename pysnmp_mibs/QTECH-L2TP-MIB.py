@@ -1,82 +1,45 @@
-_J='l2tpPrivateSessionExistTime'
-_I='l2tpPrivateSessionVrfId'
-_H='l2tpPrivateSessionRemoteIpAdd'
-_G='l2tpPrivateSessionLocalIpAdd'
-_F='l2tpPrivateLocalTunnelID'
-_E='l2tpPrivateSessionIfIndex'
-_D='read-only'
-_C='Integer32'
-_B='current'
-_A='QTECH-L2TP-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-qtechMgmt,=mibBuilder.importSymbols('QTECH-SMI','qtechMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp')
-qtechVPDNMIB=ModuleIdentity((1,3,6,1,4,1,27514,1,1,10,2,112))
-if mibBuilder.loadTexts:qtechVPDNMIB.setRevisions(('2011-02-17 00:00',))
-_QtechL2TPSessionObjects_ObjectIdentity=ObjectIdentity
-qtechL2TPSessionObjects=_QtechL2TPSessionObjects_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,112,1))
-_QtechL2TPSessionTable_Object=MibTable
-qtechL2TPSessionTable=_QtechL2TPSessionTable_Object((1,3,6,1,4,1,27514,1,1,10,2,112,1,1))
-if mibBuilder.loadTexts:qtechL2TPSessionTable.setStatus(_B)
-_QtechL2TPSessionEntry_Object=MibTableRow
-qtechL2TPSessionEntry=_QtechL2TPSessionEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,112,1,1,1))
-qtechL2TPSessionEntry.setIndexNames((0,_A,_E))
-if mibBuilder.loadTexts:qtechL2TPSessionEntry.setStatus(_B)
-class _L2tpPrivateSessionIfIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_L2tpPrivateSessionIfIndex_Type.__name__=_C
-_L2tpPrivateSessionIfIndex_Object=MibTableColumn
-l2tpPrivateSessionIfIndex=_L2tpPrivateSessionIfIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,112,1,1,1,1),_L2tpPrivateSessionIfIndex_Type())
-l2tpPrivateSessionIfIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:l2tpPrivateSessionIfIndex.setStatus(_B)
-class _L2tpPrivateLocalTunnelID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_L2tpPrivateLocalTunnelID_Type.__name__=_C
-_L2tpPrivateLocalTunnelID_Object=MibTableColumn
-l2tpPrivateLocalTunnelID=_L2tpPrivateLocalTunnelID_Object((1,3,6,1,4,1,27514,1,1,10,2,112,1,1,1,2),_L2tpPrivateLocalTunnelID_Type())
-l2tpPrivateLocalTunnelID.setMaxAccess(_D)
-if mibBuilder.loadTexts:l2tpPrivateLocalTunnelID.setStatus(_B)
-_L2tpPrivateSessionLocalIpAdd_Type=IpAddress
-_L2tpPrivateSessionLocalIpAdd_Object=MibTableColumn
-l2tpPrivateSessionLocalIpAdd=_L2tpPrivateSessionLocalIpAdd_Object((1,3,6,1,4,1,27514,1,1,10,2,112,1,1,1,3),_L2tpPrivateSessionLocalIpAdd_Type())
-l2tpPrivateSessionLocalIpAdd.setMaxAccess(_D)
-if mibBuilder.loadTexts:l2tpPrivateSessionLocalIpAdd.setStatus(_B)
-_L2tpPrivateSessionRemoteIpAdd_Type=IpAddress
-_L2tpPrivateSessionRemoteIpAdd_Object=MibTableColumn
-l2tpPrivateSessionRemoteIpAdd=_L2tpPrivateSessionRemoteIpAdd_Object((1,3,6,1,4,1,27514,1,1,10,2,112,1,1,1,4),_L2tpPrivateSessionRemoteIpAdd_Type())
-l2tpPrivateSessionRemoteIpAdd.setMaxAccess(_D)
-if mibBuilder.loadTexts:l2tpPrivateSessionRemoteIpAdd.setStatus(_B)
-class _L2tpPrivateSessionVrfId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_L2tpPrivateSessionVrfId_Type.__name__=_C
-_L2tpPrivateSessionVrfId_Object=MibTableColumn
-l2tpPrivateSessionVrfId=_L2tpPrivateSessionVrfId_Object((1,3,6,1,4,1,27514,1,1,10,2,112,1,1,1,5),_L2tpPrivateSessionVrfId_Type())
-l2tpPrivateSessionVrfId.setMaxAccess(_D)
-if mibBuilder.loadTexts:l2tpPrivateSessionVrfId.setStatus(_B)
-class _L2tpPrivateSessionExistTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_L2tpPrivateSessionExistTime_Type.__name__=_C
-_L2tpPrivateSessionExistTime_Object=MibTableColumn
-l2tpPrivateSessionExistTime=_L2tpPrivateSessionExistTime_Object((1,3,6,1,4,1,27514,1,1,10,2,112,1,1,1,6),_L2tpPrivateSessionExistTime_Type())
-l2tpPrivateSessionExistTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:l2tpPrivateSessionExistTime.setStatus(_B)
-class _L2tpPrivateSessionStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('sessionIdle',1),('sessionConnecting',2),('sessionEstablished',3),('sessionDisconnecting',4)))
-_L2tpPrivateSessionStatus_Type.__name__=_C
-_L2tpPrivateSessionStatus_Object=MibTableColumn
-l2tpPrivateSessionStatus=_L2tpPrivateSessionStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,112,1,1,1,7),_L2tpPrivateSessionStatus_Type())
-l2tpPrivateSessionStatus.setMaxAccess('read-write')
-if mibBuilder.loadTexts:l2tpPrivateSessionStatus.setStatus(_B)
-_QtechVPDNMonitor_ObjectIdentity=ObjectIdentity
-qtechVPDNMonitor=_QtechVPDNMonitor_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,112,2))
-_QtechVPDNMonitorTRAP_ObjectIdentity=ObjectIdentity
-qtechVPDNMonitorTRAP=_QtechVPDNMonitorTRAP_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,112,2,1))
-_QtechVPDNNotifications_ObjectIdentity=ObjectIdentity
-qtechVPDNNotifications=_QtechVPDNNotifications_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,112,2,1,1))
-qtechVPDNStart=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,112,2,1,1,1))
-qtechVPDNStart.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J)))
-if mibBuilder.loadTexts:qtechVPDNStart.setStatus(_B)
-qtechVPDNStop=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,112,2,1,1,2))
-qtechVPDNStop.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J)))
-if mibBuilder.loadTexts:qtechVPDNStop.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'qtechVPDNMIB':qtechVPDNMIB,'qtechL2TPSessionObjects':qtechL2TPSessionObjects,'qtechL2TPSessionTable':qtechL2TPSessionTable,'qtechL2TPSessionEntry':qtechL2TPSessionEntry,_E:l2tpPrivateSessionIfIndex,_F:l2tpPrivateLocalTunnelID,_G:l2tpPrivateSessionLocalIpAdd,_H:l2tpPrivateSessionRemoteIpAdd,_I:l2tpPrivateSessionVrfId,_J:l2tpPrivateSessionExistTime,'l2tpPrivateSessionStatus':l2tpPrivateSessionStatus,'qtechVPDNMonitor':qtechVPDNMonitor,'qtechVPDNMonitorTRAP':qtechVPDNMonitorTRAP,'qtechVPDNNotifications':qtechVPDNNotifications,'qtechVPDNStart':qtechVPDNStart,'qtechVPDNStop':qtechVPDNStop})
+#
+# PySNMP MIB module QTECH-L2TP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-L2TP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:34 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+qtechMgmt, = mibBuilder.importSymbols("QTECH-SMI", "qtechMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+qtechVPDNMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 112))
+qtechVPDNMIB.setRevisions(('2011-02-17 00:00',))
+if mibBuilder.loadTexts: qtechVPDNMIB.setLastUpdated('201102170000Z')
+if mibBuilder.loadTexts: qtechVPDNMIB.setOrganization('Qtech Networks Co.,Ltd.')
+qtechL2TPSessionObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 112, 1))
+qtechVPDNMonitor = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 112, 2))
+qtechL2TPSessionTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 112, 1, 1), )
+if mibBuilder.loadTexts: qtechL2TPSessionTable.setStatus('current')
+qtechL2TPSessionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 112, 1, 1, 1), ).setIndexNames((0, "QTECH-L2TP-MIB", "l2tpPrivateSessionIfIndex"))
+if mibBuilder.loadTexts: qtechL2TPSessionEntry.setStatus('current')
+l2tpPrivateSessionIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 112, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2tpPrivateSessionIfIndex.setStatus('current')
+l2tpPrivateLocalTunnelID = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 112, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2tpPrivateLocalTunnelID.setStatus('current')
+l2tpPrivateSessionLocalIpAdd = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 112, 1, 1, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2tpPrivateSessionLocalIpAdd.setStatus('current')
+l2tpPrivateSessionRemoteIpAdd = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 112, 1, 1, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2tpPrivateSessionRemoteIpAdd.setStatus('current')
+l2tpPrivateSessionVrfId = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 112, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2tpPrivateSessionVrfId.setStatus('current')
+l2tpPrivateSessionExistTime = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 112, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2tpPrivateSessionExistTime.setStatus('current')
+l2tpPrivateSessionStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 112, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("sessionIdle", 1), ("sessionConnecting", 2), ("sessionEstablished", 3), ("sessionDisconnecting", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2tpPrivateSessionStatus.setStatus('current')
+qtechVPDNMonitorTRAP = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 112, 2, 1))
+qtechVPDNNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 112, 2, 1, 1))
+qtechVPDNStart = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 112, 2, 1, 1, 1)).setObjects(("QTECH-L2TP-MIB", "l2tpPrivateSessionIfIndex"), ("QTECH-L2TP-MIB", "l2tpPrivateLocalTunnelID"), ("QTECH-L2TP-MIB", "l2tpPrivateSessionLocalIpAdd"), ("QTECH-L2TP-MIB", "l2tpPrivateSessionRemoteIpAdd"), ("QTECH-L2TP-MIB", "l2tpPrivateSessionVrfId"), ("QTECH-L2TP-MIB", "l2tpPrivateSessionExistTime"))
+if mibBuilder.loadTexts: qtechVPDNStart.setStatus('current')
+qtechVPDNStop = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 112, 2, 1, 1, 2)).setObjects(("QTECH-L2TP-MIB", "l2tpPrivateSessionIfIndex"), ("QTECH-L2TP-MIB", "l2tpPrivateLocalTunnelID"), ("QTECH-L2TP-MIB", "l2tpPrivateSessionLocalIpAdd"), ("QTECH-L2TP-MIB", "l2tpPrivateSessionRemoteIpAdd"), ("QTECH-L2TP-MIB", "l2tpPrivateSessionVrfId"), ("QTECH-L2TP-MIB", "l2tpPrivateSessionExistTime"))
+if mibBuilder.loadTexts: qtechVPDNStop.setStatus('current')
+mibBuilder.exportSymbols("QTECH-L2TP-MIB", qtechVPDNStop=qtechVPDNStop, l2tpPrivateLocalTunnelID=l2tpPrivateLocalTunnelID, l2tpPrivateSessionLocalIpAdd=l2tpPrivateSessionLocalIpAdd, qtechL2TPSessionTable=qtechL2TPSessionTable, qtechVPDNMonitor=qtechVPDNMonitor, l2tpPrivateSessionIfIndex=l2tpPrivateSessionIfIndex, l2tpPrivateSessionRemoteIpAdd=l2tpPrivateSessionRemoteIpAdd, l2tpPrivateSessionVrfId=l2tpPrivateSessionVrfId, qtechVPDNMonitorTRAP=qtechVPDNMonitorTRAP, qtechL2TPSessionObjects=qtechL2TPSessionObjects, qtechVPDNMIB=qtechVPDNMIB, qtechVPDNStart=qtechVPDNStart, l2tpPrivateSessionStatus=l2tpPrivateSessionStatus, l2tpPrivateSessionExistTime=l2tpPrivateSessionExistTime, PYSNMP_MODULE_ID=qtechVPDNMIB, qtechL2TPSessionEntry=qtechL2TPSessionEntry, qtechVPDNNotifications=qtechVPDNNotifications)

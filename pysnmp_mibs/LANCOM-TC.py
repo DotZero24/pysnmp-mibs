@@ -1,17 +1,39 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fastPath,=mibBuilder.importSymbols('LANCOM-REF-MIB','fastPath')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-fastPathTc=ModuleIdentity((1,3,6,1,4,1,2356,16,1,99))
-if mibBuilder.loadTexts:fastPathTc.setRevisions(('2020-04-21 00:00',))
-class DeciInteger32(TextualConvention,Integer32):status=_A;displayHint='d-1'
-class CentiInteger32(TextualConvention,Integer32):status=_A;displayHint='d-2'
-class MilliInteger32(TextualConvention,Integer32):status=_A;displayHint='d-3'
-class DBmTenths(TextualConvention,Integer32):status=_A;displayHint='d-1'
-class DBmHundreths(TextualConvention,Integer32):status=_A;displayHint='d-3'
-mibBuilder.exportSymbols('LANCOM-TC',**{'DeciInteger32':DeciInteger32,'CentiInteger32':CentiInteger32,'MilliInteger32':MilliInteger32,'DBmTenths':DBmTenths,'DBmHundreths':DBmHundreths,'fastPathTc':fastPathTc})
+#
+# PySNMP MIB module LANCOM-TC (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/lancom/LANCOM-TC
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:43:42 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+fastPath, = mibBuilder.importSymbols("LANCOM-REF-MIB", "fastPath")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+fastPathTc = ModuleIdentity((1, 3, 6, 1, 4, 1, 2356, 16, 1, 99))
+fastPathTc.setRevisions(('2020-04-21 00:00',))
+if mibBuilder.loadTexts: fastPathTc.setLastUpdated('202004210000Z')
+if mibBuilder.loadTexts: fastPathTc.setOrganization('Broadcom')
+class DeciInteger32(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd-1'
+
+class CentiInteger32(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd-2'
+
+class MilliInteger32(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd-3'
+
+class DBmTenths(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd-1'
+
+class DBmHundreths(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd-3'
+
+mibBuilder.exportSymbols("LANCOM-TC", PYSNMP_MODULE_ID=fastPathTc, DeciInteger32=DeciInteger32, fastPathTc=fastPathTc, DBmTenths=DBmTenths, MilliInteger32=MilliInteger32, CentiInteger32=CentiInteger32, DBmHundreths=DBmHundreths)

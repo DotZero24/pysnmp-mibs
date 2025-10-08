@@ -1,291 +1,152 @@
-_m='cpvlanTrunkPortEncapOperType'
-_l='cpvlanTrunkPortDynamicStatus'
-_k='cpvlanTrunkPortNormalVlans4k'
-_j='cpvlanTrunkPortNormalVlans3k'
-_i='cpvlanTrunkPortNormalVlans2k'
-_h='cpvlanTrunkPortNormalVlans'
-_g='cpvlanTrunkPortSecondaryVlans4k'
-_f='cpvlanTrunkPortSecondaryVlans3k'
-_e='cpvlanTrunkPortSecondaryVlans2k'
-_d='cpvlanTrunkPortSecondaryVlans'
-_c='cpvlanTrunkPortNativeVlan'
-_b='cpvlanTrunkPortEncapType'
-_a='cpvlanTrunkPortDynamicState'
-_Z='cpvlanSVIMappingPrimarySVI'
-_Y='cpvlanPortMode'
-_X='cpvlanPromPortSecondaryRemap4k'
-_W='cpvlanPromPortSecondaryRemap3k'
-_V='cpvlanPromPortSecondaryRemap2k'
-_U='cpvlanPromPortTwoWayRemapCapable'
-_T='cpvlanPromPortSecondaryRemap'
-_S='cpvlanPromPortMultiPrimaryVlan'
-_R='cpvlanPrivatePortSecondaryVlan'
-_Q='cpvlanVlanEditAssocPrimaryVlan'
-_P='cpvlanVlanEditPrivateVlanType'
-_O='cpvlanVlanAssociatedPrimaryVlan'
-_N='cpvlanVlanPrivateVlanType'
-_M='cpvlanVlanEditEntry'
-_L='cpvlanVlanEntry'
-_K='cpvlanSVIMappingVlanIndex'
-_J='PrivateVlanType'
-_I='VlanIndexOrZero'
-_H='ifIndex'
-_G='IF-MIB'
-_F='OctetString'
-_E='read-only'
-_D='Integer32'
-_C='read-write'
-_B='CISCO-PRIVATE-VLAN-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_F,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-vtpVlanEditEntry,vtpVlanEntry=mibBuilder.importSymbols('CISCO-VTP-MIB','vtpVlanEditEntry','vtpVlanEntry')
-ifIndex,=mibBuilder.importSymbols(_G,_H)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-ciscoPrivateVlanMIB=ModuleIdentity((1,3,6,1,4,1,9,9,173))
-if mibBuilder.loadTexts:ciscoPrivateVlanMIB.setRevisions(('2005-09-08 00:00','2002-07-24 00:00','2001-05-23 00:00','2001-04-17 00:00'))
-class PrivateVlanType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('normal',1),('primary',2),('isolated',3),('community',4),('twoWayCommunity',5)))
-class VlanIndexOrZero(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-class VlanIndexBitmap(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_CpvlanMIBObjects_ObjectIdentity=ObjectIdentity
-cpvlanMIBObjects=_CpvlanMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,173,1))
-_CpvlanVlanObjects_ObjectIdentity=ObjectIdentity
-cpvlanVlanObjects=_CpvlanVlanObjects_ObjectIdentity((1,3,6,1,4,1,9,9,173,1,1))
-_CpvlanVlanTable_Object=MibTable
-cpvlanVlanTable=_CpvlanVlanTable_Object((1,3,6,1,4,1,9,9,173,1,1,1))
-if mibBuilder.loadTexts:cpvlanVlanTable.setStatus(_A)
-_CpvlanVlanEntry_Object=MibTableRow
-cpvlanVlanEntry=_CpvlanVlanEntry_Object((1,3,6,1,4,1,9,9,173,1,1,1,1))
-if mibBuilder.loadTexts:cpvlanVlanEntry.setStatus(_A)
-_CpvlanVlanPrivateVlanType_Type=PrivateVlanType
-_CpvlanVlanPrivateVlanType_Object=MibTableColumn
-cpvlanVlanPrivateVlanType=_CpvlanVlanPrivateVlanType_Object((1,3,6,1,4,1,9,9,173,1,1,1,1,1),_CpvlanVlanPrivateVlanType_Type())
-cpvlanVlanPrivateVlanType.setMaxAccess(_E)
-if mibBuilder.loadTexts:cpvlanVlanPrivateVlanType.setStatus(_A)
-_CpvlanVlanAssociatedPrimaryVlan_Type=VlanIndexOrZero
-_CpvlanVlanAssociatedPrimaryVlan_Object=MibTableColumn
-cpvlanVlanAssociatedPrimaryVlan=_CpvlanVlanAssociatedPrimaryVlan_Object((1,3,6,1,4,1,9,9,173,1,1,1,1,2),_CpvlanVlanAssociatedPrimaryVlan_Type())
-cpvlanVlanAssociatedPrimaryVlan.setMaxAccess(_E)
-if mibBuilder.loadTexts:cpvlanVlanAssociatedPrimaryVlan.setStatus(_A)
-_CpvlanVlanEditTable_Object=MibTable
-cpvlanVlanEditTable=_CpvlanVlanEditTable_Object((1,3,6,1,4,1,9,9,173,1,1,2))
-if mibBuilder.loadTexts:cpvlanVlanEditTable.setStatus(_A)
-_CpvlanVlanEditEntry_Object=MibTableRow
-cpvlanVlanEditEntry=_CpvlanVlanEditEntry_Object((1,3,6,1,4,1,9,9,173,1,1,2,1))
-if mibBuilder.loadTexts:cpvlanVlanEditEntry.setStatus(_A)
-class _CpvlanVlanEditPrivateVlanType_Type(PrivateVlanType):defaultValue=1
-_CpvlanVlanEditPrivateVlanType_Type.__name__=_J
-_CpvlanVlanEditPrivateVlanType_Object=MibTableColumn
-cpvlanVlanEditPrivateVlanType=_CpvlanVlanEditPrivateVlanType_Object((1,3,6,1,4,1,9,9,173,1,1,2,1,1),_CpvlanVlanEditPrivateVlanType_Type())
-cpvlanVlanEditPrivateVlanType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanVlanEditPrivateVlanType.setStatus(_A)
-class _CpvlanVlanEditAssocPrimaryVlan_Type(VlanIndexOrZero):defaultValue=0
-_CpvlanVlanEditAssocPrimaryVlan_Type.__name__=_I
-_CpvlanVlanEditAssocPrimaryVlan_Object=MibTableColumn
-cpvlanVlanEditAssocPrimaryVlan=_CpvlanVlanEditAssocPrimaryVlan_Object((1,3,6,1,4,1,9,9,173,1,1,2,1,2),_CpvlanVlanEditAssocPrimaryVlan_Type())
-cpvlanVlanEditAssocPrimaryVlan.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanVlanEditAssocPrimaryVlan.setStatus(_A)
-_CpvlanPortObjects_ObjectIdentity=ObjectIdentity
-cpvlanPortObjects=_CpvlanPortObjects_ObjectIdentity((1,3,6,1,4,1,9,9,173,1,2))
-_CpvlanPrivatePortTable_Object=MibTable
-cpvlanPrivatePortTable=_CpvlanPrivatePortTable_Object((1,3,6,1,4,1,9,9,173,1,2,1))
-if mibBuilder.loadTexts:cpvlanPrivatePortTable.setStatus(_A)
-_CpvlanPrivatePortEntry_Object=MibTableRow
-cpvlanPrivatePortEntry=_CpvlanPrivatePortEntry_Object((1,3,6,1,4,1,9,9,173,1,2,1,1))
-cpvlanPrivatePortEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:cpvlanPrivatePortEntry.setStatus(_A)
-class _CpvlanPrivatePortSecondaryVlan_Type(VlanIndexOrZero):defaultValue=0
-_CpvlanPrivatePortSecondaryVlan_Type.__name__=_I
-_CpvlanPrivatePortSecondaryVlan_Object=MibTableColumn
-cpvlanPrivatePortSecondaryVlan=_CpvlanPrivatePortSecondaryVlan_Object((1,3,6,1,4,1,9,9,173,1,2,1,1,1),_CpvlanPrivatePortSecondaryVlan_Type())
-cpvlanPrivatePortSecondaryVlan.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanPrivatePortSecondaryVlan.setStatus(_A)
-_CpvlanPromPortTable_Object=MibTable
-cpvlanPromPortTable=_CpvlanPromPortTable_Object((1,3,6,1,4,1,9,9,173,1,2,2))
-if mibBuilder.loadTexts:cpvlanPromPortTable.setStatus(_A)
-_CpvlanPromPortEntry_Object=MibTableRow
-cpvlanPromPortEntry=_CpvlanPromPortEntry_Object((1,3,6,1,4,1,9,9,173,1,2,2,1))
-cpvlanPromPortEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:cpvlanPromPortEntry.setStatus(_A)
-_CpvlanPromPortMultiPrimaryVlan_Type=TruthValue
-_CpvlanPromPortMultiPrimaryVlan_Object=MibTableColumn
-cpvlanPromPortMultiPrimaryVlan=_CpvlanPromPortMultiPrimaryVlan_Object((1,3,6,1,4,1,9,9,173,1,2,2,1,1),_CpvlanPromPortMultiPrimaryVlan_Type())
-cpvlanPromPortMultiPrimaryVlan.setMaxAccess(_E)
-if mibBuilder.loadTexts:cpvlanPromPortMultiPrimaryVlan.setStatus(_A)
-class _CpvlanPromPortSecondaryRemap_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_CpvlanPromPortSecondaryRemap_Type.__name__=_F
-_CpvlanPromPortSecondaryRemap_Object=MibTableColumn
-cpvlanPromPortSecondaryRemap=_CpvlanPromPortSecondaryRemap_Object((1,3,6,1,4,1,9,9,173,1,2,2,1,2),_CpvlanPromPortSecondaryRemap_Type())
-cpvlanPromPortSecondaryRemap.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanPromPortSecondaryRemap.setStatus(_A)
-class _CpvlanPromPortSecondaryRemap2k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_CpvlanPromPortSecondaryRemap2k_Type.__name__=_F
-_CpvlanPromPortSecondaryRemap2k_Object=MibTableColumn
-cpvlanPromPortSecondaryRemap2k=_CpvlanPromPortSecondaryRemap2k_Object((1,3,6,1,4,1,9,9,173,1,2,2,1,3),_CpvlanPromPortSecondaryRemap2k_Type())
-cpvlanPromPortSecondaryRemap2k.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanPromPortSecondaryRemap2k.setStatus(_A)
-class _CpvlanPromPortSecondaryRemap3k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_CpvlanPromPortSecondaryRemap3k_Type.__name__=_F
-_CpvlanPromPortSecondaryRemap3k_Object=MibTableColumn
-cpvlanPromPortSecondaryRemap3k=_CpvlanPromPortSecondaryRemap3k_Object((1,3,6,1,4,1,9,9,173,1,2,2,1,4),_CpvlanPromPortSecondaryRemap3k_Type())
-cpvlanPromPortSecondaryRemap3k.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanPromPortSecondaryRemap3k.setStatus(_A)
-class _CpvlanPromPortSecondaryRemap4k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_CpvlanPromPortSecondaryRemap4k_Type.__name__=_F
-_CpvlanPromPortSecondaryRemap4k_Object=MibTableColumn
-cpvlanPromPortSecondaryRemap4k=_CpvlanPromPortSecondaryRemap4k_Object((1,3,6,1,4,1,9,9,173,1,2,2,1,5),_CpvlanPromPortSecondaryRemap4k_Type())
-cpvlanPromPortSecondaryRemap4k.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanPromPortSecondaryRemap4k.setStatus(_A)
-_CpvlanPromPortTwoWayRemapCapable_Type=TruthValue
-_CpvlanPromPortTwoWayRemapCapable_Object=MibTableColumn
-cpvlanPromPortTwoWayRemapCapable=_CpvlanPromPortTwoWayRemapCapable_Object((1,3,6,1,4,1,9,9,173,1,2,2,1,6),_CpvlanPromPortTwoWayRemapCapable_Type())
-cpvlanPromPortTwoWayRemapCapable.setMaxAccess(_E)
-if mibBuilder.loadTexts:cpvlanPromPortTwoWayRemapCapable.setStatus(_A)
-_CpvlanPortModeTable_Object=MibTable
-cpvlanPortModeTable=_CpvlanPortModeTable_Object((1,3,6,1,4,1,9,9,173,1,2,3))
-if mibBuilder.loadTexts:cpvlanPortModeTable.setStatus(_A)
-_CpvlanPortModeEntry_Object=MibTableRow
-cpvlanPortModeEntry=_CpvlanPortModeEntry_Object((1,3,6,1,4,1,9,9,173,1,2,3,1))
-cpvlanPortModeEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:cpvlanPortModeEntry.setStatus(_A)
-class _CpvlanPortMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('nonPrivateVlan',1),('host',2),('promiscuous',3),('secondaryTrunk',4),('promiscuousTrunk',5)))
-_CpvlanPortMode_Type.__name__=_D
-_CpvlanPortMode_Object=MibTableColumn
-cpvlanPortMode=_CpvlanPortMode_Object((1,3,6,1,4,1,9,9,173,1,2,3,1,1),_CpvlanPortMode_Type())
-cpvlanPortMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanPortMode.setStatus(_A)
-_CpvlanTrunkPortTable_Object=MibTable
-cpvlanTrunkPortTable=_CpvlanTrunkPortTable_Object((1,3,6,1,4,1,9,9,173,1,2,4))
-if mibBuilder.loadTexts:cpvlanTrunkPortTable.setStatus(_A)
-_CpvlanTrunkPortEntry_Object=MibTableRow
-cpvlanTrunkPortEntry=_CpvlanTrunkPortEntry_Object((1,3,6,1,4,1,9,9,173,1,2,4,1))
-cpvlanTrunkPortEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:cpvlanTrunkPortEntry.setStatus(_A)
-class _CpvlanTrunkPortDynamicState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('on',1),('onNoNegotiate',2)))
-_CpvlanTrunkPortDynamicState_Type.__name__=_D
-_CpvlanTrunkPortDynamicState_Object=MibTableColumn
-cpvlanTrunkPortDynamicState=_CpvlanTrunkPortDynamicState_Object((1,3,6,1,4,1,9,9,173,1,2,4,1,1),_CpvlanTrunkPortDynamicState_Type())
-cpvlanTrunkPortDynamicState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanTrunkPortDynamicState.setStatus(_A)
-class _CpvlanTrunkPortEncapType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('dot1Q',1),('isl',2),('negotiate',3)))
-_CpvlanTrunkPortEncapType_Type.__name__=_D
-_CpvlanTrunkPortEncapType_Object=MibTableColumn
-cpvlanTrunkPortEncapType=_CpvlanTrunkPortEncapType_Object((1,3,6,1,4,1,9,9,173,1,2,4,1,2),_CpvlanTrunkPortEncapType_Type())
-cpvlanTrunkPortEncapType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanTrunkPortEncapType.setStatus(_A)
-_CpvlanTrunkPortNativeVlan_Type=VlanIndexOrZero
-_CpvlanTrunkPortNativeVlan_Object=MibTableColumn
-cpvlanTrunkPortNativeVlan=_CpvlanTrunkPortNativeVlan_Object((1,3,6,1,4,1,9,9,173,1,2,4,1,3),_CpvlanTrunkPortNativeVlan_Type())
-cpvlanTrunkPortNativeVlan.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanTrunkPortNativeVlan.setStatus(_A)
-_CpvlanTrunkPortSecondaryVlans_Type=VlanIndexBitmap
-_CpvlanTrunkPortSecondaryVlans_Object=MibTableColumn
-cpvlanTrunkPortSecondaryVlans=_CpvlanTrunkPortSecondaryVlans_Object((1,3,6,1,4,1,9,9,173,1,2,4,1,4),_CpvlanTrunkPortSecondaryVlans_Type())
-cpvlanTrunkPortSecondaryVlans.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanTrunkPortSecondaryVlans.setStatus(_A)
-_CpvlanTrunkPortSecondaryVlans2k_Type=VlanIndexBitmap
-_CpvlanTrunkPortSecondaryVlans2k_Object=MibTableColumn
-cpvlanTrunkPortSecondaryVlans2k=_CpvlanTrunkPortSecondaryVlans2k_Object((1,3,6,1,4,1,9,9,173,1,2,4,1,5),_CpvlanTrunkPortSecondaryVlans2k_Type())
-cpvlanTrunkPortSecondaryVlans2k.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanTrunkPortSecondaryVlans2k.setStatus(_A)
-_CpvlanTrunkPortSecondaryVlans3k_Type=VlanIndexBitmap
-_CpvlanTrunkPortSecondaryVlans3k_Object=MibTableColumn
-cpvlanTrunkPortSecondaryVlans3k=_CpvlanTrunkPortSecondaryVlans3k_Object((1,3,6,1,4,1,9,9,173,1,2,4,1,6),_CpvlanTrunkPortSecondaryVlans3k_Type())
-cpvlanTrunkPortSecondaryVlans3k.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanTrunkPortSecondaryVlans3k.setStatus(_A)
-_CpvlanTrunkPortSecondaryVlans4k_Type=VlanIndexBitmap
-_CpvlanTrunkPortSecondaryVlans4k_Object=MibTableColumn
-cpvlanTrunkPortSecondaryVlans4k=_CpvlanTrunkPortSecondaryVlans4k_Object((1,3,6,1,4,1,9,9,173,1,2,4,1,7),_CpvlanTrunkPortSecondaryVlans4k_Type())
-cpvlanTrunkPortSecondaryVlans4k.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanTrunkPortSecondaryVlans4k.setStatus(_A)
-_CpvlanTrunkPortNormalVlans_Type=VlanIndexBitmap
-_CpvlanTrunkPortNormalVlans_Object=MibTableColumn
-cpvlanTrunkPortNormalVlans=_CpvlanTrunkPortNormalVlans_Object((1,3,6,1,4,1,9,9,173,1,2,4,1,8),_CpvlanTrunkPortNormalVlans_Type())
-cpvlanTrunkPortNormalVlans.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanTrunkPortNormalVlans.setStatus(_A)
-_CpvlanTrunkPortNormalVlans2k_Type=VlanIndexBitmap
-_CpvlanTrunkPortNormalVlans2k_Object=MibTableColumn
-cpvlanTrunkPortNormalVlans2k=_CpvlanTrunkPortNormalVlans2k_Object((1,3,6,1,4,1,9,9,173,1,2,4,1,9),_CpvlanTrunkPortNormalVlans2k_Type())
-cpvlanTrunkPortNormalVlans2k.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanTrunkPortNormalVlans2k.setStatus(_A)
-_CpvlanTrunkPortNormalVlans3k_Type=VlanIndexBitmap
-_CpvlanTrunkPortNormalVlans3k_Object=MibTableColumn
-cpvlanTrunkPortNormalVlans3k=_CpvlanTrunkPortNormalVlans3k_Object((1,3,6,1,4,1,9,9,173,1,2,4,1,10),_CpvlanTrunkPortNormalVlans3k_Type())
-cpvlanTrunkPortNormalVlans3k.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanTrunkPortNormalVlans3k.setStatus(_A)
-_CpvlanTrunkPortNormalVlans4k_Type=VlanIndexBitmap
-_CpvlanTrunkPortNormalVlans4k_Object=MibTableColumn
-cpvlanTrunkPortNormalVlans4k=_CpvlanTrunkPortNormalVlans4k_Object((1,3,6,1,4,1,9,9,173,1,2,4,1,11),_CpvlanTrunkPortNormalVlans4k_Type())
-cpvlanTrunkPortNormalVlans4k.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanTrunkPortNormalVlans4k.setStatus(_A)
-class _CpvlanTrunkPortDynamicStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('trunking',1),('notTrunking',2)))
-_CpvlanTrunkPortDynamicStatus_Type.__name__=_D
-_CpvlanTrunkPortDynamicStatus_Object=MibTableColumn
-cpvlanTrunkPortDynamicStatus=_CpvlanTrunkPortDynamicStatus_Object((1,3,6,1,4,1,9,9,173,1,2,4,1,12),_CpvlanTrunkPortDynamicStatus_Type())
-cpvlanTrunkPortDynamicStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:cpvlanTrunkPortDynamicStatus.setStatus(_A)
-class _CpvlanTrunkPortEncapOperType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('dot1Q',1),('isl',2),('notApplicable',3)))
-_CpvlanTrunkPortEncapOperType_Type.__name__=_D
-_CpvlanTrunkPortEncapOperType_Object=MibTableColumn
-cpvlanTrunkPortEncapOperType=_CpvlanTrunkPortEncapOperType_Object((1,3,6,1,4,1,9,9,173,1,2,4,1,13),_CpvlanTrunkPortEncapOperType_Type())
-cpvlanTrunkPortEncapOperType.setMaxAccess(_E)
-if mibBuilder.loadTexts:cpvlanTrunkPortEncapOperType.setStatus(_A)
-_CpvlanSVIObjects_ObjectIdentity=ObjectIdentity
-cpvlanSVIObjects=_CpvlanSVIObjects_ObjectIdentity((1,3,6,1,4,1,9,9,173,1,3))
-_CpvlanSVIMappingTable_Object=MibTable
-cpvlanSVIMappingTable=_CpvlanSVIMappingTable_Object((1,3,6,1,4,1,9,9,173,1,3,1))
-if mibBuilder.loadTexts:cpvlanSVIMappingTable.setStatus(_A)
-_CpvlanSVIMappingEntry_Object=MibTableRow
-cpvlanSVIMappingEntry=_CpvlanSVIMappingEntry_Object((1,3,6,1,4,1,9,9,173,1,3,1,1))
-cpvlanSVIMappingEntry.setIndexNames((0,_B,_K))
-if mibBuilder.loadTexts:cpvlanSVIMappingEntry.setStatus(_A)
-_CpvlanSVIMappingVlanIndex_Type=VlanIndexOrZero
-_CpvlanSVIMappingVlanIndex_Object=MibTableColumn
-cpvlanSVIMappingVlanIndex=_CpvlanSVIMappingVlanIndex_Object((1,3,6,1,4,1,9,9,173,1,3,1,1,1),_CpvlanSVIMappingVlanIndex_Type())
-cpvlanSVIMappingVlanIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:cpvlanSVIMappingVlanIndex.setStatus(_A)
-class _CpvlanSVIMappingPrimarySVI_Type(VlanIndexOrZero):defaultValue=0
-_CpvlanSVIMappingPrimarySVI_Type.__name__=_I
-_CpvlanSVIMappingPrimarySVI_Object=MibTableColumn
-cpvlanSVIMappingPrimarySVI=_CpvlanSVIMappingPrimarySVI_Object((1,3,6,1,4,1,9,9,173,1,3,1,1,2),_CpvlanSVIMappingPrimarySVI_Type())
-cpvlanSVIMappingPrimarySVI.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpvlanSVIMappingPrimarySVI.setStatus(_A)
-_CpvlanMIBConformance_ObjectIdentity=ObjectIdentity
-cpvlanMIBConformance=_CpvlanMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,173,2))
-_CpvlanMIBCompliances_ObjectIdentity=ObjectIdentity
-cpvlanMIBCompliances=_CpvlanMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,173,2,1))
-_CpvlanMIBGroups_ObjectIdentity=ObjectIdentity
-cpvlanMIBGroups=_CpvlanMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,173,2,2))
-vtpVlanEntry.registerAugmentions((_B,_L))
+#
+# PySNMP MIB module CISCO-PRIVATE-VLAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-PRIVATE-VLAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:44 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+vtpVlanEntry, vtpVlanEditEntry = mibBuilder.importSymbols("CISCO-VTP-MIB", "vtpVlanEntry", "vtpVlanEditEntry")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ciscoPrivateVlanMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 173))
+ciscoPrivateVlanMIB.setRevisions(('2005-09-08 00:00', '2002-07-24 00:00', '2001-05-23 00:00', '2001-04-17 00:00',))
+if mibBuilder.loadTexts: ciscoPrivateVlanMIB.setLastUpdated('200509080000Z')
+if mibBuilder.loadTexts: ciscoPrivateVlanMIB.setOrganization('Cisco Systems, Inc.')
+class PrivateVlanType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("normal", 1), ("primary", 2), ("isolated", 3), ("community", 4), ("twoWayCommunity", 5))
+
+class VlanIndexOrZero(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 4095)
+
+class VlanIndexBitmap(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 128)
+
+cpvlanMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 173, 1))
+cpvlanVlanObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 1))
+cpvlanPortObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2))
+cpvlanSVIObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 3))
+cpvlanVlanTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 1, 1), )
+if mibBuilder.loadTexts: cpvlanVlanTable.setStatus('current')
+cpvlanVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 1, 1, 1), )
+vtpVlanEntry.registerAugmentions(("CISCO-PRIVATE-VLAN-MIB", "cpvlanVlanEntry"))
 cpvlanVlanEntry.setIndexNames(*vtpVlanEntry.getIndexNames())
-vtpVlanEditEntry.registerAugmentions((_B,_M))
+if mibBuilder.loadTexts: cpvlanVlanEntry.setStatus('current')
+cpvlanVlanPrivateVlanType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 1, 1, 1, 1), PrivateVlanType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpvlanVlanPrivateVlanType.setStatus('current')
+cpvlanVlanAssociatedPrimaryVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 1, 1, 1, 2), VlanIndexOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpvlanVlanAssociatedPrimaryVlan.setStatus('current')
+cpvlanVlanEditTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 1, 2), )
+if mibBuilder.loadTexts: cpvlanVlanEditTable.setStatus('current')
+cpvlanVlanEditEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 1, 2, 1), )
+vtpVlanEditEntry.registerAugmentions(("CISCO-PRIVATE-VLAN-MIB", "cpvlanVlanEditEntry"))
 cpvlanVlanEditEntry.setIndexNames(*vtpVlanEditEntry.getIndexNames())
-cpvlanVlanGroup=ObjectGroup((1,3,6,1,4,1,9,9,173,2,2,1))
-cpvlanVlanGroup.setObjects(*((_B,_N),(_B,_O),(_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:cpvlanVlanGroup.setStatus(_A)
-cpvlanPrivatePortGroup=ObjectGroup((1,3,6,1,4,1,9,9,173,2,2,2))
-cpvlanPrivatePortGroup.setObjects((_B,_R))
-if mibBuilder.loadTexts:cpvlanPrivatePortGroup.setStatus(_A)
-cpvlanPromPortGroup=ObjectGroup((1,3,6,1,4,1,9,9,173,2,2,3))
-cpvlanPromPortGroup.setObjects(*((_B,_S),(_B,_T),(_B,_U)))
-if mibBuilder.loadTexts:cpvlanPromPortGroup.setStatus(_A)
-cpvlanPromPort4kGroup=ObjectGroup((1,3,6,1,4,1,9,9,173,2,2,4))
-cpvlanPromPort4kGroup.setObjects(*((_B,_V),(_B,_W),(_B,_X)))
-if mibBuilder.loadTexts:cpvlanPromPort4kGroup.setStatus(_A)
-cpvlanPortModeGroup=ObjectGroup((1,3,6,1,4,1,9,9,173,2,2,5))
-cpvlanPortModeGroup.setObjects((_B,_Y))
-if mibBuilder.loadTexts:cpvlanPortModeGroup.setStatus(_A)
-cpvlanSVIMappingGroup=ObjectGroup((1,3,6,1,4,1,9,9,173,2,2,6))
-cpvlanSVIMappingGroup.setObjects((_B,_Z))
-if mibBuilder.loadTexts:cpvlanSVIMappingGroup.setStatus(_A)
-cpvlanTrunkPortGroup=ObjectGroup((1,3,6,1,4,1,9,9,173,2,2,7))
-cpvlanTrunkPortGroup.setObjects(*((_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m)))
-if mibBuilder.loadTexts:cpvlanTrunkPortGroup.setStatus(_A)
-cpvlanMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,173,2,1,1))
-if mibBuilder.loadTexts:cpvlanMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{_J:PrivateVlanType,_I:VlanIndexOrZero,'VlanIndexBitmap':VlanIndexBitmap,'ciscoPrivateVlanMIB':ciscoPrivateVlanMIB,'cpvlanMIBObjects':cpvlanMIBObjects,'cpvlanVlanObjects':cpvlanVlanObjects,'cpvlanVlanTable':cpvlanVlanTable,_L:cpvlanVlanEntry,_N:cpvlanVlanPrivateVlanType,_O:cpvlanVlanAssociatedPrimaryVlan,'cpvlanVlanEditTable':cpvlanVlanEditTable,_M:cpvlanVlanEditEntry,_P:cpvlanVlanEditPrivateVlanType,_Q:cpvlanVlanEditAssocPrimaryVlan,'cpvlanPortObjects':cpvlanPortObjects,'cpvlanPrivatePortTable':cpvlanPrivatePortTable,'cpvlanPrivatePortEntry':cpvlanPrivatePortEntry,_R:cpvlanPrivatePortSecondaryVlan,'cpvlanPromPortTable':cpvlanPromPortTable,'cpvlanPromPortEntry':cpvlanPromPortEntry,_S:cpvlanPromPortMultiPrimaryVlan,_T:cpvlanPromPortSecondaryRemap,_V:cpvlanPromPortSecondaryRemap2k,_W:cpvlanPromPortSecondaryRemap3k,_X:cpvlanPromPortSecondaryRemap4k,_U:cpvlanPromPortTwoWayRemapCapable,'cpvlanPortModeTable':cpvlanPortModeTable,'cpvlanPortModeEntry':cpvlanPortModeEntry,_Y:cpvlanPortMode,'cpvlanTrunkPortTable':cpvlanTrunkPortTable,'cpvlanTrunkPortEntry':cpvlanTrunkPortEntry,_a:cpvlanTrunkPortDynamicState,_b:cpvlanTrunkPortEncapType,_c:cpvlanTrunkPortNativeVlan,_d:cpvlanTrunkPortSecondaryVlans,_e:cpvlanTrunkPortSecondaryVlans2k,_f:cpvlanTrunkPortSecondaryVlans3k,_g:cpvlanTrunkPortSecondaryVlans4k,_h:cpvlanTrunkPortNormalVlans,_i:cpvlanTrunkPortNormalVlans2k,_j:cpvlanTrunkPortNormalVlans3k,_k:cpvlanTrunkPortNormalVlans4k,_l:cpvlanTrunkPortDynamicStatus,_m:cpvlanTrunkPortEncapOperType,'cpvlanSVIObjects':cpvlanSVIObjects,'cpvlanSVIMappingTable':cpvlanSVIMappingTable,'cpvlanSVIMappingEntry':cpvlanSVIMappingEntry,_K:cpvlanSVIMappingVlanIndex,_Z:cpvlanSVIMappingPrimarySVI,'cpvlanMIBConformance':cpvlanMIBConformance,'cpvlanMIBCompliances':cpvlanMIBCompliances,'cpvlanMIBCompliance':cpvlanMIBCompliance,'cpvlanMIBGroups':cpvlanMIBGroups,'cpvlanVlanGroup':cpvlanVlanGroup,'cpvlanPrivatePortGroup':cpvlanPrivatePortGroup,'cpvlanPromPortGroup':cpvlanPromPortGroup,'cpvlanPromPort4kGroup':cpvlanPromPort4kGroup,'cpvlanPortModeGroup':cpvlanPortModeGroup,'cpvlanSVIMappingGroup':cpvlanSVIMappingGroup,'cpvlanTrunkPortGroup':cpvlanTrunkPortGroup})
+if mibBuilder.loadTexts: cpvlanVlanEditEntry.setStatus('current')
+cpvlanVlanEditPrivateVlanType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 1, 2, 1, 1), PrivateVlanType().clone('normal')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanVlanEditPrivateVlanType.setStatus('current')
+cpvlanVlanEditAssocPrimaryVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 1, 2, 1, 2), VlanIndexOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanVlanEditAssocPrimaryVlan.setStatus('current')
+cpvlanPrivatePortTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 1), )
+if mibBuilder.loadTexts: cpvlanPrivatePortTable.setStatus('current')
+cpvlanPrivatePortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cpvlanPrivatePortEntry.setStatus('current')
+cpvlanPrivatePortSecondaryVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 1, 1, 1), VlanIndexOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanPrivatePortSecondaryVlan.setStatus('current')
+cpvlanPromPortTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 2), )
+if mibBuilder.loadTexts: cpvlanPromPortTable.setStatus('current')
+cpvlanPromPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cpvlanPromPortEntry.setStatus('current')
+cpvlanPromPortMultiPrimaryVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 2, 1, 1), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpvlanPromPortMultiPrimaryVlan.setStatus('current')
+cpvlanPromPortSecondaryRemap = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanPromPortSecondaryRemap.setStatus('current')
+cpvlanPromPortSecondaryRemap2k = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 2, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanPromPortSecondaryRemap2k.setStatus('current')
+cpvlanPromPortSecondaryRemap3k = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 2, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanPromPortSecondaryRemap3k.setStatus('current')
+cpvlanPromPortSecondaryRemap4k = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 2, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanPromPortSecondaryRemap4k.setStatus('current')
+cpvlanPromPortTwoWayRemapCapable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 2, 1, 6), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpvlanPromPortTwoWayRemapCapable.setStatus('current')
+cpvlanPortModeTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 3), )
+if mibBuilder.loadTexts: cpvlanPortModeTable.setStatus('current')
+cpvlanPortModeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cpvlanPortModeEntry.setStatus('current')
+cpvlanPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("nonPrivateVlan", 1), ("host", 2), ("promiscuous", 3), ("secondaryTrunk", 4), ("promiscuousTrunk", 5))).clone('nonPrivateVlan')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanPortMode.setStatus('current')
+cpvlanTrunkPortTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 4), )
+if mibBuilder.loadTexts: cpvlanTrunkPortTable.setStatus('current')
+cpvlanTrunkPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cpvlanTrunkPortEntry.setStatus('current')
+cpvlanTrunkPortDynamicState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 4, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("on", 1), ("onNoNegotiate", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanTrunkPortDynamicState.setStatus('current')
+cpvlanTrunkPortEncapType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("dot1Q", 1), ("isl", 2), ("negotiate", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanTrunkPortEncapType.setStatus('current')
+cpvlanTrunkPortNativeVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 4, 1, 3), VlanIndexOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanTrunkPortNativeVlan.setStatus('current')
+cpvlanTrunkPortSecondaryVlans = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 4, 1, 4), VlanIndexBitmap()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanTrunkPortSecondaryVlans.setStatus('current')
+cpvlanTrunkPortSecondaryVlans2k = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 4, 1, 5), VlanIndexBitmap()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanTrunkPortSecondaryVlans2k.setStatus('current')
+cpvlanTrunkPortSecondaryVlans3k = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 4, 1, 6), VlanIndexBitmap()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanTrunkPortSecondaryVlans3k.setStatus('current')
+cpvlanTrunkPortSecondaryVlans4k = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 4, 1, 7), VlanIndexBitmap()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanTrunkPortSecondaryVlans4k.setStatus('current')
+cpvlanTrunkPortNormalVlans = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 4, 1, 8), VlanIndexBitmap()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanTrunkPortNormalVlans.setStatus('current')
+cpvlanTrunkPortNormalVlans2k = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 4, 1, 9), VlanIndexBitmap()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanTrunkPortNormalVlans2k.setStatus('current')
+cpvlanTrunkPortNormalVlans3k = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 4, 1, 10), VlanIndexBitmap()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanTrunkPortNormalVlans3k.setStatus('current')
+cpvlanTrunkPortNormalVlans4k = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 4, 1, 11), VlanIndexBitmap()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanTrunkPortNormalVlans4k.setStatus('current')
+cpvlanTrunkPortDynamicStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 4, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("trunking", 1), ("notTrunking", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpvlanTrunkPortDynamicStatus.setStatus('current')
+cpvlanTrunkPortEncapOperType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 2, 4, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("dot1Q", 1), ("isl", 2), ("notApplicable", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpvlanTrunkPortEncapOperType.setStatus('current')
+cpvlanSVIMappingTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 3, 1), )
+if mibBuilder.loadTexts: cpvlanSVIMappingTable.setStatus('current')
+cpvlanSVIMappingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 3, 1, 1), ).setIndexNames((0, "CISCO-PRIVATE-VLAN-MIB", "cpvlanSVIMappingVlanIndex"))
+if mibBuilder.loadTexts: cpvlanSVIMappingEntry.setStatus('current')
+cpvlanSVIMappingVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 3, 1, 1, 1), VlanIndexOrZero())
+if mibBuilder.loadTexts: cpvlanSVIMappingVlanIndex.setStatus('current')
+cpvlanSVIMappingPrimarySVI = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 173, 1, 3, 1, 1, 2), VlanIndexOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpvlanSVIMappingPrimarySVI.setStatus('current')
+cpvlanMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 173, 2))
+cpvlanMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 173, 2, 1))
+cpvlanMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 173, 2, 2))
+cpvlanMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 173, 2, 1, 1)).setObjects()
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cpvlanMIBCompliance = cpvlanMIBCompliance.setStatus('current')
+cpvlanVlanGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 173, 2, 2, 1)).setObjects(("CISCO-PRIVATE-VLAN-MIB", "cpvlanVlanPrivateVlanType"), ("CISCO-PRIVATE-VLAN-MIB", "cpvlanVlanAssociatedPrimaryVlan"), ("CISCO-PRIVATE-VLAN-MIB", "cpvlanVlanEditPrivateVlanType"), ("CISCO-PRIVATE-VLAN-MIB", "cpvlanVlanEditAssocPrimaryVlan"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cpvlanVlanGroup = cpvlanVlanGroup.setStatus('current')
+cpvlanPrivatePortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 173, 2, 2, 2)).setObjects(("CISCO-PRIVATE-VLAN-MIB", "cpvlanPrivatePortSecondaryVlan"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cpvlanPrivatePortGroup = cpvlanPrivatePortGroup.setStatus('current')
+cpvlanPromPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 173, 2, 2, 3)).setObjects(("CISCO-PRIVATE-VLAN-MIB", "cpvlanPromPortMultiPrimaryVlan"), ("CISCO-PRIVATE-VLAN-MIB", "cpvlanPromPortSecondaryRemap"), ("CISCO-PRIVATE-VLAN-MIB", "cpvlanPromPortTwoWayRemapCapable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cpvlanPromPortGroup = cpvlanPromPortGroup.setStatus('current')
+cpvlanPromPort4kGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 173, 2, 2, 4)).setObjects(("CISCO-PRIVATE-VLAN-MIB", "cpvlanPromPortSecondaryRemap2k"), ("CISCO-PRIVATE-VLAN-MIB", "cpvlanPromPortSecondaryRemap3k"), ("CISCO-PRIVATE-VLAN-MIB", "cpvlanPromPortSecondaryRemap4k"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cpvlanPromPort4kGroup = cpvlanPromPort4kGroup.setStatus('current')
+cpvlanPortModeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 173, 2, 2, 5)).setObjects(("CISCO-PRIVATE-VLAN-MIB", "cpvlanPortMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cpvlanPortModeGroup = cpvlanPortModeGroup.setStatus('current')
+cpvlanSVIMappingGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 173, 2, 2, 6)).setObjects(("CISCO-PRIVATE-VLAN-MIB", "cpvlanSVIMappingPrimarySVI"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cpvlanSVIMappingGroup = cpvlanSVIMappingGroup.setStatus('current')
+cpvlanTrunkPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 173, 2, 2, 7)).setObjects(("CISCO-PRIVATE-VLAN-MIB", "cpvlanTrunkPortDynamicState"), ("CISCO-PRIVATE-VLAN-MIB", "cpvlanTrunkPortEncapType"), ("CISCO-PRIVATE-VLAN-MIB", "cpvlanTrunkPortNativeVlan"), ("CISCO-PRIVATE-VLAN-MIB", "cpvlanTrunkPortSecondaryVlans"), ("CISCO-PRIVATE-VLAN-MIB", "cpvlanTrunkPortSecondaryVlans2k"), ("CISCO-PRIVATE-VLAN-MIB", "cpvlanTrunkPortSecondaryVlans3k"), ("CISCO-PRIVATE-VLAN-MIB", "cpvlanTrunkPortSecondaryVlans4k"), ("CISCO-PRIVATE-VLAN-MIB", "cpvlanTrunkPortNormalVlans"), ("CISCO-PRIVATE-VLAN-MIB", "cpvlanTrunkPortNormalVlans2k"), ("CISCO-PRIVATE-VLAN-MIB", "cpvlanTrunkPortNormalVlans3k"), ("CISCO-PRIVATE-VLAN-MIB", "cpvlanTrunkPortNormalVlans4k"), ("CISCO-PRIVATE-VLAN-MIB", "cpvlanTrunkPortDynamicStatus"), ("CISCO-PRIVATE-VLAN-MIB", "cpvlanTrunkPortEncapOperType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cpvlanTrunkPortGroup = cpvlanTrunkPortGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-PRIVATE-VLAN-MIB", cpvlanVlanEditPrivateVlanType=cpvlanVlanEditPrivateVlanType, cpvlanVlanObjects=cpvlanVlanObjects, VlanIndexOrZero=VlanIndexOrZero, cpvlanPromPortTwoWayRemapCapable=cpvlanPromPortTwoWayRemapCapable, cpvlanSVIObjects=cpvlanSVIObjects, cpvlanPromPortSecondaryRemap=cpvlanPromPortSecondaryRemap, cpvlanPortObjects=cpvlanPortObjects, cpvlanSVIMappingGroup=cpvlanSVIMappingGroup, cpvlanPromPortSecondaryRemap2k=cpvlanPromPortSecondaryRemap2k, cpvlanTrunkPortNativeVlan=cpvlanTrunkPortNativeVlan, cpvlanPrivatePortSecondaryVlan=cpvlanPrivatePortSecondaryVlan, PYSNMP_MODULE_ID=ciscoPrivateVlanMIB, cpvlanVlanEditAssocPrimaryVlan=cpvlanVlanEditAssocPrimaryVlan, cpvlanPromPort4kGroup=cpvlanPromPort4kGroup, cpvlanMIBCompliances=cpvlanMIBCompliances, cpvlanPromPortSecondaryRemap4k=cpvlanPromPortSecondaryRemap4k, cpvlanSVIMappingEntry=cpvlanSVIMappingEntry, cpvlanVlanEditEntry=cpvlanVlanEditEntry, cpvlanTrunkPortSecondaryVlans3k=cpvlanTrunkPortSecondaryVlans3k, cpvlanPromPortMultiPrimaryVlan=cpvlanPromPortMultiPrimaryVlan, cpvlanTrunkPortDynamicState=cpvlanTrunkPortDynamicState, cpvlanTrunkPortSecondaryVlans=cpvlanTrunkPortSecondaryVlans, VlanIndexBitmap=VlanIndexBitmap, cpvlanSVIMappingPrimarySVI=cpvlanSVIMappingPrimarySVI, cpvlanMIBGroups=cpvlanMIBGroups, cpvlanSVIMappingTable=cpvlanSVIMappingTable, cpvlanTrunkPortSecondaryVlans2k=cpvlanTrunkPortSecondaryVlans2k, cpvlanPortMode=cpvlanPortMode, cpvlanPortModeEntry=cpvlanPortModeEntry, cpvlanTrunkPortNormalVlans=cpvlanTrunkPortNormalVlans, cpvlanSVIMappingVlanIndex=cpvlanSVIMappingVlanIndex, cpvlanPortModeGroup=cpvlanPortModeGroup, cpvlanTrunkPortNormalVlans4k=cpvlanTrunkPortNormalVlans4k, ciscoPrivateVlanMIB=ciscoPrivateVlanMIB, cpvlanPrivatePortEntry=cpvlanPrivatePortEntry, cpvlanPromPortTable=cpvlanPromPortTable, cpvlanTrunkPortNormalVlans2k=cpvlanTrunkPortNormalVlans2k, cpvlanMIBCompliance=cpvlanMIBCompliance, cpvlanPrivatePortTable=cpvlanPrivatePortTable, cpvlanTrunkPortNormalVlans3k=cpvlanTrunkPortNormalVlans3k, cpvlanVlanAssociatedPrimaryVlan=cpvlanVlanAssociatedPrimaryVlan, cpvlanPrivatePortGroup=cpvlanPrivatePortGroup, cpvlanVlanPrivateVlanType=cpvlanVlanPrivateVlanType, cpvlanTrunkPortEntry=cpvlanTrunkPortEntry, cpvlanMIBObjects=cpvlanMIBObjects, cpvlanTrunkPortEncapOperType=cpvlanTrunkPortEncapOperType, PrivateVlanType=PrivateVlanType, cpvlanTrunkPortTable=cpvlanTrunkPortTable, cpvlanTrunkPortDynamicStatus=cpvlanTrunkPortDynamicStatus, cpvlanVlanGroup=cpvlanVlanGroup, cpvlanTrunkPortEncapType=cpvlanTrunkPortEncapType, cpvlanPromPortEntry=cpvlanPromPortEntry, cpvlanTrunkPortSecondaryVlans4k=cpvlanTrunkPortSecondaryVlans4k, cpvlanVlanTable=cpvlanVlanTable, cpvlanPromPortSecondaryRemap3k=cpvlanPromPortSecondaryRemap3k, cpvlanMIBConformance=cpvlanMIBConformance, cpvlanTrunkPortGroup=cpvlanTrunkPortGroup, cpvlanVlanEditTable=cpvlanVlanEditTable, cpvlanVlanEntry=cpvlanVlanEntry, cpvlanPromPortGroup=cpvlanPromPortGroup, cpvlanPortModeTable=cpvlanPortModeTable)

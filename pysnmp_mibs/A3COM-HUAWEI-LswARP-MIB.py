@@ -1,36 +1,29 @@
-_D='hwLswIfIndex'
-_C='A3COM-HUAWEI-LswARP-MIB'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-lswCommon,=mibBuilder.importSymbols('A3COM-HUAWEI-OID-MIB','lswCommon')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-hwLswArpMib=ModuleIdentity((1,3,6,1,4,1,43,45,1,2,23,1,4))
-if mibBuilder.loadTexts:hwLswArpMib.setRevisions(('2001-06-29 00:00',))
-_HwLswProxyArpObject_ObjectIdentity=ObjectIdentity
-hwLswProxyArpObject=_HwLswProxyArpObject_ObjectIdentity((1,3,6,1,4,1,43,45,1,2,23,1,4,1))
-if mibBuilder.loadTexts:hwLswProxyArpObject.setStatus(_A)
-_HwLswProxyArpEnableTable_Object=MibTable
-hwLswProxyArpEnableTable=_HwLswProxyArpEnableTable_Object((1,3,6,1,4,1,43,45,1,2,23,1,4,1,1))
-if mibBuilder.loadTexts:hwLswProxyArpEnableTable.setStatus(_A)
-_HwLswProxyArpEnableEntry_Object=MibTableRow
-hwLswProxyArpEnableEntry=_HwLswProxyArpEnableEntry_Object((1,3,6,1,4,1,43,45,1,2,23,1,4,1,1,1))
-hwLswProxyArpEnableEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:hwLswProxyArpEnableEntry.setStatus(_A)
-_HwLswIfIndex_Type=Integer32
-_HwLswIfIndex_Object=MibTableColumn
-hwLswIfIndex=_HwLswIfIndex_Object((1,3,6,1,4,1,43,45,1,2,23,1,4,1,1,1,1),_HwLswIfIndex_Type())
-hwLswIfIndex.setMaxAccess('read-only')
-if mibBuilder.loadTexts:hwLswIfIndex.setStatus(_A)
-class _HwLswProxyArpStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('disabled',0),('enabled',1)))
-_HwLswProxyArpStatus_Type.__name__=_B
-_HwLswProxyArpStatus_Object=MibTableColumn
-hwLswProxyArpStatus=_HwLswProxyArpStatus_Object((1,3,6,1,4,1,43,45,1,2,23,1,4,1,1,1,2),_HwLswProxyArpStatus_Type())
-hwLswProxyArpStatus.setMaxAccess('read-write')
-if mibBuilder.loadTexts:hwLswProxyArpStatus.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'hwLswArpMib':hwLswArpMib,'hwLswProxyArpObject':hwLswProxyArpObject,'hwLswProxyArpEnableTable':hwLswProxyArpEnableTable,'hwLswProxyArpEnableEntry':hwLswProxyArpEnableEntry,_D:hwLswIfIndex,'hwLswProxyArpStatus':hwLswProxyArpStatus})
+#
+# PySNMP MIB module A3COM-HUAWEI-LswARP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-LswARP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:40 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+lswCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "lswCommon")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hwLswArpMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 4))
+hwLswArpMib.setRevisions(('2001-06-29 00:00',))
+if mibBuilder.loadTexts: hwLswArpMib.setLastUpdated('200106290000Z')
+if mibBuilder.loadTexts: hwLswArpMib.setOrganization('')
+hwLswProxyArpObject = ObjectIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 4, 1))
+if mibBuilder.loadTexts: hwLswProxyArpObject.setStatus('current')
+hwLswProxyArpEnableTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 4, 1, 1), )
+if mibBuilder.loadTexts: hwLswProxyArpEnableTable.setStatus('current')
+hwLswProxyArpEnableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 4, 1, 1, 1), ).setIndexNames((0, "A3COM-HUAWEI-LswARP-MIB", "hwLswIfIndex"))
+if mibBuilder.loadTexts: hwLswProxyArpEnableEntry.setStatus('current')
+hwLswIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 4, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwLswIfIndex.setStatus('current')
+hwLswProxyArpStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 2, 23, 1, 4, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwLswProxyArpStatus.setStatus('current')
+mibBuilder.exportSymbols("A3COM-HUAWEI-LswARP-MIB", hwLswIfIndex=hwLswIfIndex, hwLswArpMib=hwLswArpMib, PYSNMP_MODULE_ID=hwLswArpMib, hwLswProxyArpEnableTable=hwLswProxyArpEnableTable, hwLswProxyArpEnableEntry=hwLswProxyArpEnableEntry, hwLswProxyArpStatus=hwLswProxyArpStatus, hwLswProxyArpObject=hwLswProxyArpObject)

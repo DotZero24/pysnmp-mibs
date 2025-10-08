@@ -1,57 +1,36 @@
-_E='ruckusDHCPClientHWAddress'
-_D='RUCKUS-DHCP-MIB'
-_C='TruthValue'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ruckusCommonDHCPModule,=mibBuilder.importSymbols('RUCKUS-ROOT-MIB','ruckusCommonDHCPModule')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention',_C)
-ruckusDHCPMIB=ModuleIdentity((1,3,6,1,4,1,25053,1,1,7,1))
-_RuckusDHCPObjects_ObjectIdentity=ObjectIdentity
-ruckusDHCPObjects=_RuckusDHCPObjects_ObjectIdentity((1,3,6,1,4,1,25053,1,1,7,1,1))
-_RuckusDHCPClientInfo_ObjectIdentity=ObjectIdentity
-ruckusDHCPClientInfo=_RuckusDHCPClientInfo_ObjectIdentity((1,3,6,1,4,1,25053,1,1,7,1,1,1))
-_RuckusDHCPClientTable_Object=MibTable
-ruckusDHCPClientTable=_RuckusDHCPClientTable_Object((1,3,6,1,4,1,25053,1,1,7,1,1,1,1))
-if mibBuilder.loadTexts:ruckusDHCPClientTable.setStatus(_A)
-_RuckusDHCPClientEntry_Object=MibTableRow
-ruckusDHCPClientEntry=_RuckusDHCPClientEntry_Object((1,3,6,1,4,1,25053,1,1,7,1,1,1,1,1))
-ruckusDHCPClientEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:ruckusDHCPClientEntry.setStatus(_A)
-_RuckusDHCPClientHWAddress_Type=MacAddress
-_RuckusDHCPClientHWAddress_Object=MibTableColumn
-ruckusDHCPClientHWAddress=_RuckusDHCPClientHWAddress_Object((1,3,6,1,4,1,25053,1,1,7,1,1,1,1,1,1),_RuckusDHCPClientHWAddress_Type())
-ruckusDHCPClientHWAddress.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:ruckusDHCPClientHWAddress.setStatus(_A)
-_RuckusDHCPClientIPAddress_Type=IpAddress
-_RuckusDHCPClientIPAddress_Object=MibTableColumn
-ruckusDHCPClientIPAddress=_RuckusDHCPClientIPAddress_Object((1,3,6,1,4,1,25053,1,1,7,1,1,1,1,1,2),_RuckusDHCPClientIPAddress_Type())
-ruckusDHCPClientIPAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:ruckusDHCPClientIPAddress.setStatus(_A)
-_RuckusDHCPClientSubnetMask_Type=IpAddress
-_RuckusDHCPClientSubnetMask_Object=MibTableColumn
-ruckusDHCPClientSubnetMask=_RuckusDHCPClientSubnetMask_Object((1,3,6,1,4,1,25053,1,1,7,1,1,1,1,1,3),_RuckusDHCPClientSubnetMask_Type())
-ruckusDHCPClientSubnetMask.setMaxAccess(_B)
-if mibBuilder.loadTexts:ruckusDHCPClientSubnetMask.setStatus(_A)
-_RuckusDHCPClientLeaseTime_Type=Unsigned32
-_RuckusDHCPClientLeaseTime_Object=MibTableColumn
-ruckusDHCPClientLeaseTime=_RuckusDHCPClientLeaseTime_Object((1,3,6,1,4,1,25053,1,1,7,1,1,1,1,1,4),_RuckusDHCPClientLeaseTime_Type())
-ruckusDHCPClientLeaseTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:ruckusDHCPClientLeaseTime.setStatus(_A)
-if mibBuilder.loadTexts:ruckusDHCPClientLeaseTime.setUnits('seconds')
-_RuckusDHCPClientExternal_ObjectIdentity=ObjectIdentity
-ruckusDHCPClientExternal=_RuckusDHCPClientExternal_ObjectIdentity((1,3,6,1,4,1,25053,1,1,7,1,1,2))
-class _RuckusDHCPClientExternalRenew_Type(TruthValue):defaultValue=1
-_RuckusDHCPClientExternalRenew_Type.__name__=_C
-_RuckusDHCPClientExternalRenew_Object=MibScalar
-ruckusDHCPClientExternalRenew=_RuckusDHCPClientExternalRenew_Object((1,3,6,1,4,1,25053,1,1,7,1,1,2,1),_RuckusDHCPClientExternalRenew_Type())
-ruckusDHCPClientExternalRenew.setMaxAccess('read-write')
-if mibBuilder.loadTexts:ruckusDHCPClientExternalRenew.setStatus(_A)
-_RuckusDHCPClientEvents_ObjectIdentity=ObjectIdentity
-ruckusDHCPClientEvents=_RuckusDHCPClientEvents_ObjectIdentity((1,3,6,1,4,1,25053,1,1,7,1,2))
-mibBuilder.exportSymbols(_D,**{'ruckusDHCPMIB':ruckusDHCPMIB,'ruckusDHCPObjects':ruckusDHCPObjects,'ruckusDHCPClientInfo':ruckusDHCPClientInfo,'ruckusDHCPClientTable':ruckusDHCPClientTable,'ruckusDHCPClientEntry':ruckusDHCPClientEntry,_E:ruckusDHCPClientHWAddress,'ruckusDHCPClientIPAddress':ruckusDHCPClientIPAddress,'ruckusDHCPClientSubnetMask':ruckusDHCPClientSubnetMask,'ruckusDHCPClientLeaseTime':ruckusDHCPClientLeaseTime,'ruckusDHCPClientExternal':ruckusDHCPClientExternal,'ruckusDHCPClientExternalRenew':ruckusDHCPClientExternalRenew,'ruckusDHCPClientEvents':ruckusDHCPClientEvents})
+#
+# PySNMP MIB module RUCKUS-DHCP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ruckus/RUCKUS-DHCP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ruckusCommonDHCPModule, = mibBuilder.importSymbols("RUCKUS-ROOT-MIB", "ruckusCommonDHCPModule")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TruthValue, MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "MacAddress", "DisplayString", "TextualConvention")
+ruckusDHCPMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 25053, 1, 1, 7, 1))
+if mibBuilder.loadTexts: ruckusDHCPMIB.setLastUpdated('201010150800Z')
+if mibBuilder.loadTexts: ruckusDHCPMIB.setOrganization('Ruckus Wireless, Inc.')
+ruckusDHCPObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25053, 1, 1, 7, 1, 1))
+ruckusDHCPClientInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 25053, 1, 1, 7, 1, 1, 1))
+ruckusDHCPClientExternal = MibIdentifier((1, 3, 6, 1, 4, 1, 25053, 1, 1, 7, 1, 1, 2))
+ruckusDHCPClientEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 25053, 1, 1, 7, 1, 2))
+ruckusDHCPClientTable = MibTable((1, 3, 6, 1, 4, 1, 25053, 1, 1, 7, 1, 1, 1, 1), )
+if mibBuilder.loadTexts: ruckusDHCPClientTable.setStatus('current')
+ruckusDHCPClientEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25053, 1, 1, 7, 1, 1, 1, 1, 1), ).setIndexNames((0, "RUCKUS-DHCP-MIB", "ruckusDHCPClientHWAddress"))
+if mibBuilder.loadTexts: ruckusDHCPClientEntry.setStatus('current')
+ruckusDHCPClientHWAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 1, 7, 1, 1, 1, 1, 1, 1), MacAddress())
+if mibBuilder.loadTexts: ruckusDHCPClientHWAddress.setStatus('current')
+ruckusDHCPClientIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 1, 7, 1, 1, 1, 1, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ruckusDHCPClientIPAddress.setStatus('current')
+ruckusDHCPClientSubnetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 1, 7, 1, 1, 1, 1, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ruckusDHCPClientSubnetMask.setStatus('current')
+ruckusDHCPClientLeaseTime = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 1, 7, 1, 1, 1, 1, 1, 4), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ruckusDHCPClientLeaseTime.setStatus('current')
+ruckusDHCPClientExternalRenew = MibScalar((1, 3, 6, 1, 4, 1, 25053, 1, 1, 7, 1, 1, 2, 1), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusDHCPClientExternalRenew.setStatus('current')
+mibBuilder.exportSymbols("RUCKUS-DHCP-MIB", ruckusDHCPClientEvents=ruckusDHCPClientEvents, PYSNMP_MODULE_ID=ruckusDHCPMIB, ruckusDHCPClientLeaseTime=ruckusDHCPClientLeaseTime, ruckusDHCPClientIPAddress=ruckusDHCPClientIPAddress, ruckusDHCPMIB=ruckusDHCPMIB, ruckusDHCPClientTable=ruckusDHCPClientTable, ruckusDHCPClientEntry=ruckusDHCPClientEntry, ruckusDHCPClientExternalRenew=ruckusDHCPClientExternalRenew, ruckusDHCPClientSubnetMask=ruckusDHCPClientSubnetMask, ruckusDHCPObjects=ruckusDHCPObjects, ruckusDHCPClientInfo=ruckusDHCPClientInfo, ruckusDHCPClientExternal=ruckusDHCPClientExternal, ruckusDHCPClientHWAddress=ruckusDHCPClientHWAddress)

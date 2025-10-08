@@ -1,356 +1,160 @@
-_N='enetResultsIndex'
-_M='not-accessible'
-_L='enetTestIndex'
-_K='OctetString'
-_J='ELECTROLINE-DHT-ENET-MIB'
-_I='Unsigned32'
-_H='Gauge32'
-_G='active'
-_F='notLicensed'
-_E='notSupported'
-_D='read-write'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_K,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dhtExtensionsMibObjects,=mibBuilder.importSymbols('ELECTROLINE-DHT-EXTENSIONS-MIB','dhtExtensionsMibObjects')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64',_H,_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_I,'iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention','TruthValue')
-dhtEnetMib=ModuleIdentity((1,3,6,1,4,1,5802,1,3,1,2,5,1,12))
-if mibBuilder.loadTexts:dhtEnetMib.setRevisions(('2006-07-20 00:00','2006-07-27 00:00','2006-08-01 00:00'))
-class Rfactor(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,120),ValueRangeConstraint(127,127))
-class ScaledMOSscore(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10,50),ValueRangeConstraint(127,127))
-class ScaledPercentage(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1000))
-_DhtEnetMibObjects_ObjectIdentity=ObjectIdentity
-dhtEnetMibObjects=_DhtEnetMibObjects_ObjectIdentity((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1))
-_DhtEnetCapabilities_ObjectIdentity=ObjectIdentity
-dhtEnetCapabilities=_DhtEnetCapabilities_ObjectIdentity((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,1))
-_EnetSupport_Type=TruthValue
-_EnetSupport_Object=MibScalar
-enetSupport=_EnetSupport_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,1,1),_EnetSupport_Type())
-enetSupport.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetSupport.setStatus(_A)
-_EnetModuleVersion_Type=OctetString
-_EnetModuleVersion_Object=MibScalar
-enetModuleVersion=_EnetModuleVersion_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,1,2),_EnetModuleVersion_Type())
-enetModuleVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetModuleVersion.setStatus(_A)
-_EnetMaxTestInstance_Type=Unsigned32
-_EnetMaxTestInstance_Object=MibScalar
-enetMaxTestInstance=_EnetMaxTestInstance_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,1,3),_EnetMaxTestInstance_Type())
-enetMaxTestInstance.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetMaxTestInstance.setStatus(_A)
-_EnetPerFeatureSupport_ObjectIdentity=ObjectIdentity
-enetPerFeatureSupport=_EnetPerFeatureSupport_ObjectIdentity((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,1,11))
-class _EnetConstellationDisplaySupport_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_E,0),(_F,1),(_G,2)))
-_EnetConstellationDisplaySupport_Type.__name__=_C
-_EnetConstellationDisplaySupport_Object=MibScalar
-enetConstellationDisplaySupport=_EnetConstellationDisplaySupport_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,1,11,1),_EnetConstellationDisplaySupport_Type())
-enetConstellationDisplaySupport.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetConstellationDisplaySupport.setStatus(_A)
-class _EnetUDPTestSupport_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_E,0),(_F,1),(_G,2)))
-_EnetUDPTestSupport_Type.__name__=_C
-_EnetUDPTestSupport_Object=MibScalar
-enetUDPTestSupport=_EnetUDPTestSupport_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,1,11,2),_EnetUDPTestSupport_Type())
-enetUDPTestSupport.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetUDPTestSupport.setStatus(_A)
-class _EnetVOIPTestSupport_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_E,0),(_F,1),(_G,2)))
-_EnetVOIPTestSupport_Type.__name__=_C
-_EnetVOIPTestSupport_Object=MibScalar
-enetVOIPTestSupport=_EnetVOIPTestSupport_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,1,11,3),_EnetVOIPTestSupport_Type())
-enetVOIPTestSupport.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetVOIPTestSupport.setStatus(_A)
-class _EnetSMRPTestSupport_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_E,0),(_F,1),(_G,2)))
-_EnetSMRPTestSupport_Type.__name__=_C
-_EnetSMRPTestSupport_Object=MibScalar
-enetSMRPTestSupport=_EnetSMRPTestSupport_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,1,11,4),_EnetSMRPTestSupport_Type())
-enetSMRPTestSupport.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetSMRPTestSupport.setStatus(_A)
-_DhtEnetGlobalControls_ObjectIdentity=ObjectIdentity
-dhtEnetGlobalControls=_DhtEnetGlobalControls_ObjectIdentity((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,2))
-_EnetLicenseKey_Type=OctetString
-_EnetLicenseKey_Object=MibScalar
-enetLicenseKey=_EnetLicenseKey_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,2,1),_EnetLicenseKey_Type())
-enetLicenseKey.setMaxAccess(_D)
-if mibBuilder.loadTexts:enetLicenseKey.setStatus(_A)
-class _EnetPollingInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1000,10000))
-_EnetPollingInterval_Type.__name__=_C
-_EnetPollingInterval_Object=MibScalar
-enetPollingInterval=_EnetPollingInterval_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,2,2),_EnetPollingInterval_Type())
-enetPollingInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:enetPollingInterval.setStatus(_A)
-_DhtEnetPacketTests_ObjectIdentity=ObjectIdentity
-dhtEnetPacketTests=_DhtEnetPacketTests_ObjectIdentity((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3))
-_DhtEnetPktTestControls_ObjectIdentity=ObjectIdentity
-dhtEnetPktTestControls=_DhtEnetPktTestControls_ObjectIdentity((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1))
-_EnetTestControlTable_Object=MibTable
-enetTestControlTable=_EnetTestControlTable_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1))
-if mibBuilder.loadTexts:enetTestControlTable.setStatus(_A)
-_EnetTestControlEntry_Object=MibTableRow
-enetTestControlEntry=_EnetTestControlEntry_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1))
-enetTestControlEntry.setIndexNames((0,_J,_L))
-if mibBuilder.loadTexts:enetTestControlEntry.setStatus(_A)
-_EnetTestIndex_Type=Integer32
-_EnetTestIndex_Object=MibTableColumn
-enetTestIndex=_EnetTestIndex_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1,1),_EnetTestIndex_Type())
-enetTestIndex.setMaxAccess(_M)
-if mibBuilder.loadTexts:enetTestIndex.setStatus(_A)
-_EnetTestIdString_Type=OctetString
-_EnetTestIdString_Object=MibTableColumn
-enetTestIdString=_EnetTestIdString_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1,2),_EnetTestIdString_Type())
-enetTestIdString.setMaxAccess(_D)
-if mibBuilder.loadTexts:enetTestIdString.setStatus(_A)
-class _EnetTestControl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('stopTest',1),('setupTest',2),('startTest',3)))
-_EnetTestControl_Type.__name__=_C
-_EnetTestControl_Object=MibTableColumn
-enetTestControl=_EnetTestControl_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1,3),_EnetTestControl_Type())
-enetTestControl.setMaxAccess(_D)
-if mibBuilder.loadTexts:enetTestControl.setStatus(_A)
-_EnetTestSenderIP_Type=IpAddress
-_EnetTestSenderIP_Object=MibTableColumn
-enetTestSenderIP=_EnetTestSenderIP_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1,4),_EnetTestSenderIP_Type())
-enetTestSenderIP.setMaxAccess(_D)
-if mibBuilder.loadTexts:enetTestSenderIP.setStatus(_A)
-class _EnetTestSenderUDPPort_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_EnetTestSenderUDPPort_Type.__name__=_H
-_EnetTestSenderUDPPort_Object=MibTableColumn
-enetTestSenderUDPPort=_EnetTestSenderUDPPort_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1,5),_EnetTestSenderUDPPort_Type())
-enetTestSenderUDPPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:enetTestSenderUDPPort.setStatus(_A)
-_EnetTestReceiverIP_Type=IpAddress
-_EnetTestReceiverIP_Object=MibTableColumn
-enetTestReceiverIP=_EnetTestReceiverIP_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1,6),_EnetTestReceiverIP_Type())
-enetTestReceiverIP.setMaxAccess(_D)
-if mibBuilder.loadTexts:enetTestReceiverIP.setStatus(_A)
-class _EnetTestReceiverUDPPort_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_EnetTestReceiverUDPPort_Type.__name__=_H
-_EnetTestReceiverUDPPort_Object=MibTableColumn
-enetTestReceiverUDPPort=_EnetTestReceiverUDPPort_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1,7),_EnetTestReceiverUDPPort_Type())
-enetTestReceiverUDPPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:enetTestReceiverUDPPort.setStatus(_A)
-class _EnetTestType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('voip',1),('packetLoss',2)))
-_EnetTestType_Type.__name__=_C
-_EnetTestType_Object=MibTableColumn
-enetTestType=_EnetTestType_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1,8),_EnetTestType_Type())
-enetTestType.setMaxAccess(_D)
-if mibBuilder.loadTexts:enetTestType.setStatus(_A)
-class _EnetTestPacketSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(64,1514))
-_EnetTestPacketSize_Type.__name__=_C
-_EnetTestPacketSize_Object=MibTableColumn
-enetTestPacketSize=_EnetTestPacketSize_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1,9),_EnetTestPacketSize_Type())
-enetTestPacketSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:enetTestPacketSize.setStatus(_A)
-class _EnetTestPacketInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10,10),ValueRangeConstraint(20,20),ValueRangeConstraint(30,30))
-_EnetTestPacketInterval_Type.__name__=_C
-_EnetTestPacketInterval_Object=MibTableColumn
-enetTestPacketInterval=_EnetTestPacketInterval_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1,10),_EnetTestPacketInterval_Type())
-enetTestPacketInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:enetTestPacketInterval.setStatus(_A)
-class _EnetTestPacketRate_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255000))
-_EnetTestPacketRate_Type.__name__=_C
-_EnetTestPacketRate_Object=MibTableColumn
-enetTestPacketRate=_EnetTestPacketRate_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1,11),_EnetTestPacketRate_Type())
-enetTestPacketRate.setMaxAccess(_D)
-if mibBuilder.loadTexts:enetTestPacketRate.setStatus(_A)
-class _EnetTestNumOfPackets_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_EnetTestNumOfPackets_Type.__name__=_I
-_EnetTestNumOfPackets_Object=MibTableColumn
-enetTestNumOfPackets=_EnetTestNumOfPackets_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1,12),_EnetTestNumOfPackets_Type())
-enetTestNumOfPackets.setMaxAccess(_D)
-if mibBuilder.loadTexts:enetTestNumOfPackets.setStatus(_A)
-class _EnetTestJitterBufferSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,200))
-_EnetTestJitterBufferSize_Type.__name__=_C
-_EnetTestJitterBufferSize_Object=MibTableColumn
-enetTestJitterBufferSize=_EnetTestJitterBufferSize_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1,13),_EnetTestJitterBufferSize_Type())
-enetTestJitterBufferSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:enetTestJitterBufferSize.setStatus(_A)
-class _EnetTestQosControl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('none',1),('preestablished',2),('dsa',3)))
-_EnetTestQosControl_Type.__name__=_C
-_EnetTestQosControl_Object=MibTableColumn
-enetTestQosControl=_EnetTestQosControl_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1,14),_EnetTestQosControl_Type())
-enetTestQosControl.setMaxAccess(_D)
-if mibBuilder.loadTexts:enetTestQosControl.setStatus(_A)
-class _EnetTestCodecType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('na',0),('g711',1)))
-_EnetTestCodecType_Type.__name__=_C
-_EnetTestCodecType_Object=MibTableColumn
-enetTestCodecType=_EnetTestCodecType_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1,15),_EnetTestCodecType_Type())
-enetTestCodecType.setMaxAccess(_D)
-if mibBuilder.loadTexts:enetTestCodecType.setStatus(_A)
-class _EnetTestTosByte_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_EnetTestTosByte_Type.__name__=_C
-_EnetTestTosByte_Object=MibTableColumn
-enetTestTosByte=_EnetTestTosByte_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1,16),_EnetTestTosByte_Type())
-enetTestTosByte.setMaxAccess(_D)
-if mibBuilder.loadTexts:enetTestTosByte.setStatus(_A)
-class _EnetTestRoundTripTimeEstimate_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,60000))
-_EnetTestRoundTripTimeEstimate_Type.__name__=_C
-_EnetTestRoundTripTimeEstimate_Object=MibTableColumn
-enetTestRoundTripTimeEstimate=_EnetTestRoundTripTimeEstimate_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1,17),_EnetTestRoundTripTimeEstimate_Type())
-enetTestRoundTripTimeEstimate.setMaxAccess(_D)
-if mibBuilder.loadTexts:enetTestRoundTripTimeEstimate.setStatus(_A)
-class _EnetTestStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*(('na',0),('running',1),('completed',2),('ressourceUnavailable',3),('invalidParameter',4),('ready',5)))
-_EnetTestStatus_Type.__name__=_C
-_EnetTestStatus_Object=MibTableColumn
-enetTestStatus=_EnetTestStatus_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1,18),_EnetTestStatus_Type())
-enetTestStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetTestStatus.setStatus(_A)
-class _EnetTestStatusString_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_EnetTestStatusString_Type.__name__=_K
-_EnetTestStatusString_Object=MibTableColumn
-enetTestStatusString=_EnetTestStatusString_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,1,1,1,19),_EnetTestStatusString_Type())
-enetTestStatusString.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetTestStatusString.setStatus(_A)
-_DhtEnetPktTestResults_ObjectIdentity=ObjectIdentity
-dhtEnetPktTestResults=_DhtEnetPktTestResults_ObjectIdentity((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3))
-_EnetCurrentResultsTable_Object=MibTable
-enetCurrentResultsTable=_EnetCurrentResultsTable_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1))
-if mibBuilder.loadTexts:enetCurrentResultsTable.setStatus(_A)
-_EnetCurrentResultsEntry_Object=MibTableRow
-enetCurrentResultsEntry=_EnetCurrentResultsEntry_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1))
-enetCurrentResultsEntry.setIndexNames((0,_J,_N))
-if mibBuilder.loadTexts:enetCurrentResultsEntry.setStatus(_A)
-class _EnetResultsIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_EnetResultsIndex_Type.__name__=_I
-_EnetResultsIndex_Object=MibTableColumn
-enetResultsIndex=_EnetResultsIndex_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,1),_EnetResultsIndex_Type())
-enetResultsIndex.setMaxAccess(_M)
-if mibBuilder.loadTexts:enetResultsIndex.setStatus(_A)
-_EnetResultsIdString_Type=OctetString
-_EnetResultsIdString_Object=MibTableColumn
-enetResultsIdString=_EnetResultsIdString_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,2),_EnetResultsIdString_Type())
-enetResultsIdString.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsIdString.setStatus(_A)
-class _EnetResultsStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('inconsistent',0),('partial',1),('complete',2)))
-_EnetResultsStatus_Type.__name__=_C
-_EnetResultsStatus_Object=MibTableColumn
-enetResultsStatus=_EnetResultsStatus_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,3),_EnetResultsStatus_Type())
-enetResultsStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsStatus.setStatus(_A)
-_EnetResultsDuration_Type=Unsigned32
-_EnetResultsDuration_Object=MibTableColumn
-enetResultsDuration=_EnetResultsDuration_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,4),_EnetResultsDuration_Type())
-enetResultsDuration.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsDuration.setStatus(_A)
-_EnetResultsStartTime_Type=DateAndTime
-_EnetResultsStartTime_Object=MibTableColumn
-enetResultsStartTime=_EnetResultsStartTime_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,5),_EnetResultsStartTime_Type())
-enetResultsStartTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsStartTime.setStatus(_A)
-_EnetResultsStopTime_Type=DateAndTime
-_EnetResultsStopTime_Object=MibTableColumn
-enetResultsStopTime=_EnetResultsStopTime_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,6),_EnetResultsStopTime_Type())
-enetResultsStopTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsStopTime.setStatus(_A)
-_EnetResultsProcessedPacketCount_Type=Gauge32
-_EnetResultsProcessedPacketCount_Object=MibTableColumn
-enetResultsProcessedPacketCount=_EnetResultsProcessedPacketCount_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,7),_EnetResultsProcessedPacketCount_Type())
-enetResultsProcessedPacketCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsProcessedPacketCount.setStatus(_A)
-_EnetResultsLossPacketCount_Type=Gauge32
-_EnetResultsLossPacketCount_Object=MibTableColumn
-enetResultsLossPacketCount=_EnetResultsLossPacketCount_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,8),_EnetResultsLossPacketCount_Type())
-enetResultsLossPacketCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsLossPacketCount.setStatus(_A)
-_EnetResultsDiscardedPacketCount_Type=Gauge32
-_EnetResultsDiscardedPacketCount_Object=MibTableColumn
-enetResultsDiscardedPacketCount=_EnetResultsDiscardedPacketCount_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,9),_EnetResultsDiscardedPacketCount_Type())
-enetResultsDiscardedPacketCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsDiscardedPacketCount.setStatus(_A)
-_EnetResultsPacketLossRate_Type=ScaledPercentage
-_EnetResultsPacketLossRate_Object=MibTableColumn
-enetResultsPacketLossRate=_EnetResultsPacketLossRate_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,10),_EnetResultsPacketLossRate_Type())
-enetResultsPacketLossRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsPacketLossRate.setStatus(_A)
-_EnetResultsPacketDiscardRate_Type=ScaledPercentage
-_EnetResultsPacketDiscardRate_Object=MibTableColumn
-enetResultsPacketDiscardRate=_EnetResultsPacketDiscardRate_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,11),_EnetResultsPacketDiscardRate_Type())
-enetResultsPacketDiscardRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsPacketDiscardRate.setStatus(_A)
-_EnetResultsMinInstantJitter_Type=Gauge32
-_EnetResultsMinInstantJitter_Object=MibTableColumn
-enetResultsMinInstantJitter=_EnetResultsMinInstantJitter_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,12),_EnetResultsMinInstantJitter_Type())
-enetResultsMinInstantJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsMinInstantJitter.setStatus(_A)
-_EnetResultsMaxInstantJitter_Type=Gauge32
-_EnetResultsMaxInstantJitter_Object=MibTableColumn
-enetResultsMaxInstantJitter=_EnetResultsMaxInstantJitter_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,13),_EnetResultsMaxInstantJitter_Type())
-enetResultsMaxInstantJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsMaxInstantJitter.setStatus(_A)
-_EnetResultsAvgInstantJitter_Type=Gauge32
-_EnetResultsAvgInstantJitter_Object=MibTableColumn
-enetResultsAvgInstantJitter=_EnetResultsAvgInstantJitter_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,14),_EnetResultsAvgInstantJitter_Type())
-enetResultsAvgInstantJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsAvgInstantJitter.setStatus(_A)
-_EnetResultsMinRfcJitterLevel_Type=Gauge32
-_EnetResultsMinRfcJitterLevel_Object=MibTableColumn
-enetResultsMinRfcJitterLevel=_EnetResultsMinRfcJitterLevel_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,15),_EnetResultsMinRfcJitterLevel_Type())
-enetResultsMinRfcJitterLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsMinRfcJitterLevel.setStatus(_A)
-_EnetResultsMaxRfcJitterLevel_Type=Gauge32
-_EnetResultsMaxRfcJitterLevel_Object=MibTableColumn
-enetResultsMaxRfcJitterLevel=_EnetResultsMaxRfcJitterLevel_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,16),_EnetResultsMaxRfcJitterLevel_Type())
-enetResultsMaxRfcJitterLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsMaxRfcJitterLevel.setStatus(_A)
-_EnetResultsAvgRfcJitterLevel_Type=Gauge32
-_EnetResultsAvgRfcJitterLevel_Object=MibTableColumn
-enetResultsAvgRfcJitterLevel=_EnetResultsAvgRfcJitterLevel_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,17),_EnetResultsAvgRfcJitterLevel_Type())
-enetResultsAvgRfcJitterLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsAvgRfcJitterLevel.setStatus(_A)
-_EnetResultsRCQ_Type=Rfactor
-_EnetResultsRCQ_Object=MibTableColumn
-enetResultsRCQ=_EnetResultsRCQ_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,18),_EnetResultsRCQ_Type())
-enetResultsRCQ.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsRCQ.setStatus(_A)
-_EnetResultsRLQ_Type=Rfactor
-_EnetResultsRLQ_Object=MibTableColumn
-enetResultsRLQ=_EnetResultsRLQ_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,19),_EnetResultsRLQ_Type())
-enetResultsRLQ.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsRLQ.setStatus(_A)
-_EnetResultsMOSCQ_Type=ScaledMOSscore
-_EnetResultsMOSCQ_Object=MibTableColumn
-enetResultsMOSCQ=_EnetResultsMOSCQ_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,20),_EnetResultsMOSCQ_Type())
-enetResultsMOSCQ.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsMOSCQ.setStatus(_A)
-_EnetResultsMOSLQ_Type=ScaledMOSscore
-_EnetResultsMOSLQ_Object=MibTableColumn
-enetResultsMOSLQ=_EnetResultsMOSLQ_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,3,3,1,1,21),_EnetResultsMOSLQ_Type())
-enetResultsMOSLQ.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetResultsMOSLQ.setStatus(_A)
-_DhtEnetDOCSISMonitoring_ObjectIdentity=ObjectIdentity
-dhtEnetDOCSISMonitoring=_DhtEnetDOCSISMonitoring_ObjectIdentity((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,4))
-class _EnetDocsisMonResetCounters_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('reset',1))
-_EnetDocsisMonResetCounters_Type.__name__=_C
-_EnetDocsisMonResetCounters_Object=MibScalar
-enetDocsisMonResetCounters=_EnetDocsisMonResetCounters_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,4,1),_EnetDocsisMonResetCounters_Type())
-enetDocsisMonResetCounters.setMaxAccess(_D)
-if mibBuilder.loadTexts:enetDocsisMonResetCounters.setStatus(_A)
-_EnetDocsisMonPreFECErrorRate_Type=OctetString
-_EnetDocsisMonPreFECErrorRate_Object=MibScalar
-enetDocsisMonPreFECErrorRate=_EnetDocsisMonPreFECErrorRate_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,4,2),_EnetDocsisMonPreFECErrorRate_Type())
-enetDocsisMonPreFECErrorRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetDocsisMonPreFECErrorRate.setStatus(_A)
-_EnetDocsisMonPostFECErrorRate_Type=OctetString
-_EnetDocsisMonPostFECErrorRate_Object=MibScalar
-enetDocsisMonPostFECErrorRate=_EnetDocsisMonPostFECErrorRate_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,4,3),_EnetDocsisMonPostFECErrorRate_Type())
-enetDocsisMonPostFECErrorRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetDocsisMonPostFECErrorRate.setStatus(_A)
-_EnetDocsisMonErroredSeconds_Type=Gauge32
-_EnetDocsisMonErroredSeconds_Object=MibScalar
-enetDocsisMonErroredSeconds=_EnetDocsisMonErroredSeconds_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,4,4),_EnetDocsisMonErroredSeconds_Type())
-enetDocsisMonErroredSeconds.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetDocsisMonErroredSeconds.setStatus(_A)
-_EnetDocsisMonSeverelyErroredSeconds_Type=Gauge32
-_EnetDocsisMonSeverelyErroredSeconds_Object=MibScalar
-enetDocsisMonSeverelyErroredSeconds=_EnetDocsisMonSeverelyErroredSeconds_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,4,5),_EnetDocsisMonSeverelyErroredSeconds_Type())
-enetDocsisMonSeverelyErroredSeconds.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetDocsisMonSeverelyErroredSeconds.setStatus(_A)
-_EnetDocsisMonTimeElapsed_Type=Gauge32
-_EnetDocsisMonTimeElapsed_Object=MibScalar
-enetDocsisMonTimeElapsed=_EnetDocsisMonTimeElapsed_Object((1,3,6,1,4,1,5802,1,3,1,2,5,1,12,1,4,6),_EnetDocsisMonTimeElapsed_Type())
-enetDocsisMonTimeElapsed.setMaxAccess(_B)
-if mibBuilder.loadTexts:enetDocsisMonTimeElapsed.setStatus(_A)
-mibBuilder.exportSymbols(_J,**{'Rfactor':Rfactor,'ScaledMOSscore':ScaledMOSscore,'ScaledPercentage':ScaledPercentage,'dhtEnetMib':dhtEnetMib,'dhtEnetMibObjects':dhtEnetMibObjects,'dhtEnetCapabilities':dhtEnetCapabilities,'enetSupport':enetSupport,'enetModuleVersion':enetModuleVersion,'enetMaxTestInstance':enetMaxTestInstance,'enetPerFeatureSupport':enetPerFeatureSupport,'enetConstellationDisplaySupport':enetConstellationDisplaySupport,'enetUDPTestSupport':enetUDPTestSupport,'enetVOIPTestSupport':enetVOIPTestSupport,'enetSMRPTestSupport':enetSMRPTestSupport,'dhtEnetGlobalControls':dhtEnetGlobalControls,'enetLicenseKey':enetLicenseKey,'enetPollingInterval':enetPollingInterval,'dhtEnetPacketTests':dhtEnetPacketTests,'dhtEnetPktTestControls':dhtEnetPktTestControls,'enetTestControlTable':enetTestControlTable,'enetTestControlEntry':enetTestControlEntry,_L:enetTestIndex,'enetTestIdString':enetTestIdString,'enetTestControl':enetTestControl,'enetTestSenderIP':enetTestSenderIP,'enetTestSenderUDPPort':enetTestSenderUDPPort,'enetTestReceiverIP':enetTestReceiverIP,'enetTestReceiverUDPPort':enetTestReceiverUDPPort,'enetTestType':enetTestType,'enetTestPacketSize':enetTestPacketSize,'enetTestPacketInterval':enetTestPacketInterval,'enetTestPacketRate':enetTestPacketRate,'enetTestNumOfPackets':enetTestNumOfPackets,'enetTestJitterBufferSize':enetTestJitterBufferSize,'enetTestQosControl':enetTestQosControl,'enetTestCodecType':enetTestCodecType,'enetTestTosByte':enetTestTosByte,'enetTestRoundTripTimeEstimate':enetTestRoundTripTimeEstimate,'enetTestStatus':enetTestStatus,'enetTestStatusString':enetTestStatusString,'dhtEnetPktTestResults':dhtEnetPktTestResults,'enetCurrentResultsTable':enetCurrentResultsTable,'enetCurrentResultsEntry':enetCurrentResultsEntry,_N:enetResultsIndex,'enetResultsIdString':enetResultsIdString,'enetResultsStatus':enetResultsStatus,'enetResultsDuration':enetResultsDuration,'enetResultsStartTime':enetResultsStartTime,'enetResultsStopTime':enetResultsStopTime,'enetResultsProcessedPacketCount':enetResultsProcessedPacketCount,'enetResultsLossPacketCount':enetResultsLossPacketCount,'enetResultsDiscardedPacketCount':enetResultsDiscardedPacketCount,'enetResultsPacketLossRate':enetResultsPacketLossRate,'enetResultsPacketDiscardRate':enetResultsPacketDiscardRate,'enetResultsMinInstantJitter':enetResultsMinInstantJitter,'enetResultsMaxInstantJitter':enetResultsMaxInstantJitter,'enetResultsAvgInstantJitter':enetResultsAvgInstantJitter,'enetResultsMinRfcJitterLevel':enetResultsMinRfcJitterLevel,'enetResultsMaxRfcJitterLevel':enetResultsMaxRfcJitterLevel,'enetResultsAvgRfcJitterLevel':enetResultsAvgRfcJitterLevel,'enetResultsRCQ':enetResultsRCQ,'enetResultsRLQ':enetResultsRLQ,'enetResultsMOSCQ':enetResultsMOSCQ,'enetResultsMOSLQ':enetResultsMOSLQ,'dhtEnetDOCSISMonitoring':dhtEnetDOCSISMonitoring,'enetDocsisMonResetCounters':enetDocsisMonResetCounters,'enetDocsisMonPreFECErrorRate':enetDocsisMonPreFECErrorRate,'enetDocsisMonPostFECErrorRate':enetDocsisMonPostFECErrorRate,'enetDocsisMonErroredSeconds':enetDocsisMonErroredSeconds,'enetDocsisMonSeverelyErroredSeconds':enetDocsisMonSeverelyErroredSeconds,'enetDocsisMonTimeElapsed':enetDocsisMonTimeElapsed})
+#
+# PySNMP MIB module ELECTROLINE-DHT-ENET-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/electroline/ELECTROLINE-DHT-ENET-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:23:09 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dhtExtensionsMibObjects, = mibBuilder.importSymbols("ELECTROLINE-DHT-EXTENSIONS-MIB", "dhtExtensionsMibObjects")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "DateAndTime", "TextualConvention")
+dhtEnetMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12))
+dhtEnetMib.setRevisions(('2006-07-20 00:00', '2006-07-27 00:00', '2006-08-01 00:00',))
+if mibBuilder.loadTexts: dhtEnetMib.setLastUpdated('200607200000Z')
+if mibBuilder.loadTexts: dhtEnetMib.setOrganization('Electroline Equipment Inc')
+class Rfactor(TextualConvention, Unsigned32):
+    reference = 'ITU-T G.107'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(0, 120), ValueRangeConstraint(127, 127), )
+class ScaledMOSscore(TextualConvention, Integer32):
+    reference = 'ITU-T P.800'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(10, 50), ValueRangeConstraint(127, 127), )
+class ScaledPercentage(TextualConvention, Unsigned32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 1000)
+
+dhtEnetMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1))
+dhtEnetCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 1))
+enetSupport = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 1, 1), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetSupport.setStatus('current')
+enetModuleVersion = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 1, 2), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetModuleVersion.setStatus('current')
+enetMaxTestInstance = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetMaxTestInstance.setStatus('current')
+enetPerFeatureSupport = MibIdentifier((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 1, 11))
+enetConstellationDisplaySupport = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 1, 11, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("notSupported", 0), ("notLicensed", 1), ("active", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetConstellationDisplaySupport.setStatus('current')
+enetUDPTestSupport = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 1, 11, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("notSupported", 0), ("notLicensed", 1), ("active", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetUDPTestSupport.setStatus('current')
+enetVOIPTestSupport = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 1, 11, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("notSupported", 0), ("notLicensed", 1), ("active", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetVOIPTestSupport.setStatus('current')
+enetSMRPTestSupport = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 1, 11, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("notSupported", 0), ("notLicensed", 1), ("active", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetSMRPTestSupport.setStatus('current')
+dhtEnetGlobalControls = MibIdentifier((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 2))
+enetLicenseKey = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 2, 1), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enetLicenseKey.setStatus('current')
+enetPollingInterval = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1000, 10000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enetPollingInterval.setStatus('current')
+dhtEnetPacketTests = MibIdentifier((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3))
+dhtEnetPktTestControls = MibIdentifier((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1))
+enetTestControlTable = MibTable((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1), )
+if mibBuilder.loadTexts: enetTestControlTable.setStatus('current')
+enetTestControlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1), ).setIndexNames((0, "ELECTROLINE-DHT-ENET-MIB", "enetTestIndex"))
+if mibBuilder.loadTexts: enetTestControlEntry.setStatus('current')
+enetTestIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: enetTestIndex.setStatus('current')
+enetTestIdString = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1, 2), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enetTestIdString.setStatus('current')
+enetTestControl = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("stopTest", 1), ("setupTest", 2), ("startTest", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enetTestControl.setStatus('current')
+enetTestSenderIP = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1, 4), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enetTestSenderIP.setStatus('current')
+enetTestSenderUDPPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1, 5), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enetTestSenderUDPPort.setStatus('current')
+enetTestReceiverIP = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1, 6), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enetTestReceiverIP.setStatus('current')
+enetTestReceiverUDPPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1, 7), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enetTestReceiverUDPPort.setStatus('current')
+enetTestType = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("voip", 1), ("packetLoss", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enetTestType.setStatus('current')
+enetTestPacketSize = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(64, 1514))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enetTestPacketSize.setStatus('current')
+enetTestPacketInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(10, 10), ValueRangeConstraint(20, 20), ValueRangeConstraint(30, 30), ))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enetTestPacketInterval.setStatus('current')
+enetTestPacketRate = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enetTestPacketRate.setStatus('current')
+enetTestNumOfPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enetTestNumOfPackets.setStatus('current')
+enetTestJitterBufferSize = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 200))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enetTestJitterBufferSize.setStatus('current')
+enetTestQosControl = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("preestablished", 2), ("dsa", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enetTestQosControl.setStatus('current')
+enetTestCodecType = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("na", 0), ("g711", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enetTestCodecType.setStatus('current')
+enetTestTosByte = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enetTestTosByte.setStatus('current')
+enetTestRoundTripTimeEstimate = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 60000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enetTestRoundTripTimeEstimate.setStatus('current')
+enetTestStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("na", 0), ("running", 1), ("completed", 2), ("ressourceUnavailable", 3), ("invalidParameter", 4), ("ready", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetTestStatus.setStatus('current')
+enetTestStatusString = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 1, 1, 1, 19), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetTestStatusString.setStatus('current')
+dhtEnetPktTestResults = MibIdentifier((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3))
+enetCurrentResultsTable = MibTable((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1), )
+if mibBuilder.loadTexts: enetCurrentResultsTable.setStatus('current')
+enetCurrentResultsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1), ).setIndexNames((0, "ELECTROLINE-DHT-ENET-MIB", "enetResultsIndex"))
+if mibBuilder.loadTexts: enetCurrentResultsEntry.setStatus('current')
+enetResultsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295)))
+if mibBuilder.loadTexts: enetResultsIndex.setStatus('current')
+enetResultsIdString = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 2), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsIdString.setStatus('current')
+enetResultsStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("inconsistent", 0), ("partial", 1), ("complete", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsStatus.setStatus('current')
+enetResultsDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsDuration.setStatus('current')
+enetResultsStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 5), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsStartTime.setStatus('current')
+enetResultsStopTime = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 6), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsStopTime.setStatus('current')
+enetResultsProcessedPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsProcessedPacketCount.setStatus('current')
+enetResultsLossPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsLossPacketCount.setStatus('current')
+enetResultsDiscardedPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsDiscardedPacketCount.setStatus('current')
+enetResultsPacketLossRate = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 10), ScaledPercentage()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsPacketLossRate.setStatus('current')
+enetResultsPacketDiscardRate = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 11), ScaledPercentage()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsPacketDiscardRate.setStatus('current')
+enetResultsMinInstantJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 12), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsMinInstantJitter.setStatus('current')
+enetResultsMaxInstantJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 13), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsMaxInstantJitter.setStatus('current')
+enetResultsAvgInstantJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 14), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsAvgInstantJitter.setStatus('current')
+enetResultsMinRfcJitterLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 15), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsMinRfcJitterLevel.setStatus('current')
+enetResultsMaxRfcJitterLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 16), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsMaxRfcJitterLevel.setStatus('current')
+enetResultsAvgRfcJitterLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 17), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsAvgRfcJitterLevel.setStatus('current')
+enetResultsRCQ = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 18), Rfactor()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsRCQ.setStatus('current')
+enetResultsRLQ = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 19), Rfactor()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsRLQ.setStatus('current')
+enetResultsMOSCQ = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 20), ScaledMOSscore()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsMOSCQ.setStatus('current')
+enetResultsMOSLQ = MibTableColumn((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 3, 3, 1, 1, 21), ScaledMOSscore()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetResultsMOSLQ.setStatus('current')
+dhtEnetDOCSISMonitoring = MibIdentifier((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 4))
+enetDocsisMonResetCounters = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 4, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("reset", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enetDocsisMonResetCounters.setStatus('current')
+enetDocsisMonPreFECErrorRate = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 4, 2), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetDocsisMonPreFECErrorRate.setStatus('current')
+enetDocsisMonPostFECErrorRate = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 4, 3), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetDocsisMonPostFECErrorRate.setStatus('current')
+enetDocsisMonErroredSeconds = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 4, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetDocsisMonErroredSeconds.setStatus('current')
+enetDocsisMonSeverelyErroredSeconds = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 4, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetDocsisMonSeverelyErroredSeconds.setStatus('current')
+enetDocsisMonTimeElapsed = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 2, 5, 1, 12, 1, 4, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: enetDocsisMonTimeElapsed.setStatus('current')
+mibBuilder.exportSymbols("ELECTROLINE-DHT-ENET-MIB", dhtEnetCapabilities=dhtEnetCapabilities, enetResultsMaxRfcJitterLevel=enetResultsMaxRfcJitterLevel, dhtEnetPktTestControls=dhtEnetPktTestControls, enetTestJitterBufferSize=enetTestJitterBufferSize, enetConstellationDisplaySupport=enetConstellationDisplaySupport, enetTestIndex=enetTestIndex, enetResultsDiscardedPacketCount=enetResultsDiscardedPacketCount, enetResultsAvgInstantJitter=enetResultsAvgInstantJitter, enetResultsMOSLQ=enetResultsMOSLQ, enetPerFeatureSupport=enetPerFeatureSupport, enetTestControl=enetTestControl, enetTestType=enetTestType, enetTestPacketSize=enetTestPacketSize, enetDocsisMonTimeElapsed=enetDocsisMonTimeElapsed, enetResultsIdString=enetResultsIdString, enetTestReceiverUDPPort=enetTestReceiverUDPPort, enetResultsStopTime=enetResultsStopTime, enetDocsisMonErroredSeconds=enetDocsisMonErroredSeconds, enetTestIdString=enetTestIdString, enetResultsStatus=enetResultsStatus, enetTestQosControl=enetTestQosControl, enetResultsLossPacketCount=enetResultsLossPacketCount, Rfactor=Rfactor, enetResultsDuration=enetResultsDuration, PYSNMP_MODULE_ID=dhtEnetMib, enetTestSenderUDPPort=enetTestSenderUDPPort, enetUDPTestSupport=enetUDPTestSupport, enetResultsProcessedPacketCount=enetResultsProcessedPacketCount, enetCurrentResultsEntry=enetCurrentResultsEntry, dhtEnetPktTestResults=dhtEnetPktTestResults, enetResultsMinRfcJitterLevel=enetResultsMinRfcJitterLevel, enetTestRoundTripTimeEstimate=enetTestRoundTripTimeEstimate, enetTestStatusString=enetTestStatusString, enetResultsRLQ=enetResultsRLQ, ScaledMOSscore=ScaledMOSscore, enetDocsisMonResetCounters=enetDocsisMonResetCounters, enetPollingInterval=enetPollingInterval, enetTestPacketRate=enetTestPacketRate, enetResultsMinInstantJitter=enetResultsMinInstantJitter, enetTestControlTable=enetTestControlTable, enetTestControlEntry=enetTestControlEntry, enetVOIPTestSupport=enetVOIPTestSupport, enetTestSenderIP=enetTestSenderIP, dhtEnetPacketTests=dhtEnetPacketTests, enetMaxTestInstance=enetMaxTestInstance, enetResultsPacketLossRate=enetResultsPacketLossRate, enetDocsisMonPreFECErrorRate=enetDocsisMonPreFECErrorRate, enetResultsPacketDiscardRate=enetResultsPacketDiscardRate, enetTestPacketInterval=enetTestPacketInterval, enetTestNumOfPackets=enetTestNumOfPackets, enetResultsStartTime=enetResultsStartTime, ScaledPercentage=ScaledPercentage, dhtEnetMibObjects=dhtEnetMibObjects, enetCurrentResultsTable=enetCurrentResultsTable, enetModuleVersion=enetModuleVersion, enetTestTosByte=enetTestTosByte, enetResultsRCQ=enetResultsRCQ, enetTestStatus=enetTestStatus, enetSupport=enetSupport, enetResultsMaxInstantJitter=enetResultsMaxInstantJitter, enetResultsAvgRfcJitterLevel=enetResultsAvgRfcJitterLevel, dhtEnetDOCSISMonitoring=dhtEnetDOCSISMonitoring, dhtEnetGlobalControls=dhtEnetGlobalControls, enetLicenseKey=enetLicenseKey, enetTestReceiverIP=enetTestReceiverIP, enetTestCodecType=enetTestCodecType, enetResultsIndex=enetResultsIndex, enetResultsMOSCQ=enetResultsMOSCQ, enetSMRPTestSupport=enetSMRPTestSupport, enetDocsisMonPostFECErrorRate=enetDocsisMonPostFECErrorRate, enetDocsisMonSeverelyErroredSeconds=enetDocsisMonSeverelyErroredSeconds, dhtEnetMib=dhtEnetMib)

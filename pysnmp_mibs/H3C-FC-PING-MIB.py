@@ -1,165 +1,73 @@
-_Q='h3cFcPingResPackets'
-_P='h3cFcPingReqPackets'
-_O='h3cFcPingAddress'
-_N='h3cFcPingAddressType'
-_M='h3cFcPingVsan'
-_L='TruthValue'
-_K='Integer32'
-_J='H3cFcStartOper'
-_I='H3cFcAddressType'
-_H='microseconds'
-_G='seconds'
-_F='h3cFcPingIndex'
-_E='Unsigned32'
-_D='read-only'
-_C='read-create'
-_B='H3C-FC-PING-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-H3cFcAddress,H3cFcAddressType,H3cFcStartOper,H3cFcVsanIndex=mibBuilder.importSymbols('H3C-FC-TC-MIB','H3cFcAddress',_I,_J,'H3cFcVsanIndex')
-h3cSan,=mibBuilder.importSymbols('H3C-VSAN-MIB','h3cSan')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_K,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_L)
-h3cFcPing=ModuleIdentity((1,3,6,1,4,1,2011,10,2,127,5))
-if mibBuilder.loadTexts:h3cFcPing.setRevisions(('2013-03-15 00:00',))
-_H3cFcPingObjects_ObjectIdentity=ObjectIdentity
-h3cFcPingObjects=_H3cFcPingObjects_ObjectIdentity((1,3,6,1,4,1,2011,10,2,127,5,1))
-_H3cFcPingConfigurations_ObjectIdentity=ObjectIdentity
-h3cFcPingConfigurations=_H3cFcPingConfigurations_ObjectIdentity((1,3,6,1,4,1,2011,10,2,127,5,1,1))
-_H3cFcPingTable_Object=MibTable
-h3cFcPingTable=_H3cFcPingTable_Object((1,3,6,1,4,1,2011,10,2,127,5,1,1,1))
-if mibBuilder.loadTexts:h3cFcPingTable.setStatus(_A)
-_H3cFcPingEntry_Object=MibTableRow
-h3cFcPingEntry=_H3cFcPingEntry_Object((1,3,6,1,4,1,2011,10,2,127,5,1,1,1,1))
-h3cFcPingEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:h3cFcPingEntry.setStatus(_A)
-class _H3cFcPingIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_H3cFcPingIndex_Type.__name__=_E
-_H3cFcPingIndex_Object=MibTableColumn
-h3cFcPingIndex=_H3cFcPingIndex_Object((1,3,6,1,4,1,2011,10,2,127,5,1,1,1,1,1),_H3cFcPingIndex_Type())
-h3cFcPingIndex.setMaxAccess('accessible-for-notify')
-if mibBuilder.loadTexts:h3cFcPingIndex.setStatus(_A)
-_H3cFcPingVsan_Type=H3cFcVsanIndex
-_H3cFcPingVsan_Object=MibTableColumn
-h3cFcPingVsan=_H3cFcPingVsan_Object((1,3,6,1,4,1,2011,10,2,127,5,1,1,1,1,2),_H3cFcPingVsan_Type())
-h3cFcPingVsan.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cFcPingVsan.setStatus(_A)
-class _H3cFcPingAddressType_Type(H3cFcAddressType):defaultValue=2
-_H3cFcPingAddressType_Type.__name__=_I
-_H3cFcPingAddressType_Object=MibTableColumn
-h3cFcPingAddressType=_H3cFcPingAddressType_Object((1,3,6,1,4,1,2011,10,2,127,5,1,1,1,1,3),_H3cFcPingAddressType_Type())
-h3cFcPingAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cFcPingAddressType.setStatus(_A)
-_H3cFcPingAddress_Type=H3cFcAddress
-_H3cFcPingAddress_Object=MibTableColumn
-h3cFcPingAddress=_H3cFcPingAddress_Object((1,3,6,1,4,1,2011,10,2,127,5,1,1,1,1,4),_H3cFcPingAddress_Type())
-h3cFcPingAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cFcPingAddress.setStatus(_A)
-class _H3cFcPingPacketCount_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_H3cFcPingPacketCount_Type.__name__=_E
-_H3cFcPingPacketCount_Object=MibTableColumn
-h3cFcPingPacketCount=_H3cFcPingPacketCount_Object((1,3,6,1,4,1,2011,10,2,127,5,1,1,1,1,5),_H3cFcPingPacketCount_Type())
-h3cFcPingPacketCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cFcPingPacketCount.setStatus(_A)
-_H3cFcPingPayloadSize_Type=Unsigned32
-_H3cFcPingPayloadSize_Object=MibTableColumn
-h3cFcPingPayloadSize=_H3cFcPingPayloadSize_Object((1,3,6,1,4,1,2011,10,2,127,5,1,1,1,1,6),_H3cFcPingPayloadSize_Type())
-h3cFcPingPayloadSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cFcPingPayloadSize.setStatus(_A)
-class _H3cFcPingTimeout_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_H3cFcPingTimeout_Type.__name__=_E
-_H3cFcPingTimeout_Object=MibTableColumn
-h3cFcPingTimeout=_H3cFcPingTimeout_Object((1,3,6,1,4,1,2011,10,2,127,5,1,1,1,1,7),_H3cFcPingTimeout_Type())
-h3cFcPingTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cFcPingTimeout.setStatus(_A)
-if mibBuilder.loadTexts:h3cFcPingTimeout.setUnits(_G)
-_H3cFcPingDelay_Type=Unsigned32
-_H3cFcPingDelay_Object=MibTableColumn
-h3cFcPingDelay=_H3cFcPingDelay_Object((1,3,6,1,4,1,2011,10,2,127,5,1,1,1,1,8),_H3cFcPingDelay_Type())
-h3cFcPingDelay.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cFcPingDelay.setStatus(_A)
-if mibBuilder.loadTexts:h3cFcPingDelay.setUnits(_G)
-class _H3cFcPingAgeInterval_Type(Unsigned32):defaultValue=500;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(500,900))
-_H3cFcPingAgeInterval_Type.__name__=_E
-_H3cFcPingAgeInterval_Object=MibTableColumn
-h3cFcPingAgeInterval=_H3cFcPingAgeInterval_Object((1,3,6,1,4,1,2011,10,2,127,5,1,1,1,1,9),_H3cFcPingAgeInterval_Type())
-h3cFcPingAgeInterval.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cFcPingAgeInterval.setStatus(_A)
-if mibBuilder.loadTexts:h3cFcPingAgeInterval.setUnits(_G)
-class _H3cFcPingAdminStatus_Type(H3cFcStartOper):defaultValue=2
-_H3cFcPingAdminStatus_Type.__name__=_J
-_H3cFcPingAdminStatus_Object=MibTableColumn
-h3cFcPingAdminStatus=_H3cFcPingAdminStatus_Object((1,3,6,1,4,1,2011,10,2,127,5,1,1,1,1,10),_H3cFcPingAdminStatus_Type())
-h3cFcPingAdminStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cFcPingAdminStatus.setStatus(_A)
-class _H3cFcPingOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('inProgress',1),('complete',2),('disabled',3),('failed',4)))
-_H3cFcPingOperStatus_Type.__name__=_K
-_H3cFcPingOperStatus_Object=MibTableColumn
-h3cFcPingOperStatus=_H3cFcPingOperStatus_Object((1,3,6,1,4,1,2011,10,2,127,5,1,1,1,1,11),_H3cFcPingOperStatus_Type())
-h3cFcPingOperStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cFcPingOperStatus.setStatus(_A)
-class _H3cFcPingTrapOnCompletion_Type(TruthValue):defaultValue=2
-_H3cFcPingTrapOnCompletion_Type.__name__=_L
-_H3cFcPingTrapOnCompletion_Object=MibTableColumn
-h3cFcPingTrapOnCompletion=_H3cFcPingTrapOnCompletion_Object((1,3,6,1,4,1,2011,10,2,127,5,1,1,1,1,12),_H3cFcPingTrapOnCompletion_Type())
-h3cFcPingTrapOnCompletion.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cFcPingTrapOnCompletion.setStatus(_A)
-_H3cFcPingRowStatus_Type=RowStatus
-_H3cFcPingRowStatus_Object=MibTableColumn
-h3cFcPingRowStatus=_H3cFcPingRowStatus_Object((1,3,6,1,4,1,2011,10,2,127,5,1,1,1,1,13),_H3cFcPingRowStatus_Type())
-h3cFcPingRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cFcPingRowStatus.setStatus(_A)
-_H3cFcPingStatistics_ObjectIdentity=ObjectIdentity
-h3cFcPingStatistics=_H3cFcPingStatistics_ObjectIdentity((1,3,6,1,4,1,2011,10,2,127,5,1,2))
-_H3cFcPingStatTable_Object=MibTable
-h3cFcPingStatTable=_H3cFcPingStatTable_Object((1,3,6,1,4,1,2011,10,2,127,5,1,2,1))
-if mibBuilder.loadTexts:h3cFcPingStatTable.setStatus(_A)
-_H3cFcPingStatEntry_Object=MibTableRow
-h3cFcPingStatEntry=_H3cFcPingStatEntry_Object((1,3,6,1,4,1,2011,10,2,127,5,1,2,1,1))
-h3cFcPingStatEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:h3cFcPingStatEntry.setStatus(_A)
-_H3cFcPingReqPackets_Type=Unsigned32
-_H3cFcPingReqPackets_Object=MibTableColumn
-h3cFcPingReqPackets=_H3cFcPingReqPackets_Object((1,3,6,1,4,1,2011,10,2,127,5,1,2,1,1,1),_H3cFcPingReqPackets_Type())
-h3cFcPingReqPackets.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cFcPingReqPackets.setStatus(_A)
-_H3cFcPingResPackets_Type=Unsigned32
-_H3cFcPingResPackets_Object=MibTableColumn
-h3cFcPingResPackets=_H3cFcPingResPackets_Object((1,3,6,1,4,1,2011,10,2,127,5,1,2,1,1,2),_H3cFcPingResPackets_Type())
-h3cFcPingResPackets.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cFcPingResPackets.setStatus(_A)
-_H3cFcPingMinTime_Type=Integer32
-_H3cFcPingMinTime_Object=MibTableColumn
-h3cFcPingMinTime=_H3cFcPingMinTime_Object((1,3,6,1,4,1,2011,10,2,127,5,1,2,1,1,3),_H3cFcPingMinTime_Type())
-h3cFcPingMinTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cFcPingMinTime.setStatus(_A)
-if mibBuilder.loadTexts:h3cFcPingMinTime.setUnits(_H)
-_H3cFcPingAverageTime_Type=Integer32
-_H3cFcPingAverageTime_Object=MibTableColumn
-h3cFcPingAverageTime=_H3cFcPingAverageTime_Object((1,3,6,1,4,1,2011,10,2,127,5,1,2,1,1,4),_H3cFcPingAverageTime_Type())
-h3cFcPingAverageTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cFcPingAverageTime.setStatus(_A)
-if mibBuilder.loadTexts:h3cFcPingAverageTime.setUnits(_H)
-_H3cFcPingMaxTime_Type=Integer32
-_H3cFcPingMaxTime_Object=MibTableColumn
-h3cFcPingMaxTime=_H3cFcPingMaxTime_Object((1,3,6,1,4,1,2011,10,2,127,5,1,2,1,1,5),_H3cFcPingMaxTime_Type())
-h3cFcPingMaxTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cFcPingMaxTime.setStatus(_A)
-if mibBuilder.loadTexts:h3cFcPingMaxTime.setUnits(_H)
-_H3cFcPingTimeoutNum_Type=Unsigned32
-_H3cFcPingTimeoutNum_Object=MibTableColumn
-h3cFcPingTimeoutNum=_H3cFcPingTimeoutNum_Object((1,3,6,1,4,1,2011,10,2,127,5,1,2,1,1,6),_H3cFcPingTimeoutNum_Type())
-h3cFcPingTimeoutNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cFcPingTimeoutNum.setStatus(_A)
-_H3cFcPingNotifications_ObjectIdentity=ObjectIdentity
-h3cFcPingNotifications=_H3cFcPingNotifications_ObjectIdentity((1,3,6,1,4,1,2011,10,2,127,5,1,3))
-_H3cFcPingNotifyPrefix_ObjectIdentity=ObjectIdentity
-h3cFcPingNotifyPrefix=_H3cFcPingNotifyPrefix_ObjectIdentity((1,3,6,1,4,1,2011,10,2,127,5,1,3,0))
-h3cFcPingCompletionNotify=NotificationType((1,3,6,1,4,1,2011,10,2,127,5,1,3,0,1))
-h3cFcPingCompletionNotify.setObjects(*((_B,_F),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:h3cFcPingCompletionNotify.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'h3cFcPing':h3cFcPing,'h3cFcPingObjects':h3cFcPingObjects,'h3cFcPingConfigurations':h3cFcPingConfigurations,'h3cFcPingTable':h3cFcPingTable,'h3cFcPingEntry':h3cFcPingEntry,_F:h3cFcPingIndex,_M:h3cFcPingVsan,_N:h3cFcPingAddressType,_O:h3cFcPingAddress,'h3cFcPingPacketCount':h3cFcPingPacketCount,'h3cFcPingPayloadSize':h3cFcPingPayloadSize,'h3cFcPingTimeout':h3cFcPingTimeout,'h3cFcPingDelay':h3cFcPingDelay,'h3cFcPingAgeInterval':h3cFcPingAgeInterval,'h3cFcPingAdminStatus':h3cFcPingAdminStatus,'h3cFcPingOperStatus':h3cFcPingOperStatus,'h3cFcPingTrapOnCompletion':h3cFcPingTrapOnCompletion,'h3cFcPingRowStatus':h3cFcPingRowStatus,'h3cFcPingStatistics':h3cFcPingStatistics,'h3cFcPingStatTable':h3cFcPingStatTable,'h3cFcPingStatEntry':h3cFcPingStatEntry,_P:h3cFcPingReqPackets,_Q:h3cFcPingResPackets,'h3cFcPingMinTime':h3cFcPingMinTime,'h3cFcPingAverageTime':h3cFcPingAverageTime,'h3cFcPingMaxTime':h3cFcPingMaxTime,'h3cFcPingTimeoutNum':h3cFcPingTimeoutNum,'h3cFcPingNotifications':h3cFcPingNotifications,'h3cFcPingNotifyPrefix':h3cFcPingNotifyPrefix,'h3cFcPingCompletionNotify':h3cFcPingCompletionNotify})
+#
+# PySNMP MIB module H3C-FC-PING-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-FC-PING-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:15 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+H3cFcAddress, H3cFcAddressType, H3cFcVsanIndex, H3cFcStartOper = mibBuilder.importSymbols("H3C-FC-TC-MIB", "H3cFcAddress", "H3cFcAddressType", "H3cFcVsanIndex", "H3cFcStartOper")
+h3cSan, = mibBuilder.importSymbols("H3C-VSAN-MIB", "h3cSan")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+h3cFcPing = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5))
+h3cFcPing.setRevisions(('2013-03-15 00:00',))
+if mibBuilder.loadTexts: h3cFcPing.setLastUpdated('201303150000Z')
+if mibBuilder.loadTexts: h3cFcPing.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
+h3cFcPingObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1))
+h3cFcPingConfigurations = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 1))
+h3cFcPingStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 2))
+h3cFcPingNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 3))
+h3cFcPingNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 3, 0))
+h3cFcPingTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 1, 1), )
+if mibBuilder.loadTexts: h3cFcPingTable.setStatus('current')
+h3cFcPingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 1, 1, 1), ).setIndexNames((0, "H3C-FC-PING-MIB", "h3cFcPingIndex"))
+if mibBuilder.loadTexts: h3cFcPingEntry.setStatus('current')
+h3cFcPingIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cFcPingIndex.setStatus('current')
+h3cFcPingVsan = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 1, 1, 1, 2), H3cFcVsanIndex()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cFcPingVsan.setStatus('current')
+h3cFcPingAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 1, 1, 1, 3), H3cFcAddressType().clone('fcid')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cFcPingAddressType.setStatus('current')
+h3cFcPingAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 1, 1, 1, 4), H3cFcAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cFcPingAddress.setStatus('current')
+h3cFcPingPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 1, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)).clone(5)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cFcPingPacketCount.setStatus('current')
+h3cFcPingPayloadSize = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 1, 1, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFcPingPayloadSize.setStatus('current')
+h3cFcPingTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 1, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(5)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cFcPingTimeout.setStatus('current')
+h3cFcPingDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 1, 1, 1, 8), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFcPingDelay.setStatus('current')
+h3cFcPingAgeInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 1, 1, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(500, 900)).clone(500)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cFcPingAgeInterval.setStatus('current')
+h3cFcPingAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 1, 1, 1, 10), H3cFcStartOper().clone('disable')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cFcPingAdminStatus.setStatus('current')
+h3cFcPingOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 1, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("inProgress", 1), ("complete", 2), ("disabled", 3), ("failed", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFcPingOperStatus.setStatus('current')
+h3cFcPingTrapOnCompletion = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 1, 1, 1, 12), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cFcPingTrapOnCompletion.setStatus('current')
+h3cFcPingRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 1, 1, 1, 13), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cFcPingRowStatus.setStatus('current')
+h3cFcPingStatTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 2, 1), )
+if mibBuilder.loadTexts: h3cFcPingStatTable.setStatus('current')
+h3cFcPingStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 2, 1, 1), ).setIndexNames((0, "H3C-FC-PING-MIB", "h3cFcPingIndex"))
+if mibBuilder.loadTexts: h3cFcPingStatEntry.setStatus('current')
+h3cFcPingReqPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 2, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFcPingReqPackets.setStatus('current')
+h3cFcPingResPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 2, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFcPingResPackets.setStatus('current')
+h3cFcPingMinTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 2, 1, 1, 3), Integer32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFcPingMinTime.setStatus('current')
+h3cFcPingAverageTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 2, 1, 1, 4), Integer32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFcPingAverageTime.setStatus('current')
+h3cFcPingMaxTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 2, 1, 1, 5), Integer32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFcPingMaxTime.setStatus('current')
+h3cFcPingTimeoutNum = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 2, 1, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFcPingTimeoutNum.setStatus('current')
+h3cFcPingCompletionNotify = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 5, 1, 3, 0, 1)).setObjects(("H3C-FC-PING-MIB", "h3cFcPingIndex"), ("H3C-FC-PING-MIB", "h3cFcPingVsan"), ("H3C-FC-PING-MIB", "h3cFcPingAddressType"), ("H3C-FC-PING-MIB", "h3cFcPingAddress"), ("H3C-FC-PING-MIB", "h3cFcPingReqPackets"), ("H3C-FC-PING-MIB", "h3cFcPingResPackets"))
+if mibBuilder.loadTexts: h3cFcPingCompletionNotify.setStatus('current')
+mibBuilder.exportSymbols("H3C-FC-PING-MIB", h3cFcPingMinTime=h3cFcPingMinTime, h3cFcPingTable=h3cFcPingTable, h3cFcPingIndex=h3cFcPingIndex, h3cFcPingAgeInterval=h3cFcPingAgeInterval, h3cFcPingStatEntry=h3cFcPingStatEntry, h3cFcPingEntry=h3cFcPingEntry, h3cFcPingTimeout=h3cFcPingTimeout, h3cFcPing=h3cFcPing, h3cFcPingRowStatus=h3cFcPingRowStatus, h3cFcPingStatTable=h3cFcPingStatTable, PYSNMP_MODULE_ID=h3cFcPing, h3cFcPingPacketCount=h3cFcPingPacketCount, h3cFcPingAddressType=h3cFcPingAddressType, h3cFcPingResPackets=h3cFcPingResPackets, h3cFcPingCompletionNotify=h3cFcPingCompletionNotify, h3cFcPingStatistics=h3cFcPingStatistics, h3cFcPingOperStatus=h3cFcPingOperStatus, h3cFcPingVsan=h3cFcPingVsan, h3cFcPingAddress=h3cFcPingAddress, h3cFcPingTrapOnCompletion=h3cFcPingTrapOnCompletion, h3cFcPingAverageTime=h3cFcPingAverageTime, h3cFcPingMaxTime=h3cFcPingMaxTime, h3cFcPingTimeoutNum=h3cFcPingTimeoutNum, h3cFcPingReqPackets=h3cFcPingReqPackets, h3cFcPingNotifications=h3cFcPingNotifications, h3cFcPingPayloadSize=h3cFcPingPayloadSize, h3cFcPingNotifyPrefix=h3cFcPingNotifyPrefix, h3cFcPingObjects=h3cFcPingObjects, h3cFcPingConfigurations=h3cFcPingConfigurations, h3cFcPingDelay=h3cFcPingDelay, h3cFcPingAdminStatus=h3cFcPingAdminStatus)

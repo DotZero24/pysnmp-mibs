@@ -1,61 +1,39 @@
-_E='zxDslIpStaticDestIpAddr'
-_D='ZTE-DSL-Route-MIB'
-_C='DisplayString'
-_B='read-create'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adslLineAlarmConfProfileEntry,adslLineConfProfileEntry,adslLineConfProfileName=mibBuilder.importSymbols('ADSL-LINE-MIB','adslLineAlarmConfProfileEntry','adslLineConfProfileEntry','adslLineConfProfileName')
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_C,'MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-zxDsl,=mibBuilder.importSymbols('ZTE-DSL-MIB','zxDsl')
-zxDslRouteMib=ModuleIdentity((1,3,6,1,4,1,3902,1004,11))
-_ZxDslIpStaticRouteTable_Object=MibTable
-zxDslIpStaticRouteTable=_ZxDslIpStaticRouteTable_Object((1,3,6,1,4,1,3902,1004,11,1))
-if mibBuilder.loadTexts:zxDslIpStaticRouteTable.setStatus(_A)
-_ZxDslIpStaticRouteEntry_Object=MibTableRow
-zxDslIpStaticRouteEntry=_ZxDslIpStaticRouteEntry_Object((1,3,6,1,4,1,3902,1004,11,1,1))
-zxDslIpStaticRouteEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:zxDslIpStaticRouteEntry.setStatus(_A)
-_ZxDslIpStaticDestIpAddr_Type=IpAddress
-_ZxDslIpStaticDestIpAddr_Object=MibTableColumn
-zxDslIpStaticDestIpAddr=_ZxDslIpStaticDestIpAddr_Object((1,3,6,1,4,1,3902,1004,11,1,1,1),_ZxDslIpStaticDestIpAddr_Type())
-zxDslIpStaticDestIpAddr.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:zxDslIpStaticDestIpAddr.setStatus(_A)
-_ZxDslIpStaticMask_Type=IpAddress
-_ZxDslIpStaticMask_Object=MibTableColumn
-zxDslIpStaticMask=_ZxDslIpStaticMask_Object((1,3,6,1,4,1,3902,1004,11,1,1,2),_ZxDslIpStaticMask_Type())
-zxDslIpStaticMask.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxDslIpStaticMask.setStatus(_A)
-_ZxDslIpStaticNextHop_Type=IpAddress
-_ZxDslIpStaticNextHop_Object=MibTableColumn
-zxDslIpStaticNextHop=_ZxDslIpStaticNextHop_Object((1,3,6,1,4,1,3902,1004,11,1,1,3),_ZxDslIpStaticNextHop_Type())
-zxDslIpStaticNextHop.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxDslIpStaticNextHop.setStatus(_A)
-class _ZxDslIpStaticName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_ZxDslIpStaticName_Type.__name__=_C
-_ZxDslIpStaticName_Object=MibTableColumn
-zxDslIpStaticName=_ZxDslIpStaticName_Object((1,3,6,1,4,1,3902,1004,11,1,1,4),_ZxDslIpStaticName_Type())
-zxDslIpStaticName.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxDslIpStaticName.setStatus(_A)
-_ZxDslIpStaticUseHw_Type=TruthValue
-_ZxDslIpStaticUseHw_Object=MibTableColumn
-zxDslIpStaticUseHw=_ZxDslIpStaticUseHw_Object((1,3,6,1,4,1,3902,1004,11,1,1,5),_ZxDslIpStaticUseHw_Type())
-zxDslIpStaticUseHw.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxDslIpStaticUseHw.setStatus(_A)
-_ZxDslIpStaticInHw_Type=TruthValue
-_ZxDslIpStaticInHw_Object=MibTableColumn
-zxDslIpStaticInHw=_ZxDslIpStaticInHw_Object((1,3,6,1,4,1,3902,1004,11,1,1,6),_ZxDslIpStaticInHw_Type())
-zxDslIpStaticInHw.setMaxAccess('read-only')
-if mibBuilder.loadTexts:zxDslIpStaticInHw.setStatus(_A)
-_ZxDslIpStaticRowStatus_Type=RowStatus
-_ZxDslIpStaticRowStatus_Object=MibTableColumn
-zxDslIpStaticRowStatus=_ZxDslIpStaticRowStatus_Object((1,3,6,1,4,1,3902,1004,11,1,1,7),_ZxDslIpStaticRowStatus_Type())
-zxDslIpStaticRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxDslIpStaticRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'zxDslRouteMib':zxDslRouteMib,'zxDslIpStaticRouteTable':zxDslIpStaticRouteTable,'zxDslIpStaticRouteEntry':zxDslIpStaticRouteEntry,_E:zxDslIpStaticDestIpAddr,'zxDslIpStaticMask':zxDslIpStaticMask,'zxDslIpStaticNextHop':zxDslIpStaticNextHop,'zxDslIpStaticName':zxDslIpStaticName,'zxDslIpStaticUseHw':zxDslIpStaticUseHw,'zxDslIpStaticInHw':zxDslIpStaticInHw,'zxDslIpStaticRowStatus':zxDslIpStaticRowStatus})
+#
+# PySNMP MIB module ZTE-DSL-Route-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZTE-DSL-Route-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:45 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+adslLineConfProfileName, adslLineConfProfileEntry, adslLineAlarmConfProfileEntry = mibBuilder.importSymbols("ADSL-LINE-MIB", "adslLineConfProfileName", "adslLineConfProfileEntry", "adslLineAlarmConfProfileEntry")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+zxDsl, = mibBuilder.importSymbols("ZTE-DSL-MIB", "zxDsl")
+zxDslRouteMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 1004, 11))
+if mibBuilder.loadTexts: zxDslRouteMib.setLastUpdated('200510080948Z')
+if mibBuilder.loadTexts: zxDslRouteMib.setOrganization('zte dsl product line')
+zxDslIpStaticRouteTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1004, 11, 1), )
+if mibBuilder.loadTexts: zxDslIpStaticRouteTable.setStatus('current')
+zxDslIpStaticRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1004, 11, 1, 1), ).setIndexNames((0, "ZTE-DSL-Route-MIB", "zxDslIpStaticDestIpAddr"))
+if mibBuilder.loadTexts: zxDslIpStaticRouteEntry.setStatus('current')
+zxDslIpStaticDestIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1004, 11, 1, 1, 1), IpAddress())
+if mibBuilder.loadTexts: zxDslIpStaticDestIpAddr.setStatus('current')
+zxDslIpStaticMask = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1004, 11, 1, 1, 2), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxDslIpStaticMask.setStatus('current')
+zxDslIpStaticNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1004, 11, 1, 1, 3), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxDslIpStaticNextHop.setStatus('current')
+zxDslIpStaticName = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1004, 11, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxDslIpStaticName.setStatus('current')
+zxDslIpStaticUseHw = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1004, 11, 1, 1, 5), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxDslIpStaticUseHw.setStatus('current')
+zxDslIpStaticInHw = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1004, 11, 1, 1, 6), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxDslIpStaticInHw.setStatus('current')
+zxDslIpStaticRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1004, 11, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxDslIpStaticRowStatus.setStatus('current')
+mibBuilder.exportSymbols("ZTE-DSL-Route-MIB", zxDslIpStaticInHw=zxDslIpStaticInHw, zxDslIpStaticRowStatus=zxDslIpStaticRowStatus, zxDslIpStaticRouteEntry=zxDslIpStaticRouteEntry, PYSNMP_MODULE_ID=zxDslRouteMib, zxDslRouteMib=zxDslRouteMib, zxDslIpStaticName=zxDslIpStaticName, zxDslIpStaticUseHw=zxDslIpStaticUseHw, zxDslIpStaticMask=zxDslIpStaticMask, zxDslIpStaticRouteTable=zxDslIpStaticRouteTable, zxDslIpStaticNextHop=zxDslIpStaticNextHop, zxDslIpStaticDestIpAddr=zxDslIpStaticDestIpAddr)

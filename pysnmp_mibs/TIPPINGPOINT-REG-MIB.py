@@ -1,29 +1,30 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-tippingpoint=ModuleIdentity((1,3,6,1,4,1,10734))
-if mibBuilder.loadTexts:tippingpoint.setRevisions(('2016-05-25 18:54',))
-_Tpt_reg_ObjectIdentity=ObjectIdentity
-tpt_reg=_Tpt_reg_ObjectIdentity((1,3,6,1,4,1,10734,1))
-if mibBuilder.loadTexts:tpt_reg.setStatus(_A)
-_Tpt_generic_ObjectIdentity=ObjectIdentity
-tpt_generic=_Tpt_generic_ObjectIdentity((1,3,6,1,4,1,10734,2))
-if mibBuilder.loadTexts:tpt_generic.setStatus(_A)
-_Tpt_products_ObjectIdentity=ObjectIdentity
-tpt_products=_Tpt_products_ObjectIdentity((1,3,6,1,4,1,10734,3))
-if mibBuilder.loadTexts:tpt_products.setStatus(_A)
-_Tpt_caps_ObjectIdentity=ObjectIdentity
-tpt_caps=_Tpt_caps_ObjectIdentity((1,3,6,1,4,1,10734,4))
-if mibBuilder.loadTexts:tpt_caps.setStatus(_A)
-_Tpt_reqs_ObjectIdentity=ObjectIdentity
-tpt_reqs=_Tpt_reqs_ObjectIdentity((1,3,6,1,4,1,10734,5))
-if mibBuilder.loadTexts:tpt_reqs.setStatus(_A)
-_Tpt_expr_ObjectIdentity=ObjectIdentity
-tpt_expr=_Tpt_expr_ObjectIdentity((1,3,6,1,4,1,10734,6))
-if mibBuilder.loadTexts:tpt_expr.setStatus(_A)
-mibBuilder.exportSymbols('TIPPINGPOINT-REG-MIB',**{'tippingpoint':tippingpoint,'tpt-reg':tpt_reg,'tpt-generic':tpt_generic,'tpt-products':tpt_products,'tpt-caps':tpt_caps,'tpt-reqs':tpt_reqs,'tpt-expr':tpt_expr})
+#
+# PySNMP MIB module TIPPINGPOINT-REG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/trendmicro/TIPPINGPOINT-REG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:15 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tippingpoint = ModuleIdentity((1, 3, 6, 1, 4, 1, 10734))
+tippingpoint.setRevisions(('2016-05-25 18:54',))
+if mibBuilder.loadTexts: tippingpoint.setLastUpdated('201605251854Z')
+if mibBuilder.loadTexts: tippingpoint.setOrganization('Trend Micro, Inc.')
+tpt_reg = ObjectIdentity((1, 3, 6, 1, 4, 1, 10734, 1)).setLabel("tpt-reg")
+if mibBuilder.loadTexts: tpt_reg.setStatus('current')
+tpt_generic = ObjectIdentity((1, 3, 6, 1, 4, 1, 10734, 2)).setLabel("tpt-generic")
+if mibBuilder.loadTexts: tpt_generic.setStatus('current')
+tpt_products = ObjectIdentity((1, 3, 6, 1, 4, 1, 10734, 3)).setLabel("tpt-products")
+if mibBuilder.loadTexts: tpt_products.setStatus('current')
+tpt_caps = ObjectIdentity((1, 3, 6, 1, 4, 1, 10734, 4)).setLabel("tpt-caps")
+if mibBuilder.loadTexts: tpt_caps.setStatus('current')
+tpt_reqs = ObjectIdentity((1, 3, 6, 1, 4, 1, 10734, 5)).setLabel("tpt-reqs")
+if mibBuilder.loadTexts: tpt_reqs.setStatus('current')
+tpt_expr = ObjectIdentity((1, 3, 6, 1, 4, 1, 10734, 6)).setLabel("tpt-expr")
+if mibBuilder.loadTexts: tpt_expr.setStatus('current')
+mibBuilder.exportSymbols("TIPPINGPOINT-REG-MIB", tpt_products=tpt_products, tpt_reqs=tpt_reqs, tpt_expr=tpt_expr, PYSNMP_MODULE_ID=tippingpoint, tpt_caps=tpt_caps, tpt_generic=tpt_generic, tippingpoint=tippingpoint, tpt_reg=tpt_reg)

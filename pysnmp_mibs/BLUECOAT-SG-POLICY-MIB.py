@@ -1,31 +1,32 @@
-_C='devicePolicyMessage'
-_B='BLUECOAT-SG-POLICY-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-blueCoatMgmt,=mibBuilder.importSymbols('BLUECOAT-MIB','blueCoatMgmt')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-devicePolicyMIB=ModuleIdentity((1,3,6,1,4,1,3417,2,6))
-if mibBuilder.loadTexts:devicePolicyMIB.setRevisions(('2007-11-05 03:00','2002-08-28 03:00'))
-class PolicyMessageString(TextualConvention,OctetString):status=_A;displayHint='255a';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_DevicePolicyMIBObjects_ObjectIdentity=ObjectIdentity
-devicePolicyMIBObjects=_DevicePolicyMIBObjects_ObjectIdentity((1,3,6,1,4,1,3417,2,6,1))
-_DevicePolicyValues_ObjectIdentity=ObjectIdentity
-devicePolicyValues=_DevicePolicyValues_ObjectIdentity((1,3,6,1,4,1,3417,2,6,1,1))
-_DevicePolicyMessage_Type=PolicyMessageString
-_DevicePolicyMessage_Object=MibScalar
-devicePolicyMessage=_DevicePolicyMessage_Object((1,3,6,1,4,1,3417,2,6,1,1,1),_DevicePolicyMessage_Type())
-devicePolicyMessage.setMaxAccess('accessible-for-notify')
-if mibBuilder.loadTexts:devicePolicyMessage.setStatus(_A)
-_DevicePolicyMIBNotifications_ObjectIdentity=ObjectIdentity
-devicePolicyMIBNotifications=_DevicePolicyMIBNotifications_ObjectIdentity((1,3,6,1,4,1,3417,2,6,2))
-_DevicePolicyMIBNotificationsPrefix_ObjectIdentity=ObjectIdentity
-devicePolicyMIBNotificationsPrefix=_DevicePolicyMIBNotificationsPrefix_ObjectIdentity((1,3,6,1,4,1,3417,2,6,2,0))
-devicePolicyTrap=NotificationType((1,3,6,1,4,1,3417,2,6,2,0,1))
-devicePolicyTrap.setObjects((_B,_C))
-if mibBuilder.loadTexts:devicePolicyTrap.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'PolicyMessageString':PolicyMessageString,'devicePolicyMIB':devicePolicyMIB,'devicePolicyMIBObjects':devicePolicyMIBObjects,'devicePolicyValues':devicePolicyValues,_C:devicePolicyMessage,'devicePolicyMIBNotifications':devicePolicyMIBNotifications,'devicePolicyMIBNotificationsPrefix':devicePolicyMIBNotificationsPrefix,'devicePolicyTrap':devicePolicyTrap})
+#
+# PySNMP MIB module BLUECOAT-SG-POLICY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/bluecoat/BLUECOAT-SG-POLICY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:57 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+blueCoatMgmt, = mibBuilder.importSymbols("BLUECOAT-MIB", "blueCoatMgmt")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+devicePolicyMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3417, 2, 6))
+devicePolicyMIB.setRevisions(('2007-11-05 03:00', '2002-08-28 03:00',))
+if mibBuilder.loadTexts: devicePolicyMIB.setLastUpdated('200711050300Z')
+if mibBuilder.loadTexts: devicePolicyMIB.setOrganization('Blue Coat Systems, Inc.')
+devicePolicyMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 6, 1))
+devicePolicyMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 6, 2))
+devicePolicyMIBNotificationsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 6, 2, 0))
+class PolicyMessageString(TextualConvention, OctetString):
+    status = 'current'
+    displayHint = '255a'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+
+devicePolicyValues = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 6, 1, 1))
+devicePolicyMessage = MibScalar((1, 3, 6, 1, 4, 1, 3417, 2, 6, 1, 1, 1), PolicyMessageString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: devicePolicyMessage.setStatus('current')
+devicePolicyTrap = NotificationType((1, 3, 6, 1, 4, 1, 3417, 2, 6, 2, 0, 1)).setObjects(("BLUECOAT-SG-POLICY-MIB", "devicePolicyMessage"))
+if mibBuilder.loadTexts: devicePolicyTrap.setStatus('current')
+mibBuilder.exportSymbols("BLUECOAT-SG-POLICY-MIB", PYSNMP_MODULE_ID=devicePolicyMIB, devicePolicyMIBNotificationsPrefix=devicePolicyMIBNotificationsPrefix, devicePolicyValues=devicePolicyValues, devicePolicyMIBNotifications=devicePolicyMIBNotifications, devicePolicyTrap=devicePolicyTrap, devicePolicyMessage=devicePolicyMessage, devicePolicyMIB=devicePolicyMIB, devicePolicyMIBObjects=devicePolicyMIBObjects, PolicyMessageString=PolicyMessageString)

@@ -1,111 +1,71 @@
-_P='acdTidNotificationsGroup'
-_O='acdTidGlobalCfgGroup'
-_N='acdTidTableGroup'
-_M='acdTidGeneralGroup'
-_L='acdTidGlobalCfgChange'
-_K='acdTidInfoLastChangeTid'
-_J='acdTidInfoDescr'
-_I='acdTidInfoType'
-_H='acdTidInfoOID'
-_G='acdTidStatusLastChangeTid'
-_F='acdTidCfgLastChangeTid'
-_E='acdTidInfoIndex'
-_D='acdTidglobalCfgChangeCount'
-_C='read-only'
-_B='ACD-TID-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-acdMibs,=mibBuilder.importSymbols('ACCEDIAN-SMI','acdMibs')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-acdTid=ModuleIdentity((1,3,6,1,4,1,22420,2,14))
-if mibBuilder.loadTexts:acdTid.setRevisions(('2012-11-05 22:00','2011-11-11 01:00'))
-class AcdTidType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('configuration',1),('status',2)))
-_AcdTidNotifications_ObjectIdentity=ObjectIdentity
-acdTidNotifications=_AcdTidNotifications_ObjectIdentity((1,3,6,1,4,1,22420,2,14,0))
-_AcdTidNotificationPrefix_ObjectIdentity=ObjectIdentity
-acdTidNotificationPrefix=_AcdTidNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,22420,2,14,0,0))
-_AcdTidMIBObjects_ObjectIdentity=ObjectIdentity
-acdTidMIBObjects=_AcdTidMIBObjects_ObjectIdentity((1,3,6,1,4,1,22420,2,14,1))
-_AcdTidGeneral_ObjectIdentity=ObjectIdentity
-acdTidGeneral=_AcdTidGeneral_ObjectIdentity((1,3,6,1,4,1,22420,2,14,1,1))
-_AcdTidCfgLastChangeTid_Type=Unsigned32
-_AcdTidCfgLastChangeTid_Object=MibScalar
-acdTidCfgLastChangeTid=_AcdTidCfgLastChangeTid_Object((1,3,6,1,4,1,22420,2,14,1,1,1),_AcdTidCfgLastChangeTid_Type())
-acdTidCfgLastChangeTid.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTidCfgLastChangeTid.setStatus(_A)
-_AcdTidStatusLastChangeTid_Type=Unsigned32
-_AcdTidStatusLastChangeTid_Object=MibScalar
-acdTidStatusLastChangeTid=_AcdTidStatusLastChangeTid_Object((1,3,6,1,4,1,22420,2,14,1,1,2),_AcdTidStatusLastChangeTid_Type())
-acdTidStatusLastChangeTid.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTidStatusLastChangeTid.setStatus(_A)
-_AcdTidInfo_ObjectIdentity=ObjectIdentity
-acdTidInfo=_AcdTidInfo_ObjectIdentity((1,3,6,1,4,1,22420,2,14,1,2))
-_AcdTidInfoTable_Object=MibTable
-acdTidInfoTable=_AcdTidInfoTable_Object((1,3,6,1,4,1,22420,2,14,1,2,1))
-if mibBuilder.loadTexts:acdTidInfoTable.setStatus(_A)
-_AcdTidInfoEntry_Object=MibTableRow
-acdTidInfoEntry=_AcdTidInfoEntry_Object((1,3,6,1,4,1,22420,2,14,1,2,1,1))
-acdTidInfoEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:acdTidInfoEntry.setStatus(_A)
-_AcdTidInfoIndex_Type=Unsigned32
-_AcdTidInfoIndex_Object=MibTableColumn
-acdTidInfoIndex=_AcdTidInfoIndex_Object((1,3,6,1,4,1,22420,2,14,1,2,1,1,1),_AcdTidInfoIndex_Type())
-acdTidInfoIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:acdTidInfoIndex.setStatus(_A)
-_AcdTidInfoOID_Type=ObjectIdentifier
-_AcdTidInfoOID_Object=MibTableColumn
-acdTidInfoOID=_AcdTidInfoOID_Object((1,3,6,1,4,1,22420,2,14,1,2,1,1,2),_AcdTidInfoOID_Type())
-acdTidInfoOID.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTidInfoOID.setStatus(_A)
-_AcdTidInfoType_Type=AcdTidType
-_AcdTidInfoType_Object=MibTableColumn
-acdTidInfoType=_AcdTidInfoType_Object((1,3,6,1,4,1,22420,2,14,1,2,1,1,3),_AcdTidInfoType_Type())
-acdTidInfoType.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTidInfoType.setStatus(_A)
-_AcdTidInfoDescr_Type=DisplayString
-_AcdTidInfoDescr_Object=MibTableColumn
-acdTidInfoDescr=_AcdTidInfoDescr_Object((1,3,6,1,4,1,22420,2,14,1,2,1,1,4),_AcdTidInfoDescr_Type())
-acdTidInfoDescr.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTidInfoDescr.setStatus(_A)
-_AcdTidInfoLastChangeTid_Type=Unsigned32
-_AcdTidInfoLastChangeTid_Object=MibTableColumn
-acdTidInfoLastChangeTid=_AcdTidInfoLastChangeTid_Object((1,3,6,1,4,1,22420,2,14,1,2,1,1,5),_AcdTidInfoLastChangeTid_Type())
-acdTidInfoLastChangeTid.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTidInfoLastChangeTid.setStatus(_A)
-_AcdTidGlobalCfg_ObjectIdentity=ObjectIdentity
-acdTidGlobalCfg=_AcdTidGlobalCfg_ObjectIdentity((1,3,6,1,4,1,22420,2,14,1,3))
-_AcdTidglobalCfgChangeCount_Type=Unsigned32
-_AcdTidglobalCfgChangeCount_Object=MibScalar
-acdTidglobalCfgChangeCount=_AcdTidglobalCfgChangeCount_Object((1,3,6,1,4,1,22420,2,14,1,3,2),_AcdTidglobalCfgChangeCount_Type())
-acdTidglobalCfgChangeCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTidglobalCfgChangeCount.setStatus(_A)
-_AcdTidConformance_ObjectIdentity=ObjectIdentity
-acdTidConformance=_AcdTidConformance_ObjectIdentity((1,3,6,1,4,1,22420,2,14,2))
-_AcdTidCompliances_ObjectIdentity=ObjectIdentity
-acdTidCompliances=_AcdTidCompliances_ObjectIdentity((1,3,6,1,4,1,22420,2,14,2,1))
-_AcdTidGroups_ObjectIdentity=ObjectIdentity
-acdTidGroups=_AcdTidGroups_ObjectIdentity((1,3,6,1,4,1,22420,2,14,2,2))
-acdTidGeneralGroup=ObjectGroup((1,3,6,1,4,1,22420,2,14,2,2,1))
-acdTidGeneralGroup.setObjects(*((_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:acdTidGeneralGroup.setStatus(_A)
-acdTidTableGroup=ObjectGroup((1,3,6,1,4,1,22420,2,14,2,2,2))
-acdTidTableGroup.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:acdTidTableGroup.setStatus(_A)
-acdTidGlobalCfgGroup=ObjectGroup((1,3,6,1,4,1,22420,2,14,2,2,3))
-acdTidGlobalCfgGroup.setObjects((_B,_D))
-if mibBuilder.loadTexts:acdTidGlobalCfgGroup.setStatus(_A)
-acdTidGlobalCfgChange=NotificationType((1,3,6,1,4,1,22420,2,14,0,0,1))
-acdTidGlobalCfgChange.setObjects((_B,_D))
-if mibBuilder.loadTexts:acdTidGlobalCfgChange.setStatus(_A)
-acdTidNotificationsGroup=NotificationGroup((1,3,6,1,4,1,22420,2,14,2,2,4))
-acdTidNotificationsGroup.setObjects((_B,_L))
-if mibBuilder.loadTexts:acdTidNotificationsGroup.setStatus(_A)
-acdTidCompliance=ModuleCompliance((1,3,6,1,4,1,22420,2,14,2,1,1))
-acdTidCompliance.setObjects(*((_B,_M),(_B,_N),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:acdTidCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'AcdTidType':AcdTidType,'acdTid':acdTid,'acdTidNotifications':acdTidNotifications,'acdTidNotificationPrefix':acdTidNotificationPrefix,_L:acdTidGlobalCfgChange,'acdTidMIBObjects':acdTidMIBObjects,'acdTidGeneral':acdTidGeneral,_F:acdTidCfgLastChangeTid,_G:acdTidStatusLastChangeTid,'acdTidInfo':acdTidInfo,'acdTidInfoTable':acdTidInfoTable,'acdTidInfoEntry':acdTidInfoEntry,_E:acdTidInfoIndex,_H:acdTidInfoOID,_I:acdTidInfoType,_J:acdTidInfoDescr,_K:acdTidInfoLastChangeTid,'acdTidGlobalCfg':acdTidGlobalCfg,_D:acdTidglobalCfgChangeCount,'acdTidConformance':acdTidConformance,'acdTidCompliances':acdTidCompliances,'acdTidCompliance':acdTidCompliance,'acdTidGroups':acdTidGroups,_M:acdTidGeneralGroup,_N:acdTidTableGroup,_O:acdTidGlobalCfgGroup,_P:acdTidNotificationsGroup})
+#
+# PySNMP MIB module ACD-TID-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/accedian/ACD-TID-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:43:45 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+acdMibs, = mibBuilder.importSymbols("ACCEDIAN-SMI", "acdMibs")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+acdTid = ModuleIdentity((1, 3, 6, 1, 4, 1, 22420, 2, 14))
+acdTid.setRevisions(('2012-11-05 22:00', '2011-11-11 01:00',))
+if mibBuilder.loadTexts: acdTid.setLastUpdated('201211052200Z')
+if mibBuilder.loadTexts: acdTid.setOrganization('Accedian Networks, Inc.')
+acdTidNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 22420, 2, 14, 0))
+acdTidMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 22420, 2, 14, 1))
+acdTidConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 22420, 2, 14, 2))
+acdTidGeneral = MibIdentifier((1, 3, 6, 1, 4, 1, 22420, 2, 14, 1, 1))
+acdTidInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 22420, 2, 14, 1, 2))
+acdTidGlobalCfg = MibIdentifier((1, 3, 6, 1, 4, 1, 22420, 2, 14, 1, 3))
+class AcdTidType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("configuration", 1), ("status", 2))
+
+acdTidCfgLastChangeTid = MibScalar((1, 3, 6, 1, 4, 1, 22420, 2, 14, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTidCfgLastChangeTid.setStatus('current')
+acdTidStatusLastChangeTid = MibScalar((1, 3, 6, 1, 4, 1, 22420, 2, 14, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTidStatusLastChangeTid.setStatus('current')
+acdTidInfoTable = MibTable((1, 3, 6, 1, 4, 1, 22420, 2, 14, 1, 2, 1), )
+if mibBuilder.loadTexts: acdTidInfoTable.setStatus('current')
+acdTidInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 22420, 2, 14, 1, 2, 1, 1), ).setIndexNames((0, "ACD-TID-MIB", "acdTidInfoIndex"))
+if mibBuilder.loadTexts: acdTidInfoEntry.setStatus('current')
+acdTidInfoIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 14, 1, 2, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: acdTidInfoIndex.setStatus('current')
+acdTidInfoOID = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 14, 1, 2, 1, 1, 2), ObjectIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTidInfoOID.setStatus('current')
+acdTidInfoType = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 14, 1, 2, 1, 1, 3), AcdTidType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTidInfoType.setStatus('current')
+acdTidInfoDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 14, 1, 2, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTidInfoDescr.setStatus('current')
+acdTidInfoLastChangeTid = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 14, 1, 2, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTidInfoLastChangeTid.setStatus('current')
+acdTidglobalCfgChangeCount = MibScalar((1, 3, 6, 1, 4, 1, 22420, 2, 14, 1, 3, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTidglobalCfgChangeCount.setStatus('current')
+acdTidNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 22420, 2, 14, 0, 0))
+acdTidGlobalCfgChange = NotificationType((1, 3, 6, 1, 4, 1, 22420, 2, 14, 0, 0, 1)).setObjects(("ACD-TID-MIB", "acdTidglobalCfgChangeCount"))
+if mibBuilder.loadTexts: acdTidGlobalCfgChange.setStatus('current')
+acdTidCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 22420, 2, 14, 2, 1))
+acdTidGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 22420, 2, 14, 2, 2))
+acdTidGeneralGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 22420, 2, 14, 2, 2, 1)).setObjects(("ACD-TID-MIB", "acdTidCfgLastChangeTid"), ("ACD-TID-MIB", "acdTidStatusLastChangeTid"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    acdTidGeneralGroup = acdTidGeneralGroup.setStatus('current')
+acdTidTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 22420, 2, 14, 2, 2, 2)).setObjects(("ACD-TID-MIB", "acdTidInfoOID"), ("ACD-TID-MIB", "acdTidInfoType"), ("ACD-TID-MIB", "acdTidInfoDescr"), ("ACD-TID-MIB", "acdTidInfoLastChangeTid"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    acdTidTableGroup = acdTidTableGroup.setStatus('current')
+acdTidGlobalCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 22420, 2, 14, 2, 2, 3)).setObjects(("ACD-TID-MIB", "acdTidglobalCfgChangeCount"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    acdTidGlobalCfgGroup = acdTidGlobalCfgGroup.setStatus('current')
+acdTidNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 22420, 2, 14, 2, 2, 4)).setObjects(("ACD-TID-MIB", "acdTidGlobalCfgChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    acdTidNotificationsGroup = acdTidNotificationsGroup.setStatus('current')
+acdTidCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 22420, 2, 14, 2, 1, 1)).setObjects(("ACD-TID-MIB", "acdTidGeneralGroup"), ("ACD-TID-MIB", "acdTidTableGroup"), ("ACD-TID-MIB", "acdTidGlobalCfgGroup"), ("ACD-TID-MIB", "acdTidNotificationsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    acdTidCompliance = acdTidCompliance.setStatus('current')
+mibBuilder.exportSymbols("ACD-TID-MIB", acdTidNotifications=acdTidNotifications, acdTidGroups=acdTidGroups, acdTidInfoType=acdTidInfoType, acdTidGeneralGroup=acdTidGeneralGroup, acdTidInfoEntry=acdTidInfoEntry, acdTidGeneral=acdTidGeneral, acdTidMIBObjects=acdTidMIBObjects, acdTid=acdTid, acdTidInfo=acdTidInfo, acdTidGlobalCfg=acdTidGlobalCfg, acdTidCompliance=acdTidCompliance, acdTidNotificationsGroup=acdTidNotificationsGroup, PYSNMP_MODULE_ID=acdTid, acdTidInfoIndex=acdTidInfoIndex, acdTidInfoTable=acdTidInfoTable, acdTidTableGroup=acdTidTableGroup, acdTidGlobalCfgChange=acdTidGlobalCfgChange, acdTidInfoOID=acdTidInfoOID, acdTidInfoDescr=acdTidInfoDescr, acdTidCompliances=acdTidCompliances, acdTidConformance=acdTidConformance, acdTidCfgLastChangeTid=acdTidCfgLastChangeTid, acdTidNotificationPrefix=acdTidNotificationPrefix, acdTidStatusLastChangeTid=acdTidStatusLastChangeTid, acdTidGlobalCfgGroup=acdTidGlobalCfgGroup, acdTidInfoLastChangeTid=acdTidInfoLastChangeTid, acdTidglobalCfgChangeCount=acdTidglobalCfgChangeCount, AcdTidType=AcdTidType)

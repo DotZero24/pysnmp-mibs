@@ -1,129 +1,71 @@
-_P='h3cConStatusGroup'
-_O='h3cUIMgtBasicGroup'
-_N='h3cTerminalUserAuthFailureReason'
-_M='h3cConReAuth'
-_L='h3cVtyAccAclNum'
-_K='h3cConUserIndex'
-_J='read-create'
-_I='h3cVtyAccConnway'
-_H='h3cVtyAccUserIndex'
-_G='not-accessible'
-_F='accessible-for-notify'
-_E='h3cTerminalSource'
-_D='h3cTerminalUserName'
-_C='Integer32'
-_B='A3COM-HUAWEI-UI-MAN-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cCommon,=mibBuilder.importSymbols('A3COM-HUAWEI-OID-MIB','h3cCommon')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-h3cUIMgt=ModuleIdentity((1,3,6,1,4,1,43,45,1,10,2,2))
-_H3cUIMgtObjects_ObjectIdentity=ObjectIdentity
-h3cUIMgtObjects=_H3cUIMgtObjects_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,2,1))
-_H3cUIBasicInfo_ObjectIdentity=ObjectIdentity
-h3cUIBasicInfo=_H3cUIBasicInfo_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,2,1,1))
-_H3cUIScalarObjects_ObjectIdentity=ObjectIdentity
-h3cUIScalarObjects=_H3cUIScalarObjects_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,2,1,1,1))
-_H3cUITrapBindObjects_ObjectIdentity=ObjectIdentity
-h3cUITrapBindObjects=_H3cUITrapBindObjects_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,2,1,1,2))
-_H3cTerminalUserName_Type=DisplayString
-_H3cTerminalUserName_Object=MibScalar
-h3cTerminalUserName=_H3cTerminalUserName_Object((1,3,6,1,4,1,43,45,1,10,2,2,1,1,2,1),_H3cTerminalUserName_Type())
-h3cTerminalUserName.setMaxAccess(_F)
-if mibBuilder.loadTexts:h3cTerminalUserName.setStatus(_A)
-_H3cTerminalSource_Type=DisplayString
-_H3cTerminalSource_Object=MibScalar
-h3cTerminalSource=_H3cTerminalSource_Object((1,3,6,1,4,1,43,45,1,10,2,2,1,1,2,2),_H3cTerminalSource_Type())
-h3cTerminalSource.setMaxAccess(_F)
-if mibBuilder.loadTexts:h3cTerminalSource.setStatus(_A)
-class _H3cTerminalUserAuthFailureReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('exceedRetries',1),('authTimeout',2),('otherReason',3)))
-_H3cTerminalUserAuthFailureReason_Type.__name__=_C
-_H3cTerminalUserAuthFailureReason_Object=MibScalar
-h3cTerminalUserAuthFailureReason=_H3cTerminalUserAuthFailureReason_Object((1,3,6,1,4,1,43,45,1,10,2,2,1,1,2,3),_H3cTerminalUserAuthFailureReason_Type())
-h3cTerminalUserAuthFailureReason.setMaxAccess(_F)
-if mibBuilder.loadTexts:h3cTerminalUserAuthFailureReason.setStatus(_A)
-_H3cUINotifications_ObjectIdentity=ObjectIdentity
-h3cUINotifications=_H3cUINotifications_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,2,1,1,3))
-_H3cUINotificationsPrefix_ObjectIdentity=ObjectIdentity
-h3cUINotificationsPrefix=_H3cUINotificationsPrefix_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,2,1,1,3,0))
-_H3cVtyMan_ObjectIdentity=ObjectIdentity
-h3cVtyMan=_H3cVtyMan_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,2,1,2))
-_H3cVtyAccTable_Object=MibTable
-h3cVtyAccTable=_H3cVtyAccTable_Object((1,3,6,1,4,1,43,45,1,10,2,2,1,2,1))
-if mibBuilder.loadTexts:h3cVtyAccTable.setStatus(_A)
-_H3cVtyAccEntry_Object=MibTableRow
-h3cVtyAccEntry=_H3cVtyAccEntry_Object((1,3,6,1,4,1,43,45,1,10,2,2,1,2,1,1))
-h3cVtyAccEntry.setIndexNames((0,_B,_H),(0,_B,_I))
-if mibBuilder.loadTexts:h3cVtyAccEntry.setStatus(_A)
-class _H3cVtyAccUserIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_H3cVtyAccUserIndex_Type.__name__=_C
-_H3cVtyAccUserIndex_Object=MibTableColumn
-h3cVtyAccUserIndex=_H3cVtyAccUserIndex_Object((1,3,6,1,4,1,43,45,1,10,2,2,1,2,1,1,1),_H3cVtyAccUserIndex_Type())
-h3cVtyAccUserIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cVtyAccUserIndex.setStatus(_A)
-class _H3cVtyAccConnway_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,11,12)));namedValues=NamedValues(*(('inbound',1),('outbound',2),('linkinbound',3),('acl6inbound',11),('acl6outbound',12)))
-_H3cVtyAccConnway_Type.__name__=_C
-_H3cVtyAccConnway_Object=MibTableColumn
-h3cVtyAccConnway=_H3cVtyAccConnway_Object((1,3,6,1,4,1,43,45,1,10,2,2,1,2,1,1,2),_H3cVtyAccConnway_Type())
-h3cVtyAccConnway.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cVtyAccConnway.setStatus(_A)
-_H3cVtyAccAclNum_Type=Integer32
-_H3cVtyAccAclNum_Object=MibTableColumn
-h3cVtyAccAclNum=_H3cVtyAccAclNum_Object((1,3,6,1,4,1,43,45,1,10,2,2,1,2,1,1,3),_H3cVtyAccAclNum_Type())
-h3cVtyAccAclNum.setMaxAccess(_J)
-if mibBuilder.loadTexts:h3cVtyAccAclNum.setStatus(_A)
-_H3cVtyAccEntryRowStatus_Type=RowStatus
-_H3cVtyAccEntryRowStatus_Object=MibTableColumn
-h3cVtyAccEntryRowStatus=_H3cVtyAccEntryRowStatus_Object((1,3,6,1,4,1,43,45,1,10,2,2,1,2,1,1,4),_H3cVtyAccEntryRowStatus_Type())
-h3cVtyAccEntryRowStatus.setMaxAccess(_J)
-if mibBuilder.loadTexts:h3cVtyAccEntryRowStatus.setStatus(_A)
-_H3cConStatus_ObjectIdentity=ObjectIdentity
-h3cConStatus=_H3cConStatus_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,2,1,3))
-_H3cConStatusTable_Object=MibTable
-h3cConStatusTable=_H3cConStatusTable_Object((1,3,6,1,4,1,43,45,1,10,2,2,1,3,1))
-if mibBuilder.loadTexts:h3cConStatusTable.setStatus(_A)
-_H3cConStatusEntry_Object=MibTableRow
-h3cConStatusEntry=_H3cConStatusEntry_Object((1,3,6,1,4,1,43,45,1,10,2,2,1,3,1,1))
-h3cConStatusEntry.setIndexNames((0,_B,_K))
-if mibBuilder.loadTexts:h3cConStatusEntry.setStatus(_A)
-_H3cConUserIndex_Type=Integer32
-_H3cConUserIndex_Object=MibTableColumn
-h3cConUserIndex=_H3cConUserIndex_Object((1,3,6,1,4,1,43,45,1,10,2,2,1,3,1,1,1),_H3cConUserIndex_Type())
-h3cConUserIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cConUserIndex.setStatus(_A)
-class _H3cConReAuth_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('disable',1),('enable',2)))
-_H3cConReAuth_Type.__name__=_C
-_H3cConReAuth_Object=MibTableColumn
-h3cConReAuth=_H3cConReAuth_Object((1,3,6,1,4,1,43,45,1,10,2,2,1,3,1,1,2),_H3cConReAuth_Type())
-h3cConReAuth.setMaxAccess('read-write')
-if mibBuilder.loadTexts:h3cConReAuth.setStatus(_A)
-_H3cUIMgtMIBConformance18_ObjectIdentity=ObjectIdentity
-h3cUIMgtMIBConformance18=_H3cUIMgtMIBConformance18_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,2,2))
-_H3cUIMgtMIBCompliances_ObjectIdentity=ObjectIdentity
-h3cUIMgtMIBCompliances=_H3cUIMgtMIBCompliances_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,2,2,1))
-_H3cUIMgtManMIBGroups_ObjectIdentity=ObjectIdentity
-h3cUIMgtManMIBGroups=_H3cUIMgtManMIBGroups_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,2,2,2))
-h3cUIMgtBasicGroup=ObjectGroup((1,3,6,1,4,1,43,45,1,10,2,2,2,2,1))
-h3cUIMgtBasicGroup.setObjects((_B,_L))
-if mibBuilder.loadTexts:h3cUIMgtBasicGroup.setStatus(_A)
-h3cConStatusGroup=ObjectGroup((1,3,6,1,4,1,43,45,1,10,2,2,2,2,2))
-h3cConStatusGroup.setObjects((_B,_M))
-if mibBuilder.loadTexts:h3cConStatusGroup.setStatus(_A)
-h3cLogIn=NotificationType((1,3,6,1,4,1,43,45,1,10,2,2,1,1,3,0,1))
-h3cLogIn.setObjects(*((_B,_D),(_B,_E)))
-if mibBuilder.loadTexts:h3cLogIn.setStatus(_A)
-h3cLogOut=NotificationType((1,3,6,1,4,1,43,45,1,10,2,2,1,1,3,0,2))
-h3cLogOut.setObjects(*((_B,_D),(_B,_E)))
-if mibBuilder.loadTexts:h3cLogOut.setStatus(_A)
-h3cLogInAuthenFailure=NotificationType((1,3,6,1,4,1,43,45,1,10,2,2,1,1,3,0,3))
-h3cLogInAuthenFailure.setObjects(*((_B,_D),(_B,_E),(_B,_N)))
-if mibBuilder.loadTexts:h3cLogInAuthenFailure.setStatus(_A)
-h3cUIMgtMIBCompliance=ModuleCompliance((1,3,6,1,4,1,43,45,1,10,2,2,2,1,1))
-h3cUIMgtMIBCompliance.setObjects(*((_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:h3cUIMgtMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'h3cUIMgt':h3cUIMgt,'h3cUIMgtObjects':h3cUIMgtObjects,'h3cUIBasicInfo':h3cUIBasicInfo,'h3cUIScalarObjects':h3cUIScalarObjects,'h3cUITrapBindObjects':h3cUITrapBindObjects,_D:h3cTerminalUserName,_E:h3cTerminalSource,_N:h3cTerminalUserAuthFailureReason,'h3cUINotifications':h3cUINotifications,'h3cUINotificationsPrefix':h3cUINotificationsPrefix,'h3cLogIn':h3cLogIn,'h3cLogOut':h3cLogOut,'h3cLogInAuthenFailure':h3cLogInAuthenFailure,'h3cVtyMan':h3cVtyMan,'h3cVtyAccTable':h3cVtyAccTable,'h3cVtyAccEntry':h3cVtyAccEntry,_H:h3cVtyAccUserIndex,_I:h3cVtyAccConnway,_L:h3cVtyAccAclNum,'h3cVtyAccEntryRowStatus':h3cVtyAccEntryRowStatus,'h3cConStatus':h3cConStatus,'h3cConStatusTable':h3cConStatusTable,'h3cConStatusEntry':h3cConStatusEntry,_K:h3cConUserIndex,_M:h3cConReAuth,'h3cUIMgtMIBConformance18':h3cUIMgtMIBConformance18,'h3cUIMgtMIBCompliances':h3cUIMgtMIBCompliances,'h3cUIMgtMIBCompliance':h3cUIMgtMIBCompliance,'h3cUIMgtManMIBGroups':h3cUIMgtManMIBGroups,_O:h3cUIMgtBasicGroup,_P:h3cConStatusGroup})
+#
+# PySNMP MIB module A3COM-HUAWEI-UI-MAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-UI-MAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:03 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+h3cCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCommon")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+h3cUIMgt = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2))
+if mibBuilder.loadTexts: h3cUIMgt.setLastUpdated('200404081405Z')
+if mibBuilder.loadTexts: h3cUIMgt.setOrganization('huawei-3com Technologies Co., Ltd.')
+h3cUIMgtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1))
+h3cUIBasicInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 1))
+h3cUIScalarObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 1, 1))
+h3cUITrapBindObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 1, 2))
+h3cTerminalUserName = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 1, 2, 1), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cTerminalUserName.setStatus('current')
+h3cTerminalSource = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 1, 2, 2), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cTerminalSource.setStatus('current')
+h3cTerminalUserAuthFailureReason = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 1, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("exceedRetries", 1), ("authTimeout", 2), ("otherReason", 3)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cTerminalUserAuthFailureReason.setStatus('current')
+h3cUINotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 1, 3))
+h3cUINotificationsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 1, 3, 0))
+h3cLogIn = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 1, 3, 0, 1)).setObjects(("A3COM-HUAWEI-UI-MAN-MIB", "h3cTerminalUserName"), ("A3COM-HUAWEI-UI-MAN-MIB", "h3cTerminalSource"))
+if mibBuilder.loadTexts: h3cLogIn.setStatus('current')
+h3cLogOut = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 1, 3, 0, 2)).setObjects(("A3COM-HUAWEI-UI-MAN-MIB", "h3cTerminalUserName"), ("A3COM-HUAWEI-UI-MAN-MIB", "h3cTerminalSource"))
+if mibBuilder.loadTexts: h3cLogOut.setStatus('current')
+h3cLogInAuthenFailure = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 1, 3, 0, 3)).setObjects(("A3COM-HUAWEI-UI-MAN-MIB", "h3cTerminalUserName"), ("A3COM-HUAWEI-UI-MAN-MIB", "h3cTerminalSource"), ("A3COM-HUAWEI-UI-MAN-MIB", "h3cTerminalUserAuthFailureReason"))
+if mibBuilder.loadTexts: h3cLogInAuthenFailure.setStatus('current')
+h3cVtyMan = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 2))
+h3cVtyAccTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 2, 1), )
+if mibBuilder.loadTexts: h3cVtyAccTable.setStatus('current')
+h3cVtyAccEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 2, 1, 1), ).setIndexNames((0, "A3COM-HUAWEI-UI-MAN-MIB", "h3cVtyAccUserIndex"), (0, "A3COM-HUAWEI-UI-MAN-MIB", "h3cVtyAccConnway"))
+if mibBuilder.loadTexts: h3cVtyAccEntry.setStatus('current')
+h3cVtyAccUserIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: h3cVtyAccUserIndex.setStatus('current')
+h3cVtyAccConnway = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 11, 12))).clone(namedValues=NamedValues(("inbound", 1), ("outbound", 2), ("linkinbound", 3), ("acl6inbound", 11), ("acl6outbound", 12))))
+if mibBuilder.loadTexts: h3cVtyAccConnway.setStatus('current')
+h3cVtyAccAclNum = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 2, 1, 1, 3), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cVtyAccAclNum.setStatus('current')
+h3cVtyAccEntryRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 2, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cVtyAccEntryRowStatus.setStatus('current')
+h3cConStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 3))
+h3cConStatusTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 3, 1), )
+if mibBuilder.loadTexts: h3cConStatusTable.setStatus('current')
+h3cConStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 3, 1, 1), ).setIndexNames((0, "A3COM-HUAWEI-UI-MAN-MIB", "h3cConUserIndex"))
+if mibBuilder.loadTexts: h3cConStatusEntry.setStatus('current')
+h3cConUserIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 3, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: h3cConUserIndex.setStatus('current')
+h3cConReAuth = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 1, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cConReAuth.setStatus('current')
+h3cUIMgtMIBConformance18 = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 2))
+h3cUIMgtMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 2, 1))
+h3cUIMgtMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 2, 1, 1)).setObjects(("A3COM-HUAWEI-UI-MAN-MIB", "h3cUIMgtBasicGroup"), ("A3COM-HUAWEI-UI-MAN-MIB", "h3cConStatusGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    h3cUIMgtMIBCompliance = h3cUIMgtMIBCompliance.setStatus('current')
+h3cUIMgtManMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 2, 2))
+h3cUIMgtBasicGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 2, 2, 1)).setObjects(("A3COM-HUAWEI-UI-MAN-MIB", "h3cVtyAccAclNum"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    h3cUIMgtBasicGroup = h3cUIMgtBasicGroup.setStatus('current')
+h3cConStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 2, 2, 2, 2)).setObjects(("A3COM-HUAWEI-UI-MAN-MIB", "h3cConReAuth"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    h3cConStatusGroup = h3cConStatusGroup.setStatus('current')
+mibBuilder.exportSymbols("A3COM-HUAWEI-UI-MAN-MIB", h3cUITrapBindObjects=h3cUITrapBindObjects, h3cVtyAccConnway=h3cVtyAccConnway, h3cVtyAccTable=h3cVtyAccTable, h3cVtyAccAclNum=h3cVtyAccAclNum, h3cConStatusGroup=h3cConStatusGroup, h3cVtyAccEntryRowStatus=h3cVtyAccEntryRowStatus, h3cUIMgtObjects=h3cUIMgtObjects, h3cUIMgtManMIBGroups=h3cUIMgtManMIBGroups, h3cUIBasicInfo=h3cUIBasicInfo, h3cUIMgtMIBCompliances=h3cUIMgtMIBCompliances, h3cUINotificationsPrefix=h3cUINotificationsPrefix, h3cConStatusTable=h3cConStatusTable, h3cConReAuth=h3cConReAuth, h3cLogOut=h3cLogOut, h3cConStatus=h3cConStatus, PYSNMP_MODULE_ID=h3cUIMgt, h3cTerminalUserName=h3cTerminalUserName, h3cUIMgtMIBCompliance=h3cUIMgtMIBCompliance, h3cUINotifications=h3cUINotifications, h3cUIScalarObjects=h3cUIScalarObjects, h3cUIMgt=h3cUIMgt, h3cLogIn=h3cLogIn, h3cLogInAuthenFailure=h3cLogInAuthenFailure, h3cVtyMan=h3cVtyMan, h3cConUserIndex=h3cConUserIndex, h3cTerminalSource=h3cTerminalSource, h3cTerminalUserAuthFailureReason=h3cTerminalUserAuthFailureReason, h3cUIMgtBasicGroup=h3cUIMgtBasicGroup, h3cConStatusEntry=h3cConStatusEntry, h3cVtyAccEntry=h3cVtyAccEntry, h3cUIMgtMIBConformance18=h3cUIMgtMIBConformance18, h3cVtyAccUserIndex=h3cVtyAccUserIndex)

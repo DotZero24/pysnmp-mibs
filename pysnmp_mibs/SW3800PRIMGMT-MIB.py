@@ -1,33 +1,27 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlink_mgmt,dlink_products=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlink-mgmt','dlink-products')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Dlink_des3800SeriesProd_ObjectIdentity=ObjectIdentity
-dlink_des3800SeriesProd=_Dlink_des3800SeriesProd_ObjectIdentity((1,3,6,1,4,1,171,10,69))
-_Dlink_des3828Prod_ObjectIdentity=ObjectIdentity
-dlink_des3828Prod=_Dlink_des3828Prod_ObjectIdentity((1,3,6,1,4,1,171,10,69,1))
-_Dlink_des3828DCProd_ObjectIdentity=ObjectIdentity
-dlink_des3828DCProd=_Dlink_des3828DCProd_ObjectIdentity((1,3,6,1,4,1,171,10,69,2))
-_Dlink_des3828PProd_ObjectIdentity=ObjectIdentity
-dlink_des3828PProd=_Dlink_des3828PProd_ObjectIdentity((1,3,6,1,4,1,171,10,69,3))
-_Dlink_des3852Prod_ObjectIdentity=ObjectIdentity
-dlink_des3852Prod=_Dlink_des3852Prod_ObjectIdentity((1,3,6,1,4,1,171,10,69,4))
-_Dlink_des3852PProd_ObjectIdentity=ObjectIdentity
-dlink_des3852PProd=_Dlink_des3852PProd_ObjectIdentity((1,3,6,1,4,1,171,10,69,5))
-_Des3800SeriesProd_ObjectIdentity=ObjectIdentity
-des3800SeriesProd=_Des3800SeriesProd_ObjectIdentity((1,3,6,1,4,1,171,11,69))
-_Des3828_ObjectIdentity=ObjectIdentity
-des3828=_Des3828_ObjectIdentity((1,3,6,1,4,1,171,11,69,1))
-_Des3828DC_ObjectIdentity=ObjectIdentity
-des3828DC=_Des3828DC_ObjectIdentity((1,3,6,1,4,1,171,11,69,2))
-_Des3828P_ObjectIdentity=ObjectIdentity
-des3828P=_Des3828P_ObjectIdentity((1,3,6,1,4,1,171,11,69,3))
-_Des3852_ObjectIdentity=ObjectIdentity
-des3852=_Des3852_ObjectIdentity((1,3,6,1,4,1,171,11,69,4))
-_Des3852P_ObjectIdentity=ObjectIdentity
-des3852P=_Des3852P_ObjectIdentity((1,3,6,1,4,1,171,11,69,5))
-mibBuilder.exportSymbols('SW3800PRIMGMT-MIB',**{'dlink-des3800SeriesProd':dlink_des3800SeriesProd,'dlink-des3828Prod':dlink_des3828Prod,'dlink-des3828DCProd':dlink_des3828DCProd,'dlink-des3828PProd':dlink_des3828PProd,'dlink-des3852Prod':dlink_des3852Prod,'dlink-des3852PProd':dlink_des3852PProd,'des3800SeriesProd':des3800SeriesProd,'des3828':des3828,'des3828DC':des3828DC,'des3828P':des3828P,'des3852':des3852,'des3852P':des3852P})
+#
+# PySNMP MIB module SW3800PRIMGMT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/SW3800PRIMGMT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:17 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlink_mgmt, dlink_products = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-mgmt", "dlink-products")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+dlink_des3800SeriesProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 69)).setLabel("dlink-des3800SeriesProd")
+dlink_des3828Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 69, 1)).setLabel("dlink-des3828Prod")
+dlink_des3828DCProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 69, 2)).setLabel("dlink-des3828DCProd")
+dlink_des3828PProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 69, 3)).setLabel("dlink-des3828PProd")
+dlink_des3852Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 69, 4)).setLabel("dlink-des3852Prod")
+dlink_des3852PProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 69, 5)).setLabel("dlink-des3852PProd")
+des3800SeriesProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 69))
+des3828 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 69, 1))
+des3828DC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 69, 2))
+des3828P = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 69, 3))
+des3852 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 69, 4))
+des3852P = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 69, 5))
+mibBuilder.exportSymbols("SW3800PRIMGMT-MIB", des3828P=des3828P, dlink_des3852Prod=dlink_des3852Prod, des3852=des3852, dlink_des3800SeriesProd=dlink_des3800SeriesProd, dlink_des3828PProd=dlink_des3828PProd, dlink_des3852PProd=dlink_des3852PProd, des3828=des3828, des3852P=des3852P, des3800SeriesProd=des3800SeriesProd, dlink_des3828DCProd=dlink_des3828DCProd, dlink_des3828Prod=dlink_des3828Prod, des3828DC=des3828DC)

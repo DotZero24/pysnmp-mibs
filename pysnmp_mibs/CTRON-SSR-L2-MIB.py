@@ -1,412 +1,156 @@
-_A5='l2ConfGroupV10'
-_A4='l2PortForwardLastDetectedTime'
-_A3='l2PortForwardStatus'
-_A2='l2PortForwardDstPort'
-_A1='l2PortForwardVlanId'
-_A0='l2PortForwardSrcMacAddr'
-_z='l2PortForwardDstMacAddr'
-_y='l2PortOutFrames'
-_x='l2PortInFrames'
-_w='l2PortMaxInfo'
-_v='l2PortMgmtEntries'
-_u='l2PortDstEntries'
-_t='l2PortSrcEntries'
-_s='l2PortLearnedEntryDiscards'
-_r='l2PortDemandAgeCount'
-_q='l2PortDemandAgeLowBound'
-_p='l2PortDemandAgeHiBound'
-_o='l2PortAgingTime'
-_n='l2PortAgingStatus'
-_m='l2PortSecurityInPorts'
-_l='l2PortSecurityVlanId'
-_k='l2PortSecurityType'
-_j='l2PortSecurityDesc'
-_i='l2FilterOutPorts'
-_h='l2FilterInPorts'
-_g='l2FilterVlanId'
-_f='l2FilterDstMacAddr'
-_e='l2FilterSrcMacAddr'
-_d='l2FilterRestrictions'
-_c='l2FilterType'
-_b='l2FilterDesc'
-_a='l2Priority'
-_Z='l2PriorityInPorts'
-_Y='l2PriorityVlanId'
-_X='l2PrioritySrcMacAddr'
-_W='l2PriorityDstMacAddr'
-_V='l2PriorityDesc'
-_U='l2ForwardInPorts'
-_T='l2ForwardDstPort'
-_S='l2LearnedFlowEntries'
-_R='l2LearnedMacEntries'
-_Q='l2LearnedEntryDiscards'
-_P='l2PortForwardIndex'
-_O='l2PortForwardPort'
-_N='l2Port'
-_M='l2PortSecurityIndex'
-_L='l2FilterIndex'
-_K='l2PriorityIndex'
-_J='l2ForwardVlanId'
-_I='l2ForwardSrcMacAddr'
-_H='l2ForwardDstMacAddr'
-_G='l2ForwardFilterId'
-_F='OctetString'
-_E='read-write'
-_D='Integer32'
-_C='read-only'
-_B='CTRON-SSR-L2-MIB'
-_A='obsolete'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_F,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ssrMibs,=mibBuilder.importSymbols('CTRON-SSR-SMI-MIB','ssrMibs')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-l2MIB=ModuleIdentity((1,3,6,1,4,1,52,2501,1,500))
-if mibBuilder.loadTexts:l2MIB.setRevisions(('1999-09-22 00:00',))
-_L2Group_ObjectIdentity=ObjectIdentity
-l2Group=_L2Group_ObjectIdentity((1,3,6,1,4,1,52,2501,1,2))
-_L2LearnedEntryDiscards_Type=Counter32
-_L2LearnedEntryDiscards_Object=MibScalar
-l2LearnedEntryDiscards=_L2LearnedEntryDiscards_Object((1,3,6,1,4,1,52,2501,1,2,1),_L2LearnedEntryDiscards_Type())
-l2LearnedEntryDiscards.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2LearnedEntryDiscards.setStatus(_A)
-_L2LearnedMacEntries_Type=Counter32
-_L2LearnedMacEntries_Object=MibScalar
-l2LearnedMacEntries=_L2LearnedMacEntries_Object((1,3,6,1,4,1,52,2501,1,2,2),_L2LearnedMacEntries_Type())
-l2LearnedMacEntries.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2LearnedMacEntries.setStatus(_A)
-_L2LearnedFlowEntries_Type=Counter32
-_L2LearnedFlowEntries_Object=MibScalar
-l2LearnedFlowEntries=_L2LearnedFlowEntries_Object((1,3,6,1,4,1,52,2501,1,2,3),_L2LearnedFlowEntries_Type())
-l2LearnedFlowEntries.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2LearnedFlowEntries.setStatus(_A)
-_L2ForwardTable_Object=MibTable
-l2ForwardTable=_L2ForwardTable_Object((1,3,6,1,4,1,52,2501,1,2,4))
-if mibBuilder.loadTexts:l2ForwardTable.setStatus(_A)
-_L2ForwardEntry_Object=MibTableRow
-l2ForwardEntry=_L2ForwardEntry_Object((1,3,6,1,4,1,52,2501,1,2,4,1))
-l2ForwardEntry.setIndexNames((0,_B,_G),(0,_B,_H),(0,_B,_I),(0,_B,_J))
-if mibBuilder.loadTexts:l2ForwardEntry.setStatus(_A)
-class _L2ForwardFilterId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,14))
-_L2ForwardFilterId_Type.__name__=_D
-_L2ForwardFilterId_Object=MibTableColumn
-l2ForwardFilterId=_L2ForwardFilterId_Object((1,3,6,1,4,1,52,2501,1,2,4,1,1),_L2ForwardFilterId_Type())
-l2ForwardFilterId.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2ForwardFilterId.setStatus(_A)
-_L2ForwardDstMacAddr_Type=PhysAddress
-_L2ForwardDstMacAddr_Object=MibTableColumn
-l2ForwardDstMacAddr=_L2ForwardDstMacAddr_Object((1,3,6,1,4,1,52,2501,1,2,4,1,2),_L2ForwardDstMacAddr_Type())
-l2ForwardDstMacAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2ForwardDstMacAddr.setStatus(_A)
-_L2ForwardSrcMacAddr_Type=PhysAddress
-_L2ForwardSrcMacAddr_Object=MibTableColumn
-l2ForwardSrcMacAddr=_L2ForwardSrcMacAddr_Object((1,3,6,1,4,1,52,2501,1,2,4,1,3),_L2ForwardSrcMacAddr_Type())
-l2ForwardSrcMacAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2ForwardSrcMacAddr.setStatus(_A)
-class _L2ForwardVlanId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_L2ForwardVlanId_Type.__name__=_D
-_L2ForwardVlanId_Object=MibTableColumn
-l2ForwardVlanId=_L2ForwardVlanId_Object((1,3,6,1,4,1,52,2501,1,2,4,1,4),_L2ForwardVlanId_Type())
-l2ForwardVlanId.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2ForwardVlanId.setStatus(_A)
-class _L2ForwardDstPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1024))
-_L2ForwardDstPort_Type.__name__=_D
-_L2ForwardDstPort_Object=MibTableColumn
-l2ForwardDstPort=_L2ForwardDstPort_Object((1,3,6,1,4,1,52,2501,1,2,4,1,5),_L2ForwardDstPort_Type())
-l2ForwardDstPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2ForwardDstPort.setStatus(_A)
-class _L2ForwardInPorts_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_L2ForwardInPorts_Type.__name__=_F
-_L2ForwardInPorts_Object=MibTableColumn
-l2ForwardInPorts=_L2ForwardInPorts_Object((1,3,6,1,4,1,52,2501,1,2,4,1,6),_L2ForwardInPorts_Type())
-l2ForwardInPorts.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2ForwardInPorts.setStatus(_A)
-_L2PriorityTable_Object=MibTable
-l2PriorityTable=_L2PriorityTable_Object((1,3,6,1,4,1,52,2501,1,2,5))
-if mibBuilder.loadTexts:l2PriorityTable.setStatus(_A)
-_L2PriorityEntry_Object=MibTableRow
-l2PriorityEntry=_L2PriorityEntry_Object((1,3,6,1,4,1,52,2501,1,2,5,1))
-l2PriorityEntry.setIndexNames((0,_B,_K))
-if mibBuilder.loadTexts:l2PriorityEntry.setStatus(_A)
-class _L2PriorityIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_L2PriorityIndex_Type.__name__=_D
-_L2PriorityIndex_Object=MibTableColumn
-l2PriorityIndex=_L2PriorityIndex_Object((1,3,6,1,4,1,52,2501,1,2,5,1,1),_L2PriorityIndex_Type())
-l2PriorityIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2PriorityIndex.setStatus(_A)
-class _L2PriorityDesc_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,25))
-_L2PriorityDesc_Type.__name__=_F
-_L2PriorityDesc_Object=MibTableColumn
-l2PriorityDesc=_L2PriorityDesc_Object((1,3,6,1,4,1,52,2501,1,2,5,1,2),_L2PriorityDesc_Type())
-l2PriorityDesc.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2PriorityDesc.setStatus(_A)
-_L2PriorityDstMacAddr_Type=PhysAddress
-_L2PriorityDstMacAddr_Object=MibTableColumn
-l2PriorityDstMacAddr=_L2PriorityDstMacAddr_Object((1,3,6,1,4,1,52,2501,1,2,5,1,3),_L2PriorityDstMacAddr_Type())
-l2PriorityDstMacAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2PriorityDstMacAddr.setStatus(_A)
-_L2PrioritySrcMacAddr_Type=PhysAddress
-_L2PrioritySrcMacAddr_Object=MibTableColumn
-l2PrioritySrcMacAddr=_L2PrioritySrcMacAddr_Object((1,3,6,1,4,1,52,2501,1,2,5,1,4),_L2PrioritySrcMacAddr_Type())
-l2PrioritySrcMacAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2PrioritySrcMacAddr.setStatus(_A)
-class _L2PriorityVlanId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_L2PriorityVlanId_Type.__name__=_D
-_L2PriorityVlanId_Object=MibTableColumn
-l2PriorityVlanId=_L2PriorityVlanId_Object((1,3,6,1,4,1,52,2501,1,2,5,1,5),_L2PriorityVlanId_Type())
-l2PriorityVlanId.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2PriorityVlanId.setStatus(_A)
-class _L2PriorityInPorts_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_L2PriorityInPorts_Type.__name__=_F
-_L2PriorityInPorts_Object=MibTableColumn
-l2PriorityInPorts=_L2PriorityInPorts_Object((1,3,6,1,4,1,52,2501,1,2,5,1,6),_L2PriorityInPorts_Type())
-l2PriorityInPorts.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2PriorityInPorts.setStatus(_A)
-class _L2Priority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('low',1),('medium',2),('high',3),('control',4)))
-_L2Priority_Type.__name__=_D
-_L2Priority_Object=MibTableColumn
-l2Priority=_L2Priority_Object((1,3,6,1,4,1,52,2501,1,2,5,1,7),_L2Priority_Type())
-l2Priority.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2Priority.setStatus(_A)
-_L2FilterTable_Object=MibTable
-l2FilterTable=_L2FilterTable_Object((1,3,6,1,4,1,52,2501,1,2,6))
-if mibBuilder.loadTexts:l2FilterTable.setStatus(_A)
-_L2FilterEntry_Object=MibTableRow
-l2FilterEntry=_L2FilterEntry_Object((1,3,6,1,4,1,52,2501,1,2,6,1))
-l2FilterEntry.setIndexNames((0,_B,_L))
-if mibBuilder.loadTexts:l2FilterEntry.setStatus(_A)
-class _L2FilterIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_L2FilterIndex_Type.__name__=_D
-_L2FilterIndex_Object=MibTableColumn
-l2FilterIndex=_L2FilterIndex_Object((1,3,6,1,4,1,52,2501,1,2,6,1,1),_L2FilterIndex_Type())
-l2FilterIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2FilterIndex.setStatus(_A)
-class _L2FilterDesc_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,25))
-_L2FilterDesc_Type.__name__=_F
-_L2FilterDesc_Object=MibTableColumn
-l2FilterDesc=_L2FilterDesc_Object((1,3,6,1,4,1,52,2501,1,2,6,1,2),_L2FilterDesc_Type())
-l2FilterDesc.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2FilterDesc.setStatus(_A)
-class _L2FilterType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('staticEntry',1),('addressFilter',2),('addressLock',3)))
-_L2FilterType_Type.__name__=_D
-_L2FilterType_Object=MibTableColumn
-l2FilterType=_L2FilterType_Object((1,3,6,1,4,1,52,2501,1,2,6,1,3),_L2FilterType_Type())
-l2FilterType.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2FilterType.setStatus(_A)
-class _L2FilterRestrictions_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('allow',1),('disallow',2),('force',3),('none',4)))
-_L2FilterRestrictions_Type.__name__=_D
-_L2FilterRestrictions_Object=MibTableColumn
-l2FilterRestrictions=_L2FilterRestrictions_Object((1,3,6,1,4,1,52,2501,1,2,6,1,4),_L2FilterRestrictions_Type())
-l2FilterRestrictions.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2FilterRestrictions.setStatus(_A)
-_L2FilterSrcMacAddr_Type=PhysAddress
-_L2FilterSrcMacAddr_Object=MibTableColumn
-l2FilterSrcMacAddr=_L2FilterSrcMacAddr_Object((1,3,6,1,4,1,52,2501,1,2,6,1,5),_L2FilterSrcMacAddr_Type())
-l2FilterSrcMacAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2FilterSrcMacAddr.setStatus(_A)
-_L2FilterDstMacAddr_Type=PhysAddress
-_L2FilterDstMacAddr_Object=MibTableColumn
-l2FilterDstMacAddr=_L2FilterDstMacAddr_Object((1,3,6,1,4,1,52,2501,1,2,6,1,6),_L2FilterDstMacAddr_Type())
-l2FilterDstMacAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2FilterDstMacAddr.setStatus(_A)
-class _L2FilterVlanId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_L2FilterVlanId_Type.__name__=_D
-_L2FilterVlanId_Object=MibTableColumn
-l2FilterVlanId=_L2FilterVlanId_Object((1,3,6,1,4,1,52,2501,1,2,6,1,7),_L2FilterVlanId_Type())
-l2FilterVlanId.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2FilterVlanId.setStatus(_A)
-class _L2FilterInPorts_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_L2FilterInPorts_Type.__name__=_F
-_L2FilterInPorts_Object=MibTableColumn
-l2FilterInPorts=_L2FilterInPorts_Object((1,3,6,1,4,1,52,2501,1,2,6,1,8),_L2FilterInPorts_Type())
-l2FilterInPorts.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2FilterInPorts.setStatus(_A)
-class _L2FilterOutPorts_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_L2FilterOutPorts_Type.__name__=_F
-_L2FilterOutPorts_Object=MibTableColumn
-l2FilterOutPorts=_L2FilterOutPorts_Object((1,3,6,1,4,1,52,2501,1,2,6,1,9),_L2FilterOutPorts_Type())
-l2FilterOutPorts.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2FilterOutPorts.setStatus(_A)
-_L2PortSecurityTable_Object=MibTable
-l2PortSecurityTable=_L2PortSecurityTable_Object((1,3,6,1,4,1,52,2501,1,2,7))
-if mibBuilder.loadTexts:l2PortSecurityTable.setStatus(_A)
-_L2PortSecurityEntry_Object=MibTableRow
-l2PortSecurityEntry=_L2PortSecurityEntry_Object((1,3,6,1,4,1,52,2501,1,2,7,1))
-l2PortSecurityEntry.setIndexNames((0,_B,_M))
-if mibBuilder.loadTexts:l2PortSecurityEntry.setStatus(_A)
-class _L2PortSecurityIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_L2PortSecurityIndex_Type.__name__=_D
-_L2PortSecurityIndex_Object=MibTableColumn
-l2PortSecurityIndex=_L2PortSecurityIndex_Object((1,3,6,1,4,1,52,2501,1,2,7,1,1),_L2PortSecurityIndex_Type())
-l2PortSecurityIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2PortSecurityIndex.setStatus(_A)
-class _L2PortSecurityDesc_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,25))
-_L2PortSecurityDesc_Type.__name__=_F
-_L2PortSecurityDesc_Object=MibTableColumn
-l2PortSecurityDesc=_L2PortSecurityDesc_Object((1,3,6,1,4,1,52,2501,1,2,7,1,2),_L2PortSecurityDesc_Type())
-l2PortSecurityDesc.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2PortSecurityDesc.setStatus(_A)
-class _L2PortSecurityType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('sourceSecure',1),('destinationSecure',2)))
-_L2PortSecurityType_Type.__name__=_D
-_L2PortSecurityType_Object=MibTableColumn
-l2PortSecurityType=_L2PortSecurityType_Object((1,3,6,1,4,1,52,2501,1,2,7,1,3),_L2PortSecurityType_Type())
-l2PortSecurityType.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2PortSecurityType.setStatus(_A)
-class _L2PortSecurityVlanId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_L2PortSecurityVlanId_Type.__name__=_D
-_L2PortSecurityVlanId_Object=MibTableColumn
-l2PortSecurityVlanId=_L2PortSecurityVlanId_Object((1,3,6,1,4,1,52,2501,1,2,7,1,4),_L2PortSecurityVlanId_Type())
-l2PortSecurityVlanId.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2PortSecurityVlanId.setStatus(_A)
-class _L2PortSecurityInPorts_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_L2PortSecurityInPorts_Type.__name__=_F
-_L2PortSecurityInPorts_Object=MibTableColumn
-l2PortSecurityInPorts=_L2PortSecurityInPorts_Object((1,3,6,1,4,1,52,2501,1,2,7,1,5),_L2PortSecurityInPorts_Type())
-l2PortSecurityInPorts.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2PortSecurityInPorts.setStatus(_A)
-_L2PortTable_Object=MibTable
-l2PortTable=_L2PortTable_Object((1,3,6,1,4,1,52,2501,1,2,8))
-if mibBuilder.loadTexts:l2PortTable.setStatus(_A)
-_L2PortEntry_Object=MibTableRow
-l2PortEntry=_L2PortEntry_Object((1,3,6,1,4,1,52,2501,1,2,8,1))
-l2PortEntry.setIndexNames((0,_B,_N))
-if mibBuilder.loadTexts:l2PortEntry.setStatus(_A)
-class _L2Port_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_L2Port_Type.__name__=_D
-_L2Port_Object=MibTableColumn
-l2Port=_L2Port_Object((1,3,6,1,4,1,52,2501,1,2,8,1,1),_L2Port_Type())
-l2Port.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2Port.setStatus(_A)
-class _L2PortAgingStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_L2PortAgingStatus_Type.__name__=_D
-_L2PortAgingStatus_Object=MibTableColumn
-l2PortAgingStatus=_L2PortAgingStatus_Object((1,3,6,1,4,1,52,2501,1,2,8,1,2),_L2PortAgingStatus_Type())
-l2PortAgingStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2PortAgingStatus.setStatus(_A)
-class _L2PortAgingTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,1000000))
-_L2PortAgingTime_Type.__name__=_D
-_L2PortAgingTime_Object=MibTableColumn
-l2PortAgingTime=_L2PortAgingTime_Object((1,3,6,1,4,1,52,2501,1,2,8,1,3),_L2PortAgingTime_Type())
-l2PortAgingTime.setMaxAccess(_E)
-if mibBuilder.loadTexts:l2PortAgingTime.setStatus(_A)
-class _L2PortDemandAgeHiBound_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_L2PortDemandAgeHiBound_Type.__name__=_D
-_L2PortDemandAgeHiBound_Object=MibTableColumn
-l2PortDemandAgeHiBound=_L2PortDemandAgeHiBound_Object((1,3,6,1,4,1,52,2501,1,2,8,1,4),_L2PortDemandAgeHiBound_Type())
-l2PortDemandAgeHiBound.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2PortDemandAgeHiBound.setStatus(_A)
-class _L2PortDemandAgeLowBound_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_L2PortDemandAgeLowBound_Type.__name__=_D
-_L2PortDemandAgeLowBound_Object=MibTableColumn
-l2PortDemandAgeLowBound=_L2PortDemandAgeLowBound_Object((1,3,6,1,4,1,52,2501,1,2,8,1,5),_L2PortDemandAgeLowBound_Type())
-l2PortDemandAgeLowBound.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2PortDemandAgeLowBound.setStatus(_A)
-_L2PortDemandAgeCount_Type=Counter32
-_L2PortDemandAgeCount_Object=MibTableColumn
-l2PortDemandAgeCount=_L2PortDemandAgeCount_Object((1,3,6,1,4,1,52,2501,1,2,8,1,6),_L2PortDemandAgeCount_Type())
-l2PortDemandAgeCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2PortDemandAgeCount.setStatus(_A)
-_L2PortLearnedEntryDiscards_Type=Counter32
-_L2PortLearnedEntryDiscards_Object=MibTableColumn
-l2PortLearnedEntryDiscards=_L2PortLearnedEntryDiscards_Object((1,3,6,1,4,1,52,2501,1,2,8,1,7),_L2PortLearnedEntryDiscards_Type())
-l2PortLearnedEntryDiscards.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2PortLearnedEntryDiscards.setStatus(_A)
-_L2PortSrcEntries_Type=Counter32
-_L2PortSrcEntries_Object=MibTableColumn
-l2PortSrcEntries=_L2PortSrcEntries_Object((1,3,6,1,4,1,52,2501,1,2,8,1,8),_L2PortSrcEntries_Type())
-l2PortSrcEntries.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2PortSrcEntries.setStatus(_A)
-_L2PortDstEntries_Type=Counter32
-_L2PortDstEntries_Object=MibTableColumn
-l2PortDstEntries=_L2PortDstEntries_Object((1,3,6,1,4,1,52,2501,1,2,8,1,9),_L2PortDstEntries_Type())
-l2PortDstEntries.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2PortDstEntries.setStatus(_A)
-_L2PortMgmtEntries_Type=Counter32
-_L2PortMgmtEntries_Object=MibTableColumn
-l2PortMgmtEntries=_L2PortMgmtEntries_Object((1,3,6,1,4,1,52,2501,1,2,8,1,10),_L2PortMgmtEntries_Type())
-l2PortMgmtEntries.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2PortMgmtEntries.setStatus(_A)
-class _L2PortMaxInfo_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_L2PortMaxInfo_Type.__name__=_D
-_L2PortMaxInfo_Object=MibTableColumn
-l2PortMaxInfo=_L2PortMaxInfo_Object((1,3,6,1,4,1,52,2501,1,2,8,1,11),_L2PortMaxInfo_Type())
-l2PortMaxInfo.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2PortMaxInfo.setStatus(_A)
-_L2PortInFrames_Type=Counter32
-_L2PortInFrames_Object=MibTableColumn
-l2PortInFrames=_L2PortInFrames_Object((1,3,6,1,4,1,52,2501,1,2,8,1,12),_L2PortInFrames_Type())
-l2PortInFrames.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2PortInFrames.setStatus(_A)
-_L2PortOutFrames_Type=Counter32
-_L2PortOutFrames_Object=MibTableColumn
-l2PortOutFrames=_L2PortOutFrames_Object((1,3,6,1,4,1,52,2501,1,2,8,1,13),_L2PortOutFrames_Type())
-l2PortOutFrames.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2PortOutFrames.setStatus(_A)
-_L2PortForwardTable_Object=MibTable
-l2PortForwardTable=_L2PortForwardTable_Object((1,3,6,1,4,1,52,2501,1,2,9))
-if mibBuilder.loadTexts:l2PortForwardTable.setStatus(_A)
-_L2PortForwardEntry_Object=MibTableRow
-l2PortForwardEntry=_L2PortForwardEntry_Object((1,3,6,1,4,1,52,2501,1,2,9,1))
-l2PortForwardEntry.setIndexNames((0,_B,_O),(0,_B,_P))
-if mibBuilder.loadTexts:l2PortForwardEntry.setStatus(_A)
-class _L2PortForwardPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_L2PortForwardPort_Type.__name__=_D
-_L2PortForwardPort_Object=MibTableColumn
-l2PortForwardPort=_L2PortForwardPort_Object((1,3,6,1,4,1,52,2501,1,2,9,1,1),_L2PortForwardPort_Type())
-l2PortForwardPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2PortForwardPort.setStatus(_A)
-class _L2PortForwardIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_L2PortForwardIndex_Type.__name__=_D
-_L2PortForwardIndex_Object=MibTableColumn
-l2PortForwardIndex=_L2PortForwardIndex_Object((1,3,6,1,4,1,52,2501,1,2,9,1,2),_L2PortForwardIndex_Type())
-l2PortForwardIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2PortForwardIndex.setStatus(_A)
-_L2PortForwardDstMacAddr_Type=PhysAddress
-_L2PortForwardDstMacAddr_Object=MibTableColumn
-l2PortForwardDstMacAddr=_L2PortForwardDstMacAddr_Object((1,3,6,1,4,1,52,2501,1,2,9,1,3),_L2PortForwardDstMacAddr_Type())
-l2PortForwardDstMacAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2PortForwardDstMacAddr.setStatus(_A)
-_L2PortForwardSrcMacAddr_Type=PhysAddress
-_L2PortForwardSrcMacAddr_Object=MibTableColumn
-l2PortForwardSrcMacAddr=_L2PortForwardSrcMacAddr_Object((1,3,6,1,4,1,52,2501,1,2,9,1,4),_L2PortForwardSrcMacAddr_Type())
-l2PortForwardSrcMacAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2PortForwardSrcMacAddr.setStatus(_A)
-class _L2PortForwardVlanId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_L2PortForwardVlanId_Type.__name__=_D
-_L2PortForwardVlanId_Object=MibTableColumn
-l2PortForwardVlanId=_L2PortForwardVlanId_Object((1,3,6,1,4,1,52,2501,1,2,9,1,5),_L2PortForwardVlanId_Type())
-l2PortForwardVlanId.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2PortForwardVlanId.setStatus(_A)
-class _L2PortForwardDstPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1024))
-_L2PortForwardDstPort_Type.__name__=_D
-_L2PortForwardDstPort_Object=MibTableColumn
-l2PortForwardDstPort=_L2PortForwardDstPort_Object((1,3,6,1,4,1,52,2501,1,2,9,1,6),_L2PortForwardDstPort_Type())
-l2PortForwardDstPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2PortForwardDstPort.setStatus(_A)
-class _L2PortForwardStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('other',1),('invalid',2),('learned',3),('self',4),('mgmt',5)))
-_L2PortForwardStatus_Type.__name__=_D
-_L2PortForwardStatus_Object=MibTableColumn
-l2PortForwardStatus=_L2PortForwardStatus_Object((1,3,6,1,4,1,52,2501,1,2,9,1,7),_L2PortForwardStatus_Type())
-l2PortForwardStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2PortForwardStatus.setStatus(_A)
-_L2PortForwardLastDetectedTime_Type=TimeTicks
-_L2PortForwardLastDetectedTime_Object=MibTableColumn
-l2PortForwardLastDetectedTime=_L2PortForwardLastDetectedTime_Object((1,3,6,1,4,1,52,2501,1,2,9,1,8),_L2PortForwardLastDetectedTime_Type())
-l2PortForwardLastDetectedTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:l2PortForwardLastDetectedTime.setStatus(_A)
-_L2Conformance_ObjectIdentity=ObjectIdentity
-l2Conformance=_L2Conformance_ObjectIdentity((1,3,6,1,4,1,52,2501,1,500,2))
-_L2Compliances_ObjectIdentity=ObjectIdentity
-l2Compliances=_L2Compliances_ObjectIdentity((1,3,6,1,4,1,52,2501,1,500,2,1))
-_L2Groups_ObjectIdentity=ObjectIdentity
-l2Groups=_L2Groups_ObjectIdentity((1,3,6,1,4,1,52,2501,1,500,2,2))
-l2ConfGroupV10=ObjectGroup((1,3,6,1,4,1,52,2501,1,500,2,2,1))
-l2ConfGroupV10.setObjects(*((_B,_Q),(_B,_R),(_B,_S),(_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_T),(_B,_U),(_B,_K),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_L),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_M),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_N),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_O),(_B,_P),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4)))
-if mibBuilder.loadTexts:l2ConfGroupV10.setStatus(_A)
-l2ComplianceV10=ModuleCompliance((1,3,6,1,4,1,52,2501,1,500,2,2,1,1))
-l2ComplianceV10.setObjects((_B,_A5))
-if mibBuilder.loadTexts:l2ComplianceV10.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'l2Group':l2Group,_Q:l2LearnedEntryDiscards,_R:l2LearnedMacEntries,_S:l2LearnedFlowEntries,'l2ForwardTable':l2ForwardTable,'l2ForwardEntry':l2ForwardEntry,_G:l2ForwardFilterId,_H:l2ForwardDstMacAddr,_I:l2ForwardSrcMacAddr,_J:l2ForwardVlanId,_T:l2ForwardDstPort,_U:l2ForwardInPorts,'l2PriorityTable':l2PriorityTable,'l2PriorityEntry':l2PriorityEntry,_K:l2PriorityIndex,_V:l2PriorityDesc,_W:l2PriorityDstMacAddr,_X:l2PrioritySrcMacAddr,_Y:l2PriorityVlanId,_Z:l2PriorityInPorts,_a:l2Priority,'l2FilterTable':l2FilterTable,'l2FilterEntry':l2FilterEntry,_L:l2FilterIndex,_b:l2FilterDesc,_c:l2FilterType,_d:l2FilterRestrictions,_e:l2FilterSrcMacAddr,_f:l2FilterDstMacAddr,_g:l2FilterVlanId,_h:l2FilterInPorts,_i:l2FilterOutPorts,'l2PortSecurityTable':l2PortSecurityTable,'l2PortSecurityEntry':l2PortSecurityEntry,_M:l2PortSecurityIndex,_j:l2PortSecurityDesc,_k:l2PortSecurityType,_l:l2PortSecurityVlanId,_m:l2PortSecurityInPorts,'l2PortTable':l2PortTable,'l2PortEntry':l2PortEntry,_N:l2Port,_n:l2PortAgingStatus,_o:l2PortAgingTime,_p:l2PortDemandAgeHiBound,_q:l2PortDemandAgeLowBound,_r:l2PortDemandAgeCount,_s:l2PortLearnedEntryDiscards,_t:l2PortSrcEntries,_u:l2PortDstEntries,_v:l2PortMgmtEntries,_w:l2PortMaxInfo,_x:l2PortInFrames,_y:l2PortOutFrames,'l2PortForwardTable':l2PortForwardTable,'l2PortForwardEntry':l2PortForwardEntry,_O:l2PortForwardPort,_P:l2PortForwardIndex,_z:l2PortForwardDstMacAddr,_A0:l2PortForwardSrcMacAddr,_A1:l2PortForwardVlanId,_A2:l2PortForwardDstPort,_A3:l2PortForwardStatus,_A4:l2PortForwardLastDetectedTime,'l2MIB':l2MIB,'l2Conformance':l2Conformance,'l2Compliances':l2Compliances,'l2Groups':l2Groups,_A5:l2ConfGroupV10,'l2ComplianceV10':l2ComplianceV10})
+#
+# PySNMP MIB module CTRON-SSR-L2-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/CTRON-SSR-L2-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:37 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ssrMibs, = mibBuilder.importSymbols("CTRON-SSR-SMI-MIB", "ssrMibs")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "PhysAddress")
+l2MIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 2501, 1, 500))
+l2MIB.setRevisions(('1999-09-22 00:00',))
+if mibBuilder.loadTexts: l2MIB.setLastUpdated('9802090000Z')
+if mibBuilder.loadTexts: l2MIB.setOrganization('Cabletron Systems, Inc.')
+l2Group = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2))
+l2LearnedEntryDiscards = MibScalar((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2LearnedEntryDiscards.setStatus('obsolete')
+l2LearnedMacEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2LearnedMacEntries.setStatus('obsolete')
+l2LearnedFlowEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2LearnedFlowEntries.setStatus('obsolete')
+l2ForwardTable = MibTable((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 4), )
+if mibBuilder.loadTexts: l2ForwardTable.setStatus('obsolete')
+l2ForwardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 4, 1), ).setIndexNames((0, "CTRON-SSR-L2-MIB", "l2ForwardFilterId"), (0, "CTRON-SSR-L2-MIB", "l2ForwardDstMacAddr"), (0, "CTRON-SSR-L2-MIB", "l2ForwardSrcMacAddr"), (0, "CTRON-SSR-L2-MIB", "l2ForwardVlanId"))
+if mibBuilder.loadTexts: l2ForwardEntry.setStatus('obsolete')
+l2ForwardFilterId = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 14))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2ForwardFilterId.setStatus('obsolete')
+l2ForwardDstMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 4, 1, 2), PhysAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2ForwardDstMacAddr.setStatus('obsolete')
+l2ForwardSrcMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 4, 1, 3), PhysAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2ForwardSrcMacAddr.setStatus('obsolete')
+l2ForwardVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 4, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2ForwardVlanId.setStatus('obsolete')
+l2ForwardDstPort = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 4, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1024))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2ForwardDstPort.setStatus('obsolete')
+l2ForwardInPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 4, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2ForwardInPorts.setStatus('obsolete')
+l2PriorityTable = MibTable((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 5), )
+if mibBuilder.loadTexts: l2PriorityTable.setStatus('obsolete')
+l2PriorityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 5, 1), ).setIndexNames((0, "CTRON-SSR-L2-MIB", "l2PriorityIndex"))
+if mibBuilder.loadTexts: l2PriorityEntry.setStatus('obsolete')
+l2PriorityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2PriorityIndex.setStatus('obsolete')
+l2PriorityDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 5, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 25))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2PriorityDesc.setStatus('obsolete')
+l2PriorityDstMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 5, 1, 3), PhysAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2PriorityDstMacAddr.setStatus('obsolete')
+l2PrioritySrcMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 5, 1, 4), PhysAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2PrioritySrcMacAddr.setStatus('obsolete')
+l2PriorityVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 5, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2PriorityVlanId.setStatus('obsolete')
+l2PriorityInPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 5, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2PriorityInPorts.setStatus('obsolete')
+l2Priority = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 5, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("low", 1), ("medium", 2), ("high", 3), ("control", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2Priority.setStatus('obsolete')
+l2FilterTable = MibTable((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 6), )
+if mibBuilder.loadTexts: l2FilterTable.setStatus('obsolete')
+l2FilterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 6, 1), ).setIndexNames((0, "CTRON-SSR-L2-MIB", "l2FilterIndex"))
+if mibBuilder.loadTexts: l2FilterEntry.setStatus('obsolete')
+l2FilterIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2FilterIndex.setStatus('obsolete')
+l2FilterDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 6, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 25))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2FilterDesc.setStatus('obsolete')
+l2FilterType = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("staticEntry", 1), ("addressFilter", 2), ("addressLock", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2FilterType.setStatus('obsolete')
+l2FilterRestrictions = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 6, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("allow", 1), ("disallow", 2), ("force", 3), ("none", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2FilterRestrictions.setStatus('obsolete')
+l2FilterSrcMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 6, 1, 5), PhysAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2FilterSrcMacAddr.setStatus('obsolete')
+l2FilterDstMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 6, 1, 6), PhysAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2FilterDstMacAddr.setStatus('obsolete')
+l2FilterVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 6, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2FilterVlanId.setStatus('obsolete')
+l2FilterInPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 6, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2FilterInPorts.setStatus('obsolete')
+l2FilterOutPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 6, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2FilterOutPorts.setStatus('obsolete')
+l2PortSecurityTable = MibTable((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 7), )
+if mibBuilder.loadTexts: l2PortSecurityTable.setStatus('obsolete')
+l2PortSecurityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 7, 1), ).setIndexNames((0, "CTRON-SSR-L2-MIB", "l2PortSecurityIndex"))
+if mibBuilder.loadTexts: l2PortSecurityEntry.setStatus('obsolete')
+l2PortSecurityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 7, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2PortSecurityIndex.setStatus('obsolete')
+l2PortSecurityDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 7, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 25))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2PortSecurityDesc.setStatus('obsolete')
+l2PortSecurityType = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 7, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("sourceSecure", 1), ("destinationSecure", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2PortSecurityType.setStatus('obsolete')
+l2PortSecurityVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 7, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2PortSecurityVlanId.setStatus('obsolete')
+l2PortSecurityInPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 7, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2PortSecurityInPorts.setStatus('obsolete')
+l2PortTable = MibTable((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 8), )
+if mibBuilder.loadTexts: l2PortTable.setStatus('obsolete')
+l2PortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 8, 1), ).setIndexNames((0, "CTRON-SSR-L2-MIB", "l2Port"))
+if mibBuilder.loadTexts: l2PortEntry.setStatus('obsolete')
+l2Port = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 8, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2Port.setStatus('obsolete')
+l2PortAgingStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 8, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2PortAgingStatus.setStatus('obsolete')
+l2PortAgingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 8, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 1000000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: l2PortAgingTime.setStatus('obsolete')
+l2PortDemandAgeHiBound = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 8, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2PortDemandAgeHiBound.setStatus('obsolete')
+l2PortDemandAgeLowBound = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 8, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2PortDemandAgeLowBound.setStatus('obsolete')
+l2PortDemandAgeCount = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 8, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2PortDemandAgeCount.setStatus('obsolete')
+l2PortLearnedEntryDiscards = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 8, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2PortLearnedEntryDiscards.setStatus('obsolete')
+l2PortSrcEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 8, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2PortSrcEntries.setStatus('obsolete')
+l2PortDstEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 8, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2PortDstEntries.setStatus('obsolete')
+l2PortMgmtEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 8, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2PortMgmtEntries.setStatus('obsolete')
+l2PortMaxInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 8, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2PortMaxInfo.setStatus('obsolete')
+l2PortInFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 8, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2PortInFrames.setStatus('obsolete')
+l2PortOutFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 8, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2PortOutFrames.setStatus('obsolete')
+l2PortForwardTable = MibTable((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 9), )
+if mibBuilder.loadTexts: l2PortForwardTable.setStatus('obsolete')
+l2PortForwardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 9, 1), ).setIndexNames((0, "CTRON-SSR-L2-MIB", "l2PortForwardPort"), (0, "CTRON-SSR-L2-MIB", "l2PortForwardIndex"))
+if mibBuilder.loadTexts: l2PortForwardEntry.setStatus('obsolete')
+l2PortForwardPort = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 9, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2PortForwardPort.setStatus('obsolete')
+l2PortForwardIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 9, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2PortForwardIndex.setStatus('obsolete')
+l2PortForwardDstMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 9, 1, 3), PhysAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2PortForwardDstMacAddr.setStatus('obsolete')
+l2PortForwardSrcMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 9, 1, 4), PhysAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2PortForwardSrcMacAddr.setStatus('obsolete')
+l2PortForwardVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 9, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2PortForwardVlanId.setStatus('obsolete')
+l2PortForwardDstPort = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 9, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1024))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2PortForwardDstPort.setStatus('obsolete')
+l2PortForwardStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 9, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("other", 1), ("invalid", 2), ("learned", 3), ("self", 4), ("mgmt", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2PortForwardStatus.setStatus('obsolete')
+l2PortForwardLastDetectedTime = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 2501, 1, 2, 9, 1, 8), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: l2PortForwardLastDetectedTime.setStatus('obsolete')
+l2Conformance = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2501, 1, 500, 2))
+l2Compliances = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2501, 1, 500, 2, 1))
+l2Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2501, 1, 500, 2, 2))
+l2ComplianceV10 = ModuleCompliance((1, 3, 6, 1, 4, 1, 52, 2501, 1, 500, 2, 2, 1, 1)).setObjects(("CTRON-SSR-L2-MIB", "l2ConfGroupV10"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    l2ComplianceV10 = l2ComplianceV10.setStatus('obsolete')
+l2ConfGroupV10 = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 2501, 1, 500, 2, 2, 1)).setObjects(("CTRON-SSR-L2-MIB", "l2LearnedEntryDiscards"), ("CTRON-SSR-L2-MIB", "l2LearnedMacEntries"), ("CTRON-SSR-L2-MIB", "l2LearnedFlowEntries"), ("CTRON-SSR-L2-MIB", "l2ForwardFilterId"), ("CTRON-SSR-L2-MIB", "l2ForwardDstMacAddr"), ("CTRON-SSR-L2-MIB", "l2ForwardSrcMacAddr"), ("CTRON-SSR-L2-MIB", "l2ForwardVlanId"), ("CTRON-SSR-L2-MIB", "l2ForwardDstPort"), ("CTRON-SSR-L2-MIB", "l2ForwardInPorts"), ("CTRON-SSR-L2-MIB", "l2PriorityIndex"), ("CTRON-SSR-L2-MIB", "l2PriorityDesc"), ("CTRON-SSR-L2-MIB", "l2PriorityDstMacAddr"), ("CTRON-SSR-L2-MIB", "l2PrioritySrcMacAddr"), ("CTRON-SSR-L2-MIB", "l2PriorityVlanId"), ("CTRON-SSR-L2-MIB", "l2PriorityInPorts"), ("CTRON-SSR-L2-MIB", "l2Priority"), ("CTRON-SSR-L2-MIB", "l2FilterIndex"), ("CTRON-SSR-L2-MIB", "l2FilterDesc"), ("CTRON-SSR-L2-MIB", "l2FilterType"), ("CTRON-SSR-L2-MIB", "l2FilterRestrictions"), ("CTRON-SSR-L2-MIB", "l2FilterSrcMacAddr"), ("CTRON-SSR-L2-MIB", "l2FilterDstMacAddr"), ("CTRON-SSR-L2-MIB", "l2FilterVlanId"), ("CTRON-SSR-L2-MIB", "l2FilterInPorts"), ("CTRON-SSR-L2-MIB", "l2FilterOutPorts"), ("CTRON-SSR-L2-MIB", "l2PortSecurityIndex"), ("CTRON-SSR-L2-MIB", "l2PortSecurityDesc"), ("CTRON-SSR-L2-MIB", "l2PortSecurityType"), ("CTRON-SSR-L2-MIB", "l2PortSecurityVlanId"), ("CTRON-SSR-L2-MIB", "l2PortSecurityInPorts"), ("CTRON-SSR-L2-MIB", "l2Port"), ("CTRON-SSR-L2-MIB", "l2PortAgingStatus"), ("CTRON-SSR-L2-MIB", "l2PortAgingTime"), ("CTRON-SSR-L2-MIB", "l2PortDemandAgeHiBound"), ("CTRON-SSR-L2-MIB", "l2PortDemandAgeLowBound"), ("CTRON-SSR-L2-MIB", "l2PortDemandAgeCount"), ("CTRON-SSR-L2-MIB", "l2PortLearnedEntryDiscards"), ("CTRON-SSR-L2-MIB", "l2PortSrcEntries"), ("CTRON-SSR-L2-MIB", "l2PortDstEntries"), ("CTRON-SSR-L2-MIB", "l2PortMgmtEntries"), ("CTRON-SSR-L2-MIB", "l2PortMaxInfo"), ("CTRON-SSR-L2-MIB", "l2PortInFrames"), ("CTRON-SSR-L2-MIB", "l2PortOutFrames"), ("CTRON-SSR-L2-MIB", "l2PortForwardPort"), ("CTRON-SSR-L2-MIB", "l2PortForwardIndex"), ("CTRON-SSR-L2-MIB", "l2PortForwardDstMacAddr"), ("CTRON-SSR-L2-MIB", "l2PortForwardSrcMacAddr"), ("CTRON-SSR-L2-MIB", "l2PortForwardVlanId"), ("CTRON-SSR-L2-MIB", "l2PortForwardDstPort"), ("CTRON-SSR-L2-MIB", "l2PortForwardStatus"), ("CTRON-SSR-L2-MIB", "l2PortForwardLastDetectedTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    l2ConfGroupV10 = l2ConfGroupV10.setStatus('obsolete')
+mibBuilder.exportSymbols("CTRON-SSR-L2-MIB", l2PortForwardTable=l2PortForwardTable, l2PortSecurityDesc=l2PortSecurityDesc, l2Groups=l2Groups, l2PortForwardIndex=l2PortForwardIndex, l2PortForwardLastDetectedTime=l2PortForwardLastDetectedTime, l2PortSecurityIndex=l2PortSecurityIndex, l2LearnedFlowEntries=l2LearnedFlowEntries, l2ForwardInPorts=l2ForwardInPorts, l2PriorityIndex=l2PriorityIndex, l2PriorityDesc=l2PriorityDesc, l2FilterEntry=l2FilterEntry, l2FilterOutPorts=l2FilterOutPorts, l2ForwardSrcMacAddr=l2ForwardSrcMacAddr, l2PortAgingStatus=l2PortAgingStatus, l2PortDemandAgeLowBound=l2PortDemandAgeLowBound, l2PortInFrames=l2PortInFrames, l2PortForwardDstPort=l2PortForwardDstPort, PYSNMP_MODULE_ID=l2MIB, l2ForwardDstMacAddr=l2ForwardDstMacAddr, l2PortOutFrames=l2PortOutFrames, l2PortForwardSrcMacAddr=l2PortForwardSrcMacAddr, l2PortSecurityEntry=l2PortSecurityEntry, l2PortSecurityVlanId=l2PortSecurityVlanId, l2ComplianceV10=l2ComplianceV10, l2PortSecurityType=l2PortSecurityType, l2FilterIndex=l2FilterIndex, l2Port=l2Port, l2PortDstEntries=l2PortDstEntries, l2FilterDesc=l2FilterDesc, l2ForwardDstPort=l2ForwardDstPort, l2PortEntry=l2PortEntry, l2PortForwardStatus=l2PortForwardStatus, l2FilterType=l2FilterType, l2Priority=l2Priority, l2LearnedMacEntries=l2LearnedMacEntries, l2PortForwardDstMacAddr=l2PortForwardDstMacAddr, l2Compliances=l2Compliances, l2PortTable=l2PortTable, l2ForwardFilterId=l2ForwardFilterId, l2ConfGroupV10=l2ConfGroupV10, l2PortAgingTime=l2PortAgingTime, l2FilterSrcMacAddr=l2FilterSrcMacAddr, l2Conformance=l2Conformance, l2PrioritySrcMacAddr=l2PrioritySrcMacAddr, l2FilterDstMacAddr=l2FilterDstMacAddr, l2PriorityDstMacAddr=l2PriorityDstMacAddr, l2PriorityVlanId=l2PriorityVlanId, l2PortMgmtEntries=l2PortMgmtEntries, l2FilterRestrictions=l2FilterRestrictions, l2LearnedEntryDiscards=l2LearnedEntryDiscards, l2PortDemandAgeHiBound=l2PortDemandAgeHiBound, l2PortLearnedEntryDiscards=l2PortLearnedEntryDiscards, l2PortForwardVlanId=l2PortForwardVlanId, l2FilterVlanId=l2FilterVlanId, l2PortSecurityInPorts=l2PortSecurityInPorts, l2FilterInPorts=l2FilterInPorts, l2PortForwardPort=l2PortForwardPort, l2PortDemandAgeCount=l2PortDemandAgeCount, l2PortSrcEntries=l2PortSrcEntries, l2PortMaxInfo=l2PortMaxInfo, l2PriorityInPorts=l2PriorityInPorts, l2MIB=l2MIB, l2ForwardTable=l2ForwardTable, l2PriorityEntry=l2PriorityEntry, l2PriorityTable=l2PriorityTable, l2Group=l2Group, l2FilterTable=l2FilterTable, l2PortSecurityTable=l2PortSecurityTable, l2PortForwardEntry=l2PortForwardEntry, l2ForwardVlanId=l2ForwardVlanId, l2ForwardEntry=l2ForwardEntry)

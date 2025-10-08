@@ -1,144 +1,75 @@
-_E='dns345DiskNum'
-_D='dns345VolumeNum'
-_C='DNS345-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_D_link_ObjectIdentity=ObjectIdentity
-d_link=_D_link_ObjectIdentity((1,3,6,1,4,1,171))
-_ProductID_ObjectIdentity=ObjectIdentity
-productID=_ProductID_ObjectIdentity((1,3,6,1,4,1,171,50))
-_ProjectID_ObjectIdentity=ObjectIdentity
-projectID=_ProjectID_ObjectIdentity((1,3,6,1,4,1,171,50,1))
-_ModelID_ObjectIdentity=ObjectIdentity
-modelID=_ModelID_ObjectIdentity((1,3,6,1,4,1,171,50,1,5))
-_SubmodelID_ObjectIdentity=ObjectIdentity
-submodelID=_SubmodelID_ObjectIdentity((1,3,6,1,4,1,171,50,1,5,1))
-_NasAgent_ObjectIdentity=ObjectIdentity
-nasAgent=_NasAgent_ObjectIdentity((1,3,6,1,4,1,171,50,1,5,1,1))
-_Dns345AgentVer_Type=DisplayString
-_Dns345AgentVer_Object=MibScalar
-dns345AgentVer=_Dns345AgentVer_Object((1,3,6,1,4,1,171,50,1,5,1,1,1),_Dns345AgentVer_Type())
-dns345AgentVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns345AgentVer.setStatus(_A)
-_Dns345SoftwareVersion_Type=DisplayString
-_Dns345SoftwareVersion_Object=MibScalar
-dns345SoftwareVersion=_Dns345SoftwareVersion_Object((1,3,6,1,4,1,171,50,1,5,1,1,2),_Dns345SoftwareVersion_Type())
-dns345SoftwareVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns345SoftwareVersion.setStatus(_A)
-_Dns345HostName_Type=DisplayString
-_Dns345HostName_Object=MibScalar
-dns345HostName=_Dns345HostName_Object((1,3,6,1,4,1,171,50,1,5,1,1,3),_Dns345HostName_Type())
-dns345HostName.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns345HostName.setStatus(_A)
-_Dns345FTPServer_Type=DisplayString
-_Dns345FTPServer_Object=MibScalar
-dns345FTPServer=_Dns345FTPServer_Object((1,3,6,1,4,1,171,50,1,5,1,1,5),_Dns345FTPServer_Type())
-dns345FTPServer.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns345FTPServer.setStatus(_A)
-_Dns345NetType_Type=DisplayString
-_Dns345NetType_Object=MibScalar
-dns345NetType=_Dns345NetType_Object((1,3,6,1,4,1,171,50,1,5,1,1,6),_Dns345NetType_Type())
-dns345NetType.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns345NetType.setStatus(_A)
-_Dns345Temperature_Type=DisplayString
-_Dns345Temperature_Object=MibScalar
-dns345Temperature=_Dns345Temperature_Object((1,3,6,1,4,1,171,50,1,5,1,1,7),_Dns345Temperature_Type())
-dns345Temperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns345Temperature.setStatus(_A)
-_Dns345FanStatus_Type=DisplayString
-_Dns345FanStatus_Object=MibScalar
-dns345FanStatus=_Dns345FanStatus_Object((1,3,6,1,4,1,171,50,1,5,1,1,8),_Dns345FanStatus_Type())
-dns345FanStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns345FanStatus.setStatus(_A)
-_Dns345VolumeTable_Object=MibTable
-dns345VolumeTable=_Dns345VolumeTable_Object((1,3,6,1,4,1,171,50,1,5,1,1,9))
-if mibBuilder.loadTexts:dns345VolumeTable.setStatus(_A)
-_Dns345VolumeEntry_Object=MibTableRow
-dns345VolumeEntry=_Dns345VolumeEntry_Object((1,3,6,1,4,1,171,50,1,5,1,1,9,1))
-dns345VolumeEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:dns345VolumeEntry.setStatus(_A)
-_Dns345VolumeNum_Type=Integer32
-_Dns345VolumeNum_Object=MibTableColumn
-dns345VolumeNum=_Dns345VolumeNum_Object((1,3,6,1,4,1,171,50,1,5,1,1,9,1,1),_Dns345VolumeNum_Type())
-dns345VolumeNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns345VolumeNum.setStatus(_A)
-_Dns345VolumeName_Type=DisplayString
-_Dns345VolumeName_Object=MibTableColumn
-dns345VolumeName=_Dns345VolumeName_Object((1,3,6,1,4,1,171,50,1,5,1,1,9,1,2),_Dns345VolumeName_Type())
-dns345VolumeName.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns345VolumeName.setStatus(_A)
-_Dns345VolumeFsType_Type=DisplayString
-_Dns345VolumeFsType_Object=MibTableColumn
-dns345VolumeFsType=_Dns345VolumeFsType_Object((1,3,6,1,4,1,171,50,1,5,1,1,9,1,3),_Dns345VolumeFsType_Type())
-dns345VolumeFsType.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns345VolumeFsType.setStatus(_A)
-_Dns345VolumeRaidLevel_Type=DisplayString
-_Dns345VolumeRaidLevel_Object=MibTableColumn
-dns345VolumeRaidLevel=_Dns345VolumeRaidLevel_Object((1,3,6,1,4,1,171,50,1,5,1,1,9,1,4),_Dns345VolumeRaidLevel_Type())
-dns345VolumeRaidLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns345VolumeRaidLevel.setStatus(_A)
-_Dns345VolumeSize_Type=DisplayString
-_Dns345VolumeSize_Object=MibTableColumn
-dns345VolumeSize=_Dns345VolumeSize_Object((1,3,6,1,4,1,171,50,1,5,1,1,9,1,5),_Dns345VolumeSize_Type())
-dns345VolumeSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns345VolumeSize.setStatus(_A)
-_Dns345VolumeFreeSpace_Type=DisplayString
-_Dns345VolumeFreeSpace_Object=MibTableColumn
-dns345VolumeFreeSpace=_Dns345VolumeFreeSpace_Object((1,3,6,1,4,1,171,50,1,5,1,1,9,1,6),_Dns345VolumeFreeSpace_Type())
-dns345VolumeFreeSpace.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns345VolumeFreeSpace.setStatus(_A)
-_Dns345DiskTable_Object=MibTable
-dns345DiskTable=_Dns345DiskTable_Object((1,3,6,1,4,1,171,50,1,5,1,1,10))
-if mibBuilder.loadTexts:dns345DiskTable.setStatus(_A)
-_Dns345DiskEntry_Object=MibTableRow
-dns345DiskEntry=_Dns345DiskEntry_Object((1,3,6,1,4,1,171,50,1,5,1,1,10,1))
-dns345DiskEntry.setIndexNames((0,_C,_E))
-if mibBuilder.loadTexts:dns345DiskEntry.setStatus(_A)
-_Dns345DiskNum_Type=Integer32
-_Dns345DiskNum_Object=MibTableColumn
-dns345DiskNum=_Dns345DiskNum_Object((1,3,6,1,4,1,171,50,1,5,1,1,10,1,1),_Dns345DiskNum_Type())
-dns345DiskNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns345DiskNum.setStatus(_A)
-_Dns345DiskVendor_Type=DisplayString
-_Dns345DiskVendor_Object=MibTableColumn
-dns345DiskVendor=_Dns345DiskVendor_Object((1,3,6,1,4,1,171,50,1,5,1,1,10,1,2),_Dns345DiskVendor_Type())
-dns345DiskVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns345DiskVendor.setStatus(_A)
-_Dns345DiskModel_Type=DisplayString
-_Dns345DiskModel_Object=MibTableColumn
-dns345DiskModel=_Dns345DiskModel_Object((1,3,6,1,4,1,171,50,1,5,1,1,10,1,3),_Dns345DiskModel_Type())
-dns345DiskModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns345DiskModel.setStatus(_A)
-_Dns345DiskSerialNumber_Type=DisplayString
-_Dns345DiskSerialNumber_Object=MibTableColumn
-dns345DiskSerialNumber=_Dns345DiskSerialNumber_Object((1,3,6,1,4,1,171,50,1,5,1,1,10,1,4),_Dns345DiskSerialNumber_Type())
-dns345DiskSerialNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns345DiskSerialNumber.setStatus(_A)
-_Dns345DiskTemperature_Type=DisplayString
-_Dns345DiskTemperature_Object=MibTableColumn
-dns345DiskTemperature=_Dns345DiskTemperature_Object((1,3,6,1,4,1,171,50,1,5,1,1,10,1,5),_Dns345DiskTemperature_Type())
-dns345DiskTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns345DiskTemperature.setStatus(_A)
-_Dns345DiskCapacity_Type=DisplayString
-_Dns345DiskCapacity_Object=MibTableColumn
-dns345DiskCapacity=_Dns345DiskCapacity_Object((1,3,6,1,4,1,171,50,1,5,1,1,10,1,6),_Dns345DiskCapacity_Type())
-dns345DiskCapacity.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns345DiskCapacity.setStatus(_A)
-_NotifyEvts_ObjectIdentity=ObjectIdentity
-notifyEvts=_NotifyEvts_ObjectIdentity((1,3,6,1,4,1,171,50,1,5,1,1,200))
-notifyPasswdChanged=NotificationType((1,3,6,1,4,1,171,50,1,5,1,1,200,1))
-if mibBuilder.loadTexts:notifyPasswdChanged.setStatus(_A)
-notifyFirmwareUpgraded=NotificationType((1,3,6,1,4,1,171,50,1,5,1,1,200,2))
-if mibBuilder.loadTexts:notifyFirmwareUpgraded.setStatus(_A)
-notifyNetworkChanged=NotificationType((1,3,6,1,4,1,171,50,1,5,1,1,200,3))
-if mibBuilder.loadTexts:notifyNetworkChanged.setStatus(_A)
-notifyTemperatureExceeded=NotificationType((1,3,6,1,4,1,171,50,1,5,1,1,200,4))
-if mibBuilder.loadTexts:notifyTemperatureExceeded.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'d-link':d_link,'productID':productID,'projectID':projectID,'modelID':modelID,'submodelID':submodelID,'nasAgent':nasAgent,'dns345AgentVer':dns345AgentVer,'dns345SoftwareVersion':dns345SoftwareVersion,'dns345HostName':dns345HostName,'dns345FTPServer':dns345FTPServer,'dns345NetType':dns345NetType,'dns345Temperature':dns345Temperature,'dns345FanStatus':dns345FanStatus,'dns345VolumeTable':dns345VolumeTable,'dns345VolumeEntry':dns345VolumeEntry,_D:dns345VolumeNum,'dns345VolumeName':dns345VolumeName,'dns345VolumeFsType':dns345VolumeFsType,'dns345VolumeRaidLevel':dns345VolumeRaidLevel,'dns345VolumeSize':dns345VolumeSize,'dns345VolumeFreeSpace':dns345VolumeFreeSpace,'dns345DiskTable':dns345DiskTable,'dns345DiskEntry':dns345DiskEntry,_E:dns345DiskNum,'dns345DiskVendor':dns345DiskVendor,'dns345DiskModel':dns345DiskModel,'dns345DiskSerialNumber':dns345DiskSerialNumber,'dns345DiskTemperature':dns345DiskTemperature,'dns345DiskCapacity':dns345DiskCapacity,'notifyEvts':notifyEvts,'notifyPasswdChanged':notifyPasswdChanged,'notifyFirmwareUpgraded':notifyFirmwareUpgraded,'notifyNetworkChanged':notifyNetworkChanged,'notifyTemperatureExceeded':notifyTemperatureExceeded})
+#
+# PySNMP MIB module DNS345-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DNS345-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:34:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+d_link = MibIdentifier((1, 3, 6, 1, 4, 1, 171)).setLabel("d-link")
+productID = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 50))
+projectID = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 50, 1))
+modelID = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 50, 1, 5))
+submodelID = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1))
+nasAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1))
+dns345AgentVer = MibScalar((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns345AgentVer.setStatus('current')
+dns345SoftwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns345SoftwareVersion.setStatus('current')
+dns345HostName = MibScalar((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns345HostName.setStatus('current')
+dns345FTPServer = MibScalar((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns345FTPServer.setStatus('current')
+dns345NetType = MibScalar((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns345NetType.setStatus('current')
+dns345Temperature = MibScalar((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns345Temperature.setStatus('current')
+dns345FanStatus = MibScalar((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 8), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns345FanStatus.setStatus('current')
+dns345VolumeTable = MibTable((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 9), )
+if mibBuilder.loadTexts: dns345VolumeTable.setStatus('current')
+dns345VolumeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 9, 1), ).setIndexNames((0, "DNS345-MIB", "dns345VolumeNum"))
+if mibBuilder.loadTexts: dns345VolumeEntry.setStatus('current')
+dns345VolumeNum = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 9, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns345VolumeNum.setStatus('current')
+dns345VolumeName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 9, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns345VolumeName.setStatus('current')
+dns345VolumeFsType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 9, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns345VolumeFsType.setStatus('current')
+dns345VolumeRaidLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 9, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns345VolumeRaidLevel.setStatus('current')
+dns345VolumeSize = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 9, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns345VolumeSize.setStatus('current')
+dns345VolumeFreeSpace = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 9, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns345VolumeFreeSpace.setStatus('current')
+dns345DiskTable = MibTable((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 10), )
+if mibBuilder.loadTexts: dns345DiskTable.setStatus('current')
+dns345DiskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 10, 1), ).setIndexNames((0, "DNS345-MIB", "dns345DiskNum"))
+if mibBuilder.loadTexts: dns345DiskEntry.setStatus('current')
+dns345DiskNum = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 10, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns345DiskNum.setStatus('current')
+dns345DiskVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 10, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns345DiskVendor.setStatus('current')
+dns345DiskModel = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 10, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns345DiskModel.setStatus('current')
+dns345DiskSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 10, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns345DiskSerialNumber.setStatus('current')
+dns345DiskTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 10, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns345DiskTemperature.setStatus('current')
+dns345DiskCapacity = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 10, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns345DiskCapacity.setStatus('current')
+notifyEvts = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 200))
+notifyPasswdChanged = NotificationType((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 200, 1))
+if mibBuilder.loadTexts: notifyPasswdChanged.setStatus('current')
+notifyFirmwareUpgraded = NotificationType((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 200, 2))
+if mibBuilder.loadTexts: notifyFirmwareUpgraded.setStatus('current')
+notifyNetworkChanged = NotificationType((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 200, 3))
+if mibBuilder.loadTexts: notifyNetworkChanged.setStatus('current')
+notifyTemperatureExceeded = NotificationType((1, 3, 6, 1, 4, 1, 171, 50, 1, 5, 1, 1, 200, 4))
+if mibBuilder.loadTexts: notifyTemperatureExceeded.setStatus('current')
+mibBuilder.exportSymbols("DNS345-MIB", dns345SoftwareVersion=dns345SoftwareVersion, dns345DiskEntry=dns345DiskEntry, nasAgent=nasAgent, dns345VolumeTable=dns345VolumeTable, notifyNetworkChanged=notifyNetworkChanged, dns345NetType=dns345NetType, dns345VolumeRaidLevel=dns345VolumeRaidLevel, dns345VolumeFsType=dns345VolumeFsType, dns345FanStatus=dns345FanStatus, dns345VolumeNum=dns345VolumeNum, dns345HostName=dns345HostName, notifyTemperatureExceeded=notifyTemperatureExceeded, dns345DiskNum=dns345DiskNum, dns345DiskTemperature=dns345DiskTemperature, projectID=projectID, notifyFirmwareUpgraded=notifyFirmwareUpgraded, d_link=d_link, dns345VolumeName=dns345VolumeName, dns345DiskTable=dns345DiskTable, notifyPasswdChanged=notifyPasswdChanged, dns345DiskCapacity=dns345DiskCapacity, dns345VolumeEntry=dns345VolumeEntry, dns345DiskVendor=dns345DiskVendor, dns345VolumeSize=dns345VolumeSize, productID=productID, dns345DiskSerialNumber=dns345DiskSerialNumber, modelID=modelID, submodelID=submodelID, dns345FTPServer=dns345FTPServer, notifyEvts=notifyEvts, dns345Temperature=dns345Temperature, dns345AgentVer=dns345AgentVer, dns345VolumeFreeSpace=dns345VolumeFreeSpace, dns345DiskModel=dns345DiskModel)

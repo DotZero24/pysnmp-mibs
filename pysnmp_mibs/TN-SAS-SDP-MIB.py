@@ -1,52 +1,39 @@
-_F='sdpBindBaseStatsExtnEntry'
-_E='sdpBindExtnEntry'
-_D='read-only'
-_C='TruthValue'
-_B='TN-SAS-SDP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_C)
-sdpBindBaseStatsEntry,sdpBindEntry=mibBuilder.importSymbols('TN-SDP-MIB','sdpBindBaseStatsEntry','sdpBindEntry')
-tnSASModules,tnSASObjs=mibBuilder.importSymbols('TROPIC-GLOBAL-REG','tnSASModules','tnSASObjs')
-tnSASServicesSdpMIBModule=ModuleIdentity((1,3,6,1,4,1,7483,7,2,1,1,12))
-if mibBuilder.loadTexts:tnSASServicesSdpMIBModule.setRevisions(('2015-07-30 00:00','2007-10-01 00:00'))
-_TnSASSdpObjs_ObjectIdentity=ObjectIdentity
-tnSASSdpObjs=_TnSASSdpObjs_ObjectIdentity((1,3,6,1,4,1,7483,7,2,2,2,12))
-_SdpBindExtnTable_Object=MibTable
-sdpBindExtnTable=_SdpBindExtnTable_Object((1,3,6,1,4,1,7483,7,2,2,2,12,4))
-if mibBuilder.loadTexts:sdpBindExtnTable.setStatus(_A)
-_SdpBindExtnEntry_Object=MibTableRow
-sdpBindExtnEntry=_SdpBindExtnEntry_Object((1,3,6,1,4,1,7483,7,2,2,2,12,4,1))
-if mibBuilder.loadTexts:sdpBindExtnEntry.setStatus(_A)
-class _SdpBindIngressExtraVlanTagDropCount_Type(TruthValue):defaultValue=2
-_SdpBindIngressExtraVlanTagDropCount_Type.__name__=_C
-_SdpBindIngressExtraVlanTagDropCount_Object=MibTableColumn
-sdpBindIngressExtraVlanTagDropCount=_SdpBindIngressExtraVlanTagDropCount_Object((1,3,6,1,4,1,7483,7,2,2,2,12,4,1,1),_SdpBindIngressExtraVlanTagDropCount_Type())
-sdpBindIngressExtraVlanTagDropCount.setMaxAccess('read-create')
-if mibBuilder.loadTexts:sdpBindIngressExtraVlanTagDropCount.setStatus(_A)
-_SdpBindBaseStatsExtnTable_Object=MibTable
-sdpBindBaseStatsExtnTable=_SdpBindBaseStatsExtnTable_Object((1,3,6,1,4,1,7483,7,2,2,2,12,5))
-if mibBuilder.loadTexts:sdpBindBaseStatsExtnTable.setStatus(_A)
-_SdpBindBaseStatsExtnEntry_Object=MibTableRow
-sdpBindBaseStatsExtnEntry=_SdpBindBaseStatsExtnEntry_Object((1,3,6,1,4,1,7483,7,2,2,2,12,5,1))
-if mibBuilder.loadTexts:sdpBindBaseStatsExtnEntry.setStatus(_A)
-_SdpBindIngressExtraVlanTagDroppedPackets_Type=Counter64
-_SdpBindIngressExtraVlanTagDroppedPackets_Object=MibTableColumn
-sdpBindIngressExtraVlanTagDroppedPackets=_SdpBindIngressExtraVlanTagDroppedPackets_Object((1,3,6,1,4,1,7483,7,2,2,2,12,5,1,1),_SdpBindIngressExtraVlanTagDroppedPackets_Type())
-sdpBindIngressExtraVlanTagDroppedPackets.setMaxAccess(_D)
-if mibBuilder.loadTexts:sdpBindIngressExtraVlanTagDroppedPackets.setStatus(_A)
-_SdpBindIngressExtraVlanTagDroppedOctets_Type=Counter64
-_SdpBindIngressExtraVlanTagDroppedOctets_Object=MibTableColumn
-sdpBindIngressExtraVlanTagDroppedOctets=_SdpBindIngressExtraVlanTagDroppedOctets_Object((1,3,6,1,4,1,7483,7,2,2,2,12,5,1,2),_SdpBindIngressExtraVlanTagDroppedOctets_Type())
-sdpBindIngressExtraVlanTagDroppedOctets.setMaxAccess(_D)
-if mibBuilder.loadTexts:sdpBindIngressExtraVlanTagDroppedOctets.setStatus(_A)
-sdpBindEntry.registerAugmentions((_B,_E))
+#
+# PySNMP MIB module TN-SAS-SDP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TN-SAS-SDP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:21:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+sdpBindEntry, sdpBindBaseStatsEntry = mibBuilder.importSymbols("TN-SDP-MIB", "sdpBindEntry", "sdpBindBaseStatsEntry")
+tnSASModules, tnSASObjs = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnSASModules", "tnSASObjs")
+tnSASServicesSdpMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 7483, 7, 2, 1, 1, 12))
+tnSASServicesSdpMIBModule.setRevisions(('2015-07-30 00:00', '2007-10-01 00:00',))
+if mibBuilder.loadTexts: tnSASServicesSdpMIBModule.setLastUpdated('201507300000Z')
+if mibBuilder.loadTexts: tnSASServicesSdpMIBModule.setOrganization('Nokia')
+tnSASSdpObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 7, 2, 2, 2, 12))
+sdpBindExtnTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 7, 2, 2, 2, 12, 4), )
+if mibBuilder.loadTexts: sdpBindExtnTable.setStatus('current')
+sdpBindExtnEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 7, 2, 2, 2, 12, 4, 1), )
+sdpBindEntry.registerAugmentions(("TN-SAS-SDP-MIB", "sdpBindExtnEntry"))
 sdpBindExtnEntry.setIndexNames(*sdpBindEntry.getIndexNames())
-sdpBindBaseStatsEntry.registerAugmentions((_B,_F))
+if mibBuilder.loadTexts: sdpBindExtnEntry.setStatus('current')
+sdpBindIngressExtraVlanTagDropCount = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 7, 2, 2, 2, 12, 4, 1, 1), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: sdpBindIngressExtraVlanTagDropCount.setStatus('current')
+sdpBindBaseStatsExtnTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 7, 2, 2, 2, 12, 5), )
+if mibBuilder.loadTexts: sdpBindBaseStatsExtnTable.setStatus('current')
+sdpBindBaseStatsExtnEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 7, 2, 2, 2, 12, 5, 1), )
+sdpBindBaseStatsEntry.registerAugmentions(("TN-SAS-SDP-MIB", "sdpBindBaseStatsExtnEntry"))
 sdpBindBaseStatsExtnEntry.setIndexNames(*sdpBindBaseStatsEntry.getIndexNames())
-mibBuilder.exportSymbols(_B,**{'tnSASServicesSdpMIBModule':tnSASServicesSdpMIBModule,'tnSASSdpObjs':tnSASSdpObjs,'sdpBindExtnTable':sdpBindExtnTable,_E:sdpBindExtnEntry,'sdpBindIngressExtraVlanTagDropCount':sdpBindIngressExtraVlanTagDropCount,'sdpBindBaseStatsExtnTable':sdpBindBaseStatsExtnTable,_F:sdpBindBaseStatsExtnEntry,'sdpBindIngressExtraVlanTagDroppedPackets':sdpBindIngressExtraVlanTagDroppedPackets,'sdpBindIngressExtraVlanTagDroppedOctets':sdpBindIngressExtraVlanTagDroppedOctets})
+if mibBuilder.loadTexts: sdpBindBaseStatsExtnEntry.setStatus('current')
+sdpBindIngressExtraVlanTagDroppedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 7, 2, 2, 2, 12, 5, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sdpBindIngressExtraVlanTagDroppedPackets.setStatus('current')
+sdpBindIngressExtraVlanTagDroppedOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 7, 2, 2, 2, 12, 5, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sdpBindIngressExtraVlanTagDroppedOctets.setStatus('current')
+mibBuilder.exportSymbols("TN-SAS-SDP-MIB", sdpBindIngressExtraVlanTagDroppedPackets=sdpBindIngressExtraVlanTagDroppedPackets, sdpBindBaseStatsExtnTable=sdpBindBaseStatsExtnTable, PYSNMP_MODULE_ID=tnSASServicesSdpMIBModule, sdpBindIngressExtraVlanTagDroppedOctets=sdpBindIngressExtraVlanTagDroppedOctets, sdpBindBaseStatsExtnEntry=sdpBindBaseStatsExtnEntry, tnSASSdpObjs=tnSASSdpObjs, sdpBindExtnEntry=sdpBindExtnEntry, tnSASServicesSdpMIBModule=tnSASServicesSdpMIBModule, sdpBindExtnTable=sdpBindExtnTable, sdpBindIngressExtraVlanTagDropCount=sdpBindIngressExtraVlanTagDropCount)

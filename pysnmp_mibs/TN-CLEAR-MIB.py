@@ -1,97 +1,49 @@
-_Q='tnClearErrorText'
-_P='tnClearResult'
-_O='tnClearLastClearedTime'
-_N='tnClearParams'
-_M='tnClearName'
-_L='read-write'
-_K='tnClearIndex'
-_J='tnSysSwitchId'
-_I='TROPIC-SYSTEM-MIB'
-_H='TmnxActionType'
-_G='tnEventAppIndex'
-_F='TN-LOG-MIB'
-_E='Integer32'
-_D='OctetString'
-_C='read-only'
-_B='TN-CLEAR-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp')
-tnEventAppIndex,=mibBuilder.importSymbols(_F,_G)
-TNamedItem,TmnxActionType=mibBuilder.importSymbols('TN-TC-MIB','TNamedItem',_H)
-tnSRMIBModules,tnSRNotifyPrefix,tnSRObjs=mibBuilder.importSymbols('TROPIC-GLOBAL-REG','tnSRMIBModules','tnSRNotifyPrefix','tnSRObjs')
-tnSysSwitchId,=mibBuilder.importSymbols(_I,_J)
-tnClearMIBModule=ModuleIdentity((1,3,6,1,4,1,7483,5,1,3,13))
-if mibBuilder.loadTexts:tnClearMIBModule.setRevisions(('2005-01-24 00:00','2004-06-02 00:00','2004-01-15 00:00','2003-08-15 00:00','2003-01-20 00:00','2002-02-27 00:00'))
-_TnClearObjs_ObjectIdentity=ObjectIdentity
-tnClearObjs=_TnClearObjs_ObjectIdentity((1,3,6,1,4,1,7483,6,1,2,13))
-_TnClearTable_Object=MibTable
-tnClearTable=_TnClearTable_Object((1,3,6,1,4,1,7483,6,1,2,13,1))
-if mibBuilder.loadTexts:tnClearTable.setStatus(_A)
-_TnClearEntry_Object=MibTableRow
-tnClearEntry=_TnClearEntry_Object((1,3,6,1,4,1,7483,6,1,2,13,1,1))
-tnClearEntry.setIndexNames((0,_I,_J),(0,_F,_G),(0,_B,_K))
-if mibBuilder.loadTexts:tnClearEntry.setStatus(_A)
-class _TnClearIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_TnClearIndex_Type.__name__=_E
-_TnClearIndex_Object=MibTableColumn
-tnClearIndex=_TnClearIndex_Object((1,3,6,1,4,1,7483,6,1,2,13,1,1,1),_TnClearIndex_Type())
-tnClearIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:tnClearIndex.setStatus(_A)
-_TnClearName_Type=TNamedItem
-_TnClearName_Object=MibTableColumn
-tnClearName=_TnClearName_Object((1,3,6,1,4,1,7483,6,1,2,13,1,1,2),_TnClearName_Type())
-tnClearName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnClearName.setStatus(_A)
-class _TnClearParams_Type(OctetString):defaultHexValue='';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_TnClearParams_Type.__name__=_D
-_TnClearParams_Object=MibTableColumn
-tnClearParams=_TnClearParams_Object((1,3,6,1,4,1,7483,6,1,2,13,1,1,3),_TnClearParams_Type())
-tnClearParams.setMaxAccess(_L)
-if mibBuilder.loadTexts:tnClearParams.setStatus(_A)
-class _TnClearAction_Type(TmnxActionType):defaultValue=2
-_TnClearAction_Type.__name__=_H
-_TnClearAction_Object=MibTableColumn
-tnClearAction=_TnClearAction_Object((1,3,6,1,4,1,7483,6,1,2,13,1,1,4),_TnClearAction_Type())
-tnClearAction.setMaxAccess(_L)
-if mibBuilder.loadTexts:tnClearAction.setStatus(_A)
-_TnClearLastClearedTime_Type=TimeStamp
-_TnClearLastClearedTime_Object=MibTableColumn
-tnClearLastClearedTime=_TnClearLastClearedTime_Object((1,3,6,1,4,1,7483,6,1,2,13,1,1,5),_TnClearLastClearedTime_Type())
-tnClearLastClearedTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnClearLastClearedTime.setStatus(_A)
-class _TnClearResult_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('success',1),('failure',2)))
-_TnClearResult_Type.__name__=_E
-_TnClearResult_Object=MibTableColumn
-tnClearResult=_TnClearResult_Object((1,3,6,1,4,1,7483,6,1,2,13,1,1,6),_TnClearResult_Type())
-tnClearResult.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnClearResult.setStatus(_A)
-class _TnClearErrorText_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_TnClearErrorText_Type.__name__=_D
-_TnClearErrorText_Object=MibTableColumn
-tnClearErrorText=_TnClearErrorText_Object((1,3,6,1,4,1,7483,6,1,2,13,1,1,7),_TnClearErrorText_Type())
-tnClearErrorText.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnClearErrorText.setStatus(_A)
-_TnClearScalar1_Type=Unsigned32
-_TnClearScalar1_Object=MibScalar
-tnClearScalar1=_TnClearScalar1_Object((1,3,6,1,4,1,7483,6,1,2,13,101),_TnClearScalar1_Type())
-tnClearScalar1.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnClearScalar1.setStatus(_A)
-_TnClearScalar2_Type=Unsigned32
-_TnClearScalar2_Object=MibScalar
-tnClearScalar2=_TnClearScalar2_Object((1,3,6,1,4,1,7483,6,1,2,13,102),_TnClearScalar2_Type())
-tnClearScalar2.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnClearScalar2.setStatus(_A)
-_TnClearNotificationsPrefix_ObjectIdentity=ObjectIdentity
-tnClearNotificationsPrefix=_TnClearNotificationsPrefix_ObjectIdentity((1,3,6,1,4,1,7483,6,1,3,13))
-_TnClearNotifications_ObjectIdentity=ObjectIdentity
-tnClearNotifications=_TnClearNotifications_ObjectIdentity((1,3,6,1,4,1,7483,6,1,3,13,0))
-tnClear=NotificationType((1,3,6,1,4,1,7483,6,1,3,13,0,1))
-tnClear.setObjects(*((_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:tnClear.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'tnClearMIBModule':tnClearMIBModule,'tnClearObjs':tnClearObjs,'tnClearTable':tnClearTable,'tnClearEntry':tnClearEntry,_K:tnClearIndex,_M:tnClearName,_N:tnClearParams,'tnClearAction':tnClearAction,_O:tnClearLastClearedTime,_P:tnClearResult,_Q:tnClearErrorText,'tnClearScalar1':tnClearScalar1,'tnClearScalar2':tnClearScalar2,'tnClearNotificationsPrefix':tnClearNotificationsPrefix,'tnClearNotifications':tnClearNotifications,'tnClear':tnClear})
+#
+# PySNMP MIB module TN-CLEAR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TN-CLEAR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:21:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+tnEventAppIndex, = mibBuilder.importSymbols("TN-LOG-MIB", "tnEventAppIndex")
+TNamedItem, TmnxActionType = mibBuilder.importSymbols("TN-TC-MIB", "TNamedItem", "TmnxActionType")
+tnSRMIBModules, tnSRNotifyPrefix, tnSRObjs = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnSRMIBModules", "tnSRNotifyPrefix", "tnSRObjs")
+tnSysSwitchId, = mibBuilder.importSymbols("TROPIC-SYSTEM-MIB", "tnSysSwitchId")
+tnClearMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 7483, 5, 1, 3, 13))
+tnClearMIBModule.setRevisions(('2005-01-24 00:00', '2004-06-02 00:00', '2004-01-15 00:00', '2003-08-15 00:00', '2003-01-20 00:00', '2002-02-27 00:00',))
+if mibBuilder.loadTexts: tnClearMIBModule.setLastUpdated('200501240000Z')
+if mibBuilder.loadTexts: tnClearMIBModule.setOrganization('Nokia')
+tnClearObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 13))
+tnClearNotificationsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 3, 13))
+tnClearNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 3, 13, 0))
+tnClearTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 13, 1), )
+if mibBuilder.loadTexts: tnClearTable.setStatus('current')
+tnClearEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 13, 1, 1), ).setIndexNames((0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"), (0, "TN-LOG-MIB", "tnEventAppIndex"), (0, "TN-CLEAR-MIB", "tnClearIndex"))
+if mibBuilder.loadTexts: tnClearEntry.setStatus('current')
+tnClearIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 13, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
+if mibBuilder.loadTexts: tnClearIndex.setStatus('current')
+tnClearName = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 13, 1, 1, 2), TNamedItem()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tnClearName.setStatus('current')
+tnClearParams = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 13, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255)).clone(hexValue="")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tnClearParams.setStatus('current')
+tnClearAction = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 13, 1, 1, 4), TmnxActionType().clone('notApplicable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tnClearAction.setStatus('current')
+tnClearLastClearedTime = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 13, 1, 1, 5), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tnClearLastClearedTime.setStatus('current')
+tnClearResult = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 13, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("success", 1), ("failure", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tnClearResult.setStatus('current')
+tnClearErrorText = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 13, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tnClearErrorText.setStatus('current')
+tnClearScalar1 = MibScalar((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 13, 101), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tnClearScalar1.setStatus('current')
+tnClearScalar2 = MibScalar((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 13, 102), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tnClearScalar2.setStatus('current')
+tnClear = NotificationType((1, 3, 6, 1, 4, 1, 7483, 6, 1, 3, 13, 0, 1)).setObjects(("TN-CLEAR-MIB", "tnClearName"), ("TN-CLEAR-MIB", "tnClearParams"), ("TN-CLEAR-MIB", "tnClearLastClearedTime"), ("TN-CLEAR-MIB", "tnClearResult"), ("TN-CLEAR-MIB", "tnClearErrorText"))
+if mibBuilder.loadTexts: tnClear.setStatus('current')
+mibBuilder.exportSymbols("TN-CLEAR-MIB", tnClearTable=tnClearTable, tnClearName=tnClearName, tnClearParams=tnClearParams, tnClearErrorText=tnClearErrorText, tnClearNotificationsPrefix=tnClearNotificationsPrefix, tnClearLastClearedTime=tnClearLastClearedTime, tnClearScalar2=tnClearScalar2, tnClear=tnClear, tnClearResult=tnClearResult, tnClearIndex=tnClearIndex, tnClearMIBModule=tnClearMIBModule, tnClearScalar1=tnClearScalar1, tnClearEntry=tnClearEntry, tnClearAction=tnClearAction, PYSNMP_MODULE_ID=tnClearMIBModule, tnClearObjs=tnClearObjs, tnClearNotifications=tnClearNotifications)

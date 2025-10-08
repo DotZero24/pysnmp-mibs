@@ -1,104 +1,56 @@
-_P='arubaWiredPowerStatTableGroup'
-_O='arubaWiredPowerStatPowerConsumedAveragePeriod'
-_N='arubaWiredPowerStatPowerConsumedAverage'
-_M='arubaWiredPowerStatPowerConsumed'
-_L='arubaWiredPowerStatType'
-_K='arubaWiredPowerStatName'
-_J='RealDecTwo'
-_I='arubaWiredPowerStatSlotIndex'
-_H='arubaWiredPowerStatTypeIndex'
-_G='arubaWiredPowerStatGroupIndex'
-_F='not-accessible'
-_E='DisplayString'
-_D='read-only'
-_C='Integer32'
-_B='ARUBAWIRED-POWER-STAT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-arubaWiredChassisMIB,=mibBuilder.importSymbols('ARUBAWIRED-CHASSIS-MIB','arubaWiredChassisMIB')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_E,'PhysAddress','TextualConvention')
-arubaWiredPowerStat=ModuleIdentity((1,3,6,1,4,1,47196,4,1,1,3,11,8))
-if mibBuilder.loadTexts:arubaWiredPowerStat.setRevisions(('2023-07-25 00:00','2023-06-20 00:00'))
-class RealDecTwo(TextualConvention,Integer32):status=_A;displayHint='d-2'
-_ArubaWiredPowerStatNotifications_ObjectIdentity=ObjectIdentity
-arubaWiredPowerStatNotifications=_ArubaWiredPowerStatNotifications_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,11,8,0))
-_ArubaWiredPowerStatObjects_ObjectIdentity=ObjectIdentity
-arubaWiredPowerStatObjects=_ArubaWiredPowerStatObjects_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,11,8,1))
-_ArubaWiredPowerStatSys_ObjectIdentity=ObjectIdentity
-arubaWiredPowerStatSys=_ArubaWiredPowerStatSys_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,11,8,1,0))
-_ArubaWiredPowerStatTable_Object=MibTable
-arubaWiredPowerStatTable=_ArubaWiredPowerStatTable_Object((1,3,6,1,4,1,47196,4,1,1,3,11,8,1,0,1))
-if mibBuilder.loadTexts:arubaWiredPowerStatTable.setStatus(_A)
-_ArubaWiredPowerStatEntry_Object=MibTableRow
-arubaWiredPowerStatEntry=_ArubaWiredPowerStatEntry_Object((1,3,6,1,4,1,47196,4,1,1,3,11,8,1,0,1,1))
-arubaWiredPowerStatEntry.setIndexNames((0,_B,_G),(0,_B,_H),(0,_B,_I))
-if mibBuilder.loadTexts:arubaWiredPowerStatEntry.setStatus(_A)
-class _ArubaWiredPowerStatGroupIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_ArubaWiredPowerStatGroupIndex_Type.__name__=_C
-_ArubaWiredPowerStatGroupIndex_Object=MibTableColumn
-arubaWiredPowerStatGroupIndex=_ArubaWiredPowerStatGroupIndex_Object((1,3,6,1,4,1,47196,4,1,1,3,11,8,1,0,1,1,1),_ArubaWiredPowerStatGroupIndex_Type())
-arubaWiredPowerStatGroupIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:arubaWiredPowerStatGroupIndex.setStatus(_A)
-class _ArubaWiredPowerStatTypeIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_ArubaWiredPowerStatTypeIndex_Type.__name__=_C
-_ArubaWiredPowerStatTypeIndex_Object=MibTableColumn
-arubaWiredPowerStatTypeIndex=_ArubaWiredPowerStatTypeIndex_Object((1,3,6,1,4,1,47196,4,1,1,3,11,8,1,0,1,1,2),_ArubaWiredPowerStatTypeIndex_Type())
-arubaWiredPowerStatTypeIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:arubaWiredPowerStatTypeIndex.setStatus(_A)
-class _ArubaWiredPowerStatSlotIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_ArubaWiredPowerStatSlotIndex_Type.__name__=_C
-_ArubaWiredPowerStatSlotIndex_Object=MibTableColumn
-arubaWiredPowerStatSlotIndex=_ArubaWiredPowerStatSlotIndex_Object((1,3,6,1,4,1,47196,4,1,1,3,11,8,1,0,1,1,3),_ArubaWiredPowerStatSlotIndex_Type())
-arubaWiredPowerStatSlotIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:arubaWiredPowerStatSlotIndex.setStatus(_A)
-class _ArubaWiredPowerStatName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_ArubaWiredPowerStatName_Type.__name__=_E
-_ArubaWiredPowerStatName_Object=MibTableColumn
-arubaWiredPowerStatName=_ArubaWiredPowerStatName_Object((1,3,6,1,4,1,47196,4,1,1,3,11,8,1,0,1,1,4),_ArubaWiredPowerStatName_Type())
-arubaWiredPowerStatName.setMaxAccess(_D)
-if mibBuilder.loadTexts:arubaWiredPowerStatName.setStatus(_A)
-class _ArubaWiredPowerStatType_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_ArubaWiredPowerStatType_Type.__name__=_E
-_ArubaWiredPowerStatType_Object=MibTableColumn
-arubaWiredPowerStatType=_ArubaWiredPowerStatType_Object((1,3,6,1,4,1,47196,4,1,1,3,11,8,1,0,1,1,5),_ArubaWiredPowerStatType_Type())
-arubaWiredPowerStatType.setMaxAccess(_D)
-if mibBuilder.loadTexts:arubaWiredPowerStatType.setStatus(_A)
-class _ArubaWiredPowerStatPowerConsumed_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65536))
-_ArubaWiredPowerStatPowerConsumed_Type.__name__=_C
-_ArubaWiredPowerStatPowerConsumed_Object=MibTableColumn
-arubaWiredPowerStatPowerConsumed=_ArubaWiredPowerStatPowerConsumed_Object((1,3,6,1,4,1,47196,4,1,1,3,11,8,1,0,1,1,6),_ArubaWiredPowerStatPowerConsumed_Type())
-arubaWiredPowerStatPowerConsumed.setMaxAccess(_D)
-if mibBuilder.loadTexts:arubaWiredPowerStatPowerConsumed.setStatus(_A)
-if mibBuilder.loadTexts:arubaWiredPowerStatPowerConsumed.setUnits('Watts')
-class _ArubaWiredPowerStatPowerConsumedAverage_Type(RealDecTwo):defaultValue=0
-_ArubaWiredPowerStatPowerConsumedAverage_Type.__name__=_J
-_ArubaWiredPowerStatPowerConsumedAverage_Object=MibTableColumn
-arubaWiredPowerStatPowerConsumedAverage=_ArubaWiredPowerStatPowerConsumedAverage_Object((1,3,6,1,4,1,47196,4,1,1,3,11,8,1,0,1,1,7),_ArubaWiredPowerStatPowerConsumedAverage_Type())
-arubaWiredPowerStatPowerConsumedAverage.setMaxAccess(_D)
-if mibBuilder.loadTexts:arubaWiredPowerStatPowerConsumedAverage.setStatus(_A)
-if mibBuilder.loadTexts:arubaWiredPowerStatPowerConsumedAverage.setUnits('Watts')
-class _ArubaWiredPowerStatPowerConsumedAveragePeriod_Type(Integer32):defaultValue=600;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(60,3600))
-_ArubaWiredPowerStatPowerConsumedAveragePeriod_Type.__name__=_C
-_ArubaWiredPowerStatPowerConsumedAveragePeriod_Object=MibTableColumn
-arubaWiredPowerStatPowerConsumedAveragePeriod=_ArubaWiredPowerStatPowerConsumedAveragePeriod_Object((1,3,6,1,4,1,47196,4,1,1,3,11,8,1,0,1,1,8),_ArubaWiredPowerStatPowerConsumedAveragePeriod_Type())
-arubaWiredPowerStatPowerConsumedAveragePeriod.setMaxAccess('read-write')
-if mibBuilder.loadTexts:arubaWiredPowerStatPowerConsumedAveragePeriod.setStatus(_A)
-if mibBuilder.loadTexts:arubaWiredPowerStatPowerConsumedAveragePeriod.setUnits('seconds')
-_ArubaWiredPowerStatConformance_ObjectIdentity=ObjectIdentity
-arubaWiredPowerStatConformance=_ArubaWiredPowerStatConformance_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,11,8,2))
-_ArubaWiredPowerStatCompliances_ObjectIdentity=ObjectIdentity
-arubaWiredPowerStatCompliances=_ArubaWiredPowerStatCompliances_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,11,8,2,1))
-_ArubaWiredPowerStatGroups_ObjectIdentity=ObjectIdentity
-arubaWiredPowerStatGroups=_ArubaWiredPowerStatGroups_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,11,8,2,2))
-arubaWiredPowerStatTableGroup=ObjectGroup((1,3,6,1,4,1,47196,4,1,1,3,11,8,2,2,1))
-arubaWiredPowerStatTableGroup.setObjects(*((_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:arubaWiredPowerStatTableGroup.setStatus(_A)
-arubaWiredPowerStatCompliance=ModuleCompliance((1,3,6,1,4,1,47196,4,1,1,3,11,8,2,1,1))
-arubaWiredPowerStatCompliance.setObjects((_B,_P))
-if mibBuilder.loadTexts:arubaWiredPowerStatCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{_J:RealDecTwo,'arubaWiredPowerStat':arubaWiredPowerStat,'arubaWiredPowerStatNotifications':arubaWiredPowerStatNotifications,'arubaWiredPowerStatObjects':arubaWiredPowerStatObjects,'arubaWiredPowerStatSys':arubaWiredPowerStatSys,'arubaWiredPowerStatTable':arubaWiredPowerStatTable,'arubaWiredPowerStatEntry':arubaWiredPowerStatEntry,_G:arubaWiredPowerStatGroupIndex,_H:arubaWiredPowerStatTypeIndex,_I:arubaWiredPowerStatSlotIndex,_K:arubaWiredPowerStatName,_L:arubaWiredPowerStatType,_M:arubaWiredPowerStatPowerConsumed,_N:arubaWiredPowerStatPowerConsumedAverage,_O:arubaWiredPowerStatPowerConsumedAveragePeriod,'arubaWiredPowerStatConformance':arubaWiredPowerStatConformance,'arubaWiredPowerStatCompliances':arubaWiredPowerStatCompliances,'arubaWiredPowerStatCompliance':arubaWiredPowerStatCompliance,'arubaWiredPowerStatGroups':arubaWiredPowerStatGroups,_P:arubaWiredPowerStatTableGroup})
+#
+# PySNMP MIB module ARUBAWIRED-POWER-STAT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aruba/ARUBAWIRED-POWER-STAT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:44:07 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+arubaWiredChassisMIB, = mibBuilder.importSymbols("ARUBAWIRED-CHASSIS-MIB", "arubaWiredChassisMIB")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+arubaWiredPowerStat = ModuleIdentity((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 8))
+arubaWiredPowerStat.setRevisions(('2023-07-25 00:00', '2023-06-20 00:00',))
+if mibBuilder.loadTexts: arubaWiredPowerStat.setLastUpdated('202307250000Z')
+if mibBuilder.loadTexts: arubaWiredPowerStat.setOrganization('HPE/Aruba Networking Division')
+arubaWiredPowerStatNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 8, 0))
+arubaWiredPowerStatObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 8, 1))
+arubaWiredPowerStatConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 8, 2))
+class RealDecTwo(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd-2'
+
+arubaWiredPowerStatSys = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 8, 1, 0))
+arubaWiredPowerStatTable = MibTable((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 8, 1, 0, 1), )
+if mibBuilder.loadTexts: arubaWiredPowerStatTable.setStatus('current')
+arubaWiredPowerStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 8, 1, 0, 1, 1), ).setIndexNames((0, "ARUBAWIRED-POWER-STAT-MIB", "arubaWiredPowerStatGroupIndex"), (0, "ARUBAWIRED-POWER-STAT-MIB", "arubaWiredPowerStatTypeIndex"), (0, "ARUBAWIRED-POWER-STAT-MIB", "arubaWiredPowerStatSlotIndex"))
+if mibBuilder.loadTexts: arubaWiredPowerStatEntry.setStatus('current')
+arubaWiredPowerStatGroupIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 8, 1, 0, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: arubaWiredPowerStatGroupIndex.setStatus('current')
+arubaWiredPowerStatTypeIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 8, 1, 0, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
+if mibBuilder.loadTexts: arubaWiredPowerStatTypeIndex.setStatus('current')
+arubaWiredPowerStatSlotIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 8, 1, 0, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: arubaWiredPowerStatSlotIndex.setStatus('current')
+arubaWiredPowerStatName = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 8, 1, 0, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredPowerStatName.setStatus('current')
+arubaWiredPowerStatType = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 8, 1, 0, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredPowerStatType.setStatus('current')
+arubaWiredPowerStatPowerConsumed = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 8, 1, 0, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65536))).setUnits('Watts').setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredPowerStatPowerConsumed.setStatus('current')
+arubaWiredPowerStatPowerConsumedAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 8, 1, 0, 1, 1, 7), RealDecTwo()).setUnits('Watts').setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredPowerStatPowerConsumedAverage.setStatus('current')
+arubaWiredPowerStatPowerConsumedAveragePeriod = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 8, 1, 0, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(60, 3600)).clone(600)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: arubaWiredPowerStatPowerConsumedAveragePeriod.setStatus('current')
+arubaWiredPowerStatCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 8, 2, 1))
+arubaWiredPowerStatGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 8, 2, 2))
+arubaWiredPowerStatTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 8, 2, 2, 1)).setObjects(("ARUBAWIRED-POWER-STAT-MIB", "arubaWiredPowerStatName"), ("ARUBAWIRED-POWER-STAT-MIB", "arubaWiredPowerStatType"), ("ARUBAWIRED-POWER-STAT-MIB", "arubaWiredPowerStatPowerConsumed"), ("ARUBAWIRED-POWER-STAT-MIB", "arubaWiredPowerStatPowerConsumedAverage"), ("ARUBAWIRED-POWER-STAT-MIB", "arubaWiredPowerStatPowerConsumedAveragePeriod"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    arubaWiredPowerStatTableGroup = arubaWiredPowerStatTableGroup.setStatus('current')
+arubaWiredPowerStatCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 11, 8, 2, 1, 1)).setObjects(("ARUBAWIRED-POWER-STAT-MIB", "arubaWiredPowerStatTableGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    arubaWiredPowerStatCompliance = arubaWiredPowerStatCompliance.setStatus('current')
+mibBuilder.exportSymbols("ARUBAWIRED-POWER-STAT-MIB", arubaWiredPowerStatConformance=arubaWiredPowerStatConformance, arubaWiredPowerStatCompliance=arubaWiredPowerStatCompliance, arubaWiredPowerStatType=arubaWiredPowerStatType, arubaWiredPowerStatObjects=arubaWiredPowerStatObjects, arubaWiredPowerStatTable=arubaWiredPowerStatTable, arubaWiredPowerStatName=arubaWiredPowerStatName, arubaWiredPowerStat=arubaWiredPowerStat, arubaWiredPowerStatSys=arubaWiredPowerStatSys, arubaWiredPowerStatGroupIndex=arubaWiredPowerStatGroupIndex, arubaWiredPowerStatPowerConsumedAverage=arubaWiredPowerStatPowerConsumedAverage, arubaWiredPowerStatNotifications=arubaWiredPowerStatNotifications, arubaWiredPowerStatTypeIndex=arubaWiredPowerStatTypeIndex, arubaWiredPowerStatEntry=arubaWiredPowerStatEntry, arubaWiredPowerStatCompliances=arubaWiredPowerStatCompliances, arubaWiredPowerStatSlotIndex=arubaWiredPowerStatSlotIndex, PYSNMP_MODULE_ID=arubaWiredPowerStat, arubaWiredPowerStatGroups=arubaWiredPowerStatGroups, RealDecTwo=RealDecTwo, arubaWiredPowerStatTableGroup=arubaWiredPowerStatTableGroup, arubaWiredPowerStatPowerConsumedAveragePeriod=arubaWiredPowerStatPowerConsumedAveragePeriod, arubaWiredPowerStatPowerConsumed=arubaWiredPowerStatPowerConsumed)

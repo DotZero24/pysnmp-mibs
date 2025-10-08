@@ -1,165 +1,88 @@
-_a='pdnIgmpStdExtGeneralConfigGroupV2'
-_Z='pdnIgmpStdExtGeneralConfigGroup'
-_Y='pdnIgmpGeneralQueryInterval'
-_X='deprecated'
-_W='pdnIgmpCacheStatsIgmpLeavesOut'
-_V='pdnIgmpCacheStatsIgmpLeavesIn'
-_U='pdnIgmpCacheStatsIgmpReportsOut'
-_T='pdnIgmpCacheStatsIgmpReportsIn'
-_S='pdnIgmpCacheStatsIgmpQueriesOut'
-_R='pdnIgmpCacheStatsIgmpQueriesIn'
-_Q='pdnIgmpCacheStatsMulticastPktsOut'
-_P='pdnIgmpCacheStatsMulticastPktsIn'
-_O='pdnIgmpInterfaceLeaveJoinForwardingDelay'
-_N='pdnIgmpInterfaceLeaveDelay'
-_M='pdnIgmpInterfaceSnoopEnableDisable'
-_L='pdnIgmpCacheExtEntry'
-_K='pdnIgmpInterfaceExtEntry'
-_J='tenths of a second'
-_I='pdnIgmpStdExtStatsGroup'
-_H='pdnIgmpStdExtConfigGroup'
-_G='pdnIgmpSnoopingSelection'
-_F='SwitchState'
-_E='Unsigned32'
-_D='read-write'
-_C='read-only'
-_B='current'
-_A='PDN-IGMP-STD-EXT-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-igmpCacheEntry,igmpInterfaceEntry=mibBuilder.importSymbols('IGMP-STD-MIB','igmpCacheEntry','igmpInterfaceEntry')
-pdn_common,=mibBuilder.importSymbols('PDN-HEADER-MIB','pdn-common')
-SwitchState,=mibBuilder.importSymbols('PDN-TC',_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-pdnIgmpStdExtMIB=ModuleIdentity((1,3,6,1,4,1,1795,2,24,2,47))
-if mibBuilder.loadTexts:pdnIgmpStdExtMIB.setRevisions(('2004-08-17 00:00','2004-01-08 00:00','2003-05-06 00:00','2003-05-01 00:00'))
-_PdnIgmpStdExtNotifications_ObjectIdentity=ObjectIdentity
-pdnIgmpStdExtNotifications=_PdnIgmpStdExtNotifications_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,47,0))
-_PdnIgmpStdExtObjects_ObjectIdentity=ObjectIdentity
-pdnIgmpStdExtObjects=_PdnIgmpStdExtObjects_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,47,1))
-_PdnIgmpInterfaceExtTable_Object=MibTable
-pdnIgmpInterfaceExtTable=_PdnIgmpInterfaceExtTable_Object((1,3,6,1,4,1,1795,2,24,2,47,1,1))
-if mibBuilder.loadTexts:pdnIgmpInterfaceExtTable.setStatus(_B)
-_PdnIgmpInterfaceExtEntry_Object=MibTableRow
-pdnIgmpInterfaceExtEntry=_PdnIgmpInterfaceExtEntry_Object((1,3,6,1,4,1,1795,2,24,2,47,1,1,1))
-if mibBuilder.loadTexts:pdnIgmpInterfaceExtEntry.setStatus(_B)
-class _PdnIgmpInterfaceSnoopEnableDisable_Type(SwitchState):defaultValue=2
-_PdnIgmpInterfaceSnoopEnableDisable_Type.__name__=_F
-_PdnIgmpInterfaceSnoopEnableDisable_Object=MibTableColumn
-pdnIgmpInterfaceSnoopEnableDisable=_PdnIgmpInterfaceSnoopEnableDisable_Object((1,3,6,1,4,1,1795,2,24,2,47,1,1,1,1),_PdnIgmpInterfaceSnoopEnableDisable_Type())
-pdnIgmpInterfaceSnoopEnableDisable.setMaxAccess(_D)
-if mibBuilder.loadTexts:pdnIgmpInterfaceSnoopEnableDisable.setStatus(_B)
-class _PdnIgmpInterfaceLeaveDelay_Type(Unsigned32):defaultValue=3;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_PdnIgmpInterfaceLeaveDelay_Type.__name__=_E
-_PdnIgmpInterfaceLeaveDelay_Object=MibTableColumn
-pdnIgmpInterfaceLeaveDelay=_PdnIgmpInterfaceLeaveDelay_Object((1,3,6,1,4,1,1795,2,24,2,47,1,1,1,2),_PdnIgmpInterfaceLeaveDelay_Type())
-pdnIgmpInterfaceLeaveDelay.setMaxAccess(_D)
-if mibBuilder.loadTexts:pdnIgmpInterfaceLeaveDelay.setStatus(_B)
-if mibBuilder.loadTexts:pdnIgmpInterfaceLeaveDelay.setUnits(_J)
-class _PdnIgmpInterfaceLeaveJoinForwardingDelay_Type(Unsigned32):defaultValue=3;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_PdnIgmpInterfaceLeaveJoinForwardingDelay_Type.__name__=_E
-_PdnIgmpInterfaceLeaveJoinForwardingDelay_Object=MibTableColumn
-pdnIgmpInterfaceLeaveJoinForwardingDelay=_PdnIgmpInterfaceLeaveJoinForwardingDelay_Object((1,3,6,1,4,1,1795,2,24,2,47,1,1,1,3),_PdnIgmpInterfaceLeaveJoinForwardingDelay_Type())
-pdnIgmpInterfaceLeaveJoinForwardingDelay.setMaxAccess(_D)
-if mibBuilder.loadTexts:pdnIgmpInterfaceLeaveJoinForwardingDelay.setStatus(_B)
-if mibBuilder.loadTexts:pdnIgmpInterfaceLeaveJoinForwardingDelay.setUnits(_J)
-_PdnIgmpCacheExtTable_Object=MibTable
-pdnIgmpCacheExtTable=_PdnIgmpCacheExtTable_Object((1,3,6,1,4,1,1795,2,24,2,47,1,2))
-if mibBuilder.loadTexts:pdnIgmpCacheExtTable.setStatus(_B)
-_PdnIgmpCacheExtEntry_Object=MibTableRow
-pdnIgmpCacheExtEntry=_PdnIgmpCacheExtEntry_Object((1,3,6,1,4,1,1795,2,24,2,47,1,2,1))
-if mibBuilder.loadTexts:pdnIgmpCacheExtEntry.setStatus(_B)
-_PdnIgmpCacheStatsMulticastPktsIn_Type=Counter32
-_PdnIgmpCacheStatsMulticastPktsIn_Object=MibTableColumn
-pdnIgmpCacheStatsMulticastPktsIn=_PdnIgmpCacheStatsMulticastPktsIn_Object((1,3,6,1,4,1,1795,2,24,2,47,1,2,1,1),_PdnIgmpCacheStatsMulticastPktsIn_Type())
-pdnIgmpCacheStatsMulticastPktsIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:pdnIgmpCacheStatsMulticastPktsIn.setStatus(_B)
-_PdnIgmpCacheStatsMulticastPktsOut_Type=Counter32
-_PdnIgmpCacheStatsMulticastPktsOut_Object=MibTableColumn
-pdnIgmpCacheStatsMulticastPktsOut=_PdnIgmpCacheStatsMulticastPktsOut_Object((1,3,6,1,4,1,1795,2,24,2,47,1,2,1,2),_PdnIgmpCacheStatsMulticastPktsOut_Type())
-pdnIgmpCacheStatsMulticastPktsOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:pdnIgmpCacheStatsMulticastPktsOut.setStatus(_B)
-_PdnIgmpCacheStatsIgmpQueriesIn_Type=Counter32
-_PdnIgmpCacheStatsIgmpQueriesIn_Object=MibTableColumn
-pdnIgmpCacheStatsIgmpQueriesIn=_PdnIgmpCacheStatsIgmpQueriesIn_Object((1,3,6,1,4,1,1795,2,24,2,47,1,2,1,3),_PdnIgmpCacheStatsIgmpQueriesIn_Type())
-pdnIgmpCacheStatsIgmpQueriesIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:pdnIgmpCacheStatsIgmpQueriesIn.setStatus(_B)
-_PdnIgmpCacheStatsIgmpQueriesOut_Type=Counter32
-_PdnIgmpCacheStatsIgmpQueriesOut_Object=MibTableColumn
-pdnIgmpCacheStatsIgmpQueriesOut=_PdnIgmpCacheStatsIgmpQueriesOut_Object((1,3,6,1,4,1,1795,2,24,2,47,1,2,1,4),_PdnIgmpCacheStatsIgmpQueriesOut_Type())
-pdnIgmpCacheStatsIgmpQueriesOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:pdnIgmpCacheStatsIgmpQueriesOut.setStatus(_B)
-_PdnIgmpCacheStatsIgmpReportsIn_Type=Counter32
-_PdnIgmpCacheStatsIgmpReportsIn_Object=MibTableColumn
-pdnIgmpCacheStatsIgmpReportsIn=_PdnIgmpCacheStatsIgmpReportsIn_Object((1,3,6,1,4,1,1795,2,24,2,47,1,2,1,5),_PdnIgmpCacheStatsIgmpReportsIn_Type())
-pdnIgmpCacheStatsIgmpReportsIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:pdnIgmpCacheStatsIgmpReportsIn.setStatus(_B)
-_PdnIgmpCacheStatsIgmpReportsOut_Type=Counter32
-_PdnIgmpCacheStatsIgmpReportsOut_Object=MibTableColumn
-pdnIgmpCacheStatsIgmpReportsOut=_PdnIgmpCacheStatsIgmpReportsOut_Object((1,3,6,1,4,1,1795,2,24,2,47,1,2,1,6),_PdnIgmpCacheStatsIgmpReportsOut_Type())
-pdnIgmpCacheStatsIgmpReportsOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:pdnIgmpCacheStatsIgmpReportsOut.setStatus(_B)
-_PdnIgmpCacheStatsIgmpLeavesIn_Type=Counter32
-_PdnIgmpCacheStatsIgmpLeavesIn_Object=MibTableColumn
-pdnIgmpCacheStatsIgmpLeavesIn=_PdnIgmpCacheStatsIgmpLeavesIn_Object((1,3,6,1,4,1,1795,2,24,2,47,1,2,1,7),_PdnIgmpCacheStatsIgmpLeavesIn_Type())
-pdnIgmpCacheStatsIgmpLeavesIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:pdnIgmpCacheStatsIgmpLeavesIn.setStatus(_B)
-_PdnIgmpCacheStatsIgmpLeavesOut_Type=Counter32
-_PdnIgmpCacheStatsIgmpLeavesOut_Object=MibTableColumn
-pdnIgmpCacheStatsIgmpLeavesOut=_PdnIgmpCacheStatsIgmpLeavesOut_Object((1,3,6,1,4,1,1795,2,24,2,47,1,2,1,8),_PdnIgmpCacheStatsIgmpLeavesOut_Type())
-pdnIgmpCacheStatsIgmpLeavesOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:pdnIgmpCacheStatsIgmpLeavesOut.setStatus(_B)
-class _PdnIgmpSnoopingSelection_Type(SwitchState):defaultValue=2
-_PdnIgmpSnoopingSelection_Type.__name__=_F
-_PdnIgmpSnoopingSelection_Object=MibScalar
-pdnIgmpSnoopingSelection=_PdnIgmpSnoopingSelection_Object((1,3,6,1,4,1,1795,2,24,2,47,1,3),_PdnIgmpSnoopingSelection_Type())
-pdnIgmpSnoopingSelection.setMaxAccess(_D)
-if mibBuilder.loadTexts:pdnIgmpSnoopingSelection.setStatus(_B)
-class _PdnIgmpGeneralQueryInterval_Type(Unsigned32):defaultValue=125
-_PdnIgmpGeneralQueryInterval_Type.__name__=_E
-_PdnIgmpGeneralQueryInterval_Object=MibScalar
-pdnIgmpGeneralQueryInterval=_PdnIgmpGeneralQueryInterval_Object((1,3,6,1,4,1,1795,2,24,2,47,1,4),_PdnIgmpGeneralQueryInterval_Type())
-pdnIgmpGeneralQueryInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:pdnIgmpGeneralQueryInterval.setStatus(_B)
-if mibBuilder.loadTexts:pdnIgmpGeneralQueryInterval.setUnits('seconds')
-_PdnIgmpStdExtAFNs_ObjectIdentity=ObjectIdentity
-pdnIgmpStdExtAFNs=_PdnIgmpStdExtAFNs_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,47,2))
-_PdnIgmpStdExtConformance_ObjectIdentity=ObjectIdentity
-pdnIgmpStdExtConformance=_PdnIgmpStdExtConformance_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,47,3))
-_PdnIgmpStdExtCompliances_ObjectIdentity=ObjectIdentity
-pdnIgmpStdExtCompliances=_PdnIgmpStdExtCompliances_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,47,3,1))
-_PdnIgmpStdExtGroups_ObjectIdentity=ObjectIdentity
-pdnIgmpStdExtGroups=_PdnIgmpStdExtGroups_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,47,3,2))
-_PdnIgmpStdExtObjGroups_ObjectIdentity=ObjectIdentity
-pdnIgmpStdExtObjGroups=_PdnIgmpStdExtObjGroups_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,47,3,2,1))
-_PdnIgmpStdExtAfnGroups_ObjectIdentity=ObjectIdentity
-pdnIgmpStdExtAfnGroups=_PdnIgmpStdExtAfnGroups_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,47,3,2,2))
-_PdnIgmpStdExtNtfyGroups_ObjectIdentity=ObjectIdentity
-pdnIgmpStdExtNtfyGroups=_PdnIgmpStdExtNtfyGroups_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,47,3,2,3))
-igmpInterfaceEntry.registerAugmentions((_A,_K))
+#
+# PySNMP MIB module PDN-IGMP-STD-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/paradyne/PDN-IGMP-STD-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:34 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+igmpInterfaceEntry, igmpCacheEntry = mibBuilder.importSymbols("IGMP-STD-MIB", "igmpInterfaceEntry", "igmpCacheEntry")
+pdn_common, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdn-common")
+SwitchState, = mibBuilder.importSymbols("PDN-TC", "SwitchState")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+pdnIgmpStdExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47))
+pdnIgmpStdExtMIB.setRevisions(('2004-08-17 00:00', '2004-01-08 00:00', '2003-05-06 00:00', '2003-05-01 00:00',))
+if mibBuilder.loadTexts: pdnIgmpStdExtMIB.setLastUpdated('200408170000Z')
+if mibBuilder.loadTexts: pdnIgmpStdExtMIB.setOrganization('Paradyne Networks MIB Working Group Other information about group editing the MIB.')
+pdnIgmpStdExtNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 0))
+pdnIgmpStdExtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 1))
+pdnIgmpStdExtAFNs = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 2))
+pdnIgmpStdExtConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 3))
+pdnIgmpInterfaceExtTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 1, 1), )
+if mibBuilder.loadTexts: pdnIgmpInterfaceExtTable.setStatus('current')
+pdnIgmpInterfaceExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 1, 1, 1), )
+igmpInterfaceEntry.registerAugmentions(("PDN-IGMP-STD-EXT-MIB", "pdnIgmpInterfaceExtEntry"))
 pdnIgmpInterfaceExtEntry.setIndexNames(*igmpInterfaceEntry.getIndexNames())
-igmpCacheEntry.registerAugmentions((_A,_L))
+if mibBuilder.loadTexts: pdnIgmpInterfaceExtEntry.setStatus('current')
+pdnIgmpInterfaceSnoopEnableDisable = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 1, 1, 1, 1), SwitchState().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pdnIgmpInterfaceSnoopEnableDisable.setStatus('current')
+pdnIgmpInterfaceLeaveDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 1, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)).clone(3)).setUnits('tenths of a second').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pdnIgmpInterfaceLeaveDelay.setStatus('current')
+pdnIgmpInterfaceLeaveJoinForwardingDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 1, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)).clone(3)).setUnits('tenths of a second').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pdnIgmpInterfaceLeaveJoinForwardingDelay.setStatus('current')
+pdnIgmpCacheExtTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 1, 2), )
+if mibBuilder.loadTexts: pdnIgmpCacheExtTable.setStatus('current')
+pdnIgmpCacheExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 1, 2, 1), )
+igmpCacheEntry.registerAugmentions(("PDN-IGMP-STD-EXT-MIB", "pdnIgmpCacheExtEntry"))
 pdnIgmpCacheExtEntry.setIndexNames(*igmpCacheEntry.getIndexNames())
-pdnIgmpStdExtConfigGroup=ObjectGroup((1,3,6,1,4,1,1795,2,24,2,47,3,2,1,1))
-pdnIgmpStdExtConfigGroup.setObjects(*((_A,_M),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:pdnIgmpStdExtConfigGroup.setStatus(_B)
-pdnIgmpStdExtStatsGroup=ObjectGroup((1,3,6,1,4,1,1795,2,24,2,47,3,2,1,2))
-pdnIgmpStdExtStatsGroup.setObjects(*((_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W)))
-if mibBuilder.loadTexts:pdnIgmpStdExtStatsGroup.setStatus(_B)
-pdnIgmpStdExtGeneralConfigGroup=ObjectGroup((1,3,6,1,4,1,1795,2,24,2,47,3,2,1,3))
-pdnIgmpStdExtGeneralConfigGroup.setObjects((_A,_G))
-if mibBuilder.loadTexts:pdnIgmpStdExtGeneralConfigGroup.setStatus(_X)
-pdnIgmpStdExtGeneralConfigGroupV2=ObjectGroup((1,3,6,1,4,1,1795,2,24,2,47,3,2,1,4))
-pdnIgmpStdExtGeneralConfigGroupV2.setObjects(*((_A,_G),(_A,_Y)))
-if mibBuilder.loadTexts:pdnIgmpStdExtGeneralConfigGroupV2.setStatus(_B)
-pdnIgmpStdExtMIBCompliance=ModuleCompliance((1,3,6,1,4,1,1795,2,24,2,47,3,1,1))
-pdnIgmpStdExtMIBCompliance.setObjects(*((_A,_H),(_A,_I),(_A,_Z)))
-if mibBuilder.loadTexts:pdnIgmpStdExtMIBCompliance.setStatus(_X)
-pdnIgmpStdExtMIBComplianceV2=ModuleCompliance((1,3,6,1,4,1,1795,2,24,2,47,3,1,2))
-pdnIgmpStdExtMIBComplianceV2.setObjects(*((_A,_H),(_A,_I),(_A,_a)))
-if mibBuilder.loadTexts:pdnIgmpStdExtMIBComplianceV2.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'pdnIgmpStdExtMIB':pdnIgmpStdExtMIB,'pdnIgmpStdExtNotifications':pdnIgmpStdExtNotifications,'pdnIgmpStdExtObjects':pdnIgmpStdExtObjects,'pdnIgmpInterfaceExtTable':pdnIgmpInterfaceExtTable,_K:pdnIgmpInterfaceExtEntry,_M:pdnIgmpInterfaceSnoopEnableDisable,_N:pdnIgmpInterfaceLeaveDelay,_O:pdnIgmpInterfaceLeaveJoinForwardingDelay,'pdnIgmpCacheExtTable':pdnIgmpCacheExtTable,_L:pdnIgmpCacheExtEntry,_P:pdnIgmpCacheStatsMulticastPktsIn,_Q:pdnIgmpCacheStatsMulticastPktsOut,_R:pdnIgmpCacheStatsIgmpQueriesIn,_S:pdnIgmpCacheStatsIgmpQueriesOut,_T:pdnIgmpCacheStatsIgmpReportsIn,_U:pdnIgmpCacheStatsIgmpReportsOut,_V:pdnIgmpCacheStatsIgmpLeavesIn,_W:pdnIgmpCacheStatsIgmpLeavesOut,_G:pdnIgmpSnoopingSelection,_Y:pdnIgmpGeneralQueryInterval,'pdnIgmpStdExtAFNs':pdnIgmpStdExtAFNs,'pdnIgmpStdExtConformance':pdnIgmpStdExtConformance,'pdnIgmpStdExtCompliances':pdnIgmpStdExtCompliances,'pdnIgmpStdExtMIBCompliance':pdnIgmpStdExtMIBCompliance,'pdnIgmpStdExtMIBComplianceV2':pdnIgmpStdExtMIBComplianceV2,'pdnIgmpStdExtGroups':pdnIgmpStdExtGroups,'pdnIgmpStdExtObjGroups':pdnIgmpStdExtObjGroups,_H:pdnIgmpStdExtConfigGroup,_I:pdnIgmpStdExtStatsGroup,_Z:pdnIgmpStdExtGeneralConfigGroup,_a:pdnIgmpStdExtGeneralConfigGroupV2,'pdnIgmpStdExtAfnGroups':pdnIgmpStdExtAfnGroups,'pdnIgmpStdExtNtfyGroups':pdnIgmpStdExtNtfyGroups})
+if mibBuilder.loadTexts: pdnIgmpCacheExtEntry.setStatus('current')
+pdnIgmpCacheStatsMulticastPktsIn = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 1, 2, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pdnIgmpCacheStatsMulticastPktsIn.setStatus('current')
+pdnIgmpCacheStatsMulticastPktsOut = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 1, 2, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pdnIgmpCacheStatsMulticastPktsOut.setStatus('current')
+pdnIgmpCacheStatsIgmpQueriesIn = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 1, 2, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pdnIgmpCacheStatsIgmpQueriesIn.setStatus('current')
+pdnIgmpCacheStatsIgmpQueriesOut = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 1, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pdnIgmpCacheStatsIgmpQueriesOut.setStatus('current')
+pdnIgmpCacheStatsIgmpReportsIn = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 1, 2, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pdnIgmpCacheStatsIgmpReportsIn.setStatus('current')
+pdnIgmpCacheStatsIgmpReportsOut = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 1, 2, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pdnIgmpCacheStatsIgmpReportsOut.setStatus('current')
+pdnIgmpCacheStatsIgmpLeavesIn = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 1, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pdnIgmpCacheStatsIgmpLeavesIn.setStatus('current')
+pdnIgmpCacheStatsIgmpLeavesOut = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 1, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pdnIgmpCacheStatsIgmpLeavesOut.setStatus('current')
+pdnIgmpSnoopingSelection = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 1, 3), SwitchState().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pdnIgmpSnoopingSelection.setStatus('current')
+pdnIgmpGeneralQueryInterval = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 1, 4), Unsigned32().clone(125)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pdnIgmpGeneralQueryInterval.setStatus('current')
+pdnIgmpStdExtCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 3, 1))
+pdnIgmpStdExtGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 3, 2))
+pdnIgmpStdExtMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 3, 1, 1)).setObjects(("PDN-IGMP-STD-EXT-MIB", "pdnIgmpStdExtConfigGroup"), ("PDN-IGMP-STD-EXT-MIB", "pdnIgmpStdExtStatsGroup"), ("PDN-IGMP-STD-EXT-MIB", "pdnIgmpStdExtGeneralConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pdnIgmpStdExtMIBCompliance = pdnIgmpStdExtMIBCompliance.setStatus('deprecated')
+pdnIgmpStdExtMIBComplianceV2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 3, 1, 2)).setObjects(("PDN-IGMP-STD-EXT-MIB", "pdnIgmpStdExtConfigGroup"), ("PDN-IGMP-STD-EXT-MIB", "pdnIgmpStdExtStatsGroup"), ("PDN-IGMP-STD-EXT-MIB", "pdnIgmpStdExtGeneralConfigGroupV2"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pdnIgmpStdExtMIBComplianceV2 = pdnIgmpStdExtMIBComplianceV2.setStatus('current')
+pdnIgmpStdExtObjGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 3, 2, 1))
+pdnIgmpStdExtAfnGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 3, 2, 2))
+pdnIgmpStdExtNtfyGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 3, 2, 3))
+pdnIgmpStdExtConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 3, 2, 1, 1)).setObjects(("PDN-IGMP-STD-EXT-MIB", "pdnIgmpInterfaceSnoopEnableDisable"), ("PDN-IGMP-STD-EXT-MIB", "pdnIgmpInterfaceLeaveDelay"), ("PDN-IGMP-STD-EXT-MIB", "pdnIgmpInterfaceLeaveJoinForwardingDelay"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pdnIgmpStdExtConfigGroup = pdnIgmpStdExtConfigGroup.setStatus('current')
+pdnIgmpStdExtStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 3, 2, 1, 2)).setObjects(("PDN-IGMP-STD-EXT-MIB", "pdnIgmpCacheStatsMulticastPktsIn"), ("PDN-IGMP-STD-EXT-MIB", "pdnIgmpCacheStatsMulticastPktsOut"), ("PDN-IGMP-STD-EXT-MIB", "pdnIgmpCacheStatsIgmpQueriesIn"), ("PDN-IGMP-STD-EXT-MIB", "pdnIgmpCacheStatsIgmpQueriesOut"), ("PDN-IGMP-STD-EXT-MIB", "pdnIgmpCacheStatsIgmpReportsIn"), ("PDN-IGMP-STD-EXT-MIB", "pdnIgmpCacheStatsIgmpReportsOut"), ("PDN-IGMP-STD-EXT-MIB", "pdnIgmpCacheStatsIgmpLeavesIn"), ("PDN-IGMP-STD-EXT-MIB", "pdnIgmpCacheStatsIgmpLeavesOut"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pdnIgmpStdExtStatsGroup = pdnIgmpStdExtStatsGroup.setStatus('current')
+pdnIgmpStdExtGeneralConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 3, 2, 1, 3)).setObjects(("PDN-IGMP-STD-EXT-MIB", "pdnIgmpSnoopingSelection"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pdnIgmpStdExtGeneralConfigGroup = pdnIgmpStdExtGeneralConfigGroup.setStatus('deprecated')
+pdnIgmpStdExtGeneralConfigGroupV2 = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 47, 3, 2, 1, 4)).setObjects(("PDN-IGMP-STD-EXT-MIB", "pdnIgmpSnoopingSelection"), ("PDN-IGMP-STD-EXT-MIB", "pdnIgmpGeneralQueryInterval"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pdnIgmpStdExtGeneralConfigGroupV2 = pdnIgmpStdExtGeneralConfigGroupV2.setStatus('current')
+mibBuilder.exportSymbols("PDN-IGMP-STD-EXT-MIB", pdnIgmpStdExtAfnGroups=pdnIgmpStdExtAfnGroups, pdnIgmpStdExtConfigGroup=pdnIgmpStdExtConfigGroup, pdnIgmpStdExtStatsGroup=pdnIgmpStdExtStatsGroup, pdnIgmpStdExtMIBCompliance=pdnIgmpStdExtMIBCompliance, pdnIgmpStdExtCompliances=pdnIgmpStdExtCompliances, pdnIgmpCacheStatsIgmpReportsIn=pdnIgmpCacheStatsIgmpReportsIn, pdnIgmpStdExtMIB=pdnIgmpStdExtMIB, pdnIgmpCacheExtEntry=pdnIgmpCacheExtEntry, pdnIgmpCacheStatsIgmpQueriesOut=pdnIgmpCacheStatsIgmpQueriesOut, pdnIgmpInterfaceExtTable=pdnIgmpInterfaceExtTable, pdnIgmpStdExtAFNs=pdnIgmpStdExtAFNs, pdnIgmpStdExtNtfyGroups=pdnIgmpStdExtNtfyGroups, pdnIgmpCacheStatsIgmpQueriesIn=pdnIgmpCacheStatsIgmpQueriesIn, pdnIgmpInterfaceLeaveDelay=pdnIgmpInterfaceLeaveDelay, pdnIgmpStdExtGroups=pdnIgmpStdExtGroups, pdnIgmpCacheStatsIgmpLeavesOut=pdnIgmpCacheStatsIgmpLeavesOut, pdnIgmpStdExtGeneralConfigGroupV2=pdnIgmpStdExtGeneralConfigGroupV2, pdnIgmpCacheStatsMulticastPktsOut=pdnIgmpCacheStatsMulticastPktsOut, pdnIgmpStdExtObjGroups=pdnIgmpStdExtObjGroups, pdnIgmpStdExtGeneralConfigGroup=pdnIgmpStdExtGeneralConfigGroup, pdnIgmpStdExtMIBComplianceV2=pdnIgmpStdExtMIBComplianceV2, pdnIgmpStdExtObjects=pdnIgmpStdExtObjects, pdnIgmpInterfaceLeaveJoinForwardingDelay=pdnIgmpInterfaceLeaveJoinForwardingDelay, pdnIgmpSnoopingSelection=pdnIgmpSnoopingSelection, PYSNMP_MODULE_ID=pdnIgmpStdExtMIB, pdnIgmpStdExtNotifications=pdnIgmpStdExtNotifications, pdnIgmpInterfaceExtEntry=pdnIgmpInterfaceExtEntry, pdnIgmpCacheStatsIgmpReportsOut=pdnIgmpCacheStatsIgmpReportsOut, pdnIgmpInterfaceSnoopEnableDisable=pdnIgmpInterfaceSnoopEnableDisable, pdnIgmpGeneralQueryInterval=pdnIgmpGeneralQueryInterval, pdnIgmpCacheStatsMulticastPktsIn=pdnIgmpCacheStatsMulticastPktsIn, pdnIgmpCacheStatsIgmpLeavesIn=pdnIgmpCacheStatsIgmpLeavesIn, pdnIgmpStdExtConformance=pdnIgmpStdExtConformance, pdnIgmpCacheExtTable=pdnIgmpCacheExtTable)

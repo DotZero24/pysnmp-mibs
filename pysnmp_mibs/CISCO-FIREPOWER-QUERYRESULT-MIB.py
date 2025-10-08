@@ -1,124 +1,66 @@
-_F='cfprQueryresultUsageInstanceId'
-_E='not-accessible'
-_D='cfprQueryresultDependencyInstanceId'
-_C='CISCO-FIREPOWER-QUERYRESULT-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-CfprManagedObjectDn,CfprManagedObjectId,ciscoFirepowerMIBObjects=mibBuilder.importSymbols('CISCO-FIREPOWER-MIB','CfprManagedObjectDn','CfprManagedObjectId','ciscoFirepowerMIBObjects')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-CiscoAlarmSeverity,CiscoInetAddressMask,CiscoNetworkAddress,TimeIntervalSec,Unsigned64=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity','CiscoInetAddressMask','CiscoNetworkAddress','TimeIntervalSec','Unsigned64')
-InetAddressIPv4,InetAddressIPv6=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowPointer','TextualConvention','TimeInterval','TimeStamp','TruthValue')
-cfprQueryresultObjects=ModuleIdentity((1,3,6,1,4,1,9,9,826,1,68))
-_CfprQueryresultDependencyTable_Object=MibTable
-cfprQueryresultDependencyTable=_CfprQueryresultDependencyTable_Object((1,3,6,1,4,1,9,9,826,1,68,1))
-if mibBuilder.loadTexts:cfprQueryresultDependencyTable.setStatus(_A)
-_CfprQueryresultDependencyEntry_Object=MibTableRow
-cfprQueryresultDependencyEntry=_CfprQueryresultDependencyEntry_Object((1,3,6,1,4,1,9,9,826,1,68,1,1))
-cfprQueryresultDependencyEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:cfprQueryresultDependencyEntry.setStatus(_A)
-_CfprQueryresultDependencyInstanceId_Type=CfprManagedObjectId
-_CfprQueryresultDependencyInstanceId_Object=MibTableColumn
-cfprQueryresultDependencyInstanceId=_CfprQueryresultDependencyInstanceId_Object((1,3,6,1,4,1,9,9,826,1,68,1,1,1),_CfprQueryresultDependencyInstanceId_Type())
-cfprQueryresultDependencyInstanceId.setMaxAccess(_E)
-if mibBuilder.loadTexts:cfprQueryresultDependencyInstanceId.setStatus(_A)
-_CfprQueryresultDependencyDn_Type=CfprManagedObjectDn
-_CfprQueryresultDependencyDn_Object=MibTableColumn
-cfprQueryresultDependencyDn=_CfprQueryresultDependencyDn_Object((1,3,6,1,4,1,9,9,826,1,68,1,1,2),_CfprQueryresultDependencyDn_Type())
-cfprQueryresultDependencyDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprQueryresultDependencyDn.setStatus(_A)
-_CfprQueryresultDependencyRn_Type=SnmpAdminString
-_CfprQueryresultDependencyRn_Object=MibTableColumn
-cfprQueryresultDependencyRn=_CfprQueryresultDependencyRn_Object((1,3,6,1,4,1,9,9,826,1,68,1,1,3),_CfprQueryresultDependencyRn_Type())
-cfprQueryresultDependencyRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprQueryresultDependencyRn.setStatus(_A)
-_CfprQueryresultDependencyClassType_Type=SnmpAdminString
-_CfprQueryresultDependencyClassType_Object=MibTableColumn
-cfprQueryresultDependencyClassType=_CfprQueryresultDependencyClassType_Object((1,3,6,1,4,1,9,9,826,1,68,1,1,4),_CfprQueryresultDependencyClassType_Type())
-cfprQueryresultDependencyClassType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprQueryresultDependencyClassType.setStatus(_A)
-_CfprQueryresultDependencyIsImportable_Type=TruthValue
-_CfprQueryresultDependencyIsImportable_Object=MibTableColumn
-cfprQueryresultDependencyIsImportable=_CfprQueryresultDependencyIsImportable_Object((1,3,6,1,4,1,9,9,826,1,68,1,1,5),_CfprQueryresultDependencyIsImportable_Type())
-cfprQueryresultDependencyIsImportable.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprQueryresultDependencyIsImportable.setStatus(_A)
-_CfprQueryresultDependencyPolicyOwner_Type=SnmpAdminString
-_CfprQueryresultDependencyPolicyOwner_Object=MibTableColumn
-cfprQueryresultDependencyPolicyOwner=_CfprQueryresultDependencyPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,68,1,1,6),_CfprQueryresultDependencyPolicyOwner_Type())
-cfprQueryresultDependencyPolicyOwner.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprQueryresultDependencyPolicyOwner.setStatus(_A)
-_CfprQueryresultDependencyRefConvertedDn_Type=SnmpAdminString
-_CfprQueryresultDependencyRefConvertedDn_Object=MibTableColumn
-cfprQueryresultDependencyRefConvertedDn=_CfprQueryresultDependencyRefConvertedDn_Object((1,3,6,1,4,1,9,9,826,1,68,1,1,7),_CfprQueryresultDependencyRefConvertedDn_Type())
-cfprQueryresultDependencyRefConvertedDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprQueryresultDependencyRefConvertedDn.setStatus(_A)
-_CfprQueryresultDependencyRefDn_Type=SnmpAdminString
-_CfprQueryresultDependencyRefDn_Object=MibTableColumn
-cfprQueryresultDependencyRefDn=_CfprQueryresultDependencyRefDn_Object((1,3,6,1,4,1,9,9,826,1,68,1,1,8),_CfprQueryresultDependencyRefDn_Type())
-cfprQueryresultDependencyRefDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprQueryresultDependencyRefDn.setStatus(_A)
-_CfprQueryresultDependencyRefName_Type=SnmpAdminString
-_CfprQueryresultDependencyRefName_Object=MibTableColumn
-cfprQueryresultDependencyRefName=_CfprQueryresultDependencyRefName_Object((1,3,6,1,4,1,9,9,826,1,68,1,1,9),_CfprQueryresultDependencyRefName_Type())
-cfprQueryresultDependencyRefName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprQueryresultDependencyRefName.setStatus(_A)
-_CfprQueryresultUsageTable_Object=MibTable
-cfprQueryresultUsageTable=_CfprQueryresultUsageTable_Object((1,3,6,1,4,1,9,9,826,1,68,2))
-if mibBuilder.loadTexts:cfprQueryresultUsageTable.setStatus(_A)
-_CfprQueryresultUsageEntry_Object=MibTableRow
-cfprQueryresultUsageEntry=_CfprQueryresultUsageEntry_Object((1,3,6,1,4,1,9,9,826,1,68,2,1))
-cfprQueryresultUsageEntry.setIndexNames((0,_C,_F))
-if mibBuilder.loadTexts:cfprQueryresultUsageEntry.setStatus(_A)
-_CfprQueryresultUsageInstanceId_Type=CfprManagedObjectId
-_CfprQueryresultUsageInstanceId_Object=MibTableColumn
-cfprQueryresultUsageInstanceId=_CfprQueryresultUsageInstanceId_Object((1,3,6,1,4,1,9,9,826,1,68,2,1,1),_CfprQueryresultUsageInstanceId_Type())
-cfprQueryresultUsageInstanceId.setMaxAccess(_E)
-if mibBuilder.loadTexts:cfprQueryresultUsageInstanceId.setStatus(_A)
-_CfprQueryresultUsageDn_Type=CfprManagedObjectDn
-_CfprQueryresultUsageDn_Object=MibTableColumn
-cfprQueryresultUsageDn=_CfprQueryresultUsageDn_Object((1,3,6,1,4,1,9,9,826,1,68,2,1,2),_CfprQueryresultUsageDn_Type())
-cfprQueryresultUsageDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprQueryresultUsageDn.setStatus(_A)
-_CfprQueryresultUsageRn_Type=SnmpAdminString
-_CfprQueryresultUsageRn_Object=MibTableColumn
-cfprQueryresultUsageRn=_CfprQueryresultUsageRn_Object((1,3,6,1,4,1,9,9,826,1,68,2,1,3),_CfprQueryresultUsageRn_Type())
-cfprQueryresultUsageRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprQueryresultUsageRn.setStatus(_A)
-_CfprQueryresultUsageClassType_Type=SnmpAdminString
-_CfprQueryresultUsageClassType_Object=MibTableColumn
-cfprQueryresultUsageClassType=_CfprQueryresultUsageClassType_Object((1,3,6,1,4,1,9,9,826,1,68,2,1,4),_CfprQueryresultUsageClassType_Type())
-cfprQueryresultUsageClassType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprQueryresultUsageClassType.setStatus(_A)
-_CfprQueryresultUsageIsServiceTemplate_Type=TruthValue
-_CfprQueryresultUsageIsServiceTemplate_Object=MibTableColumn
-cfprQueryresultUsageIsServiceTemplate=_CfprQueryresultUsageIsServiceTemplate_Object((1,3,6,1,4,1,9,9,826,1,68,2,1,5),_CfprQueryresultUsageIsServiceTemplate_Type())
-cfprQueryresultUsageIsServiceTemplate.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprQueryresultUsageIsServiceTemplate.setStatus(_A)
-_CfprQueryresultUsagePolicyOwner_Type=SnmpAdminString
-_CfprQueryresultUsagePolicyOwner_Object=MibTableColumn
-cfprQueryresultUsagePolicyOwner=_CfprQueryresultUsagePolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,68,2,1,6),_CfprQueryresultUsagePolicyOwner_Type())
-cfprQueryresultUsagePolicyOwner.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprQueryresultUsagePolicyOwner.setStatus(_A)
-_CfprQueryresultUsageRefConvertedDn_Type=SnmpAdminString
-_CfprQueryresultUsageRefConvertedDn_Object=MibTableColumn
-cfprQueryresultUsageRefConvertedDn=_CfprQueryresultUsageRefConvertedDn_Object((1,3,6,1,4,1,9,9,826,1,68,2,1,7),_CfprQueryresultUsageRefConvertedDn_Type())
-cfprQueryresultUsageRefConvertedDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprQueryresultUsageRefConvertedDn.setStatus(_A)
-_CfprQueryresultUsageRefDn_Type=SnmpAdminString
-_CfprQueryresultUsageRefDn_Object=MibTableColumn
-cfprQueryresultUsageRefDn=_CfprQueryresultUsageRefDn_Object((1,3,6,1,4,1,9,9,826,1,68,2,1,8),_CfprQueryresultUsageRefDn_Type())
-cfprQueryresultUsageRefDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprQueryresultUsageRefDn.setStatus(_A)
-_CfprQueryresultUsageRefName_Type=SnmpAdminString
-_CfprQueryresultUsageRefName_Object=MibTableColumn
-cfprQueryresultUsageRefName=_CfprQueryresultUsageRefName_Object((1,3,6,1,4,1,9,9,826,1,68,2,1,9),_CfprQueryresultUsageRefName_Type())
-cfprQueryresultUsageRefName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprQueryresultUsageRefName.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'cfprQueryresultObjects':cfprQueryresultObjects,'cfprQueryresultDependencyTable':cfprQueryresultDependencyTable,'cfprQueryresultDependencyEntry':cfprQueryresultDependencyEntry,_D:cfprQueryresultDependencyInstanceId,'cfprQueryresultDependencyDn':cfprQueryresultDependencyDn,'cfprQueryresultDependencyRn':cfprQueryresultDependencyRn,'cfprQueryresultDependencyClassType':cfprQueryresultDependencyClassType,'cfprQueryresultDependencyIsImportable':cfprQueryresultDependencyIsImportable,'cfprQueryresultDependencyPolicyOwner':cfprQueryresultDependencyPolicyOwner,'cfprQueryresultDependencyRefConvertedDn':cfprQueryresultDependencyRefConvertedDn,'cfprQueryresultDependencyRefDn':cfprQueryresultDependencyRefDn,'cfprQueryresultDependencyRefName':cfprQueryresultDependencyRefName,'cfprQueryresultUsageTable':cfprQueryresultUsageTable,'cfprQueryresultUsageEntry':cfprQueryresultUsageEntry,_F:cfprQueryresultUsageInstanceId,'cfprQueryresultUsageDn':cfprQueryresultUsageDn,'cfprQueryresultUsageRn':cfprQueryresultUsageRn,'cfprQueryresultUsageClassType':cfprQueryresultUsageClassType,'cfprQueryresultUsageIsServiceTemplate':cfprQueryresultUsageIsServiceTemplate,'cfprQueryresultUsagePolicyOwner':cfprQueryresultUsagePolicyOwner,'cfprQueryresultUsageRefConvertedDn':cfprQueryresultUsageRefConvertedDn,'cfprQueryresultUsageRefDn':cfprQueryresultUsageRefDn,'cfprQueryresultUsageRefName':cfprQueryresultUsageRefName})
+#
+# PySNMP MIB module CISCO-FIREPOWER-QUERYRESULT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-FIREPOWER-QUERYRESULT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:12 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoFirepowerMIBObjects, CfprManagedObjectId, CfprManagedObjectDn = mibBuilder.importSymbols("CISCO-FIREPOWER-MIB", "ciscoFirepowerMIBObjects", "CfprManagedObjectId", "CfprManagedObjectDn")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+Unsigned64, CiscoAlarmSeverity, CiscoInetAddressMask, TimeIntervalSec, CiscoNetworkAddress = mibBuilder.importSymbols("CISCO-TC", "Unsigned64", "CiscoAlarmSeverity", "CiscoInetAddressMask", "TimeIntervalSec", "CiscoNetworkAddress")
+InetAddressIPv6, InetAddressIPv4 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv6", "InetAddressIPv4")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, MacAddress, TimeInterval, TimeStamp, TruthValue, DateAndTime, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "TimeStamp", "TruthValue", "DateAndTime", "RowPointer", "TextualConvention")
+cfprQueryresultObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68))
+if mibBuilder.loadTexts: cfprQueryresultObjects.setLastUpdated('202003100000Z')
+if mibBuilder.loadTexts: cfprQueryresultObjects.setOrganization('Cisco Systems Inc.')
+cfprQueryresultDependencyTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 1), )
+if mibBuilder.loadTexts: cfprQueryresultDependencyTable.setStatus('current')
+cfprQueryresultDependencyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 1, 1), ).setIndexNames((0, "CISCO-FIREPOWER-QUERYRESULT-MIB", "cfprQueryresultDependencyInstanceId"))
+if mibBuilder.loadTexts: cfprQueryresultDependencyEntry.setStatus('current')
+cfprQueryresultDependencyInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 1, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprQueryresultDependencyInstanceId.setStatus('current')
+cfprQueryresultDependencyDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 1, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprQueryresultDependencyDn.setStatus('current')
+cfprQueryresultDependencyRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprQueryresultDependencyRn.setStatus('current')
+cfprQueryresultDependencyClassType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprQueryresultDependencyClassType.setStatus('current')
+cfprQueryresultDependencyIsImportable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 1, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprQueryresultDependencyIsImportable.setStatus('current')
+cfprQueryresultDependencyPolicyOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 1, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprQueryresultDependencyPolicyOwner.setStatus('current')
+cfprQueryresultDependencyRefConvertedDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 1, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprQueryresultDependencyRefConvertedDn.setStatus('current')
+cfprQueryresultDependencyRefDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 1, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprQueryresultDependencyRefDn.setStatus('current')
+cfprQueryresultDependencyRefName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 1, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprQueryresultDependencyRefName.setStatus('current')
+cfprQueryresultUsageTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 2), )
+if mibBuilder.loadTexts: cfprQueryresultUsageTable.setStatus('current')
+cfprQueryresultUsageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 2, 1), ).setIndexNames((0, "CISCO-FIREPOWER-QUERYRESULT-MIB", "cfprQueryresultUsageInstanceId"))
+if mibBuilder.loadTexts: cfprQueryresultUsageEntry.setStatus('current')
+cfprQueryresultUsageInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 2, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprQueryresultUsageInstanceId.setStatus('current')
+cfprQueryresultUsageDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 2, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprQueryresultUsageDn.setStatus('current')
+cfprQueryresultUsageRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 2, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprQueryresultUsageRn.setStatus('current')
+cfprQueryresultUsageClassType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 2, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprQueryresultUsageClassType.setStatus('current')
+cfprQueryresultUsageIsServiceTemplate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 2, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprQueryresultUsageIsServiceTemplate.setStatus('current')
+cfprQueryresultUsagePolicyOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 2, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprQueryresultUsagePolicyOwner.setStatus('current')
+cfprQueryresultUsageRefConvertedDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 2, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprQueryresultUsageRefConvertedDn.setStatus('current')
+cfprQueryresultUsageRefDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 2, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprQueryresultUsageRefDn.setStatus('current')
+cfprQueryresultUsageRefName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 68, 2, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprQueryresultUsageRefName.setStatus('current')
+mibBuilder.exportSymbols("CISCO-FIREPOWER-QUERYRESULT-MIB", cfprQueryresultDependencyPolicyOwner=cfprQueryresultDependencyPolicyOwner, cfprQueryresultUsageRefDn=cfprQueryresultUsageRefDn, cfprQueryresultUsagePolicyOwner=cfprQueryresultUsagePolicyOwner, cfprQueryresultUsageTable=cfprQueryresultUsageTable, cfprQueryresultUsageRefConvertedDn=cfprQueryresultUsageRefConvertedDn, cfprQueryresultUsageDn=cfprQueryresultUsageDn, cfprQueryresultUsageEntry=cfprQueryresultUsageEntry, cfprQueryresultDependencyRn=cfprQueryresultDependencyRn, cfprQueryresultUsageIsServiceTemplate=cfprQueryresultUsageIsServiceTemplate, cfprQueryresultDependencyRefConvertedDn=cfprQueryresultDependencyRefConvertedDn, cfprQueryresultUsageClassType=cfprQueryresultUsageClassType, cfprQueryresultUsageRn=cfprQueryresultUsageRn, cfprQueryresultDependencyInstanceId=cfprQueryresultDependencyInstanceId, cfprQueryresultUsageRefName=cfprQueryresultUsageRefName, cfprQueryresultDependencyIsImportable=cfprQueryresultDependencyIsImportable, cfprQueryresultDependencyRefName=cfprQueryresultDependencyRefName, cfprQueryresultDependencyRefDn=cfprQueryresultDependencyRefDn, PYSNMP_MODULE_ID=cfprQueryresultObjects, cfprQueryresultObjects=cfprQueryresultObjects, cfprQueryresultDependencyDn=cfprQueryresultDependencyDn, cfprQueryresultDependencyEntry=cfprQueryresultDependencyEntry, cfprQueryresultDependencyTable=cfprQueryresultDependencyTable, cfprQueryresultUsageInstanceId=cfprQueryresultUsageInstanceId, cfprQueryresultDependencyClassType=cfprQueryresultDependencyClassType)

@@ -1,49 +1,34 @@
-_E='hpnicflldpPortConfigPortNum'
-_D='HPN-ICF-LLDP-EXT-MIB'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpnicfCommon,=mibBuilder.importSymbols('HPN-ICF-OID-MIB','hpnicfCommon')
-LldpPortNumber,=mibBuilder.importSymbols('LLDP-MIB','LldpPortNumber')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-hpnicflldp=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,15,2,100))
-if mibBuilder.loadTexts:hpnicflldp.setRevisions(('2009-03-21 00:00',))
-_HpnicflldpObjects_ObjectIdentity=ObjectIdentity
-hpnicflldpObjects=_HpnicflldpObjects_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,100,1))
-_HpnicflldpConfiguration_ObjectIdentity=ObjectIdentity
-hpnicflldpConfiguration=_HpnicflldpConfiguration_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,100,1,1))
-_HpnicflldpAdminStatus_Type=TruthValue
-_HpnicflldpAdminStatus_Object=MibScalar
-hpnicflldpAdminStatus=_HpnicflldpAdminStatus_Object((1,3,6,1,4,1,11,2,14,11,15,2,100,1,1,1),_HpnicflldpAdminStatus_Type())
-hpnicflldpAdminStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicflldpAdminStatus.setStatus(_A)
-_HpnicflldpComplianceCDPStatus_Type=TruthValue
-_HpnicflldpComplianceCDPStatus_Object=MibScalar
-hpnicflldpComplianceCDPStatus=_HpnicflldpComplianceCDPStatus_Object((1,3,6,1,4,1,11,2,14,11,15,2,100,1,1,2),_HpnicflldpComplianceCDPStatus_Type())
-hpnicflldpComplianceCDPStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicflldpComplianceCDPStatus.setStatus(_A)
-_HpnicflldpPortConfigTable_Object=MibTable
-hpnicflldpPortConfigTable=_HpnicflldpPortConfigTable_Object((1,3,6,1,4,1,11,2,14,11,15,2,100,1,1,3))
-if mibBuilder.loadTexts:hpnicflldpPortConfigTable.setStatus(_A)
-_HpnicflldpPortConfigEntry_Object=MibTableRow
-hpnicflldpPortConfigEntry=_HpnicflldpPortConfigEntry_Object((1,3,6,1,4,1,11,2,14,11,15,2,100,1,1,3,1))
-hpnicflldpPortConfigEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:hpnicflldpPortConfigEntry.setStatus(_A)
-_HpnicflldpPortConfigPortNum_Type=LldpPortNumber
-_HpnicflldpPortConfigPortNum_Object=MibTableColumn
-hpnicflldpPortConfigPortNum=_HpnicflldpPortConfigPortNum_Object((1,3,6,1,4,1,11,2,14,11,15,2,100,1,1,3,1,1),_HpnicflldpPortConfigPortNum_Type())
-hpnicflldpPortConfigPortNum.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:hpnicflldpPortConfigPortNum.setStatus(_A)
-class _HpnicflldpPortConfigCDPComplianceStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('txAndRx',1),('disabled',2)))
-_HpnicflldpPortConfigCDPComplianceStatus_Type.__name__=_C
-_HpnicflldpPortConfigCDPComplianceStatus_Object=MibTableColumn
-hpnicflldpPortConfigCDPComplianceStatus=_HpnicflldpPortConfigCDPComplianceStatus_Object((1,3,6,1,4,1,11,2,14,11,15,2,100,1,1,3,1,2),_HpnicflldpPortConfigCDPComplianceStatus_Type())
-hpnicflldpPortConfigCDPComplianceStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicflldpPortConfigCDPComplianceStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'hpnicflldp':hpnicflldp,'hpnicflldpObjects':hpnicflldpObjects,'hpnicflldpConfiguration':hpnicflldpConfiguration,'hpnicflldpAdminStatus':hpnicflldpAdminStatus,'hpnicflldpComplianceCDPStatus':hpnicflldpComplianceCDPStatus,'hpnicflldpPortConfigTable':hpnicflldpPortConfigTable,'hpnicflldpPortConfigEntry':hpnicflldpPortConfigEntry,_E:hpnicflldpPortConfigPortNum,'hpnicflldpPortConfigCDPComplianceStatus':hpnicflldpPortConfigCDPComplianceStatus})
+#
+# PySNMP MIB module HPN-ICF-LLDP-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-LLDP-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:28 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
+LldpPortNumber, = mibBuilder.importSymbols("LLDP-MIB", "LldpPortNumber")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+hpnicflldp = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 100))
+hpnicflldp.setRevisions(('2009-03-21 00:00',))
+if mibBuilder.loadTexts: hpnicflldp.setLastUpdated('200903210000Z')
+if mibBuilder.loadTexts: hpnicflldp.setOrganization('')
+hpnicflldpObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 100, 1))
+hpnicflldpConfiguration = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 100, 1, 1))
+hpnicflldpAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 100, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicflldpAdminStatus.setStatus('current')
+hpnicflldpComplianceCDPStatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 100, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicflldpComplianceCDPStatus.setStatus('current')
+hpnicflldpPortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 100, 1, 1, 3), )
+if mibBuilder.loadTexts: hpnicflldpPortConfigTable.setStatus('current')
+hpnicflldpPortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 100, 1, 1, 3, 1), ).setIndexNames((0, "HPN-ICF-LLDP-EXT-MIB", "hpnicflldpPortConfigPortNum"))
+if mibBuilder.loadTexts: hpnicflldpPortConfigEntry.setStatus('current')
+hpnicflldpPortConfigPortNum = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 100, 1, 1, 3, 1, 1), LldpPortNumber())
+if mibBuilder.loadTexts: hpnicflldpPortConfigPortNum.setStatus('current')
+hpnicflldpPortConfigCDPComplianceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 100, 1, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("txAndRx", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicflldpPortConfigCDPComplianceStatus.setStatus('current')
+mibBuilder.exportSymbols("HPN-ICF-LLDP-EXT-MIB", hpnicflldpPortConfigEntry=hpnicflldpPortConfigEntry, hpnicflldpAdminStatus=hpnicflldpAdminStatus, hpnicflldpConfiguration=hpnicflldpConfiguration, hpnicflldp=hpnicflldp, hpnicflldpPortConfigPortNum=hpnicflldpPortConfigPortNum, hpnicflldpPortConfigTable=hpnicflldpPortConfigTable, hpnicflldpComplianceCDPStatus=hpnicflldpComplianceCDPStatus, hpnicflldpObjects=hpnicflldpObjects, hpnicflldpPortConfigCDPComplianceStatus=hpnicflldpPortConfigCDPComplianceStatus, PYSNMP_MODULE_ID=hpnicflldp)

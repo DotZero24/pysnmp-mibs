@@ -1,164 +1,91 @@
-_Z='hpicfArubaVPNConfigGroup1'
-_Y='hpicfArubaVPNBkpIP'
-_X='hpicfArubaVPNBkpIPType'
-_W='hpicfArubaVPNGateway'
-_V='hpicfAMPServerRetryInterval'
-_U='hpicfAMPServerConfigStatus'
-_T='hpicfAMPServerSecret'
-_S='hpicfAMPServerFolder'
-_R='hpicfAMPServerGroup'
-_Q='hpicfAMPServerIPType'
-_P='hpicfAMPServerIP'
-_O='hpicfArubaVPNIndex'
-_N='Integer32'
-_M='hpicfDefaultGatewayGroup'
-_L='hpicfArubaVPNConfigGroup'
-_K='deprecated'
-_J='hpicfArubaVPNTtl'
-_I='hpicfArubaVPNTos'
-_H='hpicfArubaVPNIP'
-_G='hpicfArubaVPNIPType'
-_F='hpicfArubaVPNRowStatus'
-_E='hpicfAMPServerConfigGroup'
-_D='OctetString'
-_C='read-write'
-_B='current'
-_A='HPICF-AMP-SERVER-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpSwitch,=mibBuilder.importSymbols('HP-ICF-OID','hpSwitch')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_N,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-hpicfAMPServerMIB=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,5,1,125))
-if mibBuilder.loadTexts:hpicfAMPServerMIB.setRevisions(('2020-01-17 00:00','2017-03-07 00:00','2017-01-04 00:00','2016-12-16 00:00','2016-09-15 00:00','2016-04-19 00:00','2016-03-03 00:00','2015-12-14 00:00'))
-class HpicfArubaVPNType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('none',1),('amp',2),('any',3)))
-_HpicfAMPServerObjects_ObjectIdentity=ObjectIdentity
-hpicfAMPServerObjects=_HpicfAMPServerObjects_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,125,1))
-_HpicfAMPServerIPType_Type=InetAddressType
-_HpicfAMPServerIPType_Object=MibScalar
-hpicfAMPServerIPType=_HpicfAMPServerIPType_Object((1,3,6,1,4,1,11,2,14,11,5,1,125,1,1),_HpicfAMPServerIPType_Type())
-hpicfAMPServerIPType.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfAMPServerIPType.setStatus(_B)
-_HpicfAMPServerIP_Type=InetAddress
-_HpicfAMPServerIP_Object=MibScalar
-hpicfAMPServerIP=_HpicfAMPServerIP_Object((1,3,6,1,4,1,11,2,14,11,5,1,125,1,2),_HpicfAMPServerIP_Type())
-hpicfAMPServerIP.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfAMPServerIP.setStatus(_B)
-class _HpicfAMPServerGroup_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_HpicfAMPServerGroup_Type.__name__=_D
-_HpicfAMPServerGroup_Object=MibScalar
-hpicfAMPServerGroup=_HpicfAMPServerGroup_Object((1,3,6,1,4,1,11,2,14,11,5,1,125,1,3),_HpicfAMPServerGroup_Type())
-hpicfAMPServerGroup.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfAMPServerGroup.setStatus(_B)
-class _HpicfAMPServerFolder_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_HpicfAMPServerFolder_Type.__name__=_D
-_HpicfAMPServerFolder_Object=MibScalar
-hpicfAMPServerFolder=_HpicfAMPServerFolder_Object((1,3,6,1,4,1,11,2,14,11,5,1,125,1,4),_HpicfAMPServerFolder_Type())
-hpicfAMPServerFolder.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfAMPServerFolder.setStatus(_B)
-class _HpicfAMPServerSecret_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_HpicfAMPServerSecret_Type.__name__=_D
-_HpicfAMPServerSecret_Object=MibScalar
-hpicfAMPServerSecret=_HpicfAMPServerSecret_Object((1,3,6,1,4,1,11,2,14,11,5,1,125,1,5),_HpicfAMPServerSecret_Type())
-hpicfAMPServerSecret.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfAMPServerSecret.setStatus(_B)
-class _HpicfAMPServerConfigStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('configured',1),('notConfigured',2)))
-_HpicfAMPServerConfigStatus_Type.__name__=_N
-_HpicfAMPServerConfigStatus_Object=MibScalar
-hpicfAMPServerConfigStatus=_HpicfAMPServerConfigStatus_Object((1,3,6,1,4,1,11,2,14,11,5,1,125,1,6),_HpicfAMPServerConfigStatus_Type())
-hpicfAMPServerConfigStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfAMPServerConfigStatus.setStatus(_B)
-_HpicfAMPServerRetryInterval_Type=Integer32
-_HpicfAMPServerRetryInterval_Object=MibScalar
-hpicfAMPServerRetryInterval=_HpicfAMPServerRetryInterval_Object((1,3,6,1,4,1,11,2,14,11,5,1,125,1,7),_HpicfAMPServerRetryInterval_Type())
-hpicfAMPServerRetryInterval.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfAMPServerRetryInterval.setStatus(_B)
-if mibBuilder.loadTexts:hpicfAMPServerRetryInterval.setUnits('Seconds')
-_HpicfAMPServerConformance_ObjectIdentity=ObjectIdentity
-hpicfAMPServerConformance=_HpicfAMPServerConformance_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,125,2))
-_HpicfAMPServerMIBCompliances_ObjectIdentity=ObjectIdentity
-hpicfAMPServerMIBCompliances=_HpicfAMPServerMIBCompliances_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,125,2,1))
-_HpicfAMPServerMIBGroups_ObjectIdentity=ObjectIdentity
-hpicfAMPServerMIBGroups=_HpicfAMPServerMIBGroups_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,125,2,2))
-_HpicfArubaVPNObjects_ObjectIdentity=ObjectIdentity
-hpicfArubaVPNObjects=_HpicfArubaVPNObjects_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,125,3))
-_HpicfArubaVPNTable_Object=MibTable
-hpicfArubaVPNTable=_HpicfArubaVPNTable_Object((1,3,6,1,4,1,11,2,14,11,5,1,125,3,1))
-if mibBuilder.loadTexts:hpicfArubaVPNTable.setStatus(_B)
-_HpicfArubaVPNEntry_Object=MibTableRow
-hpicfArubaVPNEntry=_HpicfArubaVPNEntry_Object((1,3,6,1,4,1,11,2,14,11,5,1,125,3,1,1))
-hpicfArubaVPNEntry.setIndexNames((0,_A,_O))
-if mibBuilder.loadTexts:hpicfArubaVPNEntry.setStatus(_B)
-_HpicfArubaVPNIndex_Type=HpicfArubaVPNType
-_HpicfArubaVPNIndex_Object=MibTableColumn
-hpicfArubaVPNIndex=_HpicfArubaVPNIndex_Object((1,3,6,1,4,1,11,2,14,11,5,1,125,3,1,1,1),_HpicfArubaVPNIndex_Type())
-hpicfArubaVPNIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:hpicfArubaVPNIndex.setStatus(_B)
-_HpicfArubaVPNRowStatus_Type=RowStatus
-_HpicfArubaVPNRowStatus_Object=MibTableColumn
-hpicfArubaVPNRowStatus=_HpicfArubaVPNRowStatus_Object((1,3,6,1,4,1,11,2,14,11,5,1,125,3,1,1,2),_HpicfArubaVPNRowStatus_Type())
-hpicfArubaVPNRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:hpicfArubaVPNRowStatus.setStatus(_B)
-_HpicfArubaVPNIPType_Type=InetAddressType
-_HpicfArubaVPNIPType_Object=MibTableColumn
-hpicfArubaVPNIPType=_HpicfArubaVPNIPType_Object((1,3,6,1,4,1,11,2,14,11,5,1,125,3,1,1,3),_HpicfArubaVPNIPType_Type())
-hpicfArubaVPNIPType.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfArubaVPNIPType.setStatus(_B)
-_HpicfArubaVPNIP_Type=InetAddress
-_HpicfArubaVPNIP_Object=MibTableColumn
-hpicfArubaVPNIP=_HpicfArubaVPNIP_Object((1,3,6,1,4,1,11,2,14,11,5,1,125,3,1,1,4),_HpicfArubaVPNIP_Type())
-hpicfArubaVPNIP.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfArubaVPNIP.setStatus(_B)
-_HpicfArubaVPNTos_Type=Integer32
-_HpicfArubaVPNTos_Object=MibTableColumn
-hpicfArubaVPNTos=_HpicfArubaVPNTos_Object((1,3,6,1,4,1,11,2,14,11,5,1,125,3,1,1,5),_HpicfArubaVPNTos_Type())
-hpicfArubaVPNTos.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfArubaVPNTos.setStatus(_B)
-_HpicfArubaVPNTtl_Type=Integer32
-_HpicfArubaVPNTtl_Object=MibTableColumn
-hpicfArubaVPNTtl=_HpicfArubaVPNTtl_Object((1,3,6,1,4,1,11,2,14,11,5,1,125,3,1,1,6),_HpicfArubaVPNTtl_Type())
-hpicfArubaVPNTtl.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfArubaVPNTtl.setStatus(_B)
-_HpicfArubaVPNBkpIPType_Type=InetAddressType
-_HpicfArubaVPNBkpIPType_Object=MibTableColumn
-hpicfArubaVPNBkpIPType=_HpicfArubaVPNBkpIPType_Object((1,3,6,1,4,1,11,2,14,11,5,1,125,3,1,1,7),_HpicfArubaVPNBkpIPType_Type())
-hpicfArubaVPNBkpIPType.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfArubaVPNBkpIPType.setStatus(_B)
-_HpicfArubaVPNBkpIP_Type=InetAddress
-_HpicfArubaVPNBkpIP_Object=MibTableColumn
-hpicfArubaVPNBkpIP=_HpicfArubaVPNBkpIP_Object((1,3,6,1,4,1,11,2,14,11,5,1,125,3,1,1,8),_HpicfArubaVPNBkpIP_Type())
-hpicfArubaVPNBkpIP.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfArubaVPNBkpIP.setStatus(_B)
-_HpicfArubaVPNDefaultGateway_ObjectIdentity=ObjectIdentity
-hpicfArubaVPNDefaultGateway=_HpicfArubaVPNDefaultGateway_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,125,4))
-_HpicfArubaVPNGateway_Type=TruthValue
-_HpicfArubaVPNGateway_Object=MibScalar
-hpicfArubaVPNGateway=_HpicfArubaVPNGateway_Object((1,3,6,1,4,1,11,2,14,11,5,1,125,4,1),_HpicfArubaVPNGateway_Type())
-hpicfArubaVPNGateway.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfArubaVPNGateway.setStatus(_B)
-hpicfAMPServerConfigGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,125,2,2,1))
-hpicfAMPServerConfigGroup.setObjects(*((_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V)))
-if mibBuilder.loadTexts:hpicfAMPServerConfigGroup.setStatus(_B)
-hpicfArubaVPNConfigGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,125,2,2,2))
-hpicfArubaVPNConfigGroup.setObjects(*((_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J)))
-if mibBuilder.loadTexts:hpicfArubaVPNConfigGroup.setStatus(_K)
-hpicfDefaultGatewayGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,125,2,2,3))
-hpicfDefaultGatewayGroup.setObjects((_A,_W))
-if mibBuilder.loadTexts:hpicfDefaultGatewayGroup.setStatus(_B)
-hpicfArubaVPNConfigGroup1=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,125,2,2,4))
-hpicfArubaVPNConfigGroup1.setObjects(*((_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_X),(_A,_Y)))
-if mibBuilder.loadTexts:hpicfArubaVPNConfigGroup1.setStatus(_B)
-hpicfAMPServerMIBCompliance=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,125,2,1,1))
-hpicfAMPServerMIBCompliance.setObjects(*((_A,_E),(_A,_L)))
-if mibBuilder.loadTexts:hpicfAMPServerMIBCompliance.setStatus(_K)
-hpicfAMPServerMIBCompliance1=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,125,2,1,2))
-hpicfAMPServerMIBCompliance1.setObjects(*((_A,_E),(_A,_L),(_A,_M)))
-if mibBuilder.loadTexts:hpicfAMPServerMIBCompliance1.setStatus(_K)
-hpicfAMPServerMIBCompliance2=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,125,2,1,3))
-hpicfAMPServerMIBCompliance2.setObjects(*((_A,_E),(_A,_Z),(_A,_M)))
-if mibBuilder.loadTexts:hpicfAMPServerMIBCompliance2.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'HpicfArubaVPNType':HpicfArubaVPNType,'hpicfAMPServerMIB':hpicfAMPServerMIB,'hpicfAMPServerObjects':hpicfAMPServerObjects,_Q:hpicfAMPServerIPType,_P:hpicfAMPServerIP,_R:hpicfAMPServerGroup,_S:hpicfAMPServerFolder,_T:hpicfAMPServerSecret,_U:hpicfAMPServerConfigStatus,_V:hpicfAMPServerRetryInterval,'hpicfAMPServerConformance':hpicfAMPServerConformance,'hpicfAMPServerMIBCompliances':hpicfAMPServerMIBCompliances,'hpicfAMPServerMIBCompliance':hpicfAMPServerMIBCompliance,'hpicfAMPServerMIBCompliance1':hpicfAMPServerMIBCompliance1,'hpicfAMPServerMIBCompliance2':hpicfAMPServerMIBCompliance2,'hpicfAMPServerMIBGroups':hpicfAMPServerMIBGroups,_E:hpicfAMPServerConfigGroup,_L:hpicfArubaVPNConfigGroup,_M:hpicfDefaultGatewayGroup,_Z:hpicfArubaVPNConfigGroup1,'hpicfArubaVPNObjects':hpicfArubaVPNObjects,'hpicfArubaVPNTable':hpicfArubaVPNTable,'hpicfArubaVPNEntry':hpicfArubaVPNEntry,_O:hpicfArubaVPNIndex,_F:hpicfArubaVPNRowStatus,_G:hpicfArubaVPNIPType,_H:hpicfArubaVPNIP,_I:hpicfArubaVPNTos,_J:hpicfArubaVPNTtl,_X:hpicfArubaVPNBkpIPType,_Y:hpicfArubaVPNBkpIP,'hpicfArubaVPNDefaultGateway':hpicfArubaVPNDefaultGateway,_W:hpicfArubaVPNGateway})
+#
+# PySNMP MIB module HPICF-AMP-SERVER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPICF-AMP-SERVER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:01 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpSwitch, = mibBuilder.importSymbols("HP-ICF-OID", "hpSwitch")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+hpicfAMPServerMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125))
+hpicfAMPServerMIB.setRevisions(('2020-01-17 00:00', '2017-03-07 00:00', '2017-01-04 00:00', '2016-12-16 00:00', '2016-09-15 00:00', '2016-04-19 00:00', '2016-03-03 00:00', '2015-12-14 00:00',))
+if mibBuilder.loadTexts: hpicfAMPServerMIB.setLastUpdated('202001170000Z')
+if mibBuilder.loadTexts: hpicfAMPServerMIB.setOrganization('HP Networking')
+hpicfAMPServerObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 1))
+hpicfAMPServerConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 2))
+hpicfArubaVPNObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 3))
+hpicfArubaVPNDefaultGateway = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 4))
+class HpicfArubaVPNType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("none", 1), ("amp", 2), ("any", 3))
+
+hpicfArubaVPNTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 3, 1), )
+if mibBuilder.loadTexts: hpicfArubaVPNTable.setStatus('current')
+hpicfArubaVPNEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 3, 1, 1), ).setIndexNames((0, "HPICF-AMP-SERVER-MIB", "hpicfArubaVPNIndex"))
+if mibBuilder.loadTexts: hpicfArubaVPNEntry.setStatus('current')
+hpicfArubaVPNIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 3, 1, 1, 1), HpicfArubaVPNType())
+if mibBuilder.loadTexts: hpicfArubaVPNIndex.setStatus('current')
+hpicfArubaVPNRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 3, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfArubaVPNRowStatus.setStatus('current')
+hpicfArubaVPNIPType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 3, 1, 1, 3), InetAddressType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfArubaVPNIPType.setStatus('current')
+hpicfArubaVPNIP = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 3, 1, 1, 4), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfArubaVPNIP.setStatus('current')
+hpicfArubaVPNTos = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 3, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfArubaVPNTos.setStatus('current')
+hpicfArubaVPNTtl = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 3, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfArubaVPNTtl.setStatus('current')
+hpicfArubaVPNBkpIPType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 3, 1, 1, 7), InetAddressType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfArubaVPNBkpIPType.setStatus('current')
+hpicfArubaVPNBkpIP = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 3, 1, 1, 8), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfArubaVPNBkpIP.setStatus('current')
+hpicfArubaVPNGateway = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 4, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfArubaVPNGateway.setStatus('current')
+hpicfAMPServerIPType = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 1, 1), InetAddressType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfAMPServerIPType.setStatus('current')
+hpicfAMPServerIP = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 1, 2), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfAMPServerIP.setStatus('current')
+hpicfAMPServerGroup = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfAMPServerGroup.setStatus('current')
+hpicfAMPServerFolder = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfAMPServerFolder.setStatus('current')
+hpicfAMPServerSecret = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfAMPServerSecret.setStatus('current')
+hpicfAMPServerConfigStatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("configured", 1), ("notConfigured", 2))).clone('notConfigured')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfAMPServerConfigStatus.setStatus('current')
+hpicfAMPServerRetryInterval = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 1, 7), Integer32()).setUnits('Seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfAMPServerRetryInterval.setStatus('current')
+hpicfAMPServerMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 2, 1))
+hpicfAMPServerMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 2, 2))
+hpicfAMPServerMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 2, 1, 1)).setObjects(("HPICF-AMP-SERVER-MIB", "hpicfAMPServerConfigGroup"), ("HPICF-AMP-SERVER-MIB", "hpicfArubaVPNConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfAMPServerMIBCompliance = hpicfAMPServerMIBCompliance.setStatus('deprecated')
+hpicfAMPServerMIBCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 2, 1, 2)).setObjects(("HPICF-AMP-SERVER-MIB", "hpicfAMPServerConfigGroup"), ("HPICF-AMP-SERVER-MIB", "hpicfArubaVPNConfigGroup"), ("HPICF-AMP-SERVER-MIB", "hpicfDefaultGatewayGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfAMPServerMIBCompliance1 = hpicfAMPServerMIBCompliance1.setStatus('deprecated')
+hpicfAMPServerMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 2, 1, 3)).setObjects(("HPICF-AMP-SERVER-MIB", "hpicfAMPServerConfigGroup"), ("HPICF-AMP-SERVER-MIB", "hpicfArubaVPNConfigGroup1"), ("HPICF-AMP-SERVER-MIB", "hpicfDefaultGatewayGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfAMPServerMIBCompliance2 = hpicfAMPServerMIBCompliance2.setStatus('current')
+hpicfAMPServerConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 2, 2, 1)).setObjects(("HPICF-AMP-SERVER-MIB", "hpicfAMPServerIP"), ("HPICF-AMP-SERVER-MIB", "hpicfAMPServerIPType"), ("HPICF-AMP-SERVER-MIB", "hpicfAMPServerGroup"), ("HPICF-AMP-SERVER-MIB", "hpicfAMPServerFolder"), ("HPICF-AMP-SERVER-MIB", "hpicfAMPServerSecret"), ("HPICF-AMP-SERVER-MIB", "hpicfAMPServerConfigStatus"), ("HPICF-AMP-SERVER-MIB", "hpicfAMPServerRetryInterval"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfAMPServerConfigGroup = hpicfAMPServerConfigGroup.setStatus('current')
+hpicfArubaVPNConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 2, 2, 2)).setObjects(("HPICF-AMP-SERVER-MIB", "hpicfArubaVPNRowStatus"), ("HPICF-AMP-SERVER-MIB", "hpicfArubaVPNIPType"), ("HPICF-AMP-SERVER-MIB", "hpicfArubaVPNIP"), ("HPICF-AMP-SERVER-MIB", "hpicfArubaVPNTos"), ("HPICF-AMP-SERVER-MIB", "hpicfArubaVPNTtl"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfArubaVPNConfigGroup = hpicfArubaVPNConfigGroup.setStatus('deprecated')
+hpicfDefaultGatewayGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 2, 2, 3)).setObjects(("HPICF-AMP-SERVER-MIB", "hpicfArubaVPNGateway"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfDefaultGatewayGroup = hpicfDefaultGatewayGroup.setStatus('current')
+hpicfArubaVPNConfigGroup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 125, 2, 2, 4)).setObjects(("HPICF-AMP-SERVER-MIB", "hpicfArubaVPNRowStatus"), ("HPICF-AMP-SERVER-MIB", "hpicfArubaVPNIPType"), ("HPICF-AMP-SERVER-MIB", "hpicfArubaVPNIP"), ("HPICF-AMP-SERVER-MIB", "hpicfArubaVPNTos"), ("HPICF-AMP-SERVER-MIB", "hpicfArubaVPNTtl"), ("HPICF-AMP-SERVER-MIB", "hpicfArubaVPNBkpIPType"), ("HPICF-AMP-SERVER-MIB", "hpicfArubaVPNBkpIP"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfArubaVPNConfigGroup1 = hpicfArubaVPNConfigGroup1.setStatus('current')
+mibBuilder.exportSymbols("HPICF-AMP-SERVER-MIB", hpicfAMPServerMIBCompliance1=hpicfAMPServerMIBCompliance1, hpicfDefaultGatewayGroup=hpicfDefaultGatewayGroup, hpicfAMPServerMIBGroups=hpicfAMPServerMIBGroups, hpicfArubaVPNIP=hpicfArubaVPNIP, hpicfArubaVPNDefaultGateway=hpicfArubaVPNDefaultGateway, hpicfAMPServerMIBCompliance=hpicfAMPServerMIBCompliance, hpicfAMPServerObjects=hpicfAMPServerObjects, hpicfAMPServerConformance=hpicfAMPServerConformance, hpicfAMPServerMIBCompliance2=hpicfAMPServerMIBCompliance2, hpicfAMPServerRetryInterval=hpicfAMPServerRetryInterval, hpicfArubaVPNEntry=hpicfArubaVPNEntry, hpicfAMPServerConfigGroup=hpicfAMPServerConfigGroup, hpicfAMPServerFolder=hpicfAMPServerFolder, hpicfArubaVPNConfigGroup=hpicfArubaVPNConfigGroup, hpicfArubaVPNBkpIP=hpicfArubaVPNBkpIP, hpicfAMPServerIPType=hpicfAMPServerIPType, hpicfArubaVPNGateway=hpicfArubaVPNGateway, hpicfArubaVPNConfigGroup1=hpicfArubaVPNConfigGroup1, hpicfAMPServerIP=hpicfAMPServerIP, hpicfAMPServerMIBCompliances=hpicfAMPServerMIBCompliances, hpicfAMPServerGroup=hpicfAMPServerGroup, hpicfAMPServerConfigStatus=hpicfAMPServerConfigStatus, hpicfArubaVPNIPType=hpicfArubaVPNIPType, hpicfAMPServerMIB=hpicfAMPServerMIB, hpicfArubaVPNTos=hpicfArubaVPNTos, hpicfArubaVPNObjects=hpicfArubaVPNObjects, PYSNMP_MODULE_ID=hpicfAMPServerMIB, hpicfAMPServerSecret=hpicfAMPServerSecret, hpicfArubaVPNTable=hpicfArubaVPNTable, hpicfArubaVPNBkpIPType=hpicfArubaVPNBkpIPType, HpicfArubaVPNType=HpicfArubaVPNType, hpicfArubaVPNTtl=hpicfArubaVPNTtl, hpicfArubaVPNIndex=hpicfArubaVPNIndex, hpicfArubaVPNRowStatus=hpicfArubaVPNRowStatus)

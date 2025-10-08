@@ -1,84 +1,45 @@
-_E='MxIpPort'
-_D='read-only'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mediatrixServices,=mibBuilder.importSymbols('MX-SMI2','mediatrixServices')
-MxActivationState,MxAdvancedIpPort,MxDigitMap,MxEnableState,MxIpAddress,MxIpHostName,MxIpPort,MxIpSubnetMask=mibBuilder.importSymbols('MX-TC','MxActivationState','MxAdvancedIpPort','MxDigitMap','MxEnableState','MxIpAddress','MxIpHostName',_E,'MxIpSubnetMask')
-MxFloat32,MxIpAddr,MxIpAddrMask,MxIpAddrPort,MxIpHostNamePort,MxUInt64,MxUri,MxUrl=mibBuilder.importSymbols('MX-TC2','MxFloat32','MxIpAddr','MxIpAddrMask','MxIpAddrPort','MxIpHostNamePort','MxUInt64','MxUri','MxUrl')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-webMIB=ModuleIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1200))
-_WebMIBObjects_ObjectIdentity=ObjectIdentity
-webMIBObjects=_WebMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1200,1))
-_ServerGroup_ObjectIdentity=ObjectIdentity
-serverGroup=_ServerGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1200,1,100))
-class _HttpMode_Type(Integer32):defaultValue=300;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(100,200,300)));namedValues=NamedValues(*(('secure',100),('unsecure',200),('both',300)))
-_HttpMode_Type.__name__=_B
-_HttpMode_Object=MibScalar
-httpMode=_HttpMode_Object((1,3,6,1,4,1,4935,1000,100,200,100,1200,1,100,50),_HttpMode_Type())
-httpMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:httpMode.setStatus(_A)
-class _ServerPort_Type(MxIpPort):defaultValue=80
-_ServerPort_Type.__name__=_E
-_ServerPort_Object=MibScalar
-serverPort=_ServerPort_Object((1,3,6,1,4,1,4935,1000,100,200,100,1200,1,100,100),_ServerPort_Type())
-serverPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:serverPort.setStatus(_A)
-class _SecureServerPort_Type(MxIpPort):defaultValue=443
-_SecureServerPort_Type.__name__=_E
-_SecureServerPort_Object=MibScalar
-secureServerPort=_SecureServerPort_Object((1,3,6,1,4,1,4935,1000,100,200,100,1200,1,100,200),_SecureServerPort_Type())
-secureServerPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:secureServerPort.setStatus(_A)
-class _HttpsCipherSuite_Type(Integer32):defaultValue=100;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(100,200,300)));namedValues=NamedValues(*(('cS1',100),('cS2',200),('cS3',300)))
-_HttpsCipherSuite_Type.__name__=_B
-_HttpsCipherSuite_Object=MibScalar
-httpsCipherSuite=_HttpsCipherSuite_Object((1,3,6,1,4,1,4935,1000,100,200,100,1200,1,100,300),_HttpsCipherSuite_Type())
-httpsCipherSuite.setMaxAccess(_C)
-if mibBuilder.loadTexts:httpsCipherSuite.setStatus(_A)
-class _TlsVersion_Type(Integer32):defaultValue=200;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(100,200,300,400)));namedValues=NamedValues(*(('sSLv3',100),('tLSv1',200),('tLSv1-1',300),('tLSv1-2',400)))
-_TlsVersion_Type.__name__=_B
-_TlsVersion_Object=MibScalar
-tlsVersion=_TlsVersion_Object((1,3,6,1,4,1,4935,1000,100,200,100,1200,1,100,400),_TlsVersion_Type())
-tlsVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:tlsVersion.setStatus(_A)
-_StatisticsGroup_ObjectIdentity=ObjectIdentity
-statisticsGroup=_StatisticsGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1200,1,10000))
-_StatsRequest_Type=Unsigned32
-_StatsRequest_Object=MibScalar
-statsRequest=_StatsRequest_Object((1,3,6,1,4,1,4935,1000,100,200,100,1200,1,10000,100),_StatsRequest_Type())
-statsRequest.setMaxAccess(_D)
-if mibBuilder.loadTexts:statsRequest.setStatus(_A)
-_StatsRedirect_Type=Unsigned32
-_StatsRedirect_Object=MibScalar
-statsRedirect=_StatsRedirect_Object((1,3,6,1,4,1,4935,1000,100,200,100,1200,1,10000,200),_StatsRedirect_Type())
-statsRedirect.setMaxAccess(_D)
-if mibBuilder.loadTexts:statsRedirect.setStatus(_A)
-_StatsError_Type=Unsigned32
-_StatsError_Object=MibScalar
-statsError=_StatsError_Object((1,3,6,1,4,1,4935,1000,100,200,100,1200,1,10000,300),_StatsError_Type())
-statsError.setMaxAccess(_D)
-if mibBuilder.loadTexts:statsError.setStatus(_A)
-_NotificationsGroup_ObjectIdentity=ObjectIdentity
-notificationsGroup=_NotificationsGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1200,1,60010))
-class _MinSeverity_Type(Integer32):defaultValue=300;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,100,200,300,400,500)));namedValues=NamedValues(*(('disable',0),('debug',100),('info',200),('warning',300),('error',400),('critical',500)))
-_MinSeverity_Type.__name__=_B
-_MinSeverity_Object=MibScalar
-minSeverity=_MinSeverity_Object((1,3,6,1,4,1,4935,1000,100,200,100,1200,1,60010,100),_MinSeverity_Type())
-minSeverity.setMaxAccess(_C)
-if mibBuilder.loadTexts:minSeverity.setStatus(_A)
-_ConfigurationGroup_ObjectIdentity=ObjectIdentity
-configurationGroup=_ConfigurationGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1200,1,60020))
-class _NeedRestartInfo_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,100)));namedValues=NamedValues(*(('no',0),('yes',100)))
-_NeedRestartInfo_Type.__name__=_B
-_NeedRestartInfo_Object=MibScalar
-needRestartInfo=_NeedRestartInfo_Object((1,3,6,1,4,1,4935,1000,100,200,100,1200,1,60020,100),_NeedRestartInfo_Type())
-needRestartInfo.setMaxAccess(_D)
-if mibBuilder.loadTexts:needRestartInfo.setStatus(_A)
-mibBuilder.exportSymbols('MX-WEB-MIB',**{'webMIB':webMIB,'webMIBObjects':webMIBObjects,'serverGroup':serverGroup,'httpMode':httpMode,'serverPort':serverPort,'secureServerPort':secureServerPort,'httpsCipherSuite':httpsCipherSuite,'tlsVersion':tlsVersion,'statisticsGroup':statisticsGroup,'statsRequest':statsRequest,'statsRedirect':statsRedirect,'statsError':statsError,'notificationsGroup':notificationsGroup,'minSeverity':minSeverity,'configurationGroup':configurationGroup,'needRestartInfo':needRestartInfo})
+#
+# PySNMP MIB module MX-WEB-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-WEB-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:02 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mediatrixServices, = mibBuilder.importSymbols("MX-SMI2", "mediatrixServices")
+MxActivationState, MxEnableState, MxIpAddress, MxAdvancedIpPort, MxDigitMap, MxIpPort, MxIpHostName, MxIpSubnetMask = mibBuilder.importSymbols("MX-TC", "MxActivationState", "MxEnableState", "MxIpAddress", "MxAdvancedIpPort", "MxDigitMap", "MxIpPort", "MxIpHostName", "MxIpSubnetMask")
+MxIpHostNamePort, MxIpAddrMask, MxUri, MxIpAddr, MxIpAddrPort, MxUrl, MxUInt64, MxFloat32 = mibBuilder.importSymbols("MX-TC2", "MxIpHostNamePort", "MxIpAddrMask", "MxUri", "MxIpAddr", "MxIpAddrPort", "MxUrl", "MxUInt64", "MxFloat32")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+webMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1200))
+if mibBuilder.loadTexts: webMIB.setLastUpdated('1910210000Z')
+if mibBuilder.loadTexts: webMIB.setOrganization(' Mediatrix Telecom, Inc. ')
+webMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1200, 1))
+serverGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1200, 1, 100))
+httpMode = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1200, 1, 100, 50), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(100, 200, 300))).clone(namedValues=NamedValues(("secure", 100), ("unsecure", 200), ("both", 300))).clone('both')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: httpMode.setStatus('current')
+serverPort = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1200, 1, 100, 100), MxIpPort().clone(80)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: serverPort.setStatus('current')
+secureServerPort = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1200, 1, 100, 200), MxIpPort().clone(443)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: secureServerPort.setStatus('current')
+httpsCipherSuite = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1200, 1, 100, 300), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(100, 200, 300))).clone(namedValues=NamedValues(("cS1", 100), ("cS2", 200), ("cS3", 300))).clone('cS1')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: httpsCipherSuite.setStatus('current')
+tlsVersion = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1200, 1, 100, 400), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(100, 200, 300, 400))).clone(namedValues=NamedValues(("sSLv3", 100), ("tLSv1", 200), ("tLSv1-1", 300), ("tLSv1-2", 400))).clone('tLSv1')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tlsVersion.setStatus('current')
+statisticsGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1200, 1, 10000))
+statsRequest = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1200, 1, 10000, 100), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: statsRequest.setStatus('current')
+statsRedirect = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1200, 1, 10000, 200), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: statsRedirect.setStatus('current')
+statsError = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1200, 1, 10000, 300), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: statsError.setStatus('current')
+notificationsGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1200, 1, 60010))
+minSeverity = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1200, 1, 60010, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 100, 200, 300, 400, 500))).clone(namedValues=NamedValues(("disable", 0), ("debug", 100), ("info", 200), ("warning", 300), ("error", 400), ("critical", 500))).clone('warning')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: minSeverity.setStatus('current')
+configurationGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1200, 1, 60020))
+needRestartInfo = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1200, 1, 60020, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 100))).clone(namedValues=NamedValues(("no", 0), ("yes", 100)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: needRestartInfo.setStatus('current')
+mibBuilder.exportSymbols("MX-WEB-MIB", httpsCipherSuite=httpsCipherSuite, statsError=statsError, serverGroup=serverGroup, PYSNMP_MODULE_ID=webMIB, statisticsGroup=statisticsGroup, statsRequest=statsRequest, statsRedirect=statsRedirect, httpMode=httpMode, notificationsGroup=notificationsGroup, serverPort=serverPort, minSeverity=minSeverity, configurationGroup=configurationGroup, needRestartInfo=needRestartInfo, secureServerPort=secureServerPort, webMIB=webMIB, tlsVersion=tlsVersion, webMIBObjects=webMIBObjects)

@@ -1,161 +1,82 @@
-_X='fsFluxMIBGroup'
-_W='fsUserMIBGroup'
-_V='fsFluxRowStatus'
-_U='fsFluxOutputBytes'
-_T='fsFluxInputBytes'
-_S='fsFluxOutputPackets'
-_R='fsFluxInputPackets'
-_Q='fsFluxOutputBps'
-_P='fsFluxInputBps'
-_O='fsFluxMapPortState'
-_N='fsUserRowStatus'
-_M='fsUserMapPort'
-_L='fsUserDevSlot'
-_K='fsUserDevMacAddress'
-_J='read-write'
-_I='Integer32'
-_H='fsFluxMapPort'
-_G='fsFluxDevSlot'
-_F='fsFluxDevMacAddress'
-_E='fsUserVid'
-_D='fsUserMacAddress'
-_C='read-only'
-_B='current'
-_A='FS-MAPINFO-MNG-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fsMgmt,=mibBuilder.importSymbols('FS-SMI','fsMgmt')
-ConfigStatus,IfIndex=mibBuilder.importSymbols('FS-TC','ConfigStatus','IfIndex')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB','EnabledStatus')
-radiusAccClientServerPortNumber,radiusAccServerAddress=mibBuilder.importSymbols('RADIUS-ACC-CLIENT-MIB','radiusAccClientServerPortNumber','radiusAccServerAddress')
-radiusAuthClientServerPortNumber,radiusAuthServerAddress=mibBuilder.importSymbols('RADIUS-AUTH-CLIENT-MIB','radiusAuthClientServerPortNumber','radiusAuthServerAddress')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_I,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-fsMapinfoMngMIB=ModuleIdentity((1,3,6,1,4,1,52642,1,1,10,2,150))
-if mibBuilder.loadTexts:fsMapinfoMngMIB.setRevisions(('2016-07-03 20:00',))
-_FsMapinfoMngMIBObjects_ObjectIdentity=ObjectIdentity
-fsMapinfoMngMIBObjects=_FsMapinfoMngMIBObjects_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,150,1))
-_FsUserObjects_ObjectIdentity=ObjectIdentity
-fsUserObjects=_FsUserObjects_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,150,1,1))
-_FsUserTable_Object=MibTable
-fsUserTable=_FsUserTable_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,1,1))
-if mibBuilder.loadTexts:fsUserTable.setStatus(_B)
-_FsUserEntry_Object=MibTableRow
-fsUserEntry=_FsUserEntry_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,1,1,1))
-fsUserEntry.setIndexNames((0,_A,_D),(0,_A,_E))
-if mibBuilder.loadTexts:fsUserEntry.setStatus(_B)
-_FsUserMacAddress_Type=MacAddress
-_FsUserMacAddress_Object=MibTableColumn
-fsUserMacAddress=_FsUserMacAddress_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,1,1,1,1),_FsUserMacAddress_Type())
-fsUserMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsUserMacAddress.setStatus(_B)
-_FsUserVid_Type=Unsigned32
-_FsUserVid_Object=MibTableColumn
-fsUserVid=_FsUserVid_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,1,1,1,2),_FsUserVid_Type())
-fsUserVid.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsUserVid.setStatus(_B)
-_FsUserDevMacAddress_Type=MacAddress
-_FsUserDevMacAddress_Object=MibTableColumn
-fsUserDevMacAddress=_FsUserDevMacAddress_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,1,1,1,3),_FsUserDevMacAddress_Type())
-fsUserDevMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsUserDevMacAddress.setStatus(_B)
-_FsUserDevSlot_Type=Unsigned32
-_FsUserDevSlot_Object=MibTableColumn
-fsUserDevSlot=_FsUserDevSlot_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,1,1,1,4),_FsUserDevSlot_Type())
-fsUserDevSlot.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsUserDevSlot.setStatus(_B)
-_FsUserMapPort_Type=Unsigned32
-_FsUserMapPort_Object=MibTableColumn
-fsUserMapPort=_FsUserMapPort_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,1,1,1,5),_FsUserMapPort_Type())
-fsUserMapPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsUserMapPort.setStatus(_B)
-_FsUserRowStatus_Type=ConfigStatus
-_FsUserRowStatus_Object=MibTableColumn
-fsUserRowStatus=_FsUserRowStatus_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,1,1,1,6),_FsUserRowStatus_Type())
-fsUserRowStatus.setMaxAccess(_J)
-if mibBuilder.loadTexts:fsUserRowStatus.setStatus(_B)
-_FsFluxObjects_ObjectIdentity=ObjectIdentity
-fsFluxObjects=_FsFluxObjects_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,150,1,2))
-_FsFluxTable_Object=MibTable
-fsFluxTable=_FsFluxTable_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,2,1))
-if mibBuilder.loadTexts:fsFluxTable.setStatus(_B)
-_FsFluxEntry_Object=MibTableRow
-fsFluxEntry=_FsFluxEntry_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,2,1,1))
-fsFluxEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:fsFluxEntry.setStatus(_B)
-_FsFluxDevMacAddress_Type=MacAddress
-_FsFluxDevMacAddress_Object=MibTableColumn
-fsFluxDevMacAddress=_FsFluxDevMacAddress_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,2,1,1,1),_FsFluxDevMacAddress_Type())
-fsFluxDevMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsFluxDevMacAddress.setStatus(_B)
-_FsFluxDevSlot_Type=Unsigned32
-_FsFluxDevSlot_Object=MibTableColumn
-fsFluxDevSlot=_FsFluxDevSlot_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,2,1,1,2),_FsFluxDevSlot_Type())
-fsFluxDevSlot.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsFluxDevSlot.setStatus(_B)
-_FsFluxMapPort_Type=Unsigned32
-_FsFluxMapPort_Object=MibTableColumn
-fsFluxMapPort=_FsFluxMapPort_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,2,1,1,3),_FsFluxMapPort_Type())
-fsFluxMapPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsFluxMapPort.setStatus(_B)
-class _FsFluxMapPortState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
-_FsFluxMapPortState_Type.__name__=_I
-_FsFluxMapPortState_Object=MibTableColumn
-fsFluxMapPortState=_FsFluxMapPortState_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,2,1,1,4),_FsFluxMapPortState_Type())
-fsFluxMapPortState.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsFluxMapPortState.setStatus(_B)
-_FsFluxInputBps_Type=Counter64
-_FsFluxInputBps_Object=MibTableColumn
-fsFluxInputBps=_FsFluxInputBps_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,2,1,1,5),_FsFluxInputBps_Type())
-fsFluxInputBps.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsFluxInputBps.setStatus(_B)
-_FsFluxOutputBps_Type=Counter64
-_FsFluxOutputBps_Object=MibTableColumn
-fsFluxOutputBps=_FsFluxOutputBps_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,2,1,1,6),_FsFluxOutputBps_Type())
-fsFluxOutputBps.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsFluxOutputBps.setStatus(_B)
-_FsFluxInputPackets_Type=Counter64
-_FsFluxInputPackets_Object=MibTableColumn
-fsFluxInputPackets=_FsFluxInputPackets_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,2,1,1,7),_FsFluxInputPackets_Type())
-fsFluxInputPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsFluxInputPackets.setStatus(_B)
-_FsFluxOutputPackets_Type=Counter64
-_FsFluxOutputPackets_Object=MibTableColumn
-fsFluxOutputPackets=_FsFluxOutputPackets_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,2,1,1,8),_FsFluxOutputPackets_Type())
-fsFluxOutputPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsFluxOutputPackets.setStatus(_B)
-_FsFluxInputBytes_Type=Counter64
-_FsFluxInputBytes_Object=MibTableColumn
-fsFluxInputBytes=_FsFluxInputBytes_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,2,1,1,9),_FsFluxInputBytes_Type())
-fsFluxInputBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsFluxInputBytes.setStatus(_B)
-_FsFluxOutputBytes_Type=Counter64
-_FsFluxOutputBytes_Object=MibTableColumn
-fsFluxOutputBytes=_FsFluxOutputBytes_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,2,1,1,10),_FsFluxOutputBytes_Type())
-fsFluxOutputBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsFluxOutputBytes.setStatus(_B)
-_FsFluxRowStatus_Type=ConfigStatus
-_FsFluxRowStatus_Object=MibTableColumn
-fsFluxRowStatus=_FsFluxRowStatus_Object((1,3,6,1,4,1,52642,1,1,10,2,150,1,2,1,1,11),_FsFluxRowStatus_Type())
-fsFluxRowStatus.setMaxAccess(_J)
-if mibBuilder.loadTexts:fsFluxRowStatus.setStatus(_B)
-_FsMapinfoMngMIBConformance_ObjectIdentity=ObjectIdentity
-fsMapinfoMngMIBConformance=_FsMapinfoMngMIBConformance_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,150,2))
-_FsMapinfoMngMIBCompliances_ObjectIdentity=ObjectIdentity
-fsMapinfoMngMIBCompliances=_FsMapinfoMngMIBCompliances_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,150,2,1))
-_FsMapinfoMngMIBGroups_ObjectIdentity=ObjectIdentity
-fsMapinfoMngMIBGroups=_FsMapinfoMngMIBGroups_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,150,2,2))
-fsUserMIBGroup=ObjectGroup((1,3,6,1,4,1,52642,1,1,10,2,150,2,2,1))
-fsUserMIBGroup.setObjects(*((_A,_D),(_A,_E),(_A,_K),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:fsUserMIBGroup.setStatus(_B)
-fsFluxMIBGroup=ObjectGroup((1,3,6,1,4,1,52642,1,1,10,2,150,2,2,2))
-fsFluxMIBGroup.setObjects(*((_A,_F),(_A,_G),(_A,_H),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V)))
-if mibBuilder.loadTexts:fsFluxMIBGroup.setStatus(_B)
-fsMapinfoMngMIBCompliance=ModuleCompliance((1,3,6,1,4,1,52642,1,1,10,2,150,2,1,1))
-fsMapinfoMngMIBCompliance.setObjects(*((_A,_W),(_A,_X)))
-if mibBuilder.loadTexts:fsMapinfoMngMIBCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'fsMapinfoMngMIB':fsMapinfoMngMIB,'fsMapinfoMngMIBObjects':fsMapinfoMngMIBObjects,'fsUserObjects':fsUserObjects,'fsUserTable':fsUserTable,'fsUserEntry':fsUserEntry,_D:fsUserMacAddress,_E:fsUserVid,_K:fsUserDevMacAddress,_L:fsUserDevSlot,_M:fsUserMapPort,_N:fsUserRowStatus,'fsFluxObjects':fsFluxObjects,'fsFluxTable':fsFluxTable,'fsFluxEntry':fsFluxEntry,_F:fsFluxDevMacAddress,_G:fsFluxDevSlot,_H:fsFluxMapPort,_O:fsFluxMapPortState,_P:fsFluxInputBps,_Q:fsFluxOutputBps,_R:fsFluxInputPackets,_S:fsFluxOutputPackets,_T:fsFluxInputBytes,_U:fsFluxOutputBytes,_V:fsFluxRowStatus,'fsMapinfoMngMIBConformance':fsMapinfoMngMIBConformance,'fsMapinfoMngMIBCompliances':fsMapinfoMngMIBCompliances,'fsMapinfoMngMIBCompliance':fsMapinfoMngMIBCompliance,'fsMapinfoMngMIBGroups':fsMapinfoMngMIBGroups,_W:fsUserMIBGroup,_X:fsFluxMIBGroup})
+#
+# PySNMP MIB module FS-MAPINFO-MNG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fscom/FS-MAPINFO-MNG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+fsMgmt, = mibBuilder.importSymbols("FS-SMI", "fsMgmt")
+IfIndex, ConfigStatus = mibBuilder.importSymbols("FS-TC", "IfIndex", "ConfigStatus")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+radiusAccServerAddress, radiusAccClientServerPortNumber = mibBuilder.importSymbols("RADIUS-ACC-CLIENT-MIB", "radiusAccServerAddress", "radiusAccClientServerPortNumber")
+radiusAuthClientServerPortNumber, radiusAuthServerAddress = mibBuilder.importSymbols("RADIUS-AUTH-CLIENT-MIB", "radiusAuthClientServerPortNumber", "radiusAuthServerAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+fsMapinfoMngMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150))
+fsMapinfoMngMIB.setRevisions(('2016-07-03 20:00',))
+if mibBuilder.loadTexts: fsMapinfoMngMIB.setLastUpdated('200203200000Z')
+if mibBuilder.loadTexts: fsMapinfoMngMIB.setOrganization('FS.COM Inc..')
+fsMapinfoMngMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1))
+fsUserObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 1))
+fsFluxObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 2))
+fsUserTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 1, 1), )
+if mibBuilder.loadTexts: fsUserTable.setStatus('current')
+fsUserEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 1, 1, 1), ).setIndexNames((0, "FS-MAPINFO-MNG-MIB", "fsUserMacAddress"), (0, "FS-MAPINFO-MNG-MIB", "fsUserVid"))
+if mibBuilder.loadTexts: fsUserEntry.setStatus('current')
+fsUserMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 1, 1, 1, 1), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsUserMacAddress.setStatus('current')
+fsUserVid = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 1, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsUserVid.setStatus('current')
+fsUserDevMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 1, 1, 1, 3), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsUserDevMacAddress.setStatus('current')
+fsUserDevSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 1, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsUserDevSlot.setStatus('current')
+fsUserMapPort = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 1, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsUserMapPort.setStatus('current')
+fsUserRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 1, 1, 1, 6), ConfigStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsUserRowStatus.setStatus('current')
+fsFluxTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 2, 1), )
+if mibBuilder.loadTexts: fsFluxTable.setStatus('current')
+fsFluxEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 2, 1, 1), ).setIndexNames((0, "FS-MAPINFO-MNG-MIB", "fsFluxDevMacAddress"), (0, "FS-MAPINFO-MNG-MIB", "fsFluxDevSlot"), (0, "FS-MAPINFO-MNG-MIB", "fsFluxMapPort"))
+if mibBuilder.loadTexts: fsFluxEntry.setStatus('current')
+fsFluxDevMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 2, 1, 1, 1), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsFluxDevMacAddress.setStatus('current')
+fsFluxDevSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 2, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsFluxDevSlot.setStatus('current')
+fsFluxMapPort = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 2, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsFluxMapPort.setStatus('current')
+fsFluxMapPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsFluxMapPortState.setStatus('current')
+fsFluxInputBps = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 2, 1, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsFluxInputBps.setStatus('current')
+fsFluxOutputBps = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 2, 1, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsFluxOutputBps.setStatus('current')
+fsFluxInputPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 2, 1, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsFluxInputPackets.setStatus('current')
+fsFluxOutputPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 2, 1, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsFluxOutputPackets.setStatus('current')
+fsFluxInputBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 2, 1, 1, 9), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsFluxInputBytes.setStatus('current')
+fsFluxOutputBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 2, 1, 1, 10), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsFluxOutputBytes.setStatus('current')
+fsFluxRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 1, 2, 1, 1, 11), ConfigStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsFluxRowStatus.setStatus('current')
+fsMapinfoMngMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 2))
+fsMapinfoMngMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 2, 1))
+fsMapinfoMngMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 2, 2))
+fsMapinfoMngMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 2, 1, 1)).setObjects(("FS-MAPINFO-MNG-MIB", "fsUserMIBGroup"), ("FS-MAPINFO-MNG-MIB", "fsFluxMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsMapinfoMngMIBCompliance = fsMapinfoMngMIBCompliance.setStatus('current')
+fsUserMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 2, 2, 1)).setObjects(("FS-MAPINFO-MNG-MIB", "fsUserMacAddress"), ("FS-MAPINFO-MNG-MIB", "fsUserVid"), ("FS-MAPINFO-MNG-MIB", "fsUserDevMacAddress"), ("FS-MAPINFO-MNG-MIB", "fsUserDevSlot"), ("FS-MAPINFO-MNG-MIB", "fsUserMapPort"), ("FS-MAPINFO-MNG-MIB", "fsUserRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsUserMIBGroup = fsUserMIBGroup.setStatus('current')
+fsFluxMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 150, 2, 2, 2)).setObjects(("FS-MAPINFO-MNG-MIB", "fsFluxDevMacAddress"), ("FS-MAPINFO-MNG-MIB", "fsFluxDevSlot"), ("FS-MAPINFO-MNG-MIB", "fsFluxMapPort"), ("FS-MAPINFO-MNG-MIB", "fsFluxMapPortState"), ("FS-MAPINFO-MNG-MIB", "fsFluxInputBps"), ("FS-MAPINFO-MNG-MIB", "fsFluxOutputBps"), ("FS-MAPINFO-MNG-MIB", "fsFluxInputPackets"), ("FS-MAPINFO-MNG-MIB", "fsFluxOutputPackets"), ("FS-MAPINFO-MNG-MIB", "fsFluxInputBytes"), ("FS-MAPINFO-MNG-MIB", "fsFluxOutputBytes"), ("FS-MAPINFO-MNG-MIB", "fsFluxRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsFluxMIBGroup = fsFluxMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("FS-MAPINFO-MNG-MIB", fsMapinfoMngMIB=fsMapinfoMngMIB, fsFluxMIBGroup=fsFluxMIBGroup, fsMapinfoMngMIBGroups=fsMapinfoMngMIBGroups, fsMapinfoMngMIBObjects=fsMapinfoMngMIBObjects, fsFluxMapPort=fsFluxMapPort, PYSNMP_MODULE_ID=fsMapinfoMngMIB, fsUserMIBGroup=fsUserMIBGroup, fsUserEntry=fsUserEntry, fsFluxDevSlot=fsFluxDevSlot, fsFluxOutputBps=fsFluxOutputBps, fsUserTable=fsUserTable, fsUserMacAddress=fsUserMacAddress, fsUserDevSlot=fsUserDevSlot, fsFluxInputPackets=fsFluxInputPackets, fsFluxObjects=fsFluxObjects, fsMapinfoMngMIBConformance=fsMapinfoMngMIBConformance, fsMapinfoMngMIBCompliances=fsMapinfoMngMIBCompliances, fsFluxTable=fsFluxTable, fsUserVid=fsUserVid, fsFluxRowStatus=fsFluxRowStatus, fsUserRowStatus=fsUserRowStatus, fsFluxOutputBytes=fsFluxOutputBytes, fsFluxOutputPackets=fsFluxOutputPackets, fsFluxDevMacAddress=fsFluxDevMacAddress, fsUserObjects=fsUserObjects, fsFluxInputBytes=fsFluxInputBytes, fsFluxMapPortState=fsFluxMapPortState, fsUserDevMacAddress=fsUserDevMacAddress, fsMapinfoMngMIBCompliance=fsMapinfoMngMIBCompliance, fsUserMapPort=fsUserMapPort, fsFluxEntry=fsFluxEntry, fsFluxInputBps=fsFluxInputBps)

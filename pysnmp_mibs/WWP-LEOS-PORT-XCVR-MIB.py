@@ -1,653 +1,263 @@
-_d='wwpLeosPortXcvrErrorType'
-_c='wwpLeosPortXcvrEventType'
-_b='voltageNeg5p2VCurrent'
-_a='voltage1p8VCurrent'
-_Z='voltage3p3VCurrent'
-_Y='voltage5VCurrent'
-_X='voltageNeg5p2V'
-_W='voltage1p8V'
-_V='voltage3p3V'
-_U='voltage5V'
-_T='laserWavelength'
-_S='laserTemp'
-_R='tECCurrentMa'
-_Q='aPDBiasVoltage'
-_P='loopback'
-_O='OctetString'
-_N='none'
-_M='read-write'
-_L='reserved'
-_K='unknown'
-_J='Unsigned32'
-_I='enabled'
-_H='disabled'
-_G='dBm'
-_F='uW'
-_E='wwpLeosPortXcvrId'
-_D='WWP-LEOS-PORT-XCVR-MIB'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_O,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_J,'iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-wwpModules,wwpModulesLeos=mibBuilder.importSymbols('WWP-SMI','wwpModules','wwpModulesLeos')
-wwpLeosPortXcvrMIB=ModuleIdentity((1,3,6,1,4,1,6141,2,60,4))
-if mibBuilder.loadTexts:wwpLeosPortXcvrMIB.setRevisions(('2011-07-06 00:00','2011-05-24 00:00','2011-03-08 00:00','2010-02-01 00:00','2006-03-15 00:00','2001-04-03 17:00'))
-_WwpLeosPortXcvrMIBObjects_ObjectIdentity=ObjectIdentity
-wwpLeosPortXcvrMIBObjects=_WwpLeosPortXcvrMIBObjects_ObjectIdentity((1,3,6,1,4,1,6141,2,60,4,1))
-_WwpLeosPortXcvr_ObjectIdentity=ObjectIdentity
-wwpLeosPortXcvr=_WwpLeosPortXcvr_ObjectIdentity((1,3,6,1,4,1,6141,2,60,4,1,1))
-_WwpLeosPortXcvrTable_Object=MibTable
-wwpLeosPortXcvrTable=_WwpLeosPortXcvrTable_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1))
-if mibBuilder.loadTexts:wwpLeosPortXcvrTable.setStatus(_A)
-_WwpLeosPortXcvrEntry_Object=MibTableRow
-wwpLeosPortXcvrEntry=_WwpLeosPortXcvrEntry_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1))
-wwpLeosPortXcvrEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrEntry.setStatus(_A)
-class _WwpLeosPortXcvrId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrId_Type.__name__=_C
-_WwpLeosPortXcvrId_Object=MibTableColumn
-wwpLeosPortXcvrId=_WwpLeosPortXcvrId_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,1),_WwpLeosPortXcvrId_Type())
-wwpLeosPortXcvrId.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrId.setStatus(_A)
-class _WwpLeosPortXcvrOperState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_H,1),(_I,2),(_P,3),('notPresent',4),('faulted',5)))
-_WwpLeosPortXcvrOperState_Type.__name__=_C
-_WwpLeosPortXcvrOperState_Object=MibTableColumn
-wwpLeosPortXcvrOperState=_WwpLeosPortXcvrOperState_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,2),_WwpLeosPortXcvrOperState_Type())
-wwpLeosPortXcvrOperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrOperState.setStatus(_A)
-class _WwpLeosPortXcvrIdentiferType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13)));namedValues=NamedValues(*((_K,1),('gbic',2),('solderedType',3),('sfp',4),(_L,5),('vendorSpecific',6),('xbi',7),('xenpak',8),('xfp',9),('xff',10),('xfpe',11),('xpak',12),('x2',13)))
-_WwpLeosPortXcvrIdentiferType_Type.__name__=_C
-_WwpLeosPortXcvrIdentiferType_Object=MibTableColumn
-wwpLeosPortXcvrIdentiferType=_WwpLeosPortXcvrIdentiferType_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,3),_WwpLeosPortXcvrIdentiferType_Type())
-wwpLeosPortXcvrIdentiferType.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrIdentiferType.setStatus(_A)
-class _WwpLeosPortXcvrExtIdentiferType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_K,1),('sfp-gbic',2)))
-_WwpLeosPortXcvrExtIdentiferType_Type.__name__=_C
-_WwpLeosPortXcvrExtIdentiferType_Object=MibTableColumn
-wwpLeosPortXcvrExtIdentiferType=_WwpLeosPortXcvrExtIdentiferType_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,4),_WwpLeosPortXcvrExtIdentiferType_Type())
-wwpLeosPortXcvrExtIdentiferType.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrExtIdentiferType.setStatus(_A)
-class _WwpLeosPortXcvrConnectorType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrConnectorType_Type.__name__=_C
-_WwpLeosPortXcvrConnectorType_Object=MibTableColumn
-wwpLeosPortXcvrConnectorType=_WwpLeosPortXcvrConnectorType_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,5),_WwpLeosPortXcvrConnectorType_Type())
-wwpLeosPortXcvrConnectorType.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrConnectorType.setStatus(_A)
-class _WwpLeosPortXcvrType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrType_Type.__name__=_C
-_WwpLeosPortXcvrType_Object=MibTableColumn
-wwpLeosPortXcvrType=_WwpLeosPortXcvrType_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,6),_WwpLeosPortXcvrType_Type())
-wwpLeosPortXcvrType.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrType.setStatus(_A)
-_WwpLeosPortXcvrVendorName_Type=DisplayString
-_WwpLeosPortXcvrVendorName_Object=MibTableColumn
-wwpLeosPortXcvrVendorName=_WwpLeosPortXcvrVendorName_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,7),_WwpLeosPortXcvrVendorName_Type())
-wwpLeosPortXcvrVendorName.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrVendorName.setStatus(_A)
-class _WwpLeosPortXcvrVendorOUI_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_WwpLeosPortXcvrVendorOUI_Type.__name__=_O
-_WwpLeosPortXcvrVendorOUI_Object=MibTableColumn
-wwpLeosPortXcvrVendorOUI=_WwpLeosPortXcvrVendorOUI_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,8),_WwpLeosPortXcvrVendorOUI_Type())
-wwpLeosPortXcvrVendorOUI.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrVendorOUI.setStatus(_A)
-_WwpLeosPortXcvrVendorPN_Type=DisplayString
-_WwpLeosPortXcvrVendorPN_Object=MibTableColumn
-wwpLeosPortXcvrVendorPN=_WwpLeosPortXcvrVendorPN_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,9),_WwpLeosPortXcvrVendorPN_Type())
-wwpLeosPortXcvrVendorPN.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrVendorPN.setStatus(_A)
-_WwpLeosPortXcvrRevNum_Type=DisplayString
-_WwpLeosPortXcvrRevNum_Object=MibTableColumn
-wwpLeosPortXcvrRevNum=_WwpLeosPortXcvrRevNum_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,10),_WwpLeosPortXcvrRevNum_Type())
-wwpLeosPortXcvrRevNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrRevNum.setStatus(_A)
-_WwpLeosPortXcvrSerialNum_Type=DisplayString
-_WwpLeosPortXcvrSerialNum_Object=MibTableColumn
-wwpLeosPortXcvrSerialNum=_WwpLeosPortXcvrSerialNum_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,11),_WwpLeosPortXcvrSerialNum_Type())
-wwpLeosPortXcvrSerialNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrSerialNum.setStatus(_A)
-class _WwpLeosPortXcvrEncodingType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrEncodingType_Type.__name__=_C
-_WwpLeosPortXcvrEncodingType_Object=MibTableColumn
-wwpLeosPortXcvrEncodingType=_WwpLeosPortXcvrEncodingType_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,12),_WwpLeosPortXcvrEncodingType_Type())
-wwpLeosPortXcvrEncodingType.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrEncodingType.setStatus(_A)
-_WwpLeosPortXcvrMfgDate_Type=DisplayString
-_WwpLeosPortXcvrMfgDate_Object=MibTableColumn
-wwpLeosPortXcvrMfgDate=_WwpLeosPortXcvrMfgDate_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,13),_WwpLeosPortXcvrMfgDate_Type())
-wwpLeosPortXcvrMfgDate.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrMfgDate.setStatus(_A)
-class _WwpLeosPortXcvrComplianceVer_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
-_WwpLeosPortXcvrComplianceVer_Type.__name__=_C
-_WwpLeosPortXcvrComplianceVer_Object=MibTableColumn
-wwpLeosPortXcvrComplianceVer=_WwpLeosPortXcvrComplianceVer_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,14),_WwpLeosPortXcvrComplianceVer_Type())
-wwpLeosPortXcvrComplianceVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrComplianceVer.setStatus(_A)
-class _WwpLeosPortXcvrWaveLength_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrWaveLength_Type.__name__=_C
-_WwpLeosPortXcvrWaveLength_Object=MibTableColumn
-wwpLeosPortXcvrWaveLength=_WwpLeosPortXcvrWaveLength_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,15),_WwpLeosPortXcvrWaveLength_Type())
-wwpLeosPortXcvrWaveLength.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrWaveLength.setStatus(_A)
-class _WwpLeosPortXcvrTemperature_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrTemperature_Type.__name__=_C
-_WwpLeosPortXcvrTemperature_Object=MibTableColumn
-wwpLeosPortXcvrTemperature=_WwpLeosPortXcvrTemperature_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,16),_WwpLeosPortXcvrTemperature_Type())
-wwpLeosPortXcvrTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrTemperature.setStatus(_A)
-if mibBuilder.loadTexts:wwpLeosPortXcvrTemperature.setUnits('centigrade')
-class _WwpLeosPortXcvrVcc_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrVcc_Type.__name__=_C
-_WwpLeosPortXcvrVcc_Object=MibTableColumn
-wwpLeosPortXcvrVcc=_WwpLeosPortXcvrVcc_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,17),_WwpLeosPortXcvrVcc_Type())
-wwpLeosPortXcvrVcc.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrVcc.setStatus(_A)
-class _WwpLeosPortXcvrBias_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrBias_Type.__name__=_C
-_WwpLeosPortXcvrBias_Object=MibTableColumn
-wwpLeosPortXcvrBias=_WwpLeosPortXcvrBias_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,18),_WwpLeosPortXcvrBias_Type())
-wwpLeosPortXcvrBias.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrBias.setStatus(_A)
-class _WwpLeosPortXcvrRxPower_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrRxPower_Type.__name__=_C
-_WwpLeosPortXcvrRxPower_Object=MibTableColumn
-wwpLeosPortXcvrRxPower=_WwpLeosPortXcvrRxPower_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,19),_WwpLeosPortXcvrRxPower_Type())
-wwpLeosPortXcvrRxPower.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrRxPower.setStatus(_A)
-if mibBuilder.loadTexts:wwpLeosPortXcvrRxPower.setUnits(_F)
-class _WwpLeosPortXcvrTxState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_I,1),(_H,2)))
-_WwpLeosPortXcvrTxState_Type.__name__=_C
-_WwpLeosPortXcvrTxState_Object=MibTableColumn
-wwpLeosPortXcvrTxState=_WwpLeosPortXcvrTxState_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,20),_WwpLeosPortXcvrTxState_Type())
-wwpLeosPortXcvrTxState.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrTxState.setStatus(_A)
-class _WwpLeosPortXcvrTxFaultStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('fault',1),('noFault',2)))
-_WwpLeosPortXcvrTxFaultStatus_Type.__name__=_C
-_WwpLeosPortXcvrTxFaultStatus_Object=MibTableColumn
-wwpLeosPortXcvrTxFaultStatus=_WwpLeosPortXcvrTxFaultStatus_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,21),_WwpLeosPortXcvrTxFaultStatus_Type())
-wwpLeosPortXcvrTxFaultStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrTxFaultStatus.setStatus(_A)
-class _WwpLeosPortXcvrRxRateStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_I,1),(_H,2)))
-_WwpLeosPortXcvrRxRateStatus_Type.__name__=_C
-_WwpLeosPortXcvrRxRateStatus_Object=MibTableColumn
-wwpLeosPortXcvrRxRateStatus=_WwpLeosPortXcvrRxRateStatus_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,22),_WwpLeosPortXcvrRxRateStatus_Type())
-wwpLeosPortXcvrRxRateStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrRxRateStatus.setStatus(_A)
-class _WwpLeosPortXcvr9by125um_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvr9by125um_Type.__name__=_C
-_WwpLeosPortXcvr9by125um_Object=MibTableColumn
-wwpLeosPortXcvr9by125um=_WwpLeosPortXcvr9by125um_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,23),_WwpLeosPortXcvr9by125um_Type())
-wwpLeosPortXcvr9by125um.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvr9by125um.setStatus(_A)
-class _WwpLeosPortXcvr50by125um_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvr50by125um_Type.__name__=_C
-_WwpLeosPortXcvr50by125um_Object=MibTableColumn
-wwpLeosPortXcvr50by125um=_WwpLeosPortXcvr50by125um_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,24),_WwpLeosPortXcvr50by125um_Type())
-wwpLeosPortXcvr50by125um.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvr50by125um.setStatus(_A)
-class _WwpLeosPortXcvr62dot5by125um_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvr62dot5by125um_Type.__name__=_C
-_WwpLeosPortXcvr62dot5by125um_Object=MibTableColumn
-wwpLeosPortXcvr62dot5by125um=_WwpLeosPortXcvr62dot5by125um_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,25),_WwpLeosPortXcvr62dot5by125um_Type())
-wwpLeosPortXcvr62dot5by125um.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvr62dot5by125um.setStatus(_A)
-class _WwpLeosPortXcvrCu_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrCu_Type.__name__=_C
-_WwpLeosPortXcvrCu_Object=MibTableColumn
-wwpLeosPortXcvrCu=_WwpLeosPortXcvrCu_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,26),_WwpLeosPortXcvrCu_Type())
-wwpLeosPortXcvrCu.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrCu.setStatus(_A)
-class _WwpLeosPortXcvrTxOutputPw_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrTxOutputPw_Type.__name__=_C
-_WwpLeosPortXcvrTxOutputPw_Object=MibTableColumn
-wwpLeosPortXcvrTxOutputPw=_WwpLeosPortXcvrTxOutputPw_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,27),_WwpLeosPortXcvrTxOutputPw_Type())
-wwpLeosPortXcvrTxOutputPw.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrTxOutputPw.setStatus(_A)
-if mibBuilder.loadTexts:wwpLeosPortXcvrTxOutputPw.setUnits(_F)
-_WwpLeosPortXcvrLosState_Type=TruthValue
-_WwpLeosPortXcvrLosState_Object=MibTableColumn
-wwpLeosPortXcvrLosState=_WwpLeosPortXcvrLosState_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,28),_WwpLeosPortXcvrLosState_Type())
-wwpLeosPortXcvrLosState.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrLosState.setStatus(_A)
-_WwpLeosPortXcvrDiagSupported_Type=TruthValue
-_WwpLeosPortXcvrDiagSupported_Object=MibTableColumn
-wwpLeosPortXcvrDiagSupported=_WwpLeosPortXcvrDiagSupported_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,29),_WwpLeosPortXcvrDiagSupported_Type())
-wwpLeosPortXcvrDiagSupported.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrDiagSupported.setStatus(_A)
-_WwpLeosPortXcvrEnhDiagAlarmSupported_Type=TruthValue
-_WwpLeosPortXcvrEnhDiagAlarmSupported_Object=MibTableColumn
-wwpLeosPortXcvrEnhDiagAlarmSupported=_WwpLeosPortXcvrEnhDiagAlarmSupported_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,30),_WwpLeosPortXcvrEnhDiagAlarmSupported_Type())
-wwpLeosPortXcvrEnhDiagAlarmSupported.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrEnhDiagAlarmSupported.setStatus(_A)
-_WwpLeosPortXcvrEnhDiagSoftTxDisableSupported_Type=TruthValue
-_WwpLeosPortXcvrEnhDiagSoftTxDisableSupported_Object=MibTableColumn
-wwpLeosPortXcvrEnhDiagSoftTxDisableSupported=_WwpLeosPortXcvrEnhDiagSoftTxDisableSupported_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,31),_WwpLeosPortXcvrEnhDiagSoftTxDisableSupported_Type())
-wwpLeosPortXcvrEnhDiagSoftTxDisableSupported.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrEnhDiagSoftTxDisableSupported.setStatus(_A)
-_WwpLeosPortXcvrEnhDiagSoftTxFaultSupported_Type=TruthValue
-_WwpLeosPortXcvrEnhDiagSoftTxFaultSupported_Object=MibTableColumn
-wwpLeosPortXcvrEnhDiagSoftTxFaultSupported=_WwpLeosPortXcvrEnhDiagSoftTxFaultSupported_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,32),_WwpLeosPortXcvrEnhDiagSoftTxFaultSupported_Type())
-wwpLeosPortXcvrEnhDiagSoftTxFaultSupported.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrEnhDiagSoftTxFaultSupported.setStatus(_A)
-_WwpLeosPortXcvrEnhDiagRxLosSupported_Type=TruthValue
-_WwpLeosPortXcvrEnhDiagRxLosSupported_Object=MibTableColumn
-wwpLeosPortXcvrEnhDiagRxLosSupported=_WwpLeosPortXcvrEnhDiagRxLosSupported_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,33),_WwpLeosPortXcvrEnhDiagRxLosSupported_Type())
-wwpLeosPortXcvrEnhDiagRxLosSupported.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrEnhDiagRxLosSupported.setStatus(_A)
-_WwpLeosPortXcvrHighTempAlarmThreshold_Type=Integer32
-_WwpLeosPortXcvrHighTempAlarmThreshold_Object=MibTableColumn
-wwpLeosPortXcvrHighTempAlarmThreshold=_WwpLeosPortXcvrHighTempAlarmThreshold_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,34),_WwpLeosPortXcvrHighTempAlarmThreshold_Type())
-wwpLeosPortXcvrHighTempAlarmThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrHighTempAlarmThreshold.setStatus(_A)
-_WwpLeosPortXcvrLowTempAlarmThreshold_Type=Integer32
-_WwpLeosPortXcvrLowTempAlarmThreshold_Object=MibTableColumn
-wwpLeosPortXcvrLowTempAlarmThreshold=_WwpLeosPortXcvrLowTempAlarmThreshold_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,35),_WwpLeosPortXcvrLowTempAlarmThreshold_Type())
-wwpLeosPortXcvrLowTempAlarmThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrLowTempAlarmThreshold.setStatus(_A)
-_WwpLeosPortXcvrHighVccAlarmThreshold_Type=Integer32
-_WwpLeosPortXcvrHighVccAlarmThreshold_Object=MibTableColumn
-wwpLeosPortXcvrHighVccAlarmThreshold=_WwpLeosPortXcvrHighVccAlarmThreshold_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,36),_WwpLeosPortXcvrHighVccAlarmThreshold_Type())
-wwpLeosPortXcvrHighVccAlarmThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrHighVccAlarmThreshold.setStatus(_A)
-_WwpLeosPortXcvrLowVccAlarmThreshold_Type=Integer32
-_WwpLeosPortXcvrLowVccAlarmThreshold_Object=MibTableColumn
-wwpLeosPortXcvrLowVccAlarmThreshold=_WwpLeosPortXcvrLowVccAlarmThreshold_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,37),_WwpLeosPortXcvrLowVccAlarmThreshold_Type())
-wwpLeosPortXcvrLowVccAlarmThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrLowVccAlarmThreshold.setStatus(_A)
-_WwpLeosPortXcvrHighBiasAlarmThreshold_Type=Integer32
-_WwpLeosPortXcvrHighBiasAlarmThreshold_Object=MibTableColumn
-wwpLeosPortXcvrHighBiasAlarmThreshold=_WwpLeosPortXcvrHighBiasAlarmThreshold_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,38),_WwpLeosPortXcvrHighBiasAlarmThreshold_Type())
-wwpLeosPortXcvrHighBiasAlarmThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrHighBiasAlarmThreshold.setStatus(_A)
-_WwpLeosPortXcvrLowBiasAlarmThreshold_Type=Integer32
-_WwpLeosPortXcvrLowBiasAlarmThreshold_Object=MibTableColumn
-wwpLeosPortXcvrLowBiasAlarmThreshold=_WwpLeosPortXcvrLowBiasAlarmThreshold_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,39),_WwpLeosPortXcvrLowBiasAlarmThreshold_Type())
-wwpLeosPortXcvrLowBiasAlarmThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrLowBiasAlarmThreshold.setStatus(_A)
-_WwpLeosPortXcvrHighTxPwAlarmThreshold_Type=Integer32
-_WwpLeosPortXcvrHighTxPwAlarmThreshold_Object=MibTableColumn
-wwpLeosPortXcvrHighTxPwAlarmThreshold=_WwpLeosPortXcvrHighTxPwAlarmThreshold_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,40),_WwpLeosPortXcvrHighTxPwAlarmThreshold_Type())
-wwpLeosPortXcvrHighTxPwAlarmThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrHighTxPwAlarmThreshold.setStatus(_A)
-if mibBuilder.loadTexts:wwpLeosPortXcvrHighTxPwAlarmThreshold.setUnits(_F)
-_WwpLeosPortXcvrLowTxPwAlarmThreshold_Type=Integer32
-_WwpLeosPortXcvrLowTxPwAlarmThreshold_Object=MibTableColumn
-wwpLeosPortXcvrLowTxPwAlarmThreshold=_WwpLeosPortXcvrLowTxPwAlarmThreshold_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,41),_WwpLeosPortXcvrLowTxPwAlarmThreshold_Type())
-wwpLeosPortXcvrLowTxPwAlarmThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrLowTxPwAlarmThreshold.setStatus(_A)
-if mibBuilder.loadTexts:wwpLeosPortXcvrLowTxPwAlarmThreshold.setUnits(_F)
-_WwpLeosPortXcvrHighRxPwAlarmThreshold_Type=Integer32
-_WwpLeosPortXcvrHighRxPwAlarmThreshold_Object=MibTableColumn
-wwpLeosPortXcvrHighRxPwAlarmThreshold=_WwpLeosPortXcvrHighRxPwAlarmThreshold_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,42),_WwpLeosPortXcvrHighRxPwAlarmThreshold_Type())
-wwpLeosPortXcvrHighRxPwAlarmThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrHighRxPwAlarmThreshold.setStatus(_A)
-if mibBuilder.loadTexts:wwpLeosPortXcvrHighRxPwAlarmThreshold.setUnits(_F)
-_WwpLeosPortXcvrLowRxPwAlarmThreshold_Type=Integer32
-_WwpLeosPortXcvrLowRxPwAlarmThreshold_Object=MibTableColumn
-wwpLeosPortXcvrLowRxPwAlarmThreshold=_WwpLeosPortXcvrLowRxPwAlarmThreshold_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,43),_WwpLeosPortXcvrLowRxPwAlarmThreshold_Type())
-wwpLeosPortXcvrLowRxPwAlarmThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrLowRxPwAlarmThreshold.setStatus(_A)
-if mibBuilder.loadTexts:wwpLeosPortXcvrLowRxPwAlarmThreshold.setUnits(_F)
-_WwpLeosPortXcvrEnhDiagRateSelectSupported_Type=TruthValue
-_WwpLeosPortXcvrEnhDiagRateSelectSupported_Object=MibTableColumn
-wwpLeosPortXcvrEnhDiagRateSelectSupported=_WwpLeosPortXcvrEnhDiagRateSelectSupported_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,44),_WwpLeosPortXcvrEnhDiagRateSelectSupported_Type())
-wwpLeosPortXcvrEnhDiagRateSelectSupported.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrEnhDiagRateSelectSupported.setStatus(_A)
-class _WwpLeosPortXcvrAdminState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_H,1),(_I,2),(_P,3)))
-_WwpLeosPortXcvrAdminState_Type.__name__=_C
-_WwpLeosPortXcvrAdminState_Object=MibTableColumn
-wwpLeosPortXcvrAdminState=_WwpLeosPortXcvrAdminState_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,45),_WwpLeosPortXcvrAdminState_Type())
-wwpLeosPortXcvrAdminState.setMaxAccess(_M)
-if mibBuilder.loadTexts:wwpLeosPortXcvrAdminState.setStatus(_A)
-class _WwpLeosPortXcvrXfpMinBitRate_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrXfpMinBitRate_Type.__name__=_C
-_WwpLeosPortXcvrXfpMinBitRate_Object=MibTableColumn
-wwpLeosPortXcvrXfpMinBitRate=_WwpLeosPortXcvrXfpMinBitRate_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,70),_WwpLeosPortXcvrXfpMinBitRate_Type())
-wwpLeosPortXcvrXfpMinBitRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpMinBitRate.setStatus(_A)
-class _WwpLeosPortXcvrXfpMaxBitRate_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrXfpMaxBitRate_Type.__name__=_C
-_WwpLeosPortXcvrXfpMaxBitRate_Object=MibTableColumn
-wwpLeosPortXcvrXfpMaxBitRate=_WwpLeosPortXcvrXfpMaxBitRate_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,71),_WwpLeosPortXcvrXfpMaxBitRate_Type())
-wwpLeosPortXcvrXfpMaxBitRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpMaxBitRate.setStatus(_A)
-class _WwpLeosPortXcvrXfpLinkLenSmf1km_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrXfpLinkLenSmf1km_Type.__name__=_C
-_WwpLeosPortXcvrXfpLinkLenSmf1km_Object=MibTableColumn
-wwpLeosPortXcvrXfpLinkLenSmf1km=_WwpLeosPortXcvrXfpLinkLenSmf1km_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,72),_WwpLeosPortXcvrXfpLinkLenSmf1km_Type())
-wwpLeosPortXcvrXfpLinkLenSmf1km.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpLinkLenSmf1km.setStatus(_A)
-class _WwpLeosPortXcvrXfpLinkLenE50u2m_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrXfpLinkLenE50u2m_Type.__name__=_C
-_WwpLeosPortXcvrXfpLinkLenE50u2m_Object=MibTableColumn
-wwpLeosPortXcvrXfpLinkLenE50u2m=_WwpLeosPortXcvrXfpLinkLenE50u2m_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,73),_WwpLeosPortXcvrXfpLinkLenE50u2m_Type())
-wwpLeosPortXcvrXfpLinkLenE50u2m.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpLinkLenE50u2m.setStatus(_A)
-class _WwpLeosPortXcvrXfpLinkLen50u1m_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrXfpLinkLen50u1m_Type.__name__=_C
-_WwpLeosPortXcvrXfpLinkLen50u1m_Object=MibTableColumn
-wwpLeosPortXcvrXfpLinkLen50u1m=_WwpLeosPortXcvrXfpLinkLen50u1m_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,74),_WwpLeosPortXcvrXfpLinkLen50u1m_Type())
-wwpLeosPortXcvrXfpLinkLen50u1m.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpLinkLen50u1m.setStatus(_A)
-class _WwpLeosPortXcvrXfpLinkLen62dot5u1m_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrXfpLinkLen62dot5u1m_Type.__name__=_C
-_WwpLeosPortXcvrXfpLinkLen62dot5u1m_Object=MibTableColumn
-wwpLeosPortXcvrXfpLinkLen62dot5u1m=_WwpLeosPortXcvrXfpLinkLen62dot5u1m_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,75),_WwpLeosPortXcvrXfpLinkLen62dot5u1m_Type())
-wwpLeosPortXcvrXfpLinkLen62dot5u1m.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpLinkLen62dot5u1m.setStatus(_A)
-class _WwpLeosPortXcvrXfpLinkLenCopper1m_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrXfpLinkLenCopper1m_Type.__name__=_C
-_WwpLeosPortXcvrXfpLinkLenCopper1m_Object=MibTableColumn
-wwpLeosPortXcvrXfpLinkLenCopper1m=_WwpLeosPortXcvrXfpLinkLenCopper1m_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,76),_WwpLeosPortXcvrXfpLinkLenCopper1m_Type())
-wwpLeosPortXcvrXfpLinkLenCopper1m.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpLinkLenCopper1m.setStatus(_A)
-class _WwpLeosPortXcvrXfpDevTech_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*(('vcsel850nm',1),('vcsel1310nm',2),('vcsel1550nm',3),('fp1310nm',4),('dfb1310nm',5),('dfb1550nm',6),('eml1310nm',7),('eml1550nm',8),('copperOrOther',9),('tunable1550nm',10),(_L,11)))
-_WwpLeosPortXcvrXfpDevTech_Type.__name__=_C
-_WwpLeosPortXcvrXfpDevTech_Object=MibTableColumn
-wwpLeosPortXcvrXfpDevTech=_WwpLeosPortXcvrXfpDevTech_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,77),_WwpLeosPortXcvrXfpDevTech_Type())
-wwpLeosPortXcvrXfpDevTech.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpDevTech.setStatus(_A)
-class _WwpLeosPortXcvrXfpTransmitterTech_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrXfpTransmitterTech_Type.__name__=_C
-_WwpLeosPortXcvrXfpTransmitterTech_Object=MibTableColumn
-wwpLeosPortXcvrXfpTransmitterTech=_WwpLeosPortXcvrXfpTransmitterTech_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,78),_WwpLeosPortXcvrXfpTransmitterTech_Type())
-wwpLeosPortXcvrXfpTransmitterTech.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpTransmitterTech.setStatus(_A)
-class _WwpLeosPortXcvrXfpCdrSupport_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrXfpCdrSupport_Type.__name__=_C
-_WwpLeosPortXcvrXfpCdrSupport_Object=MibTableColumn
-wwpLeosPortXcvrXfpCdrSupport=_WwpLeosPortXcvrXfpCdrSupport_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,79),_WwpLeosPortXcvrXfpCdrSupport_Type())
-wwpLeosPortXcvrXfpCdrSupport.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpCdrSupport.setStatus(_A)
-class _WwpLeosPortXcvrXfpWaveLengthTol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrXfpWaveLengthTol_Type.__name__=_C
-_WwpLeosPortXcvrXfpWaveLengthTol_Object=MibTableColumn
-wwpLeosPortXcvrXfpWaveLengthTol=_WwpLeosPortXcvrXfpWaveLengthTol_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,80),_WwpLeosPortXcvrXfpWaveLengthTol_Type())
-wwpLeosPortXcvrXfpWaveLengthTol.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpWaveLengthTol.setStatus(_A)
-class _WwpLeosPortXcvrXfpMaxCaseTemp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrXfpMaxCaseTemp_Type.__name__=_C
-_WwpLeosPortXcvrXfpMaxCaseTemp_Object=MibTableColumn
-wwpLeosPortXcvrXfpMaxCaseTemp=_WwpLeosPortXcvrXfpMaxCaseTemp_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,81),_WwpLeosPortXcvrXfpMaxCaseTemp_Type())
-wwpLeosPortXcvrXfpMaxCaseTemp.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpMaxCaseTemp.setStatus(_A)
-class _WwpLeosPortXcvrXfpMaxPower_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrXfpMaxPower_Type.__name__=_C
-_WwpLeosPortXcvrXfpMaxPower_Object=MibTableColumn
-wwpLeosPortXcvrXfpMaxPower=_WwpLeosPortXcvrXfpMaxPower_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,82),_WwpLeosPortXcvrXfpMaxPower_Type())
-wwpLeosPortXcvrXfpMaxPower.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpMaxPower.setStatus(_A)
-class _WwpLeosPortXcvrXfpMax5vCurrent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrXfpMax5vCurrent_Type.__name__=_C
-_WwpLeosPortXcvrXfpMax5vCurrent_Object=MibTableColumn
-wwpLeosPortXcvrXfpMax5vCurrent=_WwpLeosPortXcvrXfpMax5vCurrent_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,83),_WwpLeosPortXcvrXfpMax5vCurrent_Type())
-wwpLeosPortXcvrXfpMax5vCurrent.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpMax5vCurrent.setStatus(_A)
-class _WwpLeosPortXcvrXfpMax3p3vCurrent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrXfpMax3p3vCurrent_Type.__name__=_C
-_WwpLeosPortXcvrXfpMax3p3vCurrent_Object=MibTableColumn
-wwpLeosPortXcvrXfpMax3p3vCurrent=_WwpLeosPortXcvrXfpMax3p3vCurrent_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,84),_WwpLeosPortXcvrXfpMax3p3vCurrent_Type())
-wwpLeosPortXcvrXfpMax3p3vCurrent.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpMax3p3vCurrent.setStatus(_A)
-class _WwpLeosPortXcvrXfpMax1p8vCurrent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrXfpMax1p8vCurrent_Type.__name__=_C
-_WwpLeosPortXcvrXfpMax1p8vCurrent_Object=MibTableColumn
-wwpLeosPortXcvrXfpMax1p8vCurrent=_WwpLeosPortXcvrXfpMax1p8vCurrent_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,85),_WwpLeosPortXcvrXfpMax1p8vCurrent_Type())
-wwpLeosPortXcvrXfpMax1p8vCurrent.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpMax1p8vCurrent.setStatus(_A)
-class _WwpLeosPortXcvrXfpMaxNeg5p2vCurrent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrXfpMaxNeg5p2vCurrent_Type.__name__=_C
-_WwpLeosPortXcvrXfpMaxNeg5p2vCurrent_Object=MibTableColumn
-wwpLeosPortXcvrXfpMaxNeg5p2vCurrent=_WwpLeosPortXcvrXfpMaxNeg5p2vCurrent_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,86),_WwpLeosPortXcvrXfpMaxNeg5p2vCurrent_Type())
-wwpLeosPortXcvrXfpMaxNeg5p2vCurrent.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpMaxNeg5p2vCurrent.setStatus(_A)
-class _WwpLeosPortXcvrXfpDiagMonitorType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrXfpDiagMonitorType_Type.__name__=_C
-_WwpLeosPortXcvrXfpDiagMonitorType_Object=MibTableColumn
-wwpLeosPortXcvrXfpDiagMonitorType=_WwpLeosPortXcvrXfpDiagMonitorType_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,87),_WwpLeosPortXcvrXfpDiagMonitorType_Type())
-wwpLeosPortXcvrXfpDiagMonitorType.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpDiagMonitorType.setStatus(_A)
-class _WwpLeosPortXcvrXfpEnhancedOptions_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrXfpEnhancedOptions_Type.__name__=_C
-_WwpLeosPortXcvrXfpEnhancedOptions_Object=MibTableColumn
-wwpLeosPortXcvrXfpEnhancedOptions=_WwpLeosPortXcvrXfpEnhancedOptions_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,88),_WwpLeosPortXcvrXfpEnhancedOptions_Type())
-wwpLeosPortXcvrXfpEnhancedOptions.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpEnhancedOptions.setStatus(_A)
-class _WwpLeosPortXcvrXfpAuxMonitoringInput1_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)));namedValues=NamedValues(*((_N,1),(_Q,2),(_L,3),(_R,4),(_S,5),(_T,6),(_U,7),(_V,8),(_W,9),(_X,10),(_Y,11),(_Z,12),(_a,13),(_b,14),(_K,15)))
-_WwpLeosPortXcvrXfpAuxMonitoringInput1_Type.__name__=_C
-_WwpLeosPortXcvrXfpAuxMonitoringInput1_Object=MibTableColumn
-wwpLeosPortXcvrXfpAuxMonitoringInput1=_WwpLeosPortXcvrXfpAuxMonitoringInput1_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,89),_WwpLeosPortXcvrXfpAuxMonitoringInput1_Type())
-wwpLeosPortXcvrXfpAuxMonitoringInput1.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpAuxMonitoringInput1.setStatus(_A)
-class _WwpLeosPortXcvrXfpAuxMonitoringInput2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)));namedValues=NamedValues(*((_N,1),(_Q,2),(_L,3),(_R,4),(_S,5),(_T,6),(_U,7),(_V,8),(_W,9),(_X,10),(_Y,11),(_Z,12),(_a,13),(_b,14),(_K,15)))
-_WwpLeosPortXcvrXfpAuxMonitoringInput2_Type.__name__=_C
-_WwpLeosPortXcvrXfpAuxMonitoringInput2_Object=MibTableColumn
-wwpLeosPortXcvrXfpAuxMonitoringInput2=_WwpLeosPortXcvrXfpAuxMonitoringInput2_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,90),_WwpLeosPortXcvrXfpAuxMonitoringInput2_Type())
-wwpLeosPortXcvrXfpAuxMonitoringInput2.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpAuxMonitoringInput2.setStatus(_A)
-class _WwpLeosPortXcvrAdminFrequency_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_WwpLeosPortXcvrAdminFrequency_Type.__name__=_J
-_WwpLeosPortXcvrAdminFrequency_Object=MibTableColumn
-wwpLeosPortXcvrAdminFrequency=_WwpLeosPortXcvrAdminFrequency_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,91),_WwpLeosPortXcvrAdminFrequency_Type())
-wwpLeosPortXcvrAdminFrequency.setMaxAccess(_M)
-if mibBuilder.loadTexts:wwpLeosPortXcvrAdminFrequency.setStatus(_A)
-class _WwpLeosPortXcvrXfpLaserFirstFrequency_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_WwpLeosPortXcvrXfpLaserFirstFrequency_Type.__name__=_J
-_WwpLeosPortXcvrXfpLaserFirstFrequency_Object=MibTableColumn
-wwpLeosPortXcvrXfpLaserFirstFrequency=_WwpLeosPortXcvrXfpLaserFirstFrequency_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,92),_WwpLeosPortXcvrXfpLaserFirstFrequency_Type())
-wwpLeosPortXcvrXfpLaserFirstFrequency.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpLaserFirstFrequency.setStatus(_A)
-class _WwpLeosPortXcvrXfpLaserLastFrquency_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_WwpLeosPortXcvrXfpLaserLastFrquency_Type.__name__=_J
-_WwpLeosPortXcvrXfpLaserLastFrquency_Object=MibTableColumn
-wwpLeosPortXcvrXfpLaserLastFrquency=_WwpLeosPortXcvrXfpLaserLastFrquency_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,93),_WwpLeosPortXcvrXfpLaserLastFrquency_Type())
-wwpLeosPortXcvrXfpLaserLastFrquency.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpLaserLastFrquency.setStatus(_A)
-class _WwpLeosPortXcvrXfpMaxGridScacing_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_WwpLeosPortXcvrXfpMaxGridScacing_Type.__name__=_C
-_WwpLeosPortXcvrXfpMaxGridScacing_Object=MibTableColumn
-wwpLeosPortXcvrXfpMaxGridScacing=_WwpLeosPortXcvrXfpMaxGridScacing_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,94),_WwpLeosPortXcvrXfpMaxGridScacing_Type())
-wwpLeosPortXcvrXfpMaxGridScacing.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpMaxGridScacing.setStatus(_A)
-class _WwpLeosPortXcvrXfpChannelNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpLeosPortXcvrXfpChannelNum_Type.__name__=_C
-_WwpLeosPortXcvrXfpChannelNum_Object=MibTableColumn
-wwpLeosPortXcvrXfpChannelNum=_WwpLeosPortXcvrXfpChannelNum_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,95),_WwpLeosPortXcvrXfpChannelNum_Type())
-wwpLeosPortXcvrXfpChannelNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpChannelNum.setStatus(_A)
-class _WwpLeosPortXcvrXfpFrequencyError_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-32768,32767))
-_WwpLeosPortXcvrXfpFrequencyError_Type.__name__=_C
-_WwpLeosPortXcvrXfpFrequencyError_Object=MibTableColumn
-wwpLeosPortXcvrXfpFrequencyError=_WwpLeosPortXcvrXfpFrequencyError_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,96),_WwpLeosPortXcvrXfpFrequencyError_Type())
-wwpLeosPortXcvrXfpFrequencyError.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpFrequencyError.setStatus(_A)
-_WwpLeosPortXcvrAdminWavelength_Type=Unsigned32
-_WwpLeosPortXcvrAdminWavelength_Object=MibTableColumn
-wwpLeosPortXcvrAdminWavelength=_WwpLeosPortXcvrAdminWavelength_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,97),_WwpLeosPortXcvrAdminWavelength_Type())
-wwpLeosPortXcvrAdminWavelength.setMaxAccess(_M)
-if mibBuilder.loadTexts:wwpLeosPortXcvrAdminWavelength.setStatus(_A)
-_WwpLeosPortXcvrAdminChannel_Type=Unsigned32
-_WwpLeosPortXcvrAdminChannel_Object=MibTableColumn
-wwpLeosPortXcvrAdminChannel=_WwpLeosPortXcvrAdminChannel_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,98),_WwpLeosPortXcvrAdminChannel_Type())
-wwpLeosPortXcvrAdminChannel.setMaxAccess(_M)
-if mibBuilder.loadTexts:wwpLeosPortXcvrAdminChannel.setStatus(_A)
-_WwpLeosPortXcvrXfpLaserFirstWavelenth_Type=Unsigned32
-_WwpLeosPortXcvrXfpLaserFirstWavelenth_Object=MibTableColumn
-wwpLeosPortXcvrXfpLaserFirstWavelenth=_WwpLeosPortXcvrXfpLaserFirstWavelenth_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,99),_WwpLeosPortXcvrXfpLaserFirstWavelenth_Type())
-wwpLeosPortXcvrXfpLaserFirstWavelenth.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpLaserFirstWavelenth.setStatus(_A)
-_WwpLeosPortXcvrXfpLaserLastWavelength_Type=Unsigned32
-_WwpLeosPortXcvrXfpLaserLastWavelength_Object=MibTableColumn
-wwpLeosPortXcvrXfpLaserLastWavelength=_WwpLeosPortXcvrXfpLaserLastWavelength_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,100),_WwpLeosPortXcvrXfpLaserLastWavelength_Type())
-wwpLeosPortXcvrXfpLaserLastWavelength.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpLaserLastWavelength.setStatus(_A)
-_WwpLeosPortXcvrXfpLaserFirstChannel_Type=Unsigned32
-_WwpLeosPortXcvrXfpLaserFirstChannel_Object=MibTableColumn
-wwpLeosPortXcvrXfpLaserFirstChannel=_WwpLeosPortXcvrXfpLaserFirstChannel_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,101),_WwpLeosPortXcvrXfpLaserFirstChannel_Type())
-wwpLeosPortXcvrXfpLaserFirstChannel.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpLaserFirstChannel.setStatus(_A)
-_WwpLeosPortXcvrXfpLaserLastChannel_Type=Unsigned32
-_WwpLeosPortXcvrXfpLaserLastChannel_Object=MibTableColumn
-wwpLeosPortXcvrXfpLaserLastChannel=_WwpLeosPortXcvrXfpLaserLastChannel_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,102),_WwpLeosPortXcvrXfpLaserLastChannel_Type())
-wwpLeosPortXcvrXfpLaserLastChannel.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrXfpLaserLastChannel.setStatus(_A)
-_WwpLeosPortXcvrOperFrequency_Type=Unsigned32
-_WwpLeosPortXcvrOperFrequency_Object=MibTableColumn
-wwpLeosPortXcvrOperFrequency=_WwpLeosPortXcvrOperFrequency_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,103),_WwpLeosPortXcvrOperFrequency_Type())
-wwpLeosPortXcvrOperFrequency.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrOperFrequency.setStatus(_A)
-_WwpLeosPortXcvrOperWavelength_Type=Unsigned32
-_WwpLeosPortXcvrOperWavelength_Object=MibTableColumn
-wwpLeosPortXcvrOperWavelength=_WwpLeosPortXcvrOperWavelength_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,104),_WwpLeosPortXcvrOperWavelength_Type())
-wwpLeosPortXcvrOperWavelength.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrOperWavelength.setStatus(_A)
-_WwpLeosPortXcvrRxDbmPower_Type=Integer32
-_WwpLeosPortXcvrRxDbmPower_Object=MibTableColumn
-wwpLeosPortXcvrRxDbmPower=_WwpLeosPortXcvrRxDbmPower_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,105),_WwpLeosPortXcvrRxDbmPower_Type())
-wwpLeosPortXcvrRxDbmPower.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrRxDbmPower.setStatus(_A)
-if mibBuilder.loadTexts:wwpLeosPortXcvrRxDbmPower.setUnits(_G)
-_WwpLeosPortXcvrTxDbmPower_Type=Integer32
-_WwpLeosPortXcvrTxDbmPower_Object=MibTableColumn
-wwpLeosPortXcvrTxDbmPower=_WwpLeosPortXcvrTxDbmPower_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,106),_WwpLeosPortXcvrTxDbmPower_Type())
-wwpLeosPortXcvrTxDbmPower.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrTxDbmPower.setStatus(_A)
-if mibBuilder.loadTexts:wwpLeosPortXcvrTxDbmPower.setUnits(_G)
-_WwpLeosPortXcvrHighTxDbmPwAlarmThreshold_Type=Integer32
-_WwpLeosPortXcvrHighTxDbmPwAlarmThreshold_Object=MibTableColumn
-wwpLeosPortXcvrHighTxDbmPwAlarmThreshold=_WwpLeosPortXcvrHighTxDbmPwAlarmThreshold_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,107),_WwpLeosPortXcvrHighTxDbmPwAlarmThreshold_Type())
-wwpLeosPortXcvrHighTxDbmPwAlarmThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrHighTxDbmPwAlarmThreshold.setStatus(_A)
-if mibBuilder.loadTexts:wwpLeosPortXcvrHighTxDbmPwAlarmThreshold.setUnits(_G)
-_WwpLeosPortXcvrLowTxDbmPwAlarmThreshold_Type=Integer32
-_WwpLeosPortXcvrLowTxDbmPwAlarmThreshold_Object=MibTableColumn
-wwpLeosPortXcvrLowTxDbmPwAlarmThreshold=_WwpLeosPortXcvrLowTxDbmPwAlarmThreshold_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,108),_WwpLeosPortXcvrLowTxDbmPwAlarmThreshold_Type())
-wwpLeosPortXcvrLowTxDbmPwAlarmThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrLowTxDbmPwAlarmThreshold.setStatus(_A)
-if mibBuilder.loadTexts:wwpLeosPortXcvrLowTxDbmPwAlarmThreshold.setUnits(_G)
-_WwpLeosPortXcvrHighRxDbmPwAlarmThreshold_Type=Integer32
-_WwpLeosPortXcvrHighRxDbmPwAlarmThreshold_Object=MibTableColumn
-wwpLeosPortXcvrHighRxDbmPwAlarmThreshold=_WwpLeosPortXcvrHighRxDbmPwAlarmThreshold_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,109),_WwpLeosPortXcvrHighRxDbmPwAlarmThreshold_Type())
-wwpLeosPortXcvrHighRxDbmPwAlarmThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrHighRxDbmPwAlarmThreshold.setStatus(_A)
-if mibBuilder.loadTexts:wwpLeosPortXcvrHighRxDbmPwAlarmThreshold.setUnits(_G)
-_WwpLeosPortXcvrLowRxDbmPwAlarmThreshold_Type=Integer32
-_WwpLeosPortXcvrLowRxDbmPwAlarmThreshold_Object=MibTableColumn
-wwpLeosPortXcvrLowRxDbmPwAlarmThreshold=_WwpLeosPortXcvrLowRxDbmPwAlarmThreshold_Object((1,3,6,1,4,1,6141,2,60,4,1,1,1,1,110),_WwpLeosPortXcvrLowRxDbmPwAlarmThreshold_Type())
-wwpLeosPortXcvrLowRxDbmPwAlarmThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrLowRxDbmPwAlarmThreshold.setStatus(_A)
-if mibBuilder.loadTexts:wwpLeosPortXcvrLowRxDbmPwAlarmThreshold.setUnits(_G)
-_WwpLeosPortXcvrNotif_ObjectIdentity=ObjectIdentity
-wwpLeosPortXcvrNotif=_WwpLeosPortXcvrNotif_ObjectIdentity((1,3,6,1,4,1,6141,2,60,4,1,2))
-class _WwpLeosPortXcvrEventType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('inserted',1),('removed',2),(_I,3),(_H,4)))
-_WwpLeosPortXcvrEventType_Type.__name__=_C
-_WwpLeosPortXcvrEventType_Object=MibScalar
-wwpLeosPortXcvrEventType=_WwpLeosPortXcvrEventType_Object((1,3,6,1,4,1,6141,2,60,4,1,2,1),_WwpLeosPortXcvrEventType_Type())
-wwpLeosPortXcvrEventType.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrEventType.setStatus(_A)
-class _WwpLeosPortXcvrErrorType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_N,0),('chksumFailed',1),('opticalFault',2)))
-_WwpLeosPortXcvrErrorType_Type.__name__=_C
-_WwpLeosPortXcvrErrorType_Object=MibScalar
-wwpLeosPortXcvrErrorType=_WwpLeosPortXcvrErrorType_Object((1,3,6,1,4,1,6141,2,60,4,1,2,2),_WwpLeosPortXcvrErrorType_Type())
-wwpLeosPortXcvrErrorType.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosPortXcvrErrorType.setStatus(_A)
-_WwpLeosPortXcvrMIBNotificationPrefix_ObjectIdentity=ObjectIdentity
-wwpLeosPortXcvrMIBNotificationPrefix=_WwpLeosPortXcvrMIBNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,6141,2,60,4,2))
-_WwpLeosPortXcvrMIBNotifications_ObjectIdentity=ObjectIdentity
-wwpLeosPortXcvrMIBNotifications=_WwpLeosPortXcvrMIBNotifications_ObjectIdentity((1,3,6,1,4,1,6141,2,60,4,2,0))
-_WwpLeosPortXcvrMIBConformance_ObjectIdentity=ObjectIdentity
-wwpLeosPortXcvrMIBConformance=_WwpLeosPortXcvrMIBConformance_ObjectIdentity((1,3,6,1,4,1,6141,2,60,4,3))
-_WwpLeosPortXcvrMIBCompliances_ObjectIdentity=ObjectIdentity
-wwpLeosPortXcvrMIBCompliances=_WwpLeosPortXcvrMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6141,2,60,4,3,1))
-_WwpLeosPortXcvrMIBGroups_ObjectIdentity=ObjectIdentity
-wwpLeosPortXcvrMIBGroups=_WwpLeosPortXcvrMIBGroups_ObjectIdentity((1,3,6,1,4,1,6141,2,60,4,3,2))
-wwpLeosPortXcvrLinkStateChangeNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,4))
-wwpLeosPortXcvrLinkStateChangeNotification.setObjects(*((_D,_E),(_D,_c)))
-if mibBuilder.loadTexts:wwpLeosPortXcvrLinkStateChangeNotification.setStatus(_A)
-wwpLeosPortXcvrErrorTypeNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,5))
-wwpLeosPortXcvrErrorTypeNotification.setObjects(*((_D,_E),(_D,_d)))
-if mibBuilder.loadTexts:wwpLeosPortXcvrErrorTypeNotification.setStatus(_A)
-wwpLeosPortXcvrTempHighNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,6))
-wwpLeosPortXcvrTempHighNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrTempHighNotification.setStatus(_A)
-wwpLeosPortXcvrTempLowNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,7))
-wwpLeosPortXcvrTempLowNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrTempLowNotification.setStatus(_A)
-wwpLeosPortXcvrTempNormalNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,8))
-wwpLeosPortXcvrTempNormalNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrTempNormalNotification.setStatus(_A)
-wwpLeosPortXcvrVoltageHighNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,9))
-wwpLeosPortXcvrVoltageHighNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrVoltageHighNotification.setStatus(_A)
-wwpLeosPortXcvrVoltageLowNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,10))
-wwpLeosPortXcvrVoltageLowNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrVoltageLowNotification.setStatus(_A)
-wwpLeosPortXcvrVoltageNormalNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,11))
-wwpLeosPortXcvrVoltageNormalNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrVoltageNormalNotification.setStatus(_A)
-wwpLeosPortXcvrBiasHighNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,12))
-wwpLeosPortXcvrBiasHighNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrBiasHighNotification.setStatus(_A)
-wwpLeosPortXcvrBiasLowNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,13))
-wwpLeosPortXcvrBiasLowNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrBiasLowNotification.setStatus(_A)
-wwpLeosPortXcvrBiasNormalNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,14))
-wwpLeosPortXcvrBiasNormalNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrBiasNormalNotification.setStatus(_A)
-wwpLeosPortXcvrTxPowerHighNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,15))
-wwpLeosPortXcvrTxPowerHighNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrTxPowerHighNotification.setStatus(_A)
-wwpLeosPortXcvrTxPowerLowNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,16))
-wwpLeosPortXcvrTxPowerLowNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrTxPowerLowNotification.setStatus(_A)
-wwpLeosPortXcvrTxPowerNormalNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,17))
-wwpLeosPortXcvrTxPowerNormalNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrTxPowerNormalNotification.setStatus(_A)
-wwpLeosPortXcvrRxPowerHighNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,18))
-wwpLeosPortXcvrRxPowerHighNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrRxPowerHighNotification.setStatus(_A)
-wwpLeosPortXcvrRxPowerLowNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,19))
-wwpLeosPortXcvrRxPowerLowNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrRxPowerLowNotification.setStatus(_A)
-wwpLeosPortXcvrRxPowerNormalNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,20))
-wwpLeosPortXcvrRxPowerNormalNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrRxPowerNormalNotification.setStatus(_A)
-wwpLeosPortXcvrSpeedInfoMissingNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,21))
-wwpLeosPortXcvrSpeedInfoMissingNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrSpeedInfoMissingNotification.setStatus(_A)
-wwpLeosPortXcvrBiasHighWarningNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,22))
-wwpLeosPortXcvrBiasHighWarningNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrBiasHighWarningNotification.setStatus(_A)
-wwpLeosPortXcvrBiasLowWarningNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,23))
-wwpLeosPortXcvrBiasLowWarningNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrBiasLowWarningNotification.setStatus(_A)
-wwpLeosPortXcvrTempHighWarningNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,24))
-wwpLeosPortXcvrTempHighWarningNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrTempHighWarningNotification.setStatus(_A)
-wwpLeosPortXcvrTempLowWarningNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,25))
-wwpLeosPortXcvrTempLowWarningNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrTempLowWarningNotification.setStatus(_A)
-wwpLeosPortXcvrVoltageHighWarningNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,26))
-wwpLeosPortXcvrVoltageHighWarningNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrVoltageHighWarningNotification.setStatus(_A)
-wwpLeosPortXcvrVoltageLowWarningNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,27))
-wwpLeosPortXcvrVoltageLowWarningNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrVoltageLowWarningNotification.setStatus(_A)
-wwpLeosPortXcvrTxPowerHighWarningNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,28))
-wwpLeosPortXcvrTxPowerHighWarningNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrTxPowerHighWarningNotification.setStatus(_A)
-wwpLeosPortXcvrTxPowerLowWarningNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,29))
-wwpLeosPortXcvrTxPowerLowWarningNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrTxPowerLowWarningNotification.setStatus(_A)
-wwpLeosPortXcvrRxPowerHighWarningNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,30))
-wwpLeosPortXcvrRxPowerHighWarningNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrRxPowerHighWarningNotification.setStatus(_A)
-wwpLeosPortXcvrRxPowerLowWarningNotification=NotificationType((1,3,6,1,4,1,6141,2,60,4,2,0,31))
-wwpLeosPortXcvrRxPowerLowWarningNotification.setObjects((_D,_E))
-if mibBuilder.loadTexts:wwpLeosPortXcvrRxPowerLowWarningNotification.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'wwpLeosPortXcvrMIB':wwpLeosPortXcvrMIB,'wwpLeosPortXcvrMIBObjects':wwpLeosPortXcvrMIBObjects,'wwpLeosPortXcvr':wwpLeosPortXcvr,'wwpLeosPortXcvrTable':wwpLeosPortXcvrTable,'wwpLeosPortXcvrEntry':wwpLeosPortXcvrEntry,_E:wwpLeosPortXcvrId,'wwpLeosPortXcvrOperState':wwpLeosPortXcvrOperState,'wwpLeosPortXcvrIdentiferType':wwpLeosPortXcvrIdentiferType,'wwpLeosPortXcvrExtIdentiferType':wwpLeosPortXcvrExtIdentiferType,'wwpLeosPortXcvrConnectorType':wwpLeosPortXcvrConnectorType,'wwpLeosPortXcvrType':wwpLeosPortXcvrType,'wwpLeosPortXcvrVendorName':wwpLeosPortXcvrVendorName,'wwpLeosPortXcvrVendorOUI':wwpLeosPortXcvrVendorOUI,'wwpLeosPortXcvrVendorPN':wwpLeosPortXcvrVendorPN,'wwpLeosPortXcvrRevNum':wwpLeosPortXcvrRevNum,'wwpLeosPortXcvrSerialNum':wwpLeosPortXcvrSerialNum,'wwpLeosPortXcvrEncodingType':wwpLeosPortXcvrEncodingType,'wwpLeosPortXcvrMfgDate':wwpLeosPortXcvrMfgDate,'wwpLeosPortXcvrComplianceVer':wwpLeosPortXcvrComplianceVer,'wwpLeosPortXcvrWaveLength':wwpLeosPortXcvrWaveLength,'wwpLeosPortXcvrTemperature':wwpLeosPortXcvrTemperature,'wwpLeosPortXcvrVcc':wwpLeosPortXcvrVcc,'wwpLeosPortXcvrBias':wwpLeosPortXcvrBias,'wwpLeosPortXcvrRxPower':wwpLeosPortXcvrRxPower,'wwpLeosPortXcvrTxState':wwpLeosPortXcvrTxState,'wwpLeosPortXcvrTxFaultStatus':wwpLeosPortXcvrTxFaultStatus,'wwpLeosPortXcvrRxRateStatus':wwpLeosPortXcvrRxRateStatus,'wwpLeosPortXcvr9by125um':wwpLeosPortXcvr9by125um,'wwpLeosPortXcvr50by125um':wwpLeosPortXcvr50by125um,'wwpLeosPortXcvr62dot5by125um':wwpLeosPortXcvr62dot5by125um,'wwpLeosPortXcvrCu':wwpLeosPortXcvrCu,'wwpLeosPortXcvrTxOutputPw':wwpLeosPortXcvrTxOutputPw,'wwpLeosPortXcvrLosState':wwpLeosPortXcvrLosState,'wwpLeosPortXcvrDiagSupported':wwpLeosPortXcvrDiagSupported,'wwpLeosPortXcvrEnhDiagAlarmSupported':wwpLeosPortXcvrEnhDiagAlarmSupported,'wwpLeosPortXcvrEnhDiagSoftTxDisableSupported':wwpLeosPortXcvrEnhDiagSoftTxDisableSupported,'wwpLeosPortXcvrEnhDiagSoftTxFaultSupported':wwpLeosPortXcvrEnhDiagSoftTxFaultSupported,'wwpLeosPortXcvrEnhDiagRxLosSupported':wwpLeosPortXcvrEnhDiagRxLosSupported,'wwpLeosPortXcvrHighTempAlarmThreshold':wwpLeosPortXcvrHighTempAlarmThreshold,'wwpLeosPortXcvrLowTempAlarmThreshold':wwpLeosPortXcvrLowTempAlarmThreshold,'wwpLeosPortXcvrHighVccAlarmThreshold':wwpLeosPortXcvrHighVccAlarmThreshold,'wwpLeosPortXcvrLowVccAlarmThreshold':wwpLeosPortXcvrLowVccAlarmThreshold,'wwpLeosPortXcvrHighBiasAlarmThreshold':wwpLeosPortXcvrHighBiasAlarmThreshold,'wwpLeosPortXcvrLowBiasAlarmThreshold':wwpLeosPortXcvrLowBiasAlarmThreshold,'wwpLeosPortXcvrHighTxPwAlarmThreshold':wwpLeosPortXcvrHighTxPwAlarmThreshold,'wwpLeosPortXcvrLowTxPwAlarmThreshold':wwpLeosPortXcvrLowTxPwAlarmThreshold,'wwpLeosPortXcvrHighRxPwAlarmThreshold':wwpLeosPortXcvrHighRxPwAlarmThreshold,'wwpLeosPortXcvrLowRxPwAlarmThreshold':wwpLeosPortXcvrLowRxPwAlarmThreshold,'wwpLeosPortXcvrEnhDiagRateSelectSupported':wwpLeosPortXcvrEnhDiagRateSelectSupported,'wwpLeosPortXcvrAdminState':wwpLeosPortXcvrAdminState,'wwpLeosPortXcvrXfpMinBitRate':wwpLeosPortXcvrXfpMinBitRate,'wwpLeosPortXcvrXfpMaxBitRate':wwpLeosPortXcvrXfpMaxBitRate,'wwpLeosPortXcvrXfpLinkLenSmf1km':wwpLeosPortXcvrXfpLinkLenSmf1km,'wwpLeosPortXcvrXfpLinkLenE50u2m':wwpLeosPortXcvrXfpLinkLenE50u2m,'wwpLeosPortXcvrXfpLinkLen50u1m':wwpLeosPortXcvrXfpLinkLen50u1m,'wwpLeosPortXcvrXfpLinkLen62dot5u1m':wwpLeosPortXcvrXfpLinkLen62dot5u1m,'wwpLeosPortXcvrXfpLinkLenCopper1m':wwpLeosPortXcvrXfpLinkLenCopper1m,'wwpLeosPortXcvrXfpDevTech':wwpLeosPortXcvrXfpDevTech,'wwpLeosPortXcvrXfpTransmitterTech':wwpLeosPortXcvrXfpTransmitterTech,'wwpLeosPortXcvrXfpCdrSupport':wwpLeosPortXcvrXfpCdrSupport,'wwpLeosPortXcvrXfpWaveLengthTol':wwpLeosPortXcvrXfpWaveLengthTol,'wwpLeosPortXcvrXfpMaxCaseTemp':wwpLeosPortXcvrXfpMaxCaseTemp,'wwpLeosPortXcvrXfpMaxPower':wwpLeosPortXcvrXfpMaxPower,'wwpLeosPortXcvrXfpMax5vCurrent':wwpLeosPortXcvrXfpMax5vCurrent,'wwpLeosPortXcvrXfpMax3p3vCurrent':wwpLeosPortXcvrXfpMax3p3vCurrent,'wwpLeosPortXcvrXfpMax1p8vCurrent':wwpLeosPortXcvrXfpMax1p8vCurrent,'wwpLeosPortXcvrXfpMaxNeg5p2vCurrent':wwpLeosPortXcvrXfpMaxNeg5p2vCurrent,'wwpLeosPortXcvrXfpDiagMonitorType':wwpLeosPortXcvrXfpDiagMonitorType,'wwpLeosPortXcvrXfpEnhancedOptions':wwpLeosPortXcvrXfpEnhancedOptions,'wwpLeosPortXcvrXfpAuxMonitoringInput1':wwpLeosPortXcvrXfpAuxMonitoringInput1,'wwpLeosPortXcvrXfpAuxMonitoringInput2':wwpLeosPortXcvrXfpAuxMonitoringInput2,'wwpLeosPortXcvrAdminFrequency':wwpLeosPortXcvrAdminFrequency,'wwpLeosPortXcvrXfpLaserFirstFrequency':wwpLeosPortXcvrXfpLaserFirstFrequency,'wwpLeosPortXcvrXfpLaserLastFrquency':wwpLeosPortXcvrXfpLaserLastFrquency,'wwpLeosPortXcvrXfpMaxGridScacing':wwpLeosPortXcvrXfpMaxGridScacing,'wwpLeosPortXcvrXfpChannelNum':wwpLeosPortXcvrXfpChannelNum,'wwpLeosPortXcvrXfpFrequencyError':wwpLeosPortXcvrXfpFrequencyError,'wwpLeosPortXcvrAdminWavelength':wwpLeosPortXcvrAdminWavelength,'wwpLeosPortXcvrAdminChannel':wwpLeosPortXcvrAdminChannel,'wwpLeosPortXcvrXfpLaserFirstWavelenth':wwpLeosPortXcvrXfpLaserFirstWavelenth,'wwpLeosPortXcvrXfpLaserLastWavelength':wwpLeosPortXcvrXfpLaserLastWavelength,'wwpLeosPortXcvrXfpLaserFirstChannel':wwpLeosPortXcvrXfpLaserFirstChannel,'wwpLeosPortXcvrXfpLaserLastChannel':wwpLeosPortXcvrXfpLaserLastChannel,'wwpLeosPortXcvrOperFrequency':wwpLeosPortXcvrOperFrequency,'wwpLeosPortXcvrOperWavelength':wwpLeosPortXcvrOperWavelength,'wwpLeosPortXcvrRxDbmPower':wwpLeosPortXcvrRxDbmPower,'wwpLeosPortXcvrTxDbmPower':wwpLeosPortXcvrTxDbmPower,'wwpLeosPortXcvrHighTxDbmPwAlarmThreshold':wwpLeosPortXcvrHighTxDbmPwAlarmThreshold,'wwpLeosPortXcvrLowTxDbmPwAlarmThreshold':wwpLeosPortXcvrLowTxDbmPwAlarmThreshold,'wwpLeosPortXcvrHighRxDbmPwAlarmThreshold':wwpLeosPortXcvrHighRxDbmPwAlarmThreshold,'wwpLeosPortXcvrLowRxDbmPwAlarmThreshold':wwpLeosPortXcvrLowRxDbmPwAlarmThreshold,'wwpLeosPortXcvrNotif':wwpLeosPortXcvrNotif,_c:wwpLeosPortXcvrEventType,_d:wwpLeosPortXcvrErrorType,'wwpLeosPortXcvrMIBNotificationPrefix':wwpLeosPortXcvrMIBNotificationPrefix,'wwpLeosPortXcvrMIBNotifications':wwpLeosPortXcvrMIBNotifications,'wwpLeosPortXcvrLinkStateChangeNotification':wwpLeosPortXcvrLinkStateChangeNotification,'wwpLeosPortXcvrErrorTypeNotification':wwpLeosPortXcvrErrorTypeNotification,'wwpLeosPortXcvrTempHighNotification':wwpLeosPortXcvrTempHighNotification,'wwpLeosPortXcvrTempLowNotification':wwpLeosPortXcvrTempLowNotification,'wwpLeosPortXcvrTempNormalNotification':wwpLeosPortXcvrTempNormalNotification,'wwpLeosPortXcvrVoltageHighNotification':wwpLeosPortXcvrVoltageHighNotification,'wwpLeosPortXcvrVoltageLowNotification':wwpLeosPortXcvrVoltageLowNotification,'wwpLeosPortXcvrVoltageNormalNotification':wwpLeosPortXcvrVoltageNormalNotification,'wwpLeosPortXcvrBiasHighNotification':wwpLeosPortXcvrBiasHighNotification,'wwpLeosPortXcvrBiasLowNotification':wwpLeosPortXcvrBiasLowNotification,'wwpLeosPortXcvrBiasNormalNotification':wwpLeosPortXcvrBiasNormalNotification,'wwpLeosPortXcvrTxPowerHighNotification':wwpLeosPortXcvrTxPowerHighNotification,'wwpLeosPortXcvrTxPowerLowNotification':wwpLeosPortXcvrTxPowerLowNotification,'wwpLeosPortXcvrTxPowerNormalNotification':wwpLeosPortXcvrTxPowerNormalNotification,'wwpLeosPortXcvrRxPowerHighNotification':wwpLeosPortXcvrRxPowerHighNotification,'wwpLeosPortXcvrRxPowerLowNotification':wwpLeosPortXcvrRxPowerLowNotification,'wwpLeosPortXcvrRxPowerNormalNotification':wwpLeosPortXcvrRxPowerNormalNotification,'wwpLeosPortXcvrSpeedInfoMissingNotification':wwpLeosPortXcvrSpeedInfoMissingNotification,'wwpLeosPortXcvrBiasHighWarningNotification':wwpLeosPortXcvrBiasHighWarningNotification,'wwpLeosPortXcvrBiasLowWarningNotification':wwpLeosPortXcvrBiasLowWarningNotification,'wwpLeosPortXcvrTempHighWarningNotification':wwpLeosPortXcvrTempHighWarningNotification,'wwpLeosPortXcvrTempLowWarningNotification':wwpLeosPortXcvrTempLowWarningNotification,'wwpLeosPortXcvrVoltageHighWarningNotification':wwpLeosPortXcvrVoltageHighWarningNotification,'wwpLeosPortXcvrVoltageLowWarningNotification':wwpLeosPortXcvrVoltageLowWarningNotification,'wwpLeosPortXcvrTxPowerHighWarningNotification':wwpLeosPortXcvrTxPowerHighWarningNotification,'wwpLeosPortXcvrTxPowerLowWarningNotification':wwpLeosPortXcvrTxPowerLowWarningNotification,'wwpLeosPortXcvrRxPowerHighWarningNotification':wwpLeosPortXcvrRxPowerHighWarningNotification,'wwpLeosPortXcvrRxPowerLowWarningNotification':wwpLeosPortXcvrRxPowerLowWarningNotification,'wwpLeosPortXcvrMIBConformance':wwpLeosPortXcvrMIBConformance,'wwpLeosPortXcvrMIBCompliances':wwpLeosPortXcvrMIBCompliances,'wwpLeosPortXcvrMIBGroups':wwpLeosPortXcvrMIBGroups})
+#
+# PySNMP MIB module WWP-LEOS-PORT-XCVR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciena/WWP-LEOS-PORT-XCVR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:10 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+wwpModules, wwpModulesLeos = mibBuilder.importSymbols("WWP-SMI", "wwpModules", "wwpModulesLeos")
+wwpLeosPortXcvrMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4))
+wwpLeosPortXcvrMIB.setRevisions(('2011-07-06 00:00', '2011-05-24 00:00', '2011-03-08 00:00', '2010-02-01 00:00', '2006-03-15 00:00', '2001-04-03 17:00',))
+if mibBuilder.loadTexts: wwpLeosPortXcvrMIB.setLastUpdated('201107060000Z')
+if mibBuilder.loadTexts: wwpLeosPortXcvrMIB.setOrganization('Ciena, Inc')
+wwpLeosPortXcvrMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1))
+wwpLeosPortXcvr = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1))
+wwpLeosPortXcvrNotif = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 2))
+wwpLeosPortXcvrMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2))
+wwpLeosPortXcvrMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0))
+wwpLeosPortXcvrMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 3))
+wwpLeosPortXcvrMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 3, 1))
+wwpLeosPortXcvrMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 3, 2))
+wwpLeosPortXcvrTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1), )
+if mibBuilder.loadTexts: wwpLeosPortXcvrTable.setStatus('current')
+wwpLeosPortXcvrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1), ).setIndexNames((0, "WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrEntry.setStatus('current')
+wwpLeosPortXcvrId = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrId.setStatus('current')
+wwpLeosPortXcvrOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2), ("loopback", 3), ("notPresent", 4), ("faulted", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrOperState.setStatus('current')
+wwpLeosPortXcvrIdentiferType = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13))).clone(namedValues=NamedValues(("unknown", 1), ("gbic", 2), ("solderedType", 3), ("sfp", 4), ("reserved", 5), ("vendorSpecific", 6), ("xbi", 7), ("xenpak", 8), ("xfp", 9), ("xff", 10), ("xfpe", 11), ("xpak", 12), ("x2", 13)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrIdentiferType.setStatus('current')
+wwpLeosPortXcvrExtIdentiferType = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("unknown", 1), ("sfp-gbic", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrExtIdentiferType.setStatus('current')
+wwpLeosPortXcvrConnectorType = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrConnectorType.setStatus('current')
+wwpLeosPortXcvrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrType.setStatus('current')
+wwpLeosPortXcvrVendorName = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrVendorName.setStatus('current')
+wwpLeosPortXcvrVendorOUI = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrVendorOUI.setStatus('current')
+wwpLeosPortXcvrVendorPN = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 9), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrVendorPN.setStatus('current')
+wwpLeosPortXcvrRevNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 10), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrRevNum.setStatus('current')
+wwpLeosPortXcvrSerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 11), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrSerialNum.setStatus('current')
+wwpLeosPortXcvrEncodingType = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrEncodingType.setStatus('current')
+wwpLeosPortXcvrMfgDate = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 13), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrMfgDate.setStatus('current')
+wwpLeosPortXcvrComplianceVer = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrComplianceVer.setStatus('current')
+wwpLeosPortXcvrWaveLength = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrWaveLength.setStatus('current')
+wwpLeosPortXcvrTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setUnits('centigrade').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrTemperature.setStatus('current')
+wwpLeosPortXcvrVcc = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrVcc.setStatus('current')
+wwpLeosPortXcvrBias = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrBias.setStatus('current')
+wwpLeosPortXcvrRxPower = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setUnits('uW').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrRxPower.setStatus('current')
+wwpLeosPortXcvrTxState = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrTxState.setStatus('current')
+wwpLeosPortXcvrTxFaultStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("fault", 1), ("noFault", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrTxFaultStatus.setStatus('current')
+wwpLeosPortXcvrRxRateStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrRxRateStatus.setStatus('current')
+wwpLeosPortXcvr9by125um = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 23), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvr9by125um.setStatus('current')
+wwpLeosPortXcvr50by125um = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 24), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvr50by125um.setStatus('current')
+wwpLeosPortXcvr62dot5by125um = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 25), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvr62dot5by125um.setStatus('current')
+wwpLeosPortXcvrCu = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 26), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrCu.setStatus('current')
+wwpLeosPortXcvrTxOutputPw = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 27), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setUnits('uW').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrTxOutputPw.setStatus('current')
+wwpLeosPortXcvrLosState = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 28), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrLosState.setStatus('current')
+wwpLeosPortXcvrDiagSupported = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 29), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrDiagSupported.setStatus('current')
+wwpLeosPortXcvrEnhDiagAlarmSupported = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 30), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrEnhDiagAlarmSupported.setStatus('current')
+wwpLeosPortXcvrEnhDiagSoftTxDisableSupported = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 31), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrEnhDiagSoftTxDisableSupported.setStatus('current')
+wwpLeosPortXcvrEnhDiagSoftTxFaultSupported = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 32), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrEnhDiagSoftTxFaultSupported.setStatus('current')
+wwpLeosPortXcvrEnhDiagRxLosSupported = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 33), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrEnhDiagRxLosSupported.setStatus('current')
+wwpLeosPortXcvrHighTempAlarmThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 34), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrHighTempAlarmThreshold.setStatus('current')
+wwpLeosPortXcvrLowTempAlarmThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 35), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrLowTempAlarmThreshold.setStatus('current')
+wwpLeosPortXcvrHighVccAlarmThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 36), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrHighVccAlarmThreshold.setStatus('current')
+wwpLeosPortXcvrLowVccAlarmThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 37), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrLowVccAlarmThreshold.setStatus('current')
+wwpLeosPortXcvrHighBiasAlarmThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 38), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrHighBiasAlarmThreshold.setStatus('current')
+wwpLeosPortXcvrLowBiasAlarmThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 39), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrLowBiasAlarmThreshold.setStatus('current')
+wwpLeosPortXcvrHighTxPwAlarmThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 40), Integer32()).setUnits('uW').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrHighTxPwAlarmThreshold.setStatus('current')
+wwpLeosPortXcvrLowTxPwAlarmThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 41), Integer32()).setUnits('uW').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrLowTxPwAlarmThreshold.setStatus('current')
+wwpLeosPortXcvrHighRxPwAlarmThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 42), Integer32()).setUnits('uW').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrHighRxPwAlarmThreshold.setStatus('current')
+wwpLeosPortXcvrLowRxPwAlarmThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 43), Integer32()).setUnits('uW').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrLowRxPwAlarmThreshold.setStatus('current')
+wwpLeosPortXcvrEnhDiagRateSelectSupported = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 44), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrEnhDiagRateSelectSupported.setStatus('current')
+wwpLeosPortXcvrAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 45), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2), ("loopback", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpLeosPortXcvrAdminState.setStatus('current')
+wwpLeosPortXcvrXfpMinBitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 70), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpMinBitRate.setStatus('current')
+wwpLeosPortXcvrXfpMaxBitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 71), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpMaxBitRate.setStatus('current')
+wwpLeosPortXcvrXfpLinkLenSmf1km = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 72), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpLinkLenSmf1km.setStatus('current')
+wwpLeosPortXcvrXfpLinkLenE50u2m = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 73), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpLinkLenE50u2m.setStatus('current')
+wwpLeosPortXcvrXfpLinkLen50u1m = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 74), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpLinkLen50u1m.setStatus('current')
+wwpLeosPortXcvrXfpLinkLen62dot5u1m = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 75), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpLinkLen62dot5u1m.setStatus('current')
+wwpLeosPortXcvrXfpLinkLenCopper1m = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 76), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpLinkLenCopper1m.setStatus('current')
+wwpLeosPortXcvrXfpDevTech = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 77), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("vcsel850nm", 1), ("vcsel1310nm", 2), ("vcsel1550nm", 3), ("fp1310nm", 4), ("dfb1310nm", 5), ("dfb1550nm", 6), ("eml1310nm", 7), ("eml1550nm", 8), ("copperOrOther", 9), ("tunable1550nm", 10), ("reserved", 11)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpDevTech.setStatus('current')
+wwpLeosPortXcvrXfpTransmitterTech = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 78), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpTransmitterTech.setStatus('current')
+wwpLeosPortXcvrXfpCdrSupport = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 79), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpCdrSupport.setStatus('current')
+wwpLeosPortXcvrXfpWaveLengthTol = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 80), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpWaveLengthTol.setStatus('current')
+wwpLeosPortXcvrXfpMaxCaseTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 81), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpMaxCaseTemp.setStatus('current')
+wwpLeosPortXcvrXfpMaxPower = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 82), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpMaxPower.setStatus('current')
+wwpLeosPortXcvrXfpMax5vCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 83), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpMax5vCurrent.setStatus('current')
+wwpLeosPortXcvrXfpMax3p3vCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 84), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpMax3p3vCurrent.setStatus('current')
+wwpLeosPortXcvrXfpMax1p8vCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 85), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpMax1p8vCurrent.setStatus('current')
+wwpLeosPortXcvrXfpMaxNeg5p2vCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 86), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpMaxNeg5p2vCurrent.setStatus('current')
+wwpLeosPortXcvrXfpDiagMonitorType = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 87), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpDiagMonitorType.setStatus('current')
+wwpLeosPortXcvrXfpEnhancedOptions = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 88), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpEnhancedOptions.setStatus('current')
+wwpLeosPortXcvrXfpAuxMonitoringInput1 = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 89), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15))).clone(namedValues=NamedValues(("none", 1), ("aPDBiasVoltage", 2), ("reserved", 3), ("tECCurrentMa", 4), ("laserTemp", 5), ("laserWavelength", 6), ("voltage5V", 7), ("voltage3p3V", 8), ("voltage1p8V", 9), ("voltageNeg5p2V", 10), ("voltage5VCurrent", 11), ("voltage3p3VCurrent", 12), ("voltage1p8VCurrent", 13), ("voltageNeg5p2VCurrent", 14), ("unknown", 15)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpAuxMonitoringInput1.setStatus('current')
+wwpLeosPortXcvrXfpAuxMonitoringInput2 = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 90), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15))).clone(namedValues=NamedValues(("none", 1), ("aPDBiasVoltage", 2), ("reserved", 3), ("tECCurrentMa", 4), ("laserTemp", 5), ("laserWavelength", 6), ("voltage5V", 7), ("voltage3p3V", 8), ("voltage1p8V", 9), ("voltageNeg5p2V", 10), ("voltage5VCurrent", 11), ("voltage3p3VCurrent", 12), ("voltage1p8VCurrent", 13), ("voltageNeg5p2VCurrent", 14), ("unknown", 15)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpAuxMonitoringInput2.setStatus('current')
+wwpLeosPortXcvrAdminFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 91), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpLeosPortXcvrAdminFrequency.setStatus('current')
+wwpLeosPortXcvrXfpLaserFirstFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 92), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpLaserFirstFrequency.setStatus('current')
+wwpLeosPortXcvrXfpLaserLastFrquency = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 93), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpLaserLastFrquency.setStatus('current')
+wwpLeosPortXcvrXfpMaxGridScacing = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 94), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpMaxGridScacing.setStatus('current')
+wwpLeosPortXcvrXfpChannelNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 95), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpChannelNum.setStatus('current')
+wwpLeosPortXcvrXfpFrequencyError = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 96), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32768, 32767))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpFrequencyError.setStatus('current')
+wwpLeosPortXcvrAdminWavelength = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 97), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpLeosPortXcvrAdminWavelength.setStatus('current')
+wwpLeosPortXcvrAdminChannel = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 98), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpLeosPortXcvrAdminChannel.setStatus('current')
+wwpLeosPortXcvrXfpLaserFirstWavelenth = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 99), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpLaserFirstWavelenth.setStatus('current')
+wwpLeosPortXcvrXfpLaserLastWavelength = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 100), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpLaserLastWavelength.setStatus('current')
+wwpLeosPortXcvrXfpLaserFirstChannel = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 101), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpLaserFirstChannel.setStatus('current')
+wwpLeosPortXcvrXfpLaserLastChannel = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 102), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrXfpLaserLastChannel.setStatus('current')
+wwpLeosPortXcvrOperFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 103), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrOperFrequency.setStatus('current')
+wwpLeosPortXcvrOperWavelength = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 104), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrOperWavelength.setStatus('current')
+wwpLeosPortXcvrRxDbmPower = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 105), Integer32()).setUnits('dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrRxDbmPower.setStatus('current')
+wwpLeosPortXcvrTxDbmPower = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 106), Integer32()).setUnits('dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrTxDbmPower.setStatus('current')
+wwpLeosPortXcvrHighTxDbmPwAlarmThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 107), Integer32()).setUnits('dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrHighTxDbmPwAlarmThreshold.setStatus('current')
+wwpLeosPortXcvrLowTxDbmPwAlarmThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 108), Integer32()).setUnits('dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrLowTxDbmPwAlarmThreshold.setStatus('current')
+wwpLeosPortXcvrHighRxDbmPwAlarmThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 109), Integer32()).setUnits('dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrHighRxDbmPwAlarmThreshold.setStatus('current')
+wwpLeosPortXcvrLowRxDbmPwAlarmThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 1, 1, 1, 110), Integer32()).setUnits('dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrLowRxDbmPwAlarmThreshold.setStatus('current')
+wwpLeosPortXcvrEventType = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("inserted", 1), ("removed", 2), ("enabled", 3), ("disabled", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrEventType.setStatus('current')
+wwpLeosPortXcvrErrorType = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 1, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("chksumFailed", 1), ("opticalFault", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosPortXcvrErrorType.setStatus('current')
+wwpLeosPortXcvrLinkStateChangeNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 4)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"), ("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrEventType"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrLinkStateChangeNotification.setStatus('current')
+wwpLeosPortXcvrErrorTypeNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 5)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"), ("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrErrorType"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrErrorTypeNotification.setStatus('current')
+wwpLeosPortXcvrTempHighNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 6)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrTempHighNotification.setStatus('current')
+wwpLeosPortXcvrTempLowNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 7)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrTempLowNotification.setStatus('current')
+wwpLeosPortXcvrTempNormalNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 8)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrTempNormalNotification.setStatus('current')
+wwpLeosPortXcvrVoltageHighNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 9)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrVoltageHighNotification.setStatus('current')
+wwpLeosPortXcvrVoltageLowNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 10)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrVoltageLowNotification.setStatus('current')
+wwpLeosPortXcvrVoltageNormalNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 11)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrVoltageNormalNotification.setStatus('current')
+wwpLeosPortXcvrBiasHighNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 12)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrBiasHighNotification.setStatus('current')
+wwpLeosPortXcvrBiasLowNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 13)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrBiasLowNotification.setStatus('current')
+wwpLeosPortXcvrBiasNormalNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 14)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrBiasNormalNotification.setStatus('current')
+wwpLeosPortXcvrTxPowerHighNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 15)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrTxPowerHighNotification.setStatus('current')
+wwpLeosPortXcvrTxPowerLowNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 16)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrTxPowerLowNotification.setStatus('current')
+wwpLeosPortXcvrTxPowerNormalNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 17)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrTxPowerNormalNotification.setStatus('current')
+wwpLeosPortXcvrRxPowerHighNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 18)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrRxPowerHighNotification.setStatus('current')
+wwpLeosPortXcvrRxPowerLowNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 19)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrRxPowerLowNotification.setStatus('current')
+wwpLeosPortXcvrRxPowerNormalNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 20)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrRxPowerNormalNotification.setStatus('current')
+wwpLeosPortXcvrSpeedInfoMissingNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 21)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrSpeedInfoMissingNotification.setStatus('current')
+wwpLeosPortXcvrBiasHighWarningNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 22)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrBiasHighWarningNotification.setStatus('current')
+wwpLeosPortXcvrBiasLowWarningNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 23)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrBiasLowWarningNotification.setStatus('current')
+wwpLeosPortXcvrTempHighWarningNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 24)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrTempHighWarningNotification.setStatus('current')
+wwpLeosPortXcvrTempLowWarningNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 25)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrTempLowWarningNotification.setStatus('current')
+wwpLeosPortXcvrVoltageHighWarningNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 26)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrVoltageHighWarningNotification.setStatus('current')
+wwpLeosPortXcvrVoltageLowWarningNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 27)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrVoltageLowWarningNotification.setStatus('current')
+wwpLeosPortXcvrTxPowerHighWarningNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 28)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrTxPowerHighWarningNotification.setStatus('current')
+wwpLeosPortXcvrTxPowerLowWarningNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 29)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrTxPowerLowWarningNotification.setStatus('current')
+wwpLeosPortXcvrRxPowerHighWarningNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 30)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrRxPowerHighWarningNotification.setStatus('current')
+wwpLeosPortXcvrRxPowerLowWarningNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 4, 2, 0, 31)).setObjects(("WWP-LEOS-PORT-XCVR-MIB", "wwpLeosPortXcvrId"))
+if mibBuilder.loadTexts: wwpLeosPortXcvrRxPowerLowWarningNotification.setStatus('current')
+mibBuilder.exportSymbols("WWP-LEOS-PORT-XCVR-MIB", wwpLeosPortXcvrOperWavelength=wwpLeosPortXcvrOperWavelength, wwpLeosPortXcvrOperState=wwpLeosPortXcvrOperState, wwpLeosPortXcvrTable=wwpLeosPortXcvrTable, wwpLeosPortXcvrMIBConformance=wwpLeosPortXcvrMIBConformance, wwpLeosPortXcvrVendorName=wwpLeosPortXcvrVendorName, wwpLeosPortXcvrEnhDiagRxLosSupported=wwpLeosPortXcvrEnhDiagRxLosSupported, wwpLeosPortXcvrBiasHighNotification=wwpLeosPortXcvrBiasHighNotification, PYSNMP_MODULE_ID=wwpLeosPortXcvrMIB, wwpLeosPortXcvrXfpWaveLengthTol=wwpLeosPortXcvrXfpWaveLengthTol, wwpLeosPortXcvrXfpEnhancedOptions=wwpLeosPortXcvrXfpEnhancedOptions, wwpLeosPortXcvrTxPowerHighNotification=wwpLeosPortXcvrTxPowerHighNotification, wwpLeosPortXcvrTempHighWarningNotification=wwpLeosPortXcvrTempHighWarningNotification, wwpLeosPortXcvrBias=wwpLeosPortXcvrBias, wwpLeosPortXcvrMIBCompliances=wwpLeosPortXcvrMIBCompliances, wwpLeosPortXcvr62dot5by125um=wwpLeosPortXcvr62dot5by125um, wwpLeosPortXcvrXfpDiagMonitorType=wwpLeosPortXcvrXfpDiagMonitorType, wwpLeosPortXcvr=wwpLeosPortXcvr, wwpLeosPortXcvrXfpAuxMonitoringInput1=wwpLeosPortXcvrXfpAuxMonitoringInput1, wwpLeosPortXcvrOperFrequency=wwpLeosPortXcvrOperFrequency, wwpLeosPortXcvrVendorOUI=wwpLeosPortXcvrVendorOUI, wwpLeosPortXcvrXfpLaserLastChannel=wwpLeosPortXcvrXfpLaserLastChannel, wwpLeosPortXcvrRxPowerLowWarningNotification=wwpLeosPortXcvrRxPowerLowWarningNotification, wwpLeosPortXcvrXfpLinkLenCopper1m=wwpLeosPortXcvrXfpLinkLenCopper1m, wwpLeosPortXcvrXfpMaxBitRate=wwpLeosPortXcvrXfpMaxBitRate, wwpLeosPortXcvrAdminState=wwpLeosPortXcvrAdminState, wwpLeosPortXcvrRxPower=wwpLeosPortXcvrRxPower, wwpLeosPortXcvrXfpLaserLastWavelength=wwpLeosPortXcvrXfpLaserLastWavelength, wwpLeosPortXcvrMIB=wwpLeosPortXcvrMIB, wwpLeosPortXcvrLowBiasAlarmThreshold=wwpLeosPortXcvrLowBiasAlarmThreshold, wwpLeosPortXcvrXfpMaxCaseTemp=wwpLeosPortXcvrXfpMaxCaseTemp, wwpLeosPortXcvrXfpMax3p3vCurrent=wwpLeosPortXcvrXfpMax3p3vCurrent, wwpLeosPortXcvrXfpChannelNum=wwpLeosPortXcvrXfpChannelNum, wwpLeosPortXcvrBiasNormalNotification=wwpLeosPortXcvrBiasNormalNotification, wwpLeosPortXcvrConnectorType=wwpLeosPortXcvrConnectorType, wwpLeosPortXcvrXfpMinBitRate=wwpLeosPortXcvrXfpMinBitRate, wwpLeosPortXcvrXfpLinkLenE50u2m=wwpLeosPortXcvrXfpLinkLenE50u2m, wwpLeosPortXcvrEventType=wwpLeosPortXcvrEventType, wwpLeosPortXcvrVoltageLowNotification=wwpLeosPortXcvrVoltageLowNotification, wwpLeosPortXcvrErrorType=wwpLeosPortXcvrErrorType, wwpLeosPortXcvrXfpLaserLastFrquency=wwpLeosPortXcvrXfpLaserLastFrquency, wwpLeosPortXcvrMIBObjects=wwpLeosPortXcvrMIBObjects, wwpLeosPortXcvrXfpMax1p8vCurrent=wwpLeosPortXcvrXfpMax1p8vCurrent, wwpLeosPortXcvrHighVccAlarmThreshold=wwpLeosPortXcvrHighVccAlarmThreshold, wwpLeosPortXcvrBiasLowWarningNotification=wwpLeosPortXcvrBiasLowWarningNotification, wwpLeosPortXcvrAdminFrequency=wwpLeosPortXcvrAdminFrequency, wwpLeosPortXcvrTxPowerLowWarningNotification=wwpLeosPortXcvrTxPowerLowWarningNotification, wwpLeosPortXcvrXfpLaserFirstFrequency=wwpLeosPortXcvrXfpLaserFirstFrequency, wwpLeosPortXcvrXfpLaserFirstWavelenth=wwpLeosPortXcvrXfpLaserFirstWavelenth, wwpLeosPortXcvrWaveLength=wwpLeosPortXcvrWaveLength, wwpLeosPortXcvrCu=wwpLeosPortXcvrCu, wwpLeosPortXcvrHighRxPwAlarmThreshold=wwpLeosPortXcvrHighRxPwAlarmThreshold, wwpLeosPortXcvrHighTempAlarmThreshold=wwpLeosPortXcvrHighTempAlarmThreshold, wwpLeosPortXcvrTempHighNotification=wwpLeosPortXcvrTempHighNotification, wwpLeosPortXcvrBiasHighWarningNotification=wwpLeosPortXcvrBiasHighWarningNotification, wwpLeosPortXcvrVcc=wwpLeosPortXcvrVcc, wwpLeosPortXcvrNotif=wwpLeosPortXcvrNotif, wwpLeosPortXcvrEnhDiagRateSelectSupported=wwpLeosPortXcvrEnhDiagRateSelectSupported, wwpLeosPortXcvrTxDbmPower=wwpLeosPortXcvrTxDbmPower, wwpLeosPortXcvrLowTempAlarmThreshold=wwpLeosPortXcvrLowTempAlarmThreshold, wwpLeosPortXcvrXfpDevTech=wwpLeosPortXcvrXfpDevTech, wwpLeosPortXcvrVendorPN=wwpLeosPortXcvrVendorPN, wwpLeosPortXcvrXfpMaxNeg5p2vCurrent=wwpLeosPortXcvrXfpMaxNeg5p2vCurrent, wwpLeosPortXcvrXfpMaxGridScacing=wwpLeosPortXcvrXfpMaxGridScacing, wwpLeosPortXcvrLowTxDbmPwAlarmThreshold=wwpLeosPortXcvrLowTxDbmPwAlarmThreshold, wwpLeosPortXcvrXfpAuxMonitoringInput2=wwpLeosPortXcvrXfpAuxMonitoringInput2, wwpLeosPortXcvrXfpMaxPower=wwpLeosPortXcvrXfpMaxPower, wwpLeosPortXcvrLowRxPwAlarmThreshold=wwpLeosPortXcvrLowRxPwAlarmThreshold, wwpLeosPortXcvrVoltageNormalNotification=wwpLeosPortXcvrVoltageNormalNotification, wwpLeosPortXcvrXfpLinkLen62dot5u1m=wwpLeosPortXcvrXfpLinkLen62dot5u1m, wwpLeosPortXcvrHighTxPwAlarmThreshold=wwpLeosPortXcvrHighTxPwAlarmThreshold, wwpLeosPortXcvrLinkStateChangeNotification=wwpLeosPortXcvrLinkStateChangeNotification, wwpLeosPortXcvrXfpLaserFirstChannel=wwpLeosPortXcvrXfpLaserFirstChannel, wwpLeosPortXcvrEncodingType=wwpLeosPortXcvrEncodingType, wwpLeosPortXcvrTxPowerNormalNotification=wwpLeosPortXcvrTxPowerNormalNotification, wwpLeosPortXcvrRevNum=wwpLeosPortXcvrRevNum, wwpLeosPortXcvrLowVccAlarmThreshold=wwpLeosPortXcvrLowVccAlarmThreshold, wwpLeosPortXcvrTxOutputPw=wwpLeosPortXcvrTxOutputPw, wwpLeosPortXcvrBiasLowNotification=wwpLeosPortXcvrBiasLowNotification, wwpLeosPortXcvrRxPowerLowNotification=wwpLeosPortXcvrRxPowerLowNotification, wwpLeosPortXcvrComplianceVer=wwpLeosPortXcvrComplianceVer, wwpLeosPortXcvrEnhDiagSoftTxFaultSupported=wwpLeosPortXcvrEnhDiagSoftTxFaultSupported, wwpLeosPortXcvrRxPowerNormalNotification=wwpLeosPortXcvrRxPowerNormalNotification, wwpLeosPortXcvrTxPowerHighWarningNotification=wwpLeosPortXcvrTxPowerHighWarningNotification, wwpLeosPortXcvr50by125um=wwpLeosPortXcvr50by125um, wwpLeosPortXcvrXfpMax5vCurrent=wwpLeosPortXcvrXfpMax5vCurrent, wwpLeosPortXcvrTempLowNotification=wwpLeosPortXcvrTempLowNotification, wwpLeosPortXcvrTempNormalNotification=wwpLeosPortXcvrTempNormalNotification, wwpLeosPortXcvr9by125um=wwpLeosPortXcvr9by125um, wwpLeosPortXcvrExtIdentiferType=wwpLeosPortXcvrExtIdentiferType, wwpLeosPortXcvrTemperature=wwpLeosPortXcvrTemperature, wwpLeosPortXcvrSpeedInfoMissingNotification=wwpLeosPortXcvrSpeedInfoMissingNotification, wwpLeosPortXcvrRxRateStatus=wwpLeosPortXcvrRxRateStatus, wwpLeosPortXcvrTxPowerLowNotification=wwpLeosPortXcvrTxPowerLowNotification, wwpLeosPortXcvrType=wwpLeosPortXcvrType, wwpLeosPortXcvrTxState=wwpLeosPortXcvrTxState, wwpLeosPortXcvrEnhDiagAlarmSupported=wwpLeosPortXcvrEnhDiagAlarmSupported, wwpLeosPortXcvrRxDbmPower=wwpLeosPortXcvrRxDbmPower, wwpLeosPortXcvrSerialNum=wwpLeosPortXcvrSerialNum, wwpLeosPortXcvrXfpCdrSupport=wwpLeosPortXcvrXfpCdrSupport, wwpLeosPortXcvrDiagSupported=wwpLeosPortXcvrDiagSupported, wwpLeosPortXcvrXfpTransmitterTech=wwpLeosPortXcvrXfpTransmitterTech, wwpLeosPortXcvrVoltageHighNotification=wwpLeosPortXcvrVoltageHighNotification, wwpLeosPortXcvrIdentiferType=wwpLeosPortXcvrIdentiferType, wwpLeosPortXcvrMIBNotifications=wwpLeosPortXcvrMIBNotifications, wwpLeosPortXcvrHighBiasAlarmThreshold=wwpLeosPortXcvrHighBiasAlarmThreshold, wwpLeosPortXcvrXfpLinkLen50u1m=wwpLeosPortXcvrXfpLinkLen50u1m, wwpLeosPortXcvrLosState=wwpLeosPortXcvrLosState, wwpLeosPortXcvrAdminWavelength=wwpLeosPortXcvrAdminWavelength, wwpLeosPortXcvrRxPowerHighWarningNotification=wwpLeosPortXcvrRxPowerHighWarningNotification, wwpLeosPortXcvrXfpFrequencyError=wwpLeosPortXcvrXfpFrequencyError, wwpLeosPortXcvrHighRxDbmPwAlarmThreshold=wwpLeosPortXcvrHighRxDbmPwAlarmThreshold, wwpLeosPortXcvrXfpLinkLenSmf1km=wwpLeosPortXcvrXfpLinkLenSmf1km, wwpLeosPortXcvrEntry=wwpLeosPortXcvrEntry, wwpLeosPortXcvrVoltageLowWarningNotification=wwpLeosPortXcvrVoltageLowWarningNotification, wwpLeosPortXcvrId=wwpLeosPortXcvrId, wwpLeosPortXcvrErrorTypeNotification=wwpLeosPortXcvrErrorTypeNotification, wwpLeosPortXcvrVoltageHighWarningNotification=wwpLeosPortXcvrVoltageHighWarningNotification, wwpLeosPortXcvrAdminChannel=wwpLeosPortXcvrAdminChannel, wwpLeosPortXcvrTempLowWarningNotification=wwpLeosPortXcvrTempLowWarningNotification, wwpLeosPortXcvrEnhDiagSoftTxDisableSupported=wwpLeosPortXcvrEnhDiagSoftTxDisableSupported, wwpLeosPortXcvrRxPowerHighNotification=wwpLeosPortXcvrRxPowerHighNotification, wwpLeosPortXcvrLowTxPwAlarmThreshold=wwpLeosPortXcvrLowTxPwAlarmThreshold, wwpLeosPortXcvrMIBNotificationPrefix=wwpLeosPortXcvrMIBNotificationPrefix, wwpLeosPortXcvrTxFaultStatus=wwpLeosPortXcvrTxFaultStatus, wwpLeosPortXcvrLowRxDbmPwAlarmThreshold=wwpLeosPortXcvrLowRxDbmPwAlarmThreshold, wwpLeosPortXcvrHighTxDbmPwAlarmThreshold=wwpLeosPortXcvrHighTxDbmPwAlarmThreshold, wwpLeosPortXcvrMIBGroups=wwpLeosPortXcvrMIBGroups, wwpLeosPortXcvrMfgDate=wwpLeosPortXcvrMfgDate)

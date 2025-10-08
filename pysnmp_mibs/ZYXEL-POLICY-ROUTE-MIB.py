@@ -1,93 +1,50 @@
-_J='zyPolicyRouteSequence'
-_I='zyPolicyRouteProfile'
-_H='read-create'
-_G='zyPolicyRouteProfileName'
-_F='read-only'
-_E='Integer32'
-_D='not-accessible'
-_C='read-write'
-_B='ZYXEL-POLICY-ROUTE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB','EnabledStatus')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
-zyxelPolicyRoute=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,60))
-_ZyxelPolicyRouteSetup_ObjectIdentity=ObjectIdentity
-zyxelPolicyRouteSetup=_ZyxelPolicyRouteSetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,60,1))
-_ZyPolicyRouteMaxNumberOfProfiles_Type=Integer32
-_ZyPolicyRouteMaxNumberOfProfiles_Object=MibScalar
-zyPolicyRouteMaxNumberOfProfiles=_ZyPolicyRouteMaxNumberOfProfiles_Object((1,3,6,1,4,1,890,1,15,3,60,1,1),_ZyPolicyRouteMaxNumberOfProfiles_Type())
-zyPolicyRouteMaxNumberOfProfiles.setMaxAccess(_F)
-if mibBuilder.loadTexts:zyPolicyRouteMaxNumberOfProfiles.setStatus(_A)
-_ZyxelPolicyRouteProfileTable_Object=MibTable
-zyxelPolicyRouteProfileTable=_ZyxelPolicyRouteProfileTable_Object((1,3,6,1,4,1,890,1,15,3,60,1,2))
-if mibBuilder.loadTexts:zyxelPolicyRouteProfileTable.setStatus(_A)
-_ZyxelPolicyRouteProfileEntry_Object=MibTableRow
-zyxelPolicyRouteProfileEntry=_ZyxelPolicyRouteProfileEntry_Object((1,3,6,1,4,1,890,1,15,3,60,1,2,1))
-zyxelPolicyRouteProfileEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:zyxelPolicyRouteProfileEntry.setStatus(_A)
-_ZyPolicyRouteProfileState_Type=EnabledStatus
-_ZyPolicyRouteProfileState_Object=MibTableColumn
-zyPolicyRouteProfileState=_ZyPolicyRouteProfileState_Object((1,3,6,1,4,1,890,1,15,3,60,1,2,1,1),_ZyPolicyRouteProfileState_Type())
-zyPolicyRouteProfileState.setMaxAccess(_C)
-if mibBuilder.loadTexts:zyPolicyRouteProfileState.setStatus(_A)
-_ZyPolicyRouteProfileName_Type=DisplayString
-_ZyPolicyRouteProfileName_Object=MibTableColumn
-zyPolicyRouteProfileName=_ZyPolicyRouteProfileName_Object((1,3,6,1,4,1,890,1,15,3,60,1,2,1,2),_ZyPolicyRouteProfileName_Type())
-zyPolicyRouteProfileName.setMaxAccess(_D)
-if mibBuilder.loadTexts:zyPolicyRouteProfileName.setStatus(_A)
-_ZyPolicyRouteProfileRowStatus_Type=RowStatus
-_ZyPolicyRouteProfileRowStatus_Object=MibTableColumn
-zyPolicyRouteProfileRowStatus=_ZyPolicyRouteProfileRowStatus_Object((1,3,6,1,4,1,890,1,15,3,60,1,2,1,3),_ZyPolicyRouteProfileRowStatus_Type())
-zyPolicyRouteProfileRowStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:zyPolicyRouteProfileRowStatus.setStatus(_A)
-_ZyPolicyRouteMaxNumberOfRules_Type=Integer32
-_ZyPolicyRouteMaxNumberOfRules_Object=MibScalar
-zyPolicyRouteMaxNumberOfRules=_ZyPolicyRouteMaxNumberOfRules_Object((1,3,6,1,4,1,890,1,15,3,60,1,3),_ZyPolicyRouteMaxNumberOfRules_Type())
-zyPolicyRouteMaxNumberOfRules.setMaxAccess(_F)
-if mibBuilder.loadTexts:zyPolicyRouteMaxNumberOfRules.setStatus(_A)
-_ZyxelPolicyRouteTable_Object=MibTable
-zyxelPolicyRouteTable=_ZyxelPolicyRouteTable_Object((1,3,6,1,4,1,890,1,15,3,60,1,4))
-if mibBuilder.loadTexts:zyxelPolicyRouteTable.setStatus(_A)
-_ZyxelPolicyRouteEntry_Object=MibTableRow
-zyxelPolicyRouteEntry=_ZyxelPolicyRouteEntry_Object((1,3,6,1,4,1,890,1,15,3,60,1,4,1))
-zyxelPolicyRouteEntry.setIndexNames((0,_B,_I),(0,_B,_J))
-if mibBuilder.loadTexts:zyxelPolicyRouteEntry.setStatus(_A)
-_ZyPolicyRouteProfile_Type=DisplayString
-_ZyPolicyRouteProfile_Object=MibTableColumn
-zyPolicyRouteProfile=_ZyPolicyRouteProfile_Object((1,3,6,1,4,1,890,1,15,3,60,1,4,1,1),_ZyPolicyRouteProfile_Type())
-zyPolicyRouteProfile.setMaxAccess(_D)
-if mibBuilder.loadTexts:zyPolicyRouteProfile.setStatus(_A)
-_ZyPolicyRouteSequence_Type=Integer32
-_ZyPolicyRouteSequence_Object=MibTableColumn
-zyPolicyRouteSequence=_ZyPolicyRouteSequence_Object((1,3,6,1,4,1,890,1,15,3,60,1,4,1,2),_ZyPolicyRouteSequence_Type())
-zyPolicyRouteSequence.setMaxAccess(_D)
-if mibBuilder.loadTexts:zyPolicyRouteSequence.setStatus(_A)
-class _ZyPolicyRouteStatement_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('permit',0),('deny',1)))
-_ZyPolicyRouteStatement_Type.__name__=_E
-_ZyPolicyRouteStatement_Object=MibTableColumn
-zyPolicyRouteStatement=_ZyPolicyRouteStatement_Object((1,3,6,1,4,1,890,1,15,3,60,1,4,1,3),_ZyPolicyRouteStatement_Type())
-zyPolicyRouteStatement.setMaxAccess(_C)
-if mibBuilder.loadTexts:zyPolicyRouteStatement.setStatus(_A)
-_ZyPolicyRouteCalssifier_Type=DisplayString
-_ZyPolicyRouteCalssifier_Object=MibTableColumn
-zyPolicyRouteCalssifier=_ZyPolicyRouteCalssifier_Object((1,3,6,1,4,1,890,1,15,3,60,1,4,1,4),_ZyPolicyRouteCalssifier_Type())
-zyPolicyRouteCalssifier.setMaxAccess(_C)
-if mibBuilder.loadTexts:zyPolicyRouteCalssifier.setStatus(_A)
-_ZyPolicyRouteNextHop_Type=IpAddress
-_ZyPolicyRouteNextHop_Object=MibTableColumn
-zyPolicyRouteNextHop=_ZyPolicyRouteNextHop_Object((1,3,6,1,4,1,890,1,15,3,60,1,4,1,5),_ZyPolicyRouteNextHop_Type())
-zyPolicyRouteNextHop.setMaxAccess(_C)
-if mibBuilder.loadTexts:zyPolicyRouteNextHop.setStatus(_A)
-_ZyPolicyRouteRowStatus_Type=RowStatus
-_ZyPolicyRouteRowStatus_Object=MibTableColumn
-zyPolicyRouteRowStatus=_ZyPolicyRouteRowStatus_Object((1,3,6,1,4,1,890,1,15,3,60,1,4,1,6),_ZyPolicyRouteRowStatus_Type())
-zyPolicyRouteRowStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:zyPolicyRouteRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'zyxelPolicyRoute':zyxelPolicyRoute,'zyxelPolicyRouteSetup':zyxelPolicyRouteSetup,'zyPolicyRouteMaxNumberOfProfiles':zyPolicyRouteMaxNumberOfProfiles,'zyxelPolicyRouteProfileTable':zyxelPolicyRouteProfileTable,'zyxelPolicyRouteProfileEntry':zyxelPolicyRouteProfileEntry,'zyPolicyRouteProfileState':zyPolicyRouteProfileState,_G:zyPolicyRouteProfileName,'zyPolicyRouteProfileRowStatus':zyPolicyRouteProfileRowStatus,'zyPolicyRouteMaxNumberOfRules':zyPolicyRouteMaxNumberOfRules,'zyxelPolicyRouteTable':zyxelPolicyRouteTable,'zyxelPolicyRouteEntry':zyxelPolicyRouteEntry,_I:zyPolicyRouteProfile,_J:zyPolicyRouteSequence,'zyPolicyRouteStatement':zyPolicyRouteStatement,'zyPolicyRouteCalssifier':zyPolicyRouteCalssifier,'zyPolicyRouteNextHop':zyPolicyRouteNextHop,'zyPolicyRouteRowStatus':zyPolicyRouteRowStatus})
+#
+# PySNMP MIB module ZYXEL-POLICY-ROUTE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-POLICY-ROUTE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:37:55 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
+zyxelPolicyRoute = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 60))
+if mibBuilder.loadTexts: zyxelPolicyRoute.setLastUpdated('201207010000Z')
+if mibBuilder.loadTexts: zyxelPolicyRoute.setOrganization('Enterprise Solution ZyXEL')
+zyxelPolicyRouteSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 60, 1))
+zyPolicyRouteMaxNumberOfProfiles = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 60, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zyPolicyRouteMaxNumberOfProfiles.setStatus('current')
+zyxelPolicyRouteProfileTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 60, 1, 2), )
+if mibBuilder.loadTexts: zyxelPolicyRouteProfileTable.setStatus('current')
+zyxelPolicyRouteProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 60, 1, 2, 1), ).setIndexNames((0, "ZYXEL-POLICY-ROUTE-MIB", "zyPolicyRouteProfileName"))
+if mibBuilder.loadTexts: zyxelPolicyRouteProfileEntry.setStatus('current')
+zyPolicyRouteProfileState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 60, 1, 2, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyPolicyRouteProfileState.setStatus('current')
+zyPolicyRouteProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 60, 1, 2, 1, 2), DisplayString())
+if mibBuilder.loadTexts: zyPolicyRouteProfileName.setStatus('current')
+zyPolicyRouteProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 60, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zyPolicyRouteProfileRowStatus.setStatus('current')
+zyPolicyRouteMaxNumberOfRules = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 60, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zyPolicyRouteMaxNumberOfRules.setStatus('current')
+zyxelPolicyRouteTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 60, 1, 4), )
+if mibBuilder.loadTexts: zyxelPolicyRouteTable.setStatus('current')
+zyxelPolicyRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 60, 1, 4, 1), ).setIndexNames((0, "ZYXEL-POLICY-ROUTE-MIB", "zyPolicyRouteProfile"), (0, "ZYXEL-POLICY-ROUTE-MIB", "zyPolicyRouteSequence"))
+if mibBuilder.loadTexts: zyxelPolicyRouteEntry.setStatus('current')
+zyPolicyRouteProfile = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 60, 1, 4, 1, 1), DisplayString())
+if mibBuilder.loadTexts: zyPolicyRouteProfile.setStatus('current')
+zyPolicyRouteSequence = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 60, 1, 4, 1, 2), Integer32())
+if mibBuilder.loadTexts: zyPolicyRouteSequence.setStatus('current')
+zyPolicyRouteStatement = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 60, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("permit", 0), ("deny", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyPolicyRouteStatement.setStatus('current')
+zyPolicyRouteCalssifier = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 60, 1, 4, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyPolicyRouteCalssifier.setStatus('current')
+zyPolicyRouteNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 60, 1, 4, 1, 5), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyPolicyRouteNextHop.setStatus('current')
+zyPolicyRouteRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 60, 1, 4, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zyPolicyRouteRowStatus.setStatus('current')
+mibBuilder.exportSymbols("ZYXEL-POLICY-ROUTE-MIB", zyxelPolicyRouteProfileTable=zyxelPolicyRouteProfileTable, zyxelPolicyRouteTable=zyxelPolicyRouteTable, zyPolicyRouteProfileRowStatus=zyPolicyRouteProfileRowStatus, zyPolicyRouteMaxNumberOfRules=zyPolicyRouteMaxNumberOfRules, zyxelPolicyRouteSetup=zyxelPolicyRouteSetup, zyxelPolicyRouteEntry=zyxelPolicyRouteEntry, zyPolicyRouteSequence=zyPolicyRouteSequence, zyPolicyRouteProfile=zyPolicyRouteProfile, zyPolicyRouteRowStatus=zyPolicyRouteRowStatus, zyPolicyRouteNextHop=zyPolicyRouteNextHop, zyxelPolicyRoute=zyxelPolicyRoute, zyPolicyRouteProfileState=zyPolicyRouteProfileState, zyPolicyRouteMaxNumberOfProfiles=zyPolicyRouteMaxNumberOfProfiles, zyPolicyRouteStatement=zyPolicyRouteStatement, zyPolicyRouteCalssifier=zyPolicyRouteCalssifier, PYSNMP_MODULE_ID=zyxelPolicyRoute, zyPolicyRouteProfileName=zyPolicyRouteProfileName, zyxelPolicyRouteProfileEntry=zyxelPolicyRouteProfileEntry)

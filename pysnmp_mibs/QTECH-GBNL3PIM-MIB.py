@@ -1,64 +1,39 @@
-_E='pimInterfaceIndex'
-_D='QTECH-GBNL3PIM-MIB'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-gbnL3,=mibBuilder.importSymbols('QTECH-MASTER-MIB','gbnL3')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-gbnL3PimMib=ModuleIdentity((1,3,6,1,4,1,27514,1,2,5,8))
-if mibBuilder.loadTexts:gbnL3PimMib.setRevisions(('1905-07-04 00:01',))
-_GbnL3PimGroup_ObjectIdentity=ObjectIdentity
-gbnL3PimGroup=_GbnL3PimGroup_ObjectIdentity((1,3,6,1,4,1,27514,1,2,5,8,1))
-_PimCommonTraceOption_Type=Unsigned32
-_PimCommonTraceOption_Object=MibScalar
-pimCommonTraceOption=_PimCommonTraceOption_Object((1,3,6,1,4,1,27514,1,2,5,8,1,1),_PimCommonTraceOption_Type())
-pimCommonTraceOption.setMaxAccess(_B)
-if mibBuilder.loadTexts:pimCommonTraceOption.setStatus(_A)
-_PimDmTraceOption_Type=Unsigned32
-_PimDmTraceOption_Object=MibScalar
-pimDmTraceOption=_PimDmTraceOption_Object((1,3,6,1,4,1,27514,1,2,5,8,1,2),_PimDmTraceOption_Type())
-pimDmTraceOption.setMaxAccess(_B)
-if mibBuilder.loadTexts:pimDmTraceOption.setStatus(_A)
-_PimSmTraceOption_Type=Unsigned32
-_PimSmTraceOption_Object=MibScalar
-pimSmTraceOption=_PimSmTraceOption_Object((1,3,6,1,4,1,27514,1,2,5,8,1,3),_PimSmTraceOption_Type())
-pimSmTraceOption.setMaxAccess(_B)
-if mibBuilder.loadTexts:pimSmTraceOption.setStatus(_A)
-class _PimSourcePolicy_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,99))
-_PimSourcePolicy_Type.__name__=_C
-_PimSourcePolicy_Object=MibScalar
-pimSourcePolicy=_PimSourcePolicy_Object((1,3,6,1,4,1,27514,1,2,5,8,1,4),_PimSourcePolicy_Type())
-pimSourcePolicy.setMaxAccess(_B)
-if mibBuilder.loadTexts:pimSourcePolicy.setStatus(_A)
-_PimInterfaceExtraTable_Object=MibTable
-pimInterfaceExtraTable=_PimInterfaceExtraTable_Object((1,3,6,1,4,1,27514,1,2,5,8,2))
-if mibBuilder.loadTexts:pimInterfaceExtraTable.setStatus(_A)
-_PimInterfaceExtraEntry_Object=MibTableRow
-pimInterfaceExtraEntry=_PimInterfaceExtraEntry_Object((1,3,6,1,4,1,27514,1,2,5,8,2,1))
-pimInterfaceExtraEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:pimInterfaceExtraEntry.setStatus(_A)
-_PimInterfaceIndex_Type=InterfaceIndex
-_PimInterfaceIndex_Object=MibTableColumn
-pimInterfaceIndex=_PimInterfaceIndex_Object((1,3,6,1,4,1,27514,1,2,5,8,2,1,1),_PimInterfaceIndex_Type())
-pimInterfaceIndex.setMaxAccess('read-only')
-if mibBuilder.loadTexts:pimInterfaceIndex.setStatus(_A)
-class _PimInterfaceNeighborLimit_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,128))
-_PimInterfaceNeighborLimit_Type.__name__=_C
-_PimInterfaceNeighborLimit_Object=MibTableColumn
-pimInterfaceNeighborLimit=_PimInterfaceNeighborLimit_Object((1,3,6,1,4,1,27514,1,2,5,8,2,1,2),_PimInterfaceNeighborLimit_Type())
-pimInterfaceNeighborLimit.setMaxAccess(_B)
-if mibBuilder.loadTexts:pimInterfaceNeighborLimit.setStatus(_A)
-class _PimInterfaceNeighborPolicy_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,99))
-_PimInterfaceNeighborPolicy_Type.__name__=_C
-_PimInterfaceNeighborPolicy_Object=MibTableColumn
-pimInterfaceNeighborPolicy=_PimInterfaceNeighborPolicy_Object((1,3,6,1,4,1,27514,1,2,5,8,2,1,3),_PimInterfaceNeighborPolicy_Type())
-pimInterfaceNeighborPolicy.setMaxAccess(_B)
-if mibBuilder.loadTexts:pimInterfaceNeighborPolicy.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'gbnL3PimMib':gbnL3PimMib,'gbnL3PimGroup':gbnL3PimGroup,'pimCommonTraceOption':pimCommonTraceOption,'pimDmTraceOption':pimDmTraceOption,'pimSmTraceOption':pimSmTraceOption,'pimSourcePolicy':pimSourcePolicy,'pimInterfaceExtraTable':pimInterfaceExtraTable,'pimInterfaceExtraEntry':pimInterfaceExtraEntry,_E:pimInterfaceIndex,'pimInterfaceNeighborLimit':pimInterfaceNeighborLimit,'pimInterfaceNeighborPolicy':pimInterfaceNeighborPolicy})
+#
+# PySNMP MIB module QTECH-GBNL3PIM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-GBNL3PIM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:09 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+gbnL3, = mibBuilder.importSymbols("QTECH-MASTER-MIB", "gbnL3")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+gbnL3PimMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 2, 5, 8))
+gbnL3PimMib.setRevisions(('1905-07-04 00:01',))
+if mibBuilder.loadTexts: gbnL3PimMib.setLastUpdated('0507040001Z')
+if mibBuilder.loadTexts: gbnL3PimMib.setOrganization('QTECH LLC')
+gbnL3PimGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 2, 5, 8, 1))
+pimCommonTraceOption = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 2, 5, 8, 1, 1), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pimCommonTraceOption.setStatus('current')
+pimDmTraceOption = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 2, 5, 8, 1, 2), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pimDmTraceOption.setStatus('current')
+pimSmTraceOption = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 2, 5, 8, 1, 3), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pimSmTraceOption.setStatus('current')
+pimSourcePolicy = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 2, 5, 8, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 99))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pimSourcePolicy.setStatus('current')
+pimInterfaceExtraTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 2, 5, 8, 2), )
+if mibBuilder.loadTexts: pimInterfaceExtraTable.setStatus('current')
+pimInterfaceExtraEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 2, 5, 8, 2, 1), ).setIndexNames((0, "QTECH-GBNL3PIM-MIB", "pimInterfaceIndex"))
+if mibBuilder.loadTexts: pimInterfaceExtraEntry.setStatus('current')
+pimInterfaceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 5, 8, 2, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pimInterfaceIndex.setStatus('current')
+pimInterfaceNeighborLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 5, 8, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pimInterfaceNeighborLimit.setStatus('current')
+pimInterfaceNeighborPolicy = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 5, 8, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 99))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pimInterfaceNeighborPolicy.setStatus('current')
+mibBuilder.exportSymbols("QTECH-GBNL3PIM-MIB", pimInterfaceNeighborPolicy=pimInterfaceNeighborPolicy, gbnL3PimGroup=gbnL3PimGroup, pimInterfaceIndex=pimInterfaceIndex, pimSourcePolicy=pimSourcePolicy, pimInterfaceNeighborLimit=pimInterfaceNeighborLimit, pimCommonTraceOption=pimCommonTraceOption, gbnL3PimMib=gbnL3PimMib, pimSmTraceOption=pimSmTraceOption, pimInterfaceExtraEntry=pimInterfaceExtraEntry, pimDmTraceOption=pimDmTraceOption, PYSNMP_MODULE_ID=gbnL3PimMib, pimInterfaceExtraTable=pimInterfaceExtraTable)

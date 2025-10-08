@@ -1,257 +1,117 @@
-_I='lreInterfaceStatsIndex'
-_H='lreInterfaceConfigIndex'
-_G='TruthValue'
-_F='Unsigned32'
-_E='Integer32'
-_D='IEC-62439-3-MIB'
-_C='read-write'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hm2L2RedundancyMibObjects,=mibBuilder.importSymbols('HM2-L2REDUNDANCY-MIB','hm2L2RedundancyMibObjects')
-lreInterfaceConfigIndex,lreInterfaceStatsIndex=mibBuilder.importSymbols(_D,_H,_I)
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_F,'iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_G)
-hm2LreMibGroup=ModuleIdentity((1,3,6,1,4,1,248,11,40,1,2))
-if mibBuilder.loadTexts:hm2LreMibGroup.setRevisions(('2012-07-02 00:00',))
-_Hm2LreEntityNotifications_ObjectIdentity=ObjectIdentity
-hm2LreEntityNotifications=_Hm2LreEntityNotifications_ObjectIdentity((1,3,6,1,4,1,248,11,40,1,2,0))
-_Hm2LreEntityObjects_ObjectIdentity=ObjectIdentity
-hm2LreEntityObjects=_Hm2LreEntityObjects_ObjectIdentity((1,3,6,1,4,1,248,11,40,1,2,1))
-_Hm2LreConfiguration_ObjectIdentity=ObjectIdentity
-hm2LreConfiguration=_Hm2LreConfiguration_ObjectIdentity((1,3,6,1,4,1,248,11,40,1,2,1,1))
-_Hm2LreConfigurationGeneralGroup_ObjectIdentity=ObjectIdentity
-hm2LreConfigurationGeneralGroup=_Hm2LreConfigurationGeneralGroup_ObjectIdentity((1,3,6,1,4,1,248,11,40,1,2,1,1,1))
-_Hm2LreConfigurationInterfaceGroup_ObjectIdentity=ObjectIdentity
-hm2LreConfigurationInterfaceGroup=_Hm2LreConfigurationInterfaceGroup_ObjectIdentity((1,3,6,1,4,1,248,11,40,1,2,1,1,2))
-_Hm2LreConfigurationInterfaces_ObjectIdentity=ObjectIdentity
-hm2LreConfigurationInterfaces=_Hm2LreConfigurationInterfaces_ObjectIdentity((1,3,6,1,4,1,248,11,40,1,2,1,1,2,1))
-_Hm2LreInterfaceConfigTable_Object=MibTable
-hm2LreInterfaceConfigTable=_Hm2LreInterfaceConfigTable_Object((1,3,6,1,4,1,248,11,40,1,2,1,1,2,1,1))
-if mibBuilder.loadTexts:hm2LreInterfaceConfigTable.setStatus(_A)
-_Hm2LreInterfaceConfigEntry_Object=MibTableRow
-hm2LreInterfaceConfigEntry=_Hm2LreInterfaceConfigEntry_Object((1,3,6,1,4,1,248,11,40,1,2,1,1,2,1,1,1))
-hm2LreInterfaceConfigEntry.setIndexNames((0,_D,_H))
-if mibBuilder.loadTexts:hm2LreInterfaceConfigEntry.setStatus(_A)
-_Hm2LreInterfaceA_Type=InterfaceIndex
-_Hm2LreInterfaceA_Object=MibTableColumn
-hm2LreInterfaceA=_Hm2LreInterfaceA_Object((1,3,6,1,4,1,248,11,40,1,2,1,1,2,1,1,1,1),_Hm2LreInterfaceA_Type())
-hm2LreInterfaceA.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreInterfaceA.setStatus(_A)
-_Hm2LreInterfaceB_Type=InterfaceIndex
-_Hm2LreInterfaceB_Object=MibTableColumn
-hm2LreInterfaceB=_Hm2LreInterfaceB_Object((1,3,6,1,4,1,248,11,40,1,2,1,1,2,1,1,1,2),_Hm2LreInterfaceB_Type())
-hm2LreInterfaceB.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreInterfaceB.setStatus(_A)
-_Hm2LreProxyNodeTableSize_Type=Unsigned32
-_Hm2LreProxyNodeTableSize_Object=MibTableColumn
-hm2LreProxyNodeTableSize=_Hm2LreProxyNodeTableSize_Object((1,3,6,1,4,1,248,11,40,1,2,1,1,2,1,1,1,3),_Hm2LreProxyNodeTableSize_Type())
-hm2LreProxyNodeTableSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreProxyNodeTableSize.setStatus(_A)
-class _Hm2LreSupervisionTxEnable_Type(TruthValue):defaultValue=1
-_Hm2LreSupervisionTxEnable_Type.__name__=_G
-_Hm2LreSupervisionTxEnable_Object=MibTableColumn
-hm2LreSupervisionTxEnable=_Hm2LreSupervisionTxEnable_Object((1,3,6,1,4,1,248,11,40,1,2,1,1,2,1,1,1,4),_Hm2LreSupervisionTxEnable_Type())
-hm2LreSupervisionTxEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2LreSupervisionTxEnable.setStatus(_A)
-class _Hm2LreSupervisionVDANsTxEnable_Type(TruthValue):defaultValue=1
-_Hm2LreSupervisionVDANsTxEnable_Type.__name__=_G
-_Hm2LreSupervisionVDANsTxEnable_Object=MibTableColumn
-hm2LreSupervisionVDANsTxEnable=_Hm2LreSupervisionVDANsTxEnable_Object((1,3,6,1,4,1,248,11,40,1,2,1,1,2,1,1,1,5),_Hm2LreSupervisionVDANsTxEnable_Type())
-hm2LreSupervisionVDANsTxEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2LreSupervisionVDANsTxEnable.setStatus(_A)
-class _Hm2LreStatisticsClear_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('noOp',0),('clearStatistics',1)))
-_Hm2LreStatisticsClear_Type.__name__=_E
-_Hm2LreStatisticsClear_Object=MibTableColumn
-hm2LreStatisticsClear=_Hm2LreStatisticsClear_Object((1,3,6,1,4,1,248,11,40,1,2,1,1,2,1,1,1,6),_Hm2LreStatisticsClear_Type())
-hm2LreStatisticsClear.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2LreStatisticsClear.setStatus(_A)
-_Hm2LreMaxFrameSizeLimit_Type=Unsigned32
-_Hm2LreMaxFrameSizeLimit_Object=MibTableColumn
-hm2LreMaxFrameSizeLimit=_Hm2LreMaxFrameSizeLimit_Object((1,3,6,1,4,1,248,11,40,1,2,1,1,2,1,1,1,7),_Hm2LreMaxFrameSizeLimit_Type())
-hm2LreMaxFrameSizeLimit.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreMaxFrameSizeLimit.setStatus(_A)
-_Hm2LreMaxFrameSize_Type=Unsigned32
-_Hm2LreMaxFrameSize_Object=MibTableColumn
-hm2LreMaxFrameSize=_Hm2LreMaxFrameSize_Object((1,3,6,1,4,1,248,11,40,1,2,1,1,2,1,1,1,8),_Hm2LreMaxFrameSize_Type())
-hm2LreMaxFrameSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2LreMaxFrameSize.setStatus(_A)
-class _Hm2LreSpeed_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('lreSpeed100Mbps',1),('lreSpeed1Gbps',2)))
-_Hm2LreSpeed_Type.__name__=_E
-_Hm2LreSpeed_Object=MibTableColumn
-hm2LreSpeed=_Hm2LreSpeed_Object((1,3,6,1,4,1,248,11,40,1,2,1,1,2,1,1,1,9),_Hm2LreSpeed_Type())
-hm2LreSpeed.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2LreSpeed.setStatus(_A)
-class _Hm2LreDuplicateDetectionAging_Type(Unsigned32):defaultValue=400;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10,5000))
-_Hm2LreDuplicateDetectionAging_Type.__name__=_F
-_Hm2LreDuplicateDetectionAging_Object=MibTableColumn
-hm2LreDuplicateDetectionAging=_Hm2LreDuplicateDetectionAging_Object((1,3,6,1,4,1,248,11,40,1,2,1,1,2,1,1,1,10),_Hm2LreDuplicateDetectionAging_Type())
-hm2LreDuplicateDetectionAging.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2LreDuplicateDetectionAging.setStatus(_A)
-class _Hm2LreProxyNodeTableAging_Type(Unsigned32):defaultValue=60;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10,300))
-_Hm2LreProxyNodeTableAging_Type.__name__=_F
-_Hm2LreProxyNodeTableAging_Object=MibTableColumn
-hm2LreProxyNodeTableAging=_Hm2LreProxyNodeTableAging_Object((1,3,6,1,4,1,248,11,40,1,2,1,1,2,1,1,1,11),_Hm2LreProxyNodeTableAging_Type())
-hm2LreProxyNodeTableAging.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2LreProxyNodeTableAging.setStatus(_A)
-_Hm2LreStatistics_ObjectIdentity=ObjectIdentity
-hm2LreStatistics=_Hm2LreStatistics_ObjectIdentity((1,3,6,1,4,1,248,11,40,1,2,1,2))
-_Hm2LreStatisticsInterfaceGroup_ObjectIdentity=ObjectIdentity
-hm2LreStatisticsInterfaceGroup=_Hm2LreStatisticsInterfaceGroup_ObjectIdentity((1,3,6,1,4,1,248,11,40,1,2,1,2,1))
-_Hm2LreStatisticsInterfaces_ObjectIdentity=ObjectIdentity
-hm2LreStatisticsInterfaces=_Hm2LreStatisticsInterfaces_ObjectIdentity((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1))
-_Hm2LreInterfaceStatsTable_Object=MibTable
-hm2LreInterfaceStatsTable=_Hm2LreInterfaceStatsTable_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1))
-if mibBuilder.loadTexts:hm2LreInterfaceStatsTable.setStatus(_A)
-_Hm2LreInterfaceStatsEntry_Object=MibTableRow
-hm2LreInterfaceStatsEntry=_Hm2LreInterfaceStatsEntry_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1))
-hm2LreInterfaceStatsEntry.setIndexNames((0,_D,_I))
-if mibBuilder.loadTexts:hm2LreInterfaceStatsEntry.setStatus(_A)
-_Hm2LreProxyNodeTableEntries_Type=Unsigned32
-_Hm2LreProxyNodeTableEntries_Object=MibTableColumn
-hm2LreProxyNodeTableEntries=_Hm2LreProxyNodeTableEntries_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,1),_Hm2LreProxyNodeTableEntries_Type())
-hm2LreProxyNodeTableEntries.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreProxyNodeTableEntries.setStatus(_A)
-_Hm2LreRxAError_Type=Counter32
-_Hm2LreRxAError_Object=MibTableColumn
-hm2LreRxAError=_Hm2LreRxAError_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,2),_Hm2LreRxAError_Type())
-hm2LreRxAError.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreRxAError.setStatus(_A)
-_Hm2LreRxACrcError_Type=Counter32
-_Hm2LreRxACrcError_Object=MibTableColumn
-hm2LreRxACrcError=_Hm2LreRxACrcError_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,3),_Hm2LreRxACrcError_Type())
-hm2LreRxACrcError.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreRxACrcError.setStatus(_A)
-_Hm2LreRxBError_Type=Counter32
-_Hm2LreRxBError_Object=MibTableColumn
-hm2LreRxBError=_Hm2LreRxBError_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,4),_Hm2LreRxBError_Type())
-hm2LreRxBError.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreRxBError.setStatus(_A)
-_Hm2LreRxBCrcError_Type=Counter32
-_Hm2LreRxBCrcError_Object=MibTableColumn
-hm2LreRxBCrcError=_Hm2LreRxBCrcError_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,5),_Hm2LreRxBCrcError_Type())
-hm2LreRxBCrcError.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreRxBCrcError.setStatus(_A)
-_Hm2LreRxIError_Type=Counter32
-_Hm2LreRxIError_Object=MibTableColumn
-hm2LreRxIError=_Hm2LreRxIError_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,6),_Hm2LreRxIError_Type())
-hm2LreRxIError.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreRxIError.setStatus(_A)
-_Hm2LreRxICrcError_Type=Counter32
-_Hm2LreRxICrcError_Object=MibTableColumn
-hm2LreRxICrcError=_Hm2LreRxICrcError_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,7),_Hm2LreRxICrcError_Type())
-hm2LreRxICrcError.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreRxICrcError.setStatus(_A)
-_Hm2LreRxAWrongLan_Type=Counter32
-_Hm2LreRxAWrongLan_Object=MibTableColumn
-hm2LreRxAWrongLan=_Hm2LreRxAWrongLan_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,8),_Hm2LreRxAWrongLan_Type())
-hm2LreRxAWrongLan.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreRxAWrongLan.setStatus(_A)
-_Hm2LreRxBWrongLan_Type=Counter32
-_Hm2LreRxBWrongLan_Object=MibTableColumn
-hm2LreRxBWrongLan=_Hm2LreRxBWrongLan_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,9),_Hm2LreRxBWrongLan_Type())
-hm2LreRxBWrongLan.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreRxBWrongLan.setStatus(_A)
-_Hm2LreRxAllFrameA_Type=Counter32
-_Hm2LreRxAllFrameA_Object=MibTableColumn
-hm2LreRxAllFrameA=_Hm2LreRxAllFrameA_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,10),_Hm2LreRxAllFrameA_Type())
-hm2LreRxAllFrameA.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreRxAllFrameA.setStatus(_A)
-_Hm2LreRxAllFrameB_Type=Counter32
-_Hm2LreRxAllFrameB_Object=MibTableColumn
-hm2LreRxAllFrameB=_Hm2LreRxAllFrameB_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,11),_Hm2LreRxAllFrameB_Type())
-hm2LreRxAllFrameB.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreRxAllFrameB.setStatus(_A)
-_Hm2LreRxAllFrameIl_Type=Counter32
-_Hm2LreRxAllFrameIl_Object=MibTableColumn
-hm2LreRxAllFrameIl=_Hm2LreRxAllFrameIl_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,12),_Hm2LreRxAllFrameIl_Type())
-hm2LreRxAllFrameIl.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreRxAllFrameIl.setStatus(_A)
-_Hm2LreRxShortFrameA_Type=Counter32
-_Hm2LreRxShortFrameA_Object=MibTableColumn
-hm2LreRxShortFrameA=_Hm2LreRxShortFrameA_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,13),_Hm2LreRxShortFrameA_Type())
-hm2LreRxShortFrameA.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreRxShortFrameA.setStatus(_A)
-_Hm2LreRxShortFrameB_Type=Counter32
-_Hm2LreRxShortFrameB_Object=MibTableColumn
-hm2LreRxShortFrameB=_Hm2LreRxShortFrameB_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,14),_Hm2LreRxShortFrameB_Type())
-hm2LreRxShortFrameB.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreRxShortFrameB.setStatus(_A)
-_Hm2LreRxLongFrameA_Type=Counter32
-_Hm2LreRxLongFrameA_Object=MibTableColumn
-hm2LreRxLongFrameA=_Hm2LreRxLongFrameA_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,15),_Hm2LreRxLongFrameA_Type())
-hm2LreRxLongFrameA.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreRxLongFrameA.setStatus(_A)
-_Hm2LreRxLongFrameB_Type=Counter32
-_Hm2LreRxLongFrameB_Object=MibTableColumn
-hm2LreRxLongFrameB=_Hm2LreRxLongFrameB_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,16),_Hm2LreRxLongFrameB_Type())
-hm2LreRxLongFrameB.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreRxLongFrameB.setStatus(_A)
-_Hm2LreRxADiscard_Type=Counter32
-_Hm2LreRxADiscard_Object=MibTableColumn
-hm2LreRxADiscard=_Hm2LreRxADiscard_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,17),_Hm2LreRxADiscard_Type())
-hm2LreRxADiscard.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreRxADiscard.setStatus(_A)
-_Hm2LreRxBDiscard_Type=Counter32
-_Hm2LreRxBDiscard_Object=MibTableColumn
-hm2LreRxBDiscard=_Hm2LreRxBDiscard_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,18),_Hm2LreRxBDiscard_Type())
-hm2LreRxBDiscard.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreRxBDiscard.setStatus(_A)
-_Hm2LreRxIlDiscard_Type=Counter32
-_Hm2LreRxIlDiscard_Object=MibTableColumn
-hm2LreRxIlDiscard=_Hm2LreRxIlDiscard_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,19),_Hm2LreRxIlDiscard_Type())
-hm2LreRxIlDiscard.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreRxIlDiscard.setStatus(_A)
-_Hm2LreRxCpuDiscard_Type=Counter32
-_Hm2LreRxCpuDiscard_Object=MibTableColumn
-hm2LreRxCpuDiscard=_Hm2LreRxCpuDiscard_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,20),_Hm2LreRxCpuDiscard_Type())
-hm2LreRxCpuDiscard.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreRxCpuDiscard.setStatus(_A)
-_Hm2LreTxARct_Type=Counter32
-_Hm2LreTxARct_Object=MibTableColumn
-hm2LreTxARct=_Hm2LreTxARct_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,21),_Hm2LreTxARct_Type())
-hm2LreTxARct.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreTxARct.setStatus(_A)
-_Hm2LreTxAHsr_Type=Counter32
-_Hm2LreTxAHsr_Object=MibTableColumn
-hm2LreTxAHsr=_Hm2LreTxAHsr_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,22),_Hm2LreTxAHsr_Type())
-hm2LreTxAHsr.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreTxAHsr.setStatus(_A)
-_Hm2LreTxAWithoutRct_Type=Counter32
-_Hm2LreTxAWithoutRct_Object=MibTableColumn
-hm2LreTxAWithoutRct=_Hm2LreTxAWithoutRct_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,23),_Hm2LreTxAWithoutRct_Type())
-hm2LreTxAWithoutRct.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreTxAWithoutRct.setStatus(_A)
-_Hm2LreTxBRct_Type=Counter32
-_Hm2LreTxBRct_Object=MibTableColumn
-hm2LreTxBRct=_Hm2LreTxBRct_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,24),_Hm2LreTxBRct_Type())
-hm2LreTxBRct.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreTxBRct.setStatus(_A)
-_Hm2LreTxBHsr_Type=Counter32
-_Hm2LreTxBHsr_Object=MibTableColumn
-hm2LreTxBHsr=_Hm2LreTxBHsr_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,25),_Hm2LreTxBHsr_Type())
-hm2LreTxBHsr.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreTxBHsr.setStatus(_A)
-_Hm2LreTxBWithoutRct_Type=Counter32
-_Hm2LreTxBWithoutRct_Object=MibTableColumn
-hm2LreTxBWithoutRct=_Hm2LreTxBWithoutRct_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,26),_Hm2LreTxBWithoutRct_Type())
-hm2LreTxBWithoutRct.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreTxBWithoutRct.setStatus(_A)
-_Hm2LreTxIlRct_Type=Counter32
-_Hm2LreTxIlRct_Object=MibTableColumn
-hm2LreTxIlRct=_Hm2LreTxIlRct_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,27),_Hm2LreTxIlRct_Type())
-hm2LreTxIlRct.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreTxIlRct.setStatus(_A)
-_Hm2LreTxIlWithoutRct_Type=Counter32
-_Hm2LreTxIlWithoutRct_Object=MibTableColumn
-hm2LreTxIlWithoutRct=_Hm2LreTxIlWithoutRct_Object((1,3,6,1,4,1,248,11,40,1,2,1,2,1,1,1,1,28),_Hm2LreTxIlWithoutRct_Type())
-hm2LreTxIlWithoutRct.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2LreTxIlWithoutRct.setStatus(_A)
-_Hm2LreEntityConformance_ObjectIdentity=ObjectIdentity
-hm2LreEntityConformance=_Hm2LreEntityConformance_ObjectIdentity((1,3,6,1,4,1,248,11,40,1,2,2))
-mibBuilder.exportSymbols('HM2-L2REDUNDANCY-LRE-MIB',**{'hm2LreMibGroup':hm2LreMibGroup,'hm2LreEntityNotifications':hm2LreEntityNotifications,'hm2LreEntityObjects':hm2LreEntityObjects,'hm2LreConfiguration':hm2LreConfiguration,'hm2LreConfigurationGeneralGroup':hm2LreConfigurationGeneralGroup,'hm2LreConfigurationInterfaceGroup':hm2LreConfigurationInterfaceGroup,'hm2LreConfigurationInterfaces':hm2LreConfigurationInterfaces,'hm2LreInterfaceConfigTable':hm2LreInterfaceConfigTable,'hm2LreInterfaceConfigEntry':hm2LreInterfaceConfigEntry,'hm2LreInterfaceA':hm2LreInterfaceA,'hm2LreInterfaceB':hm2LreInterfaceB,'hm2LreProxyNodeTableSize':hm2LreProxyNodeTableSize,'hm2LreSupervisionTxEnable':hm2LreSupervisionTxEnable,'hm2LreSupervisionVDANsTxEnable':hm2LreSupervisionVDANsTxEnable,'hm2LreStatisticsClear':hm2LreStatisticsClear,'hm2LreMaxFrameSizeLimit':hm2LreMaxFrameSizeLimit,'hm2LreMaxFrameSize':hm2LreMaxFrameSize,'hm2LreSpeed':hm2LreSpeed,'hm2LreDuplicateDetectionAging':hm2LreDuplicateDetectionAging,'hm2LreProxyNodeTableAging':hm2LreProxyNodeTableAging,'hm2LreStatistics':hm2LreStatistics,'hm2LreStatisticsInterfaceGroup':hm2LreStatisticsInterfaceGroup,'hm2LreStatisticsInterfaces':hm2LreStatisticsInterfaces,'hm2LreInterfaceStatsTable':hm2LreInterfaceStatsTable,'hm2LreInterfaceStatsEntry':hm2LreInterfaceStatsEntry,'hm2LreProxyNodeTableEntries':hm2LreProxyNodeTableEntries,'hm2LreRxAError':hm2LreRxAError,'hm2LreRxACrcError':hm2LreRxACrcError,'hm2LreRxBError':hm2LreRxBError,'hm2LreRxBCrcError':hm2LreRxBCrcError,'hm2LreRxIError':hm2LreRxIError,'hm2LreRxICrcError':hm2LreRxICrcError,'hm2LreRxAWrongLan':hm2LreRxAWrongLan,'hm2LreRxBWrongLan':hm2LreRxBWrongLan,'hm2LreRxAllFrameA':hm2LreRxAllFrameA,'hm2LreRxAllFrameB':hm2LreRxAllFrameB,'hm2LreRxAllFrameIl':hm2LreRxAllFrameIl,'hm2LreRxShortFrameA':hm2LreRxShortFrameA,'hm2LreRxShortFrameB':hm2LreRxShortFrameB,'hm2LreRxLongFrameA':hm2LreRxLongFrameA,'hm2LreRxLongFrameB':hm2LreRxLongFrameB,'hm2LreRxADiscard':hm2LreRxADiscard,'hm2LreRxBDiscard':hm2LreRxBDiscard,'hm2LreRxIlDiscard':hm2LreRxIlDiscard,'hm2LreRxCpuDiscard':hm2LreRxCpuDiscard,'hm2LreTxARct':hm2LreTxARct,'hm2LreTxAHsr':hm2LreTxAHsr,'hm2LreTxAWithoutRct':hm2LreTxAWithoutRct,'hm2LreTxBRct':hm2LreTxBRct,'hm2LreTxBHsr':hm2LreTxBHsr,'hm2LreTxBWithoutRct':hm2LreTxBWithoutRct,'hm2LreTxIlRct':hm2LreTxIlRct,'hm2LreTxIlWithoutRct':hm2LreTxIlWithoutRct,'hm2LreEntityConformance':hm2LreEntityConformance})
+#
+# PySNMP MIB module HM2-L2REDUNDANCY-LRE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hirschmann/HM2-L2REDUNDANCY-LRE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:12 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hm2L2RedundancyMibObjects, = mibBuilder.importSymbols("HM2-L2REDUNDANCY-MIB", "hm2L2RedundancyMibObjects")
+lreInterfaceStatsIndex, lreInterfaceConfigIndex = mibBuilder.importSymbols("IEC-62439-3-MIB", "lreInterfaceStatsIndex", "lreInterfaceConfigIndex")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+hm2LreMibGroup = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2))
+hm2LreMibGroup.setRevisions(('2012-07-02 00:00',))
+if mibBuilder.loadTexts: hm2LreMibGroup.setLastUpdated('201207020000Z')
+if mibBuilder.loadTexts: hm2LreMibGroup.setOrganization('Hirschmann Automation and Control GmbH')
+hm2LreEntityNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 0))
+hm2LreEntityObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1))
+hm2LreEntityConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 2))
+hm2LreConfiguration = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 1))
+hm2LreStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2))
+hm2LreConfigurationGeneralGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 1, 1))
+hm2LreConfigurationInterfaceGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 1, 2))
+hm2LreStatisticsInterfaceGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1))
+hm2LreConfigurationInterfaces = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 1, 2, 1))
+hm2LreInterfaceConfigTable = MibTable((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 1, 2, 1, 1), )
+if mibBuilder.loadTexts: hm2LreInterfaceConfigTable.setStatus('current')
+hm2LreInterfaceConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 1, 2, 1, 1, 1), ).setIndexNames((0, "IEC-62439-3-MIB", "lreInterfaceConfigIndex"))
+if mibBuilder.loadTexts: hm2LreInterfaceConfigEntry.setStatus('current')
+hm2LreInterfaceA = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 1, 2, 1, 1, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreInterfaceA.setStatus('current')
+hm2LreInterfaceB = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 1, 2, 1, 1, 1, 2), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreInterfaceB.setStatus('current')
+hm2LreProxyNodeTableSize = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 1, 2, 1, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreProxyNodeTableSize.setStatus('current')
+hm2LreSupervisionTxEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 1, 2, 1, 1, 1, 4), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2LreSupervisionTxEnable.setStatus('current')
+hm2LreSupervisionVDANsTxEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 1, 2, 1, 1, 1, 5), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2LreSupervisionVDANsTxEnable.setStatus('current')
+hm2LreStatisticsClear = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 1, 2, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("noOp", 0), ("clearStatistics", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2LreStatisticsClear.setStatus('current')
+hm2LreMaxFrameSizeLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 1, 2, 1, 1, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreMaxFrameSizeLimit.setStatus('current')
+hm2LreMaxFrameSize = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 1, 2, 1, 1, 1, 8), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2LreMaxFrameSize.setStatus('current')
+hm2LreSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 1, 2, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("lreSpeed100Mbps", 1), ("lreSpeed1Gbps", 2))).clone('lreSpeed100Mbps')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2LreSpeed.setStatus('current')
+hm2LreDuplicateDetectionAging = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 1, 2, 1, 1, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(10, 5000)).clone(400)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2LreDuplicateDetectionAging.setStatus('current')
+hm2LreProxyNodeTableAging = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 1, 2, 1, 1, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(10, 300)).clone(60)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2LreProxyNodeTableAging.setStatus('current')
+hm2LreStatisticsInterfaces = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1))
+hm2LreInterfaceStatsTable = MibTable((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1), )
+if mibBuilder.loadTexts: hm2LreInterfaceStatsTable.setStatus('current')
+hm2LreInterfaceStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1), ).setIndexNames((0, "IEC-62439-3-MIB", "lreInterfaceStatsIndex"))
+if mibBuilder.loadTexts: hm2LreInterfaceStatsEntry.setStatus('current')
+hm2LreProxyNodeTableEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreProxyNodeTableEntries.setStatus('current')
+hm2LreRxAError = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreRxAError.setStatus('current')
+hm2LreRxACrcError = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreRxACrcError.setStatus('current')
+hm2LreRxBError = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreRxBError.setStatus('current')
+hm2LreRxBCrcError = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreRxBCrcError.setStatus('current')
+hm2LreRxIError = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreRxIError.setStatus('current')
+hm2LreRxICrcError = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreRxICrcError.setStatus('current')
+hm2LreRxAWrongLan = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreRxAWrongLan.setStatus('current')
+hm2LreRxBWrongLan = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreRxBWrongLan.setStatus('current')
+hm2LreRxAllFrameA = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreRxAllFrameA.setStatus('current')
+hm2LreRxAllFrameB = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreRxAllFrameB.setStatus('current')
+hm2LreRxAllFrameIl = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreRxAllFrameIl.setStatus('current')
+hm2LreRxShortFrameA = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreRxShortFrameA.setStatus('current')
+hm2LreRxShortFrameB = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreRxShortFrameB.setStatus('current')
+hm2LreRxLongFrameA = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreRxLongFrameA.setStatus('current')
+hm2LreRxLongFrameB = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreRxLongFrameB.setStatus('current')
+hm2LreRxADiscard = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 17), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreRxADiscard.setStatus('current')
+hm2LreRxBDiscard = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 18), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreRxBDiscard.setStatus('current')
+hm2LreRxIlDiscard = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 19), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreRxIlDiscard.setStatus('current')
+hm2LreRxCpuDiscard = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 20), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreRxCpuDiscard.setStatus('current')
+hm2LreTxARct = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 21), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreTxARct.setStatus('current')
+hm2LreTxAHsr = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 22), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreTxAHsr.setStatus('current')
+hm2LreTxAWithoutRct = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 23), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreTxAWithoutRct.setStatus('current')
+hm2LreTxBRct = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 24), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreTxBRct.setStatus('current')
+hm2LreTxBHsr = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 25), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreTxBHsr.setStatus('current')
+hm2LreTxBWithoutRct = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 26), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreTxBWithoutRct.setStatus('current')
+hm2LreTxIlRct = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 27), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreTxIlRct.setStatus('current')
+hm2LreTxIlWithoutRct = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 2, 1, 2, 1, 1, 1, 1, 28), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LreTxIlWithoutRct.setStatus('current')
+mibBuilder.exportSymbols("HM2-L2REDUNDANCY-LRE-MIB", hm2LreStatistics=hm2LreStatistics, hm2LreRxACrcError=hm2LreRxACrcError, hm2LreInterfaceB=hm2LreInterfaceB, hm2LreInterfaceConfigEntry=hm2LreInterfaceConfigEntry, hm2LreTxBRct=hm2LreTxBRct, hm2LreInterfaceA=hm2LreInterfaceA, hm2LreProxyNodeTableAging=hm2LreProxyNodeTableAging, hm2LreConfiguration=hm2LreConfiguration, hm2LreRxAError=hm2LreRxAError, hm2LreTxBHsr=hm2LreTxBHsr, hm2LreRxIlDiscard=hm2LreRxIlDiscard, hm2LreRxADiscard=hm2LreRxADiscard, hm2LreTxIlRct=hm2LreTxIlRct, hm2LreMaxFrameSizeLimit=hm2LreMaxFrameSizeLimit, hm2LreStatisticsInterfaces=hm2LreStatisticsInterfaces, hm2LreRxShortFrameB=hm2LreRxShortFrameB, hm2LreEntityObjects=hm2LreEntityObjects, hm2LreConfigurationInterfaces=hm2LreConfigurationInterfaces, hm2LreTxARct=hm2LreTxARct, hm2LreProxyNodeTableSize=hm2LreProxyNodeTableSize, hm2LreMibGroup=hm2LreMibGroup, hm2LreEntityConformance=hm2LreEntityConformance, hm2LreStatisticsInterfaceGroup=hm2LreStatisticsInterfaceGroup, hm2LreTxAWithoutRct=hm2LreTxAWithoutRct, hm2LreTxAHsr=hm2LreTxAHsr, hm2LreInterfaceStatsTable=hm2LreInterfaceStatsTable, hm2LreInterfaceConfigTable=hm2LreInterfaceConfigTable, hm2LreRxLongFrameA=hm2LreRxLongFrameA, hm2LreRxCpuDiscard=hm2LreRxCpuDiscard, hm2LreTxBWithoutRct=hm2LreTxBWithoutRct, hm2LreEntityNotifications=hm2LreEntityNotifications, hm2LreSupervisionTxEnable=hm2LreSupervisionTxEnable, hm2LreRxAllFrameB=hm2LreRxAllFrameB, hm2LreProxyNodeTableEntries=hm2LreProxyNodeTableEntries, hm2LreTxIlWithoutRct=hm2LreTxIlWithoutRct, hm2LreDuplicateDetectionAging=hm2LreDuplicateDetectionAging, hm2LreRxICrcError=hm2LreRxICrcError, hm2LreRxShortFrameA=hm2LreRxShortFrameA, hm2LreConfigurationInterfaceGroup=hm2LreConfigurationInterfaceGroup, hm2LreRxBError=hm2LreRxBError, hm2LreRxBWrongLan=hm2LreRxBWrongLan, hm2LreInterfaceStatsEntry=hm2LreInterfaceStatsEntry, hm2LreRxAWrongLan=hm2LreRxAWrongLan, hm2LreStatisticsClear=hm2LreStatisticsClear, hm2LreRxAllFrameIl=hm2LreRxAllFrameIl, hm2LreRxLongFrameB=hm2LreRxLongFrameB, hm2LreRxIError=hm2LreRxIError, hm2LreSpeed=hm2LreSpeed, hm2LreRxBDiscard=hm2LreRxBDiscard, hm2LreSupervisionVDANsTxEnable=hm2LreSupervisionVDANsTxEnable, hm2LreConfigurationGeneralGroup=hm2LreConfigurationGeneralGroup, hm2LreRxAllFrameA=hm2LreRxAllFrameA, hm2LreMaxFrameSize=hm2LreMaxFrameSize, PYSNMP_MODULE_ID=hm2LreMibGroup, hm2LreRxBCrcError=hm2LreRxBCrcError)

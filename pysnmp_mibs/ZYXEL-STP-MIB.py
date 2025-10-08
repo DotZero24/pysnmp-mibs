@@ -1,104 +1,63 @@
-_L='zyStpRootGuardInstance'
-_K='zyStpMode'
-_J='zyMstpInstanceId'
-_I='ZYXEL-MSTP-MIB'
-_H='Integer32'
-_G='ifIndex'
-_F='IF-MIB'
-_E='ZYXEL-STP-MIB'
-_D='read-write'
-_C='dot1dBasePort'
-_B='BRIDGE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dBasePort,=mibBuilder.importSymbols(_B,_C)
-ifIndex,=mibBuilder.importSymbols(_F,_G)
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB','EnabledStatus')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_H,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
-zyMstpInstanceId,=mibBuilder.importSymbols(_I,_J)
-zyxelStp=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,79))
-class MstiOrCistInstanceIndex(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16))
-_ZyxelStpSetup_ObjectIdentity=ObjectIdentity
-zyxelStpSetup=_ZyxelStpSetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,79,1))
-class _ZyStpMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('rstp',1),('mrstp',2),('mstp',3)))
-_ZyStpMode_Type.__name__=_H
-_ZyStpMode_Object=MibScalar
-zyStpMode=_ZyStpMode_Object((1,3,6,1,4,1,890,1,15,3,79,1,1),_ZyStpMode_Type())
-zyStpMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:zyStpMode.setStatus(_A)
-_ZyStpRstpState_Type=EnabledStatus
-_ZyStpRstpState_Object=MibScalar
-zyStpRstpState=_ZyStpRstpState_Object((1,3,6,1,4,1,890,1,15,3,79,1,2),_ZyStpRstpState_Type())
-zyStpRstpState.setMaxAccess(_D)
-if mibBuilder.loadTexts:zyStpRstpState.setStatus(_A)
-_ZyxelStpRootGuardRstpTable_Object=MibTable
-zyxelStpRootGuardRstpTable=_ZyxelStpRootGuardRstpTable_Object((1,3,6,1,4,1,890,1,15,3,79,1,3))
-if mibBuilder.loadTexts:zyxelStpRootGuardRstpTable.setStatus(_A)
-_ZyxelStpRootGuardRstpPortEntry_Object=MibTableRow
-zyxelStpRootGuardRstpPortEntry=_ZyxelStpRootGuardRstpPortEntry_Object((1,3,6,1,4,1,890,1,15,3,79,1,3,1))
-zyxelStpRootGuardRstpPortEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:zyxelStpRootGuardRstpPortEntry.setStatus(_A)
-_ZyStpRootGuardRstpState_Type=EnabledStatus
-_ZyStpRootGuardRstpState_Object=MibTableColumn
-zyStpRootGuardRstpState=_ZyStpRootGuardRstpState_Object((1,3,6,1,4,1,890,1,15,3,79,1,3,1,1),_ZyStpRootGuardRstpState_Type())
-zyStpRootGuardRstpState.setMaxAccess(_D)
-if mibBuilder.loadTexts:zyStpRootGuardRstpState.setStatus(_A)
-_ZyxelStpRootGuardMrstpTable_Object=MibTable
-zyxelStpRootGuardMrstpTable=_ZyxelStpRootGuardMrstpTable_Object((1,3,6,1,4,1,890,1,15,3,79,1,4))
-if mibBuilder.loadTexts:zyxelStpRootGuardMrstpTable.setStatus(_A)
-_ZyxelStpRootGuardMrstpPortEntry_Object=MibTableRow
-zyxelStpRootGuardMrstpPortEntry=_ZyxelStpRootGuardMrstpPortEntry_Object((1,3,6,1,4,1,890,1,15,3,79,1,4,1))
-zyxelStpRootGuardMrstpPortEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:zyxelStpRootGuardMrstpPortEntry.setStatus(_A)
-_ZyStpRootGuardMrstpState_Type=EnabledStatus
-_ZyStpRootGuardMrstpState_Object=MibTableColumn
-zyStpRootGuardMrstpState=_ZyStpRootGuardMrstpState_Object((1,3,6,1,4,1,890,1,15,3,79,1,4,1,1),_ZyStpRootGuardMrstpState_Type())
-zyStpRootGuardMrstpState.setMaxAccess(_D)
-if mibBuilder.loadTexts:zyStpRootGuardMrstpState.setStatus(_A)
-_ZyxelStpRootGuardMstpTable_Object=MibTable
-zyxelStpRootGuardMstpTable=_ZyxelStpRootGuardMstpTable_Object((1,3,6,1,4,1,890,1,15,3,79,1,5))
-if mibBuilder.loadTexts:zyxelStpRootGuardMstpTable.setStatus(_A)
-_ZyxelStpRootGuardMstpPortEntry_Object=MibTableRow
-zyxelStpRootGuardMstpPortEntry=_ZyxelStpRootGuardMstpPortEntry_Object((1,3,6,1,4,1,890,1,15,3,79,1,5,1))
-zyxelStpRootGuardMstpPortEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:zyxelStpRootGuardMstpPortEntry.setStatus(_A)
-_ZyStpRootGuardMstpState_Type=EnabledStatus
-_ZyStpRootGuardMstpState_Object=MibTableColumn
-zyStpRootGuardMstpState=_ZyStpRootGuardMstpState_Object((1,3,6,1,4,1,890,1,15,3,79,1,5,1,1),_ZyStpRootGuardMstpState_Type())
-zyStpRootGuardMstpState.setMaxAccess(_D)
-if mibBuilder.loadTexts:zyStpRootGuardMstpState.setStatus(_A)
-_ZyxelStpStatus_ObjectIdentity=ObjectIdentity
-zyxelStpStatus=_ZyxelStpStatus_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,79,2))
-_ZyxelStpRootGuardTable_Object=MibTable
-zyxelStpRootGuardTable=_ZyxelStpRootGuardTable_Object((1,3,6,1,4,1,890,1,15,3,79,2,1))
-if mibBuilder.loadTexts:zyxelStpRootGuardTable.setStatus(_A)
-_ZyxelStpRootGuardEntry_Object=MibTableRow
-zyxelStpRootGuardEntry=_ZyxelStpRootGuardEntry_Object((1,3,6,1,4,1,890,1,15,3,79,2,1,1))
-zyxelStpRootGuardEntry.setIndexNames((0,_E,_L),(0,_B,_C))
-if mibBuilder.loadTexts:zyxelStpRootGuardEntry.setStatus(_A)
-_ZyStpRootGuardInstance_Type=MstiOrCistInstanceIndex
-_ZyStpRootGuardInstance_Object=MibTableColumn
-zyStpRootGuardInstance=_ZyStpRootGuardInstance_Object((1,3,6,1,4,1,890,1,15,3,79,2,1,1,1),_ZyStpRootGuardInstance_Type())
-zyStpRootGuardInstance.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:zyStpRootGuardInstance.setStatus(_A)
-class _ZyStpRootGuardStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('forwarding',0),('rootInconsistent',1)))
-_ZyStpRootGuardStatus_Type.__name__=_H
-_ZyStpRootGuardStatus_Object=MibTableColumn
-zyStpRootGuardStatus=_ZyStpRootGuardStatus_Object((1,3,6,1,4,1,890,1,15,3,79,2,1,1,2),_ZyStpRootGuardStatus_Type())
-zyStpRootGuardStatus.setMaxAccess('read-only')
-if mibBuilder.loadTexts:zyStpRootGuardStatus.setStatus(_A)
-_ZyxelStpNotifications_ObjectIdentity=ObjectIdentity
-zyxelStpNotifications=_ZyxelStpNotifications_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,79,3))
-zyStpRootGuardDetect=NotificationType((1,3,6,1,4,1,890,1,15,3,79,3,1))
-zyStpRootGuardDetect.setObjects(*((_E,_K),(_I,_J),(_F,_G)))
-if mibBuilder.loadTexts:zyStpRootGuardDetect.setStatus(_A)
-zyStpRootGuardRecovered=NotificationType((1,3,6,1,4,1,890,1,15,3,79,3,2))
-zyStpRootGuardRecovered.setObjects(*((_E,_K),(_I,_J),(_F,_G)))
-if mibBuilder.loadTexts:zyStpRootGuardRecovered.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'MstiOrCistInstanceIndex':MstiOrCistInstanceIndex,'zyxelStp':zyxelStp,'zyxelStpSetup':zyxelStpSetup,_K:zyStpMode,'zyStpRstpState':zyStpRstpState,'zyxelStpRootGuardRstpTable':zyxelStpRootGuardRstpTable,'zyxelStpRootGuardRstpPortEntry':zyxelStpRootGuardRstpPortEntry,'zyStpRootGuardRstpState':zyStpRootGuardRstpState,'zyxelStpRootGuardMrstpTable':zyxelStpRootGuardMrstpTable,'zyxelStpRootGuardMrstpPortEntry':zyxelStpRootGuardMrstpPortEntry,'zyStpRootGuardMrstpState':zyStpRootGuardMrstpState,'zyxelStpRootGuardMstpTable':zyxelStpRootGuardMstpTable,'zyxelStpRootGuardMstpPortEntry':zyxelStpRootGuardMstpPortEntry,'zyStpRootGuardMstpState':zyStpRootGuardMstpState,'zyxelStpStatus':zyxelStpStatus,'zyxelStpRootGuardTable':zyxelStpRootGuardTable,'zyxelStpRootGuardEntry':zyxelStpRootGuardEntry,_L:zyStpRootGuardInstance,'zyStpRootGuardStatus':zyStpRootGuardStatus,'zyxelStpNotifications':zyxelStpNotifications,'zyStpRootGuardDetect':zyStpRootGuardDetect,'zyStpRootGuardRecovered':zyStpRootGuardRecovered})
+#
+# PySNMP MIB module ZYXEL-STP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-STP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:20 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
+zyMstpInstanceId, = mibBuilder.importSymbols("ZYXEL-MSTP-MIB", "zyMstpInstanceId")
+zyxelStp = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79))
+if mibBuilder.loadTexts: zyxelStp.setLastUpdated('201207010000Z')
+if mibBuilder.loadTexts: zyxelStp.setOrganization('Enterprise Solution ZyXEL')
+zyxelStpSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 1))
+zyxelStpStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 2))
+zyxelStpNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 3))
+zyStpMode = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("rstp", 1), ("mrstp", 2), ("mstp", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyStpMode.setStatus('current')
+zyStpRstpState = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 1, 2), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyStpRstpState.setStatus('current')
+zyxelStpRootGuardRstpTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 1, 3), )
+if mibBuilder.loadTexts: zyxelStpRootGuardRstpTable.setStatus('current')
+zyxelStpRootGuardRstpPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 1, 3, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
+if mibBuilder.loadTexts: zyxelStpRootGuardRstpPortEntry.setStatus('current')
+zyStpRootGuardRstpState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 1, 3, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyStpRootGuardRstpState.setStatus('current')
+zyxelStpRootGuardMrstpTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 1, 4), )
+if mibBuilder.loadTexts: zyxelStpRootGuardMrstpTable.setStatus('current')
+zyxelStpRootGuardMrstpPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 1, 4, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
+if mibBuilder.loadTexts: zyxelStpRootGuardMrstpPortEntry.setStatus('current')
+zyStpRootGuardMrstpState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 1, 4, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyStpRootGuardMrstpState.setStatus('current')
+zyxelStpRootGuardMstpTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 1, 5), )
+if mibBuilder.loadTexts: zyxelStpRootGuardMstpTable.setStatus('current')
+zyxelStpRootGuardMstpPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 1, 5, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
+if mibBuilder.loadTexts: zyxelStpRootGuardMstpPortEntry.setStatus('current')
+zyStpRootGuardMstpState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 1, 5, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyStpRootGuardMstpState.setStatus('current')
+class MstiOrCistInstanceIndex(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 16)
+
+zyxelStpRootGuardTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 2, 1), )
+if mibBuilder.loadTexts: zyxelStpRootGuardTable.setStatus('current')
+zyxelStpRootGuardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 2, 1, 1), ).setIndexNames((0, "ZYXEL-STP-MIB", "zyStpRootGuardInstance"), (0, "BRIDGE-MIB", "dot1dBasePort"))
+if mibBuilder.loadTexts: zyxelStpRootGuardEntry.setStatus('current')
+zyStpRootGuardInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 2, 1, 1, 1), MstiOrCistInstanceIndex())
+if mibBuilder.loadTexts: zyStpRootGuardInstance.setStatus('current')
+zyStpRootGuardStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("forwarding", 0), ("rootInconsistent", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zyStpRootGuardStatus.setStatus('current')
+zyStpRootGuardDetect = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 3, 1)).setObjects(("ZYXEL-STP-MIB", "zyStpMode"), ("ZYXEL-MSTP-MIB", "zyMstpInstanceId"), ("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: zyStpRootGuardDetect.setStatus('current')
+zyStpRootGuardRecovered = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 79, 3, 2)).setObjects(("ZYXEL-STP-MIB", "zyStpMode"), ("ZYXEL-MSTP-MIB", "zyMstpInstanceId"), ("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: zyStpRootGuardRecovered.setStatus('current')
+mibBuilder.exportSymbols("ZYXEL-STP-MIB", zyxelStpStatus=zyxelStpStatus, zyxelStpRootGuardMrstpTable=zyxelStpRootGuardMrstpTable, zyxelStpNotifications=zyxelStpNotifications, zyStpRootGuardDetect=zyStpRootGuardDetect, zyStpRootGuardMstpState=zyStpRootGuardMstpState, zyStpRootGuardStatus=zyStpRootGuardStatus, zyxelStpRootGuardTable=zyxelStpRootGuardTable, zyxelStpRootGuardMrstpPortEntry=zyxelStpRootGuardMrstpPortEntry, zyStpRootGuardRecovered=zyStpRootGuardRecovered, zyStpRootGuardInstance=zyStpRootGuardInstance, zyxelStpRootGuardRstpTable=zyxelStpRootGuardRstpTable, zyxelStpRootGuardEntry=zyxelStpRootGuardEntry, zyStpRootGuardRstpState=zyStpRootGuardRstpState, zyStpRootGuardMrstpState=zyStpRootGuardMrstpState, zyxelStp=zyxelStp, zyStpMode=zyStpMode, zyxelStpSetup=zyxelStpSetup, zyxelStpRootGuardRstpPortEntry=zyxelStpRootGuardRstpPortEntry, zyxelStpRootGuardMstpPortEntry=zyxelStpRootGuardMstpPortEntry, zyxelStpRootGuardMstpTable=zyxelStpRootGuardMstpTable, MstiOrCistInstanceIndex=MstiOrCistInstanceIndex, zyStpRstpState=zyStpRstpState, PYSNMP_MODULE_ID=zyxelStp)

@@ -1,4069 +1,1598 @@
-_By='switchThermalActionFallingThreshold'
-_Bx='switchThermalActionRisingThreshold'
-_Bw='swExpectedModuleOpCodeVer'
-_Bv='trapIpFilterRejectIp'
-_Bu='trapIpFilterRejectMode'
-_Bt='swIndivPowerStatus'
-_Bs='staPortEntry'
-_Br='cHsrpExtSecAddrAddress'
-_Bq='cHsrpExtIfTracked'
-_Bp='dnsCacheIndex'
-_Bo='dnsNameServerIndex'
-_Bn='dnsDomainListName'
-_Bm='dnaAliasAlias'
-_Bl='dnsAliasName'
-_Bk='dnsHostIndex'
-_Bj='dnsHostName'
-_Bi='fileAutoDownloadResultUnitID'
-_Bh='fileInfoFileName'
-_Bg='fileInfoUnitID'
-_Bf='notCopying'
-_Be='startUpCfg'
-_Bd='runningCfg'
-_Bc='sntpServerIndex'
-_Bb='smtpDestEMail'
-_Ba='remoteLogServerIp'
-_BZ='ipCidrRouteExtNextHop'
-_BY='ipCidrRouteExtTos'
-_BX='ipCidrRouteExtMask'
-_BW='ipCidrRouteExtDest'
-_BV='dvmrpPruneSourceMask'
-_BU='dvmrpPruneSource'
-_BT='dvmrpPruneGroup'
-_BS='dvmrpRouteNextHopIfIndex'
-_BR='dvmrpRouteNextHopSourceMask'
-_BQ='dvmrpRouteNextHopSource'
-_BP='dvmrpRouteSourceMask'
-_BO='dvmrpRouteSource'
-_BN='dvmrpNeighborAddress'
-_BM='dvmrpNeighborIfIndex'
-_BL='dvmrpInterfaceIndex'
-_BK='ospfNetworkAreaMask'
-_BJ='ospfNetworkAareaAddress'
-_BI='ospfSummaryMask'
-_BH='ospfSummaryAddress'
-_BG='ospfRedistributeProtocol'
-_BF='ospfNssaAreaId'
-_BE='ripNetworkAddrAddress'
-_BD='ripVlanIndex'
-_BC='arpProxyArpIfIndex'
-_BB='ipFilterTelnetStartAddress'
-_BA='ipFilterHTTPStartAddress'
-_B9='ipFilterSnmpStartAddress'
-_B8='aclMacAclName'
-_B7='aclIpAclName'
-_B6='aclEgressMacMaskIndex'
-_B5='aclIngressMacMaskIndex'
-_B4='aclEgressIpMaskIndex'
-_B3='aclIngressIpMaskIndex'
-_B2='aclAclGroupIfIndex'
-_B1='aclMacAceIndex'
-_B0='aclMacAceName'
-_A_='aclIpAceIndex'
-_Az='aclIpAceName'
-_Ay='sshUserName'
-_Ax='delBothKeys'
-_Aw='delDsaKey'
-_Av='delRsaKey'
-_Au='sshConnID'
-_At='radiusMultipleServerIndex'
-_As='portSecPortIndex'
-_Ar='prioAclToCosMappingAclName'
-_Aq='prioAclToCosMappingIfIndex'
-_Ap='markerAclName'
-_Ao='markerIfIndex'
-_An='rlPortIndex'
-_Am='trapDestAddress'
-_Al='prioWrrPortTrafficClass'
-_Ak='prioWrrPortIfIndex'
-_Aj='prioIpPortValue'
-_Ai='prioIpPortPhysPort'
-_Ah='prioIpDscpValue'
-_Ag='prioIpDscpPort'
-_Af='prioIpPrecValue'
-_Ae='prioIpPrecPort'
-_Ad='precedence'
-_Ac='vlanPortIndex'
-_Ab='vlanIndex'
-_Aa='bcastStormIfIndex'
-_AZ='iPAddrSubnetMask'
-_AY='iPAddrIPAddress'
-_AX='igmpSnoopMulticastStaticIpAddress'
-_AW='igmpSnoopMulticastStaticVlanIndex'
-_AV='igmpSnoopMulticastCurrentIpAddress'
-_AU='igmpSnoopMulticastCurrentVlanIndex'
-_AT='igmpSnoopRouterStaticVlanIndex'
-_AS='igmpSnoopRouterCurrentVlanIndex'
-_AR='mirrorSourcePort'
-_AQ='mirrorDestinationPort'
-_AP='mstInstanceOperIndex'
-_AO='mstInstanceEditIndex'
-_AN='StaPathCostMode'
-_AM='lacpPortIndex'
-_AL='trunkIndex'
-_AK='fullDuplex10g'
-_AJ='halfDuplex10g'
-_AI='fullDuplex1000'
-_AH='halfDuplex1000'
-_AG='fullDuplex100'
-_AF='halfDuplex100'
-_AE='fullDuplex10'
-_AD='halfDuplex10'
-_AC='portIndex'
-_AB='swModuleModuleIndex'
-_AA='swModuleUnitIndex'
-_A9='switchThermalActionIndex'
-_A8='switchThermalActionThermalIndex'
-_A7='switchThermalActionUnitIndex'
-_A6='switchThermalTempThermalIndex'
-_A5='switchThermalTempUnitIndex'
-_A4='internalPower'
-_A3='swUnitIndex'
-_A2='TruthValue'
-_A1='IpAddress'
-_A0='dot1dStpPort'
-_z='BRIDGE-MIB'
-_y='switchThermalTempValue'
-_x='swOpCodeVer'
-_w='smtpServerIp'
-_v='OspfBigMetric'
-_u='xstInstanceCfgIndex'
-_t='failure'
-_s='swIndivPowerIndex'
-_r='swIndivPowerUnitIndex'
-_q='unknown'
-_p='tenGigaPortModule'
-_o='eightPortSfpModule'
-_n='comboThousandBaseTxSfp'
-_m='tenHundredBaseT'
-_l='comboStackingSfp'
-_k='tenHundredBaseFxMtrj4port'
-_j='tenHundredBaseT4port'
-_i='stackingModule'
-_h='thousandBaseLxScSmf'
-_g='thousandBaseXGbic'
-_f='thousandBaseSxMtrjMmf'
-_e='thousandBaseSxScMmf'
-_d='hundredBaseFxMtrjMmf'
-_c='hundredBaseFxScSmf'
-_b='hundredBaseFxScMmf'
-_a='swModuleOpCodeVer'
-_Z='cHsrpGrpNumber'
-_Y='range'
-_X='equal'
-_W='noOperator'
-_V='switchFanIndex'
-_U='switchUnitIndex'
-_T='disabled'
-_S='thousandBaseSfp'
-_R='thousandBaseT'
-_Q='notPresent'
-_P='ifIndex'
-_O='IF-MIB'
-_N='none'
-_M='other'
-_L='Bits'
-_K='EnabledStatus'
-_J='Unsigned32'
-_I='OctetString'
-_H='DisplayString'
-_G='not-accessible'
-_F='Hirschmann-LION-24TP-MIB'
-_E='read-create'
-_D='read-write'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_I,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-BridgeId,Timeout,dot1dStpPort,dot1dStpPortEntry=mibBuilder.importSymbols(_z,'BridgeId','Timeout',_A0,'dot1dStpPortEntry')
-hirschmann,=mibBuilder.importSymbols('HMPRIV-MGMT-SNMP-MIB','hirschmann')
-InterfaceIndex,InterfaceIndexOrZero,ifIndex=mibBuilder.importSymbols(_O,'InterfaceIndex','InterfaceIndexOrZero',_P)
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB',_K)
-PortList,VlanIndex=mibBuilder.importSymbols('Q-BRIDGE-MIB','PortList','VlanIndex')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI',_L,'Counter32','Counter64','Gauge32',_C,_A1,'ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_J,'enterprises','iso')
-DisplayString,MacAddress,PhysAddress,RowPointer,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_H,'MacAddress','PhysAddress','RowPointer','RowStatus','TextualConvention',_A2)
-lion24tpMIB=ModuleIdentity((1,3,6,1,4,1,248,13,7,4))
-if mibBuilder.loadTexts:lion24tpMIB.setRevisions(('2001-09-06 00:00',))
-class OspfAreaID(TextualConvention,IpAddress):status=_A
-class OspfBigMetric(TextualConvention,Integer32):status=_A
-class KeySegment(DisplayString):status=_A;subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-class ValidStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('valid',1),('invalid',2)))
-class HsrpState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('initial',1),('learn',2),('listen',3),('speak',4),('standby',5),('active',6)))
-class StaPathCostMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('short',1),('long',2)))
-class FileCopyStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)));namedValues=NamedValues(*(('fileCopyTftpUndefError',1),('fileCopyTftpFileNotFound',2),('fileCopyTftpAccessViolation',3),('fileCopyTftpDiskFull',4),('fileCopyTftpIllegalOperation',5),('fileCopyTftpUnkownTransferId',6),('fileCopyTftpFileExisted',7),('fileCopyTftpNoSuchUser',8),('fileCopyTftpTimeout',9),('fileCopyTftpSendError',10),('fileCopyTftpReceiverError',11),('fileCopyTftpSocketOpenError',12),('fileCopyTftpSocketBindError',13),('fileCopyTftpUserCancel',14),('fileCopyTftpCompleted',15),('fileCopyParaError',16),('fileCopyBusy',17),('fileCopyUnknown',18),('fileCopyReadFileError',19),('fileCopySetStartupError',20),('fileCopyFileSizeExceed',21),('fileCopyMagicWordError',22),('fileCopyImageTypeError',23),('fileCopyHeaderChecksumError',24),('fileCopyImageChecksumError',25),('fileCopyWriteFlashFinish',26),('fileCopyWriteFlashError',27),('fileCopyWriteFlashProgramming',28),('fileCopyError',29),('fileCopySuccess',30),('fileCopyCompleted',31)))
-_Hiway_ObjectIdentity=ObjectIdentity
-hiway=_Hiway_ObjectIdentity((1,3,6,1,4,1,248,13))
-_FastEtherSwitch24_ObjectIdentity=ObjectIdentity
-fastEtherSwitch24=_FastEtherSwitch24_ObjectIdentity((1,3,6,1,4,1,248,13,7))
-_Lion24tpMIBObjects_ObjectIdentity=ObjectIdentity
-lion24tpMIBObjects=_Lion24tpMIBObjects_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1))
-_SwitchMgt_ObjectIdentity=ObjectIdentity
-switchMgt=_SwitchMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,1))
-_SwitchNumber_Type=Integer32
-_SwitchNumber_Object=MibScalar
-switchNumber=_SwitchNumber_Object((1,3,6,1,4,1,248,13,7,4,1,1,2),_SwitchNumber_Type())
-switchNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:switchNumber.setStatus(_A)
-_SwitchInfoTable_Object=MibTable
-switchInfoTable=_SwitchInfoTable_Object((1,3,6,1,4,1,248,13,7,4,1,1,3))
-if mibBuilder.loadTexts:switchInfoTable.setStatus(_A)
-_SwitchInfoEntry_Object=MibTableRow
-switchInfoEntry=_SwitchInfoEntry_Object((1,3,6,1,4,1,248,13,7,4,1,1,3,1))
-switchInfoEntry.setIndexNames((0,_F,_A3))
-if mibBuilder.loadTexts:switchInfoEntry.setStatus(_A)
-_SwUnitIndex_Type=Integer32
-_SwUnitIndex_Object=MibTableColumn
-swUnitIndex=_SwUnitIndex_Object((1,3,6,1,4,1,248,13,7,4,1,1,3,1,1),_SwUnitIndex_Type())
-swUnitIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:swUnitIndex.setStatus(_A)
-class _SwHardwareVer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_SwHardwareVer_Type.__name__=_H
-_SwHardwareVer_Object=MibTableColumn
-swHardwareVer=_SwHardwareVer_Object((1,3,6,1,4,1,248,13,7,4,1,1,3,1,2),_SwHardwareVer_Type())
-swHardwareVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:swHardwareVer.setStatus(_A)
-class _SwMicrocodeVer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_SwMicrocodeVer_Type.__name__=_H
-_SwMicrocodeVer_Object=MibTableColumn
-swMicrocodeVer=_SwMicrocodeVer_Object((1,3,6,1,4,1,248,13,7,4,1,1,3,1,3),_SwMicrocodeVer_Type())
-swMicrocodeVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:swMicrocodeVer.setStatus(_A)
-class _SwLoaderVer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_SwLoaderVer_Type.__name__=_H
-_SwLoaderVer_Object=MibTableColumn
-swLoaderVer=_SwLoaderVer_Object((1,3,6,1,4,1,248,13,7,4,1,1,3,1,4),_SwLoaderVer_Type())
-swLoaderVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:swLoaderVer.setStatus(_A)
-class _SwBootRomVer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_SwBootRomVer_Type.__name__=_H
-_SwBootRomVer_Object=MibTableColumn
-swBootRomVer=_SwBootRomVer_Object((1,3,6,1,4,1,248,13,7,4,1,1,3,1,5),_SwBootRomVer_Type())
-swBootRomVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:swBootRomVer.setStatus(_A)
-class _SwOpCodeVer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_SwOpCodeVer_Type.__name__=_H
-_SwOpCodeVer_Object=MibTableColumn
-swOpCodeVer=_SwOpCodeVer_Object((1,3,6,1,4,1,248,13,7,4,1,1,3,1,6),_SwOpCodeVer_Type())
-swOpCodeVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:swOpCodeVer.setStatus(_A)
-_SwPortNumber_Type=Integer32
-_SwPortNumber_Object=MibTableColumn
-swPortNumber=_SwPortNumber_Object((1,3,6,1,4,1,248,13,7,4,1,1,3,1,7),_SwPortNumber_Type())
-swPortNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:swPortNumber.setStatus(_A)
-class _SwPowerStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_A4,1),('redundantPower',2),('internalAndRedundantPower',3)))
-_SwPowerStatus_Type.__name__=_C
-_SwPowerStatus_Object=MibTableColumn
-swPowerStatus=_SwPowerStatus_Object((1,3,6,1,4,1,248,13,7,4,1,1,3,1,8),_SwPowerStatus_Type())
-swPowerStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:swPowerStatus.setStatus(_A)
-class _SwRoleInSystem_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('master',1),('backupMaster',2),('slave',3)))
-_SwRoleInSystem_Type.__name__=_C
-_SwRoleInSystem_Object=MibTableColumn
-swRoleInSystem=_SwRoleInSystem_Object((1,3,6,1,4,1,248,13,7,4,1,1,3,1,9),_SwRoleInSystem_Type())
-swRoleInSystem.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRoleInSystem.setStatus(_A)
-class _SwSerialNumber_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_SwSerialNumber_Type.__name__=_H
-_SwSerialNumber_Object=MibTableColumn
-swSerialNumber=_SwSerialNumber_Object((1,3,6,1,4,1,248,13,7,4,1,1,3,1,10),_SwSerialNumber_Type())
-swSerialNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:swSerialNumber.setStatus(_A)
-class _SwExpansionSlot1_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19)));namedValues=NamedValues(*((_Q,1),(_M,2),(_b,3),(_c,4),(_d,5),(_e,6),(_f,7),(_g,8),(_h,9),(_R,10),(_i,11),(_S,12),(_j,13),(_k,14),(_l,15),(_m,16),(_n,17),(_o,18),(_p,19)))
-_SwExpansionSlot1_Type.__name__=_C
-_SwExpansionSlot1_Object=MibTableColumn
-swExpansionSlot1=_SwExpansionSlot1_Object((1,3,6,1,4,1,248,13,7,4,1,1,3,1,11),_SwExpansionSlot1_Type())
-swExpansionSlot1.setMaxAccess(_B)
-if mibBuilder.loadTexts:swExpansionSlot1.setStatus(_A)
-class _SwExpansionSlot2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19)));namedValues=NamedValues(*((_Q,1),(_M,2),(_b,3),(_c,4),(_d,5),(_e,6),(_f,7),(_g,8),(_h,9),(_R,10),(_i,11),(_S,12),(_j,13),(_k,14),(_l,15),(_m,16),(_n,17),(_o,18),(_p,19)))
-_SwExpansionSlot2_Type.__name__=_C
-_SwExpansionSlot2_Object=MibTableColumn
-swExpansionSlot2=_SwExpansionSlot2_Object((1,3,6,1,4,1,248,13,7,4,1,1,3,1,12),_SwExpansionSlot2_Type())
-swExpansionSlot2.setMaxAccess(_B)
-if mibBuilder.loadTexts:swExpansionSlot2.setStatus(_A)
-class _SwServiceTag_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_SwServiceTag_Type.__name__=_H
-_SwServiceTag_Object=MibTableColumn
-swServiceTag=_SwServiceTag_Object((1,3,6,1,4,1,248,13,7,4,1,1,3,1,13),_SwServiceTag_Type())
-swServiceTag.setMaxAccess(_B)
-if mibBuilder.loadTexts:swServiceTag.setStatus(_A)
-class _SwModelNumber_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_SwModelNumber_Type.__name__=_H
-_SwModelNumber_Object=MibTableColumn
-swModelNumber=_SwModelNumber_Object((1,3,6,1,4,1,248,13,7,4,1,1,3,1,14),_SwModelNumber_Type())
-swModelNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:swModelNumber.setStatus(_A)
-class _SwEpldVer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_SwEpldVer_Type.__name__=_H
-_SwEpldVer_Object=MibTableColumn
-swEpldVer=_SwEpldVer_Object((1,3,6,1,4,1,248,13,7,4,1,1,3,1,15),_SwEpldVer_Type())
-swEpldVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:swEpldVer.setStatus(_A)
-class _SwExpectedModuleOpCodeVer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_SwExpectedModuleOpCodeVer_Type.__name__=_H
-_SwExpectedModuleOpCodeVer_Object=MibTableColumn
-swExpectedModuleOpCodeVer=_SwExpectedModuleOpCodeVer_Object((1,3,6,1,4,1,248,13,7,4,1,1,3,1,16),_SwExpectedModuleOpCodeVer_Type())
-swExpectedModuleOpCodeVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:swExpectedModuleOpCodeVer.setStatus(_A)
-class _SwitchOperState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_M,1),(_q,2),('ok',3),('noncritical',4),('critical',5),('nonrecoverable',6)))
-_SwitchOperState_Type.__name__=_C
-_SwitchOperState_Object=MibScalar
-switchOperState=_SwitchOperState_Object((1,3,6,1,4,1,248,13,7,4,1,1,4),_SwitchOperState_Type())
-switchOperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:switchOperState.setStatus(_A)
-_SwitchProductId_ObjectIdentity=ObjectIdentity
-switchProductId=_SwitchProductId_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,1,5))
-class _SwProdName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
-_SwProdName_Type.__name__=_H
-_SwProdName_Object=MibScalar
-swProdName=_SwProdName_Object((1,3,6,1,4,1,248,13,7,4,1,1,5,1),_SwProdName_Type())
-swProdName.setMaxAccess(_B)
-if mibBuilder.loadTexts:swProdName.setStatus(_A)
-class _SwProdManufacturer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
-_SwProdManufacturer_Type.__name__=_H
-_SwProdManufacturer_Object=MibScalar
-swProdManufacturer=_SwProdManufacturer_Object((1,3,6,1,4,1,248,13,7,4,1,1,5,2),_SwProdManufacturer_Type())
-swProdManufacturer.setMaxAccess(_B)
-if mibBuilder.loadTexts:swProdManufacturer.setStatus(_A)
-class _SwProdDescription_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
-_SwProdDescription_Type.__name__=_H
-_SwProdDescription_Object=MibScalar
-swProdDescription=_SwProdDescription_Object((1,3,6,1,4,1,248,13,7,4,1,1,5,3),_SwProdDescription_Type())
-swProdDescription.setMaxAccess(_B)
-if mibBuilder.loadTexts:swProdDescription.setStatus(_A)
-class _SwProdVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
-_SwProdVersion_Type.__name__=_H
-_SwProdVersion_Object=MibScalar
-swProdVersion=_SwProdVersion_Object((1,3,6,1,4,1,248,13,7,4,1,1,5,4),_SwProdVersion_Type())
-swProdVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:swProdVersion.setStatus(_A)
-class _SwProdUrl_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
-_SwProdUrl_Type.__name__=_H
-_SwProdUrl_Object=MibScalar
-swProdUrl=_SwProdUrl_Object((1,3,6,1,4,1,248,13,7,4,1,1,5,5),_SwProdUrl_Type())
-swProdUrl.setMaxAccess(_B)
-if mibBuilder.loadTexts:swProdUrl.setStatus(_A)
-_SwIdentifier_Type=Integer32
-_SwIdentifier_Object=MibScalar
-swIdentifier=_SwIdentifier_Object((1,3,6,1,4,1,248,13,7,4,1,1,5,6),_SwIdentifier_Type())
-swIdentifier.setMaxAccess(_B)
-if mibBuilder.loadTexts:swIdentifier.setStatus(_A)
-class _SwChassisServiceTag_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_SwChassisServiceTag_Type.__name__=_H
-_SwChassisServiceTag_Object=MibScalar
-swChassisServiceTag=_SwChassisServiceTag_Object((1,3,6,1,4,1,248,13,7,4,1,1,5,7),_SwChassisServiceTag_Type())
-swChassisServiceTag.setMaxAccess(_B)
-if mibBuilder.loadTexts:swChassisServiceTag.setStatus(_A)
-_SwitchIndivPowerTable_Object=MibTable
-switchIndivPowerTable=_SwitchIndivPowerTable_Object((1,3,6,1,4,1,248,13,7,4,1,1,6))
-if mibBuilder.loadTexts:switchIndivPowerTable.setStatus(_A)
-_SwitchIndivPowerEntry_Object=MibTableRow
-switchIndivPowerEntry=_SwitchIndivPowerEntry_Object((1,3,6,1,4,1,248,13,7,4,1,1,6,1))
-switchIndivPowerEntry.setIndexNames((0,_F,_r),(0,_F,_s))
-if mibBuilder.loadTexts:switchIndivPowerEntry.setStatus(_A)
-_SwIndivPowerUnitIndex_Type=Integer32
-_SwIndivPowerUnitIndex_Object=MibTableColumn
-swIndivPowerUnitIndex=_SwIndivPowerUnitIndex_Object((1,3,6,1,4,1,248,13,7,4,1,1,6,1,1),_SwIndivPowerUnitIndex_Type())
-swIndivPowerUnitIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:swIndivPowerUnitIndex.setStatus(_A)
-class _SwIndivPowerIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_A4,1),('externalPower',2)))
-_SwIndivPowerIndex_Type.__name__=_C
-_SwIndivPowerIndex_Object=MibTableColumn
-swIndivPowerIndex=_SwIndivPowerIndex_Object((1,3,6,1,4,1,248,13,7,4,1,1,6,1,2),_SwIndivPowerIndex_Type())
-swIndivPowerIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:swIndivPowerIndex.setStatus(_A)
-class _SwIndivPowerStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_Q,1),('green',2),('red',3)))
-_SwIndivPowerStatus_Type.__name__=_C
-_SwIndivPowerStatus_Object=MibTableColumn
-swIndivPowerStatus=_SwIndivPowerStatus_Object((1,3,6,1,4,1,248,13,7,4,1,1,6,1,3),_SwIndivPowerStatus_Type())
-swIndivPowerStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:swIndivPowerStatus.setStatus(_A)
-class _SwitchJumboFrameStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),(_T,2)))
-_SwitchJumboFrameStatus_Type.__name__=_C
-_SwitchJumboFrameStatus_Object=MibScalar
-switchJumboFrameStatus=_SwitchJumboFrameStatus_Object((1,3,6,1,4,1,248,13,7,4,1,1,7),_SwitchJumboFrameStatus_Type())
-switchJumboFrameStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:switchJumboFrameStatus.setStatus(_A)
-_AmtrMgt_ObjectIdentity=ObjectIdentity
-amtrMgt=_AmtrMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,1,8))
-_AmtrMacAddrAgingStatus_Type=EnabledStatus
-_AmtrMacAddrAgingStatus_Object=MibScalar
-amtrMacAddrAgingStatus=_AmtrMacAddrAgingStatus_Object((1,3,6,1,4,1,248,13,7,4,1,1,8,3),_AmtrMacAddrAgingStatus_Type())
-amtrMacAddrAgingStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:amtrMacAddrAgingStatus.setStatus(_A)
-_SwitchFanTable_Object=MibTable
-switchFanTable=_SwitchFanTable_Object((1,3,6,1,4,1,248,13,7,4,1,1,9))
-if mibBuilder.loadTexts:switchFanTable.setStatus(_A)
-_SwitchFanEntry_Object=MibTableRow
-switchFanEntry=_SwitchFanEntry_Object((1,3,6,1,4,1,248,13,7,4,1,1,9,1))
-switchFanEntry.setIndexNames((0,_F,_U),(0,_F,_V))
-if mibBuilder.loadTexts:switchFanEntry.setStatus(_A)
-_SwitchUnitIndex_Type=Integer32
-_SwitchUnitIndex_Object=MibTableColumn
-switchUnitIndex=_SwitchUnitIndex_Object((1,3,6,1,4,1,248,13,7,4,1,1,9,1,1),_SwitchUnitIndex_Type())
-switchUnitIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:switchUnitIndex.setStatus(_A)
-_SwitchFanIndex_Type=Integer32
-_SwitchFanIndex_Object=MibTableColumn
-switchFanIndex=_SwitchFanIndex_Object((1,3,6,1,4,1,248,13,7,4,1,1,9,1,2),_SwitchFanIndex_Type())
-switchFanIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:switchFanIndex.setStatus(_A)
-class _SwitchFanStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ok',1),(_t,2)))
-_SwitchFanStatus_Type.__name__=_C
-_SwitchFanStatus_Object=MibTableColumn
-switchFanStatus=_SwitchFanStatus_Object((1,3,6,1,4,1,248,13,7,4,1,1,9,1,3),_SwitchFanStatus_Type())
-switchFanStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:switchFanStatus.setStatus(_A)
-_SwitchFanAdminSpeed_Type=Integer32
-_SwitchFanAdminSpeed_Object=MibTableColumn
-switchFanAdminSpeed=_SwitchFanAdminSpeed_Object((1,3,6,1,4,1,248,13,7,4,1,1,9,1,4),_SwitchFanAdminSpeed_Type())
-switchFanAdminSpeed.setMaxAccess(_D)
-if mibBuilder.loadTexts:switchFanAdminSpeed.setStatus(_A)
-_SwitchFanFailureCount_Type=Integer32
-_SwitchFanFailureCount_Object=MibTableColumn
-switchFanFailureCount=_SwitchFanFailureCount_Object((1,3,6,1,4,1,248,13,7,4,1,1,9,1,5),_SwitchFanFailureCount_Type())
-switchFanFailureCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:switchFanFailureCount.setStatus(_A)
-_SwitchFanOperSpeed_Type=Integer32
-_SwitchFanOperSpeed_Object=MibTableColumn
-switchFanOperSpeed=_SwitchFanOperSpeed_Object((1,3,6,1,4,1,248,13,7,4,1,1,9,1,6),_SwitchFanOperSpeed_Type())
-switchFanOperSpeed.setMaxAccess(_B)
-if mibBuilder.loadTexts:switchFanOperSpeed.setStatus(_A)
-_SwitchThermalTempTable_Object=MibTable
-switchThermalTempTable=_SwitchThermalTempTable_Object((1,3,6,1,4,1,248,13,7,4,1,1,11))
-if mibBuilder.loadTexts:switchThermalTempTable.setStatus(_A)
-_SwitchThermalTempEntry_Object=MibTableRow
-switchThermalTempEntry=_SwitchThermalTempEntry_Object((1,3,6,1,4,1,248,13,7,4,1,1,11,1))
-switchThermalTempEntry.setIndexNames((0,_F,_A5),(0,_F,_A6))
-if mibBuilder.loadTexts:switchThermalTempEntry.setStatus(_A)
-_SwitchThermalTempUnitIndex_Type=Integer32
-_SwitchThermalTempUnitIndex_Object=MibTableColumn
-switchThermalTempUnitIndex=_SwitchThermalTempUnitIndex_Object((1,3,6,1,4,1,248,13,7,4,1,1,11,1,1),_SwitchThermalTempUnitIndex_Type())
-switchThermalTempUnitIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:switchThermalTempUnitIndex.setStatus(_A)
-_SwitchThermalTempThermalIndex_Type=Integer32
-_SwitchThermalTempThermalIndex_Object=MibTableColumn
-switchThermalTempThermalIndex=_SwitchThermalTempThermalIndex_Object((1,3,6,1,4,1,248,13,7,4,1,1,11,1,2),_SwitchThermalTempThermalIndex_Type())
-switchThermalTempThermalIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:switchThermalTempThermalIndex.setStatus(_A)
-_SwitchThermalTempValue_Type=Integer32
-_SwitchThermalTempValue_Object=MibTableColumn
-switchThermalTempValue=_SwitchThermalTempValue_Object((1,3,6,1,4,1,248,13,7,4,1,1,11,1,3),_SwitchThermalTempValue_Type())
-switchThermalTempValue.setMaxAccess(_B)
-if mibBuilder.loadTexts:switchThermalTempValue.setStatus(_A)
-_SwitchThermalActionTable_Object=MibTable
-switchThermalActionTable=_SwitchThermalActionTable_Object((1,3,6,1,4,1,248,13,7,4,1,1,12))
-if mibBuilder.loadTexts:switchThermalActionTable.setStatus(_A)
-_SwitchThermalActionEntry_Object=MibTableRow
-switchThermalActionEntry=_SwitchThermalActionEntry_Object((1,3,6,1,4,1,248,13,7,4,1,1,12,1))
-switchThermalActionEntry.setIndexNames((0,_F,_A7),(0,_F,_A8),(0,_F,_A9))
-if mibBuilder.loadTexts:switchThermalActionEntry.setStatus(_A)
-_SwitchThermalActionUnitIndex_Type=Integer32
-_SwitchThermalActionUnitIndex_Object=MibTableColumn
-switchThermalActionUnitIndex=_SwitchThermalActionUnitIndex_Object((1,3,6,1,4,1,248,13,7,4,1,1,12,1,1),_SwitchThermalActionUnitIndex_Type())
-switchThermalActionUnitIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:switchThermalActionUnitIndex.setStatus(_A)
-_SwitchThermalActionThermalIndex_Type=Integer32
-_SwitchThermalActionThermalIndex_Object=MibTableColumn
-switchThermalActionThermalIndex=_SwitchThermalActionThermalIndex_Object((1,3,6,1,4,1,248,13,7,4,1,1,12,1,2),_SwitchThermalActionThermalIndex_Type())
-switchThermalActionThermalIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:switchThermalActionThermalIndex.setStatus(_A)
-_SwitchThermalActionIndex_Type=Integer32
-_SwitchThermalActionIndex_Object=MibTableColumn
-switchThermalActionIndex=_SwitchThermalActionIndex_Object((1,3,6,1,4,1,248,13,7,4,1,1,12,1,3),_SwitchThermalActionIndex_Type())
-switchThermalActionIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:switchThermalActionIndex.setStatus(_A)
-_SwitchThermalActionRisingThreshold_Type=Integer32
-_SwitchThermalActionRisingThreshold_Object=MibTableColumn
-switchThermalActionRisingThreshold=_SwitchThermalActionRisingThreshold_Object((1,3,6,1,4,1,248,13,7,4,1,1,12,1,4),_SwitchThermalActionRisingThreshold_Type())
-switchThermalActionRisingThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:switchThermalActionRisingThreshold.setStatus(_A)
-_SwitchThermalActionFallingThreshold_Type=Integer32
-_SwitchThermalActionFallingThreshold_Object=MibTableColumn
-switchThermalActionFallingThreshold=_SwitchThermalActionFallingThreshold_Object((1,3,6,1,4,1,248,13,7,4,1,1,12,1,5),_SwitchThermalActionFallingThreshold_Type())
-switchThermalActionFallingThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:switchThermalActionFallingThreshold.setStatus(_A)
-class _SwitchThermalActionAction_Type(Bits):namedValues=NamedValues(('trap',0))
-_SwitchThermalActionAction_Type.__name__=_L
-_SwitchThermalActionAction_Object=MibTableColumn
-switchThermalActionAction=_SwitchThermalActionAction_Object((1,3,6,1,4,1,248,13,7,4,1,1,12,1,6),_SwitchThermalActionAction_Type())
-switchThermalActionAction.setMaxAccess(_E)
-if mibBuilder.loadTexts:switchThermalActionAction.setStatus(_A)
-_SwitchThermalActionStatus_Type=ValidStatus
-_SwitchThermalActionStatus_Object=MibTableColumn
-switchThermalActionStatus=_SwitchThermalActionStatus_Object((1,3,6,1,4,1,248,13,7,4,1,1,12,1,7),_SwitchThermalActionStatus_Type())
-switchThermalActionStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:switchThermalActionStatus.setStatus(_A)
-_SwitchModuleInfoTable_Object=MibTable
-switchModuleInfoTable=_SwitchModuleInfoTable_Object((1,3,6,1,4,1,248,13,7,4,1,1,13))
-if mibBuilder.loadTexts:switchModuleInfoTable.setStatus(_A)
-_SwitchModuleInfoEntry_Object=MibTableRow
-switchModuleInfoEntry=_SwitchModuleInfoEntry_Object((1,3,6,1,4,1,248,13,7,4,1,1,13,1))
-switchModuleInfoEntry.setIndexNames((0,_F,_AA),(0,_F,_AB))
-if mibBuilder.loadTexts:switchModuleInfoEntry.setStatus(_A)
-_SwModuleUnitIndex_Type=Integer32
-_SwModuleUnitIndex_Object=MibTableColumn
-swModuleUnitIndex=_SwModuleUnitIndex_Object((1,3,6,1,4,1,248,13,7,4,1,1,13,1,1),_SwModuleUnitIndex_Type())
-swModuleUnitIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:swModuleUnitIndex.setStatus(_A)
-_SwModuleModuleIndex_Type=Integer32
-_SwModuleModuleIndex_Object=MibTableColumn
-swModuleModuleIndex=_SwModuleModuleIndex_Object((1,3,6,1,4,1,248,13,7,4,1,1,13,1,2),_SwModuleModuleIndex_Type())
-swModuleModuleIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:swModuleModuleIndex.setStatus(_A)
-class _SwModuleHardwareVer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_SwModuleHardwareVer_Type.__name__=_H
-_SwModuleHardwareVer_Object=MibTableColumn
-swModuleHardwareVer=_SwModuleHardwareVer_Object((1,3,6,1,4,1,248,13,7,4,1,1,13,1,3),_SwModuleHardwareVer_Type())
-swModuleHardwareVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:swModuleHardwareVer.setStatus(_A)
-class _SwModuleMicrocodeVer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_SwModuleMicrocodeVer_Type.__name__=_H
-_SwModuleMicrocodeVer_Object=MibTableColumn
-swModuleMicrocodeVer=_SwModuleMicrocodeVer_Object((1,3,6,1,4,1,248,13,7,4,1,1,13,1,4),_SwModuleMicrocodeVer_Type())
-swModuleMicrocodeVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:swModuleMicrocodeVer.setStatus(_A)
-class _SwModuleLoaderVer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_SwModuleLoaderVer_Type.__name__=_H
-_SwModuleLoaderVer_Object=MibTableColumn
-swModuleLoaderVer=_SwModuleLoaderVer_Object((1,3,6,1,4,1,248,13,7,4,1,1,13,1,5),_SwModuleLoaderVer_Type())
-swModuleLoaderVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:swModuleLoaderVer.setStatus(_A)
-class _SwModuleBootRomVer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_SwModuleBootRomVer_Type.__name__=_H
-_SwModuleBootRomVer_Object=MibTableColumn
-swModuleBootRomVer=_SwModuleBootRomVer_Object((1,3,6,1,4,1,248,13,7,4,1,1,13,1,6),_SwModuleBootRomVer_Type())
-swModuleBootRomVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:swModuleBootRomVer.setStatus(_A)
-class _SwModuleOpCodeVer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_SwModuleOpCodeVer_Type.__name__=_H
-_SwModuleOpCodeVer_Object=MibTableColumn
-swModuleOpCodeVer=_SwModuleOpCodeVer_Object((1,3,6,1,4,1,248,13,7,4,1,1,13,1,7),_SwModuleOpCodeVer_Type())
-swModuleOpCodeVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:swModuleOpCodeVer.setStatus(_A)
-_SwModulePortNumber_Type=Integer32
-_SwModulePortNumber_Object=MibTableColumn
-swModulePortNumber=_SwModulePortNumber_Object((1,3,6,1,4,1,248,13,7,4,1,1,13,1,8),_SwModulePortNumber_Type())
-swModulePortNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:swModulePortNumber.setStatus(_A)
-class _SwModuleSerialNumber_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_SwModuleSerialNumber_Type.__name__=_H
-_SwModuleSerialNumber_Object=MibTableColumn
-swModuleSerialNumber=_SwModuleSerialNumber_Object((1,3,6,1,4,1,248,13,7,4,1,1,13,1,9),_SwModuleSerialNumber_Type())
-swModuleSerialNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:swModuleSerialNumber.setStatus(_A)
-class _SwModuleType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19)));namedValues=NamedValues(*((_Q,1),(_M,2),(_b,3),(_c,4),(_d,5),(_e,6),(_f,7),(_g,8),(_h,9),(_R,10),(_i,11),(_S,12),(_j,13),(_k,14),(_l,15),(_m,16),(_n,17),(_o,18),(_p,19)))
-_SwModuleType_Type.__name__=_C
-_SwModuleType_Object=MibTableColumn
-swModuleType=_SwModuleType_Object((1,3,6,1,4,1,248,13,7,4,1,1,13,1,10),_SwModuleType_Type())
-swModuleType.setMaxAccess(_B)
-if mibBuilder.loadTexts:swModuleType.setStatus(_A)
-class _SwModuleModelNumber_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_SwModuleModelNumber_Type.__name__=_H
-_SwModuleModelNumber_Object=MibTableColumn
-swModuleModelNumber=_SwModuleModelNumber_Object((1,3,6,1,4,1,248,13,7,4,1,1,13,1,11),_SwModuleModelNumber_Type())
-swModuleModelNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:swModuleModelNumber.setStatus(_A)
-class _SwModuleEpldVer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_SwModuleEpldVer_Type.__name__=_H
-_SwModuleEpldVer_Object=MibTableColumn
-swModuleEpldVer=_SwModuleEpldVer_Object((1,3,6,1,4,1,248,13,7,4,1,1,13,1,12),_SwModuleEpldVer_Type())
-swModuleEpldVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:swModuleEpldVer.setStatus(_A)
-class _SwModuleDescr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_SwModuleDescr_Type.__name__=_H
-_SwModuleDescr_Object=MibTableColumn
-swModuleDescr=_SwModuleDescr_Object((1,3,6,1,4,1,248,13,7,4,1,1,13,1,13),_SwModuleDescr_Type())
-swModuleDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:swModuleDescr.setStatus(_A)
-class _SwitchRenumberUnitID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('renumber',1),('noRenumber',2)))
-_SwitchRenumberUnitID_Type.__name__=_C
-_SwitchRenumberUnitID_Object=MibScalar
-switchRenumberUnitID=_SwitchRenumberUnitID_Object((1,3,6,1,4,1,248,13,7,4,1,1,14),_SwitchRenumberUnitID_Type())
-switchRenumberUnitID.setMaxAccess(_D)
-if mibBuilder.loadTexts:switchRenumberUnitID.setStatus(_A)
-_PortMgt_ObjectIdentity=ObjectIdentity
-portMgt=_PortMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,2))
-_PortTable_Object=MibTable
-portTable=_PortTable_Object((1,3,6,1,4,1,248,13,7,4,1,2,1))
-if mibBuilder.loadTexts:portTable.setStatus(_A)
-_PortEntry_Object=MibTableRow
-portEntry=_PortEntry_Object((1,3,6,1,4,1,248,13,7,4,1,2,1,1))
-portEntry.setIndexNames((0,_F,_AC))
-if mibBuilder.loadTexts:portEntry.setStatus(_A)
-_PortIndex_Type=Integer32
-_PortIndex_Object=MibTableColumn
-portIndex=_PortIndex_Object((1,3,6,1,4,1,248,13,7,4,1,2,1,1,1),_PortIndex_Type())
-portIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:portIndex.setStatus(_A)
-class _PortName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_PortName_Type.__name__=_H
-_PortName_Object=MibTableColumn
-portName=_PortName_Object((1,3,6,1,4,1,248,13,7,4,1,2,1,1,2),_PortName_Type())
-portName.setMaxAccess(_D)
-if mibBuilder.loadTexts:portName.setStatus(_A)
-class _PortType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12)));namedValues=NamedValues(*((_M,1),('hundredBaseTX',2),('hundredBaseFX',3),('thousandBaseSX',4),('thousandBaseLX',5),(_R,6),('thousandBaseGBIC',7),(_S,8),('hundredBaseFxScSingleMode',9),('hundredBaseFxScMultiMode',10),('thousandBaseCX',11),('tenG',12)))
-_PortType_Type.__name__=_C
-_PortType_Object=MibTableColumn
-portType=_PortType_Object((1,3,6,1,4,1,248,13,7,4,1,2,1,1,3),_PortType_Type())
-portType.setMaxAccess(_B)
-if mibBuilder.loadTexts:portType.setStatus(_A)
-class _PortSpeedDpxCfg_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('reserved',1),(_AD,2),(_AE,3),(_AF,4),(_AG,5),(_AH,6),(_AI,7),(_AJ,8),(_AK,9)))
-_PortSpeedDpxCfg_Type.__name__=_C
-_PortSpeedDpxCfg_Object=MibTableColumn
-portSpeedDpxCfg=_PortSpeedDpxCfg_Object((1,3,6,1,4,1,248,13,7,4,1,2,1,1,4),_PortSpeedDpxCfg_Type())
-portSpeedDpxCfg.setMaxAccess(_D)
-if mibBuilder.loadTexts:portSpeedDpxCfg.setStatus(_A)
-class _PortFlowCtrlCfg_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,5,6)));namedValues=NamedValues(*(('enabled',1),(_T,2),('tx',5),('rx',6)))
-_PortFlowCtrlCfg_Type.__name__=_C
-_PortFlowCtrlCfg_Object=MibTableColumn
-portFlowCtrlCfg=_PortFlowCtrlCfg_Object((1,3,6,1,4,1,248,13,7,4,1,2,1,1,5),_PortFlowCtrlCfg_Type())
-portFlowCtrlCfg.setMaxAccess(_D)
-if mibBuilder.loadTexts:portFlowCtrlCfg.setStatus(_A)
-class _PortCapabilities_Type(Bits):namedValues=NamedValues(*(('portCap10half',0),('portCap10full',1),('portCap100half',2),('portCap100full',3),('portCap1000half',4),('portCap1000full',5),('portCap10gHalf',6),('portCap10gFull',7),('reserved8',8),('reserved9',9),('reserved10',10),('reserved11',11),('reserved12',12),('reserved13',13),('portCapSym',14),('portCapFlowCtrl',15)))
-_PortCapabilities_Type.__name__=_L
-_PortCapabilities_Object=MibTableColumn
-portCapabilities=_PortCapabilities_Object((1,3,6,1,4,1,248,13,7,4,1,2,1,1,6),_PortCapabilities_Type())
-portCapabilities.setMaxAccess(_D)
-if mibBuilder.loadTexts:portCapabilities.setStatus(_A)
-_PortAutonegotiation_Type=EnabledStatus
-_PortAutonegotiation_Object=MibTableColumn
-portAutonegotiation=_PortAutonegotiation_Object((1,3,6,1,4,1,248,13,7,4,1,2,1,1,7),_PortAutonegotiation_Type())
-portAutonegotiation.setMaxAccess(_D)
-if mibBuilder.loadTexts:portAutonegotiation.setStatus(_A)
-class _PortSpeedDpxStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('error',1),(_AD,2),(_AE,3),(_AF,4),(_AG,5),(_AH,6),(_AI,7),(_AJ,8),(_AK,9)))
-_PortSpeedDpxStatus_Type.__name__=_C
-_PortSpeedDpxStatus_Object=MibTableColumn
-portSpeedDpxStatus=_PortSpeedDpxStatus_Object((1,3,6,1,4,1,248,13,7,4,1,2,1,1,8),_PortSpeedDpxStatus_Type())
-portSpeedDpxStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:portSpeedDpxStatus.setStatus(_A)
-class _PortFlowCtrlStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('error',1),('backPressure',2),('dot3xFlowControl',3),(_N,4)))
-_PortFlowCtrlStatus_Type.__name__=_C
-_PortFlowCtrlStatus_Object=MibTableColumn
-portFlowCtrlStatus=_PortFlowCtrlStatus_Object((1,3,6,1,4,1,248,13,7,4,1,2,1,1,9),_PortFlowCtrlStatus_Type())
-portFlowCtrlStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:portFlowCtrlStatus.setStatus(_A)
-_PortTrunkIndex_Type=Integer32
-_PortTrunkIndex_Object=MibTableColumn
-portTrunkIndex=_PortTrunkIndex_Object((1,3,6,1,4,1,248,13,7,4,1,2,1,1,10),_PortTrunkIndex_Type())
-portTrunkIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:portTrunkIndex.setStatus(_A)
-class _PortComboForcedMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_N,1),('copperForced',2),('copperPreferredAuto',3),('sfpForced',4),('sfpPreferredAuto',5)))
-_PortComboForcedMode_Type.__name__=_C
-_PortComboForcedMode_Object=MibTableColumn
-portComboForcedMode=_PortComboForcedMode_Object((1,3,6,1,4,1,248,13,7,4,1,2,1,1,12),_PortComboForcedMode_Type())
-portComboForcedMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:portComboForcedMode.setStatus(_A)
-_TrunkMgt_ObjectIdentity=ObjectIdentity
-trunkMgt=_TrunkMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,3))
-_TrunkMaxId_Type=Integer32
-_TrunkMaxId_Object=MibScalar
-trunkMaxId=_TrunkMaxId_Object((1,3,6,1,4,1,248,13,7,4,1,3,1),_TrunkMaxId_Type())
-trunkMaxId.setMaxAccess(_B)
-if mibBuilder.loadTexts:trunkMaxId.setStatus(_A)
-_TrunkValidNumber_Type=Integer32
-_TrunkValidNumber_Object=MibScalar
-trunkValidNumber=_TrunkValidNumber_Object((1,3,6,1,4,1,248,13,7,4,1,3,2),_TrunkValidNumber_Type())
-trunkValidNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:trunkValidNumber.setStatus(_A)
-_TrunkTable_Object=MibTable
-trunkTable=_TrunkTable_Object((1,3,6,1,4,1,248,13,7,4,1,3,3))
-if mibBuilder.loadTexts:trunkTable.setStatus(_A)
-_TrunkEntry_Object=MibTableRow
-trunkEntry=_TrunkEntry_Object((1,3,6,1,4,1,248,13,7,4,1,3,3,1))
-trunkEntry.setIndexNames((0,_F,_AL))
-if mibBuilder.loadTexts:trunkEntry.setStatus(_A)
-_TrunkIndex_Type=Integer32
-_TrunkIndex_Object=MibTableColumn
-trunkIndex=_TrunkIndex_Object((1,3,6,1,4,1,248,13,7,4,1,3,3,1,1),_TrunkIndex_Type())
-trunkIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:trunkIndex.setStatus(_A)
-_TrunkPorts_Type=PortList
-_TrunkPorts_Object=MibTableColumn
-trunkPorts=_TrunkPorts_Object((1,3,6,1,4,1,248,13,7,4,1,3,3,1,2),_TrunkPorts_Type())
-trunkPorts.setMaxAccess(_E)
-if mibBuilder.loadTexts:trunkPorts.setStatus(_A)
-class _TrunkCreation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('static',1),('lacp',2)))
-_TrunkCreation_Type.__name__=_C
-_TrunkCreation_Object=MibTableColumn
-trunkCreation=_TrunkCreation_Object((1,3,6,1,4,1,248,13,7,4,1,3,3,1,3),_TrunkCreation_Type())
-trunkCreation.setMaxAccess(_B)
-if mibBuilder.loadTexts:trunkCreation.setStatus(_A)
-_TrunkStatus_Type=ValidStatus
-_TrunkStatus_Object=MibTableColumn
-trunkStatus=_TrunkStatus_Object((1,3,6,1,4,1,248,13,7,4,1,3,3,1,4),_TrunkStatus_Type())
-trunkStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:trunkStatus.setStatus(_A)
-_LacpMgt_ObjectIdentity=ObjectIdentity
-lacpMgt=_LacpMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,4))
-_LacpPortTable_Object=MibTable
-lacpPortTable=_LacpPortTable_Object((1,3,6,1,4,1,248,13,7,4,1,4,1))
-if mibBuilder.loadTexts:lacpPortTable.setStatus(_A)
-_LacpPortEntry_Object=MibTableRow
-lacpPortEntry=_LacpPortEntry_Object((1,3,6,1,4,1,248,13,7,4,1,4,1,1))
-lacpPortEntry.setIndexNames((0,_F,_AM))
-if mibBuilder.loadTexts:lacpPortEntry.setStatus(_A)
-_LacpPortIndex_Type=Integer32
-_LacpPortIndex_Object=MibTableColumn
-lacpPortIndex=_LacpPortIndex_Object((1,3,6,1,4,1,248,13,7,4,1,4,1,1,1),_LacpPortIndex_Type())
-lacpPortIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:lacpPortIndex.setStatus(_A)
-_LacpPortStatus_Type=EnabledStatus
-_LacpPortStatus_Object=MibTableColumn
-lacpPortStatus=_LacpPortStatus_Object((1,3,6,1,4,1,248,13,7,4,1,4,1,1,2),_LacpPortStatus_Type())
-lacpPortStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:lacpPortStatus.setStatus(_A)
-_StaMgt_ObjectIdentity=ObjectIdentity
-staMgt=_StaMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,5))
-class _StaSystemStatus_Type(EnabledStatus):defaultValue=1
-_StaSystemStatus_Type.__name__=_K
-_StaSystemStatus_Object=MibScalar
-staSystemStatus=_StaSystemStatus_Object((1,3,6,1,4,1,248,13,7,4,1,5,1),_StaSystemStatus_Type())
-staSystemStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:staSystemStatus.setStatus(_A)
-_StaPortTable_Object=MibTable
-staPortTable=_StaPortTable_Object((1,3,6,1,4,1,248,13,7,4,1,5,2))
-if mibBuilder.loadTexts:staPortTable.setStatus(_A)
-_StaPortEntry_Object=MibTableRow
-staPortEntry=_StaPortEntry_Object((1,3,6,1,4,1,248,13,7,4,1,5,2,1))
-if mibBuilder.loadTexts:staPortEntry.setStatus(_A)
-_StaPortFastForward_Type=EnabledStatus
-_StaPortFastForward_Object=MibTableColumn
-staPortFastForward=_StaPortFastForward_Object((1,3,6,1,4,1,248,13,7,4,1,5,2,1,2),_StaPortFastForward_Type())
-staPortFastForward.setMaxAccess(_D)
-if mibBuilder.loadTexts:staPortFastForward.setStatus(_A)
-_StaPortProtocolMigration_Type=TruthValue
-_StaPortProtocolMigration_Object=MibTableColumn
-staPortProtocolMigration=_StaPortProtocolMigration_Object((1,3,6,1,4,1,248,13,7,4,1,5,2,1,3),_StaPortProtocolMigration_Type())
-staPortProtocolMigration.setMaxAccess(_D)
-if mibBuilder.loadTexts:staPortProtocolMigration.setStatus(_A)
-_StaPortAdminEdgePort_Type=TruthValue
-_StaPortAdminEdgePort_Object=MibTableColumn
-staPortAdminEdgePort=_StaPortAdminEdgePort_Object((1,3,6,1,4,1,248,13,7,4,1,5,2,1,4),_StaPortAdminEdgePort_Type())
-staPortAdminEdgePort.setMaxAccess(_D)
-if mibBuilder.loadTexts:staPortAdminEdgePort.setStatus(_A)
-_StaPortOperEdgePort_Type=TruthValue
-_StaPortOperEdgePort_Object=MibTableColumn
-staPortOperEdgePort=_StaPortOperEdgePort_Object((1,3,6,1,4,1,248,13,7,4,1,5,2,1,5),_StaPortOperEdgePort_Type())
-staPortOperEdgePort.setMaxAccess(_B)
-if mibBuilder.loadTexts:staPortOperEdgePort.setStatus(_A)
-class _StaPortAdminPointToPoint_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('forceTrue',0),('forceFalse',1),('auto',2)))
-_StaPortAdminPointToPoint_Type.__name__=_C
-_StaPortAdminPointToPoint_Object=MibTableColumn
-staPortAdminPointToPoint=_StaPortAdminPointToPoint_Object((1,3,6,1,4,1,248,13,7,4,1,5,2,1,6),_StaPortAdminPointToPoint_Type())
-staPortAdminPointToPoint.setMaxAccess(_D)
-if mibBuilder.loadTexts:staPortAdminPointToPoint.setStatus(_A)
-_StaPortOperPointToPoint_Type=TruthValue
-_StaPortOperPointToPoint_Object=MibTableColumn
-staPortOperPointToPoint=_StaPortOperPointToPoint_Object((1,3,6,1,4,1,248,13,7,4,1,5,2,1,7),_StaPortOperPointToPoint_Type())
-staPortOperPointToPoint.setMaxAccess(_B)
-if mibBuilder.loadTexts:staPortOperPointToPoint.setStatus(_A)
-class _StaPortSystemStatus_Type(EnabledStatus):defaultValue=1
-_StaPortSystemStatus_Type.__name__=_K
-_StaPortSystemStatus_Object=MibTableColumn
-staPortSystemStatus=_StaPortSystemStatus_Object((1,3,6,1,4,1,248,13,7,4,1,5,2,1,9),_StaPortSystemStatus_Type())
-staPortSystemStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:staPortSystemStatus.setStatus(_A)
-class _StaPortLongAdminPathCost_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,200000000))
-_StaPortLongAdminPathCost_Type.__name__=_C
-_StaPortLongAdminPathCost_Object=MibTableColumn
-staPortLongAdminPathCost=_StaPortLongAdminPathCost_Object((1,3,6,1,4,1,248,13,7,4,1,5,2,1,10),_StaPortLongAdminPathCost_Type())
-staPortLongAdminPathCost.setMaxAccess(_D)
-if mibBuilder.loadTexts:staPortLongAdminPathCost.setStatus(_A)
-class _StaPortLongOperPathCost_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,200000000))
-_StaPortLongOperPathCost_Type.__name__=_C
-_StaPortLongOperPathCost_Object=MibTableColumn
-staPortLongOperPathCost=_StaPortLongOperPathCost_Object((1,3,6,1,4,1,248,13,7,4,1,5,2,1,11),_StaPortLongOperPathCost_Type())
-staPortLongOperPathCost.setMaxAccess(_B)
-if mibBuilder.loadTexts:staPortLongOperPathCost.setStatus(_A)
-class _StaProtocolType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('stp',1),('rstp',2),('mstp',3)))
-_StaProtocolType_Type.__name__=_C
-_StaProtocolType_Object=MibScalar
-staProtocolType=_StaProtocolType_Object((1,3,6,1,4,1,248,13,7,4,1,5,3),_StaProtocolType_Type())
-staProtocolType.setMaxAccess(_D)
-if mibBuilder.loadTexts:staProtocolType.setStatus(_A)
-class _StaTxHoldCount_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_StaTxHoldCount_Type.__name__=_C
-_StaTxHoldCount_Object=MibScalar
-staTxHoldCount=_StaTxHoldCount_Object((1,3,6,1,4,1,248,13,7,4,1,5,4),_StaTxHoldCount_Type())
-staTxHoldCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:staTxHoldCount.setStatus(_A)
-class _StaPathCostMethod_Type(StaPathCostMode):defaultValue=1
-_StaPathCostMethod_Type.__name__=_AN
-_StaPathCostMethod_Object=MibScalar
-staPathCostMethod=_StaPathCostMethod_Object((1,3,6,1,4,1,248,13,7,4,1,5,5),_StaPathCostMethod_Type())
-staPathCostMethod.setMaxAccess(_D)
-if mibBuilder.loadTexts:staPathCostMethod.setStatus(_A)
-_XstMgt_ObjectIdentity=ObjectIdentity
-xstMgt=_XstMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,5,6))
-class _MstName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_MstName_Type.__name__=_H
-_MstName_Object=MibScalar
-mstName=_MstName_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,1),_MstName_Type())
-mstName.setMaxAccess(_D)
-if mibBuilder.loadTexts:mstName.setStatus(_A)
-_MstRevision_Type=Integer32
-_MstRevision_Object=MibScalar
-mstRevision=_MstRevision_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,2),_MstRevision_Type())
-mstRevision.setMaxAccess(_D)
-if mibBuilder.loadTexts:mstRevision.setStatus(_A)
-class _MstMaxHops_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,40))
-_MstMaxHops_Type.__name__=_C
-_MstMaxHops_Object=MibScalar
-mstMaxHops=_MstMaxHops_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,3),_MstMaxHops_Type())
-mstMaxHops.setMaxAccess(_D)
-if mibBuilder.loadTexts:mstMaxHops.setStatus(_A)
-_XstInstanceCfgTable_Object=MibTable
-xstInstanceCfgTable=_XstInstanceCfgTable_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,4))
-if mibBuilder.loadTexts:xstInstanceCfgTable.setStatus(_A)
-_XstInstanceCfgEntry_Object=MibTableRow
-xstInstanceCfgEntry=_XstInstanceCfgEntry_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,4,1))
-xstInstanceCfgEntry.setIndexNames((0,_F,_u))
-if mibBuilder.loadTexts:xstInstanceCfgEntry.setStatus(_A)
-class _XstInstanceCfgIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,64))
-_XstInstanceCfgIndex_Type.__name__=_C
-_XstInstanceCfgIndex_Object=MibTableColumn
-xstInstanceCfgIndex=_XstInstanceCfgIndex_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,4,1,1),_XstInstanceCfgIndex_Type())
-xstInstanceCfgIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:xstInstanceCfgIndex.setStatus(_A)
-class _XstInstanceCfgPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,61440))
-_XstInstanceCfgPriority_Type.__name__=_C
-_XstInstanceCfgPriority_Object=MibTableColumn
-xstInstanceCfgPriority=_XstInstanceCfgPriority_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,4,1,2),_XstInstanceCfgPriority_Type())
-xstInstanceCfgPriority.setMaxAccess(_D)
-if mibBuilder.loadTexts:xstInstanceCfgPriority.setStatus(_A)
-_XstInstanceCfgTimeSinceTopologyChange_Type=TimeTicks
-_XstInstanceCfgTimeSinceTopologyChange_Object=MibTableColumn
-xstInstanceCfgTimeSinceTopologyChange=_XstInstanceCfgTimeSinceTopologyChange_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,4,1,3),_XstInstanceCfgTimeSinceTopologyChange_Type())
-xstInstanceCfgTimeSinceTopologyChange.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstanceCfgTimeSinceTopologyChange.setStatus(_A)
-_XstInstanceCfgTopChanges_Type=Integer32
-_XstInstanceCfgTopChanges_Object=MibTableColumn
-xstInstanceCfgTopChanges=_XstInstanceCfgTopChanges_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,4,1,4),_XstInstanceCfgTopChanges_Type())
-xstInstanceCfgTopChanges.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstanceCfgTopChanges.setStatus(_A)
-_XstInstanceCfgDesignatedRoot_Type=BridgeId
-_XstInstanceCfgDesignatedRoot_Object=MibTableColumn
-xstInstanceCfgDesignatedRoot=_XstInstanceCfgDesignatedRoot_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,4,1,5),_XstInstanceCfgDesignatedRoot_Type())
-xstInstanceCfgDesignatedRoot.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstanceCfgDesignatedRoot.setStatus(_A)
-_XstInstanceCfgRootCost_Type=Integer32
-_XstInstanceCfgRootCost_Object=MibTableColumn
-xstInstanceCfgRootCost=_XstInstanceCfgRootCost_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,4,1,6),_XstInstanceCfgRootCost_Type())
-xstInstanceCfgRootCost.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstanceCfgRootCost.setStatus(_A)
-_XstInstanceCfgRootPort_Type=Integer32
-_XstInstanceCfgRootPort_Object=MibTableColumn
-xstInstanceCfgRootPort=_XstInstanceCfgRootPort_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,4,1,7),_XstInstanceCfgRootPort_Type())
-xstInstanceCfgRootPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstanceCfgRootPort.setStatus(_A)
-_XstInstanceCfgMaxAge_Type=Timeout
-_XstInstanceCfgMaxAge_Object=MibTableColumn
-xstInstanceCfgMaxAge=_XstInstanceCfgMaxAge_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,4,1,8),_XstInstanceCfgMaxAge_Type())
-xstInstanceCfgMaxAge.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstanceCfgMaxAge.setStatus(_A)
-_XstInstanceCfgHelloTime_Type=Timeout
-_XstInstanceCfgHelloTime_Object=MibTableColumn
-xstInstanceCfgHelloTime=_XstInstanceCfgHelloTime_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,4,1,9),_XstInstanceCfgHelloTime_Type())
-xstInstanceCfgHelloTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstanceCfgHelloTime.setStatus(_A)
-_XstInstanceCfgHoldTime_Type=Timeout
-_XstInstanceCfgHoldTime_Object=MibTableColumn
-xstInstanceCfgHoldTime=_XstInstanceCfgHoldTime_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,4,1,10),_XstInstanceCfgHoldTime_Type())
-xstInstanceCfgHoldTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstanceCfgHoldTime.setStatus(_A)
-_XstInstanceCfgForwardDelay_Type=Timeout
-_XstInstanceCfgForwardDelay_Object=MibTableColumn
-xstInstanceCfgForwardDelay=_XstInstanceCfgForwardDelay_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,4,1,11),_XstInstanceCfgForwardDelay_Type())
-xstInstanceCfgForwardDelay.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstanceCfgForwardDelay.setStatus(_A)
-_XstInstanceCfgBridgeMaxAge_Type=Timeout
-_XstInstanceCfgBridgeMaxAge_Object=MibTableColumn
-xstInstanceCfgBridgeMaxAge=_XstInstanceCfgBridgeMaxAge_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,4,1,12),_XstInstanceCfgBridgeMaxAge_Type())
-xstInstanceCfgBridgeMaxAge.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstanceCfgBridgeMaxAge.setStatus(_A)
-_XstInstanceCfgBridgeHelloTime_Type=Timeout
-_XstInstanceCfgBridgeHelloTime_Object=MibTableColumn
-xstInstanceCfgBridgeHelloTime=_XstInstanceCfgBridgeHelloTime_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,4,1,13),_XstInstanceCfgBridgeHelloTime_Type())
-xstInstanceCfgBridgeHelloTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstanceCfgBridgeHelloTime.setStatus(_A)
-_XstInstanceCfgBridgeForwardDelay_Type=Timeout
-_XstInstanceCfgBridgeForwardDelay_Object=MibTableColumn
-xstInstanceCfgBridgeForwardDelay=_XstInstanceCfgBridgeForwardDelay_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,4,1,14),_XstInstanceCfgBridgeForwardDelay_Type())
-xstInstanceCfgBridgeForwardDelay.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstanceCfgBridgeForwardDelay.setStatus(_A)
-_XstInstanceCfgTxHoldCount_Type=Integer32
-_XstInstanceCfgTxHoldCount_Object=MibTableColumn
-xstInstanceCfgTxHoldCount=_XstInstanceCfgTxHoldCount_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,4,1,15),_XstInstanceCfgTxHoldCount_Type())
-xstInstanceCfgTxHoldCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstanceCfgTxHoldCount.setStatus(_A)
-_XstInstanceCfgPathCostMethod_Type=StaPathCostMode
-_XstInstanceCfgPathCostMethod_Object=MibTableColumn
-xstInstanceCfgPathCostMethod=_XstInstanceCfgPathCostMethod_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,4,1,16),_XstInstanceCfgPathCostMethod_Type())
-xstInstanceCfgPathCostMethod.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstanceCfgPathCostMethod.setStatus(_A)
-_XstInstancePortTable_Object=MibTable
-xstInstancePortTable=_XstInstancePortTable_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,5))
-if mibBuilder.loadTexts:xstInstancePortTable.setStatus(_A)
-_XstInstancePortEntry_Object=MibTableRow
-xstInstancePortEntry=_XstInstancePortEntry_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,5,1))
-xstInstancePortEntry.setIndexNames((0,_F,_u),(0,_z,_A0))
-if mibBuilder.loadTexts:xstInstancePortEntry.setStatus(_A)
-class _XstInstancePortPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,240))
-_XstInstancePortPriority_Type.__name__=_C
-_XstInstancePortPriority_Object=MibTableColumn
-xstInstancePortPriority=_XstInstancePortPriority_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,5,1,3),_XstInstancePortPriority_Type())
-xstInstancePortPriority.setMaxAccess(_D)
-if mibBuilder.loadTexts:xstInstancePortPriority.setStatus(_A)
-class _XstInstancePortState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('discarding',1),('learning',2),('forwarding',3)))
-_XstInstancePortState_Type.__name__=_C
-_XstInstancePortState_Object=MibTableColumn
-xstInstancePortState=_XstInstancePortState_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,5,1,4),_XstInstancePortState_Type())
-xstInstancePortState.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstancePortState.setStatus(_A)
-_XstInstancePortEnable_Type=EnabledStatus
-_XstInstancePortEnable_Object=MibTableColumn
-xstInstancePortEnable=_XstInstancePortEnable_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,5,1,5),_XstInstancePortEnable_Type())
-xstInstancePortEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstancePortEnable.setStatus(_A)
-_XstInstancePortDesignatedRoot_Type=BridgeId
-_XstInstancePortDesignatedRoot_Object=MibTableColumn
-xstInstancePortDesignatedRoot=_XstInstancePortDesignatedRoot_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,5,1,7),_XstInstancePortDesignatedRoot_Type())
-xstInstancePortDesignatedRoot.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstancePortDesignatedRoot.setStatus(_A)
-_XstInstancePortDesignatedCost_Type=Integer32
-_XstInstancePortDesignatedCost_Object=MibTableColumn
-xstInstancePortDesignatedCost=_XstInstancePortDesignatedCost_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,5,1,8),_XstInstancePortDesignatedCost_Type())
-xstInstancePortDesignatedCost.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstancePortDesignatedCost.setStatus(_A)
-_XstInstancePortDesignatedBridge_Type=BridgeId
-_XstInstancePortDesignatedBridge_Object=MibTableColumn
-xstInstancePortDesignatedBridge=_XstInstancePortDesignatedBridge_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,5,1,9),_XstInstancePortDesignatedBridge_Type())
-xstInstancePortDesignatedBridge.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstancePortDesignatedBridge.setStatus(_A)
-class _XstInstancePortDesignatedPort_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,2));fixedLength=2
-_XstInstancePortDesignatedPort_Type.__name__=_I
-_XstInstancePortDesignatedPort_Object=MibTableColumn
-xstInstancePortDesignatedPort=_XstInstancePortDesignatedPort_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,5,1,10),_XstInstancePortDesignatedPort_Type())
-xstInstancePortDesignatedPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstancePortDesignatedPort.setStatus(_A)
-_XstInstancePortForwardTransitions_Type=Counter32
-_XstInstancePortForwardTransitions_Object=MibTableColumn
-xstInstancePortForwardTransitions=_XstInstancePortForwardTransitions_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,5,1,11),_XstInstancePortForwardTransitions_Type())
-xstInstancePortForwardTransitions.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstancePortForwardTransitions.setStatus(_A)
-class _XstInstancePortPortRole_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_T,1),('root',2),('designated',3),('alternate',4),('backup',5),('master',6)))
-_XstInstancePortPortRole_Type.__name__=_C
-_XstInstancePortPortRole_Object=MibTableColumn
-xstInstancePortPortRole=_XstInstancePortPortRole_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,5,1,12),_XstInstancePortPortRole_Type())
-xstInstancePortPortRole.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstancePortPortRole.setStatus(_A)
-class _XstInstancePortAdminPathCost_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,200000000))
-_XstInstancePortAdminPathCost_Type.__name__=_C
-_XstInstancePortAdminPathCost_Object=MibTableColumn
-xstInstancePortAdminPathCost=_XstInstancePortAdminPathCost_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,5,1,13),_XstInstancePortAdminPathCost_Type())
-xstInstancePortAdminPathCost.setMaxAccess(_D)
-if mibBuilder.loadTexts:xstInstancePortAdminPathCost.setStatus(_A)
-class _XstInstancePortOperPathCost_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,200000000))
-_XstInstancePortOperPathCost_Type.__name__=_C
-_XstInstancePortOperPathCost_Object=MibTableColumn
-xstInstancePortOperPathCost=_XstInstancePortOperPathCost_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,5,1,14),_XstInstancePortOperPathCost_Type())
-xstInstancePortOperPathCost.setMaxAccess(_B)
-if mibBuilder.loadTexts:xstInstancePortOperPathCost.setStatus(_A)
-_MstInstanceEditTable_Object=MibTable
-mstInstanceEditTable=_MstInstanceEditTable_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,6))
-if mibBuilder.loadTexts:mstInstanceEditTable.setStatus(_A)
-_MstInstanceEditEntry_Object=MibTableRow
-mstInstanceEditEntry=_MstInstanceEditEntry_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,6,1))
-mstInstanceEditEntry.setIndexNames((0,_F,_AO))
-if mibBuilder.loadTexts:mstInstanceEditEntry.setStatus(_A)
-class _MstInstanceEditIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,64))
-_MstInstanceEditIndex_Type.__name__=_C
-_MstInstanceEditIndex_Object=MibTableColumn
-mstInstanceEditIndex=_MstInstanceEditIndex_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,6,1,1),_MstInstanceEditIndex_Type())
-mstInstanceEditIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:mstInstanceEditIndex.setStatus(_A)
-class _MstInstanceEditVlansMap_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_MstInstanceEditVlansMap_Type.__name__=_I
-_MstInstanceEditVlansMap_Object=MibTableColumn
-mstInstanceEditVlansMap=_MstInstanceEditVlansMap_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,6,1,2),_MstInstanceEditVlansMap_Type())
-mstInstanceEditVlansMap.setMaxAccess(_E)
-if mibBuilder.loadTexts:mstInstanceEditVlansMap.setStatus(_A)
-class _MstInstanceEditVlansMap2k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_MstInstanceEditVlansMap2k_Type.__name__=_I
-_MstInstanceEditVlansMap2k_Object=MibTableColumn
-mstInstanceEditVlansMap2k=_MstInstanceEditVlansMap2k_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,6,1,3),_MstInstanceEditVlansMap2k_Type())
-mstInstanceEditVlansMap2k.setMaxAccess(_E)
-if mibBuilder.loadTexts:mstInstanceEditVlansMap2k.setStatus(_A)
-class _MstInstanceEditVlansMap3k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_MstInstanceEditVlansMap3k_Type.__name__=_I
-_MstInstanceEditVlansMap3k_Object=MibTableColumn
-mstInstanceEditVlansMap3k=_MstInstanceEditVlansMap3k_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,6,1,4),_MstInstanceEditVlansMap3k_Type())
-mstInstanceEditVlansMap3k.setMaxAccess(_E)
-if mibBuilder.loadTexts:mstInstanceEditVlansMap3k.setStatus(_A)
-class _MstInstanceEditVlansMap4k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_MstInstanceEditVlansMap4k_Type.__name__=_I
-_MstInstanceEditVlansMap4k_Object=MibTableColumn
-mstInstanceEditVlansMap4k=_MstInstanceEditVlansMap4k_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,6,1,5),_MstInstanceEditVlansMap4k_Type())
-mstInstanceEditVlansMap4k.setMaxAccess(_E)
-if mibBuilder.loadTexts:mstInstanceEditVlansMap4k.setStatus(_A)
-_MstInstanceEditRemainingHops_Type=Integer32
-_MstInstanceEditRemainingHops_Object=MibTableColumn
-mstInstanceEditRemainingHops=_MstInstanceEditRemainingHops_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,6,1,6),_MstInstanceEditRemainingHops_Type())
-mstInstanceEditRemainingHops.setMaxAccess(_B)
-if mibBuilder.loadTexts:mstInstanceEditRemainingHops.setStatus(_A)
-_MstInstanceOperTable_Object=MibTable
-mstInstanceOperTable=_MstInstanceOperTable_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,7))
-if mibBuilder.loadTexts:mstInstanceOperTable.setStatus(_A)
-_MstInstanceOperEntry_Object=MibTableRow
-mstInstanceOperEntry=_MstInstanceOperEntry_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,7,1))
-mstInstanceOperEntry.setIndexNames((0,_F,_AP))
-if mibBuilder.loadTexts:mstInstanceOperEntry.setStatus(_A)
-class _MstInstanceOperIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4094))
-_MstInstanceOperIndex_Type.__name__=_C
-_MstInstanceOperIndex_Object=MibTableColumn
-mstInstanceOperIndex=_MstInstanceOperIndex_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,7,1,1),_MstInstanceOperIndex_Type())
-mstInstanceOperIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:mstInstanceOperIndex.setStatus(_A)
-class _MstInstanceOperVlansMap_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_MstInstanceOperVlansMap_Type.__name__=_I
-_MstInstanceOperVlansMap_Object=MibTableColumn
-mstInstanceOperVlansMap=_MstInstanceOperVlansMap_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,7,1,2),_MstInstanceOperVlansMap_Type())
-mstInstanceOperVlansMap.setMaxAccess(_B)
-if mibBuilder.loadTexts:mstInstanceOperVlansMap.setStatus(_A)
-class _MstInstanceOperVlansMap2k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_MstInstanceOperVlansMap2k_Type.__name__=_I
-_MstInstanceOperVlansMap2k_Object=MibTableColumn
-mstInstanceOperVlansMap2k=_MstInstanceOperVlansMap2k_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,7,1,3),_MstInstanceOperVlansMap2k_Type())
-mstInstanceOperVlansMap2k.setMaxAccess(_B)
-if mibBuilder.loadTexts:mstInstanceOperVlansMap2k.setStatus(_A)
-class _MstInstanceOperVlansMap3k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_MstInstanceOperVlansMap3k_Type.__name__=_I
-_MstInstanceOperVlansMap3k_Object=MibTableColumn
-mstInstanceOperVlansMap3k=_MstInstanceOperVlansMap3k_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,7,1,4),_MstInstanceOperVlansMap3k_Type())
-mstInstanceOperVlansMap3k.setMaxAccess(_B)
-if mibBuilder.loadTexts:mstInstanceOperVlansMap3k.setStatus(_A)
-class _MstInstanceOperVlansMap4k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_MstInstanceOperVlansMap4k_Type.__name__=_I
-_MstInstanceOperVlansMap4k_Object=MibTableColumn
-mstInstanceOperVlansMap4k=_MstInstanceOperVlansMap4k_Object((1,3,6,1,4,1,248,13,7,4,1,5,6,7,1,5),_MstInstanceOperVlansMap4k_Type())
-mstInstanceOperVlansMap4k.setMaxAccess(_B)
-if mibBuilder.loadTexts:mstInstanceOperVlansMap4k.setStatus(_A)
-_RestartMgt_ObjectIdentity=ObjectIdentity
-restartMgt=_RestartMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,7))
-class _RestartOpCodeFile_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
-_RestartOpCodeFile_Type.__name__=_H
-_RestartOpCodeFile_Object=MibScalar
-restartOpCodeFile=_RestartOpCodeFile_Object((1,3,6,1,4,1,248,13,7,4,1,7,1),_RestartOpCodeFile_Type())
-restartOpCodeFile.setMaxAccess(_D)
-if mibBuilder.loadTexts:restartOpCodeFile.setStatus(_A)
-class _RestartConfigFile_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
-_RestartConfigFile_Type.__name__=_H
-_RestartConfigFile_Object=MibScalar
-restartConfigFile=_RestartConfigFile_Object((1,3,6,1,4,1,248,13,7,4,1,7,2),_RestartConfigFile_Type())
-restartConfigFile.setMaxAccess(_D)
-if mibBuilder.loadTexts:restartConfigFile.setStatus(_A)
-class _RestartControl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('running',1),('warmBoot',2),('coldBoot',3)))
-_RestartControl_Type.__name__=_C
-_RestartControl_Object=MibScalar
-restartControl=_RestartControl_Object((1,3,6,1,4,1,248,13,7,4,1,7,3),_RestartControl_Type())
-restartControl.setMaxAccess(_D)
-if mibBuilder.loadTexts:restartControl.setStatus(_A)
-_MirrorMgt_ObjectIdentity=ObjectIdentity
-mirrorMgt=_MirrorMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,8))
-_MirrorTable_Object=MibTable
-mirrorTable=_MirrorTable_Object((1,3,6,1,4,1,248,13,7,4,1,8,1))
-if mibBuilder.loadTexts:mirrorTable.setStatus(_A)
-_MirrorEntry_Object=MibTableRow
-mirrorEntry=_MirrorEntry_Object((1,3,6,1,4,1,248,13,7,4,1,8,1,1))
-mirrorEntry.setIndexNames((0,_F,_AQ),(0,_F,_AR))
-if mibBuilder.loadTexts:mirrorEntry.setStatus(_A)
-_MirrorDestinationPort_Type=Integer32
-_MirrorDestinationPort_Object=MibTableColumn
-mirrorDestinationPort=_MirrorDestinationPort_Object((1,3,6,1,4,1,248,13,7,4,1,8,1,1,1),_MirrorDestinationPort_Type())
-mirrorDestinationPort.setMaxAccess(_G)
-if mibBuilder.loadTexts:mirrorDestinationPort.setStatus(_A)
-_MirrorSourcePort_Type=Integer32
-_MirrorSourcePort_Object=MibTableColumn
-mirrorSourcePort=_MirrorSourcePort_Object((1,3,6,1,4,1,248,13,7,4,1,8,1,1,2),_MirrorSourcePort_Type())
-mirrorSourcePort.setMaxAccess(_G)
-if mibBuilder.loadTexts:mirrorSourcePort.setStatus(_A)
-class _MirrorType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('rx',1),('tx',2),('both',3)))
-_MirrorType_Type.__name__=_C
-_MirrorType_Object=MibTableColumn
-mirrorType=_MirrorType_Object((1,3,6,1,4,1,248,13,7,4,1,8,1,1,3),_MirrorType_Type())
-mirrorType.setMaxAccess(_E)
-if mibBuilder.loadTexts:mirrorType.setStatus(_A)
-_MirrorStatus_Type=ValidStatus
-_MirrorStatus_Object=MibTableColumn
-mirrorStatus=_MirrorStatus_Object((1,3,6,1,4,1,248,13,7,4,1,8,1,1,4),_MirrorStatus_Type())
-mirrorStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:mirrorStatus.setStatus(_A)
-_IgmpSnoopMgt_ObjectIdentity=ObjectIdentity
-igmpSnoopMgt=_IgmpSnoopMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,9))
-class _IgmpSnoopStatus_Type(EnabledStatus):defaultValue=1
-_IgmpSnoopStatus_Type.__name__=_K
-_IgmpSnoopStatus_Object=MibScalar
-igmpSnoopStatus=_IgmpSnoopStatus_Object((1,3,6,1,4,1,248,13,7,4,1,9,1),_IgmpSnoopStatus_Type())
-igmpSnoopStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:igmpSnoopStatus.setStatus(_A)
-class _IgmpSnoopQuerier_Type(EnabledStatus):defaultValue=1
-_IgmpSnoopQuerier_Type.__name__=_K
-_IgmpSnoopQuerier_Object=MibScalar
-igmpSnoopQuerier=_IgmpSnoopQuerier_Object((1,3,6,1,4,1,248,13,7,4,1,9,2),_IgmpSnoopQuerier_Type())
-igmpSnoopQuerier.setMaxAccess(_D)
-if mibBuilder.loadTexts:igmpSnoopQuerier.setStatus(_A)
-class _IgmpSnoopQueryCount_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(2,10))
-_IgmpSnoopQueryCount_Type.__name__=_C
-_IgmpSnoopQueryCount_Object=MibScalar
-igmpSnoopQueryCount=_IgmpSnoopQueryCount_Object((1,3,6,1,4,1,248,13,7,4,1,9,3),_IgmpSnoopQueryCount_Type())
-igmpSnoopQueryCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:igmpSnoopQueryCount.setStatus(_A)
-class _IgmpSnoopQueryInterval_Type(Integer32):defaultValue=125;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(60,125))
-_IgmpSnoopQueryInterval_Type.__name__=_C
-_IgmpSnoopQueryInterval_Object=MibScalar
-igmpSnoopQueryInterval=_IgmpSnoopQueryInterval_Object((1,3,6,1,4,1,248,13,7,4,1,9,4),_IgmpSnoopQueryInterval_Type())
-igmpSnoopQueryInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:igmpSnoopQueryInterval.setStatus(_A)
-class _IgmpSnoopQueryMaxResponseTime_Type(Integer32):defaultValue=10;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,25))
-_IgmpSnoopQueryMaxResponseTime_Type.__name__=_C
-_IgmpSnoopQueryMaxResponseTime_Object=MibScalar
-igmpSnoopQueryMaxResponseTime=_IgmpSnoopQueryMaxResponseTime_Object((1,3,6,1,4,1,248,13,7,4,1,9,5),_IgmpSnoopQueryMaxResponseTime_Type())
-igmpSnoopQueryMaxResponseTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:igmpSnoopQueryMaxResponseTime.setStatus(_A)
-class _IgmpSnoopRouterPortExpireTime_Type(Integer32):defaultValue=300;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(300,500))
-_IgmpSnoopRouterPortExpireTime_Type.__name__=_C
-_IgmpSnoopRouterPortExpireTime_Object=MibScalar
-igmpSnoopRouterPortExpireTime=_IgmpSnoopRouterPortExpireTime_Object((1,3,6,1,4,1,248,13,7,4,1,9,6),_IgmpSnoopRouterPortExpireTime_Type())
-igmpSnoopRouterPortExpireTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:igmpSnoopRouterPortExpireTime.setStatus(_A)
-class _IgmpSnoopVersion_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2))
-_IgmpSnoopVersion_Type.__name__=_C
-_IgmpSnoopVersion_Object=MibScalar
-igmpSnoopVersion=_IgmpSnoopVersion_Object((1,3,6,1,4,1,248,13,7,4,1,9,7),_IgmpSnoopVersion_Type())
-igmpSnoopVersion.setMaxAccess(_D)
-if mibBuilder.loadTexts:igmpSnoopVersion.setStatus(_A)
-_IgmpSnoopRouterCurrentTable_Object=MibTable
-igmpSnoopRouterCurrentTable=_IgmpSnoopRouterCurrentTable_Object((1,3,6,1,4,1,248,13,7,4,1,9,8))
-if mibBuilder.loadTexts:igmpSnoopRouterCurrentTable.setStatus(_A)
-_IgmpSnoopRouterCurrentEntry_Object=MibTableRow
-igmpSnoopRouterCurrentEntry=_IgmpSnoopRouterCurrentEntry_Object((1,3,6,1,4,1,248,13,7,4,1,9,8,1))
-igmpSnoopRouterCurrentEntry.setIndexNames((0,_F,_AS))
-if mibBuilder.loadTexts:igmpSnoopRouterCurrentEntry.setStatus(_A)
-_IgmpSnoopRouterCurrentVlanIndex_Type=Unsigned32
-_IgmpSnoopRouterCurrentVlanIndex_Object=MibTableColumn
-igmpSnoopRouterCurrentVlanIndex=_IgmpSnoopRouterCurrentVlanIndex_Object((1,3,6,1,4,1,248,13,7,4,1,9,8,1,1),_IgmpSnoopRouterCurrentVlanIndex_Type())
-igmpSnoopRouterCurrentVlanIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:igmpSnoopRouterCurrentVlanIndex.setStatus(_A)
-_IgmpSnoopRouterCurrentPorts_Type=PortList
-_IgmpSnoopRouterCurrentPorts_Object=MibTableColumn
-igmpSnoopRouterCurrentPorts=_IgmpSnoopRouterCurrentPorts_Object((1,3,6,1,4,1,248,13,7,4,1,9,8,1,2),_IgmpSnoopRouterCurrentPorts_Type())
-igmpSnoopRouterCurrentPorts.setMaxAccess(_B)
-if mibBuilder.loadTexts:igmpSnoopRouterCurrentPorts.setStatus(_A)
-_IgmpSnoopRouterCurrentStatus_Type=PortList
-_IgmpSnoopRouterCurrentStatus_Object=MibTableColumn
-igmpSnoopRouterCurrentStatus=_IgmpSnoopRouterCurrentStatus_Object((1,3,6,1,4,1,248,13,7,4,1,9,8,1,3),_IgmpSnoopRouterCurrentStatus_Type())
-igmpSnoopRouterCurrentStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:igmpSnoopRouterCurrentStatus.setStatus(_A)
-_IgmpSnoopRouterStaticTable_Object=MibTable
-igmpSnoopRouterStaticTable=_IgmpSnoopRouterStaticTable_Object((1,3,6,1,4,1,248,13,7,4,1,9,9))
-if mibBuilder.loadTexts:igmpSnoopRouterStaticTable.setStatus(_A)
-_IgmpSnoopRouterStaticEntry_Object=MibTableRow
-igmpSnoopRouterStaticEntry=_IgmpSnoopRouterStaticEntry_Object((1,3,6,1,4,1,248,13,7,4,1,9,9,1))
-igmpSnoopRouterStaticEntry.setIndexNames((0,_F,_AT))
-if mibBuilder.loadTexts:igmpSnoopRouterStaticEntry.setStatus(_A)
-_IgmpSnoopRouterStaticVlanIndex_Type=Unsigned32
-_IgmpSnoopRouterStaticVlanIndex_Object=MibTableColumn
-igmpSnoopRouterStaticVlanIndex=_IgmpSnoopRouterStaticVlanIndex_Object((1,3,6,1,4,1,248,13,7,4,1,9,9,1,1),_IgmpSnoopRouterStaticVlanIndex_Type())
-igmpSnoopRouterStaticVlanIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:igmpSnoopRouterStaticVlanIndex.setStatus(_A)
-_IgmpSnoopRouterStaticPorts_Type=PortList
-_IgmpSnoopRouterStaticPorts_Object=MibTableColumn
-igmpSnoopRouterStaticPorts=_IgmpSnoopRouterStaticPorts_Object((1,3,6,1,4,1,248,13,7,4,1,9,9,1,2),_IgmpSnoopRouterStaticPorts_Type())
-igmpSnoopRouterStaticPorts.setMaxAccess(_E)
-if mibBuilder.loadTexts:igmpSnoopRouterStaticPorts.setStatus(_A)
-_IgmpSnoopRouterStaticStatus_Type=ValidStatus
-_IgmpSnoopRouterStaticStatus_Object=MibTableColumn
-igmpSnoopRouterStaticStatus=_IgmpSnoopRouterStaticStatus_Object((1,3,6,1,4,1,248,13,7,4,1,9,9,1,3),_IgmpSnoopRouterStaticStatus_Type())
-igmpSnoopRouterStaticStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:igmpSnoopRouterStaticStatus.setStatus(_A)
-_IgmpSnoopMulticastCurrentTable_Object=MibTable
-igmpSnoopMulticastCurrentTable=_IgmpSnoopMulticastCurrentTable_Object((1,3,6,1,4,1,248,13,7,4,1,9,10))
-if mibBuilder.loadTexts:igmpSnoopMulticastCurrentTable.setStatus(_A)
-_IgmpSnoopMulticastCurrentEntry_Object=MibTableRow
-igmpSnoopMulticastCurrentEntry=_IgmpSnoopMulticastCurrentEntry_Object((1,3,6,1,4,1,248,13,7,4,1,9,10,1))
-igmpSnoopMulticastCurrentEntry.setIndexNames((0,_F,_AU),(0,_F,_AV))
-if mibBuilder.loadTexts:igmpSnoopMulticastCurrentEntry.setStatus(_A)
-_IgmpSnoopMulticastCurrentVlanIndex_Type=Unsigned32
-_IgmpSnoopMulticastCurrentVlanIndex_Object=MibTableColumn
-igmpSnoopMulticastCurrentVlanIndex=_IgmpSnoopMulticastCurrentVlanIndex_Object((1,3,6,1,4,1,248,13,7,4,1,9,10,1,1),_IgmpSnoopMulticastCurrentVlanIndex_Type())
-igmpSnoopMulticastCurrentVlanIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:igmpSnoopMulticastCurrentVlanIndex.setStatus(_A)
-_IgmpSnoopMulticastCurrentIpAddress_Type=IpAddress
-_IgmpSnoopMulticastCurrentIpAddress_Object=MibTableColumn
-igmpSnoopMulticastCurrentIpAddress=_IgmpSnoopMulticastCurrentIpAddress_Object((1,3,6,1,4,1,248,13,7,4,1,9,10,1,2),_IgmpSnoopMulticastCurrentIpAddress_Type())
-igmpSnoopMulticastCurrentIpAddress.setMaxAccess(_G)
-if mibBuilder.loadTexts:igmpSnoopMulticastCurrentIpAddress.setStatus(_A)
-_IgmpSnoopMulticastCurrentPorts_Type=PortList
-_IgmpSnoopMulticastCurrentPorts_Object=MibTableColumn
-igmpSnoopMulticastCurrentPorts=_IgmpSnoopMulticastCurrentPorts_Object((1,3,6,1,4,1,248,13,7,4,1,9,10,1,3),_IgmpSnoopMulticastCurrentPorts_Type())
-igmpSnoopMulticastCurrentPorts.setMaxAccess(_B)
-if mibBuilder.loadTexts:igmpSnoopMulticastCurrentPorts.setStatus(_A)
-_IgmpSnoopMulticastCurrentStatus_Type=PortList
-_IgmpSnoopMulticastCurrentStatus_Object=MibTableColumn
-igmpSnoopMulticastCurrentStatus=_IgmpSnoopMulticastCurrentStatus_Object((1,3,6,1,4,1,248,13,7,4,1,9,10,1,4),_IgmpSnoopMulticastCurrentStatus_Type())
-igmpSnoopMulticastCurrentStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:igmpSnoopMulticastCurrentStatus.setStatus(_A)
-_IgmpSnoopMulticastStaticTable_Object=MibTable
-igmpSnoopMulticastStaticTable=_IgmpSnoopMulticastStaticTable_Object((1,3,6,1,4,1,248,13,7,4,1,9,11))
-if mibBuilder.loadTexts:igmpSnoopMulticastStaticTable.setStatus(_A)
-_IgmpSnoopMulticastStaticEntry_Object=MibTableRow
-igmpSnoopMulticastStaticEntry=_IgmpSnoopMulticastStaticEntry_Object((1,3,6,1,4,1,248,13,7,4,1,9,11,1))
-igmpSnoopMulticastStaticEntry.setIndexNames((0,_F,_AW),(0,_F,_AX))
-if mibBuilder.loadTexts:igmpSnoopMulticastStaticEntry.setStatus(_A)
-_IgmpSnoopMulticastStaticVlanIndex_Type=Unsigned32
-_IgmpSnoopMulticastStaticVlanIndex_Object=MibTableColumn
-igmpSnoopMulticastStaticVlanIndex=_IgmpSnoopMulticastStaticVlanIndex_Object((1,3,6,1,4,1,248,13,7,4,1,9,11,1,1),_IgmpSnoopMulticastStaticVlanIndex_Type())
-igmpSnoopMulticastStaticVlanIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:igmpSnoopMulticastStaticVlanIndex.setStatus(_A)
-_IgmpSnoopMulticastStaticIpAddress_Type=IpAddress
-_IgmpSnoopMulticastStaticIpAddress_Object=MibTableColumn
-igmpSnoopMulticastStaticIpAddress=_IgmpSnoopMulticastStaticIpAddress_Object((1,3,6,1,4,1,248,13,7,4,1,9,11,1,2),_IgmpSnoopMulticastStaticIpAddress_Type())
-igmpSnoopMulticastStaticIpAddress.setMaxAccess(_G)
-if mibBuilder.loadTexts:igmpSnoopMulticastStaticIpAddress.setStatus(_A)
-_IgmpSnoopMulticastStaticPorts_Type=PortList
-_IgmpSnoopMulticastStaticPorts_Object=MibTableColumn
-igmpSnoopMulticastStaticPorts=_IgmpSnoopMulticastStaticPorts_Object((1,3,6,1,4,1,248,13,7,4,1,9,11,1,3),_IgmpSnoopMulticastStaticPorts_Type())
-igmpSnoopMulticastStaticPorts.setMaxAccess(_E)
-if mibBuilder.loadTexts:igmpSnoopMulticastStaticPorts.setStatus(_A)
-_IgmpSnoopMulticastStaticStatus_Type=ValidStatus
-_IgmpSnoopMulticastStaticStatus_Object=MibTableColumn
-igmpSnoopMulticastStaticStatus=_IgmpSnoopMulticastStaticStatus_Object((1,3,6,1,4,1,248,13,7,4,1,9,11,1,4),_IgmpSnoopMulticastStaticStatus_Type())
-igmpSnoopMulticastStaticStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:igmpSnoopMulticastStaticStatus.setStatus(_A)
-_IpMgt_ObjectIdentity=ObjectIdentity
-ipMgt=_IpMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,10))
-_NetDefaultGateway_Type=IpAddress
-_NetDefaultGateway_Object=MibScalar
-netDefaultGateway=_NetDefaultGateway_Object((1,3,6,1,4,1,248,13,7,4,1,10,2),_NetDefaultGateway_Type())
-netDefaultGateway.setMaxAccess(_D)
-if mibBuilder.loadTexts:netDefaultGateway.setStatus(_A)
-_IpHttpState_Type=EnabledStatus
-_IpHttpState_Object=MibScalar
-ipHttpState=_IpHttpState_Object((1,3,6,1,4,1,248,13,7,4,1,10,3),_IpHttpState_Type())
-ipHttpState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ipHttpState.setStatus(_A)
-class _IpHttpPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_IpHttpPort_Type.__name__=_C
-_IpHttpPort_Object=MibScalar
-ipHttpPort=_IpHttpPort_Object((1,3,6,1,4,1,248,13,7,4,1,10,4),_IpHttpPort_Type())
-ipHttpPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:ipHttpPort.setStatus(_A)
-class _IpDhcpRestart_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('restart',1),('noRestart',2)))
-_IpDhcpRestart_Type.__name__=_C
-_IpDhcpRestart_Object=MibScalar
-ipDhcpRestart=_IpDhcpRestart_Object((1,3,6,1,4,1,248,13,7,4,1,10,5),_IpDhcpRestart_Type())
-ipDhcpRestart.setMaxAccess(_D)
-if mibBuilder.loadTexts:ipDhcpRestart.setStatus(_A)
-_IpHttpsState_Type=EnabledStatus
-_IpHttpsState_Object=MibScalar
-ipHttpsState=_IpHttpsState_Object((1,3,6,1,4,1,248,13,7,4,1,10,6),_IpHttpsState_Type())
-ipHttpsState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ipHttpsState.setStatus(_A)
-class _IpHttpsPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_IpHttpsPort_Type.__name__=_C
-_IpHttpsPort_Object=MibScalar
-ipHttpsPort=_IpHttpsPort_Object((1,3,6,1,4,1,248,13,7,4,1,10,7),_IpHttpsPort_Type())
-ipHttpsPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:ipHttpsPort.setStatus(_A)
-_IPAddrTable_Object=MibTable
-iPAddrTable=_IPAddrTable_Object((1,3,6,1,4,1,248,13,7,4,1,10,16))
-if mibBuilder.loadTexts:iPAddrTable.setStatus(_A)
-_IPAddrEntry_Object=MibTableRow
-iPAddrEntry=_IPAddrEntry_Object((1,3,6,1,4,1,248,13,7,4,1,10,16,1))
-iPAddrEntry.setIndexNames((0,_F,_AY),(0,_F,_AZ))
-if mibBuilder.loadTexts:iPAddrEntry.setStatus(_A)
-_IPAddrIPAddress_Type=IpAddress
-_IPAddrIPAddress_Object=MibTableColumn
-iPAddrIPAddress=_IPAddrIPAddress_Object((1,3,6,1,4,1,248,13,7,4,1,10,16,1,1),_IPAddrIPAddress_Type())
-iPAddrIPAddress.setMaxAccess(_G)
-if mibBuilder.loadTexts:iPAddrIPAddress.setStatus(_A)
-_IPAddrSubnetMask_Type=IpAddress
-_IPAddrSubnetMask_Object=MibTableColumn
-iPAddrSubnetMask=_IPAddrSubnetMask_Object((1,3,6,1,4,1,248,13,7,4,1,10,16,1,2),_IPAddrSubnetMask_Type())
-iPAddrSubnetMask.setMaxAccess(_G)
-if mibBuilder.loadTexts:iPAddrSubnetMask.setStatus(_A)
-_IPAddrIfIndex_Type=Integer32
-_IPAddrIfIndex_Object=MibTableColumn
-iPAddrIfIndex=_IPAddrIfIndex_Object((1,3,6,1,4,1,248,13,7,4,1,10,16,1,3),_IPAddrIfIndex_Type())
-iPAddrIfIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:iPAddrIfIndex.setStatus(_A)
-class _IPAddrPrimaryInterface_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('primary',1),('secondary',2)))
-_IPAddrPrimaryInterface_Type.__name__=_C
-_IPAddrPrimaryInterface_Object=MibTableColumn
-iPAddrPrimaryInterface=_IPAddrPrimaryInterface_Object((1,3,6,1,4,1,248,13,7,4,1,10,16,1,4),_IPAddrPrimaryInterface_Type())
-iPAddrPrimaryInterface.setMaxAccess(_E)
-if mibBuilder.loadTexts:iPAddrPrimaryInterface.setStatus(_A)
-class _IPAddrUnnumbered_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('unnumbered',1),('notUnnumbered',2)))
-_IPAddrUnnumbered_Type.__name__=_C
-_IPAddrUnnumbered_Object=MibTableColumn
-iPAddrUnnumbered=_IPAddrUnnumbered_Object((1,3,6,1,4,1,248,13,7,4,1,10,16,1,5),_IPAddrUnnumbered_Type())
-iPAddrUnnumbered.setMaxAccess(_B)
-if mibBuilder.loadTexts:iPAddrUnnumbered.setStatus(_A)
-_IPAddrStatus_Type=RowStatus
-_IPAddrStatus_Object=MibTableColumn
-iPAddrStatus=_IPAddrStatus_Object((1,3,6,1,4,1,248,13,7,4,1,10,16,1,6),_IPAddrStatus_Type())
-iPAddrStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:iPAddrStatus.setStatus(_A)
-_BcastStormMgt_ObjectIdentity=ObjectIdentity
-bcastStormMgt=_BcastStormMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,11))
-_BcastStormTable_Object=MibTable
-bcastStormTable=_BcastStormTable_Object((1,3,6,1,4,1,248,13,7,4,1,11,1))
-if mibBuilder.loadTexts:bcastStormTable.setStatus(_A)
-_BcastStormEntry_Object=MibTableRow
-bcastStormEntry=_BcastStormEntry_Object((1,3,6,1,4,1,248,13,7,4,1,11,1,1))
-bcastStormEntry.setIndexNames((0,_F,_Aa))
-if mibBuilder.loadTexts:bcastStormEntry.setStatus(_A)
-_BcastStormIfIndex_Type=Integer32
-_BcastStormIfIndex_Object=MibTableColumn
-bcastStormIfIndex=_BcastStormIfIndex_Object((1,3,6,1,4,1,248,13,7,4,1,11,1,1,1),_BcastStormIfIndex_Type())
-bcastStormIfIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:bcastStormIfIndex.setStatus(_A)
-_BcastStormStatus_Type=EnabledStatus
-_BcastStormStatus_Object=MibTableColumn
-bcastStormStatus=_BcastStormStatus_Object((1,3,6,1,4,1,248,13,7,4,1,11,1,1,2),_BcastStormStatus_Type())
-bcastStormStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:bcastStormStatus.setStatus(_A)
-_BcastStormPktRate_Type=Integer32
-_BcastStormPktRate_Object=MibTableColumn
-bcastStormPktRate=_BcastStormPktRate_Object((1,3,6,1,4,1,248,13,7,4,1,11,1,1,4),_BcastStormPktRate_Type())
-bcastStormPktRate.setMaxAccess(_D)
-if mibBuilder.loadTexts:bcastStormPktRate.setStatus(_A)
-_VlanMgt_ObjectIdentity=ObjectIdentity
-vlanMgt=_VlanMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,12))
-_VlanTable_Object=MibTable
-vlanTable=_VlanTable_Object((1,3,6,1,4,1,248,13,7,4,1,12,1))
-if mibBuilder.loadTexts:vlanTable.setStatus(_A)
-_VlanEntry_Object=MibTableRow
-vlanEntry=_VlanEntry_Object((1,3,6,1,4,1,248,13,7,4,1,12,1,1))
-vlanEntry.setIndexNames((0,_F,_Ab))
-if mibBuilder.loadTexts:vlanEntry.setStatus(_A)
-_VlanIndex_Type=Unsigned32
-_VlanIndex_Object=MibTableColumn
-vlanIndex=_VlanIndex_Object((1,3,6,1,4,1,248,13,7,4,1,12,1,1,1),_VlanIndex_Type())
-vlanIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:vlanIndex.setStatus(_A)
-class _VlanAddressMethod_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('user',1),('bootp',2),('dhcp',3)))
-_VlanAddressMethod_Type.__name__=_C
-_VlanAddressMethod_Object=MibTableColumn
-vlanAddressMethod=_VlanAddressMethod_Object((1,3,6,1,4,1,248,13,7,4,1,12,1,1,2),_VlanAddressMethod_Type())
-vlanAddressMethod.setMaxAccess(_D)
-if mibBuilder.loadTexts:vlanAddressMethod.setStatus(_A)
-_VlanPortTable_Object=MibTable
-vlanPortTable=_VlanPortTable_Object((1,3,6,1,4,1,248,13,7,4,1,12,2))
-if mibBuilder.loadTexts:vlanPortTable.setStatus(_A)
-_VlanPortEntry_Object=MibTableRow
-vlanPortEntry=_VlanPortEntry_Object((1,3,6,1,4,1,248,13,7,4,1,12,2,1))
-vlanPortEntry.setIndexNames((0,_F,_Ac))
-if mibBuilder.loadTexts:vlanPortEntry.setStatus(_A)
-_VlanPortIndex_Type=Integer32
-_VlanPortIndex_Object=MibTableColumn
-vlanPortIndex=_VlanPortIndex_Object((1,3,6,1,4,1,248,13,7,4,1,12,2,1,1),_VlanPortIndex_Type())
-vlanPortIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:vlanPortIndex.setStatus(_A)
-class _VlanPortMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('hybrid',1),('dot1qTrunk',2),('access',3)))
-_VlanPortMode_Type.__name__=_C
-_VlanPortMode_Object=MibTableColumn
-vlanPortMode=_VlanPortMode_Object((1,3,6,1,4,1,248,13,7,4,1,12,2,1,2),_VlanPortMode_Type())
-vlanPortMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:vlanPortMode.setStatus(_A)
-_PriorityMgt_ObjectIdentity=ObjectIdentity
-priorityMgt=_PriorityMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,13))
-class _PrioIpPrecDscpStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_T,1),(_Ad,2),('dscp',3)))
-_PrioIpPrecDscpStatus_Type.__name__=_C
-_PrioIpPrecDscpStatus_Object=MibScalar
-prioIpPrecDscpStatus=_PrioIpPrecDscpStatus_Object((1,3,6,1,4,1,248,13,7,4,1,13,1),_PrioIpPrecDscpStatus_Type())
-prioIpPrecDscpStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:prioIpPrecDscpStatus.setStatus(_A)
-_PrioIpPrecTable_Object=MibTable
-prioIpPrecTable=_PrioIpPrecTable_Object((1,3,6,1,4,1,248,13,7,4,1,13,2))
-if mibBuilder.loadTexts:prioIpPrecTable.setStatus(_A)
-_PrioIpPrecEntry_Object=MibTableRow
-prioIpPrecEntry=_PrioIpPrecEntry_Object((1,3,6,1,4,1,248,13,7,4,1,13,2,1))
-prioIpPrecEntry.setIndexNames((0,_F,_Ae),(0,_F,_Af))
-if mibBuilder.loadTexts:prioIpPrecEntry.setStatus(_A)
-_PrioIpPrecPort_Type=Integer32
-_PrioIpPrecPort_Object=MibTableColumn
-prioIpPrecPort=_PrioIpPrecPort_Object((1,3,6,1,4,1,248,13,7,4,1,13,2,1,2),_PrioIpPrecPort_Type())
-prioIpPrecPort.setMaxAccess(_G)
-if mibBuilder.loadTexts:prioIpPrecPort.setStatus(_A)
-class _PrioIpPrecValue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_PrioIpPrecValue_Type.__name__=_C
-_PrioIpPrecValue_Object=MibTableColumn
-prioIpPrecValue=_PrioIpPrecValue_Object((1,3,6,1,4,1,248,13,7,4,1,13,2,1,3),_PrioIpPrecValue_Type())
-prioIpPrecValue.setMaxAccess(_G)
-if mibBuilder.loadTexts:prioIpPrecValue.setStatus(_A)
-class _PrioIpPrecCos_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_PrioIpPrecCos_Type.__name__=_C
-_PrioIpPrecCos_Object=MibTableColumn
-prioIpPrecCos=_PrioIpPrecCos_Object((1,3,6,1,4,1,248,13,7,4,1,13,2,1,4),_PrioIpPrecCos_Type())
-prioIpPrecCos.setMaxAccess(_D)
-if mibBuilder.loadTexts:prioIpPrecCos.setStatus(_A)
-_PrioIpPrecRestoreDefault_Type=Integer32
-_PrioIpPrecRestoreDefault_Object=MibScalar
-prioIpPrecRestoreDefault=_PrioIpPrecRestoreDefault_Object((1,3,6,1,4,1,248,13,7,4,1,13,3),_PrioIpPrecRestoreDefault_Type())
-prioIpPrecRestoreDefault.setMaxAccess(_D)
-if mibBuilder.loadTexts:prioIpPrecRestoreDefault.setStatus(_A)
-_PrioIpDscpTable_Object=MibTable
-prioIpDscpTable=_PrioIpDscpTable_Object((1,3,6,1,4,1,248,13,7,4,1,13,4))
-if mibBuilder.loadTexts:prioIpDscpTable.setStatus(_A)
-_PrioIpDscpEntry_Object=MibTableRow
-prioIpDscpEntry=_PrioIpDscpEntry_Object((1,3,6,1,4,1,248,13,7,4,1,13,4,1))
-prioIpDscpEntry.setIndexNames((0,_F,_Ag),(0,_F,_Ah))
-if mibBuilder.loadTexts:prioIpDscpEntry.setStatus(_A)
-_PrioIpDscpPort_Type=Integer32
-_PrioIpDscpPort_Object=MibTableColumn
-prioIpDscpPort=_PrioIpDscpPort_Object((1,3,6,1,4,1,248,13,7,4,1,13,4,1,1),_PrioIpDscpPort_Type())
-prioIpDscpPort.setMaxAccess(_G)
-if mibBuilder.loadTexts:prioIpDscpPort.setStatus(_A)
-class _PrioIpDscpValue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,63))
-_PrioIpDscpValue_Type.__name__=_C
-_PrioIpDscpValue_Object=MibTableColumn
-prioIpDscpValue=_PrioIpDscpValue_Object((1,3,6,1,4,1,248,13,7,4,1,13,4,1,2),_PrioIpDscpValue_Type())
-prioIpDscpValue.setMaxAccess(_G)
-if mibBuilder.loadTexts:prioIpDscpValue.setStatus(_A)
-class _PrioIpDscpCos_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_PrioIpDscpCos_Type.__name__=_C
-_PrioIpDscpCos_Object=MibTableColumn
-prioIpDscpCos=_PrioIpDscpCos_Object((1,3,6,1,4,1,248,13,7,4,1,13,4,1,3),_PrioIpDscpCos_Type())
-prioIpDscpCos.setMaxAccess(_D)
-if mibBuilder.loadTexts:prioIpDscpCos.setStatus(_A)
-_PrioIpDscpRestoreDefault_Type=Integer32
-_PrioIpDscpRestoreDefault_Object=MibScalar
-prioIpDscpRestoreDefault=_PrioIpDscpRestoreDefault_Object((1,3,6,1,4,1,248,13,7,4,1,13,5),_PrioIpDscpRestoreDefault_Type())
-prioIpDscpRestoreDefault.setMaxAccess(_D)
-if mibBuilder.loadTexts:prioIpDscpRestoreDefault.setStatus(_A)
-_PrioIpPortEnableStatus_Type=EnabledStatus
-_PrioIpPortEnableStatus_Object=MibScalar
-prioIpPortEnableStatus=_PrioIpPortEnableStatus_Object((1,3,6,1,4,1,248,13,7,4,1,13,6),_PrioIpPortEnableStatus_Type())
-prioIpPortEnableStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:prioIpPortEnableStatus.setStatus(_A)
-_PrioIpPortTable_Object=MibTable
-prioIpPortTable=_PrioIpPortTable_Object((1,3,6,1,4,1,248,13,7,4,1,13,7))
-if mibBuilder.loadTexts:prioIpPortTable.setStatus(_A)
-_PrioIpPortEntry_Object=MibTableRow
-prioIpPortEntry=_PrioIpPortEntry_Object((1,3,6,1,4,1,248,13,7,4,1,13,7,1))
-prioIpPortEntry.setIndexNames((0,_F,_Ai),(0,_F,_Aj))
-if mibBuilder.loadTexts:prioIpPortEntry.setStatus(_A)
-_PrioIpPortPhysPort_Type=Integer32
-_PrioIpPortPhysPort_Object=MibTableColumn
-prioIpPortPhysPort=_PrioIpPortPhysPort_Object((1,3,6,1,4,1,248,13,7,4,1,13,7,1,1),_PrioIpPortPhysPort_Type())
-prioIpPortPhysPort.setMaxAccess(_G)
-if mibBuilder.loadTexts:prioIpPortPhysPort.setStatus(_A)
-class _PrioIpPortValue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_PrioIpPortValue_Type.__name__=_C
-_PrioIpPortValue_Object=MibTableColumn
-prioIpPortValue=_PrioIpPortValue_Object((1,3,6,1,4,1,248,13,7,4,1,13,7,1,2),_PrioIpPortValue_Type())
-prioIpPortValue.setMaxAccess(_G)
-if mibBuilder.loadTexts:prioIpPortValue.setStatus(_A)
-class _PrioIpPortCos_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_PrioIpPortCos_Type.__name__=_C
-_PrioIpPortCos_Object=MibTableColumn
-prioIpPortCos=_PrioIpPortCos_Object((1,3,6,1,4,1,248,13,7,4,1,13,7,1,3),_PrioIpPortCos_Type())
-prioIpPortCos.setMaxAccess(_E)
-if mibBuilder.loadTexts:prioIpPortCos.setStatus(_A)
-_PrioIpPortStatus_Type=ValidStatus
-_PrioIpPortStatus_Object=MibTableColumn
-prioIpPortStatus=_PrioIpPortStatus_Object((1,3,6,1,4,1,248,13,7,4,1,13,7,1,4),_PrioIpPortStatus_Type())
-prioIpPortStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:prioIpPortStatus.setStatus(_A)
-_PrioCopy_ObjectIdentity=ObjectIdentity
-prioCopy=_PrioCopy_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,13,8))
-_PrioCopyIpPrec_Type=OctetString
-_PrioCopyIpPrec_Object=MibScalar
-prioCopyIpPrec=_PrioCopyIpPrec_Object((1,3,6,1,4,1,248,13,7,4,1,13,8,1),_PrioCopyIpPrec_Type())
-prioCopyIpPrec.setMaxAccess(_D)
-if mibBuilder.loadTexts:prioCopyIpPrec.setStatus(_A)
-_PrioCopyIpDscp_Type=OctetString
-_PrioCopyIpDscp_Object=MibScalar
-prioCopyIpDscp=_PrioCopyIpDscp_Object((1,3,6,1,4,1,248,13,7,4,1,13,8,2),_PrioCopyIpDscp_Type())
-prioCopyIpDscp.setMaxAccess(_D)
-if mibBuilder.loadTexts:prioCopyIpDscp.setStatus(_A)
-_PrioCopyIpPort_Type=OctetString
-_PrioCopyIpPort_Object=MibScalar
-prioCopyIpPort=_PrioCopyIpPort_Object((1,3,6,1,4,1,248,13,7,4,1,13,8,3),_PrioCopyIpPort_Type())
-prioCopyIpPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:prioCopyIpPort.setStatus(_A)
-class _PrioQueueMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('wrr',1),('strict',2)))
-_PrioQueueMode_Type.__name__=_C
-_PrioQueueMode_Object=MibScalar
-prioQueueMode=_PrioQueueMode_Object((1,3,6,1,4,1,248,13,7,4,1,13,10),_PrioQueueMode_Type())
-prioQueueMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:prioQueueMode.setStatus(_A)
-_PrioWrrPortTable_Object=MibTable
-prioWrrPortTable=_PrioWrrPortTable_Object((1,3,6,1,4,1,248,13,7,4,1,13,12))
-if mibBuilder.loadTexts:prioWrrPortTable.setStatus(_A)
-_PrioWrrPortEntry_Object=MibTableRow
-prioWrrPortEntry=_PrioWrrPortEntry_Object((1,3,6,1,4,1,248,13,7,4,1,13,12,1))
-prioWrrPortEntry.setIndexNames((0,_F,_Ak),(0,_F,_Al))
-if mibBuilder.loadTexts:prioWrrPortEntry.setStatus(_A)
-_PrioWrrPortIfIndex_Type=Integer32
-_PrioWrrPortIfIndex_Object=MibTableColumn
-prioWrrPortIfIndex=_PrioWrrPortIfIndex_Object((1,3,6,1,4,1,248,13,7,4,1,13,12,1,1),_PrioWrrPortIfIndex_Type())
-prioWrrPortIfIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:prioWrrPortIfIndex.setStatus(_A)
-class _PrioWrrPortTrafficClass_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_PrioWrrPortTrafficClass_Type.__name__=_C
-_PrioWrrPortTrafficClass_Object=MibTableColumn
-prioWrrPortTrafficClass=_PrioWrrPortTrafficClass_Object((1,3,6,1,4,1,248,13,7,4,1,13,12,1,2),_PrioWrrPortTrafficClass_Type())
-prioWrrPortTrafficClass.setMaxAccess(_G)
-if mibBuilder.loadTexts:prioWrrPortTrafficClass.setStatus(_A)
-class _PrioWrrPortWeight_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_PrioWrrPortWeight_Type.__name__=_C
-_PrioWrrPortWeight_Object=MibTableColumn
-prioWrrPortWeight=_PrioWrrPortWeight_Object((1,3,6,1,4,1,248,13,7,4,1,13,12,1,3),_PrioWrrPortWeight_Type())
-prioWrrPortWeight.setMaxAccess(_D)
-if mibBuilder.loadTexts:prioWrrPortWeight.setStatus(_A)
-_TrapDestMgt_ObjectIdentity=ObjectIdentity
-trapDestMgt=_TrapDestMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,14))
-_TrapDestTable_Object=MibTable
-trapDestTable=_TrapDestTable_Object((1,3,6,1,4,1,248,13,7,4,1,14,1))
-if mibBuilder.loadTexts:trapDestTable.setStatus(_A)
-_TrapDestEntry_Object=MibTableRow
-trapDestEntry=_TrapDestEntry_Object((1,3,6,1,4,1,248,13,7,4,1,14,1,1))
-trapDestEntry.setIndexNames((0,_F,_Am))
-if mibBuilder.loadTexts:trapDestEntry.setStatus(_A)
-_TrapDestAddress_Type=IpAddress
-_TrapDestAddress_Object=MibTableColumn
-trapDestAddress=_TrapDestAddress_Object((1,3,6,1,4,1,248,13,7,4,1,14,1,1,1),_TrapDestAddress_Type())
-trapDestAddress.setMaxAccess(_G)
-if mibBuilder.loadTexts:trapDestAddress.setStatus(_A)
-class _TrapDestCommunity_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
-_TrapDestCommunity_Type.__name__=_H
-_TrapDestCommunity_Object=MibTableColumn
-trapDestCommunity=_TrapDestCommunity_Object((1,3,6,1,4,1,248,13,7,4,1,14,1,1,2),_TrapDestCommunity_Type())
-trapDestCommunity.setMaxAccess(_E)
-if mibBuilder.loadTexts:trapDestCommunity.setStatus(_A)
-_TrapDestStatus_Type=ValidStatus
-_TrapDestStatus_Object=MibTableColumn
-trapDestStatus=_TrapDestStatus_Object((1,3,6,1,4,1,248,13,7,4,1,14,1,1,3),_TrapDestStatus_Type())
-trapDestStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:trapDestStatus.setStatus(_A)
-class _TrapDestVersion_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('version1',1),('version2',2)))
-_TrapDestVersion_Type.__name__=_C
-_TrapDestVersion_Object=MibTableColumn
-trapDestVersion=_TrapDestVersion_Object((1,3,6,1,4,1,248,13,7,4,1,14,1,1,4),_TrapDestVersion_Type())
-trapDestVersion.setMaxAccess(_E)
-if mibBuilder.loadTexts:trapDestVersion.setStatus(_A)
-class _TrapDestUdpPort_Type(Integer32):defaultValue=162;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_TrapDestUdpPort_Type.__name__=_C
-_TrapDestUdpPort_Object=MibTableColumn
-trapDestUdpPort=_TrapDestUdpPort_Object((1,3,6,1,4,1,248,13,7,4,1,14,1,1,5),_TrapDestUdpPort_Type())
-trapDestUdpPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:trapDestUdpPort.setStatus(_A)
-_TrapVar_ObjectIdentity=ObjectIdentity
-trapVar=_TrapVar_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,14,2))
-class _TrapIpFilterRejectMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('web',1),('snmp',2),('telnet',3)))
-_TrapIpFilterRejectMode_Type.__name__=_C
-_TrapIpFilterRejectMode_Object=MibScalar
-trapIpFilterRejectMode=_TrapIpFilterRejectMode_Object((1,3,6,1,4,1,248,13,7,4,1,14,2,6),_TrapIpFilterRejectMode_Type())
-trapIpFilterRejectMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:trapIpFilterRejectMode.setStatus(_A)
-_TrapIpFilterRejectIp_Type=Integer32
-_TrapIpFilterRejectIp_Object=MibScalar
-trapIpFilterRejectIp=_TrapIpFilterRejectIp_Object((1,3,6,1,4,1,248,13,7,4,1,14,2,7),_TrapIpFilterRejectIp_Type())
-trapIpFilterRejectIp.setMaxAccess(_B)
-if mibBuilder.loadTexts:trapIpFilterRejectIp.setStatus(_A)
-_QosMgt_ObjectIdentity=ObjectIdentity
-qosMgt=_QosMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,16))
-_RateLimitMgt_ObjectIdentity=ObjectIdentity
-rateLimitMgt=_RateLimitMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,16,1))
-_RateLimitPortTable_Object=MibTable
-rateLimitPortTable=_RateLimitPortTable_Object((1,3,6,1,4,1,248,13,7,4,1,16,1,2))
-if mibBuilder.loadTexts:rateLimitPortTable.setStatus(_A)
-_RateLimitPortEntry_Object=MibTableRow
-rateLimitPortEntry=_RateLimitPortEntry_Object((1,3,6,1,4,1,248,13,7,4,1,16,1,2,1))
-rateLimitPortEntry.setIndexNames((0,_F,_An))
-if mibBuilder.loadTexts:rateLimitPortEntry.setStatus(_A)
-_RlPortIndex_Type=Integer32
-_RlPortIndex_Object=MibTableColumn
-rlPortIndex=_RlPortIndex_Object((1,3,6,1,4,1,248,13,7,4,1,16,1,2,1,1),_RlPortIndex_Type())
-rlPortIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:rlPortIndex.setStatus(_A)
-_RlPortInputLimit_Type=Integer32
-_RlPortInputLimit_Object=MibTableColumn
-rlPortInputLimit=_RlPortInputLimit_Object((1,3,6,1,4,1,248,13,7,4,1,16,1,2,1,2),_RlPortInputLimit_Type())
-rlPortInputLimit.setMaxAccess(_D)
-if mibBuilder.loadTexts:rlPortInputLimit.setStatus(_A)
-_RlPortOutputLimit_Type=Integer32
-_RlPortOutputLimit_Object=MibTableColumn
-rlPortOutputLimit=_RlPortOutputLimit_Object((1,3,6,1,4,1,248,13,7,4,1,16,1,2,1,3),_RlPortOutputLimit_Type())
-rlPortOutputLimit.setMaxAccess(_D)
-if mibBuilder.loadTexts:rlPortOutputLimit.setStatus(_A)
-_RlPortInputStatus_Type=EnabledStatus
-_RlPortInputStatus_Object=MibTableColumn
-rlPortInputStatus=_RlPortInputStatus_Object((1,3,6,1,4,1,248,13,7,4,1,16,1,2,1,6),_RlPortInputStatus_Type())
-rlPortInputStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:rlPortInputStatus.setStatus(_A)
-_RlPortOutputStatus_Type=EnabledStatus
-_RlPortOutputStatus_Object=MibTableColumn
-rlPortOutputStatus=_RlPortOutputStatus_Object((1,3,6,1,4,1,248,13,7,4,1,16,1,2,1,7),_RlPortOutputStatus_Type())
-rlPortOutputStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:rlPortOutputStatus.setStatus(_A)
-_MarkerMgt_ObjectIdentity=ObjectIdentity
-markerMgt=_MarkerMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,16,2))
-_MarkerTable_Object=MibTable
-markerTable=_MarkerTable_Object((1,3,6,1,4,1,248,13,7,4,1,16,2,1))
-if mibBuilder.loadTexts:markerTable.setStatus(_A)
-_MarkerEntry_Object=MibTableRow
-markerEntry=_MarkerEntry_Object((1,3,6,1,4,1,248,13,7,4,1,16,2,1,1))
-markerEntry.setIndexNames((0,_F,_Ao),(0,_F,_Ap))
-if mibBuilder.loadTexts:markerEntry.setStatus(_A)
-_MarkerIfIndex_Type=Integer32
-_MarkerIfIndex_Object=MibTableColumn
-markerIfIndex=_MarkerIfIndex_Object((1,3,6,1,4,1,248,13,7,4,1,16,2,1,1,1),_MarkerIfIndex_Type())
-markerIfIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:markerIfIndex.setStatus(_A)
-class _MarkerAclName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,15))
-_MarkerAclName_Type.__name__=_H
-_MarkerAclName_Object=MibTableColumn
-markerAclName=_MarkerAclName_Object((1,3,6,1,4,1,248,13,7,4,1,16,2,1,1,2),_MarkerAclName_Type())
-markerAclName.setMaxAccess(_G)
-if mibBuilder.loadTexts:markerAclName.setStatus(_A)
-class _MarkerActionBitList_Type(Bits):namedValues=NamedValues(*(('dscp',0),(_Ad,1),('priority',2)))
-_MarkerActionBitList_Type.__name__=_L
-_MarkerActionBitList_Object=MibTableColumn
-markerActionBitList=_MarkerActionBitList_Object((1,3,6,1,4,1,248,13,7,4,1,16,2,1,1,3),_MarkerActionBitList_Type())
-markerActionBitList.setMaxAccess(_E)
-if mibBuilder.loadTexts:markerActionBitList.setStatus(_A)
-class _MarkerDscp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,63))
-_MarkerDscp_Type.__name__=_C
-_MarkerDscp_Object=MibTableColumn
-markerDscp=_MarkerDscp_Object((1,3,6,1,4,1,248,13,7,4,1,16,2,1,1,4),_MarkerDscp_Type())
-markerDscp.setMaxAccess(_E)
-if mibBuilder.loadTexts:markerDscp.setStatus(_A)
-class _MarkerPrecedence_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_MarkerPrecedence_Type.__name__=_C
-_MarkerPrecedence_Object=MibTableColumn
-markerPrecedence=_MarkerPrecedence_Object((1,3,6,1,4,1,248,13,7,4,1,16,2,1,1,5),_MarkerPrecedence_Type())
-markerPrecedence.setMaxAccess(_E)
-if mibBuilder.loadTexts:markerPrecedence.setStatus(_A)
-class _MarkerPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_MarkerPriority_Type.__name__=_C
-_MarkerPriority_Object=MibTableColumn
-markerPriority=_MarkerPriority_Object((1,3,6,1,4,1,248,13,7,4,1,16,2,1,1,6),_MarkerPriority_Type())
-markerPriority.setMaxAccess(_E)
-if mibBuilder.loadTexts:markerPriority.setStatus(_A)
-_MarkerStatus_Type=RowStatus
-_MarkerStatus_Object=MibTableColumn
-markerStatus=_MarkerStatus_Object((1,3,6,1,4,1,248,13,7,4,1,16,2,1,1,7),_MarkerStatus_Type())
-markerStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:markerStatus.setStatus(_A)
-_CosMgt_ObjectIdentity=ObjectIdentity
-cosMgt=_CosMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,16,3))
-_PrioAclToCosMappingTable_Object=MibTable
-prioAclToCosMappingTable=_PrioAclToCosMappingTable_Object((1,3,6,1,4,1,248,13,7,4,1,16,3,1))
-if mibBuilder.loadTexts:prioAclToCosMappingTable.setStatus(_A)
-_PrioAclToCosMappingEntry_Object=MibTableRow
-prioAclToCosMappingEntry=_PrioAclToCosMappingEntry_Object((1,3,6,1,4,1,248,13,7,4,1,16,3,1,1))
-prioAclToCosMappingEntry.setIndexNames((0,_F,_Aq),(0,_F,_Ar))
-if mibBuilder.loadTexts:prioAclToCosMappingEntry.setStatus(_A)
-_PrioAclToCosMappingIfIndex_Type=Integer32
-_PrioAclToCosMappingIfIndex_Object=MibTableColumn
-prioAclToCosMappingIfIndex=_PrioAclToCosMappingIfIndex_Object((1,3,6,1,4,1,248,13,7,4,1,16,3,1,1,1),_PrioAclToCosMappingIfIndex_Type())
-prioAclToCosMappingIfIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:prioAclToCosMappingIfIndex.setStatus(_A)
-class _PrioAclToCosMappingAclName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,15))
-_PrioAclToCosMappingAclName_Type.__name__=_H
-_PrioAclToCosMappingAclName_Object=MibTableColumn
-prioAclToCosMappingAclName=_PrioAclToCosMappingAclName_Object((1,3,6,1,4,1,248,13,7,4,1,16,3,1,1,2),_PrioAclToCosMappingAclName_Type())
-prioAclToCosMappingAclName.setMaxAccess(_G)
-if mibBuilder.loadTexts:prioAclToCosMappingAclName.setStatus(_A)
-class _PrioAclToCosMappingCosValue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_PrioAclToCosMappingCosValue_Type.__name__=_C
-_PrioAclToCosMappingCosValue_Object=MibTableColumn
-prioAclToCosMappingCosValue=_PrioAclToCosMappingCosValue_Object((1,3,6,1,4,1,248,13,7,4,1,16,3,1,1,3),_PrioAclToCosMappingCosValue_Type())
-prioAclToCosMappingCosValue.setMaxAccess(_E)
-if mibBuilder.loadTexts:prioAclToCosMappingCosValue.setStatus(_A)
-_PrioAclToCosMappingStatus_Type=RowStatus
-_PrioAclToCosMappingStatus_Object=MibTableColumn
-prioAclToCosMappingStatus=_PrioAclToCosMappingStatus_Object((1,3,6,1,4,1,248,13,7,4,1,16,3,1,1,4),_PrioAclToCosMappingStatus_Type())
-prioAclToCosMappingStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:prioAclToCosMappingStatus.setStatus(_A)
-_SecurityMgt_ObjectIdentity=ObjectIdentity
-securityMgt=_SecurityMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,17))
-_PrivateVlanMgt_ObjectIdentity=ObjectIdentity
-privateVlanMgt=_PrivateVlanMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,17,1))
-_PrivateVlanStatus_Type=EnabledStatus
-_PrivateVlanStatus_Object=MibScalar
-privateVlanStatus=_PrivateVlanStatus_Object((1,3,6,1,4,1,248,13,7,4,1,17,1,1),_PrivateVlanStatus_Type())
-privateVlanStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:privateVlanStatus.setStatus(_A)
-_PrivateVlanUplinkPorts_Type=PortList
-_PrivateVlanUplinkPorts_Object=MibScalar
-privateVlanUplinkPorts=_PrivateVlanUplinkPorts_Object((1,3,6,1,4,1,248,13,7,4,1,17,1,2),_PrivateVlanUplinkPorts_Type())
-privateVlanUplinkPorts.setMaxAccess(_D)
-if mibBuilder.loadTexts:privateVlanUplinkPorts.setStatus(_A)
-_PrivateVlanDownlinkPorts_Type=PortList
-_PrivateVlanDownlinkPorts_Object=MibScalar
-privateVlanDownlinkPorts=_PrivateVlanDownlinkPorts_Object((1,3,6,1,4,1,248,13,7,4,1,17,1,3),_PrivateVlanDownlinkPorts_Type())
-privateVlanDownlinkPorts.setMaxAccess(_D)
-if mibBuilder.loadTexts:privateVlanDownlinkPorts.setStatus(_A)
-_PortSecurityMgt_ObjectIdentity=ObjectIdentity
-portSecurityMgt=_PortSecurityMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,17,2))
-_PortSecPortTable_Object=MibTable
-portSecPortTable=_PortSecPortTable_Object((1,3,6,1,4,1,248,13,7,4,1,17,2,1))
-if mibBuilder.loadTexts:portSecPortTable.setStatus(_A)
-_PortSecPortEntry_Object=MibTableRow
-portSecPortEntry=_PortSecPortEntry_Object((1,3,6,1,4,1,248,13,7,4,1,17,2,1,1))
-portSecPortEntry.setIndexNames((0,_F,_As))
-if mibBuilder.loadTexts:portSecPortEntry.setStatus(_A)
-_PortSecPortIndex_Type=Integer32
-_PortSecPortIndex_Object=MibTableColumn
-portSecPortIndex=_PortSecPortIndex_Object((1,3,6,1,4,1,248,13,7,4,1,17,2,1,1,1),_PortSecPortIndex_Type())
-portSecPortIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:portSecPortIndex.setStatus(_A)
-_PortSecPortStatus_Type=EnabledStatus
-_PortSecPortStatus_Object=MibTableColumn
-portSecPortStatus=_PortSecPortStatus_Object((1,3,6,1,4,1,248,13,7,4,1,17,2,1,1,2),_PortSecPortStatus_Type())
-portSecPortStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:portSecPortStatus.setStatus(_A)
-class _PortSecAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_N,1),('trap',2),('shutdown',3),('trapAndShutdown',4)))
-_PortSecAction_Type.__name__=_C
-_PortSecAction_Object=MibTableColumn
-portSecAction=_PortSecAction_Object((1,3,6,1,4,1,248,13,7,4,1,17,2,1,1,3),_PortSecAction_Type())
-portSecAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:portSecAction.setStatus(_A)
-class _PortSecMaxMacCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1024))
-_PortSecMaxMacCount_Type.__name__=_C
-_PortSecMaxMacCount_Object=MibTableColumn
-portSecMaxMacCount=_PortSecMaxMacCount_Object((1,3,6,1,4,1,248,13,7,4,1,17,2,1,1,4),_PortSecMaxMacCount_Type())
-portSecMaxMacCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:portSecMaxMacCount.setStatus(_A)
-_RadiusMgt_ObjectIdentity=ObjectIdentity
-radiusMgt=_RadiusMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,17,4))
-_RadiusServerAddress_Type=IpAddress
-_RadiusServerAddress_Object=MibScalar
-radiusServerAddress=_RadiusServerAddress_Object((1,3,6,1,4,1,248,13,7,4,1,17,4,1),_RadiusServerAddress_Type())
-radiusServerAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:radiusServerAddress.setStatus(_A)
-class _RadiusServerPortNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_RadiusServerPortNumber_Type.__name__=_C
-_RadiusServerPortNumber_Object=MibScalar
-radiusServerPortNumber=_RadiusServerPortNumber_Object((1,3,6,1,4,1,248,13,7,4,1,17,4,2),_RadiusServerPortNumber_Type())
-radiusServerPortNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:radiusServerPortNumber.setStatus(_A)
-class _RadiusServerKey_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,48))
-_RadiusServerKey_Type.__name__=_H
-_RadiusServerKey_Object=MibScalar
-radiusServerKey=_RadiusServerKey_Object((1,3,6,1,4,1,248,13,7,4,1,17,4,3),_RadiusServerKey_Type())
-radiusServerKey.setMaxAccess(_D)
-if mibBuilder.loadTexts:radiusServerKey.setStatus(_A)
-class _RadiusServerRetransmit_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,30))
-_RadiusServerRetransmit_Type.__name__=_C
-_RadiusServerRetransmit_Object=MibScalar
-radiusServerRetransmit=_RadiusServerRetransmit_Object((1,3,6,1,4,1,248,13,7,4,1,17,4,4),_RadiusServerRetransmit_Type())
-radiusServerRetransmit.setMaxAccess(_D)
-if mibBuilder.loadTexts:radiusServerRetransmit.setStatus(_A)
-class _RadiusServerTimeout_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_RadiusServerTimeout_Type.__name__=_C
-_RadiusServerTimeout_Object=MibScalar
-radiusServerTimeout=_RadiusServerTimeout_Object((1,3,6,1,4,1,248,13,7,4,1,17,4,5),_RadiusServerTimeout_Type())
-radiusServerTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:radiusServerTimeout.setStatus(_A)
-_RadiusMultipleServerTable_Object=MibTable
-radiusMultipleServerTable=_RadiusMultipleServerTable_Object((1,3,6,1,4,1,248,13,7,4,1,17,4,7))
-if mibBuilder.loadTexts:radiusMultipleServerTable.setStatus(_A)
-_RadiusMultipleServerEntry_Object=MibTableRow
-radiusMultipleServerEntry=_RadiusMultipleServerEntry_Object((1,3,6,1,4,1,248,13,7,4,1,17,4,7,1))
-radiusMultipleServerEntry.setIndexNames((0,_F,_At))
-if mibBuilder.loadTexts:radiusMultipleServerEntry.setStatus(_A)
-_RadiusMultipleServerIndex_Type=Integer32
-_RadiusMultipleServerIndex_Object=MibTableColumn
-radiusMultipleServerIndex=_RadiusMultipleServerIndex_Object((1,3,6,1,4,1,248,13,7,4,1,17,4,7,1,1),_RadiusMultipleServerIndex_Type())
-radiusMultipleServerIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:radiusMultipleServerIndex.setStatus(_A)
-_RadiusMultipleServerAddress_Type=IpAddress
-_RadiusMultipleServerAddress_Object=MibTableColumn
-radiusMultipleServerAddress=_RadiusMultipleServerAddress_Object((1,3,6,1,4,1,248,13,7,4,1,17,4,7,1,2),_RadiusMultipleServerAddress_Type())
-radiusMultipleServerAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:radiusMultipleServerAddress.setStatus(_A)
-class _RadiusMultipleServerPortNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_RadiusMultipleServerPortNumber_Type.__name__=_C
-_RadiusMultipleServerPortNumber_Object=MibTableColumn
-radiusMultipleServerPortNumber=_RadiusMultipleServerPortNumber_Object((1,3,6,1,4,1,248,13,7,4,1,17,4,7,1,3),_RadiusMultipleServerPortNumber_Type())
-radiusMultipleServerPortNumber.setMaxAccess(_E)
-if mibBuilder.loadTexts:radiusMultipleServerPortNumber.setStatus(_A)
-class _RadiusMultipleServerKey_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,48))
-_RadiusMultipleServerKey_Type.__name__=_H
-_RadiusMultipleServerKey_Object=MibTableColumn
-radiusMultipleServerKey=_RadiusMultipleServerKey_Object((1,3,6,1,4,1,248,13,7,4,1,17,4,7,1,4),_RadiusMultipleServerKey_Type())
-radiusMultipleServerKey.setMaxAccess(_E)
-if mibBuilder.loadTexts:radiusMultipleServerKey.setStatus(_A)
-class _RadiusMultipleServerRetransmit_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,30))
-_RadiusMultipleServerRetransmit_Type.__name__=_C
-_RadiusMultipleServerRetransmit_Object=MibTableColumn
-radiusMultipleServerRetransmit=_RadiusMultipleServerRetransmit_Object((1,3,6,1,4,1,248,13,7,4,1,17,4,7,1,5),_RadiusMultipleServerRetransmit_Type())
-radiusMultipleServerRetransmit.setMaxAccess(_E)
-if mibBuilder.loadTexts:radiusMultipleServerRetransmit.setStatus(_A)
-class _RadiusMultipleServerTimeout_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_RadiusMultipleServerTimeout_Type.__name__=_C
-_RadiusMultipleServerTimeout_Object=MibTableColumn
-radiusMultipleServerTimeout=_RadiusMultipleServerTimeout_Object((1,3,6,1,4,1,248,13,7,4,1,17,4,7,1,6),_RadiusMultipleServerTimeout_Type())
-radiusMultipleServerTimeout.setMaxAccess(_E)
-if mibBuilder.loadTexts:radiusMultipleServerTimeout.setStatus(_A)
-_RadiusMultipleServerStatus_Type=ValidStatus
-_RadiusMultipleServerStatus_Object=MibTableColumn
-radiusMultipleServerStatus=_RadiusMultipleServerStatus_Object((1,3,6,1,4,1,248,13,7,4,1,17,4,7,1,8),_RadiusMultipleServerStatus_Type())
-radiusMultipleServerStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:radiusMultipleServerStatus.setStatus(_A)
-_TacacsMgt_ObjectIdentity=ObjectIdentity
-tacacsMgt=_TacacsMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,17,5))
-_TacacsServerAddress_Type=IpAddress
-_TacacsServerAddress_Object=MibScalar
-tacacsServerAddress=_TacacsServerAddress_Object((1,3,6,1,4,1,248,13,7,4,1,17,5,1),_TacacsServerAddress_Type())
-tacacsServerAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:tacacsServerAddress.setStatus(_A)
-class _TacacsServerPortNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_TacacsServerPortNumber_Type.__name__=_C
-_TacacsServerPortNumber_Object=MibScalar
-tacacsServerPortNumber=_TacacsServerPortNumber_Object((1,3,6,1,4,1,248,13,7,4,1,17,5,2),_TacacsServerPortNumber_Type())
-tacacsServerPortNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:tacacsServerPortNumber.setStatus(_A)
-class _TacacsServerKey_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,48))
-_TacacsServerKey_Type.__name__=_H
-_TacacsServerKey_Object=MibScalar
-tacacsServerKey=_TacacsServerKey_Object((1,3,6,1,4,1,248,13,7,4,1,17,5,3),_TacacsServerKey_Type())
-tacacsServerKey.setMaxAccess(_D)
-if mibBuilder.loadTexts:tacacsServerKey.setStatus(_A)
-_SshMgt_ObjectIdentity=ObjectIdentity
-sshMgt=_SshMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,17,6))
-_SshServerStatus_Type=EnabledStatus
-_SshServerStatus_Object=MibScalar
-sshServerStatus=_SshServerStatus_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,1),_SshServerStatus_Type())
-sshServerStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:sshServerStatus.setStatus(_A)
-_SshServerMajorVersion_Type=Integer32
-_SshServerMajorVersion_Object=MibScalar
-sshServerMajorVersion=_SshServerMajorVersion_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,2),_SshServerMajorVersion_Type())
-sshServerMajorVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshServerMajorVersion.setStatus(_A)
-_SshServerMinorVersion_Type=Integer32
-_SshServerMinorVersion_Object=MibScalar
-sshServerMinorVersion=_SshServerMinorVersion_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,3),_SshServerMinorVersion_Type())
-sshServerMinorVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshServerMinorVersion.setStatus(_A)
-class _SshTimeout_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,120))
-_SshTimeout_Type.__name__=_C
-_SshTimeout_Object=MibScalar
-sshTimeout=_SshTimeout_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,4),_SshTimeout_Type())
-sshTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:sshTimeout.setStatus(_A)
-class _SshAuthRetries_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,5))
-_SshAuthRetries_Type.__name__=_C
-_SshAuthRetries_Object=MibScalar
-sshAuthRetries=_SshAuthRetries_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,5),_SshAuthRetries_Type())
-sshAuthRetries.setMaxAccess(_D)
-if mibBuilder.loadTexts:sshAuthRetries.setStatus(_A)
-_SshConnInfoTable_Object=MibTable
-sshConnInfoTable=_SshConnInfoTable_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,6))
-if mibBuilder.loadTexts:sshConnInfoTable.setStatus(_A)
-_SshConnInfoEntry_Object=MibTableRow
-sshConnInfoEntry=_SshConnInfoEntry_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,6,1))
-sshConnInfoEntry.setIndexNames((0,_F,_Au))
-if mibBuilder.loadTexts:sshConnInfoEntry.setStatus(_A)
-_SshConnID_Type=Integer32
-_SshConnID_Object=MibTableColumn
-sshConnID=_SshConnID_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,6,1,1),_SshConnID_Type())
-sshConnID.setMaxAccess(_G)
-if mibBuilder.loadTexts:sshConnID.setStatus(_A)
-_SshConnMajorVersion_Type=Integer32
-_SshConnMajorVersion_Object=MibTableColumn
-sshConnMajorVersion=_SshConnMajorVersion_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,6,1,2),_SshConnMajorVersion_Type())
-sshConnMajorVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshConnMajorVersion.setStatus(_A)
-_SshConnMinorVersion_Type=Integer32
-_SshConnMinorVersion_Object=MibTableColumn
-sshConnMinorVersion=_SshConnMinorVersion_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,6,1,3),_SshConnMinorVersion_Type())
-sshConnMinorVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshConnMinorVersion.setStatus(_A)
-class _SshConnStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('negotiationStart',1),('authenticationStart',2),('sessionStart',3)))
-_SshConnStatus_Type.__name__=_C
-_SshConnStatus_Object=MibTableColumn
-sshConnStatus=_SshConnStatus_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,6,1,5),_SshConnStatus_Type())
-sshConnStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshConnStatus.setStatus(_A)
-class _SshConnUserName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
-_SshConnUserName_Type.__name__=_H
-_SshConnUserName_Object=MibTableColumn
-sshConnUserName=_SshConnUserName_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,6,1,6),_SshConnUserName_Type())
-sshConnUserName.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshConnUserName.setStatus(_A)
-class _SshDisconnect_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('noDisconnect',1),('disconnect',2)))
-_SshDisconnect_Type.__name__=_C
-_SshDisconnect_Object=MibTableColumn
-sshDisconnect=_SshDisconnect_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,6,1,7),_SshDisconnect_Type())
-sshDisconnect.setMaxAccess(_D)
-if mibBuilder.loadTexts:sshDisconnect.setStatus(_A)
-class _SshConnEncryptionTypeStr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SshConnEncryptionTypeStr_Type.__name__=_H
-_SshConnEncryptionTypeStr_Object=MibTableColumn
-sshConnEncryptionTypeStr=_SshConnEncryptionTypeStr_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,6,1,8),_SshConnEncryptionTypeStr_Type())
-sshConnEncryptionTypeStr.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshConnEncryptionTypeStr.setStatus(_A)
-class _SshKeySize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(512,896))
-_SshKeySize_Type.__name__=_C
-_SshKeySize_Object=MibScalar
-sshKeySize=_SshKeySize_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,7),_SshKeySize_Type())
-sshKeySize.setMaxAccess(_D)
-if mibBuilder.loadTexts:sshKeySize.setStatus(_A)
-_SshRsaHostKey1_Type=KeySegment
-_SshRsaHostKey1_Object=MibScalar
-sshRsaHostKey1=_SshRsaHostKey1_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,8),_SshRsaHostKey1_Type())
-sshRsaHostKey1.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshRsaHostKey1.setStatus(_A)
-_SshRsaHostKey2_Type=KeySegment
-_SshRsaHostKey2_Object=MibScalar
-sshRsaHostKey2=_SshRsaHostKey2_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,9),_SshRsaHostKey2_Type())
-sshRsaHostKey2.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshRsaHostKey2.setStatus(_A)
-_SshRsaHostKey3_Type=KeySegment
-_SshRsaHostKey3_Object=MibScalar
-sshRsaHostKey3=_SshRsaHostKey3_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,10),_SshRsaHostKey3_Type())
-sshRsaHostKey3.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshRsaHostKey3.setStatus(_A)
-_SshRsaHostKey4_Type=KeySegment
-_SshRsaHostKey4_Object=MibScalar
-sshRsaHostKey4=_SshRsaHostKey4_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,11),_SshRsaHostKey4_Type())
-sshRsaHostKey4.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshRsaHostKey4.setStatus(_A)
-_SshRsaHostKey5_Type=KeySegment
-_SshRsaHostKey5_Object=MibScalar
-sshRsaHostKey5=_SshRsaHostKey5_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,12),_SshRsaHostKey5_Type())
-sshRsaHostKey5.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshRsaHostKey5.setStatus(_A)
-_SshRsaHostKey6_Type=KeySegment
-_SshRsaHostKey6_Object=MibScalar
-sshRsaHostKey6=_SshRsaHostKey6_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,13),_SshRsaHostKey6_Type())
-sshRsaHostKey6.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshRsaHostKey6.setStatus(_A)
-_SshRsaHostKey7_Type=KeySegment
-_SshRsaHostKey7_Object=MibScalar
-sshRsaHostKey7=_SshRsaHostKey7_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,14),_SshRsaHostKey7_Type())
-sshRsaHostKey7.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshRsaHostKey7.setStatus(_A)
-_SshRsaHostKey8_Type=KeySegment
-_SshRsaHostKey8_Object=MibScalar
-sshRsaHostKey8=_SshRsaHostKey8_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,15),_SshRsaHostKey8_Type())
-sshRsaHostKey8.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshRsaHostKey8.setStatus(_A)
-_SshDsaHostKey1_Type=KeySegment
-_SshDsaHostKey1_Object=MibScalar
-sshDsaHostKey1=_SshDsaHostKey1_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,16),_SshDsaHostKey1_Type())
-sshDsaHostKey1.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshDsaHostKey1.setStatus(_A)
-_SshDsaHostKey2_Type=KeySegment
-_SshDsaHostKey2_Object=MibScalar
-sshDsaHostKey2=_SshDsaHostKey2_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,17),_SshDsaHostKey2_Type())
-sshDsaHostKey2.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshDsaHostKey2.setStatus(_A)
-_SshDsaHostKey3_Type=KeySegment
-_SshDsaHostKey3_Object=MibScalar
-sshDsaHostKey3=_SshDsaHostKey3_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,18),_SshDsaHostKey3_Type())
-sshDsaHostKey3.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshDsaHostKey3.setStatus(_A)
-_SshDsaHostKey4_Type=KeySegment
-_SshDsaHostKey4_Object=MibScalar
-sshDsaHostKey4=_SshDsaHostKey4_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,19),_SshDsaHostKey4_Type())
-sshDsaHostKey4.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshDsaHostKey4.setStatus(_A)
-_SshDsaHostKey5_Type=KeySegment
-_SshDsaHostKey5_Object=MibScalar
-sshDsaHostKey5=_SshDsaHostKey5_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,20),_SshDsaHostKey5_Type())
-sshDsaHostKey5.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshDsaHostKey5.setStatus(_A)
-_SshDsaHostKey6_Type=KeySegment
-_SshDsaHostKey6_Object=MibScalar
-sshDsaHostKey6=_SshDsaHostKey6_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,21),_SshDsaHostKey6_Type())
-sshDsaHostKey6.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshDsaHostKey6.setStatus(_A)
-_SshDsaHostKey7_Type=KeySegment
-_SshDsaHostKey7_Object=MibScalar
-sshDsaHostKey7=_SshDsaHostKey7_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,22),_SshDsaHostKey7_Type())
-sshDsaHostKey7.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshDsaHostKey7.setStatus(_A)
-_SshDsaHostKey8_Type=KeySegment
-_SshDsaHostKey8_Object=MibScalar
-sshDsaHostKey8=_SshDsaHostKey8_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,23),_SshDsaHostKey8_Type())
-sshDsaHostKey8.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshDsaHostKey8.setStatus(_A)
-class _SshHostKeyGenAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('noGen',1),('genRsaKey',2),('genDsaKey',3),('genBothKeys',4)))
-_SshHostKeyGenAction_Type.__name__=_C
-_SshHostKeyGenAction_Object=MibScalar
-sshHostKeyGenAction=_SshHostKeyGenAction_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,24),_SshHostKeyGenAction_Type())
-sshHostKeyGenAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:sshHostKeyGenAction.setStatus(_A)
-class _SshHostKeyGenStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_q,1),('success',2),(_t,3)))
-_SshHostKeyGenStatus_Type.__name__=_C
-_SshHostKeyGenStatus_Object=MibScalar
-sshHostKeyGenStatus=_SshHostKeyGenStatus_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,25),_SshHostKeyGenStatus_Type())
-sshHostKeyGenStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshHostKeyGenStatus.setStatus(_A)
-class _SshHostKeySaveAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('noSave',1),('save',2)))
-_SshHostKeySaveAction_Type.__name__=_C
-_SshHostKeySaveAction_Object=MibScalar
-sshHostKeySaveAction=_SshHostKeySaveAction_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,26),_SshHostKeySaveAction_Type())
-sshHostKeySaveAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:sshHostKeySaveAction.setStatus(_A)
-class _SshHostKeySaveStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_q,1),('success',2),(_t,3)))
-_SshHostKeySaveStatus_Type.__name__=_C
-_SshHostKeySaveStatus_Object=MibScalar
-sshHostKeySaveStatus=_SshHostKeySaveStatus_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,27),_SshHostKeySaveStatus_Type())
-sshHostKeySaveStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshHostKeySaveStatus.setStatus(_A)
-class _SshHostKeyDelAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('noDel',1),(_Av,2),(_Aw,3),(_Ax,4)))
-_SshHostKeyDelAction_Type.__name__=_C
-_SshHostKeyDelAction_Object=MibScalar
-sshHostKeyDelAction=_SshHostKeyDelAction_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,28),_SshHostKeyDelAction_Type())
-sshHostKeyDelAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:sshHostKeyDelAction.setStatus(_A)
-_SshUserTable_Object=MibTable
-sshUserTable=_SshUserTable_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29))
-if mibBuilder.loadTexts:sshUserTable.setStatus(_A)
-_SshUserEntry_Object=MibTableRow
-sshUserEntry=_SshUserEntry_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29,1))
-sshUserEntry.setIndexNames((1,_F,_Ay))
-if mibBuilder.loadTexts:sshUserEntry.setStatus(_A)
-class _SshUserName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
-_SshUserName_Type.__name__=_H
-_SshUserName_Object=MibTableColumn
-sshUserName=_SshUserName_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29,1,1),_SshUserName_Type())
-sshUserName.setMaxAccess(_G)
-if mibBuilder.loadTexts:sshUserName.setStatus(_A)
-_SshUserRsaKey1_Type=KeySegment
-_SshUserRsaKey1_Object=MibTableColumn
-sshUserRsaKey1=_SshUserRsaKey1_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29,1,2),_SshUserRsaKey1_Type())
-sshUserRsaKey1.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshUserRsaKey1.setStatus(_A)
-_SshUserRsaKey2_Type=KeySegment
-_SshUserRsaKey2_Object=MibTableColumn
-sshUserRsaKey2=_SshUserRsaKey2_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29,1,3),_SshUserRsaKey2_Type())
-sshUserRsaKey2.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshUserRsaKey2.setStatus(_A)
-_SshUserRsaKey3_Type=KeySegment
-_SshUserRsaKey3_Object=MibTableColumn
-sshUserRsaKey3=_SshUserRsaKey3_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29,1,4),_SshUserRsaKey3_Type())
-sshUserRsaKey3.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshUserRsaKey3.setStatus(_A)
-_SshUserRsaKey4_Type=KeySegment
-_SshUserRsaKey4_Object=MibTableColumn
-sshUserRsaKey4=_SshUserRsaKey4_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29,1,5),_SshUserRsaKey4_Type())
-sshUserRsaKey4.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshUserRsaKey4.setStatus(_A)
-_SshUserRsaKey5_Type=KeySegment
-_SshUserRsaKey5_Object=MibTableColumn
-sshUserRsaKey5=_SshUserRsaKey5_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29,1,6),_SshUserRsaKey5_Type())
-sshUserRsaKey5.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshUserRsaKey5.setStatus(_A)
-_SshUserRsaKey6_Type=KeySegment
-_SshUserRsaKey6_Object=MibTableColumn
-sshUserRsaKey6=_SshUserRsaKey6_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29,1,7),_SshUserRsaKey6_Type())
-sshUserRsaKey6.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshUserRsaKey6.setStatus(_A)
-_SshUserRsaKey7_Type=KeySegment
-_SshUserRsaKey7_Object=MibTableColumn
-sshUserRsaKey7=_SshUserRsaKey7_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29,1,8),_SshUserRsaKey7_Type())
-sshUserRsaKey7.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshUserRsaKey7.setStatus(_A)
-_SshUserRsaKey8_Type=KeySegment
-_SshUserRsaKey8_Object=MibTableColumn
-sshUserRsaKey8=_SshUserRsaKey8_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29,1,9),_SshUserRsaKey8_Type())
-sshUserRsaKey8.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshUserRsaKey8.setStatus(_A)
-_SshUserDsaKey1_Type=KeySegment
-_SshUserDsaKey1_Object=MibTableColumn
-sshUserDsaKey1=_SshUserDsaKey1_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29,1,10),_SshUserDsaKey1_Type())
-sshUserDsaKey1.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshUserDsaKey1.setStatus(_A)
-_SshUserDsaKey2_Type=KeySegment
-_SshUserDsaKey2_Object=MibTableColumn
-sshUserDsaKey2=_SshUserDsaKey2_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29,1,11),_SshUserDsaKey2_Type())
-sshUserDsaKey2.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshUserDsaKey2.setStatus(_A)
-_SshUserDsaKey3_Type=KeySegment
-_SshUserDsaKey3_Object=MibTableColumn
-sshUserDsaKey3=_SshUserDsaKey3_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29,1,12),_SshUserDsaKey3_Type())
-sshUserDsaKey3.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshUserDsaKey3.setStatus(_A)
-_SshUserDsaKey4_Type=KeySegment
-_SshUserDsaKey4_Object=MibTableColumn
-sshUserDsaKey4=_SshUserDsaKey4_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29,1,13),_SshUserDsaKey4_Type())
-sshUserDsaKey4.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshUserDsaKey4.setStatus(_A)
-_SshUserDsaKey5_Type=KeySegment
-_SshUserDsaKey5_Object=MibTableColumn
-sshUserDsaKey5=_SshUserDsaKey5_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29,1,14),_SshUserDsaKey5_Type())
-sshUserDsaKey5.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshUserDsaKey5.setStatus(_A)
-_SshUserDsaKey6_Type=KeySegment
-_SshUserDsaKey6_Object=MibTableColumn
-sshUserDsaKey6=_SshUserDsaKey6_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29,1,15),_SshUserDsaKey6_Type())
-sshUserDsaKey6.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshUserDsaKey6.setStatus(_A)
-_SshUserDsaKey7_Type=KeySegment
-_SshUserDsaKey7_Object=MibTableColumn
-sshUserDsaKey7=_SshUserDsaKey7_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29,1,16),_SshUserDsaKey7_Type())
-sshUserDsaKey7.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshUserDsaKey7.setStatus(_A)
-_SshUserDsaKey8_Type=KeySegment
-_SshUserDsaKey8_Object=MibTableColumn
-sshUserDsaKey8=_SshUserDsaKey8_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29,1,17),_SshUserDsaKey8_Type())
-sshUserDsaKey8.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshUserDsaKey8.setStatus(_A)
-class _SshUserKeyDelAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('noDel',1),(_Av,2),(_Aw,3),(_Ax,4)))
-_SshUserKeyDelAction_Type.__name__=_C
-_SshUserKeyDelAction_Object=MibTableColumn
-sshUserKeyDelAction=_SshUserKeyDelAction_Object((1,3,6,1,4,1,248,13,7,4,1,17,6,29,1,18),_SshUserKeyDelAction_Type())
-sshUserKeyDelAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:sshUserKeyDelAction.setStatus(_A)
-_AclMgt_ObjectIdentity=ObjectIdentity
-aclMgt=_AclMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,17,7))
-_AclIpAceTable_Object=MibTable
-aclIpAceTable=_AclIpAceTable_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1))
-if mibBuilder.loadTexts:aclIpAceTable.setStatus(_A)
-_AclIpAceEntry_Object=MibTableRow
-aclIpAceEntry=_AclIpAceEntry_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1))
-aclIpAceEntry.setIndexNames((0,_F,_Az),(0,_F,_A_))
-if mibBuilder.loadTexts:aclIpAceEntry.setStatus(_A)
-class _AclIpAceName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,15))
-_AclIpAceName_Type.__name__=_H
-_AclIpAceName_Object=MibTableColumn
-aclIpAceName=_AclIpAceName_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,1),_AclIpAceName_Type())
-aclIpAceName.setMaxAccess(_G)
-if mibBuilder.loadTexts:aclIpAceName.setStatus(_A)
-class _AclIpAceIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
-_AclIpAceIndex_Type.__name__=_C
-_AclIpAceIndex_Object=MibTableColumn
-aclIpAceIndex=_AclIpAceIndex_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,2),_AclIpAceIndex_Type())
-aclIpAceIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:aclIpAceIndex.setStatus(_A)
-class _AclIpAcePrecedence_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_AclIpAcePrecedence_Type.__name__=_C
-_AclIpAcePrecedence_Object=MibTableColumn
-aclIpAcePrecedence=_AclIpAcePrecedence_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,3),_AclIpAcePrecedence_Type())
-aclIpAcePrecedence.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclIpAcePrecedence.setStatus(_A)
-class _AclIpAceAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('permit',1),('deny',2)))
-_AclIpAceAction_Type.__name__=_C
-_AclIpAceAction_Object=MibTableColumn
-aclIpAceAction=_AclIpAceAction_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,4),_AclIpAceAction_Type())
-aclIpAceAction.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAceAction.setStatus(_A)
-_AclIpAceSourceIpAddr_Type=IpAddress
-_AclIpAceSourceIpAddr_Object=MibTableColumn
-aclIpAceSourceIpAddr=_AclIpAceSourceIpAddr_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,5),_AclIpAceSourceIpAddr_Type())
-aclIpAceSourceIpAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAceSourceIpAddr.setStatus(_A)
-_AclIpAceSourceIpAddrBitmask_Type=IpAddress
-_AclIpAceSourceIpAddrBitmask_Object=MibTableColumn
-aclIpAceSourceIpAddrBitmask=_AclIpAceSourceIpAddrBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,6),_AclIpAceSourceIpAddrBitmask_Type())
-aclIpAceSourceIpAddrBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAceSourceIpAddrBitmask.setStatus(_A)
-_AclIpAceDestIpAddr_Type=IpAddress
-_AclIpAceDestIpAddr_Object=MibTableColumn
-aclIpAceDestIpAddr=_AclIpAceDestIpAddr_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,7),_AclIpAceDestIpAddr_Type())
-aclIpAceDestIpAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAceDestIpAddr.setStatus(_A)
-_AclIpAceDestIpAddrBitmask_Type=IpAddress
-_AclIpAceDestIpAddrBitmask_Object=MibTableColumn
-aclIpAceDestIpAddrBitmask=_AclIpAceDestIpAddrBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,8),_AclIpAceDestIpAddrBitmask_Type())
-aclIpAceDestIpAddrBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAceDestIpAddrBitmask.setStatus(_A)
-class _AclIpAceProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,256))
-_AclIpAceProtocol_Type.__name__=_C
-_AclIpAceProtocol_Object=MibTableColumn
-aclIpAceProtocol=_AclIpAceProtocol_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,9),_AclIpAceProtocol_Type())
-aclIpAceProtocol.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAceProtocol.setStatus(_A)
-class _AclIpAcePrec_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,8))
-_AclIpAcePrec_Type.__name__=_C
-_AclIpAcePrec_Object=MibTableColumn
-aclIpAcePrec=_AclIpAcePrec_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,10),_AclIpAcePrec_Type())
-aclIpAcePrec.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAcePrec.setStatus(_A)
-class _AclIpAceTos_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16))
-_AclIpAceTos_Type.__name__=_C
-_AclIpAceTos_Object=MibTableColumn
-aclIpAceTos=_AclIpAceTos_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,11),_AclIpAceTos_Type())
-aclIpAceTos.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAceTos.setStatus(_A)
-class _AclIpAceDscp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,64))
-_AclIpAceDscp_Type.__name__=_C
-_AclIpAceDscp_Object=MibTableColumn
-aclIpAceDscp=_AclIpAceDscp_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,12),_AclIpAceDscp_Type())
-aclIpAceDscp.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAceDscp.setStatus(_A)
-class _AclIpAceSourcePortOp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_W,1),(_X,2),(_Y,3)))
-_AclIpAceSourcePortOp_Type.__name__=_C
-_AclIpAceSourcePortOp_Object=MibTableColumn
-aclIpAceSourcePortOp=_AclIpAceSourcePortOp_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,13),_AclIpAceSourcePortOp_Type())
-aclIpAceSourcePortOp.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAceSourcePortOp.setStatus(_A)
-class _AclIpAceMinSourcePort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AclIpAceMinSourcePort_Type.__name__=_C
-_AclIpAceMinSourcePort_Object=MibTableColumn
-aclIpAceMinSourcePort=_AclIpAceMinSourcePort_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,14),_AclIpAceMinSourcePort_Type())
-aclIpAceMinSourcePort.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAceMinSourcePort.setStatus(_A)
-class _AclIpAceMaxSourcePort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AclIpAceMaxSourcePort_Type.__name__=_C
-_AclIpAceMaxSourcePort_Object=MibTableColumn
-aclIpAceMaxSourcePort=_AclIpAceMaxSourcePort_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,15),_AclIpAceMaxSourcePort_Type())
-aclIpAceMaxSourcePort.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAceMaxSourcePort.setStatus(_A)
-class _AclIpAceSourcePortBitmask_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AclIpAceSourcePortBitmask_Type.__name__=_C
-_AclIpAceSourcePortBitmask_Object=MibTableColumn
-aclIpAceSourcePortBitmask=_AclIpAceSourcePortBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,16),_AclIpAceSourcePortBitmask_Type())
-aclIpAceSourcePortBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAceSourcePortBitmask.setStatus(_A)
-class _AclIpAceDestPortOp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_W,1),(_X,2),(_Y,3)))
-_AclIpAceDestPortOp_Type.__name__=_C
-_AclIpAceDestPortOp_Object=MibTableColumn
-aclIpAceDestPortOp=_AclIpAceDestPortOp_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,17),_AclIpAceDestPortOp_Type())
-aclIpAceDestPortOp.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAceDestPortOp.setStatus(_A)
-class _AclIpAceMinDestPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AclIpAceMinDestPort_Type.__name__=_C
-_AclIpAceMinDestPort_Object=MibTableColumn
-aclIpAceMinDestPort=_AclIpAceMinDestPort_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,18),_AclIpAceMinDestPort_Type())
-aclIpAceMinDestPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAceMinDestPort.setStatus(_A)
-class _AclIpAceMaxDestPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AclIpAceMaxDestPort_Type.__name__=_C
-_AclIpAceMaxDestPort_Object=MibTableColumn
-aclIpAceMaxDestPort=_AclIpAceMaxDestPort_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,19),_AclIpAceMaxDestPort_Type())
-aclIpAceMaxDestPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAceMaxDestPort.setStatus(_A)
-class _AclIpAceDestPortBitmask_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AclIpAceDestPortBitmask_Type.__name__=_C
-_AclIpAceDestPortBitmask_Object=MibTableColumn
-aclIpAceDestPortBitmask=_AclIpAceDestPortBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,20),_AclIpAceDestPortBitmask_Type())
-aclIpAceDestPortBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAceDestPortBitmask.setStatus(_A)
-class _AclIpAceControlCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,63))
-_AclIpAceControlCode_Type.__name__=_C
-_AclIpAceControlCode_Object=MibTableColumn
-aclIpAceControlCode=_AclIpAceControlCode_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,21),_AclIpAceControlCode_Type())
-aclIpAceControlCode.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAceControlCode.setStatus(_A)
-class _AclIpAceControlCodeBitmask_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,63))
-_AclIpAceControlCodeBitmask_Type.__name__=_C
-_AclIpAceControlCodeBitmask_Object=MibTableColumn
-aclIpAceControlCodeBitmask=_AclIpAceControlCodeBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,22),_AclIpAceControlCodeBitmask_Type())
-aclIpAceControlCodeBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAceControlCodeBitmask.setStatus(_A)
-_AclIpAceStatus_Type=RowStatus
-_AclIpAceStatus_Object=MibTableColumn
-aclIpAceStatus=_AclIpAceStatus_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,1,1,23),_AclIpAceStatus_Type())
-aclIpAceStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIpAceStatus.setStatus(_A)
-_AclMacAceTable_Object=MibTable
-aclMacAceTable=_AclMacAceTable_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2))
-if mibBuilder.loadTexts:aclMacAceTable.setStatus(_A)
-_AclMacAceEntry_Object=MibTableRow
-aclMacAceEntry=_AclMacAceEntry_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2,1))
-aclMacAceEntry.setIndexNames((0,_F,_B0),(0,_F,_B1))
-if mibBuilder.loadTexts:aclMacAceEntry.setStatus(_A)
-class _AclMacAceName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,15))
-_AclMacAceName_Type.__name__=_H
-_AclMacAceName_Object=MibTableColumn
-aclMacAceName=_AclMacAceName_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2,1,1),_AclMacAceName_Type())
-aclMacAceName.setMaxAccess(_G)
-if mibBuilder.loadTexts:aclMacAceName.setStatus(_A)
-class _AclMacAceIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
-_AclMacAceIndex_Type.__name__=_C
-_AclMacAceIndex_Object=MibTableColumn
-aclMacAceIndex=_AclMacAceIndex_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2,1,2),_AclMacAceIndex_Type())
-aclMacAceIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:aclMacAceIndex.setStatus(_A)
-class _AclMacAcePrecedence_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_AclMacAcePrecedence_Type.__name__=_C
-_AclMacAcePrecedence_Object=MibTableColumn
-aclMacAcePrecedence=_AclMacAcePrecedence_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2,1,3),_AclMacAcePrecedence_Type())
-aclMacAcePrecedence.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclMacAcePrecedence.setStatus(_A)
-class _AclMacAceAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('permit',1),('deny',2)))
-_AclMacAceAction_Type.__name__=_C
-_AclMacAceAction_Object=MibTableColumn
-aclMacAceAction=_AclMacAceAction_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2,1,4),_AclMacAceAction_Type())
-aclMacAceAction.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclMacAceAction.setStatus(_A)
-class _AclMacAcePktformat_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('any',1),('untagged-Eth2',2),('untagged802Dot3',3),('tagggedEth2',4),('tagged802Dot3',5)))
-_AclMacAcePktformat_Type.__name__=_C
-_AclMacAcePktformat_Object=MibTableColumn
-aclMacAcePktformat=_AclMacAcePktformat_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2,1,5),_AclMacAcePktformat_Type())
-aclMacAcePktformat.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclMacAcePktformat.setStatus(_A)
-class _AclMacAceSourceMacAddr_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
-_AclMacAceSourceMacAddr_Type.__name__=_I
-_AclMacAceSourceMacAddr_Object=MibTableColumn
-aclMacAceSourceMacAddr=_AclMacAceSourceMacAddr_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2,1,6),_AclMacAceSourceMacAddr_Type())
-aclMacAceSourceMacAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclMacAceSourceMacAddr.setStatus(_A)
-class _AclMacAceSourceMacAddrBitmask_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
-_AclMacAceSourceMacAddrBitmask_Type.__name__=_I
-_AclMacAceSourceMacAddrBitmask_Object=MibTableColumn
-aclMacAceSourceMacAddrBitmask=_AclMacAceSourceMacAddrBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2,1,7),_AclMacAceSourceMacAddrBitmask_Type())
-aclMacAceSourceMacAddrBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclMacAceSourceMacAddrBitmask.setStatus(_A)
-class _AclMacAceDestMacAddr_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
-_AclMacAceDestMacAddr_Type.__name__=_I
-_AclMacAceDestMacAddr_Object=MibTableColumn
-aclMacAceDestMacAddr=_AclMacAceDestMacAddr_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2,1,8),_AclMacAceDestMacAddr_Type())
-aclMacAceDestMacAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclMacAceDestMacAddr.setStatus(_A)
-class _AclMacAceDestMacAddrBitmask_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
-_AclMacAceDestMacAddrBitmask_Type.__name__=_I
-_AclMacAceDestMacAddrBitmask_Object=MibTableColumn
-aclMacAceDestMacAddrBitmask=_AclMacAceDestMacAddrBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2,1,9),_AclMacAceDestMacAddrBitmask_Type())
-aclMacAceDestMacAddrBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclMacAceDestMacAddrBitmask.setStatus(_A)
-class _AclMacAceVidOp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_W,1),(_X,2),(_Y,3)))
-_AclMacAceVidOp_Type.__name__=_C
-_AclMacAceVidOp_Object=MibTableColumn
-aclMacAceVidOp=_AclMacAceVidOp_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2,1,10),_AclMacAceVidOp_Type())
-aclMacAceVidOp.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclMacAceVidOp.setStatus(_A)
-class _AclMacAceMinVid_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4093))
-_AclMacAceMinVid_Type.__name__=_C
-_AclMacAceMinVid_Object=MibTableColumn
-aclMacAceMinVid=_AclMacAceMinVid_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2,1,11),_AclMacAceMinVid_Type())
-aclMacAceMinVid.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclMacAceMinVid.setStatus(_A)
-class _AclMacAceVidBitmask_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_AclMacAceVidBitmask_Type.__name__=_C
-_AclMacAceVidBitmask_Object=MibTableColumn
-aclMacAceVidBitmask=_AclMacAceVidBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2,1,12),_AclMacAceVidBitmask_Type())
-aclMacAceVidBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclMacAceVidBitmask.setStatus(_A)
-class _AclMacAceMaxVid_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4093))
-_AclMacAceMaxVid_Type.__name__=_C
-_AclMacAceMaxVid_Object=MibTableColumn
-aclMacAceMaxVid=_AclMacAceMaxVid_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2,1,13),_AclMacAceMaxVid_Type())
-aclMacAceMaxVid.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclMacAceMaxVid.setStatus(_A)
-class _AclMacAceEtherTypeOp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_W,1),(_X,2),(_Y,3)))
-_AclMacAceEtherTypeOp_Type.__name__=_C
-_AclMacAceEtherTypeOp_Object=MibTableColumn
-aclMacAceEtherTypeOp=_AclMacAceEtherTypeOp_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2,1,14),_AclMacAceEtherTypeOp_Type())
-aclMacAceEtherTypeOp.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclMacAceEtherTypeOp.setStatus(_A)
-class _AclMacAceEtherTypeBitmask_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AclMacAceEtherTypeBitmask_Type.__name__=_C
-_AclMacAceEtherTypeBitmask_Object=MibTableColumn
-aclMacAceEtherTypeBitmask=_AclMacAceEtherTypeBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2,1,15),_AclMacAceEtherTypeBitmask_Type())
-aclMacAceEtherTypeBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclMacAceEtherTypeBitmask.setStatus(_A)
-class _AclMacAceMinEtherType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1536,65535))
-_AclMacAceMinEtherType_Type.__name__=_C
-_AclMacAceMinEtherType_Object=MibTableColumn
-aclMacAceMinEtherType=_AclMacAceMinEtherType_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2,1,16),_AclMacAceMinEtherType_Type())
-aclMacAceMinEtherType.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclMacAceMinEtherType.setStatus(_A)
-class _AclMacAceMaxEtherType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1536,65535))
-_AclMacAceMaxEtherType_Type.__name__=_C
-_AclMacAceMaxEtherType_Object=MibTableColumn
-aclMacAceMaxEtherType=_AclMacAceMaxEtherType_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2,1,17),_AclMacAceMaxEtherType_Type())
-aclMacAceMaxEtherType.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclMacAceMaxEtherType.setStatus(_A)
-_AclMacAceStatus_Type=RowStatus
-_AclMacAceStatus_Object=MibTableColumn
-aclMacAceStatus=_AclMacAceStatus_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,2,1,18),_AclMacAceStatus_Type())
-aclMacAceStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclMacAceStatus.setStatus(_A)
-_AclAclGroupTable_Object=MibTable
-aclAclGroupTable=_AclAclGroupTable_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,3))
-if mibBuilder.loadTexts:aclAclGroupTable.setStatus(_A)
-_AclAclGroupEntry_Object=MibTableRow
-aclAclGroupEntry=_AclAclGroupEntry_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,3,1))
-aclAclGroupEntry.setIndexNames((0,_F,_B2))
-if mibBuilder.loadTexts:aclAclGroupEntry.setStatus(_A)
-_AclAclGroupIfIndex_Type=Integer32
-_AclAclGroupIfIndex_Object=MibTableColumn
-aclAclGroupIfIndex=_AclAclGroupIfIndex_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,3,1,1),_AclAclGroupIfIndex_Type())
-aclAclGroupIfIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:aclAclGroupIfIndex.setStatus(_A)
-class _AclAclGroupIngressIpAcl_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_AclAclGroupIngressIpAcl_Type.__name__=_H
-_AclAclGroupIngressIpAcl_Object=MibTableColumn
-aclAclGroupIngressIpAcl=_AclAclGroupIngressIpAcl_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,3,1,2),_AclAclGroupIngressIpAcl_Type())
-aclAclGroupIngressIpAcl.setMaxAccess(_D)
-if mibBuilder.loadTexts:aclAclGroupIngressIpAcl.setStatus(_A)
-class _AclAclGroupEgressIpAcl_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_AclAclGroupEgressIpAcl_Type.__name__=_H
-_AclAclGroupEgressIpAcl_Object=MibTableColumn
-aclAclGroupEgressIpAcl=_AclAclGroupEgressIpAcl_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,3,1,3),_AclAclGroupEgressIpAcl_Type())
-aclAclGroupEgressIpAcl.setMaxAccess(_D)
-if mibBuilder.loadTexts:aclAclGroupEgressIpAcl.setStatus(_A)
-class _AclAclGroupIngressMacAcl_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_AclAclGroupIngressMacAcl_Type.__name__=_H
-_AclAclGroupIngressMacAcl_Object=MibTableColumn
-aclAclGroupIngressMacAcl=_AclAclGroupIngressMacAcl_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,3,1,4),_AclAclGroupIngressMacAcl_Type())
-aclAclGroupIngressMacAcl.setMaxAccess(_D)
-if mibBuilder.loadTexts:aclAclGroupIngressMacAcl.setStatus(_A)
-class _AclAclGroupEgressMacAcl_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_AclAclGroupEgressMacAcl_Type.__name__=_H
-_AclAclGroupEgressMacAcl_Object=MibTableColumn
-aclAclGroupEgressMacAcl=_AclAclGroupEgressMacAcl_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,3,1,5),_AclAclGroupEgressMacAcl_Type())
-aclAclGroupEgressMacAcl.setMaxAccess(_D)
-if mibBuilder.loadTexts:aclAclGroupEgressMacAcl.setStatus(_A)
-_AclIngressIpMaskTable_Object=MibTable
-aclIngressIpMaskTable=_AclIngressIpMaskTable_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,4))
-if mibBuilder.loadTexts:aclIngressIpMaskTable.setStatus(_A)
-_AclIngressIpMaskEntry_Object=MibTableRow
-aclIngressIpMaskEntry=_AclIngressIpMaskEntry_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,4,1))
-aclIngressIpMaskEntry.setIndexNames((0,_F,_B3))
-if mibBuilder.loadTexts:aclIngressIpMaskEntry.setStatus(_A)
-class _AclIngressIpMaskIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16))
-_AclIngressIpMaskIndex_Type.__name__=_C
-_AclIngressIpMaskIndex_Object=MibTableColumn
-aclIngressIpMaskIndex=_AclIngressIpMaskIndex_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,4,1,1),_AclIngressIpMaskIndex_Type())
-aclIngressIpMaskIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:aclIngressIpMaskIndex.setStatus(_A)
-class _AclIngressIpMaskPrecedence_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16))
-_AclIngressIpMaskPrecedence_Type.__name__=_C
-_AclIngressIpMaskPrecedence_Object=MibTableColumn
-aclIngressIpMaskPrecedence=_AclIngressIpMaskPrecedence_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,4,1,2),_AclIngressIpMaskPrecedence_Type())
-aclIngressIpMaskPrecedence.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclIngressIpMaskPrecedence.setStatus(_A)
-_AclIngressIpMaskIsEnableTos_Type=EnabledStatus
-_AclIngressIpMaskIsEnableTos_Object=MibTableColumn
-aclIngressIpMaskIsEnableTos=_AclIngressIpMaskIsEnableTos_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,4,1,3),_AclIngressIpMaskIsEnableTos_Type())
-aclIngressIpMaskIsEnableTos.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIngressIpMaskIsEnableTos.setStatus(_A)
-_AclIngressIpMaskIsEnableDscp_Type=EnabledStatus
-_AclIngressIpMaskIsEnableDscp_Object=MibTableColumn
-aclIngressIpMaskIsEnableDscp=_AclIngressIpMaskIsEnableDscp_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,4,1,4),_AclIngressIpMaskIsEnableDscp_Type())
-aclIngressIpMaskIsEnableDscp.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIngressIpMaskIsEnableDscp.setStatus(_A)
-_AclIngressIpMaskIsEnablePrecedence_Type=EnabledStatus
-_AclIngressIpMaskIsEnablePrecedence_Object=MibTableColumn
-aclIngressIpMaskIsEnablePrecedence=_AclIngressIpMaskIsEnablePrecedence_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,4,1,5),_AclIngressIpMaskIsEnablePrecedence_Type())
-aclIngressIpMaskIsEnablePrecedence.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIngressIpMaskIsEnablePrecedence.setStatus(_A)
-_AclIngressIpMaskIsEnableProtocol_Type=EnabledStatus
-_AclIngressIpMaskIsEnableProtocol_Object=MibTableColumn
-aclIngressIpMaskIsEnableProtocol=_AclIngressIpMaskIsEnableProtocol_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,4,1,6),_AclIngressIpMaskIsEnableProtocol_Type())
-aclIngressIpMaskIsEnableProtocol.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIngressIpMaskIsEnableProtocol.setStatus(_A)
-class _AclIngressIpMaskSourceIpAddrBitmask_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_AclIngressIpMaskSourceIpAddrBitmask_Type.__name__=_J
-_AclIngressIpMaskSourceIpAddrBitmask_Object=MibTableColumn
-aclIngressIpMaskSourceIpAddrBitmask=_AclIngressIpMaskSourceIpAddrBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,4,1,7),_AclIngressIpMaskSourceIpAddrBitmask_Type())
-aclIngressIpMaskSourceIpAddrBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIngressIpMaskSourceIpAddrBitmask.setStatus(_A)
-class _AclIngressIpMaskDestIpAddrBitmask_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_AclIngressIpMaskDestIpAddrBitmask_Type.__name__=_J
-_AclIngressIpMaskDestIpAddrBitmask_Object=MibTableColumn
-aclIngressIpMaskDestIpAddrBitmask=_AclIngressIpMaskDestIpAddrBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,4,1,8),_AclIngressIpMaskDestIpAddrBitmask_Type())
-aclIngressIpMaskDestIpAddrBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIngressIpMaskDestIpAddrBitmask.setStatus(_A)
-class _AclIngressIpMaskSourcePortBitmask_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AclIngressIpMaskSourcePortBitmask_Type.__name__=_C
-_AclIngressIpMaskSourcePortBitmask_Object=MibTableColumn
-aclIngressIpMaskSourcePortBitmask=_AclIngressIpMaskSourcePortBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,4,1,9),_AclIngressIpMaskSourcePortBitmask_Type())
-aclIngressIpMaskSourcePortBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIngressIpMaskSourcePortBitmask.setStatus(_A)
-class _AclIngressIpMaskDestPortBitmask_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AclIngressIpMaskDestPortBitmask_Type.__name__=_C
-_AclIngressIpMaskDestPortBitmask_Object=MibTableColumn
-aclIngressIpMaskDestPortBitmask=_AclIngressIpMaskDestPortBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,4,1,10),_AclIngressIpMaskDestPortBitmask_Type())
-aclIngressIpMaskDestPortBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIngressIpMaskDestPortBitmask.setStatus(_A)
-class _AclIngressIpMaskControlCodeBitmask_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,63))
-_AclIngressIpMaskControlCodeBitmask_Type.__name__=_C
-_AclIngressIpMaskControlCodeBitmask_Object=MibTableColumn
-aclIngressIpMaskControlCodeBitmask=_AclIngressIpMaskControlCodeBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,4,1,11),_AclIngressIpMaskControlCodeBitmask_Type())
-aclIngressIpMaskControlCodeBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIngressIpMaskControlCodeBitmask.setStatus(_A)
-_AclIngressIpMaskStatus_Type=RowStatus
-_AclIngressIpMaskStatus_Object=MibTableColumn
-aclIngressIpMaskStatus=_AclIngressIpMaskStatus_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,4,1,12),_AclIngressIpMaskStatus_Type())
-aclIngressIpMaskStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIngressIpMaskStatus.setStatus(_A)
-_AclEgressIpMaskTable_Object=MibTable
-aclEgressIpMaskTable=_AclEgressIpMaskTable_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,5))
-if mibBuilder.loadTexts:aclEgressIpMaskTable.setStatus(_A)
-_AclEgressIpMaskEntry_Object=MibTableRow
-aclEgressIpMaskEntry=_AclEgressIpMaskEntry_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,5,1))
-aclEgressIpMaskEntry.setIndexNames((0,_F,_B4))
-if mibBuilder.loadTexts:aclEgressIpMaskEntry.setStatus(_A)
-class _AclEgressIpMaskIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16))
-_AclEgressIpMaskIndex_Type.__name__=_C
-_AclEgressIpMaskIndex_Object=MibTableColumn
-aclEgressIpMaskIndex=_AclEgressIpMaskIndex_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,5,1,1),_AclEgressIpMaskIndex_Type())
-aclEgressIpMaskIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:aclEgressIpMaskIndex.setStatus(_A)
-class _AclEgressIpMaskPrecedence_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16))
-_AclEgressIpMaskPrecedence_Type.__name__=_C
-_AclEgressIpMaskPrecedence_Object=MibTableColumn
-aclEgressIpMaskPrecedence=_AclEgressIpMaskPrecedence_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,5,1,2),_AclEgressIpMaskPrecedence_Type())
-aclEgressIpMaskPrecedence.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclEgressIpMaskPrecedence.setStatus(_A)
-_AclEgressIpMaskIsEnableTos_Type=EnabledStatus
-_AclEgressIpMaskIsEnableTos_Object=MibTableColumn
-aclEgressIpMaskIsEnableTos=_AclEgressIpMaskIsEnableTos_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,5,1,3),_AclEgressIpMaskIsEnableTos_Type())
-aclEgressIpMaskIsEnableTos.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclEgressIpMaskIsEnableTos.setStatus(_A)
-_AclEgressIpMaskIsEnableDscp_Type=EnabledStatus
-_AclEgressIpMaskIsEnableDscp_Object=MibTableColumn
-aclEgressIpMaskIsEnableDscp=_AclEgressIpMaskIsEnableDscp_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,5,1,4),_AclEgressIpMaskIsEnableDscp_Type())
-aclEgressIpMaskIsEnableDscp.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclEgressIpMaskIsEnableDscp.setStatus(_A)
-_AclEgressIpMaskIsEnablePrecedence_Type=EnabledStatus
-_AclEgressIpMaskIsEnablePrecedence_Object=MibTableColumn
-aclEgressIpMaskIsEnablePrecedence=_AclEgressIpMaskIsEnablePrecedence_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,5,1,5),_AclEgressIpMaskIsEnablePrecedence_Type())
-aclEgressIpMaskIsEnablePrecedence.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclEgressIpMaskIsEnablePrecedence.setStatus(_A)
-_AclEgressIpMaskIsEnableProtocol_Type=EnabledStatus
-_AclEgressIpMaskIsEnableProtocol_Object=MibTableColumn
-aclEgressIpMaskIsEnableProtocol=_AclEgressIpMaskIsEnableProtocol_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,5,1,6),_AclEgressIpMaskIsEnableProtocol_Type())
-aclEgressIpMaskIsEnableProtocol.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclEgressIpMaskIsEnableProtocol.setStatus(_A)
-class _AclEgressIpMaskSourceIpAddrBitmask_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_AclEgressIpMaskSourceIpAddrBitmask_Type.__name__=_J
-_AclEgressIpMaskSourceIpAddrBitmask_Object=MibTableColumn
-aclEgressIpMaskSourceIpAddrBitmask=_AclEgressIpMaskSourceIpAddrBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,5,1,7),_AclEgressIpMaskSourceIpAddrBitmask_Type())
-aclEgressIpMaskSourceIpAddrBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclEgressIpMaskSourceIpAddrBitmask.setStatus(_A)
-class _AclEgressIpMaskDestIpAddrBitmask_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_AclEgressIpMaskDestIpAddrBitmask_Type.__name__=_J
-_AclEgressIpMaskDestIpAddrBitmask_Object=MibTableColumn
-aclEgressIpMaskDestIpAddrBitmask=_AclEgressIpMaskDestIpAddrBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,5,1,8),_AclEgressIpMaskDestIpAddrBitmask_Type())
-aclEgressIpMaskDestIpAddrBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclEgressIpMaskDestIpAddrBitmask.setStatus(_A)
-class _AclEgressIpMaskSourcePortBitmask_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AclEgressIpMaskSourcePortBitmask_Type.__name__=_C
-_AclEgressIpMaskSourcePortBitmask_Object=MibTableColumn
-aclEgressIpMaskSourcePortBitmask=_AclEgressIpMaskSourcePortBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,5,1,9),_AclEgressIpMaskSourcePortBitmask_Type())
-aclEgressIpMaskSourcePortBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclEgressIpMaskSourcePortBitmask.setStatus(_A)
-class _AclEgressIpMaskDestPortBitmask_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AclEgressIpMaskDestPortBitmask_Type.__name__=_C
-_AclEgressIpMaskDestPortBitmask_Object=MibTableColumn
-aclEgressIpMaskDestPortBitmask=_AclEgressIpMaskDestPortBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,5,1,10),_AclEgressIpMaskDestPortBitmask_Type())
-aclEgressIpMaskDestPortBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclEgressIpMaskDestPortBitmask.setStatus(_A)
-class _AclEgressIpMaskControlCodeBitmask_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,63))
-_AclEgressIpMaskControlCodeBitmask_Type.__name__=_C
-_AclEgressIpMaskControlCodeBitmask_Object=MibTableColumn
-aclEgressIpMaskControlCodeBitmask=_AclEgressIpMaskControlCodeBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,5,1,11),_AclEgressIpMaskControlCodeBitmask_Type())
-aclEgressIpMaskControlCodeBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclEgressIpMaskControlCodeBitmask.setStatus(_A)
-_AclEgressIpMaskStatus_Type=RowStatus
-_AclEgressIpMaskStatus_Object=MibTableColumn
-aclEgressIpMaskStatus=_AclEgressIpMaskStatus_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,5,1,12),_AclEgressIpMaskStatus_Type())
-aclEgressIpMaskStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclEgressIpMaskStatus.setStatus(_A)
-_AclIngressMacMaskTable_Object=MibTable
-aclIngressMacMaskTable=_AclIngressMacMaskTable_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,6))
-if mibBuilder.loadTexts:aclIngressMacMaskTable.setStatus(_A)
-_AclIngressMacMaskEntry_Object=MibTableRow
-aclIngressMacMaskEntry=_AclIngressMacMaskEntry_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,6,1))
-aclIngressMacMaskEntry.setIndexNames((0,_F,_B5))
-if mibBuilder.loadTexts:aclIngressMacMaskEntry.setStatus(_A)
-class _AclIngressMacMaskIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16))
-_AclIngressMacMaskIndex_Type.__name__=_C
-_AclIngressMacMaskIndex_Object=MibTableColumn
-aclIngressMacMaskIndex=_AclIngressMacMaskIndex_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,6,1,1),_AclIngressMacMaskIndex_Type())
-aclIngressMacMaskIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:aclIngressMacMaskIndex.setStatus(_A)
-class _AclIngressMacMaskPrecedence_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16))
-_AclIngressMacMaskPrecedence_Type.__name__=_C
-_AclIngressMacMaskPrecedence_Object=MibTableColumn
-aclIngressMacMaskPrecedence=_AclIngressMacMaskPrecedence_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,6,1,2),_AclIngressMacMaskPrecedence_Type())
-aclIngressMacMaskPrecedence.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclIngressMacMaskPrecedence.setStatus(_A)
-class _AclIngressMacMaskSourceMacAddrBitmask_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
-_AclIngressMacMaskSourceMacAddrBitmask_Type.__name__=_I
-_AclIngressMacMaskSourceMacAddrBitmask_Object=MibTableColumn
-aclIngressMacMaskSourceMacAddrBitmask=_AclIngressMacMaskSourceMacAddrBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,6,1,3),_AclIngressMacMaskSourceMacAddrBitmask_Type())
-aclIngressMacMaskSourceMacAddrBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIngressMacMaskSourceMacAddrBitmask.setStatus(_A)
-class _AclIngressMacMaskDestMacAddrBitmask_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
-_AclIngressMacMaskDestMacAddrBitmask_Type.__name__=_I
-_AclIngressMacMaskDestMacAddrBitmask_Object=MibTableColumn
-aclIngressMacMaskDestMacAddrBitmask=_AclIngressMacMaskDestMacAddrBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,6,1,4),_AclIngressMacMaskDestMacAddrBitmask_Type())
-aclIngressMacMaskDestMacAddrBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIngressMacMaskDestMacAddrBitmask.setStatus(_A)
-class _AclIngressMacMaskVidBitmask_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_AclIngressMacMaskVidBitmask_Type.__name__=_C
-_AclIngressMacMaskVidBitmask_Object=MibTableColumn
-aclIngressMacMaskVidBitmask=_AclIngressMacMaskVidBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,6,1,5),_AclIngressMacMaskVidBitmask_Type())
-aclIngressMacMaskVidBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIngressMacMaskVidBitmask.setStatus(_A)
-class _AclIngressMacMaskEtherTypeBitmask_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AclIngressMacMaskEtherTypeBitmask_Type.__name__=_C
-_AclIngressMacMaskEtherTypeBitmask_Object=MibTableColumn
-aclIngressMacMaskEtherTypeBitmask=_AclIngressMacMaskEtherTypeBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,6,1,6),_AclIngressMacMaskEtherTypeBitmask_Type())
-aclIngressMacMaskEtherTypeBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIngressMacMaskEtherTypeBitmask.setStatus(_A)
-_AclIngressMacMaskIsEnablePktformat_Type=EnabledStatus
-_AclIngressMacMaskIsEnablePktformat_Object=MibTableColumn
-aclIngressMacMaskIsEnablePktformat=_AclIngressMacMaskIsEnablePktformat_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,6,1,7),_AclIngressMacMaskIsEnablePktformat_Type())
-aclIngressMacMaskIsEnablePktformat.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIngressMacMaskIsEnablePktformat.setStatus(_A)
-_AclIngressMacMaskStatus_Type=RowStatus
-_AclIngressMacMaskStatus_Object=MibTableColumn
-aclIngressMacMaskStatus=_AclIngressMacMaskStatus_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,6,1,8),_AclIngressMacMaskStatus_Type())
-aclIngressMacMaskStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclIngressMacMaskStatus.setStatus(_A)
-_AclEgressMacMaskTable_Object=MibTable
-aclEgressMacMaskTable=_AclEgressMacMaskTable_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,7))
-if mibBuilder.loadTexts:aclEgressMacMaskTable.setStatus(_A)
-_AclEgressMacMaskEntry_Object=MibTableRow
-aclEgressMacMaskEntry=_AclEgressMacMaskEntry_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,7,1))
-aclEgressMacMaskEntry.setIndexNames((0,_F,_B6))
-if mibBuilder.loadTexts:aclEgressMacMaskEntry.setStatus(_A)
-class _AclEgressMacMaskIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16))
-_AclEgressMacMaskIndex_Type.__name__=_C
-_AclEgressMacMaskIndex_Object=MibTableColumn
-aclEgressMacMaskIndex=_AclEgressMacMaskIndex_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,7,1,1),_AclEgressMacMaskIndex_Type())
-aclEgressMacMaskIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:aclEgressMacMaskIndex.setStatus(_A)
-class _AclEgressMacMaskPrecedence_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16))
-_AclEgressMacMaskPrecedence_Type.__name__=_C
-_AclEgressMacMaskPrecedence_Object=MibTableColumn
-aclEgressMacMaskPrecedence=_AclEgressMacMaskPrecedence_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,7,1,2),_AclEgressMacMaskPrecedence_Type())
-aclEgressMacMaskPrecedence.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclEgressMacMaskPrecedence.setStatus(_A)
-class _AclEgressMacMaskSourceMacAddrBitmask_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
-_AclEgressMacMaskSourceMacAddrBitmask_Type.__name__=_I
-_AclEgressMacMaskSourceMacAddrBitmask_Object=MibTableColumn
-aclEgressMacMaskSourceMacAddrBitmask=_AclEgressMacMaskSourceMacAddrBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,7,1,3),_AclEgressMacMaskSourceMacAddrBitmask_Type())
-aclEgressMacMaskSourceMacAddrBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclEgressMacMaskSourceMacAddrBitmask.setStatus(_A)
-class _AclEgressMacMaskDestMacAddrBitmask_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
-_AclEgressMacMaskDestMacAddrBitmask_Type.__name__=_I
-_AclEgressMacMaskDestMacAddrBitmask_Object=MibTableColumn
-aclEgressMacMaskDestMacAddrBitmask=_AclEgressMacMaskDestMacAddrBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,7,1,4),_AclEgressMacMaskDestMacAddrBitmask_Type())
-aclEgressMacMaskDestMacAddrBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclEgressMacMaskDestMacAddrBitmask.setStatus(_A)
-class _AclEgressMacMaskVidBitmask_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_AclEgressMacMaskVidBitmask_Type.__name__=_C
-_AclEgressMacMaskVidBitmask_Object=MibTableColumn
-aclEgressMacMaskVidBitmask=_AclEgressMacMaskVidBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,7,1,5),_AclEgressMacMaskVidBitmask_Type())
-aclEgressMacMaskVidBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclEgressMacMaskVidBitmask.setStatus(_A)
-class _AclEgressMacMaskEtherTypeBitmask_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AclEgressMacMaskEtherTypeBitmask_Type.__name__=_C
-_AclEgressMacMaskEtherTypeBitmask_Object=MibTableColumn
-aclEgressMacMaskEtherTypeBitmask=_AclEgressMacMaskEtherTypeBitmask_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,7,1,6),_AclEgressMacMaskEtherTypeBitmask_Type())
-aclEgressMacMaskEtherTypeBitmask.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclEgressMacMaskEtherTypeBitmask.setStatus(_A)
-_AclEgressMacMaskIsEnablePktformat_Type=EnabledStatus
-_AclEgressMacMaskIsEnablePktformat_Object=MibTableColumn
-aclEgressMacMaskIsEnablePktformat=_AclEgressMacMaskIsEnablePktformat_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,7,1,7),_AclEgressMacMaskIsEnablePktformat_Type())
-aclEgressMacMaskIsEnablePktformat.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclEgressMacMaskIsEnablePktformat.setStatus(_A)
-_AclEgressMacMaskStatus_Type=RowStatus
-_AclEgressMacMaskStatus_Object=MibTableColumn
-aclEgressMacMaskStatus=_AclEgressMacMaskStatus_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,7,1,8),_AclEgressMacMaskStatus_Type())
-aclEgressMacMaskStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclEgressMacMaskStatus.setStatus(_A)
-_AclIpTable_Object=MibTable
-aclIpTable=_AclIpTable_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,8))
-if mibBuilder.loadTexts:aclIpTable.setStatus(_A)
-_AclIpEntry_Object=MibTableRow
-aclIpEntry=_AclIpEntry_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,8,1))
-aclIpEntry.setIndexNames((0,_F,_B7))
-if mibBuilder.loadTexts:aclIpEntry.setStatus(_A)
-class _AclIpAclName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,15))
-_AclIpAclName_Type.__name__=_H
-_AclIpAclName_Object=MibTableColumn
-aclIpAclName=_AclIpAclName_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,8,1,1),_AclIpAclName_Type())
-aclIpAclName.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclIpAclName.setStatus(_A)
-_AclMacTable_Object=MibTable
-aclMacTable=_AclMacTable_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,9))
-if mibBuilder.loadTexts:aclMacTable.setStatus(_A)
-_AclMacEntry_Object=MibTableRow
-aclMacEntry=_AclMacEntry_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,9,1))
-aclMacEntry.setIndexNames((0,_F,_B8))
-if mibBuilder.loadTexts:aclMacEntry.setStatus(_A)
-class _AclMacAclName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,15))
-_AclMacAclName_Type.__name__=_H
-_AclMacAclName_Object=MibTableColumn
-aclMacAclName=_AclMacAclName_Object((1,3,6,1,4,1,248,13,7,4,1,17,7,9,1,1),_AclMacAclName_Type())
-aclMacAclName.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclMacAclName.setStatus(_A)
-_IpFilterMgt_ObjectIdentity=ObjectIdentity
-ipFilterMgt=_IpFilterMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,17,9))
-_IpFilterSnmpTable_Object=MibTable
-ipFilterSnmpTable=_IpFilterSnmpTable_Object((1,3,6,1,4,1,248,13,7,4,1,17,9,1))
-if mibBuilder.loadTexts:ipFilterSnmpTable.setStatus(_A)
-_IpFilterSnmpEntry_Object=MibTableRow
-ipFilterSnmpEntry=_IpFilterSnmpEntry_Object((1,3,6,1,4,1,248,13,7,4,1,17,9,1,1))
-ipFilterSnmpEntry.setIndexNames((0,_F,_B9))
-if mibBuilder.loadTexts:ipFilterSnmpEntry.setStatus(_A)
-_IpFilterSnmpStartAddress_Type=IpAddress
-_IpFilterSnmpStartAddress_Object=MibTableColumn
-ipFilterSnmpStartAddress=_IpFilterSnmpStartAddress_Object((1,3,6,1,4,1,248,13,7,4,1,17,9,1,1,1),_IpFilterSnmpStartAddress_Type())
-ipFilterSnmpStartAddress.setMaxAccess(_G)
-if mibBuilder.loadTexts:ipFilterSnmpStartAddress.setStatus(_A)
-_IpFilterSnmpEndAddress_Type=IpAddress
-_IpFilterSnmpEndAddress_Object=MibTableColumn
-ipFilterSnmpEndAddress=_IpFilterSnmpEndAddress_Object((1,3,6,1,4,1,248,13,7,4,1,17,9,1,1,2),_IpFilterSnmpEndAddress_Type())
-ipFilterSnmpEndAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipFilterSnmpEndAddress.setStatus(_A)
-_IpFilterSnmpStatus_Type=ValidStatus
-_IpFilterSnmpStatus_Object=MibTableColumn
-ipFilterSnmpStatus=_IpFilterSnmpStatus_Object((1,3,6,1,4,1,248,13,7,4,1,17,9,1,1,3),_IpFilterSnmpStatus_Type())
-ipFilterSnmpStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipFilterSnmpStatus.setStatus(_A)
-_IpFilterHTTPTable_Object=MibTable
-ipFilterHTTPTable=_IpFilterHTTPTable_Object((1,3,6,1,4,1,248,13,7,4,1,17,9,2))
-if mibBuilder.loadTexts:ipFilterHTTPTable.setStatus(_A)
-_IpFilterHTTPEntry_Object=MibTableRow
-ipFilterHTTPEntry=_IpFilterHTTPEntry_Object((1,3,6,1,4,1,248,13,7,4,1,17,9,2,1))
-ipFilterHTTPEntry.setIndexNames((0,_F,_BA))
-if mibBuilder.loadTexts:ipFilterHTTPEntry.setStatus(_A)
-_IpFilterHTTPStartAddress_Type=IpAddress
-_IpFilterHTTPStartAddress_Object=MibTableColumn
-ipFilterHTTPStartAddress=_IpFilterHTTPStartAddress_Object((1,3,6,1,4,1,248,13,7,4,1,17,9,2,1,1),_IpFilterHTTPStartAddress_Type())
-ipFilterHTTPStartAddress.setMaxAccess(_G)
-if mibBuilder.loadTexts:ipFilterHTTPStartAddress.setStatus(_A)
-_IpFilterHTTPEndAddress_Type=IpAddress
-_IpFilterHTTPEndAddress_Object=MibTableColumn
-ipFilterHTTPEndAddress=_IpFilterHTTPEndAddress_Object((1,3,6,1,4,1,248,13,7,4,1,17,9,2,1,2),_IpFilterHTTPEndAddress_Type())
-ipFilterHTTPEndAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipFilterHTTPEndAddress.setStatus(_A)
-_IpFilterHTTPStatus_Type=ValidStatus
-_IpFilterHTTPStatus_Object=MibTableColumn
-ipFilterHTTPStatus=_IpFilterHTTPStatus_Object((1,3,6,1,4,1,248,13,7,4,1,17,9,2,1,3),_IpFilterHTTPStatus_Type())
-ipFilterHTTPStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipFilterHTTPStatus.setStatus(_A)
-_IpFilterTelnetTable_Object=MibTable
-ipFilterTelnetTable=_IpFilterTelnetTable_Object((1,3,6,1,4,1,248,13,7,4,1,17,9,3))
-if mibBuilder.loadTexts:ipFilterTelnetTable.setStatus(_A)
-_IpFilterTelnetEntry_Object=MibTableRow
-ipFilterTelnetEntry=_IpFilterTelnetEntry_Object((1,3,6,1,4,1,248,13,7,4,1,17,9,3,1))
-ipFilterTelnetEntry.setIndexNames((0,_F,_BB))
-if mibBuilder.loadTexts:ipFilterTelnetEntry.setStatus(_A)
-_IpFilterTelnetStartAddress_Type=IpAddress
-_IpFilterTelnetStartAddress_Object=MibTableColumn
-ipFilterTelnetStartAddress=_IpFilterTelnetStartAddress_Object((1,3,6,1,4,1,248,13,7,4,1,17,9,3,1,1),_IpFilterTelnetStartAddress_Type())
-ipFilterTelnetStartAddress.setMaxAccess(_G)
-if mibBuilder.loadTexts:ipFilterTelnetStartAddress.setStatus(_A)
-_IpFilterTelnetEndAddress_Type=IpAddress
-_IpFilterTelnetEndAddress_Object=MibTableColumn
-ipFilterTelnetEndAddress=_IpFilterTelnetEndAddress_Object((1,3,6,1,4,1,248,13,7,4,1,17,9,3,1,2),_IpFilterTelnetEndAddress_Type())
-ipFilterTelnetEndAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipFilterTelnetEndAddress.setStatus(_A)
-_IpFilterTelnetStatus_Type=ValidStatus
-_IpFilterTelnetStatus_Object=MibTableColumn
-ipFilterTelnetStatus=_IpFilterTelnetStatus_Object((1,3,6,1,4,1,248,13,7,4,1,17,9,3,1,3),_IpFilterTelnetStatus_Type())
-ipFilterTelnetStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipFilterTelnetStatus.setStatus(_A)
-_Layer3Mgt_ObjectIdentity=ObjectIdentity
-layer3Mgt=_Layer3Mgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,18))
-_ArpMgt_ObjectIdentity=ObjectIdentity
-arpMgt=_ArpMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,18,1))
-class _ArpCacheDeleteAll_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('delete',1),('noDelete',2)))
-_ArpCacheDeleteAll_Type.__name__=_C
-_ArpCacheDeleteAll_Object=MibScalar
-arpCacheDeleteAll=_ArpCacheDeleteAll_Object((1,3,6,1,4,1,248,13,7,4,1,18,1,1),_ArpCacheDeleteAll_Type())
-arpCacheDeleteAll.setMaxAccess(_D)
-if mibBuilder.loadTexts:arpCacheDeleteAll.setStatus(_A)
-class _ArpCacheTimeout_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(300,86400))
-_ArpCacheTimeout_Type.__name__=_C
-_ArpCacheTimeout_Object=MibScalar
-arpCacheTimeout=_ArpCacheTimeout_Object((1,3,6,1,4,1,248,13,7,4,1,18,1,2),_ArpCacheTimeout_Type())
-arpCacheTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:arpCacheTimeout.setStatus(_A)
-_ArpTrafficStatistics_ObjectIdentity=ObjectIdentity
-arpTrafficStatistics=_ArpTrafficStatistics_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,18,1,3))
-_ArpStatSendRequestPackets_Type=Counter32
-_ArpStatSendRequestPackets_Object=MibScalar
-arpStatSendRequestPackets=_ArpStatSendRequestPackets_Object((1,3,6,1,4,1,248,13,7,4,1,18,1,3,1),_ArpStatSendRequestPackets_Type())
-arpStatSendRequestPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:arpStatSendRequestPackets.setStatus(_A)
-_ArpStatRcvRequestPackets_Type=Counter32
-_ArpStatRcvRequestPackets_Object=MibScalar
-arpStatRcvRequestPackets=_ArpStatRcvRequestPackets_Object((1,3,6,1,4,1,248,13,7,4,1,18,1,3,2),_ArpStatRcvRequestPackets_Type())
-arpStatRcvRequestPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:arpStatRcvRequestPackets.setStatus(_A)
-_ArpStatSendReplyPackets_Type=Counter32
-_ArpStatSendReplyPackets_Object=MibScalar
-arpStatSendReplyPackets=_ArpStatSendReplyPackets_Object((1,3,6,1,4,1,248,13,7,4,1,18,1,3,3),_ArpStatSendReplyPackets_Type())
-arpStatSendReplyPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:arpStatSendReplyPackets.setStatus(_A)
-_ArpStatRcvReplyPackets_Type=Counter32
-_ArpStatRcvReplyPackets_Object=MibScalar
-arpStatRcvReplyPackets=_ArpStatRcvReplyPackets_Object((1,3,6,1,4,1,248,13,7,4,1,18,1,3,4),_ArpStatRcvReplyPackets_Type())
-arpStatRcvReplyPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:arpStatRcvReplyPackets.setStatus(_A)
-_ArpProxyArpTable_Object=MibTable
-arpProxyArpTable=_ArpProxyArpTable_Object((1,3,6,1,4,1,248,13,7,4,1,18,1,4))
-if mibBuilder.loadTexts:arpProxyArpTable.setStatus(_A)
-_ArpProxyArpEntry_Object=MibTableRow
-arpProxyArpEntry=_ArpProxyArpEntry_Object((1,3,6,1,4,1,248,13,7,4,1,18,1,4,1))
-arpProxyArpEntry.setIndexNames((0,_F,_BC))
-if mibBuilder.loadTexts:arpProxyArpEntry.setStatus(_A)
-_ArpProxyArpIfIndex_Type=Integer32
-_ArpProxyArpIfIndex_Object=MibTableColumn
-arpProxyArpIfIndex=_ArpProxyArpIfIndex_Object((1,3,6,1,4,1,248,13,7,4,1,18,1,4,1,1),_ArpProxyArpIfIndex_Type())
-arpProxyArpIfIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:arpProxyArpIfIndex.setStatus(_A)
-class _ArpProxyArpStatus_Type(EnabledStatus):defaultValue=1
-_ArpProxyArpStatus_Type.__name__=_K
-_ArpProxyArpStatus_Object=MibTableColumn
-arpProxyArpStatus=_ArpProxyArpStatus_Object((1,3,6,1,4,1,248,13,7,4,1,18,1,4,1,2),_ArpProxyArpStatus_Type())
-arpProxyArpStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:arpProxyArpStatus.setStatus(_A)
-_RipMgt_ObjectIdentity=ObjectIdentity
-ripMgt=_RipMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,18,2))
-_RipTimers_ObjectIdentity=ObjectIdentity
-ripTimers=_RipTimers_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,18,2,1))
-class _RipUpdateTime_Type(Integer32):defaultValue=30;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(15,60))
-_RipUpdateTime_Type.__name__=_C
-_RipUpdateTime_Object=MibScalar
-ripUpdateTime=_RipUpdateTime_Object((1,3,6,1,4,1,248,13,7,4,1,18,2,1,1),_RipUpdateTime_Type())
-ripUpdateTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:ripUpdateTime.setStatus(_A)
-class _RipTimeoutTime_Type(Integer32):defaultValue=180;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(90,360))
-_RipTimeoutTime_Type.__name__=_C
-_RipTimeoutTime_Object=MibScalar
-ripTimeoutTime=_RipTimeoutTime_Object((1,3,6,1,4,1,248,13,7,4,1,18,2,1,2),_RipTimeoutTime_Type())
-ripTimeoutTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:ripTimeoutTime.setStatus(_A)
-class _RipGarbageCollectionTime_Type(Integer32):defaultValue=120;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(60,240))
-_RipGarbageCollectionTime_Type.__name__=_C
-_RipGarbageCollectionTime_Object=MibScalar
-ripGarbageCollectionTime=_RipGarbageCollectionTime_Object((1,3,6,1,4,1,248,13,7,4,1,18,2,1,3),_RipGarbageCollectionTime_Type())
-ripGarbageCollectionTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:ripGarbageCollectionTime.setStatus(_A)
-class _RipRoutingProcessStatus_Type(EnabledStatus):defaultValue=2
-_RipRoutingProcessStatus_Type.__name__=_K
-_RipRoutingProcessStatus_Object=MibScalar
-ripRoutingProcessStatus=_RipRoutingProcessStatus_Object((1,3,6,1,4,1,248,13,7,4,1,18,2,2),_RipRoutingProcessStatus_Type())
-ripRoutingProcessStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:ripRoutingProcessStatus.setStatus(_A)
-class _RipRouterVersion_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('byInterface',1),('rip1',2),('rip2',3)))
-_RipRouterVersion_Type.__name__=_C
-_RipRouterVersion_Object=MibScalar
-ripRouterVersion=_RipRouterVersion_Object((1,3,6,1,4,1,248,13,7,4,1,18,2,3),_RipRouterVersion_Type())
-ripRouterVersion.setMaxAccess(_D)
-if mibBuilder.loadTexts:ripRouterVersion.setStatus(_A)
-_RipInstabilityPreventingTable_Object=MibTable
-ripInstabilityPreventingTable=_RipInstabilityPreventingTable_Object((1,3,6,1,4,1,248,13,7,4,1,18,2,4))
-if mibBuilder.loadTexts:ripInstabilityPreventingTable.setStatus(_A)
-_RipInstabilityPreventingEntry_Object=MibTableRow
-ripInstabilityPreventingEntry=_RipInstabilityPreventingEntry_Object((1,3,6,1,4,1,248,13,7,4,1,18,2,4,1))
-ripInstabilityPreventingEntry.setIndexNames((0,_F,_BD))
-if mibBuilder.loadTexts:ripInstabilityPreventingEntry.setStatus(_A)
-_RipVlanIndex_Type=Integer32
-_RipVlanIndex_Object=MibTableColumn
-ripVlanIndex=_RipVlanIndex_Object((1,3,6,1,4,1,248,13,7,4,1,18,2,4,1,1),_RipVlanIndex_Type())
-ripVlanIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:ripVlanIndex.setStatus(_A)
-class _RipSplitHorizonStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('splitHorizon',1),('poisonReverse',2),(_N,3)))
-_RipSplitHorizonStatus_Type.__name__=_C
-_RipSplitHorizonStatus_Object=MibTableColumn
-ripSplitHorizonStatus=_RipSplitHorizonStatus_Object((1,3,6,1,4,1,248,13,7,4,1,18,2,4,1,2),_RipSplitHorizonStatus_Type())
-ripSplitHorizonStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:ripSplitHorizonStatus.setStatus(_A)
-class _RipStatisticsReset_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('reset',1),('noReset',2)))
-_RipStatisticsReset_Type.__name__=_C
-_RipStatisticsReset_Object=MibScalar
-ripStatisticsReset=_RipStatisticsReset_Object((1,3,6,1,4,1,248,13,7,4,1,18,2,5),_RipStatisticsReset_Type())
-ripStatisticsReset.setMaxAccess(_D)
-if mibBuilder.loadTexts:ripStatisticsReset.setStatus(_A)
-_RipNetworkAddrTable_Object=MibTable
-ripNetworkAddrTable=_RipNetworkAddrTable_Object((1,3,6,1,4,1,248,13,7,4,1,18,2,6))
-if mibBuilder.loadTexts:ripNetworkAddrTable.setStatus(_A)
-_RipNetworkAddrEntry_Object=MibTableRow
-ripNetworkAddrEntry=_RipNetworkAddrEntry_Object((1,3,6,1,4,1,248,13,7,4,1,18,2,6,1))
-ripNetworkAddrEntry.setIndexNames((0,_F,_BE))
-if mibBuilder.loadTexts:ripNetworkAddrEntry.setStatus(_A)
-_RipNetworkAddrAddress_Type=IpAddress
-_RipNetworkAddrAddress_Object=MibTableColumn
-ripNetworkAddrAddress=_RipNetworkAddrAddress_Object((1,3,6,1,4,1,248,13,7,4,1,18,2,6,1,1),_RipNetworkAddrAddress_Type())
-ripNetworkAddrAddress.setMaxAccess(_G)
-if mibBuilder.loadTexts:ripNetworkAddrAddress.setStatus(_A)
-_RipNetworkAddrStatus_Type=ValidStatus
-_RipNetworkAddrStatus_Object=MibTableColumn
-ripNetworkAddrStatus=_RipNetworkAddrStatus_Object((1,3,6,1,4,1,248,13,7,4,1,18,2,6,1,2),_RipNetworkAddrStatus_Type())
-ripNetworkAddrStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ripNetworkAddrStatus.setStatus(_A)
-_OspfMgt_ObjectIdentity=ObjectIdentity
-ospfMgt=_OspfMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,18,3))
-_OspfSystemGroup_ObjectIdentity=ObjectIdentity
-ospfSystemGroup=_OspfSystemGroup_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,18,3,1))
-class _OspfRouterIdType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('auto',1),('manual',2)))
-_OspfRouterIdType_Type.__name__=_C
-_OspfRouterIdType_Object=MibScalar
-ospfRouterIdType=_OspfRouterIdType_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,1,1),_OspfRouterIdType_Type())
-ospfRouterIdType.setMaxAccess(_B)
-if mibBuilder.loadTexts:ospfRouterIdType.setStatus(_A)
-class _OspfRfc1583CompatibleState_Type(EnabledStatus):defaultValue=2
-_OspfRfc1583CompatibleState_Type.__name__=_K
-_OspfRfc1583CompatibleState_Object=MibScalar
-ospfRfc1583CompatibleState=_OspfRfc1583CompatibleState_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,1,2),_OspfRfc1583CompatibleState_Type())
-ospfRfc1583CompatibleState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ospfRfc1583CompatibleState.setStatus(_A)
-class _OspfAutoCost_Type(Integer32):defaultValue=100
-_OspfAutoCost_Type.__name__=_C
-_OspfAutoCost_Object=MibScalar
-ospfAutoCost=_OspfAutoCost_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,1,3),_OspfAutoCost_Type())
-ospfAutoCost.setMaxAccess(_D)
-if mibBuilder.loadTexts:ospfAutoCost.setStatus(_A)
-class _OspfOriginateDefaultRoute_Type(EnabledStatus):defaultValue=2
-_OspfOriginateDefaultRoute_Type.__name__=_K
-_OspfOriginateDefaultRoute_Object=MibScalar
-ospfOriginateDefaultRoute=_OspfOriginateDefaultRoute_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,1,4),_OspfOriginateDefaultRoute_Type())
-ospfOriginateDefaultRoute.setMaxAccess(_D)
-if mibBuilder.loadTexts:ospfOriginateDefaultRoute.setStatus(_A)
-class _OspfAdvertiseDefaultRoute_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('always',1),('notAlways',2)))
-_OspfAdvertiseDefaultRoute_Type.__name__=_C
-_OspfAdvertiseDefaultRoute_Object=MibScalar
-ospfAdvertiseDefaultRoute=_OspfAdvertiseDefaultRoute_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,1,5),_OspfAdvertiseDefaultRoute_Type())
-ospfAdvertiseDefaultRoute.setMaxAccess(_D)
-if mibBuilder.loadTexts:ospfAdvertiseDefaultRoute.setStatus(_A)
-class _OspfExternalMetricType_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('type1',1),('type2',2)))
-_OspfExternalMetricType_Type.__name__=_C
-_OspfExternalMetricType_Object=MibScalar
-ospfExternalMetricType=_OspfExternalMetricType_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,1,6),_OspfExternalMetricType_Type())
-ospfExternalMetricType.setMaxAccess(_D)
-if mibBuilder.loadTexts:ospfExternalMetricType.setStatus(_A)
-class _OspfDefaultExternalMetric_Type(OspfBigMetric):defaultValue=10
-_OspfDefaultExternalMetric_Type.__name__=_v
-_OspfDefaultExternalMetric_Object=MibScalar
-ospfDefaultExternalMetric=_OspfDefaultExternalMetric_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,1,7),_OspfDefaultExternalMetric_Type())
-ospfDefaultExternalMetric.setMaxAccess(_D)
-if mibBuilder.loadTexts:ospfDefaultExternalMetric.setStatus(_A)
-class _OspfSpfHoldTime_Type(Integer32):defaultValue=10;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_OspfSpfHoldTime_Type.__name__=_C
-_OspfSpfHoldTime_Object=MibScalar
-ospfSpfHoldTime=_OspfSpfHoldTime_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,1,8),_OspfSpfHoldTime_Type())
-ospfSpfHoldTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:ospfSpfHoldTime.setStatus(_A)
-class _OspfSpfDelayTime_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_OspfSpfDelayTime_Type.__name__=_C
-_OspfSpfDelayTime_Object=MibScalar
-ospfSpfDelayTime=_OspfSpfDelayTime_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,1,9),_OspfSpfDelayTime_Type())
-ospfSpfDelayTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:ospfSpfDelayTime.setStatus(_A)
-class _OspfAreaNumber_Type(Integer32):defaultValue=0
-_OspfAreaNumber_Type.__name__=_C
-_OspfAreaNumber_Object=MibScalar
-ospfAreaNumber=_OspfAreaNumber_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,1,10),_OspfAreaNumber_Type())
-ospfAreaNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:ospfAreaNumber.setStatus(_A)
-_OspfNssaTable_Object=MibTable
-ospfNssaTable=_OspfNssaTable_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,2))
-if mibBuilder.loadTexts:ospfNssaTable.setStatus(_A)
-_OspfNssaEntry_Object=MibTableRow
-ospfNssaEntry=_OspfNssaEntry_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,2,1))
-ospfNssaEntry.setIndexNames((0,_F,_BF))
-if mibBuilder.loadTexts:ospfNssaEntry.setStatus(_A)
-_OspfNssaAreaId_Type=OspfAreaID
-_OspfNssaAreaId_Object=MibTableColumn
-ospfNssaAreaId=_OspfNssaAreaId_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,2,1,1),_OspfNssaAreaId_Type())
-ospfNssaAreaId.setMaxAccess(_G)
-if mibBuilder.loadTexts:ospfNssaAreaId.setStatus(_A)
-class _OspfNssaRedistributeStatus_Type(EnabledStatus):defaultValue=1
-_OspfNssaRedistributeStatus_Type.__name__=_K
-_OspfNssaRedistributeStatus_Object=MibTableColumn
-ospfNssaRedistributeStatus=_OspfNssaRedistributeStatus_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,2,1,2),_OspfNssaRedistributeStatus_Type())
-ospfNssaRedistributeStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ospfNssaRedistributeStatus.setStatus(_A)
-class _OspfNssaOriginateDefaultInfoStatus_Type(EnabledStatus):defaultValue=2
-_OspfNssaOriginateDefaultInfoStatus_Type.__name__=_K
-_OspfNssaOriginateDefaultInfoStatus_Object=MibTableColumn
-ospfNssaOriginateDefaultInfoStatus=_OspfNssaOriginateDefaultInfoStatus_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,2,1,3),_OspfNssaOriginateDefaultInfoStatus_Type())
-ospfNssaOriginateDefaultInfoStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ospfNssaOriginateDefaultInfoStatus.setStatus(_A)
-_OspfNssaStatus_Type=RowStatus
-_OspfNssaStatus_Object=MibTableColumn
-ospfNssaStatus=_OspfNssaStatus_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,2,1,4),_OspfNssaStatus_Type())
-ospfNssaStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ospfNssaStatus.setStatus(_A)
-_OspfRedistributeTable_Object=MibTable
-ospfRedistributeTable=_OspfRedistributeTable_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,3))
-if mibBuilder.loadTexts:ospfRedistributeTable.setStatus(_A)
-_OspfRedistributeEntry_Object=MibTableRow
-ospfRedistributeEntry=_OspfRedistributeEntry_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,3,1))
-ospfRedistributeEntry.setIndexNames((0,_F,_BG))
-if mibBuilder.loadTexts:ospfRedistributeEntry.setStatus(_A)
-class _OspfRedistributeProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('rip',1),('static',2)))
-_OspfRedistributeProtocol_Type.__name__=_C
-_OspfRedistributeProtocol_Object=MibTableColumn
-ospfRedistributeProtocol=_OspfRedistributeProtocol_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,3,1,1),_OspfRedistributeProtocol_Type())
-ospfRedistributeProtocol.setMaxAccess(_G)
-if mibBuilder.loadTexts:ospfRedistributeProtocol.setStatus(_A)
-class _OspfRedistributeMetricType_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('type1',1),('type2',2)))
-_OspfRedistributeMetricType_Type.__name__=_C
-_OspfRedistributeMetricType_Object=MibTableColumn
-ospfRedistributeMetricType=_OspfRedistributeMetricType_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,3,1,2),_OspfRedistributeMetricType_Type())
-ospfRedistributeMetricType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ospfRedistributeMetricType.setStatus(_A)
-class _OspfRedistributeMetric_Type(OspfBigMetric):defaultValue=10
-_OspfRedistributeMetric_Type.__name__=_v
-_OspfRedistributeMetric_Object=MibTableColumn
-ospfRedistributeMetric=_OspfRedistributeMetric_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,3,1,3),_OspfRedistributeMetric_Type())
-ospfRedistributeMetric.setMaxAccess(_E)
-if mibBuilder.loadTexts:ospfRedistributeMetric.setStatus(_A)
-_OspfRedistributeStatus_Type=RowStatus
-_OspfRedistributeStatus_Object=MibTableColumn
-ospfRedistributeStatus=_OspfRedistributeStatus_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,3,1,4),_OspfRedistributeStatus_Type())
-ospfRedistributeStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ospfRedistributeStatus.setStatus(_A)
-_OspfSummaryAddressTable_Object=MibTable
-ospfSummaryAddressTable=_OspfSummaryAddressTable_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,4))
-if mibBuilder.loadTexts:ospfSummaryAddressTable.setStatus(_A)
-_OspfSummaryAddressEntry_Object=MibTableRow
-ospfSummaryAddressEntry=_OspfSummaryAddressEntry_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,4,1))
-ospfSummaryAddressEntry.setIndexNames((0,_F,_BH),(0,_F,_BI))
-if mibBuilder.loadTexts:ospfSummaryAddressEntry.setStatus(_A)
-_OspfSummaryAddress_Type=IpAddress
-_OspfSummaryAddress_Object=MibTableColumn
-ospfSummaryAddress=_OspfSummaryAddress_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,4,1,1),_OspfSummaryAddress_Type())
-ospfSummaryAddress.setMaxAccess(_G)
-if mibBuilder.loadTexts:ospfSummaryAddress.setStatus(_A)
-_OspfSummaryMask_Type=IpAddress
-_OspfSummaryMask_Object=MibTableColumn
-ospfSummaryMask=_OspfSummaryMask_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,4,1,2),_OspfSummaryMask_Type())
-ospfSummaryMask.setMaxAccess(_G)
-if mibBuilder.loadTexts:ospfSummaryMask.setStatus(_A)
-_OspfSummaryStatus_Type=RowStatus
-_OspfSummaryStatus_Object=MibTableColumn
-ospfSummaryStatus=_OspfSummaryStatus_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,4,1,3),_OspfSummaryStatus_Type())
-ospfSummaryStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ospfSummaryStatus.setStatus(_A)
-_OspfNetworkAreaAddressTable_Object=MibTable
-ospfNetworkAreaAddressTable=_OspfNetworkAreaAddressTable_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,5))
-if mibBuilder.loadTexts:ospfNetworkAreaAddressTable.setStatus(_A)
-_OspfNetworkAreaAddressEntry_Object=MibTableRow
-ospfNetworkAreaAddressEntry=_OspfNetworkAreaAddressEntry_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,5,1))
-ospfNetworkAreaAddressEntry.setIndexNames((0,_F,_BJ),(0,_F,_BK))
-if mibBuilder.loadTexts:ospfNetworkAreaAddressEntry.setStatus(_A)
-_OspfNetworkAareaAddress_Type=IpAddress
-_OspfNetworkAareaAddress_Object=MibTableColumn
-ospfNetworkAareaAddress=_OspfNetworkAareaAddress_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,5,1,1),_OspfNetworkAareaAddress_Type())
-ospfNetworkAareaAddress.setMaxAccess(_G)
-if mibBuilder.loadTexts:ospfNetworkAareaAddress.setStatus(_A)
-_OspfNetworkAreaMask_Type=IpAddress
-_OspfNetworkAreaMask_Object=MibTableColumn
-ospfNetworkAreaMask=_OspfNetworkAreaMask_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,5,1,2),_OspfNetworkAreaMask_Type())
-ospfNetworkAreaMask.setMaxAccess(_G)
-if mibBuilder.loadTexts:ospfNetworkAreaMask.setStatus(_A)
-_OspfNetworkAreaAreaId_Type=IpAddress
-_OspfNetworkAreaAreaId_Object=MibTableColumn
-ospfNetworkAreaAreaId=_OspfNetworkAreaAreaId_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,5,1,3),_OspfNetworkAreaAreaId_Type())
-ospfNetworkAreaAreaId.setMaxAccess(_E)
-if mibBuilder.loadTexts:ospfNetworkAreaAreaId.setStatus(_A)
-_OspfNetworkAreaStatus_Type=RowStatus
-_OspfNetworkAreaStatus_Object=MibTableColumn
-ospfNetworkAreaStatus=_OspfNetworkAreaStatus_Object((1,3,6,1,4,1,248,13,7,4,1,18,3,5,1,4),_OspfNetworkAreaStatus_Type())
-ospfNetworkAreaStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ospfNetworkAreaStatus.setStatus(_A)
-_DvmrpMgt_ObjectIdentity=ObjectIdentity
-dvmrpMgt=_DvmrpMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,18,4))
-_DvmrpScalar_ObjectIdentity=ObjectIdentity
-dvmrpScalar=_DvmrpScalar_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,18,4,1))
-_DvmrpVersionString_Type=DisplayString
-_DvmrpVersionString_Object=MibScalar
-dvmrpVersionString=_DvmrpVersionString_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,1,1),_DvmrpVersionString_Type())
-dvmrpVersionString.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpVersionString.setStatus(_A)
-_DvmrpNumRoutes_Type=Gauge32
-_DvmrpNumRoutes_Object=MibScalar
-dvmrpNumRoutes=_DvmrpNumRoutes_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,1,3),_DvmrpNumRoutes_Type())
-dvmrpNumRoutes.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpNumRoutes.setStatus(_A)
-_DvmrpReachableRoutes_Type=Gauge32
-_DvmrpReachableRoutes_Object=MibScalar
-dvmrpReachableRoutes=_DvmrpReachableRoutes_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,1,4),_DvmrpReachableRoutes_Type())
-dvmrpReachableRoutes.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpReachableRoutes.setStatus(_A)
-_DvmrpInterfaceTable_Object=MibTable
-dvmrpInterfaceTable=_DvmrpInterfaceTable_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,2))
-if mibBuilder.loadTexts:dvmrpInterfaceTable.setStatus(_A)
-_DvmrpInterfaceEntry_Object=MibTableRow
-dvmrpInterfaceEntry=_DvmrpInterfaceEntry_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,2,1))
-dvmrpInterfaceEntry.setIndexNames((0,_F,_BL))
-if mibBuilder.loadTexts:dvmrpInterfaceEntry.setStatus(_A)
-_DvmrpInterfaceIndex_Type=InterfaceIndex
-_DvmrpInterfaceIndex_Object=MibTableColumn
-dvmrpInterfaceIndex=_DvmrpInterfaceIndex_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,2,1,1),_DvmrpInterfaceIndex_Type())
-dvmrpInterfaceIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:dvmrpInterfaceIndex.setStatus(_A)
-_DvmrpInterfaceLocalAddress_Type=IpAddress
-_DvmrpInterfaceLocalAddress_Object=MibTableColumn
-dvmrpInterfaceLocalAddress=_DvmrpInterfaceLocalAddress_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,2,1,2),_DvmrpInterfaceLocalAddress_Type())
-dvmrpInterfaceLocalAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:dvmrpInterfaceLocalAddress.setStatus(_A)
-class _DvmrpInterfaceMetric_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,31))
-_DvmrpInterfaceMetric_Type.__name__=_C
-_DvmrpInterfaceMetric_Object=MibTableColumn
-dvmrpInterfaceMetric=_DvmrpInterfaceMetric_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,2,1,3),_DvmrpInterfaceMetric_Type())
-dvmrpInterfaceMetric.setMaxAccess(_E)
-if mibBuilder.loadTexts:dvmrpInterfaceMetric.setStatus(_A)
-_DvmrpInterfaceStatus_Type=RowStatus
-_DvmrpInterfaceStatus_Object=MibTableColumn
-dvmrpInterfaceStatus=_DvmrpInterfaceStatus_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,2,1,4),_DvmrpInterfaceStatus_Type())
-dvmrpInterfaceStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:dvmrpInterfaceStatus.setStatus(_A)
-_DvmrpInterfaceRcvBadPkts_Type=Counter32
-_DvmrpInterfaceRcvBadPkts_Object=MibTableColumn
-dvmrpInterfaceRcvBadPkts=_DvmrpInterfaceRcvBadPkts_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,2,1,5),_DvmrpInterfaceRcvBadPkts_Type())
-dvmrpInterfaceRcvBadPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpInterfaceRcvBadPkts.setStatus(_A)
-_DvmrpInterfaceRcvBadRoutes_Type=Counter32
-_DvmrpInterfaceRcvBadRoutes_Object=MibTableColumn
-dvmrpInterfaceRcvBadRoutes=_DvmrpInterfaceRcvBadRoutes_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,2,1,6),_DvmrpInterfaceRcvBadRoutes_Type())
-dvmrpInterfaceRcvBadRoutes.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpInterfaceRcvBadRoutes.setStatus(_A)
-_DvmrpInterfaceSentRoutes_Type=Counter32
-_DvmrpInterfaceSentRoutes_Object=MibTableColumn
-dvmrpInterfaceSentRoutes=_DvmrpInterfaceSentRoutes_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,2,1,7),_DvmrpInterfaceSentRoutes_Type())
-dvmrpInterfaceSentRoutes.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpInterfaceSentRoutes.setStatus(_A)
-_DvmrpInterfaceKey_Type=SnmpAdminString
-_DvmrpInterfaceKey_Object=MibTableColumn
-dvmrpInterfaceKey=_DvmrpInterfaceKey_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,2,1,8),_DvmrpInterfaceKey_Type())
-dvmrpInterfaceKey.setMaxAccess(_E)
-if mibBuilder.loadTexts:dvmrpInterfaceKey.setStatus(_A)
-_DvmrpInterfaceKeyVersion_Type=Integer32
-_DvmrpInterfaceKeyVersion_Object=MibTableColumn
-dvmrpInterfaceKeyVersion=_DvmrpInterfaceKeyVersion_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,2,1,9),_DvmrpInterfaceKeyVersion_Type())
-dvmrpInterfaceKeyVersion.setMaxAccess(_E)
-if mibBuilder.loadTexts:dvmrpInterfaceKeyVersion.setStatus(_A)
-_DvmrpInterfaceGenerationId_Type=Integer32
-_DvmrpInterfaceGenerationId_Object=MibTableColumn
-dvmrpInterfaceGenerationId=_DvmrpInterfaceGenerationId_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,2,1,10),_DvmrpInterfaceGenerationId_Type())
-dvmrpInterfaceGenerationId.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpInterfaceGenerationId.setStatus(_A)
-_DvmrpNeighborTable_Object=MibTable
-dvmrpNeighborTable=_DvmrpNeighborTable_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,3))
-if mibBuilder.loadTexts:dvmrpNeighborTable.setStatus(_A)
-_DvmrpNeighborEntry_Object=MibTableRow
-dvmrpNeighborEntry=_DvmrpNeighborEntry_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,3,1))
-dvmrpNeighborEntry.setIndexNames((0,_F,_BM),(0,_F,_BN))
-if mibBuilder.loadTexts:dvmrpNeighborEntry.setStatus(_A)
-_DvmrpNeighborIfIndex_Type=InterfaceIndex
-_DvmrpNeighborIfIndex_Object=MibTableColumn
-dvmrpNeighborIfIndex=_DvmrpNeighborIfIndex_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,3,1,1),_DvmrpNeighborIfIndex_Type())
-dvmrpNeighborIfIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:dvmrpNeighborIfIndex.setStatus(_A)
-_DvmrpNeighborAddress_Type=IpAddress
-_DvmrpNeighborAddress_Object=MibTableColumn
-dvmrpNeighborAddress=_DvmrpNeighborAddress_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,3,1,2),_DvmrpNeighborAddress_Type())
-dvmrpNeighborAddress.setMaxAccess(_G)
-if mibBuilder.loadTexts:dvmrpNeighborAddress.setStatus(_A)
-_DvmrpNeighborUpTime_Type=TimeTicks
-_DvmrpNeighborUpTime_Object=MibTableColumn
-dvmrpNeighborUpTime=_DvmrpNeighborUpTime_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,3,1,3),_DvmrpNeighborUpTime_Type())
-dvmrpNeighborUpTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpNeighborUpTime.setStatus(_A)
-_DvmrpNeighborExpiryTime_Type=TimeTicks
-_DvmrpNeighborExpiryTime_Object=MibTableColumn
-dvmrpNeighborExpiryTime=_DvmrpNeighborExpiryTime_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,3,1,4),_DvmrpNeighborExpiryTime_Type())
-dvmrpNeighborExpiryTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpNeighborExpiryTime.setStatus(_A)
-_DvmrpNeighborGenerationId_Type=Integer32
-_DvmrpNeighborGenerationId_Object=MibTableColumn
-dvmrpNeighborGenerationId=_DvmrpNeighborGenerationId_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,3,1,5),_DvmrpNeighborGenerationId_Type())
-dvmrpNeighborGenerationId.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpNeighborGenerationId.setStatus(_A)
-class _DvmrpNeighborMajorVersion_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_DvmrpNeighborMajorVersion_Type.__name__=_C
-_DvmrpNeighborMajorVersion_Object=MibTableColumn
-dvmrpNeighborMajorVersion=_DvmrpNeighborMajorVersion_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,3,1,6),_DvmrpNeighborMajorVersion_Type())
-dvmrpNeighborMajorVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpNeighborMajorVersion.setStatus(_A)
-class _DvmrpNeighborMinorVersion_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_DvmrpNeighborMinorVersion_Type.__name__=_C
-_DvmrpNeighborMinorVersion_Object=MibTableColumn
-dvmrpNeighborMinorVersion=_DvmrpNeighborMinorVersion_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,3,1,7),_DvmrpNeighborMinorVersion_Type())
-dvmrpNeighborMinorVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpNeighborMinorVersion.setStatus(_A)
-class _DvmrpNeighborCapabilities_Type(Bits):namedValues=NamedValues(*(('leaf',0),('prune',1),('generationID',2),('mtrace',3)))
-_DvmrpNeighborCapabilities_Type.__name__=_L
-_DvmrpNeighborCapabilities_Object=MibTableColumn
-dvmrpNeighborCapabilities=_DvmrpNeighborCapabilities_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,3,1,8),_DvmrpNeighborCapabilities_Type())
-dvmrpNeighborCapabilities.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpNeighborCapabilities.setStatus(_A)
-_DvmrpNeighborRcvRoutes_Type=Counter32
-_DvmrpNeighborRcvRoutes_Object=MibTableColumn
-dvmrpNeighborRcvRoutes=_DvmrpNeighborRcvRoutes_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,3,1,9),_DvmrpNeighborRcvRoutes_Type())
-dvmrpNeighborRcvRoutes.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpNeighborRcvRoutes.setStatus(_A)
-_DvmrpNeighborRcvBadPkts_Type=Counter32
-_DvmrpNeighborRcvBadPkts_Object=MibTableColumn
-dvmrpNeighborRcvBadPkts=_DvmrpNeighborRcvBadPkts_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,3,1,10),_DvmrpNeighborRcvBadPkts_Type())
-dvmrpNeighborRcvBadPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpNeighborRcvBadPkts.setStatus(_A)
-_DvmrpNeighborRcvBadRoutes_Type=Counter32
-_DvmrpNeighborRcvBadRoutes_Object=MibTableColumn
-dvmrpNeighborRcvBadRoutes=_DvmrpNeighborRcvBadRoutes_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,3,1,11),_DvmrpNeighborRcvBadRoutes_Type())
-dvmrpNeighborRcvBadRoutes.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpNeighborRcvBadRoutes.setStatus(_A)
-class _DvmrpNeighborState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('oneway',1),('active',2),('ignoring',3),('down',4)))
-_DvmrpNeighborState_Type.__name__=_C
-_DvmrpNeighborState_Object=MibTableColumn
-dvmrpNeighborState=_DvmrpNeighborState_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,3,1,12),_DvmrpNeighborState_Type())
-dvmrpNeighborState.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpNeighborState.setStatus(_A)
-_DvmrpRouteTable_Object=MibTable
-dvmrpRouteTable=_DvmrpRouteTable_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,4))
-if mibBuilder.loadTexts:dvmrpRouteTable.setStatus(_A)
-_DvmrpRouteEntry_Object=MibTableRow
-dvmrpRouteEntry=_DvmrpRouteEntry_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,4,1))
-dvmrpRouteEntry.setIndexNames((0,_F,_BO),(0,_F,_BP))
-if mibBuilder.loadTexts:dvmrpRouteEntry.setStatus(_A)
-_DvmrpRouteSource_Type=IpAddress
-_DvmrpRouteSource_Object=MibTableColumn
-dvmrpRouteSource=_DvmrpRouteSource_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,4,1,1),_DvmrpRouteSource_Type())
-dvmrpRouteSource.setMaxAccess(_G)
-if mibBuilder.loadTexts:dvmrpRouteSource.setStatus(_A)
-_DvmrpRouteSourceMask_Type=IpAddress
-_DvmrpRouteSourceMask_Object=MibTableColumn
-dvmrpRouteSourceMask=_DvmrpRouteSourceMask_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,4,1,2),_DvmrpRouteSourceMask_Type())
-dvmrpRouteSourceMask.setMaxAccess(_G)
-if mibBuilder.loadTexts:dvmrpRouteSourceMask.setStatus(_A)
-_DvmrpRouteUpstreamNeighbor_Type=IpAddress
-_DvmrpRouteUpstreamNeighbor_Object=MibTableColumn
-dvmrpRouteUpstreamNeighbor=_DvmrpRouteUpstreamNeighbor_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,4,1,3),_DvmrpRouteUpstreamNeighbor_Type())
-dvmrpRouteUpstreamNeighbor.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpRouteUpstreamNeighbor.setStatus(_A)
-_DvmrpRouteIfIndex_Type=InterfaceIndexOrZero
-_DvmrpRouteIfIndex_Object=MibTableColumn
-dvmrpRouteIfIndex=_DvmrpRouteIfIndex_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,4,1,4),_DvmrpRouteIfIndex_Type())
-dvmrpRouteIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpRouteIfIndex.setStatus(_A)
-class _DvmrpRouteMetric_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
-_DvmrpRouteMetric_Type.__name__=_C
-_DvmrpRouteMetric_Object=MibTableColumn
-dvmrpRouteMetric=_DvmrpRouteMetric_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,4,1,5),_DvmrpRouteMetric_Type())
-dvmrpRouteMetric.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpRouteMetric.setStatus(_A)
-_DvmrpRouteExpiryTime_Type=TimeTicks
-_DvmrpRouteExpiryTime_Object=MibTableColumn
-dvmrpRouteExpiryTime=_DvmrpRouteExpiryTime_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,4,1,6),_DvmrpRouteExpiryTime_Type())
-dvmrpRouteExpiryTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpRouteExpiryTime.setStatus(_A)
-_DvmrpRouteUpTime_Type=TimeTicks
-_DvmrpRouteUpTime_Object=MibTableColumn
-dvmrpRouteUpTime=_DvmrpRouteUpTime_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,4,1,7),_DvmrpRouteUpTime_Type())
-dvmrpRouteUpTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpRouteUpTime.setStatus(_A)
-_DvmrpRouteNextHopTable_Object=MibTable
-dvmrpRouteNextHopTable=_DvmrpRouteNextHopTable_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,5))
-if mibBuilder.loadTexts:dvmrpRouteNextHopTable.setStatus(_A)
-_DvmrpRouteNextHopEntry_Object=MibTableRow
-dvmrpRouteNextHopEntry=_DvmrpRouteNextHopEntry_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,5,1))
-dvmrpRouteNextHopEntry.setIndexNames((0,_F,_BQ),(0,_F,_BR),(0,_F,_BS))
-if mibBuilder.loadTexts:dvmrpRouteNextHopEntry.setStatus(_A)
-_DvmrpRouteNextHopSource_Type=IpAddress
-_DvmrpRouteNextHopSource_Object=MibTableColumn
-dvmrpRouteNextHopSource=_DvmrpRouteNextHopSource_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,5,1,1),_DvmrpRouteNextHopSource_Type())
-dvmrpRouteNextHopSource.setMaxAccess(_G)
-if mibBuilder.loadTexts:dvmrpRouteNextHopSource.setStatus(_A)
-_DvmrpRouteNextHopSourceMask_Type=IpAddress
-_DvmrpRouteNextHopSourceMask_Object=MibTableColumn
-dvmrpRouteNextHopSourceMask=_DvmrpRouteNextHopSourceMask_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,5,1,2),_DvmrpRouteNextHopSourceMask_Type())
-dvmrpRouteNextHopSourceMask.setMaxAccess(_G)
-if mibBuilder.loadTexts:dvmrpRouteNextHopSourceMask.setStatus(_A)
-_DvmrpRouteNextHopIfIndex_Type=InterfaceIndex
-_DvmrpRouteNextHopIfIndex_Object=MibTableColumn
-dvmrpRouteNextHopIfIndex=_DvmrpRouteNextHopIfIndex_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,5,1,3),_DvmrpRouteNextHopIfIndex_Type())
-dvmrpRouteNextHopIfIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:dvmrpRouteNextHopIfIndex.setStatus(_A)
-class _DvmrpRouteNextHopType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('leaf',1),('branch',2)))
-_DvmrpRouteNextHopType_Type.__name__=_C
-_DvmrpRouteNextHopType_Object=MibTableColumn
-dvmrpRouteNextHopType=_DvmrpRouteNextHopType_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,5,1,4),_DvmrpRouteNextHopType_Type())
-dvmrpRouteNextHopType.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpRouteNextHopType.setStatus(_A)
-_DvmrpPruneTable_Object=MibTable
-dvmrpPruneTable=_DvmrpPruneTable_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,6))
-if mibBuilder.loadTexts:dvmrpPruneTable.setStatus(_A)
-_DvmrpPruneEntry_Object=MibTableRow
-dvmrpPruneEntry=_DvmrpPruneEntry_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,6,1))
-dvmrpPruneEntry.setIndexNames((0,_F,_BT),(0,_F,_BU),(0,_F,_BV))
-if mibBuilder.loadTexts:dvmrpPruneEntry.setStatus(_A)
-_DvmrpPruneGroup_Type=IpAddress
-_DvmrpPruneGroup_Object=MibTableColumn
-dvmrpPruneGroup=_DvmrpPruneGroup_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,6,1,1),_DvmrpPruneGroup_Type())
-dvmrpPruneGroup.setMaxAccess(_G)
-if mibBuilder.loadTexts:dvmrpPruneGroup.setStatus(_A)
-_DvmrpPruneSource_Type=IpAddress
-_DvmrpPruneSource_Object=MibTableColumn
-dvmrpPruneSource=_DvmrpPruneSource_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,6,1,2),_DvmrpPruneSource_Type())
-dvmrpPruneSource.setMaxAccess(_G)
-if mibBuilder.loadTexts:dvmrpPruneSource.setStatus(_A)
-_DvmrpPruneSourceMask_Type=IpAddress
-_DvmrpPruneSourceMask_Object=MibTableColumn
-dvmrpPruneSourceMask=_DvmrpPruneSourceMask_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,6,1,3),_DvmrpPruneSourceMask_Type())
-dvmrpPruneSourceMask.setMaxAccess(_G)
-if mibBuilder.loadTexts:dvmrpPruneSourceMask.setStatus(_A)
-_DvmrpPruneExpiryTime_Type=TimeTicks
-_DvmrpPruneExpiryTime_Object=MibTableColumn
-dvmrpPruneExpiryTime=_DvmrpPruneExpiryTime_Object((1,3,6,1,4,1,248,13,7,4,1,18,4,6,1,4),_DvmrpPruneExpiryTime_Type())
-dvmrpPruneExpiryTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:dvmrpPruneExpiryTime.setStatus(_A)
-_RouteMgt_ObjectIdentity=ObjectIdentity
-routeMgt=_RouteMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,18,5))
-_IpCidrRouteExtTable_Object=MibTable
-ipCidrRouteExtTable=_IpCidrRouteExtTable_Object((1,3,6,1,4,1,248,13,7,4,1,18,5,2))
-if mibBuilder.loadTexts:ipCidrRouteExtTable.setStatus(_A)
-_IpCidrRouteExtEntry_Object=MibTableRow
-ipCidrRouteExtEntry=_IpCidrRouteExtEntry_Object((1,3,6,1,4,1,248,13,7,4,1,18,5,2,1))
-ipCidrRouteExtEntry.setIndexNames((0,_F,_BW),(0,_F,_BX),(0,_F,_BY),(0,_F,_BZ))
-if mibBuilder.loadTexts:ipCidrRouteExtEntry.setStatus(_A)
-_IpCidrRouteExtDest_Type=IpAddress
-_IpCidrRouteExtDest_Object=MibTableColumn
-ipCidrRouteExtDest=_IpCidrRouteExtDest_Object((1,3,6,1,4,1,248,13,7,4,1,18,5,2,1,1),_IpCidrRouteExtDest_Type())
-ipCidrRouteExtDest.setMaxAccess(_G)
-if mibBuilder.loadTexts:ipCidrRouteExtDest.setStatus(_A)
-_IpCidrRouteExtMask_Type=IpAddress
-_IpCidrRouteExtMask_Object=MibTableColumn
-ipCidrRouteExtMask=_IpCidrRouteExtMask_Object((1,3,6,1,4,1,248,13,7,4,1,18,5,2,1,2),_IpCidrRouteExtMask_Type())
-ipCidrRouteExtMask.setMaxAccess(_G)
-if mibBuilder.loadTexts:ipCidrRouteExtMask.setStatus(_A)
-_IpCidrRouteExtTos_Type=Integer32
-_IpCidrRouteExtTos_Object=MibTableColumn
-ipCidrRouteExtTos=_IpCidrRouteExtTos_Object((1,3,6,1,4,1,248,13,7,4,1,18,5,2,1,3),_IpCidrRouteExtTos_Type())
-ipCidrRouteExtTos.setMaxAccess(_G)
-if mibBuilder.loadTexts:ipCidrRouteExtTos.setStatus(_A)
-_IpCidrRouteExtNextHop_Type=IpAddress
-_IpCidrRouteExtNextHop_Object=MibTableColumn
-ipCidrRouteExtNextHop=_IpCidrRouteExtNextHop_Object((1,3,6,1,4,1,248,13,7,4,1,18,5,2,1,4),_IpCidrRouteExtNextHop_Type())
-ipCidrRouteExtNextHop.setMaxAccess(_G)
-if mibBuilder.loadTexts:ipCidrRouteExtNextHop.setStatus(_A)
-class _IpCidrRouteExtOspfSubType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*((_N,1),('ospfInter',2),('ospfIntra',3),('ospfNssa1',4),('ospfNssa2',5),('ospfType1',6),('ospfType2',7)))
-_IpCidrRouteExtOspfSubType_Type.__name__=_C
-_IpCidrRouteExtOspfSubType_Object=MibTableColumn
-ipCidrRouteExtOspfSubType=_IpCidrRouteExtOspfSubType_Object((1,3,6,1,4,1,248,13,7,4,1,18,5,2,1,5),_IpCidrRouteExtOspfSubType_Type())
-ipCidrRouteExtOspfSubType.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipCidrRouteExtOspfSubType.setStatus(_A)
-_SysLogMgt_ObjectIdentity=ObjectIdentity
-sysLogMgt=_SysLogMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,19))
-_SysLogStatus_Type=EnabledStatus
-_SysLogStatus_Object=MibScalar
-sysLogStatus=_SysLogStatus_Object((1,3,6,1,4,1,248,13,7,4,1,19,1),_SysLogStatus_Type())
-sysLogStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:sysLogStatus.setStatus(_A)
-class _SysLogHistoryFlashLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_SysLogHistoryFlashLevel_Type.__name__=_C
-_SysLogHistoryFlashLevel_Object=MibScalar
-sysLogHistoryFlashLevel=_SysLogHistoryFlashLevel_Object((1,3,6,1,4,1,248,13,7,4,1,19,2),_SysLogHistoryFlashLevel_Type())
-sysLogHistoryFlashLevel.setMaxAccess(_D)
-if mibBuilder.loadTexts:sysLogHistoryFlashLevel.setStatus(_A)
-class _SysLogHistoryRamLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_SysLogHistoryRamLevel_Type.__name__=_C
-_SysLogHistoryRamLevel_Object=MibScalar
-sysLogHistoryRamLevel=_SysLogHistoryRamLevel_Object((1,3,6,1,4,1,248,13,7,4,1,19,3),_SysLogHistoryRamLevel_Type())
-sysLogHistoryRamLevel.setMaxAccess(_D)
-if mibBuilder.loadTexts:sysLogHistoryRamLevel.setStatus(_A)
-_RemoteLogMgt_ObjectIdentity=ObjectIdentity
-remoteLogMgt=_RemoteLogMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,19,6))
-_RemoteLogStatus_Type=EnabledStatus
-_RemoteLogStatus_Object=MibScalar
-remoteLogStatus=_RemoteLogStatus_Object((1,3,6,1,4,1,248,13,7,4,1,19,6,1),_RemoteLogStatus_Type())
-remoteLogStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:remoteLogStatus.setStatus(_A)
-class _RemoteLogLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_RemoteLogLevel_Type.__name__=_C
-_RemoteLogLevel_Object=MibScalar
-remoteLogLevel=_RemoteLogLevel_Object((1,3,6,1,4,1,248,13,7,4,1,19,6,2),_RemoteLogLevel_Type())
-remoteLogLevel.setMaxAccess(_D)
-if mibBuilder.loadTexts:remoteLogLevel.setStatus(_A)
-class _RemoteLogFacilityType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(16,17,18,19,20,21,22,23)));namedValues=NamedValues(*(('localUse0',16),('localUse1',17),('localUse2',18),('localUse3',19),('localUse4',20),('localUse5',21),('localUse6',22),('localUse7',23)))
-_RemoteLogFacilityType_Type.__name__=_C
-_RemoteLogFacilityType_Object=MibScalar
-remoteLogFacilityType=_RemoteLogFacilityType_Object((1,3,6,1,4,1,248,13,7,4,1,19,6,3),_RemoteLogFacilityType_Type())
-remoteLogFacilityType.setMaxAccess(_D)
-if mibBuilder.loadTexts:remoteLogFacilityType.setStatus(_A)
-_RemoteLogServerTable_Object=MibTable
-remoteLogServerTable=_RemoteLogServerTable_Object((1,3,6,1,4,1,248,13,7,4,1,19,6,4))
-if mibBuilder.loadTexts:remoteLogServerTable.setStatus(_A)
-_RemoteLogServerEntry_Object=MibTableRow
-remoteLogServerEntry=_RemoteLogServerEntry_Object((1,3,6,1,4,1,248,13,7,4,1,19,6,4,1))
-remoteLogServerEntry.setIndexNames((0,_F,_Ba))
-if mibBuilder.loadTexts:remoteLogServerEntry.setStatus(_A)
-_RemoteLogServerIp_Type=IpAddress
-_RemoteLogServerIp_Object=MibTableColumn
-remoteLogServerIp=_RemoteLogServerIp_Object((1,3,6,1,4,1,248,13,7,4,1,19,6,4,1,1),_RemoteLogServerIp_Type())
-remoteLogServerIp.setMaxAccess(_G)
-if mibBuilder.loadTexts:remoteLogServerIp.setStatus(_A)
-_RemoteLogServerStatus_Type=ValidStatus
-_RemoteLogServerStatus_Object=MibTableColumn
-remoteLogServerStatus=_RemoteLogServerStatus_Object((1,3,6,1,4,1,248,13,7,4,1,19,6,4,1,2),_RemoteLogServerStatus_Type())
-remoteLogServerStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:remoteLogServerStatus.setStatus(_A)
-_SmtpMgt_ObjectIdentity=ObjectIdentity
-smtpMgt=_SmtpMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,19,7))
-_SmtpStatus_Type=EnabledStatus
-_SmtpStatus_Object=MibScalar
-smtpStatus=_SmtpStatus_Object((1,3,6,1,4,1,248,13,7,4,1,19,7,1),_SmtpStatus_Type())
-smtpStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:smtpStatus.setStatus(_A)
-class _SmtpSeverityLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_SmtpSeverityLevel_Type.__name__=_C
-_SmtpSeverityLevel_Object=MibScalar
-smtpSeverityLevel=_SmtpSeverityLevel_Object((1,3,6,1,4,1,248,13,7,4,1,19,7,2),_SmtpSeverityLevel_Type())
-smtpSeverityLevel.setMaxAccess(_D)
-if mibBuilder.loadTexts:smtpSeverityLevel.setStatus(_A)
-class _SmtpSourceEMail_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,41))
-_SmtpSourceEMail_Type.__name__=_H
-_SmtpSourceEMail_Object=MibScalar
-smtpSourceEMail=_SmtpSourceEMail_Object((1,3,6,1,4,1,248,13,7,4,1,19,7,3),_SmtpSourceEMail_Type())
-smtpSourceEMail.setMaxAccess(_D)
-if mibBuilder.loadTexts:smtpSourceEMail.setStatus(_A)
-_SmtpServerIpTable_Object=MibTable
-smtpServerIpTable=_SmtpServerIpTable_Object((1,3,6,1,4,1,248,13,7,4,1,19,7,4))
-if mibBuilder.loadTexts:smtpServerIpTable.setStatus(_A)
-_SmtpServerIpEntry_Object=MibTableRow
-smtpServerIpEntry=_SmtpServerIpEntry_Object((1,3,6,1,4,1,248,13,7,4,1,19,7,4,1))
-smtpServerIpEntry.setIndexNames((0,_F,_w))
-if mibBuilder.loadTexts:smtpServerIpEntry.setStatus(_A)
-_SmtpServerIp_Type=IpAddress
-_SmtpServerIp_Object=MibTableColumn
-smtpServerIp=_SmtpServerIp_Object((1,3,6,1,4,1,248,13,7,4,1,19,7,4,1,1),_SmtpServerIp_Type())
-smtpServerIp.setMaxAccess(_B)
-if mibBuilder.loadTexts:smtpServerIp.setStatus(_A)
-_SmtpServerIpStatus_Type=ValidStatus
-_SmtpServerIpStatus_Object=MibTableColumn
-smtpServerIpStatus=_SmtpServerIpStatus_Object((1,3,6,1,4,1,248,13,7,4,1,19,7,4,1,2),_SmtpServerIpStatus_Type())
-smtpServerIpStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:smtpServerIpStatus.setStatus(_A)
-_SmtpDestEMailTable_Object=MibTable
-smtpDestEMailTable=_SmtpDestEMailTable_Object((1,3,6,1,4,1,248,13,7,4,1,19,7,5))
-if mibBuilder.loadTexts:smtpDestEMailTable.setStatus(_A)
-_SmtpDestEMailEntry_Object=MibTableRow
-smtpDestEMailEntry=_SmtpDestEMailEntry_Object((1,3,6,1,4,1,248,13,7,4,1,19,7,5,1))
-smtpDestEMailEntry.setIndexNames((0,_F,_Bb))
-if mibBuilder.loadTexts:smtpDestEMailEntry.setStatus(_A)
-class _SmtpDestEMail_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,41))
-_SmtpDestEMail_Type.__name__=_H
-_SmtpDestEMail_Object=MibTableColumn
-smtpDestEMail=_SmtpDestEMail_Object((1,3,6,1,4,1,248,13,7,4,1,19,7,5,1,1),_SmtpDestEMail_Type())
-smtpDestEMail.setMaxAccess(_G)
-if mibBuilder.loadTexts:smtpDestEMail.setStatus(_A)
-_SmtpDestEMailStatus_Type=ValidStatus
-_SmtpDestEMailStatus_Object=MibTableColumn
-smtpDestEMailStatus=_SmtpDestEMailStatus_Object((1,3,6,1,4,1,248,13,7,4,1,19,7,5,1,2),_SmtpDestEMailStatus_Type())
-smtpDestEMailStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:smtpDestEMailStatus.setStatus(_A)
-_LineMgt_ObjectIdentity=ObjectIdentity
-lineMgt=_LineMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,20))
-_ConsoleMgt_ObjectIdentity=ObjectIdentity
-consoleMgt=_ConsoleMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,20,1))
-class _ConsoleDataBits_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('databits7',1),('databits8',2)))
-_ConsoleDataBits_Type.__name__=_C
-_ConsoleDataBits_Object=MibScalar
-consoleDataBits=_ConsoleDataBits_Object((1,3,6,1,4,1,248,13,7,4,1,20,1,1),_ConsoleDataBits_Type())
-consoleDataBits.setMaxAccess(_D)
-if mibBuilder.loadTexts:consoleDataBits.setStatus(_A)
-class _ConsoleParity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('partyNone',1),('partyEven',2),('partyOdd',3)))
-_ConsoleParity_Type.__name__=_C
-_ConsoleParity_Object=MibScalar
-consoleParity=_ConsoleParity_Object((1,3,6,1,4,1,248,13,7,4,1,20,1,2),_ConsoleParity_Type())
-consoleParity.setMaxAccess(_D)
-if mibBuilder.loadTexts:consoleParity.setStatus(_A)
-class _ConsoleStopBits_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('stopbits1',1),('stopbits2',2)))
-_ConsoleStopBits_Type.__name__=_C
-_ConsoleStopBits_Object=MibScalar
-consoleStopBits=_ConsoleStopBits_Object((1,3,6,1,4,1,248,13,7,4,1,20,1,4),_ConsoleStopBits_Type())
-consoleStopBits.setMaxAccess(_D)
-if mibBuilder.loadTexts:consoleStopBits.setStatus(_A)
-class _ConsoleExecTimeout_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_ConsoleExecTimeout_Type.__name__=_C
-_ConsoleExecTimeout_Object=MibScalar
-consoleExecTimeout=_ConsoleExecTimeout_Object((1,3,6,1,4,1,248,13,7,4,1,20,1,5),_ConsoleExecTimeout_Type())
-consoleExecTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:consoleExecTimeout.setStatus(_A)
-class _ConsolePasswordThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,120))
-_ConsolePasswordThreshold_Type.__name__=_C
-_ConsolePasswordThreshold_Object=MibScalar
-consolePasswordThreshold=_ConsolePasswordThreshold_Object((1,3,6,1,4,1,248,13,7,4,1,20,1,6),_ConsolePasswordThreshold_Type())
-consolePasswordThreshold.setMaxAccess(_D)
-if mibBuilder.loadTexts:consolePasswordThreshold.setStatus(_A)
-class _ConsoleSilentTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_ConsoleSilentTime_Type.__name__=_C
-_ConsoleSilentTime_Object=MibScalar
-consoleSilentTime=_ConsoleSilentTime_Object((1,3,6,1,4,1,248,13,7,4,1,20,1,7),_ConsoleSilentTime_Type())
-consoleSilentTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:consoleSilentTime.setStatus(_A)
-_ConsoleAdminBaudRate_Type=Integer32
-_ConsoleAdminBaudRate_Object=MibScalar
-consoleAdminBaudRate=_ConsoleAdminBaudRate_Object((1,3,6,1,4,1,248,13,7,4,1,20,1,8),_ConsoleAdminBaudRate_Type())
-consoleAdminBaudRate.setMaxAccess(_D)
-if mibBuilder.loadTexts:consoleAdminBaudRate.setStatus(_A)
-_ConsoleOperBaudRate_Type=Integer32
-_ConsoleOperBaudRate_Object=MibScalar
-consoleOperBaudRate=_ConsoleOperBaudRate_Object((1,3,6,1,4,1,248,13,7,4,1,20,1,9),_ConsoleOperBaudRate_Type())
-consoleOperBaudRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:consoleOperBaudRate.setStatus(_A)
-class _ConsoleLoginResponseTimeout_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,300))
-_ConsoleLoginResponseTimeout_Type.__name__=_C
-_ConsoleLoginResponseTimeout_Object=MibScalar
-consoleLoginResponseTimeout=_ConsoleLoginResponseTimeout_Object((1,3,6,1,4,1,248,13,7,4,1,20,1,10),_ConsoleLoginResponseTimeout_Type())
-consoleLoginResponseTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:consoleLoginResponseTimeout.setStatus(_A)
-_TelnetMgt_ObjectIdentity=ObjectIdentity
-telnetMgt=_TelnetMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,20,2))
-class _TelnetExecTimeout_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_TelnetExecTimeout_Type.__name__=_C
-_TelnetExecTimeout_Object=MibScalar
-telnetExecTimeout=_TelnetExecTimeout_Object((1,3,6,1,4,1,248,13,7,4,1,20,2,1),_TelnetExecTimeout_Type())
-telnetExecTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:telnetExecTimeout.setStatus(_A)
-class _TelnetPasswordThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,120))
-_TelnetPasswordThreshold_Type.__name__=_C
-_TelnetPasswordThreshold_Object=MibScalar
-telnetPasswordThreshold=_TelnetPasswordThreshold_Object((1,3,6,1,4,1,248,13,7,4,1,20,2,2),_TelnetPasswordThreshold_Type())
-telnetPasswordThreshold.setMaxAccess(_D)
-if mibBuilder.loadTexts:telnetPasswordThreshold.setStatus(_A)
-class _TelnetLoginResponseTimeout_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,300))
-_TelnetLoginResponseTimeout_Type.__name__=_C
-_TelnetLoginResponseTimeout_Object=MibScalar
-telnetLoginResponseTimeout=_TelnetLoginResponseTimeout_Object((1,3,6,1,4,1,248,13,7,4,1,20,2,3),_TelnetLoginResponseTimeout_Type())
-telnetLoginResponseTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:telnetLoginResponseTimeout.setStatus(_A)
-class _TelnetStatus_Type(EnabledStatus):defaultValue=1
-_TelnetStatus_Type.__name__=_K
-_TelnetStatus_Object=MibScalar
-telnetStatus=_TelnetStatus_Object((1,3,6,1,4,1,248,13,7,4,1,20,2,4),_TelnetStatus_Type())
-telnetStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:telnetStatus.setStatus(_A)
-class _TelnetPortNumber_Type(Integer32):defaultValue=23;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_TelnetPortNumber_Type.__name__=_C
-_TelnetPortNumber_Object=MibScalar
-telnetPortNumber=_TelnetPortNumber_Object((1,3,6,1,4,1,248,13,7,4,1,20,2,5),_TelnetPortNumber_Type())
-telnetPortNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:telnetPortNumber.setStatus(_A)
-_SysTimeMgt_ObjectIdentity=ObjectIdentity
-sysTimeMgt=_SysTimeMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,23))
-_SntpMgt_ObjectIdentity=ObjectIdentity
-sntpMgt=_SntpMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,23,1))
-_SntpStatus_Type=EnabledStatus
-_SntpStatus_Object=MibScalar
-sntpStatus=_SntpStatus_Object((1,3,6,1,4,1,248,13,7,4,1,23,1,1),_SntpStatus_Type())
-sntpStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:sntpStatus.setStatus(_A)
-class _SntpServiceMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('unicast',1),('broadcast',2),('anycast',3)))
-_SntpServiceMode_Type.__name__=_C
-_SntpServiceMode_Object=MibScalar
-sntpServiceMode=_SntpServiceMode_Object((1,3,6,1,4,1,248,13,7,4,1,23,1,2),_SntpServiceMode_Type())
-sntpServiceMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:sntpServiceMode.setStatus(_A)
-class _SntpPollInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(16,16384))
-_SntpPollInterval_Type.__name__=_C
-_SntpPollInterval_Object=MibScalar
-sntpPollInterval=_SntpPollInterval_Object((1,3,6,1,4,1,248,13,7,4,1,23,1,3),_SntpPollInterval_Type())
-sntpPollInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:sntpPollInterval.setStatus(_A)
-_SntpServerTable_Object=MibTable
-sntpServerTable=_SntpServerTable_Object((1,3,6,1,4,1,248,13,7,4,1,23,1,4))
-if mibBuilder.loadTexts:sntpServerTable.setStatus(_A)
-_SntpServerEntry_Object=MibTableRow
-sntpServerEntry=_SntpServerEntry_Object((1,3,6,1,4,1,248,13,7,4,1,23,1,4,1))
-sntpServerEntry.setIndexNames((0,_F,_Bc))
-if mibBuilder.loadTexts:sntpServerEntry.setStatus(_A)
-class _SntpServerIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3))
-_SntpServerIndex_Type.__name__=_C
-_SntpServerIndex_Object=MibTableColumn
-sntpServerIndex=_SntpServerIndex_Object((1,3,6,1,4,1,248,13,7,4,1,23,1,4,1,1),_SntpServerIndex_Type())
-sntpServerIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:sntpServerIndex.setStatus(_A)
-_SntpServerIpAddress_Type=IpAddress
-_SntpServerIpAddress_Object=MibTableColumn
-sntpServerIpAddress=_SntpServerIpAddress_Object((1,3,6,1,4,1,248,13,7,4,1,23,1,4,1,2),_SntpServerIpAddress_Type())
-sntpServerIpAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:sntpServerIpAddress.setStatus(_A)
-class _SysCurrentTime_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(20,20));fixedLength=20
-_SysCurrentTime_Type.__name__=_H
-_SysCurrentTime_Object=MibScalar
-sysCurrentTime=_SysCurrentTime_Object((1,3,6,1,4,1,248,13,7,4,1,23,2),_SysCurrentTime_Type())
-sysCurrentTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:sysCurrentTime.setStatus(_A)
-class _SysTimeZone_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
-_SysTimeZone_Type.__name__=_H
-_SysTimeZone_Object=MibScalar
-sysTimeZone=_SysTimeZone_Object((1,3,6,1,4,1,248,13,7,4,1,23,3),_SysTimeZone_Type())
-sysTimeZone.setMaxAccess(_D)
-if mibBuilder.loadTexts:sysTimeZone.setStatus(_A)
-class _SysTimeZoneName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,30))
-_SysTimeZoneName_Type.__name__=_H
-_SysTimeZoneName_Object=MibScalar
-sysTimeZoneName=_SysTimeZoneName_Object((1,3,6,1,4,1,248,13,7,4,1,23,4),_SysTimeZoneName_Type())
-sysTimeZoneName.setMaxAccess(_D)
-if mibBuilder.loadTexts:sysTimeZoneName.setStatus(_A)
-_FileMgt_ObjectIdentity=ObjectIdentity
-fileMgt=_FileMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,24))
-_FileCopyMgt_ObjectIdentity=ObjectIdentity
-fileCopyMgt=_FileCopyMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,24,1))
-class _FileCopySrcOperType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('file',1),(_Bd,2),(_Be,3),('tftp',4),('unit',5)))
-_FileCopySrcOperType_Type.__name__=_C
-_FileCopySrcOperType_Object=MibScalar
-fileCopySrcOperType=_FileCopySrcOperType_Object((1,3,6,1,4,1,248,13,7,4,1,24,1,1),_FileCopySrcOperType_Type())
-fileCopySrcOperType.setMaxAccess(_D)
-if mibBuilder.loadTexts:fileCopySrcOperType.setStatus(_A)
-class _FileCopySrcFileName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
-_FileCopySrcFileName_Type.__name__=_H
-_FileCopySrcFileName_Object=MibScalar
-fileCopySrcFileName=_FileCopySrcFileName_Object((1,3,6,1,4,1,248,13,7,4,1,24,1,2),_FileCopySrcFileName_Type())
-fileCopySrcFileName.setMaxAccess(_D)
-if mibBuilder.loadTexts:fileCopySrcFileName.setStatus(_A)
-class _FileCopyDestOperType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('file',1),(_Bd,2),(_Be,3),('tftp',4),('unit',5)))
-_FileCopyDestOperType_Type.__name__=_C
-_FileCopyDestOperType_Object=MibScalar
-fileCopyDestOperType=_FileCopyDestOperType_Object((1,3,6,1,4,1,248,13,7,4,1,24,1,3),_FileCopyDestOperType_Type())
-fileCopyDestOperType.setMaxAccess(_D)
-if mibBuilder.loadTexts:fileCopyDestOperType.setStatus(_A)
-class _FileCopyDestFileName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
-_FileCopyDestFileName_Type.__name__=_H
-_FileCopyDestFileName_Object=MibScalar
-fileCopyDestFileName=_FileCopyDestFileName_Object((1,3,6,1,4,1,248,13,7,4,1,24,1,4),_FileCopyDestFileName_Type())
-fileCopyDestFileName.setMaxAccess(_D)
-if mibBuilder.loadTexts:fileCopyDestFileName.setStatus(_A)
-class _FileCopyFileType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('opcode',1),('config',2),('bootRom',3)))
-_FileCopyFileType_Type.__name__=_C
-_FileCopyFileType_Object=MibScalar
-fileCopyFileType=_FileCopyFileType_Object((1,3,6,1,4,1,248,13,7,4,1,24,1,5),_FileCopyFileType_Type())
-fileCopyFileType.setMaxAccess(_D)
-if mibBuilder.loadTexts:fileCopyFileType.setStatus(_A)
-_FileCopyTftpServer_Type=IpAddress
-_FileCopyTftpServer_Object=MibScalar
-fileCopyTftpServer=_FileCopyTftpServer_Object((1,3,6,1,4,1,248,13,7,4,1,24,1,6),_FileCopyTftpServer_Type())
-fileCopyTftpServer.setMaxAccess(_D)
-if mibBuilder.loadTexts:fileCopyTftpServer.setStatus(_A)
-_FileCopyUnitId_Type=Integer32
-_FileCopyUnitId_Object=MibScalar
-fileCopyUnitId=_FileCopyUnitId_Object((1,3,6,1,4,1,248,13,7,4,1,24,1,7),_FileCopyUnitId_Type())
-fileCopyUnitId.setMaxAccess(_D)
-if mibBuilder.loadTexts:fileCopyUnitId.setStatus(_A)
-class _FileCopyAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_Bf,1),('copy',2)))
-_FileCopyAction_Type.__name__=_C
-_FileCopyAction_Object=MibScalar
-fileCopyAction=_FileCopyAction_Object((1,3,6,1,4,1,248,13,7,4,1,24,1,8),_FileCopyAction_Type())
-fileCopyAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:fileCopyAction.setStatus(_A)
-_FileCopyStatus_Type=FileCopyStatus
-_FileCopyStatus_Object=MibScalar
-fileCopyStatus=_FileCopyStatus_Object((1,3,6,1,4,1,248,13,7,4,1,24,1,9),_FileCopyStatus_Type())
-fileCopyStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fileCopyStatus.setStatus(_A)
-_FileInfoMgt_ObjectIdentity=ObjectIdentity
-fileInfoMgt=_FileInfoMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,24,2))
-_FileInfoTable_Object=MibTable
-fileInfoTable=_FileInfoTable_Object((1,3,6,1,4,1,248,13,7,4,1,24,2,1))
-if mibBuilder.loadTexts:fileInfoTable.setStatus(_A)
-_FileInfoEntry_Object=MibTableRow
-fileInfoEntry=_FileInfoEntry_Object((1,3,6,1,4,1,248,13,7,4,1,24,2,1,1))
-fileInfoEntry.setIndexNames((0,_F,_Bg),(1,_F,_Bh))
-if mibBuilder.loadTexts:fileInfoEntry.setStatus(_A)
-_FileInfoUnitID_Type=Integer32
-_FileInfoUnitID_Object=MibTableColumn
-fileInfoUnitID=_FileInfoUnitID_Object((1,3,6,1,4,1,248,13,7,4,1,24,2,1,1,1),_FileInfoUnitID_Type())
-fileInfoUnitID.setMaxAccess(_G)
-if mibBuilder.loadTexts:fileInfoUnitID.setStatus(_A)
-class _FileInfoFileName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_FileInfoFileName_Type.__name__=_H
-_FileInfoFileName_Object=MibTableColumn
-fileInfoFileName=_FileInfoFileName_Object((1,3,6,1,4,1,248,13,7,4,1,24,2,1,1,2),_FileInfoFileName_Type())
-fileInfoFileName.setMaxAccess(_G)
-if mibBuilder.loadTexts:fileInfoFileName.setStatus(_A)
-class _FileInfoFileType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('diag',1),('runtime',2),('syslog',3),('cmdlog',4),('config',5),('postlog',6),('private',7),('certificate',8),('webarchive',9)))
-_FileInfoFileType_Type.__name__=_C
-_FileInfoFileType_Object=MibTableColumn
-fileInfoFileType=_FileInfoFileType_Object((1,3,6,1,4,1,248,13,7,4,1,24,2,1,1,3),_FileInfoFileType_Type())
-fileInfoFileType.setMaxAccess(_B)
-if mibBuilder.loadTexts:fileInfoFileType.setStatus(_A)
-_FileInfoIsStartUp_Type=TruthValue
-_FileInfoIsStartUp_Object=MibTableColumn
-fileInfoIsStartUp=_FileInfoIsStartUp_Object((1,3,6,1,4,1,248,13,7,4,1,24,2,1,1,4),_FileInfoIsStartUp_Type())
-fileInfoIsStartUp.setMaxAccess(_D)
-if mibBuilder.loadTexts:fileInfoIsStartUp.setStatus(_A)
-_FileInfoFileSize_Type=Integer32
-_FileInfoFileSize_Object=MibTableColumn
-fileInfoFileSize=_FileInfoFileSize_Object((1,3,6,1,4,1,248,13,7,4,1,24,2,1,1,5),_FileInfoFileSize_Type())
-fileInfoFileSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:fileInfoFileSize.setStatus(_A)
-class _FileInfoCreationTime_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(20,20));fixedLength=20
-_FileInfoCreationTime_Type.__name__=_H
-_FileInfoCreationTime_Object=MibTableColumn
-fileInfoCreationTime=_FileInfoCreationTime_Object((1,3,6,1,4,1,248,13,7,4,1,24,2,1,1,6),_FileInfoCreationTime_Type())
-fileInfoCreationTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:fileInfoCreationTime.setStatus(_A)
-class _FileInfoDelete_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('noDelete',1),('delete',2)))
-_FileInfoDelete_Type.__name__=_C
-_FileInfoDelete_Object=MibTableColumn
-fileInfoDelete=_FileInfoDelete_Object((1,3,6,1,4,1,248,13,7,4,1,24,2,1,1,7),_FileInfoDelete_Type())
-fileInfoDelete.setMaxAccess(_D)
-if mibBuilder.loadTexts:fileInfoDelete.setStatus(_A)
-_FileAutoDownloadResultTable_Object=MibTable
-fileAutoDownloadResultTable=_FileAutoDownloadResultTable_Object((1,3,6,1,4,1,248,13,7,4,1,24,3))
-if mibBuilder.loadTexts:fileAutoDownloadResultTable.setStatus(_A)
-_FileAutoDownloadResultEntry_Object=MibTableRow
-fileAutoDownloadResultEntry=_FileAutoDownloadResultEntry_Object((1,3,6,1,4,1,248,13,7,4,1,24,3,1))
-fileAutoDownloadResultEntry.setIndexNames((0,_F,_Bi))
-if mibBuilder.loadTexts:fileAutoDownloadResultEntry.setStatus(_A)
-_FileAutoDownloadResultUnitID_Type=Integer32
-_FileAutoDownloadResultUnitID_Object=MibTableColumn
-fileAutoDownloadResultUnitID=_FileAutoDownloadResultUnitID_Object((1,3,6,1,4,1,248,13,7,4,1,24,3,1,1),_FileAutoDownloadResultUnitID_Type())
-fileAutoDownloadResultUnitID.setMaxAccess(_G)
-if mibBuilder.loadTexts:fileAutoDownloadResultUnitID.setStatus(_A)
-class _FileAutoDownloadResultAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_Bf,1),('copying',2)))
-_FileAutoDownloadResultAction_Type.__name__=_C
-_FileAutoDownloadResultAction_Object=MibTableColumn
-fileAutoDownloadResultAction=_FileAutoDownloadResultAction_Object((1,3,6,1,4,1,248,13,7,4,1,24,3,1,2),_FileAutoDownloadResultAction_Type())
-fileAutoDownloadResultAction.setMaxAccess(_B)
-if mibBuilder.loadTexts:fileAutoDownloadResultAction.setStatus(_A)
-_FileAutoDownloadResultStatus_Type=FileCopyStatus
-_FileAutoDownloadResultStatus_Object=MibTableColumn
-fileAutoDownloadResultStatus=_FileAutoDownloadResultStatus_Object((1,3,6,1,4,1,248,13,7,4,1,24,3,1,3),_FileAutoDownloadResultStatus_Type())
-fileAutoDownloadResultStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fileAutoDownloadResultStatus.setStatus(_A)
-_DnsMgt_ObjectIdentity=ObjectIdentity
-dnsMgt=_DnsMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,26))
-_DnsDomainLookup_Type=EnabledStatus
-_DnsDomainLookup_Object=MibScalar
-dnsDomainLookup=_DnsDomainLookup_Object((1,3,6,1,4,1,248,13,7,4,1,26,1),_DnsDomainLookup_Type())
-dnsDomainLookup.setMaxAccess(_D)
-if mibBuilder.loadTexts:dnsDomainLookup.setStatus(_A)
-class _DnsDomainName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_DnsDomainName_Type.__name__=_H
-_DnsDomainName_Object=MibScalar
-dnsDomainName=_DnsDomainName_Object((1,3,6,1,4,1,248,13,7,4,1,26,2),_DnsDomainName_Type())
-dnsDomainName.setMaxAccess(_D)
-if mibBuilder.loadTexts:dnsDomainName.setStatus(_A)
-_DnsHostTable_Object=MibTable
-dnsHostTable=_DnsHostTable_Object((1,3,6,1,4,1,248,13,7,4,1,26,3))
-if mibBuilder.loadTexts:dnsHostTable.setStatus(_A)
-_DnsHostEntry_Object=MibTableRow
-dnsHostEntry=_DnsHostEntry_Object((1,3,6,1,4,1,248,13,7,4,1,26,3,1))
-dnsHostEntry.setIndexNames((0,_F,_Bj),(0,_F,_Bk))
-if mibBuilder.loadTexts:dnsHostEntry.setStatus(_A)
-class _DnsHostName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_DnsHostName_Type.__name__=_H
-_DnsHostName_Object=MibTableColumn
-dnsHostName=_DnsHostName_Object((1,3,6,1,4,1,248,13,7,4,1,26,3,1,1),_DnsHostName_Type())
-dnsHostName.setMaxAccess(_G)
-if mibBuilder.loadTexts:dnsHostName.setStatus(_A)
-class _DnsHostIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_DnsHostIndex_Type.__name__=_C
-_DnsHostIndex_Object=MibTableColumn
-dnsHostIndex=_DnsHostIndex_Object((1,3,6,1,4,1,248,13,7,4,1,26,3,1,2),_DnsHostIndex_Type())
-dnsHostIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:dnsHostIndex.setStatus(_A)
-_DnsHostIp_Type=IpAddress
-_DnsHostIp_Object=MibTableColumn
-dnsHostIp=_DnsHostIp_Object((1,3,6,1,4,1,248,13,7,4,1,26,3,1,3),_DnsHostIp_Type())
-dnsHostIp.setMaxAccess(_E)
-if mibBuilder.loadTexts:dnsHostIp.setStatus(_A)
-_DnsAliasTable_Object=MibTable
-dnsAliasTable=_DnsAliasTable_Object((1,3,6,1,4,1,248,13,7,4,1,26,4))
-if mibBuilder.loadTexts:dnsAliasTable.setStatus(_A)
-_DnsAliasEntry_Object=MibTableRow
-dnsAliasEntry=_DnsAliasEntry_Object((1,3,6,1,4,1,248,13,7,4,1,26,4,1))
-dnsAliasEntry.setIndexNames((0,_F,_Bl),(0,_F,_Bm))
-if mibBuilder.loadTexts:dnsAliasEntry.setStatus(_A)
-class _DnsAliasName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_DnsAliasName_Type.__name__=_H
-_DnsAliasName_Object=MibTableColumn
-dnsAliasName=_DnsAliasName_Object((1,3,6,1,4,1,248,13,7,4,1,26,4,1,1),_DnsAliasName_Type())
-dnsAliasName.setMaxAccess(_B)
-if mibBuilder.loadTexts:dnsAliasName.setStatus(_A)
-class _DnaAliasAlias_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_DnaAliasAlias_Type.__name__=_H
-_DnaAliasAlias_Object=MibTableColumn
-dnaAliasAlias=_DnaAliasAlias_Object((1,3,6,1,4,1,248,13,7,4,1,26,4,1,2),_DnaAliasAlias_Type())
-dnaAliasAlias.setMaxAccess(_B)
-if mibBuilder.loadTexts:dnaAliasAlias.setStatus(_A)
-_DnsDomainListTable_Object=MibTable
-dnsDomainListTable=_DnsDomainListTable_Object((1,3,6,1,4,1,248,13,7,4,1,26,5))
-if mibBuilder.loadTexts:dnsDomainListTable.setStatus(_A)
-_DnsDomainListEntry_Object=MibTableRow
-dnsDomainListEntry=_DnsDomainListEntry_Object((1,3,6,1,4,1,248,13,7,4,1,26,5,1))
-dnsDomainListEntry.setIndexNames((0,_F,_Bn))
-if mibBuilder.loadTexts:dnsDomainListEntry.setStatus(_A)
-class _DnsDomainListName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_DnsDomainListName_Type.__name__=_H
-_DnsDomainListName_Object=MibTableColumn
-dnsDomainListName=_DnsDomainListName_Object((1,3,6,1,4,1,248,13,7,4,1,26,5,1,1),_DnsDomainListName_Type())
-dnsDomainListName.setMaxAccess(_G)
-if mibBuilder.loadTexts:dnsDomainListName.setStatus(_A)
-_DnsDomainListStatus_Type=ValidStatus
-_DnsDomainListStatus_Object=MibTableColumn
-dnsDomainListStatus=_DnsDomainListStatus_Object((1,3,6,1,4,1,248,13,7,4,1,26,5,1,2),_DnsDomainListStatus_Type())
-dnsDomainListStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:dnsDomainListStatus.setStatus(_A)
-_DnsNameServerTable_Object=MibTable
-dnsNameServerTable=_DnsNameServerTable_Object((1,3,6,1,4,1,248,13,7,4,1,26,6))
-if mibBuilder.loadTexts:dnsNameServerTable.setStatus(_A)
-_DnsNameServerEntry_Object=MibTableRow
-dnsNameServerEntry=_DnsNameServerEntry_Object((1,3,6,1,4,1,248,13,7,4,1,26,6,1))
-dnsNameServerEntry.setIndexNames((0,_F,_Bo))
-if mibBuilder.loadTexts:dnsNameServerEntry.setStatus(_A)
-class _DnsNameServerIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,6))
-_DnsNameServerIndex_Type.__name__=_C
-_DnsNameServerIndex_Object=MibTableColumn
-dnsNameServerIndex=_DnsNameServerIndex_Object((1,3,6,1,4,1,248,13,7,4,1,26,6,1,1),_DnsNameServerIndex_Type())
-dnsNameServerIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:dnsNameServerIndex.setStatus(_A)
-_DnsNameServerIp_Type=IpAddress
-_DnsNameServerIp_Object=MibTableColumn
-dnsNameServerIp=_DnsNameServerIp_Object((1,3,6,1,4,1,248,13,7,4,1,26,6,1,2),_DnsNameServerIp_Type())
-dnsNameServerIp.setMaxAccess(_D)
-if mibBuilder.loadTexts:dnsNameServerIp.setStatus(_A)
-_DnsCacheTable_Object=MibTable
-dnsCacheTable=_DnsCacheTable_Object((1,3,6,1,4,1,248,13,7,4,1,26,7))
-if mibBuilder.loadTexts:dnsCacheTable.setStatus(_A)
-_DnsCacheEntry_Object=MibTableRow
-dnsCacheEntry=_DnsCacheEntry_Object((1,3,6,1,4,1,248,13,7,4,1,26,7,1))
-dnsCacheEntry.setIndexNames((0,_F,_Bp))
-if mibBuilder.loadTexts:dnsCacheEntry.setStatus(_A)
-_DnsCacheIndex_Type=Integer32
-_DnsCacheIndex_Object=MibTableColumn
-dnsCacheIndex=_DnsCacheIndex_Object((1,3,6,1,4,1,248,13,7,4,1,26,7,1,1),_DnsCacheIndex_Type())
-dnsCacheIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:dnsCacheIndex.setStatus(_A)
-_DnsCacheFlag_Type=Integer32
-_DnsCacheFlag_Object=MibTableColumn
-dnsCacheFlag=_DnsCacheFlag_Object((1,3,6,1,4,1,248,13,7,4,1,26,7,1,2),_DnsCacheFlag_Type())
-dnsCacheFlag.setMaxAccess(_B)
-if mibBuilder.loadTexts:dnsCacheFlag.setStatus(_A)
-class _DnsCacheType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('address',1),('cname',2)))
-_DnsCacheType_Type.__name__=_C
-_DnsCacheType_Object=MibTableColumn
-dnsCacheType=_DnsCacheType_Object((1,3,6,1,4,1,248,13,7,4,1,26,7,1,3),_DnsCacheType_Type())
-dnsCacheType.setMaxAccess(_B)
-if mibBuilder.loadTexts:dnsCacheType.setStatus(_A)
-_DnsCacheIp_Type=IpAddress
-_DnsCacheIp_Object=MibTableColumn
-dnsCacheIp=_DnsCacheIp_Object((1,3,6,1,4,1,248,13,7,4,1,26,7,1,4),_DnsCacheIp_Type())
-dnsCacheIp.setMaxAccess(_B)
-if mibBuilder.loadTexts:dnsCacheIp.setStatus(_A)
-class _DnsCacheTtl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,876000))
-_DnsCacheTtl_Type.__name__=_C
-_DnsCacheTtl_Object=MibTableColumn
-dnsCacheTtl=_DnsCacheTtl_Object((1,3,6,1,4,1,248,13,7,4,1,26,7,1,5),_DnsCacheTtl_Type())
-dnsCacheTtl.setMaxAccess(_B)
-if mibBuilder.loadTexts:dnsCacheTtl.setStatus(_A)
-class _DnsCacheDomain_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_DnsCacheDomain_Type.__name__=_H
-_DnsCacheDomain_Object=MibTableColumn
-dnsCacheDomain=_DnsCacheDomain_Object((1,3,6,1,4,1,248,13,7,4,1,26,7,1,6),_DnsCacheDomain_Type())
-dnsCacheDomain.setMaxAccess(_B)
-if mibBuilder.loadTexts:dnsCacheDomain.setStatus(_A)
-_HsrpMgt_ObjectIdentity=ObjectIdentity
-hsrpMgt=_HsrpMgt_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,29))
-_CHsrpGlobalConfig_ObjectIdentity=ObjectIdentity
-cHsrpGlobalConfig=_CHsrpGlobalConfig_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,29,1))
-class _CHsrpConfigTimeout_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,60))
-_CHsrpConfigTimeout_Type.__name__=_J
-_CHsrpConfigTimeout_Object=MibScalar
-cHsrpConfigTimeout=_CHsrpConfigTimeout_Object((1,3,6,1,4,1,248,13,7,4,1,29,1,1),_CHsrpConfigTimeout_Type())
-cHsrpConfigTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:cHsrpConfigTimeout.setStatus(_A)
-_CHsrpGroup_ObjectIdentity=ObjectIdentity
-cHsrpGroup=_CHsrpGroup_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,29,2))
-_CHsrpGrpTable_Object=MibTable
-cHsrpGrpTable=_CHsrpGrpTable_Object((1,3,6,1,4,1,248,13,7,4,1,29,2,1))
-if mibBuilder.loadTexts:cHsrpGrpTable.setStatus(_A)
-_CHsrpGrpEntry_Object=MibTableRow
-cHsrpGrpEntry=_CHsrpGrpEntry_Object((1,3,6,1,4,1,248,13,7,4,1,29,2,1,1))
-cHsrpGrpEntry.setIndexNames((0,_O,_P),(0,_F,_Z))
-if mibBuilder.loadTexts:cHsrpGrpEntry.setStatus(_A)
-class _CHsrpGrpNumber_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_CHsrpGrpNumber_Type.__name__=_J
-_CHsrpGrpNumber_Object=MibTableColumn
-cHsrpGrpNumber=_CHsrpGrpNumber_Object((1,3,6,1,4,1,248,13,7,4,1,29,2,1,1,1),_CHsrpGrpNumber_Type())
-cHsrpGrpNumber.setMaxAccess(_G)
-if mibBuilder.loadTexts:cHsrpGrpNumber.setStatus(_A)
-class _CHsrpGrpAuth_Type(DisplayString):defaultValue=OctetString('cisco');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_CHsrpGrpAuth_Type.__name__=_H
-_CHsrpGrpAuth_Object=MibTableColumn
-cHsrpGrpAuth=_CHsrpGrpAuth_Object((1,3,6,1,4,1,248,13,7,4,1,29,2,1,1,2),_CHsrpGrpAuth_Type())
-cHsrpGrpAuth.setMaxAccess(_E)
-if mibBuilder.loadTexts:cHsrpGrpAuth.setStatus(_A)
-class _CHsrpGrpPriority_Type(Unsigned32):defaultValue=100;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_CHsrpGrpPriority_Type.__name__=_J
-_CHsrpGrpPriority_Object=MibTableColumn
-cHsrpGrpPriority=_CHsrpGrpPriority_Object((1,3,6,1,4,1,248,13,7,4,1,29,2,1,1,3),_CHsrpGrpPriority_Type())
-cHsrpGrpPriority.setMaxAccess(_E)
-if mibBuilder.loadTexts:cHsrpGrpPriority.setStatus(_A)
-class _CHsrpGrpPreempt_Type(TruthValue):defaultValue=2
-_CHsrpGrpPreempt_Type.__name__=_A2
-_CHsrpGrpPreempt_Object=MibTableColumn
-cHsrpGrpPreempt=_CHsrpGrpPreempt_Object((1,3,6,1,4,1,248,13,7,4,1,29,2,1,1,4),_CHsrpGrpPreempt_Type())
-cHsrpGrpPreempt.setMaxAccess(_E)
-if mibBuilder.loadTexts:cHsrpGrpPreempt.setStatus(_A)
-class _CHsrpGrpPreemptDelay_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3600))
-_CHsrpGrpPreemptDelay_Type.__name__=_J
-_CHsrpGrpPreemptDelay_Object=MibTableColumn
-cHsrpGrpPreemptDelay=_CHsrpGrpPreemptDelay_Object((1,3,6,1,4,1,248,13,7,4,1,29,2,1,1,5),_CHsrpGrpPreemptDelay_Type())
-cHsrpGrpPreemptDelay.setMaxAccess(_E)
-if mibBuilder.loadTexts:cHsrpGrpPreemptDelay.setStatus(_A)
-_CHsrpGrpUseConfiguredTimers_Type=TruthValue
-_CHsrpGrpUseConfiguredTimers_Object=MibTableColumn
-cHsrpGrpUseConfiguredTimers=_CHsrpGrpUseConfiguredTimers_Object((1,3,6,1,4,1,248,13,7,4,1,29,2,1,1,6),_CHsrpGrpUseConfiguredTimers_Type())
-cHsrpGrpUseConfiguredTimers.setMaxAccess(_B)
-if mibBuilder.loadTexts:cHsrpGrpUseConfiguredTimers.setStatus(_A)
-class _CHsrpGrpConfiguredHelloTime_Type(Unsigned32):defaultValue=3000
-_CHsrpGrpConfiguredHelloTime_Type.__name__=_J
-_CHsrpGrpConfiguredHelloTime_Object=MibTableColumn
-cHsrpGrpConfiguredHelloTime=_CHsrpGrpConfiguredHelloTime_Object((1,3,6,1,4,1,248,13,7,4,1,29,2,1,1,7),_CHsrpGrpConfiguredHelloTime_Type())
-cHsrpGrpConfiguredHelloTime.setMaxAccess(_E)
-if mibBuilder.loadTexts:cHsrpGrpConfiguredHelloTime.setStatus(_A)
-class _CHsrpGrpConfiguredHoldTime_Type(Unsigned32):defaultValue=10000
-_CHsrpGrpConfiguredHoldTime_Type.__name__=_J
-_CHsrpGrpConfiguredHoldTime_Object=MibTableColumn
-cHsrpGrpConfiguredHoldTime=_CHsrpGrpConfiguredHoldTime_Object((1,3,6,1,4,1,248,13,7,4,1,29,2,1,1,8),_CHsrpGrpConfiguredHoldTime_Type())
-cHsrpGrpConfiguredHoldTime.setMaxAccess(_E)
-if mibBuilder.loadTexts:cHsrpGrpConfiguredHoldTime.setStatus(_A)
-class _CHsrpGrpLearnedHelloTime_Type(Unsigned32):defaultValue=3000
-_CHsrpGrpLearnedHelloTime_Type.__name__=_J
-_CHsrpGrpLearnedHelloTime_Object=MibTableColumn
-cHsrpGrpLearnedHelloTime=_CHsrpGrpLearnedHelloTime_Object((1,3,6,1,4,1,248,13,7,4,1,29,2,1,1,9),_CHsrpGrpLearnedHelloTime_Type())
-cHsrpGrpLearnedHelloTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cHsrpGrpLearnedHelloTime.setStatus(_A)
-class _CHsrpGrpLearnedHoldTime_Type(Unsigned32):defaultValue=10000
-_CHsrpGrpLearnedHoldTime_Type.__name__=_J
-_CHsrpGrpLearnedHoldTime_Object=MibTableColumn
-cHsrpGrpLearnedHoldTime=_CHsrpGrpLearnedHoldTime_Object((1,3,6,1,4,1,248,13,7,4,1,29,2,1,1,10),_CHsrpGrpLearnedHoldTime_Type())
-cHsrpGrpLearnedHoldTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cHsrpGrpLearnedHoldTime.setStatus(_A)
-class _CHsrpGrpVirtualIpAddr_Type(IpAddress):defaultHexValue='00000000'
-_CHsrpGrpVirtualIpAddr_Type.__name__=_A1
-_CHsrpGrpVirtualIpAddr_Object=MibTableColumn
-cHsrpGrpVirtualIpAddr=_CHsrpGrpVirtualIpAddr_Object((1,3,6,1,4,1,248,13,7,4,1,29,2,1,1,11),_CHsrpGrpVirtualIpAddr_Type())
-cHsrpGrpVirtualIpAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:cHsrpGrpVirtualIpAddr.setStatus(_A)
-_CHsrpGrpUseConfigVirtualIpAddr_Type=TruthValue
-_CHsrpGrpUseConfigVirtualIpAddr_Object=MibTableColumn
-cHsrpGrpUseConfigVirtualIpAddr=_CHsrpGrpUseConfigVirtualIpAddr_Object((1,3,6,1,4,1,248,13,7,4,1,29,2,1,1,12),_CHsrpGrpUseConfigVirtualIpAddr_Type())
-cHsrpGrpUseConfigVirtualIpAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cHsrpGrpUseConfigVirtualIpAddr.setStatus(_A)
-_CHsrpGrpActiveRouter_Type=IpAddress
-_CHsrpGrpActiveRouter_Object=MibTableColumn
-cHsrpGrpActiveRouter=_CHsrpGrpActiveRouter_Object((1,3,6,1,4,1,248,13,7,4,1,29,2,1,1,13),_CHsrpGrpActiveRouter_Type())
-cHsrpGrpActiveRouter.setMaxAccess(_B)
-if mibBuilder.loadTexts:cHsrpGrpActiveRouter.setStatus(_A)
-_CHsrpGrpStandbyRouter_Type=IpAddress
-_CHsrpGrpStandbyRouter_Object=MibTableColumn
-cHsrpGrpStandbyRouter=_CHsrpGrpStandbyRouter_Object((1,3,6,1,4,1,248,13,7,4,1,29,2,1,1,14),_CHsrpGrpStandbyRouter_Type())
-cHsrpGrpStandbyRouter.setMaxAccess(_B)
-if mibBuilder.loadTexts:cHsrpGrpStandbyRouter.setStatus(_A)
-_CHsrpGrpStandbyState_Type=HsrpState
-_CHsrpGrpStandbyState_Object=MibTableColumn
-cHsrpGrpStandbyState=_CHsrpGrpStandbyState_Object((1,3,6,1,4,1,248,13,7,4,1,29,2,1,1,15),_CHsrpGrpStandbyState_Type())
-cHsrpGrpStandbyState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cHsrpGrpStandbyState.setStatus(_A)
-_CHsrpGrpVirtualMacAddr_Type=MacAddress
-_CHsrpGrpVirtualMacAddr_Object=MibTableColumn
-cHsrpGrpVirtualMacAddr=_CHsrpGrpVirtualMacAddr_Object((1,3,6,1,4,1,248,13,7,4,1,29,2,1,1,16),_CHsrpGrpVirtualMacAddr_Type())
-cHsrpGrpVirtualMacAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cHsrpGrpVirtualMacAddr.setStatus(_A)
-_CHsrpGrpEntryRowStatus_Type=RowStatus
-_CHsrpGrpEntryRowStatus_Object=MibTableColumn
-cHsrpGrpEntryRowStatus=_CHsrpGrpEntryRowStatus_Object((1,3,6,1,4,1,248,13,7,4,1,29,2,1,1,17),_CHsrpGrpEntryRowStatus_Type())
-cHsrpGrpEntryRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:cHsrpGrpEntryRowStatus.setStatus(_A)
-_CHsrpExtGroup_ObjectIdentity=ObjectIdentity
-cHsrpExtGroup=_CHsrpExtGroup_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,1,29,3))
-_CHsrpExtIfTrackedTable_Object=MibTable
-cHsrpExtIfTrackedTable=_CHsrpExtIfTrackedTable_Object((1,3,6,1,4,1,248,13,7,4,1,29,3,1))
-if mibBuilder.loadTexts:cHsrpExtIfTrackedTable.setStatus(_A)
-_CHsrpExtIfTrackedEntry_Object=MibTableRow
-cHsrpExtIfTrackedEntry=_CHsrpExtIfTrackedEntry_Object((1,3,6,1,4,1,248,13,7,4,1,29,3,1,1))
-cHsrpExtIfTrackedEntry.setIndexNames((0,_O,_P),(0,_F,_Z),(0,_F,_Bq))
-if mibBuilder.loadTexts:cHsrpExtIfTrackedEntry.setStatus(_A)
-_CHsrpExtIfTracked_Type=InterfaceIndex
-_CHsrpExtIfTracked_Object=MibTableColumn
-cHsrpExtIfTracked=_CHsrpExtIfTracked_Object((1,3,6,1,4,1,248,13,7,4,1,29,3,1,1,1),_CHsrpExtIfTracked_Type())
-cHsrpExtIfTracked.setMaxAccess(_G)
-if mibBuilder.loadTexts:cHsrpExtIfTracked.setStatus(_A)
-class _CHsrpExtIfTrackedPriority_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_CHsrpExtIfTrackedPriority_Type.__name__=_J
-_CHsrpExtIfTrackedPriority_Object=MibTableColumn
-cHsrpExtIfTrackedPriority=_CHsrpExtIfTrackedPriority_Object((1,3,6,1,4,1,248,13,7,4,1,29,3,1,1,2),_CHsrpExtIfTrackedPriority_Type())
-cHsrpExtIfTrackedPriority.setMaxAccess(_E)
-if mibBuilder.loadTexts:cHsrpExtIfTrackedPriority.setStatus(_A)
-_CHsrpExtIfTrackedRowStatus_Type=RowStatus
-_CHsrpExtIfTrackedRowStatus_Object=MibTableColumn
-cHsrpExtIfTrackedRowStatus=_CHsrpExtIfTrackedRowStatus_Object((1,3,6,1,4,1,248,13,7,4,1,29,3,1,1,3),_CHsrpExtIfTrackedRowStatus_Type())
-cHsrpExtIfTrackedRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:cHsrpExtIfTrackedRowStatus.setStatus(_A)
-_CHsrpExtSecAddrTable_Object=MibTable
-cHsrpExtSecAddrTable=_CHsrpExtSecAddrTable_Object((1,3,6,1,4,1,248,13,7,4,1,29,3,2))
-if mibBuilder.loadTexts:cHsrpExtSecAddrTable.setStatus(_A)
-_CHsrpExtSecAddrEntry_Object=MibTableRow
-cHsrpExtSecAddrEntry=_CHsrpExtSecAddrEntry_Object((1,3,6,1,4,1,248,13,7,4,1,29,3,2,1))
-cHsrpExtSecAddrEntry.setIndexNames((0,_O,_P),(0,_F,_Z),(0,_F,_Br))
-if mibBuilder.loadTexts:cHsrpExtSecAddrEntry.setStatus(_A)
-_CHsrpExtSecAddrAddress_Type=IpAddress
-_CHsrpExtSecAddrAddress_Object=MibTableColumn
-cHsrpExtSecAddrAddress=_CHsrpExtSecAddrAddress_Object((1,3,6,1,4,1,248,13,7,4,1,29,3,2,1,1),_CHsrpExtSecAddrAddress_Type())
-cHsrpExtSecAddrAddress.setMaxAccess(_G)
-if mibBuilder.loadTexts:cHsrpExtSecAddrAddress.setStatus(_A)
-_CHsrpExtSecAddrRowStatus_Type=RowStatus
-_CHsrpExtSecAddrRowStatus_Object=MibTableColumn
-cHsrpExtSecAddrRowStatus=_CHsrpExtSecAddrRowStatus_Object((1,3,6,1,4,1,248,13,7,4,1,29,3,2,1,2),_CHsrpExtSecAddrRowStatus_Type())
-cHsrpExtSecAddrRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:cHsrpExtSecAddrRowStatus.setStatus(_A)
-_Lion24tpNotifications_ObjectIdentity=ObjectIdentity
-lion24tpNotifications=_Lion24tpNotifications_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,2))
-_Lion24tpTraps_ObjectIdentity=ObjectIdentity
-lion24tpTraps=_Lion24tpTraps_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,2,1))
-_Lion24tpTrapsPrefix_ObjectIdentity=ObjectIdentity
-lion24tpTrapsPrefix=_Lion24tpTrapsPrefix_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,2,1,0))
-_Lion24tpConformance_ObjectIdentity=ObjectIdentity
-lion24tpConformance=_Lion24tpConformance_ObjectIdentity((1,3,6,1,4,1,248,13,7,4,3))
-dot1dStpPortEntry.registerAugmentions((_F,_Bs))
+#
+# PySNMP MIB module Hirschmann-LION-24TP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hirschmann/Hirschmann-LION-24TP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+Timeout, dot1dStpPort, BridgeId, dot1dStpPortEntry = mibBuilder.importSymbols("BRIDGE-MIB", "Timeout", "dot1dStpPort", "BridgeId", "dot1dStpPortEntry")
+hirschmann, = mibBuilder.importSymbols("HMPRIV-MGMT-SNMP-MIB", "hirschmann")
+ifIndex, InterfaceIndexOrZero, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndexOrZero", "InterfaceIndex")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+PortList, VlanIndex = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList", "VlanIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TruthValue, RowStatus, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TruthValue", "RowStatus", "RowPointer", "TextualConvention")
+hiway = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13))
+fastEtherSwitch24 = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7))
+lion24tpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 13, 7, 4))
+lion24tpMIB.setRevisions(('2001-09-06 00:00',))
+if mibBuilder.loadTexts: lion24tpMIB.setLastUpdated('200411090000Z')
+if mibBuilder.loadTexts: lion24tpMIB.setOrganization('Hirschmann Electronics GmbH & Co. KG.')
+lion24tpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1))
+lion24tpNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 2))
+lion24tpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 3))
+switchMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1))
+portMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 2))
+trunkMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 3))
+lacpMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 4))
+staMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5))
+restartMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 7))
+mirrorMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 8))
+igmpSnoopMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9))
+ipMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 10))
+bcastStormMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 11))
+vlanMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 12))
+priorityMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13))
+trapDestMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 14))
+qosMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16))
+securityMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17))
+layer3Mgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18))
+sysLogMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19))
+lineMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 20))
+sysTimeMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 23))
+fileMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24))
+dnsMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26))
+hsrpMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29))
+class OspfAreaID(TextualConvention, IpAddress):
+    status = 'current'
+
+class OspfBigMetric(TextualConvention, Integer32):
+    status = 'current'
+
+class KeySegment(DisplayString):
+    status = 'current'
+    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 128)
+
+class ValidStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("valid", 1), ("invalid", 2))
+
+class HsrpState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
+    namedValues = NamedValues(("initial", 1), ("learn", 2), ("listen", 3), ("speak", 4), ("standby", 5), ("active", 6))
+
+class StaPathCostMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("short", 1), ("long", 2))
+
+class FileCopyStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31))
+    namedValues = NamedValues(("fileCopyTftpUndefError", 1), ("fileCopyTftpFileNotFound", 2), ("fileCopyTftpAccessViolation", 3), ("fileCopyTftpDiskFull", 4), ("fileCopyTftpIllegalOperation", 5), ("fileCopyTftpUnkownTransferId", 6), ("fileCopyTftpFileExisted", 7), ("fileCopyTftpNoSuchUser", 8), ("fileCopyTftpTimeout", 9), ("fileCopyTftpSendError", 10), ("fileCopyTftpReceiverError", 11), ("fileCopyTftpSocketOpenError", 12), ("fileCopyTftpSocketBindError", 13), ("fileCopyTftpUserCancel", 14), ("fileCopyTftpCompleted", 15), ("fileCopyParaError", 16), ("fileCopyBusy", 17), ("fileCopyUnknown", 18), ("fileCopyReadFileError", 19), ("fileCopySetStartupError", 20), ("fileCopyFileSizeExceed", 21), ("fileCopyMagicWordError", 22), ("fileCopyImageTypeError", 23), ("fileCopyHeaderChecksumError", 24), ("fileCopyImageChecksumError", 25), ("fileCopyWriteFlashFinish", 26), ("fileCopyWriteFlashError", 27), ("fileCopyWriteFlashProgramming", 28), ("fileCopyError", 29), ("fileCopySuccess", 30), ("fileCopyCompleted", 31))
+
+switchNumber = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: switchNumber.setStatus('current')
+switchInfoTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 3), )
+if mibBuilder.loadTexts: switchInfoTable.setStatus('current')
+switchInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 3, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "swUnitIndex"))
+if mibBuilder.loadTexts: switchInfoEntry.setStatus('current')
+swUnitIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 3, 1, 1), Integer32())
+if mibBuilder.loadTexts: swUnitIndex.setStatus('current')
+swHardwareVer = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 3, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swHardwareVer.setStatus('current')
+swMicrocodeVer = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swMicrocodeVer.setStatus('current')
+swLoaderVer = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 3, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swLoaderVer.setStatus('current')
+swBootRomVer = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 3, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swBootRomVer.setStatus('current')
+swOpCodeVer = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 3, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swOpCodeVer.setStatus('current')
+swPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 3, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swPortNumber.setStatus('current')
+swPowerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("internalPower", 1), ("redundantPower", 2), ("internalAndRedundantPower", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swPowerStatus.setStatus('current')
+swRoleInSystem = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 3, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("master", 1), ("backupMaster", 2), ("slave", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swRoleInSystem.setStatus('current')
+swSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 3, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSerialNumber.setStatus('current')
+swExpansionSlot1 = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 3, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19))).clone(namedValues=NamedValues(("notPresent", 1), ("other", 2), ("hundredBaseFxScMmf", 3), ("hundredBaseFxScSmf", 4), ("hundredBaseFxMtrjMmf", 5), ("thousandBaseSxScMmf", 6), ("thousandBaseSxMtrjMmf", 7), ("thousandBaseXGbic", 8), ("thousandBaseLxScSmf", 9), ("thousandBaseT", 10), ("stackingModule", 11), ("thousandBaseSfp", 12), ("tenHundredBaseT4port", 13), ("tenHundredBaseFxMtrj4port", 14), ("comboStackingSfp", 15), ("tenHundredBaseT", 16), ("comboThousandBaseTxSfp", 17), ("eightPortSfpModule", 18), ("tenGigaPortModule", 19)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swExpansionSlot1.setStatus('current')
+swExpansionSlot2 = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 3, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19))).clone(namedValues=NamedValues(("notPresent", 1), ("other", 2), ("hundredBaseFxScMmf", 3), ("hundredBaseFxScSmf", 4), ("hundredBaseFxMtrjMmf", 5), ("thousandBaseSxScMmf", 6), ("thousandBaseSxMtrjMmf", 7), ("thousandBaseXGbic", 8), ("thousandBaseLxScSmf", 9), ("thousandBaseT", 10), ("stackingModule", 11), ("thousandBaseSfp", 12), ("tenHundredBaseT4port", 13), ("tenHundredBaseFxMtrj4port", 14), ("comboStackingSfp", 15), ("tenHundredBaseT", 16), ("comboThousandBaseTxSfp", 17), ("eightPortSfpModule", 18), ("tenGigaPortModule", 19)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swExpansionSlot2.setStatus('current')
+swServiceTag = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 3, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swServiceTag.setStatus('current')
+swModelNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 3, 1, 14), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swModelNumber.setStatus('current')
+swEpldVer = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 3, 1, 15), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swEpldVer.setStatus('current')
+swExpectedModuleOpCodeVer = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 3, 1, 16), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swExpectedModuleOpCodeVer.setStatus('current')
+switchOperState = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("other", 1), ("unknown", 2), ("ok", 3), ("noncritical", 4), ("critical", 5), ("nonrecoverable", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: switchOperState.setStatus('current')
+switchProductId = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 5))
+swProdName = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 5, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swProdName.setStatus('current')
+swProdManufacturer = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 5, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swProdManufacturer.setStatus('current')
+swProdDescription = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 5, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swProdDescription.setStatus('current')
+swProdVersion = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 5, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swProdVersion.setStatus('current')
+swProdUrl = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 5, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swProdUrl.setStatus('current')
+swIdentifier = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 5, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swIdentifier.setStatus('current')
+swChassisServiceTag = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 5, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swChassisServiceTag.setStatus('current')
+switchIndivPowerTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 6), )
+if mibBuilder.loadTexts: switchIndivPowerTable.setStatus('current')
+switchIndivPowerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 6, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "swIndivPowerUnitIndex"), (0, "Hirschmann-LION-24TP-MIB", "swIndivPowerIndex"))
+if mibBuilder.loadTexts: switchIndivPowerEntry.setStatus('current')
+swIndivPowerUnitIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 6, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swIndivPowerUnitIndex.setStatus('current')
+swIndivPowerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("internalPower", 1), ("externalPower", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swIndivPowerIndex.setStatus('current')
+swIndivPowerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notPresent", 1), ("green", 2), ("red", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swIndivPowerStatus.setStatus('current')
+switchJumboFrameStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: switchJumboFrameStatus.setStatus('current')
+amtrMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 8))
+amtrMacAddrAgingStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 8, 3), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: amtrMacAddrAgingStatus.setStatus('current')
+switchFanTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 9), )
+if mibBuilder.loadTexts: switchFanTable.setStatus('current')
+switchFanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 9, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "switchUnitIndex"), (0, "Hirschmann-LION-24TP-MIB", "switchFanIndex"))
+if mibBuilder.loadTexts: switchFanEntry.setStatus('current')
+switchUnitIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 9, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: switchUnitIndex.setStatus('current')
+switchFanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 9, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: switchFanIndex.setStatus('current')
+switchFanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 9, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ok", 1), ("failure", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: switchFanStatus.setStatus('current')
+switchFanAdminSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 9, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: switchFanAdminSpeed.setStatus('current')
+switchFanFailureCount = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 9, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: switchFanFailureCount.setStatus('current')
+switchFanOperSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 9, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: switchFanOperSpeed.setStatus('current')
+switchThermalTempTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 11), )
+if mibBuilder.loadTexts: switchThermalTempTable.setStatus('current')
+switchThermalTempEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 11, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "switchThermalTempUnitIndex"), (0, "Hirschmann-LION-24TP-MIB", "switchThermalTempThermalIndex"))
+if mibBuilder.loadTexts: switchThermalTempEntry.setStatus('current')
+switchThermalTempUnitIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 11, 1, 1), Integer32())
+if mibBuilder.loadTexts: switchThermalTempUnitIndex.setStatus('current')
+switchThermalTempThermalIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 11, 1, 2), Integer32())
+if mibBuilder.loadTexts: switchThermalTempThermalIndex.setStatus('current')
+switchThermalTempValue = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 11, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: switchThermalTempValue.setStatus('current')
+switchThermalActionTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 12), )
+if mibBuilder.loadTexts: switchThermalActionTable.setStatus('current')
+switchThermalActionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 12, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "switchThermalActionUnitIndex"), (0, "Hirschmann-LION-24TP-MIB", "switchThermalActionThermalIndex"), (0, "Hirschmann-LION-24TP-MIB", "switchThermalActionIndex"))
+if mibBuilder.loadTexts: switchThermalActionEntry.setStatus('current')
+switchThermalActionUnitIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 12, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: switchThermalActionUnitIndex.setStatus('current')
+switchThermalActionThermalIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 12, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: switchThermalActionThermalIndex.setStatus('current')
+switchThermalActionIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 12, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: switchThermalActionIndex.setStatus('current')
+switchThermalActionRisingThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 12, 1, 4), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: switchThermalActionRisingThreshold.setStatus('current')
+switchThermalActionFallingThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 12, 1, 5), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: switchThermalActionFallingThreshold.setStatus('current')
+switchThermalActionAction = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 12, 1, 6), Bits().clone(namedValues=NamedValues(("trap", 0)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: switchThermalActionAction.setStatus('current')
+switchThermalActionStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 12, 1, 7), ValidStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: switchThermalActionStatus.setStatus('current')
+switchModuleInfoTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 13), )
+if mibBuilder.loadTexts: switchModuleInfoTable.setStatus('current')
+switchModuleInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 13, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "swModuleUnitIndex"), (0, "Hirschmann-LION-24TP-MIB", "swModuleModuleIndex"))
+if mibBuilder.loadTexts: switchModuleInfoEntry.setStatus('current')
+swModuleUnitIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 13, 1, 1), Integer32())
+if mibBuilder.loadTexts: swModuleUnitIndex.setStatus('current')
+swModuleModuleIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 13, 1, 2), Integer32())
+if mibBuilder.loadTexts: swModuleModuleIndex.setStatus('current')
+swModuleHardwareVer = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 13, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swModuleHardwareVer.setStatus('current')
+swModuleMicrocodeVer = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 13, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swModuleMicrocodeVer.setStatus('current')
+swModuleLoaderVer = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 13, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swModuleLoaderVer.setStatus('current')
+swModuleBootRomVer = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 13, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swModuleBootRomVer.setStatus('current')
+swModuleOpCodeVer = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 13, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swModuleOpCodeVer.setStatus('current')
+swModulePortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 13, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swModulePortNumber.setStatus('current')
+swModuleSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 13, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swModuleSerialNumber.setStatus('current')
+swModuleType = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 13, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19))).clone(namedValues=NamedValues(("notPresent", 1), ("other", 2), ("hundredBaseFxScMmf", 3), ("hundredBaseFxScSmf", 4), ("hundredBaseFxMtrjMmf", 5), ("thousandBaseSxScMmf", 6), ("thousandBaseSxMtrjMmf", 7), ("thousandBaseXGbic", 8), ("thousandBaseLxScSmf", 9), ("thousandBaseT", 10), ("stackingModule", 11), ("thousandBaseSfp", 12), ("tenHundredBaseT4port", 13), ("tenHundredBaseFxMtrj4port", 14), ("comboStackingSfp", 15), ("tenHundredBaseT", 16), ("comboThousandBaseTxSfp", 17), ("eightPortSfpModule", 18), ("tenGigaPortModule", 19)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swModuleType.setStatus('current')
+swModuleModelNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 13, 1, 11), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swModuleModelNumber.setStatus('current')
+swModuleEpldVer = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 13, 1, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swModuleEpldVer.setStatus('current')
+swModuleDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 13, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swModuleDescr.setStatus('current')
+switchRenumberUnitID = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("renumber", 1), ("noRenumber", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: switchRenumberUnitID.setStatus('current')
+portTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 2, 1), )
+if mibBuilder.loadTexts: portTable.setStatus('current')
+portEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 2, 1, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "portIndex"))
+if mibBuilder.loadTexts: portEntry.setStatus('current')
+portIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 2, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: portIndex.setStatus('current')
+portName = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 2, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portName.setStatus('current')
+portType = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("other", 1), ("hundredBaseTX", 2), ("hundredBaseFX", 3), ("thousandBaseSX", 4), ("thousandBaseLX", 5), ("thousandBaseT", 6), ("thousandBaseGBIC", 7), ("thousandBaseSfp", 8), ("hundredBaseFxScSingleMode", 9), ("hundredBaseFxScMultiMode", 10), ("thousandBaseCX", 11), ("tenG", 12)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portType.setStatus('current')
+portSpeedDpxCfg = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("reserved", 1), ("halfDuplex10", 2), ("fullDuplex10", 3), ("halfDuplex100", 4), ("fullDuplex100", 5), ("halfDuplex1000", 6), ("fullDuplex1000", 7), ("halfDuplex10g", 8), ("fullDuplex10g", 9))).clone('halfDuplex10')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portSpeedDpxCfg.setStatus('current')
+portFlowCtrlCfg = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 5, 6))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2), ("tx", 5), ("rx", 6))).clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portFlowCtrlCfg.setStatus('current')
+portCapabilities = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 2, 1, 1, 6), Bits().clone(namedValues=NamedValues(("portCap10half", 0), ("portCap10full", 1), ("portCap100half", 2), ("portCap100full", 3), ("portCap1000half", 4), ("portCap1000full", 5), ("portCap10gHalf", 6), ("portCap10gFull", 7), ("reserved8", 8), ("reserved9", 9), ("reserved10", 10), ("reserved11", 11), ("reserved12", 12), ("reserved13", 13), ("portCapSym", 14), ("portCapFlowCtrl", 15)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portCapabilities.setStatus('current')
+portAutonegotiation = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 2, 1, 1, 7), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portAutonegotiation.setStatus('current')
+portSpeedDpxStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 2, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("error", 1), ("halfDuplex10", 2), ("fullDuplex10", 3), ("halfDuplex100", 4), ("fullDuplex100", 5), ("halfDuplex1000", 6), ("fullDuplex1000", 7), ("halfDuplex10g", 8), ("fullDuplex10g", 9)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portSpeedDpxStatus.setStatus('current')
+portFlowCtrlStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 2, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("error", 1), ("backPressure", 2), ("dot3xFlowControl", 3), ("none", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portFlowCtrlStatus.setStatus('current')
+portTrunkIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 2, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portTrunkIndex.setStatus('current')
+portComboForcedMode = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 2, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("none", 1), ("copperForced", 2), ("copperPreferredAuto", 3), ("sfpForced", 4), ("sfpPreferredAuto", 5)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portComboForcedMode.setStatus('current')
+trunkMaxId = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 3, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: trunkMaxId.setStatus('current')
+trunkValidNumber = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 3, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: trunkValidNumber.setStatus('current')
+trunkTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 3, 3), )
+if mibBuilder.loadTexts: trunkTable.setStatus('current')
+trunkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 3, 3, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "trunkIndex"))
+if mibBuilder.loadTexts: trunkEntry.setStatus('current')
+trunkIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 3, 3, 1, 1), Integer32())
+if mibBuilder.loadTexts: trunkIndex.setStatus('current')
+trunkPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 3, 3, 1, 2), PortList()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: trunkPorts.setStatus('current')
+trunkCreation = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 3, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("static", 1), ("lacp", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: trunkCreation.setStatus('current')
+trunkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 3, 3, 1, 4), ValidStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: trunkStatus.setStatus('current')
+lacpPortTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 4, 1), )
+if mibBuilder.loadTexts: lacpPortTable.setStatus('current')
+lacpPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 4, 1, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "lacpPortIndex"))
+if mibBuilder.loadTexts: lacpPortEntry.setStatus('current')
+lacpPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 4, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: lacpPortIndex.setStatus('current')
+lacpPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 4, 1, 1, 2), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lacpPortStatus.setStatus('current')
+staSystemStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 1), EnabledStatus().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: staSystemStatus.setStatus('current')
+staPortTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 2), )
+if mibBuilder.loadTexts: staPortTable.setStatus('current')
+staPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 2, 1), )
+dot1dStpPortEntry.registerAugmentions(("Hirschmann-LION-24TP-MIB", "staPortEntry"))
 staPortEntry.setIndexNames(*dot1dStpPortEntry.getIndexNames())
-swPowerStatusChangeTrap=NotificationType((1,3,6,1,4,1,248,13,7,4,2,1,0,1))
-swPowerStatusChangeTrap.setObjects(*((_F,_r),(_F,_s),(_F,_Bt)))
-if mibBuilder.loadTexts:swPowerStatusChangeTrap.setStatus(_A)
-swFanFailureTrap=NotificationType((1,3,6,1,4,1,248,13,7,4,2,1,0,17))
-swFanFailureTrap.setObjects(*((_F,_U),(_F,_V)))
-if mibBuilder.loadTexts:swFanFailureTrap.setStatus(_A)
-swFanRecoverTrap=NotificationType((1,3,6,1,4,1,248,13,7,4,2,1,0,18))
-swFanRecoverTrap.setObjects(*((_F,_U),(_F,_V)))
-if mibBuilder.loadTexts:swFanRecoverTrap.setStatus(_A)
-swIpFilterRejectTrap=NotificationType((1,3,6,1,4,1,248,13,7,4,2,1,0,40))
-swIpFilterRejectTrap.setObjects(*((_F,_Bu),(_F,_Bv)))
-if mibBuilder.loadTexts:swIpFilterRejectTrap.setStatus(_A)
-swSmtpConnFailureTrap=NotificationType((1,3,6,1,4,1,248,13,7,4,2,1,0,41))
-swSmtpConnFailureTrap.setObjects((_F,_w))
-if mibBuilder.loadTexts:swSmtpConnFailureTrap.setStatus(_A)
-swMainBoardVerMismatchNotificaiton=NotificationType((1,3,6,1,4,1,248,13,7,4,2,1,0,56))
-swMainBoardVerMismatchNotificaiton.setObjects(*((_F,_x),(_F,_x)))
-if mibBuilder.loadTexts:swMainBoardVerMismatchNotificaiton.setStatus(_A)
-swModuleVerMismatchNotificaiton=NotificationType((1,3,6,1,4,1,248,13,7,4,2,1,0,57))
-swModuleVerMismatchNotificaiton.setObjects(*((_F,_Bw),(_F,_a)))
-if mibBuilder.loadTexts:swModuleVerMismatchNotificaiton.setStatus(_A)
-swThermalRisingNotification=NotificationType((1,3,6,1,4,1,248,13,7,4,2,1,0,58))
-swThermalRisingNotification.setObjects(*((_F,_y),(_F,_Bx)))
-if mibBuilder.loadTexts:swThermalRisingNotification.setStatus(_A)
-swThermalFallingNotification=NotificationType((1,3,6,1,4,1,248,13,7,4,2,1,0,59))
-swThermalFallingNotification.setObjects(*((_F,_y),(_F,_By)))
-if mibBuilder.loadTexts:swThermalFallingNotification.setStatus(_A)
-swModuleInsertionNotificaiton=NotificationType((1,3,6,1,4,1,248,13,7,4,2,1,0,60))
-swModuleInsertionNotificaiton.setObjects((_F,_a))
-if mibBuilder.loadTexts:swModuleInsertionNotificaiton.setStatus(_A)
-swModuleRemovalNotificaiton=NotificationType((1,3,6,1,4,1,248,13,7,4,2,1,0,61))
-swModuleRemovalNotificaiton.setObjects((_F,_a))
-if mibBuilder.loadTexts:swModuleRemovalNotificaiton.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'OspfAreaID':OspfAreaID,_v:OspfBigMetric,'KeySegment':KeySegment,'ValidStatus':ValidStatus,'HsrpState':HsrpState,_AN:StaPathCostMode,'FileCopyStatus':FileCopyStatus,'hiway':hiway,'fastEtherSwitch24':fastEtherSwitch24,'lion24tpMIB':lion24tpMIB,'lion24tpMIBObjects':lion24tpMIBObjects,'switchMgt':switchMgt,'switchNumber':switchNumber,'switchInfoTable':switchInfoTable,'switchInfoEntry':switchInfoEntry,_A3:swUnitIndex,'swHardwareVer':swHardwareVer,'swMicrocodeVer':swMicrocodeVer,'swLoaderVer':swLoaderVer,'swBootRomVer':swBootRomVer,_x:swOpCodeVer,'swPortNumber':swPortNumber,'swPowerStatus':swPowerStatus,'swRoleInSystem':swRoleInSystem,'swSerialNumber':swSerialNumber,'swExpansionSlot1':swExpansionSlot1,'swExpansionSlot2':swExpansionSlot2,'swServiceTag':swServiceTag,'swModelNumber':swModelNumber,'swEpldVer':swEpldVer,_Bw:swExpectedModuleOpCodeVer,'switchOperState':switchOperState,'switchProductId':switchProductId,'swProdName':swProdName,'swProdManufacturer':swProdManufacturer,'swProdDescription':swProdDescription,'swProdVersion':swProdVersion,'swProdUrl':swProdUrl,'swIdentifier':swIdentifier,'swChassisServiceTag':swChassisServiceTag,'switchIndivPowerTable':switchIndivPowerTable,'switchIndivPowerEntry':switchIndivPowerEntry,_r:swIndivPowerUnitIndex,_s:swIndivPowerIndex,_Bt:swIndivPowerStatus,'switchJumboFrameStatus':switchJumboFrameStatus,'amtrMgt':amtrMgt,'amtrMacAddrAgingStatus':amtrMacAddrAgingStatus,'switchFanTable':switchFanTable,'switchFanEntry':switchFanEntry,_U:switchUnitIndex,_V:switchFanIndex,'switchFanStatus':switchFanStatus,'switchFanAdminSpeed':switchFanAdminSpeed,'switchFanFailureCount':switchFanFailureCount,'switchFanOperSpeed':switchFanOperSpeed,'switchThermalTempTable':switchThermalTempTable,'switchThermalTempEntry':switchThermalTempEntry,_A5:switchThermalTempUnitIndex,_A6:switchThermalTempThermalIndex,_y:switchThermalTempValue,'switchThermalActionTable':switchThermalActionTable,'switchThermalActionEntry':switchThermalActionEntry,_A7:switchThermalActionUnitIndex,_A8:switchThermalActionThermalIndex,_A9:switchThermalActionIndex,_Bx:switchThermalActionRisingThreshold,_By:switchThermalActionFallingThreshold,'switchThermalActionAction':switchThermalActionAction,'switchThermalActionStatus':switchThermalActionStatus,'switchModuleInfoTable':switchModuleInfoTable,'switchModuleInfoEntry':switchModuleInfoEntry,_AA:swModuleUnitIndex,_AB:swModuleModuleIndex,'swModuleHardwareVer':swModuleHardwareVer,'swModuleMicrocodeVer':swModuleMicrocodeVer,'swModuleLoaderVer':swModuleLoaderVer,'swModuleBootRomVer':swModuleBootRomVer,_a:swModuleOpCodeVer,'swModulePortNumber':swModulePortNumber,'swModuleSerialNumber':swModuleSerialNumber,'swModuleType':swModuleType,'swModuleModelNumber':swModuleModelNumber,'swModuleEpldVer':swModuleEpldVer,'swModuleDescr':swModuleDescr,'switchRenumberUnitID':switchRenumberUnitID,'portMgt':portMgt,'portTable':portTable,'portEntry':portEntry,_AC:portIndex,'portName':portName,'portType':portType,'portSpeedDpxCfg':portSpeedDpxCfg,'portFlowCtrlCfg':portFlowCtrlCfg,'portCapabilities':portCapabilities,'portAutonegotiation':portAutonegotiation,'portSpeedDpxStatus':portSpeedDpxStatus,'portFlowCtrlStatus':portFlowCtrlStatus,'portTrunkIndex':portTrunkIndex,'portComboForcedMode':portComboForcedMode,'trunkMgt':trunkMgt,'trunkMaxId':trunkMaxId,'trunkValidNumber':trunkValidNumber,'trunkTable':trunkTable,'trunkEntry':trunkEntry,_AL:trunkIndex,'trunkPorts':trunkPorts,'trunkCreation':trunkCreation,'trunkStatus':trunkStatus,'lacpMgt':lacpMgt,'lacpPortTable':lacpPortTable,'lacpPortEntry':lacpPortEntry,_AM:lacpPortIndex,'lacpPortStatus':lacpPortStatus,'staMgt':staMgt,'staSystemStatus':staSystemStatus,'staPortTable':staPortTable,_Bs:staPortEntry,'staPortFastForward':staPortFastForward,'staPortProtocolMigration':staPortProtocolMigration,'staPortAdminEdgePort':staPortAdminEdgePort,'staPortOperEdgePort':staPortOperEdgePort,'staPortAdminPointToPoint':staPortAdminPointToPoint,'staPortOperPointToPoint':staPortOperPointToPoint,'staPortSystemStatus':staPortSystemStatus,'staPortLongAdminPathCost':staPortLongAdminPathCost,'staPortLongOperPathCost':staPortLongOperPathCost,'staProtocolType':staProtocolType,'staTxHoldCount':staTxHoldCount,'staPathCostMethod':staPathCostMethod,'xstMgt':xstMgt,'mstName':mstName,'mstRevision':mstRevision,'mstMaxHops':mstMaxHops,'xstInstanceCfgTable':xstInstanceCfgTable,'xstInstanceCfgEntry':xstInstanceCfgEntry,_u:xstInstanceCfgIndex,'xstInstanceCfgPriority':xstInstanceCfgPriority,'xstInstanceCfgTimeSinceTopologyChange':xstInstanceCfgTimeSinceTopologyChange,'xstInstanceCfgTopChanges':xstInstanceCfgTopChanges,'xstInstanceCfgDesignatedRoot':xstInstanceCfgDesignatedRoot,'xstInstanceCfgRootCost':xstInstanceCfgRootCost,'xstInstanceCfgRootPort':xstInstanceCfgRootPort,'xstInstanceCfgMaxAge':xstInstanceCfgMaxAge,'xstInstanceCfgHelloTime':xstInstanceCfgHelloTime,'xstInstanceCfgHoldTime':xstInstanceCfgHoldTime,'xstInstanceCfgForwardDelay':xstInstanceCfgForwardDelay,'xstInstanceCfgBridgeMaxAge':xstInstanceCfgBridgeMaxAge,'xstInstanceCfgBridgeHelloTime':xstInstanceCfgBridgeHelloTime,'xstInstanceCfgBridgeForwardDelay':xstInstanceCfgBridgeForwardDelay,'xstInstanceCfgTxHoldCount':xstInstanceCfgTxHoldCount,'xstInstanceCfgPathCostMethod':xstInstanceCfgPathCostMethod,'xstInstancePortTable':xstInstancePortTable,'xstInstancePortEntry':xstInstancePortEntry,'xstInstancePortPriority':xstInstancePortPriority,'xstInstancePortState':xstInstancePortState,'xstInstancePortEnable':xstInstancePortEnable,'xstInstancePortDesignatedRoot':xstInstancePortDesignatedRoot,'xstInstancePortDesignatedCost':xstInstancePortDesignatedCost,'xstInstancePortDesignatedBridge':xstInstancePortDesignatedBridge,'xstInstancePortDesignatedPort':xstInstancePortDesignatedPort,'xstInstancePortForwardTransitions':xstInstancePortForwardTransitions,'xstInstancePortPortRole':xstInstancePortPortRole,'xstInstancePortAdminPathCost':xstInstancePortAdminPathCost,'xstInstancePortOperPathCost':xstInstancePortOperPathCost,'mstInstanceEditTable':mstInstanceEditTable,'mstInstanceEditEntry':mstInstanceEditEntry,_AO:mstInstanceEditIndex,'mstInstanceEditVlansMap':mstInstanceEditVlansMap,'mstInstanceEditVlansMap2k':mstInstanceEditVlansMap2k,'mstInstanceEditVlansMap3k':mstInstanceEditVlansMap3k,'mstInstanceEditVlansMap4k':mstInstanceEditVlansMap4k,'mstInstanceEditRemainingHops':mstInstanceEditRemainingHops,'mstInstanceOperTable':mstInstanceOperTable,'mstInstanceOperEntry':mstInstanceOperEntry,_AP:mstInstanceOperIndex,'mstInstanceOperVlansMap':mstInstanceOperVlansMap,'mstInstanceOperVlansMap2k':mstInstanceOperVlansMap2k,'mstInstanceOperVlansMap3k':mstInstanceOperVlansMap3k,'mstInstanceOperVlansMap4k':mstInstanceOperVlansMap4k,'restartMgt':restartMgt,'restartOpCodeFile':restartOpCodeFile,'restartConfigFile':restartConfigFile,'restartControl':restartControl,'mirrorMgt':mirrorMgt,'mirrorTable':mirrorTable,'mirrorEntry':mirrorEntry,_AQ:mirrorDestinationPort,_AR:mirrorSourcePort,'mirrorType':mirrorType,'mirrorStatus':mirrorStatus,'igmpSnoopMgt':igmpSnoopMgt,'igmpSnoopStatus':igmpSnoopStatus,'igmpSnoopQuerier':igmpSnoopQuerier,'igmpSnoopQueryCount':igmpSnoopQueryCount,'igmpSnoopQueryInterval':igmpSnoopQueryInterval,'igmpSnoopQueryMaxResponseTime':igmpSnoopQueryMaxResponseTime,'igmpSnoopRouterPortExpireTime':igmpSnoopRouterPortExpireTime,'igmpSnoopVersion':igmpSnoopVersion,'igmpSnoopRouterCurrentTable':igmpSnoopRouterCurrentTable,'igmpSnoopRouterCurrentEntry':igmpSnoopRouterCurrentEntry,_AS:igmpSnoopRouterCurrentVlanIndex,'igmpSnoopRouterCurrentPorts':igmpSnoopRouterCurrentPorts,'igmpSnoopRouterCurrentStatus':igmpSnoopRouterCurrentStatus,'igmpSnoopRouterStaticTable':igmpSnoopRouterStaticTable,'igmpSnoopRouterStaticEntry':igmpSnoopRouterStaticEntry,_AT:igmpSnoopRouterStaticVlanIndex,'igmpSnoopRouterStaticPorts':igmpSnoopRouterStaticPorts,'igmpSnoopRouterStaticStatus':igmpSnoopRouterStaticStatus,'igmpSnoopMulticastCurrentTable':igmpSnoopMulticastCurrentTable,'igmpSnoopMulticastCurrentEntry':igmpSnoopMulticastCurrentEntry,_AU:igmpSnoopMulticastCurrentVlanIndex,_AV:igmpSnoopMulticastCurrentIpAddress,'igmpSnoopMulticastCurrentPorts':igmpSnoopMulticastCurrentPorts,'igmpSnoopMulticastCurrentStatus':igmpSnoopMulticastCurrentStatus,'igmpSnoopMulticastStaticTable':igmpSnoopMulticastStaticTable,'igmpSnoopMulticastStaticEntry':igmpSnoopMulticastStaticEntry,_AW:igmpSnoopMulticastStaticVlanIndex,_AX:igmpSnoopMulticastStaticIpAddress,'igmpSnoopMulticastStaticPorts':igmpSnoopMulticastStaticPorts,'igmpSnoopMulticastStaticStatus':igmpSnoopMulticastStaticStatus,'ipMgt':ipMgt,'netDefaultGateway':netDefaultGateway,'ipHttpState':ipHttpState,'ipHttpPort':ipHttpPort,'ipDhcpRestart':ipDhcpRestart,'ipHttpsState':ipHttpsState,'ipHttpsPort':ipHttpsPort,'iPAddrTable':iPAddrTable,'iPAddrEntry':iPAddrEntry,_AY:iPAddrIPAddress,_AZ:iPAddrSubnetMask,'iPAddrIfIndex':iPAddrIfIndex,'iPAddrPrimaryInterface':iPAddrPrimaryInterface,'iPAddrUnnumbered':iPAddrUnnumbered,'iPAddrStatus':iPAddrStatus,'bcastStormMgt':bcastStormMgt,'bcastStormTable':bcastStormTable,'bcastStormEntry':bcastStormEntry,_Aa:bcastStormIfIndex,'bcastStormStatus':bcastStormStatus,'bcastStormPktRate':bcastStormPktRate,'vlanMgt':vlanMgt,'vlanTable':vlanTable,'vlanEntry':vlanEntry,_Ab:vlanIndex,'vlanAddressMethod':vlanAddressMethod,'vlanPortTable':vlanPortTable,'vlanPortEntry':vlanPortEntry,_Ac:vlanPortIndex,'vlanPortMode':vlanPortMode,'priorityMgt':priorityMgt,'prioIpPrecDscpStatus':prioIpPrecDscpStatus,'prioIpPrecTable':prioIpPrecTable,'prioIpPrecEntry':prioIpPrecEntry,_Ae:prioIpPrecPort,_Af:prioIpPrecValue,'prioIpPrecCos':prioIpPrecCos,'prioIpPrecRestoreDefault':prioIpPrecRestoreDefault,'prioIpDscpTable':prioIpDscpTable,'prioIpDscpEntry':prioIpDscpEntry,_Ag:prioIpDscpPort,_Ah:prioIpDscpValue,'prioIpDscpCos':prioIpDscpCos,'prioIpDscpRestoreDefault':prioIpDscpRestoreDefault,'prioIpPortEnableStatus':prioIpPortEnableStatus,'prioIpPortTable':prioIpPortTable,'prioIpPortEntry':prioIpPortEntry,_Ai:prioIpPortPhysPort,_Aj:prioIpPortValue,'prioIpPortCos':prioIpPortCos,'prioIpPortStatus':prioIpPortStatus,'prioCopy':prioCopy,'prioCopyIpPrec':prioCopyIpPrec,'prioCopyIpDscp':prioCopyIpDscp,'prioCopyIpPort':prioCopyIpPort,'prioQueueMode':prioQueueMode,'prioWrrPortTable':prioWrrPortTable,'prioWrrPortEntry':prioWrrPortEntry,_Ak:prioWrrPortIfIndex,_Al:prioWrrPortTrafficClass,'prioWrrPortWeight':prioWrrPortWeight,'trapDestMgt':trapDestMgt,'trapDestTable':trapDestTable,'trapDestEntry':trapDestEntry,_Am:trapDestAddress,'trapDestCommunity':trapDestCommunity,'trapDestStatus':trapDestStatus,'trapDestVersion':trapDestVersion,'trapDestUdpPort':trapDestUdpPort,'trapVar':trapVar,_Bu:trapIpFilterRejectMode,_Bv:trapIpFilterRejectIp,'qosMgt':qosMgt,'rateLimitMgt':rateLimitMgt,'rateLimitPortTable':rateLimitPortTable,'rateLimitPortEntry':rateLimitPortEntry,_An:rlPortIndex,'rlPortInputLimit':rlPortInputLimit,'rlPortOutputLimit':rlPortOutputLimit,'rlPortInputStatus':rlPortInputStatus,'rlPortOutputStatus':rlPortOutputStatus,'markerMgt':markerMgt,'markerTable':markerTable,'markerEntry':markerEntry,_Ao:markerIfIndex,_Ap:markerAclName,'markerActionBitList':markerActionBitList,'markerDscp':markerDscp,'markerPrecedence':markerPrecedence,'markerPriority':markerPriority,'markerStatus':markerStatus,'cosMgt':cosMgt,'prioAclToCosMappingTable':prioAclToCosMappingTable,'prioAclToCosMappingEntry':prioAclToCosMappingEntry,_Aq:prioAclToCosMappingIfIndex,_Ar:prioAclToCosMappingAclName,'prioAclToCosMappingCosValue':prioAclToCosMappingCosValue,'prioAclToCosMappingStatus':prioAclToCosMappingStatus,'securityMgt':securityMgt,'privateVlanMgt':privateVlanMgt,'privateVlanStatus':privateVlanStatus,'privateVlanUplinkPorts':privateVlanUplinkPorts,'privateVlanDownlinkPorts':privateVlanDownlinkPorts,'portSecurityMgt':portSecurityMgt,'portSecPortTable':portSecPortTable,'portSecPortEntry':portSecPortEntry,_As:portSecPortIndex,'portSecPortStatus':portSecPortStatus,'portSecAction':portSecAction,'portSecMaxMacCount':portSecMaxMacCount,'radiusMgt':radiusMgt,'radiusServerAddress':radiusServerAddress,'radiusServerPortNumber':radiusServerPortNumber,'radiusServerKey':radiusServerKey,'radiusServerRetransmit':radiusServerRetransmit,'radiusServerTimeout':radiusServerTimeout,'radiusMultipleServerTable':radiusMultipleServerTable,'radiusMultipleServerEntry':radiusMultipleServerEntry,_At:radiusMultipleServerIndex,'radiusMultipleServerAddress':radiusMultipleServerAddress,'radiusMultipleServerPortNumber':radiusMultipleServerPortNumber,'radiusMultipleServerKey':radiusMultipleServerKey,'radiusMultipleServerRetransmit':radiusMultipleServerRetransmit,'radiusMultipleServerTimeout':radiusMultipleServerTimeout,'radiusMultipleServerStatus':radiusMultipleServerStatus,'tacacsMgt':tacacsMgt,'tacacsServerAddress':tacacsServerAddress,'tacacsServerPortNumber':tacacsServerPortNumber,'tacacsServerKey':tacacsServerKey,'sshMgt':sshMgt,'sshServerStatus':sshServerStatus,'sshServerMajorVersion':sshServerMajorVersion,'sshServerMinorVersion':sshServerMinorVersion,'sshTimeout':sshTimeout,'sshAuthRetries':sshAuthRetries,'sshConnInfoTable':sshConnInfoTable,'sshConnInfoEntry':sshConnInfoEntry,_Au:sshConnID,'sshConnMajorVersion':sshConnMajorVersion,'sshConnMinorVersion':sshConnMinorVersion,'sshConnStatus':sshConnStatus,'sshConnUserName':sshConnUserName,'sshDisconnect':sshDisconnect,'sshConnEncryptionTypeStr':sshConnEncryptionTypeStr,'sshKeySize':sshKeySize,'sshRsaHostKey1':sshRsaHostKey1,'sshRsaHostKey2':sshRsaHostKey2,'sshRsaHostKey3':sshRsaHostKey3,'sshRsaHostKey4':sshRsaHostKey4,'sshRsaHostKey5':sshRsaHostKey5,'sshRsaHostKey6':sshRsaHostKey6,'sshRsaHostKey7':sshRsaHostKey7,'sshRsaHostKey8':sshRsaHostKey8,'sshDsaHostKey1':sshDsaHostKey1,'sshDsaHostKey2':sshDsaHostKey2,'sshDsaHostKey3':sshDsaHostKey3,'sshDsaHostKey4':sshDsaHostKey4,'sshDsaHostKey5':sshDsaHostKey5,'sshDsaHostKey6':sshDsaHostKey6,'sshDsaHostKey7':sshDsaHostKey7,'sshDsaHostKey8':sshDsaHostKey8,'sshHostKeyGenAction':sshHostKeyGenAction,'sshHostKeyGenStatus':sshHostKeyGenStatus,'sshHostKeySaveAction':sshHostKeySaveAction,'sshHostKeySaveStatus':sshHostKeySaveStatus,'sshHostKeyDelAction':sshHostKeyDelAction,'sshUserTable':sshUserTable,'sshUserEntry':sshUserEntry,_Ay:sshUserName,'sshUserRsaKey1':sshUserRsaKey1,'sshUserRsaKey2':sshUserRsaKey2,'sshUserRsaKey3':sshUserRsaKey3,'sshUserRsaKey4':sshUserRsaKey4,'sshUserRsaKey5':sshUserRsaKey5,'sshUserRsaKey6':sshUserRsaKey6,'sshUserRsaKey7':sshUserRsaKey7,'sshUserRsaKey8':sshUserRsaKey8,'sshUserDsaKey1':sshUserDsaKey1,'sshUserDsaKey2':sshUserDsaKey2,'sshUserDsaKey3':sshUserDsaKey3,'sshUserDsaKey4':sshUserDsaKey4,'sshUserDsaKey5':sshUserDsaKey5,'sshUserDsaKey6':sshUserDsaKey6,'sshUserDsaKey7':sshUserDsaKey7,'sshUserDsaKey8':sshUserDsaKey8,'sshUserKeyDelAction':sshUserKeyDelAction,'aclMgt':aclMgt,'aclIpAceTable':aclIpAceTable,'aclIpAceEntry':aclIpAceEntry,_Az:aclIpAceName,_A_:aclIpAceIndex,'aclIpAcePrecedence':aclIpAcePrecedence,'aclIpAceAction':aclIpAceAction,'aclIpAceSourceIpAddr':aclIpAceSourceIpAddr,'aclIpAceSourceIpAddrBitmask':aclIpAceSourceIpAddrBitmask,'aclIpAceDestIpAddr':aclIpAceDestIpAddr,'aclIpAceDestIpAddrBitmask':aclIpAceDestIpAddrBitmask,'aclIpAceProtocol':aclIpAceProtocol,'aclIpAcePrec':aclIpAcePrec,'aclIpAceTos':aclIpAceTos,'aclIpAceDscp':aclIpAceDscp,'aclIpAceSourcePortOp':aclIpAceSourcePortOp,'aclIpAceMinSourcePort':aclIpAceMinSourcePort,'aclIpAceMaxSourcePort':aclIpAceMaxSourcePort,'aclIpAceSourcePortBitmask':aclIpAceSourcePortBitmask,'aclIpAceDestPortOp':aclIpAceDestPortOp,'aclIpAceMinDestPort':aclIpAceMinDestPort,'aclIpAceMaxDestPort':aclIpAceMaxDestPort,'aclIpAceDestPortBitmask':aclIpAceDestPortBitmask,'aclIpAceControlCode':aclIpAceControlCode,'aclIpAceControlCodeBitmask':aclIpAceControlCodeBitmask,'aclIpAceStatus':aclIpAceStatus,'aclMacAceTable':aclMacAceTable,'aclMacAceEntry':aclMacAceEntry,_B0:aclMacAceName,_B1:aclMacAceIndex,'aclMacAcePrecedence':aclMacAcePrecedence,'aclMacAceAction':aclMacAceAction,'aclMacAcePktformat':aclMacAcePktformat,'aclMacAceSourceMacAddr':aclMacAceSourceMacAddr,'aclMacAceSourceMacAddrBitmask':aclMacAceSourceMacAddrBitmask,'aclMacAceDestMacAddr':aclMacAceDestMacAddr,'aclMacAceDestMacAddrBitmask':aclMacAceDestMacAddrBitmask,'aclMacAceVidOp':aclMacAceVidOp,'aclMacAceMinVid':aclMacAceMinVid,'aclMacAceVidBitmask':aclMacAceVidBitmask,'aclMacAceMaxVid':aclMacAceMaxVid,'aclMacAceEtherTypeOp':aclMacAceEtherTypeOp,'aclMacAceEtherTypeBitmask':aclMacAceEtherTypeBitmask,'aclMacAceMinEtherType':aclMacAceMinEtherType,'aclMacAceMaxEtherType':aclMacAceMaxEtherType,'aclMacAceStatus':aclMacAceStatus,'aclAclGroupTable':aclAclGroupTable,'aclAclGroupEntry':aclAclGroupEntry,_B2:aclAclGroupIfIndex,'aclAclGroupIngressIpAcl':aclAclGroupIngressIpAcl,'aclAclGroupEgressIpAcl':aclAclGroupEgressIpAcl,'aclAclGroupIngressMacAcl':aclAclGroupIngressMacAcl,'aclAclGroupEgressMacAcl':aclAclGroupEgressMacAcl,'aclIngressIpMaskTable':aclIngressIpMaskTable,'aclIngressIpMaskEntry':aclIngressIpMaskEntry,_B3:aclIngressIpMaskIndex,'aclIngressIpMaskPrecedence':aclIngressIpMaskPrecedence,'aclIngressIpMaskIsEnableTos':aclIngressIpMaskIsEnableTos,'aclIngressIpMaskIsEnableDscp':aclIngressIpMaskIsEnableDscp,'aclIngressIpMaskIsEnablePrecedence':aclIngressIpMaskIsEnablePrecedence,'aclIngressIpMaskIsEnableProtocol':aclIngressIpMaskIsEnableProtocol,'aclIngressIpMaskSourceIpAddrBitmask':aclIngressIpMaskSourceIpAddrBitmask,'aclIngressIpMaskDestIpAddrBitmask':aclIngressIpMaskDestIpAddrBitmask,'aclIngressIpMaskSourcePortBitmask':aclIngressIpMaskSourcePortBitmask,'aclIngressIpMaskDestPortBitmask':aclIngressIpMaskDestPortBitmask,'aclIngressIpMaskControlCodeBitmask':aclIngressIpMaskControlCodeBitmask,'aclIngressIpMaskStatus':aclIngressIpMaskStatus,'aclEgressIpMaskTable':aclEgressIpMaskTable,'aclEgressIpMaskEntry':aclEgressIpMaskEntry,_B4:aclEgressIpMaskIndex,'aclEgressIpMaskPrecedence':aclEgressIpMaskPrecedence,'aclEgressIpMaskIsEnableTos':aclEgressIpMaskIsEnableTos,'aclEgressIpMaskIsEnableDscp':aclEgressIpMaskIsEnableDscp,'aclEgressIpMaskIsEnablePrecedence':aclEgressIpMaskIsEnablePrecedence,'aclEgressIpMaskIsEnableProtocol':aclEgressIpMaskIsEnableProtocol,'aclEgressIpMaskSourceIpAddrBitmask':aclEgressIpMaskSourceIpAddrBitmask,'aclEgressIpMaskDestIpAddrBitmask':aclEgressIpMaskDestIpAddrBitmask,'aclEgressIpMaskSourcePortBitmask':aclEgressIpMaskSourcePortBitmask,'aclEgressIpMaskDestPortBitmask':aclEgressIpMaskDestPortBitmask,'aclEgressIpMaskControlCodeBitmask':aclEgressIpMaskControlCodeBitmask,'aclEgressIpMaskStatus':aclEgressIpMaskStatus,'aclIngressMacMaskTable':aclIngressMacMaskTable,'aclIngressMacMaskEntry':aclIngressMacMaskEntry,_B5:aclIngressMacMaskIndex,'aclIngressMacMaskPrecedence':aclIngressMacMaskPrecedence,'aclIngressMacMaskSourceMacAddrBitmask':aclIngressMacMaskSourceMacAddrBitmask,'aclIngressMacMaskDestMacAddrBitmask':aclIngressMacMaskDestMacAddrBitmask,'aclIngressMacMaskVidBitmask':aclIngressMacMaskVidBitmask,'aclIngressMacMaskEtherTypeBitmask':aclIngressMacMaskEtherTypeBitmask,'aclIngressMacMaskIsEnablePktformat':aclIngressMacMaskIsEnablePktformat,'aclIngressMacMaskStatus':aclIngressMacMaskStatus,'aclEgressMacMaskTable':aclEgressMacMaskTable,'aclEgressMacMaskEntry':aclEgressMacMaskEntry,_B6:aclEgressMacMaskIndex,'aclEgressMacMaskPrecedence':aclEgressMacMaskPrecedence,'aclEgressMacMaskSourceMacAddrBitmask':aclEgressMacMaskSourceMacAddrBitmask,'aclEgressMacMaskDestMacAddrBitmask':aclEgressMacMaskDestMacAddrBitmask,'aclEgressMacMaskVidBitmask':aclEgressMacMaskVidBitmask,'aclEgressMacMaskEtherTypeBitmask':aclEgressMacMaskEtherTypeBitmask,'aclEgressMacMaskIsEnablePktformat':aclEgressMacMaskIsEnablePktformat,'aclEgressMacMaskStatus':aclEgressMacMaskStatus,'aclIpTable':aclIpTable,'aclIpEntry':aclIpEntry,_B7:aclIpAclName,'aclMacTable':aclMacTable,'aclMacEntry':aclMacEntry,_B8:aclMacAclName,'ipFilterMgt':ipFilterMgt,'ipFilterSnmpTable':ipFilterSnmpTable,'ipFilterSnmpEntry':ipFilterSnmpEntry,_B9:ipFilterSnmpStartAddress,'ipFilterSnmpEndAddress':ipFilterSnmpEndAddress,'ipFilterSnmpStatus':ipFilterSnmpStatus,'ipFilterHTTPTable':ipFilterHTTPTable,'ipFilterHTTPEntry':ipFilterHTTPEntry,_BA:ipFilterHTTPStartAddress,'ipFilterHTTPEndAddress':ipFilterHTTPEndAddress,'ipFilterHTTPStatus':ipFilterHTTPStatus,'ipFilterTelnetTable':ipFilterTelnetTable,'ipFilterTelnetEntry':ipFilterTelnetEntry,_BB:ipFilterTelnetStartAddress,'ipFilterTelnetEndAddress':ipFilterTelnetEndAddress,'ipFilterTelnetStatus':ipFilterTelnetStatus,'layer3Mgt':layer3Mgt,'arpMgt':arpMgt,'arpCacheDeleteAll':arpCacheDeleteAll,'arpCacheTimeout':arpCacheTimeout,'arpTrafficStatistics':arpTrafficStatistics,'arpStatSendRequestPackets':arpStatSendRequestPackets,'arpStatRcvRequestPackets':arpStatRcvRequestPackets,'arpStatSendReplyPackets':arpStatSendReplyPackets,'arpStatRcvReplyPackets':arpStatRcvReplyPackets,'arpProxyArpTable':arpProxyArpTable,'arpProxyArpEntry':arpProxyArpEntry,_BC:arpProxyArpIfIndex,'arpProxyArpStatus':arpProxyArpStatus,'ripMgt':ripMgt,'ripTimers':ripTimers,'ripUpdateTime':ripUpdateTime,'ripTimeoutTime':ripTimeoutTime,'ripGarbageCollectionTime':ripGarbageCollectionTime,'ripRoutingProcessStatus':ripRoutingProcessStatus,'ripRouterVersion':ripRouterVersion,'ripInstabilityPreventingTable':ripInstabilityPreventingTable,'ripInstabilityPreventingEntry':ripInstabilityPreventingEntry,_BD:ripVlanIndex,'ripSplitHorizonStatus':ripSplitHorizonStatus,'ripStatisticsReset':ripStatisticsReset,'ripNetworkAddrTable':ripNetworkAddrTable,'ripNetworkAddrEntry':ripNetworkAddrEntry,_BE:ripNetworkAddrAddress,'ripNetworkAddrStatus':ripNetworkAddrStatus,'ospfMgt':ospfMgt,'ospfSystemGroup':ospfSystemGroup,'ospfRouterIdType':ospfRouterIdType,'ospfRfc1583CompatibleState':ospfRfc1583CompatibleState,'ospfAutoCost':ospfAutoCost,'ospfOriginateDefaultRoute':ospfOriginateDefaultRoute,'ospfAdvertiseDefaultRoute':ospfAdvertiseDefaultRoute,'ospfExternalMetricType':ospfExternalMetricType,'ospfDefaultExternalMetric':ospfDefaultExternalMetric,'ospfSpfHoldTime':ospfSpfHoldTime,'ospfSpfDelayTime':ospfSpfDelayTime,'ospfAreaNumber':ospfAreaNumber,'ospfNssaTable':ospfNssaTable,'ospfNssaEntry':ospfNssaEntry,_BF:ospfNssaAreaId,'ospfNssaRedistributeStatus':ospfNssaRedistributeStatus,'ospfNssaOriginateDefaultInfoStatus':ospfNssaOriginateDefaultInfoStatus,'ospfNssaStatus':ospfNssaStatus,'ospfRedistributeTable':ospfRedistributeTable,'ospfRedistributeEntry':ospfRedistributeEntry,_BG:ospfRedistributeProtocol,'ospfRedistributeMetricType':ospfRedistributeMetricType,'ospfRedistributeMetric':ospfRedistributeMetric,'ospfRedistributeStatus':ospfRedistributeStatus,'ospfSummaryAddressTable':ospfSummaryAddressTable,'ospfSummaryAddressEntry':ospfSummaryAddressEntry,_BH:ospfSummaryAddress,_BI:ospfSummaryMask,'ospfSummaryStatus':ospfSummaryStatus,'ospfNetworkAreaAddressTable':ospfNetworkAreaAddressTable,'ospfNetworkAreaAddressEntry':ospfNetworkAreaAddressEntry,_BJ:ospfNetworkAareaAddress,_BK:ospfNetworkAreaMask,'ospfNetworkAreaAreaId':ospfNetworkAreaAreaId,'ospfNetworkAreaStatus':ospfNetworkAreaStatus,'dvmrpMgt':dvmrpMgt,'dvmrpScalar':dvmrpScalar,'dvmrpVersionString':dvmrpVersionString,'dvmrpNumRoutes':dvmrpNumRoutes,'dvmrpReachableRoutes':dvmrpReachableRoutes,'dvmrpInterfaceTable':dvmrpInterfaceTable,'dvmrpInterfaceEntry':dvmrpInterfaceEntry,_BL:dvmrpInterfaceIndex,'dvmrpInterfaceLocalAddress':dvmrpInterfaceLocalAddress,'dvmrpInterfaceMetric':dvmrpInterfaceMetric,'dvmrpInterfaceStatus':dvmrpInterfaceStatus,'dvmrpInterfaceRcvBadPkts':dvmrpInterfaceRcvBadPkts,'dvmrpInterfaceRcvBadRoutes':dvmrpInterfaceRcvBadRoutes,'dvmrpInterfaceSentRoutes':dvmrpInterfaceSentRoutes,'dvmrpInterfaceKey':dvmrpInterfaceKey,'dvmrpInterfaceKeyVersion':dvmrpInterfaceKeyVersion,'dvmrpInterfaceGenerationId':dvmrpInterfaceGenerationId,'dvmrpNeighborTable':dvmrpNeighborTable,'dvmrpNeighborEntry':dvmrpNeighborEntry,_BM:dvmrpNeighborIfIndex,_BN:dvmrpNeighborAddress,'dvmrpNeighborUpTime':dvmrpNeighborUpTime,'dvmrpNeighborExpiryTime':dvmrpNeighborExpiryTime,'dvmrpNeighborGenerationId':dvmrpNeighborGenerationId,'dvmrpNeighborMajorVersion':dvmrpNeighborMajorVersion,'dvmrpNeighborMinorVersion':dvmrpNeighborMinorVersion,'dvmrpNeighborCapabilities':dvmrpNeighborCapabilities,'dvmrpNeighborRcvRoutes':dvmrpNeighborRcvRoutes,'dvmrpNeighborRcvBadPkts':dvmrpNeighborRcvBadPkts,'dvmrpNeighborRcvBadRoutes':dvmrpNeighborRcvBadRoutes,'dvmrpNeighborState':dvmrpNeighborState,'dvmrpRouteTable':dvmrpRouteTable,'dvmrpRouteEntry':dvmrpRouteEntry,_BO:dvmrpRouteSource,_BP:dvmrpRouteSourceMask,'dvmrpRouteUpstreamNeighbor':dvmrpRouteUpstreamNeighbor,'dvmrpRouteIfIndex':dvmrpRouteIfIndex,'dvmrpRouteMetric':dvmrpRouteMetric,'dvmrpRouteExpiryTime':dvmrpRouteExpiryTime,'dvmrpRouteUpTime':dvmrpRouteUpTime,'dvmrpRouteNextHopTable':dvmrpRouteNextHopTable,'dvmrpRouteNextHopEntry':dvmrpRouteNextHopEntry,_BQ:dvmrpRouteNextHopSource,_BR:dvmrpRouteNextHopSourceMask,_BS:dvmrpRouteNextHopIfIndex,'dvmrpRouteNextHopType':dvmrpRouteNextHopType,'dvmrpPruneTable':dvmrpPruneTable,'dvmrpPruneEntry':dvmrpPruneEntry,_BT:dvmrpPruneGroup,_BU:dvmrpPruneSource,_BV:dvmrpPruneSourceMask,'dvmrpPruneExpiryTime':dvmrpPruneExpiryTime,'routeMgt':routeMgt,'ipCidrRouteExtTable':ipCidrRouteExtTable,'ipCidrRouteExtEntry':ipCidrRouteExtEntry,_BW:ipCidrRouteExtDest,_BX:ipCidrRouteExtMask,_BY:ipCidrRouteExtTos,_BZ:ipCidrRouteExtNextHop,'ipCidrRouteExtOspfSubType':ipCidrRouteExtOspfSubType,'sysLogMgt':sysLogMgt,'sysLogStatus':sysLogStatus,'sysLogHistoryFlashLevel':sysLogHistoryFlashLevel,'sysLogHistoryRamLevel':sysLogHistoryRamLevel,'remoteLogMgt':remoteLogMgt,'remoteLogStatus':remoteLogStatus,'remoteLogLevel':remoteLogLevel,'remoteLogFacilityType':remoteLogFacilityType,'remoteLogServerTable':remoteLogServerTable,'remoteLogServerEntry':remoteLogServerEntry,_Ba:remoteLogServerIp,'remoteLogServerStatus':remoteLogServerStatus,'smtpMgt':smtpMgt,'smtpStatus':smtpStatus,'smtpSeverityLevel':smtpSeverityLevel,'smtpSourceEMail':smtpSourceEMail,'smtpServerIpTable':smtpServerIpTable,'smtpServerIpEntry':smtpServerIpEntry,_w:smtpServerIp,'smtpServerIpStatus':smtpServerIpStatus,'smtpDestEMailTable':smtpDestEMailTable,'smtpDestEMailEntry':smtpDestEMailEntry,_Bb:smtpDestEMail,'smtpDestEMailStatus':smtpDestEMailStatus,'lineMgt':lineMgt,'consoleMgt':consoleMgt,'consoleDataBits':consoleDataBits,'consoleParity':consoleParity,'consoleStopBits':consoleStopBits,'consoleExecTimeout':consoleExecTimeout,'consolePasswordThreshold':consolePasswordThreshold,'consoleSilentTime':consoleSilentTime,'consoleAdminBaudRate':consoleAdminBaudRate,'consoleOperBaudRate':consoleOperBaudRate,'consoleLoginResponseTimeout':consoleLoginResponseTimeout,'telnetMgt':telnetMgt,'telnetExecTimeout':telnetExecTimeout,'telnetPasswordThreshold':telnetPasswordThreshold,'telnetLoginResponseTimeout':telnetLoginResponseTimeout,'telnetStatus':telnetStatus,'telnetPortNumber':telnetPortNumber,'sysTimeMgt':sysTimeMgt,'sntpMgt':sntpMgt,'sntpStatus':sntpStatus,'sntpServiceMode':sntpServiceMode,'sntpPollInterval':sntpPollInterval,'sntpServerTable':sntpServerTable,'sntpServerEntry':sntpServerEntry,_Bc:sntpServerIndex,'sntpServerIpAddress':sntpServerIpAddress,'sysCurrentTime':sysCurrentTime,'sysTimeZone':sysTimeZone,'sysTimeZoneName':sysTimeZoneName,'fileMgt':fileMgt,'fileCopyMgt':fileCopyMgt,'fileCopySrcOperType':fileCopySrcOperType,'fileCopySrcFileName':fileCopySrcFileName,'fileCopyDestOperType':fileCopyDestOperType,'fileCopyDestFileName':fileCopyDestFileName,'fileCopyFileType':fileCopyFileType,'fileCopyTftpServer':fileCopyTftpServer,'fileCopyUnitId':fileCopyUnitId,'fileCopyAction':fileCopyAction,'fileCopyStatus':fileCopyStatus,'fileInfoMgt':fileInfoMgt,'fileInfoTable':fileInfoTable,'fileInfoEntry':fileInfoEntry,_Bg:fileInfoUnitID,_Bh:fileInfoFileName,'fileInfoFileType':fileInfoFileType,'fileInfoIsStartUp':fileInfoIsStartUp,'fileInfoFileSize':fileInfoFileSize,'fileInfoCreationTime':fileInfoCreationTime,'fileInfoDelete':fileInfoDelete,'fileAutoDownloadResultTable':fileAutoDownloadResultTable,'fileAutoDownloadResultEntry':fileAutoDownloadResultEntry,_Bi:fileAutoDownloadResultUnitID,'fileAutoDownloadResultAction':fileAutoDownloadResultAction,'fileAutoDownloadResultStatus':fileAutoDownloadResultStatus,'dnsMgt':dnsMgt,'dnsDomainLookup':dnsDomainLookup,'dnsDomainName':dnsDomainName,'dnsHostTable':dnsHostTable,'dnsHostEntry':dnsHostEntry,_Bj:dnsHostName,_Bk:dnsHostIndex,'dnsHostIp':dnsHostIp,'dnsAliasTable':dnsAliasTable,'dnsAliasEntry':dnsAliasEntry,_Bl:dnsAliasName,_Bm:dnaAliasAlias,'dnsDomainListTable':dnsDomainListTable,'dnsDomainListEntry':dnsDomainListEntry,_Bn:dnsDomainListName,'dnsDomainListStatus':dnsDomainListStatus,'dnsNameServerTable':dnsNameServerTable,'dnsNameServerEntry':dnsNameServerEntry,_Bo:dnsNameServerIndex,'dnsNameServerIp':dnsNameServerIp,'dnsCacheTable':dnsCacheTable,'dnsCacheEntry':dnsCacheEntry,_Bp:dnsCacheIndex,'dnsCacheFlag':dnsCacheFlag,'dnsCacheType':dnsCacheType,'dnsCacheIp':dnsCacheIp,'dnsCacheTtl':dnsCacheTtl,'dnsCacheDomain':dnsCacheDomain,'hsrpMgt':hsrpMgt,'cHsrpGlobalConfig':cHsrpGlobalConfig,'cHsrpConfigTimeout':cHsrpConfigTimeout,'cHsrpGroup':cHsrpGroup,'cHsrpGrpTable':cHsrpGrpTable,'cHsrpGrpEntry':cHsrpGrpEntry,_Z:cHsrpGrpNumber,'cHsrpGrpAuth':cHsrpGrpAuth,'cHsrpGrpPriority':cHsrpGrpPriority,'cHsrpGrpPreempt':cHsrpGrpPreempt,'cHsrpGrpPreemptDelay':cHsrpGrpPreemptDelay,'cHsrpGrpUseConfiguredTimers':cHsrpGrpUseConfiguredTimers,'cHsrpGrpConfiguredHelloTime':cHsrpGrpConfiguredHelloTime,'cHsrpGrpConfiguredHoldTime':cHsrpGrpConfiguredHoldTime,'cHsrpGrpLearnedHelloTime':cHsrpGrpLearnedHelloTime,'cHsrpGrpLearnedHoldTime':cHsrpGrpLearnedHoldTime,'cHsrpGrpVirtualIpAddr':cHsrpGrpVirtualIpAddr,'cHsrpGrpUseConfigVirtualIpAddr':cHsrpGrpUseConfigVirtualIpAddr,'cHsrpGrpActiveRouter':cHsrpGrpActiveRouter,'cHsrpGrpStandbyRouter':cHsrpGrpStandbyRouter,'cHsrpGrpStandbyState':cHsrpGrpStandbyState,'cHsrpGrpVirtualMacAddr':cHsrpGrpVirtualMacAddr,'cHsrpGrpEntryRowStatus':cHsrpGrpEntryRowStatus,'cHsrpExtGroup':cHsrpExtGroup,'cHsrpExtIfTrackedTable':cHsrpExtIfTrackedTable,'cHsrpExtIfTrackedEntry':cHsrpExtIfTrackedEntry,_Bq:cHsrpExtIfTracked,'cHsrpExtIfTrackedPriority':cHsrpExtIfTrackedPriority,'cHsrpExtIfTrackedRowStatus':cHsrpExtIfTrackedRowStatus,'cHsrpExtSecAddrTable':cHsrpExtSecAddrTable,'cHsrpExtSecAddrEntry':cHsrpExtSecAddrEntry,_Br:cHsrpExtSecAddrAddress,'cHsrpExtSecAddrRowStatus':cHsrpExtSecAddrRowStatus,'lion24tpNotifications':lion24tpNotifications,'lion24tpTraps':lion24tpTraps,'lion24tpTrapsPrefix':lion24tpTrapsPrefix,'swPowerStatusChangeTrap':swPowerStatusChangeTrap,'swFanFailureTrap':swFanFailureTrap,'swFanRecoverTrap':swFanRecoverTrap,'swIpFilterRejectTrap':swIpFilterRejectTrap,'swSmtpConnFailureTrap':swSmtpConnFailureTrap,'swMainBoardVerMismatchNotificaiton':swMainBoardVerMismatchNotificaiton,'swModuleVerMismatchNotificaiton':swModuleVerMismatchNotificaiton,'swThermalRisingNotification':swThermalRisingNotification,'swThermalFallingNotification':swThermalFallingNotification,'swModuleInsertionNotificaiton':swModuleInsertionNotificaiton,'swModuleRemovalNotificaiton':swModuleRemovalNotificaiton,'lion24tpConformance':lion24tpConformance})
+if mibBuilder.loadTexts: staPortEntry.setStatus('current')
+staPortFastForward = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 2, 1, 2), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: staPortFastForward.setStatus('current')
+staPortProtocolMigration = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 2, 1, 3), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: staPortProtocolMigration.setStatus('current')
+staPortAdminEdgePort = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 2, 1, 4), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: staPortAdminEdgePort.setStatus('current')
+staPortOperEdgePort = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 2, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: staPortOperEdgePort.setStatus('current')
+staPortAdminPointToPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("forceTrue", 0), ("forceFalse", 1), ("auto", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: staPortAdminPointToPoint.setStatus('current')
+staPortOperPointToPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 2, 1, 7), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: staPortOperPointToPoint.setStatus('current')
+staPortSystemStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 2, 1, 9), EnabledStatus().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: staPortSystemStatus.setStatus('current')
+staPortLongAdminPathCost = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 2, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 200000000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: staPortLongAdminPathCost.setStatus('current')
+staPortLongOperPathCost = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 2, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 200000000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: staPortLongOperPathCost.setStatus('current')
+staProtocolType = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("stp", 1), ("rstp", 2), ("mstp", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: staProtocolType.setStatus('current')
+staTxHoldCount = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: staTxHoldCount.setStatus('current')
+staPathCostMethod = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 5), StaPathCostMode().clone('short')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: staPathCostMethod.setStatus('current')
+xstMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6))
+mstName = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mstName.setStatus('current')
+mstRevision = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mstRevision.setStatus('current')
+mstMaxHops = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 40))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mstMaxHops.setStatus('current')
+xstInstanceCfgTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 4), )
+if mibBuilder.loadTexts: xstInstanceCfgTable.setStatus('current')
+xstInstanceCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 4, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "xstInstanceCfgIndex"))
+if mibBuilder.loadTexts: xstInstanceCfgEntry.setStatus('current')
+xstInstanceCfgIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 64)))
+if mibBuilder.loadTexts: xstInstanceCfgIndex.setStatus('current')
+xstInstanceCfgPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 61440))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: xstInstanceCfgPriority.setStatus('current')
+xstInstanceCfgTimeSinceTopologyChange = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 4, 1, 3), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstanceCfgTimeSinceTopologyChange.setStatus('current')
+xstInstanceCfgTopChanges = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 4, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstanceCfgTopChanges.setStatus('current')
+xstInstanceCfgDesignatedRoot = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 4, 1, 5), BridgeId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstanceCfgDesignatedRoot.setStatus('current')
+xstInstanceCfgRootCost = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 4, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstanceCfgRootCost.setStatus('current')
+xstInstanceCfgRootPort = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 4, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstanceCfgRootPort.setStatus('current')
+xstInstanceCfgMaxAge = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 4, 1, 8), Timeout()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstanceCfgMaxAge.setStatus('current')
+xstInstanceCfgHelloTime = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 4, 1, 9), Timeout()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstanceCfgHelloTime.setStatus('current')
+xstInstanceCfgHoldTime = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 4, 1, 10), Timeout()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstanceCfgHoldTime.setStatus('current')
+xstInstanceCfgForwardDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 4, 1, 11), Timeout()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstanceCfgForwardDelay.setStatus('current')
+xstInstanceCfgBridgeMaxAge = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 4, 1, 12), Timeout()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstanceCfgBridgeMaxAge.setStatus('current')
+xstInstanceCfgBridgeHelloTime = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 4, 1, 13), Timeout()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstanceCfgBridgeHelloTime.setStatus('current')
+xstInstanceCfgBridgeForwardDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 4, 1, 14), Timeout()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstanceCfgBridgeForwardDelay.setStatus('current')
+xstInstanceCfgTxHoldCount = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 4, 1, 15), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstanceCfgTxHoldCount.setStatus('current')
+xstInstanceCfgPathCostMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 4, 1, 16), StaPathCostMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstanceCfgPathCostMethod.setStatus('current')
+xstInstancePortTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 5), )
+if mibBuilder.loadTexts: xstInstancePortTable.setStatus('current')
+xstInstancePortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 5, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "xstInstanceCfgIndex"), (0, "BRIDGE-MIB", "dot1dStpPort"))
+if mibBuilder.loadTexts: xstInstancePortEntry.setStatus('current')
+xstInstancePortPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 5, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 240))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: xstInstancePortPriority.setStatus('current')
+xstInstancePortState = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 5, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("discarding", 1), ("learning", 2), ("forwarding", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstancePortState.setStatus('current')
+xstInstancePortEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 5, 1, 5), EnabledStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstancePortEnable.setStatus('current')
+xstInstancePortDesignatedRoot = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 5, 1, 7), BridgeId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstancePortDesignatedRoot.setStatus('current')
+xstInstancePortDesignatedCost = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 5, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstancePortDesignatedCost.setStatus('current')
+xstInstancePortDesignatedBridge = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 5, 1, 9), BridgeId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstancePortDesignatedBridge.setStatus('current')
+xstInstancePortDesignatedPort = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 5, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstancePortDesignatedPort.setStatus('current')
+xstInstancePortForwardTransitions = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 5, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstancePortForwardTransitions.setStatus('current')
+xstInstancePortPortRole = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 5, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("disabled", 1), ("root", 2), ("designated", 3), ("alternate", 4), ("backup", 5), ("master", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstancePortPortRole.setStatus('current')
+xstInstancePortAdminPathCost = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 5, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 200000000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: xstInstancePortAdminPathCost.setStatus('current')
+xstInstancePortOperPathCost = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 5, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 200000000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xstInstancePortOperPathCost.setStatus('current')
+mstInstanceEditTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 6), )
+if mibBuilder.loadTexts: mstInstanceEditTable.setStatus('current')
+mstInstanceEditEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 6, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "mstInstanceEditIndex"))
+if mibBuilder.loadTexts: mstInstanceEditEntry.setStatus('current')
+mstInstanceEditIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 64)))
+if mibBuilder.loadTexts: mstInstanceEditIndex.setStatus('current')
+mstInstanceEditVlansMap = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 6, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mstInstanceEditVlansMap.setStatus('current')
+mstInstanceEditVlansMap2k = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 6, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mstInstanceEditVlansMap2k.setStatus('current')
+mstInstanceEditVlansMap3k = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 6, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mstInstanceEditVlansMap3k.setStatus('current')
+mstInstanceEditVlansMap4k = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 6, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mstInstanceEditVlansMap4k.setStatus('current')
+mstInstanceEditRemainingHops = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 6, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mstInstanceEditRemainingHops.setStatus('current')
+mstInstanceOperTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 7), )
+if mibBuilder.loadTexts: mstInstanceOperTable.setStatus('current')
+mstInstanceOperEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 7, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "mstInstanceOperIndex"))
+if mibBuilder.loadTexts: mstInstanceOperEntry.setStatus('current')
+mstInstanceOperIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 7, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094)))
+if mibBuilder.loadTexts: mstInstanceOperIndex.setStatus('current')
+mstInstanceOperVlansMap = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 7, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mstInstanceOperVlansMap.setStatus('current')
+mstInstanceOperVlansMap2k = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 7, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mstInstanceOperVlansMap2k.setStatus('current')
+mstInstanceOperVlansMap3k = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 7, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mstInstanceOperVlansMap3k.setStatus('current')
+mstInstanceOperVlansMap4k = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 5, 6, 7, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mstInstanceOperVlansMap4k.setStatus('current')
+restartOpCodeFile = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 7, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: restartOpCodeFile.setStatus('current')
+restartConfigFile = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 7, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: restartConfigFile.setStatus('current')
+restartControl = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 7, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("running", 1), ("warmBoot", 2), ("coldBoot", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: restartControl.setStatus('current')
+mirrorTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 8, 1), )
+if mibBuilder.loadTexts: mirrorTable.setStatus('current')
+mirrorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 8, 1, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "mirrorDestinationPort"), (0, "Hirschmann-LION-24TP-MIB", "mirrorSourcePort"))
+if mibBuilder.loadTexts: mirrorEntry.setStatus('current')
+mirrorDestinationPort = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 8, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: mirrorDestinationPort.setStatus('current')
+mirrorSourcePort = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 8, 1, 1, 2), Integer32())
+if mibBuilder.loadTexts: mirrorSourcePort.setStatus('current')
+mirrorType = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 8, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("rx", 1), ("tx", 2), ("both", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mirrorType.setStatus('current')
+mirrorStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 8, 1, 1, 4), ValidStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mirrorStatus.setStatus('current')
+igmpSnoopStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 1), EnabledStatus().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: igmpSnoopStatus.setStatus('current')
+igmpSnoopQuerier = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 2), EnabledStatus().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: igmpSnoopQuerier.setStatus('current')
+igmpSnoopQueryCount = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(2, 10)).clone(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: igmpSnoopQueryCount.setStatus('current')
+igmpSnoopQueryInterval = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(60, 125)).clone(125)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: igmpSnoopQueryInterval.setStatus('current')
+igmpSnoopQueryMaxResponseTime = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 25)).clone(10)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: igmpSnoopQueryMaxResponseTime.setStatus('current')
+igmpSnoopRouterPortExpireTime = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(300, 500)).clone(300)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: igmpSnoopRouterPortExpireTime.setStatus('current')
+igmpSnoopVersion = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2)).clone(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: igmpSnoopVersion.setStatus('current')
+igmpSnoopRouterCurrentTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 8), )
+if mibBuilder.loadTexts: igmpSnoopRouterCurrentTable.setStatus('current')
+igmpSnoopRouterCurrentEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 8, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "igmpSnoopRouterCurrentVlanIndex"))
+if mibBuilder.loadTexts: igmpSnoopRouterCurrentEntry.setStatus('current')
+igmpSnoopRouterCurrentVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 8, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: igmpSnoopRouterCurrentVlanIndex.setStatus('current')
+igmpSnoopRouterCurrentPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 8, 1, 2), PortList()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: igmpSnoopRouterCurrentPorts.setStatus('current')
+igmpSnoopRouterCurrentStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 8, 1, 3), PortList()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: igmpSnoopRouterCurrentStatus.setStatus('current')
+igmpSnoopRouterStaticTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 9), )
+if mibBuilder.loadTexts: igmpSnoopRouterStaticTable.setStatus('current')
+igmpSnoopRouterStaticEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 9, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "igmpSnoopRouterStaticVlanIndex"))
+if mibBuilder.loadTexts: igmpSnoopRouterStaticEntry.setStatus('current')
+igmpSnoopRouterStaticVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 9, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: igmpSnoopRouterStaticVlanIndex.setStatus('current')
+igmpSnoopRouterStaticPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 9, 1, 2), PortList()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: igmpSnoopRouterStaticPorts.setStatus('current')
+igmpSnoopRouterStaticStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 9, 1, 3), ValidStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: igmpSnoopRouterStaticStatus.setStatus('current')
+igmpSnoopMulticastCurrentTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 10), )
+if mibBuilder.loadTexts: igmpSnoopMulticastCurrentTable.setStatus('current')
+igmpSnoopMulticastCurrentEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 10, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "igmpSnoopMulticastCurrentVlanIndex"), (0, "Hirschmann-LION-24TP-MIB", "igmpSnoopMulticastCurrentIpAddress"))
+if mibBuilder.loadTexts: igmpSnoopMulticastCurrentEntry.setStatus('current')
+igmpSnoopMulticastCurrentVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 10, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: igmpSnoopMulticastCurrentVlanIndex.setStatus('current')
+igmpSnoopMulticastCurrentIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 10, 1, 2), IpAddress())
+if mibBuilder.loadTexts: igmpSnoopMulticastCurrentIpAddress.setStatus('current')
+igmpSnoopMulticastCurrentPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 10, 1, 3), PortList()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: igmpSnoopMulticastCurrentPorts.setStatus('current')
+igmpSnoopMulticastCurrentStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 10, 1, 4), PortList()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: igmpSnoopMulticastCurrentStatus.setStatus('current')
+igmpSnoopMulticastStaticTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 11), )
+if mibBuilder.loadTexts: igmpSnoopMulticastStaticTable.setStatus('current')
+igmpSnoopMulticastStaticEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 11, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "igmpSnoopMulticastStaticVlanIndex"), (0, "Hirschmann-LION-24TP-MIB", "igmpSnoopMulticastStaticIpAddress"))
+if mibBuilder.loadTexts: igmpSnoopMulticastStaticEntry.setStatus('current')
+igmpSnoopMulticastStaticVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 11, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: igmpSnoopMulticastStaticVlanIndex.setStatus('current')
+igmpSnoopMulticastStaticIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 11, 1, 2), IpAddress())
+if mibBuilder.loadTexts: igmpSnoopMulticastStaticIpAddress.setStatus('current')
+igmpSnoopMulticastStaticPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 11, 1, 3), PortList()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: igmpSnoopMulticastStaticPorts.setStatus('current')
+igmpSnoopMulticastStaticStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 9, 11, 1, 4), ValidStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: igmpSnoopMulticastStaticStatus.setStatus('current')
+netDefaultGateway = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 10, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: netDefaultGateway.setStatus('current')
+ipHttpState = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 10, 3), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipHttpState.setStatus('current')
+ipHttpPort = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 10, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipHttpPort.setStatus('current')
+ipDhcpRestart = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 10, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("restart", 1), ("noRestart", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipDhcpRestart.setStatus('current')
+ipHttpsState = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 10, 6), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipHttpsState.setStatus('current')
+ipHttpsPort = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 10, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipHttpsPort.setStatus('current')
+iPAddrTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 10, 16), )
+if mibBuilder.loadTexts: iPAddrTable.setStatus('current')
+iPAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 10, 16, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "iPAddrIPAddress"), (0, "Hirschmann-LION-24TP-MIB", "iPAddrSubnetMask"))
+if mibBuilder.loadTexts: iPAddrEntry.setStatus('current')
+iPAddrIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 10, 16, 1, 1), IpAddress())
+if mibBuilder.loadTexts: iPAddrIPAddress.setStatus('current')
+iPAddrSubnetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 10, 16, 1, 2), IpAddress())
+if mibBuilder.loadTexts: iPAddrSubnetMask.setStatus('current')
+iPAddrIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 10, 16, 1, 3), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: iPAddrIfIndex.setStatus('current')
+iPAddrPrimaryInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 10, 16, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: iPAddrPrimaryInterface.setStatus('current')
+iPAddrUnnumbered = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 10, 16, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("unnumbered", 1), ("notUnnumbered", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: iPAddrUnnumbered.setStatus('current')
+iPAddrStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 10, 16, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: iPAddrStatus.setStatus('current')
+bcastStormTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 11, 1), )
+if mibBuilder.loadTexts: bcastStormTable.setStatus('current')
+bcastStormEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 11, 1, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "bcastStormIfIndex"))
+if mibBuilder.loadTexts: bcastStormEntry.setStatus('current')
+bcastStormIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 11, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: bcastStormIfIndex.setStatus('current')
+bcastStormStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 11, 1, 1, 2), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bcastStormStatus.setStatus('current')
+bcastStormPktRate = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 11, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bcastStormPktRate.setStatus('current')
+vlanTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 12, 1), )
+if mibBuilder.loadTexts: vlanTable.setStatus('current')
+vlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 12, 1, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "vlanIndex"))
+if mibBuilder.loadTexts: vlanEntry.setStatus('current')
+vlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 12, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: vlanIndex.setStatus('current')
+vlanAddressMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 12, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("user", 1), ("bootp", 2), ("dhcp", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: vlanAddressMethod.setStatus('current')
+vlanPortTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 12, 2), )
+if mibBuilder.loadTexts: vlanPortTable.setStatus('current')
+vlanPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 12, 2, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "vlanPortIndex"))
+if mibBuilder.loadTexts: vlanPortEntry.setStatus('current')
+vlanPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 12, 2, 1, 1), Integer32())
+if mibBuilder.loadTexts: vlanPortIndex.setStatus('current')
+vlanPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 12, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("hybrid", 1), ("dot1qTrunk", 2), ("access", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: vlanPortMode.setStatus('current')
+prioIpPrecDscpStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("disabled", 1), ("precedence", 2), ("dscp", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prioIpPrecDscpStatus.setStatus('current')
+prioIpPrecTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 2), )
+if mibBuilder.loadTexts: prioIpPrecTable.setStatus('current')
+prioIpPrecEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 2, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "prioIpPrecPort"), (0, "Hirschmann-LION-24TP-MIB", "prioIpPrecValue"))
+if mibBuilder.loadTexts: prioIpPrecEntry.setStatus('current')
+prioIpPrecPort = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 2, 1, 2), Integer32())
+if mibBuilder.loadTexts: prioIpPrecPort.setStatus('current')
+prioIpPrecValue = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7)))
+if mibBuilder.loadTexts: prioIpPrecValue.setStatus('current')
+prioIpPrecCos = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prioIpPrecCos.setStatus('current')
+prioIpPrecRestoreDefault = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prioIpPrecRestoreDefault.setStatus('current')
+prioIpDscpTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 4), )
+if mibBuilder.loadTexts: prioIpDscpTable.setStatus('current')
+prioIpDscpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 4, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "prioIpDscpPort"), (0, "Hirschmann-LION-24TP-MIB", "prioIpDscpValue"))
+if mibBuilder.loadTexts: prioIpDscpEntry.setStatus('current')
+prioIpDscpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 4, 1, 1), Integer32())
+if mibBuilder.loadTexts: prioIpDscpPort.setStatus('current')
+prioIpDscpValue = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63)))
+if mibBuilder.loadTexts: prioIpDscpValue.setStatus('current')
+prioIpDscpCos = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 4, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prioIpDscpCos.setStatus('current')
+prioIpDscpRestoreDefault = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prioIpDscpRestoreDefault.setStatus('current')
+prioIpPortEnableStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 6), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prioIpPortEnableStatus.setStatus('current')
+prioIpPortTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 7), )
+if mibBuilder.loadTexts: prioIpPortTable.setStatus('current')
+prioIpPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 7, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "prioIpPortPhysPort"), (0, "Hirschmann-LION-24TP-MIB", "prioIpPortValue"))
+if mibBuilder.loadTexts: prioIpPortEntry.setStatus('current')
+prioIpPortPhysPort = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 7, 1, 1), Integer32())
+if mibBuilder.loadTexts: prioIpPortPhysPort.setStatus('current')
+prioIpPortValue = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 7, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
+if mibBuilder.loadTexts: prioIpPortValue.setStatus('current')
+prioIpPortCos = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 7, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: prioIpPortCos.setStatus('current')
+prioIpPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 7, 1, 4), ValidStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: prioIpPortStatus.setStatus('current')
+prioCopy = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 8))
+prioCopyIpPrec = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 8, 1), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prioCopyIpPrec.setStatus('current')
+prioCopyIpDscp = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 8, 2), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prioCopyIpDscp.setStatus('current')
+prioCopyIpPort = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 8, 3), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prioCopyIpPort.setStatus('current')
+prioQueueMode = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("wrr", 1), ("strict", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prioQueueMode.setStatus('current')
+prioWrrPortTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 12), )
+if mibBuilder.loadTexts: prioWrrPortTable.setStatus('current')
+prioWrrPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 12, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "prioWrrPortIfIndex"), (0, "Hirschmann-LION-24TP-MIB", "prioWrrPortTrafficClass"))
+if mibBuilder.loadTexts: prioWrrPortEntry.setStatus('current')
+prioWrrPortIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 12, 1, 1), Integer32())
+if mibBuilder.loadTexts: prioWrrPortIfIndex.setStatus('current')
+prioWrrPortTrafficClass = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 12, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7)))
+if mibBuilder.loadTexts: prioWrrPortTrafficClass.setStatus('current')
+prioWrrPortWeight = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 13, 12, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prioWrrPortWeight.setStatus('current')
+trapDestTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 14, 1), )
+if mibBuilder.loadTexts: trapDestTable.setStatus('current')
+trapDestEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 14, 1, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "trapDestAddress"))
+if mibBuilder.loadTexts: trapDestEntry.setStatus('current')
+trapDestAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 14, 1, 1, 1), IpAddress())
+if mibBuilder.loadTexts: trapDestAddress.setStatus('current')
+trapDestCommunity = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 14, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: trapDestCommunity.setStatus('current')
+trapDestStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 14, 1, 1, 3), ValidStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: trapDestStatus.setStatus('current')
+trapDestVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 14, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("version1", 1), ("version2", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: trapDestVersion.setStatus('current')
+trapDestUdpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 14, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(162)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: trapDestUdpPort.setStatus('current')
+trapVar = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 14, 2))
+trapIpFilterRejectMode = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 14, 2, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("web", 1), ("snmp", 2), ("telnet", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: trapIpFilterRejectMode.setStatus('current')
+trapIpFilterRejectIp = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 14, 2, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: trapIpFilterRejectIp.setStatus('current')
+rateLimitMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 1))
+rateLimitPortTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 1, 2), )
+if mibBuilder.loadTexts: rateLimitPortTable.setStatus('current')
+rateLimitPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 1, 2, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "rlPortIndex"))
+if mibBuilder.loadTexts: rateLimitPortEntry.setStatus('current')
+rlPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 1, 2, 1, 1), Integer32())
+if mibBuilder.loadTexts: rlPortIndex.setStatus('current')
+rlPortInputLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 1, 2, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlPortInputLimit.setStatus('current')
+rlPortOutputLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 1, 2, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlPortOutputLimit.setStatus('current')
+rlPortInputStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 1, 2, 1, 6), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlPortInputStatus.setStatus('current')
+rlPortOutputStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 1, 2, 1, 7), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlPortOutputStatus.setStatus('current')
+markerMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 2))
+markerTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 2, 1), )
+if mibBuilder.loadTexts: markerTable.setStatus('current')
+markerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 2, 1, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "markerIfIndex"), (0, "Hirschmann-LION-24TP-MIB", "markerAclName"))
+if mibBuilder.loadTexts: markerEntry.setStatus('current')
+markerIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 2, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: markerIfIndex.setStatus('current')
+markerAclName = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 2, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 15)))
+if mibBuilder.loadTexts: markerAclName.setStatus('current')
+markerActionBitList = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 2, 1, 1, 3), Bits().clone(namedValues=NamedValues(("dscp", 0), ("precedence", 1), ("priority", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: markerActionBitList.setStatus('current')
+markerDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: markerDscp.setStatus('current')
+markerPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: markerPrecedence.setStatus('current')
+markerPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: markerPriority.setStatus('current')
+markerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 2, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: markerStatus.setStatus('current')
+cosMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 3))
+prioAclToCosMappingTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 3, 1), )
+if mibBuilder.loadTexts: prioAclToCosMappingTable.setStatus('current')
+prioAclToCosMappingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 3, 1, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "prioAclToCosMappingIfIndex"), (0, "Hirschmann-LION-24TP-MIB", "prioAclToCosMappingAclName"))
+if mibBuilder.loadTexts: prioAclToCosMappingEntry.setStatus('current')
+prioAclToCosMappingIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 3, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: prioAclToCosMappingIfIndex.setStatus('current')
+prioAclToCosMappingAclName = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 3, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 15)))
+if mibBuilder.loadTexts: prioAclToCosMappingAclName.setStatus('current')
+prioAclToCosMappingCosValue = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: prioAclToCosMappingCosValue.setStatus('current')
+prioAclToCosMappingStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 16, 3, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: prioAclToCosMappingStatus.setStatus('current')
+privateVlanMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 1))
+portSecurityMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 2))
+radiusMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 4))
+tacacsMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 5))
+sshMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6))
+aclMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7))
+ipFilterMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 9))
+privateVlanStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: privateVlanStatus.setStatus('current')
+privateVlanUplinkPorts = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 1, 2), PortList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: privateVlanUplinkPorts.setStatus('current')
+privateVlanDownlinkPorts = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 1, 3), PortList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: privateVlanDownlinkPorts.setStatus('current')
+portSecPortTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 2, 1), )
+if mibBuilder.loadTexts: portSecPortTable.setStatus('current')
+portSecPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 2, 1, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "portSecPortIndex"))
+if mibBuilder.loadTexts: portSecPortEntry.setStatus('current')
+portSecPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 2, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: portSecPortIndex.setStatus('current')
+portSecPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 2, 1, 1, 2), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portSecPortStatus.setStatus('current')
+portSecAction = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("trap", 2), ("shutdown", 3), ("trapAndShutdown", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portSecAction.setStatus('current')
+portSecMaxMacCount = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1024))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portSecMaxMacCount.setStatus('current')
+radiusServerAddress = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 4, 1), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: radiusServerAddress.setStatus('current')
+radiusServerPortNumber = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 4, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: radiusServerPortNumber.setStatus('current')
+radiusServerKey = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 4, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 48))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: radiusServerKey.setStatus('current')
+radiusServerRetransmit = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 4, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 30))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: radiusServerRetransmit.setStatus('current')
+radiusServerTimeout = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 4, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: radiusServerTimeout.setStatus('current')
+radiusMultipleServerTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 4, 7), )
+if mibBuilder.loadTexts: radiusMultipleServerTable.setStatus('current')
+radiusMultipleServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 4, 7, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "radiusMultipleServerIndex"))
+if mibBuilder.loadTexts: radiusMultipleServerEntry.setStatus('current')
+radiusMultipleServerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 4, 7, 1, 1), Integer32())
+if mibBuilder.loadTexts: radiusMultipleServerIndex.setStatus('current')
+radiusMultipleServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 4, 7, 1, 2), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: radiusMultipleServerAddress.setStatus('current')
+radiusMultipleServerPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 4, 7, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: radiusMultipleServerPortNumber.setStatus('current')
+radiusMultipleServerKey = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 4, 7, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 48))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: radiusMultipleServerKey.setStatus('current')
+radiusMultipleServerRetransmit = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 4, 7, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 30))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: radiusMultipleServerRetransmit.setStatus('current')
+radiusMultipleServerTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 4, 7, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: radiusMultipleServerTimeout.setStatus('current')
+radiusMultipleServerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 4, 7, 1, 8), ValidStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: radiusMultipleServerStatus.setStatus('current')
+tacacsServerAddress = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 5, 1), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tacacsServerAddress.setStatus('current')
+tacacsServerPortNumber = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 5, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tacacsServerPortNumber.setStatus('current')
+tacacsServerKey = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 5, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 48))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tacacsServerKey.setStatus('current')
+sshServerStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sshServerStatus.setStatus('current')
+sshServerMajorVersion = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshServerMajorVersion.setStatus('current')
+sshServerMinorVersion = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshServerMinorVersion.setStatus('current')
+sshTimeout = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 120))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sshTimeout.setStatus('current')
+sshAuthRetries = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sshAuthRetries.setStatus('current')
+sshConnInfoTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 6), )
+if mibBuilder.loadTexts: sshConnInfoTable.setStatus('current')
+sshConnInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 6, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "sshConnID"))
+if mibBuilder.loadTexts: sshConnInfoEntry.setStatus('current')
+sshConnID = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 6, 1, 1), Integer32())
+if mibBuilder.loadTexts: sshConnID.setStatus('current')
+sshConnMajorVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 6, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshConnMajorVersion.setStatus('current')
+sshConnMinorVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 6, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshConnMinorVersion.setStatus('current')
+sshConnStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 6, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("negotiationStart", 1), ("authenticationStart", 2), ("sessionStart", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshConnStatus.setStatus('current')
+sshConnUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 6, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshConnUserName.setStatus('current')
+sshDisconnect = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 6, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noDisconnect", 1), ("disconnect", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sshDisconnect.setStatus('current')
+sshConnEncryptionTypeStr = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 6, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshConnEncryptionTypeStr.setStatus('current')
+sshKeySize = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(512, 896))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sshKeySize.setStatus('current')
+sshRsaHostKey1 = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 8), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshRsaHostKey1.setStatus('current')
+sshRsaHostKey2 = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 9), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshRsaHostKey2.setStatus('current')
+sshRsaHostKey3 = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 10), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshRsaHostKey3.setStatus('current')
+sshRsaHostKey4 = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 11), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshRsaHostKey4.setStatus('current')
+sshRsaHostKey5 = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 12), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshRsaHostKey5.setStatus('current')
+sshRsaHostKey6 = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 13), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshRsaHostKey6.setStatus('current')
+sshRsaHostKey7 = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 14), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshRsaHostKey7.setStatus('current')
+sshRsaHostKey8 = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 15), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshRsaHostKey8.setStatus('current')
+sshDsaHostKey1 = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 16), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshDsaHostKey1.setStatus('current')
+sshDsaHostKey2 = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 17), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshDsaHostKey2.setStatus('current')
+sshDsaHostKey3 = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 18), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshDsaHostKey3.setStatus('current')
+sshDsaHostKey4 = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 19), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshDsaHostKey4.setStatus('current')
+sshDsaHostKey5 = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 20), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshDsaHostKey5.setStatus('current')
+sshDsaHostKey6 = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 21), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshDsaHostKey6.setStatus('current')
+sshDsaHostKey7 = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 22), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshDsaHostKey7.setStatus('current')
+sshDsaHostKey8 = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 23), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshDsaHostKey8.setStatus('current')
+sshHostKeyGenAction = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("noGen", 1), ("genRsaKey", 2), ("genDsaKey", 3), ("genBothKeys", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sshHostKeyGenAction.setStatus('current')
+sshHostKeyGenStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 25), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("success", 2), ("failure", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshHostKeyGenStatus.setStatus('current')
+sshHostKeySaveAction = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 26), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noSave", 1), ("save", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sshHostKeySaveAction.setStatus('current')
+sshHostKeySaveStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 27), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("success", 2), ("failure", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshHostKeySaveStatus.setStatus('current')
+sshHostKeyDelAction = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 28), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("noDel", 1), ("delRsaKey", 2), ("delDsaKey", 3), ("delBothKeys", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sshHostKeyDelAction.setStatus('current')
+sshUserTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29), )
+if mibBuilder.loadTexts: sshUserTable.setStatus('current')
+sshUserEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29, 1), ).setIndexNames((1, "Hirschmann-LION-24TP-MIB", "sshUserName"))
+if mibBuilder.loadTexts: sshUserEntry.setStatus('current')
+sshUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 8)))
+if mibBuilder.loadTexts: sshUserName.setStatus('current')
+sshUserRsaKey1 = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29, 1, 2), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshUserRsaKey1.setStatus('current')
+sshUserRsaKey2 = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29, 1, 3), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshUserRsaKey2.setStatus('current')
+sshUserRsaKey3 = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29, 1, 4), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshUserRsaKey3.setStatus('current')
+sshUserRsaKey4 = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29, 1, 5), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshUserRsaKey4.setStatus('current')
+sshUserRsaKey5 = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29, 1, 6), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshUserRsaKey5.setStatus('current')
+sshUserRsaKey6 = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29, 1, 7), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshUserRsaKey6.setStatus('current')
+sshUserRsaKey7 = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29, 1, 8), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshUserRsaKey7.setStatus('current')
+sshUserRsaKey8 = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29, 1, 9), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshUserRsaKey8.setStatus('current')
+sshUserDsaKey1 = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29, 1, 10), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshUserDsaKey1.setStatus('current')
+sshUserDsaKey2 = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29, 1, 11), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshUserDsaKey2.setStatus('current')
+sshUserDsaKey3 = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29, 1, 12), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshUserDsaKey3.setStatus('current')
+sshUserDsaKey4 = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29, 1, 13), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshUserDsaKey4.setStatus('current')
+sshUserDsaKey5 = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29, 1, 14), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshUserDsaKey5.setStatus('current')
+sshUserDsaKey6 = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29, 1, 15), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshUserDsaKey6.setStatus('current')
+sshUserDsaKey7 = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29, 1, 16), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshUserDsaKey7.setStatus('current')
+sshUserDsaKey8 = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29, 1, 17), KeySegment()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshUserDsaKey8.setStatus('current')
+sshUserKeyDelAction = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 6, 29, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("noDel", 1), ("delRsaKey", 2), ("delDsaKey", 3), ("delBothKeys", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sshUserKeyDelAction.setStatus('current')
+aclIpAceTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1), )
+if mibBuilder.loadTexts: aclIpAceTable.setStatus('current')
+aclIpAceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "aclIpAceName"), (0, "Hirschmann-LION-24TP-MIB", "aclIpAceIndex"))
+if mibBuilder.loadTexts: aclIpAceEntry.setStatus('current')
+aclIpAceName = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 15)))
+if mibBuilder.loadTexts: aclIpAceName.setStatus('current')
+aclIpAceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32)))
+if mibBuilder.loadTexts: aclIpAceIndex.setStatus('current')
+aclIpAcePrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aclIpAcePrecedence.setStatus('current')
+aclIpAceAction = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("permit", 1), ("deny", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAceAction.setStatus('current')
+aclIpAceSourceIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 5), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAceSourceIpAddr.setStatus('current')
+aclIpAceSourceIpAddrBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 6), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAceSourceIpAddrBitmask.setStatus('current')
+aclIpAceDestIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 7), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAceDestIpAddr.setStatus('current')
+aclIpAceDestIpAddrBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 8), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAceDestIpAddrBitmask.setStatus('current')
+aclIpAceProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 256))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAceProtocol.setStatus('current')
+aclIpAcePrec = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 8))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAcePrec.setStatus('current')
+aclIpAceTos = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAceTos.setStatus('current')
+aclIpAceDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 64))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAceDscp.setStatus('current')
+aclIpAceSourcePortOp = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noOperator", 1), ("equal", 2), ("range", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAceSourcePortOp.setStatus('current')
+aclIpAceMinSourcePort = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAceMinSourcePort.setStatus('current')
+aclIpAceMaxSourcePort = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAceMaxSourcePort.setStatus('current')
+aclIpAceSourcePortBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAceSourcePortBitmask.setStatus('current')
+aclIpAceDestPortOp = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noOperator", 1), ("equal", 2), ("range", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAceDestPortOp.setStatus('current')
+aclIpAceMinDestPort = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAceMinDestPort.setStatus('current')
+aclIpAceMaxDestPort = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAceMaxDestPort.setStatus('current')
+aclIpAceDestPortBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAceDestPortBitmask.setStatus('current')
+aclIpAceControlCode = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAceControlCode.setStatus('current')
+aclIpAceControlCodeBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 22), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAceControlCodeBitmask.setStatus('current')
+aclIpAceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 1, 1, 23), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIpAceStatus.setStatus('current')
+aclMacAceTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2), )
+if mibBuilder.loadTexts: aclMacAceTable.setStatus('current')
+aclMacAceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "aclMacAceName"), (0, "Hirschmann-LION-24TP-MIB", "aclMacAceIndex"))
+if mibBuilder.loadTexts: aclMacAceEntry.setStatus('current')
+aclMacAceName = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 15)))
+if mibBuilder.loadTexts: aclMacAceName.setStatus('current')
+aclMacAceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32)))
+if mibBuilder.loadTexts: aclMacAceIndex.setStatus('current')
+aclMacAcePrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aclMacAcePrecedence.setStatus('current')
+aclMacAceAction = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("permit", 1), ("deny", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclMacAceAction.setStatus('current')
+aclMacAcePktformat = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("any", 1), ("untagged-Eth2", 2), ("untagged802Dot3", 3), ("tagggedEth2", 4), ("tagged802Dot3", 5)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclMacAcePktformat.setStatus('current')
+aclMacAceSourceMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclMacAceSourceMacAddr.setStatus('current')
+aclMacAceSourceMacAddrBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclMacAceSourceMacAddrBitmask.setStatus('current')
+aclMacAceDestMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclMacAceDestMacAddr.setStatus('current')
+aclMacAceDestMacAddrBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclMacAceDestMacAddrBitmask.setStatus('current')
+aclMacAceVidOp = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noOperator", 1), ("equal", 2), ("range", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclMacAceVidOp.setStatus('current')
+aclMacAceMinVid = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4093))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclMacAceMinVid.setStatus('current')
+aclMacAceVidBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclMacAceVidBitmask.setStatus('current')
+aclMacAceMaxVid = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4093))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclMacAceMaxVid.setStatus('current')
+aclMacAceEtherTypeOp = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noOperator", 1), ("equal", 2), ("range", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclMacAceEtherTypeOp.setStatus('current')
+aclMacAceEtherTypeBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclMacAceEtherTypeBitmask.setStatus('current')
+aclMacAceMinEtherType = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1536, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclMacAceMinEtherType.setStatus('current')
+aclMacAceMaxEtherType = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1536, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclMacAceMaxEtherType.setStatus('current')
+aclMacAceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 2, 1, 18), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclMacAceStatus.setStatus('current')
+aclAclGroupTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 3), )
+if mibBuilder.loadTexts: aclAclGroupTable.setStatus('current')
+aclAclGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 3, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "aclAclGroupIfIndex"))
+if mibBuilder.loadTexts: aclAclGroupEntry.setStatus('current')
+aclAclGroupIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 3, 1, 1), Integer32())
+if mibBuilder.loadTexts: aclAclGroupIfIndex.setStatus('current')
+aclAclGroupIngressIpAcl = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 3, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclAclGroupIngressIpAcl.setStatus('current')
+aclAclGroupEgressIpAcl = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclAclGroupEgressIpAcl.setStatus('current')
+aclAclGroupIngressMacAcl = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 3, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclAclGroupIngressMacAcl.setStatus('current')
+aclAclGroupEgressMacAcl = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 3, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclAclGroupEgressMacAcl.setStatus('current')
+aclIngressIpMaskTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 4), )
+if mibBuilder.loadTexts: aclIngressIpMaskTable.setStatus('current')
+aclIngressIpMaskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 4, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "aclIngressIpMaskIndex"))
+if mibBuilder.loadTexts: aclIngressIpMaskEntry.setStatus('current')
+aclIngressIpMaskIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
+if mibBuilder.loadTexts: aclIngressIpMaskIndex.setStatus('current')
+aclIngressIpMaskPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aclIngressIpMaskPrecedence.setStatus('current')
+aclIngressIpMaskIsEnableTos = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 4, 1, 3), EnabledStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIngressIpMaskIsEnableTos.setStatus('current')
+aclIngressIpMaskIsEnableDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 4, 1, 4), EnabledStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIngressIpMaskIsEnableDscp.setStatus('current')
+aclIngressIpMaskIsEnablePrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 4, 1, 5), EnabledStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIngressIpMaskIsEnablePrecedence.setStatus('current')
+aclIngressIpMaskIsEnableProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 4, 1, 6), EnabledStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIngressIpMaskIsEnableProtocol.setStatus('current')
+aclIngressIpMaskSourceIpAddrBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 4, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIngressIpMaskSourceIpAddrBitmask.setStatus('current')
+aclIngressIpMaskDestIpAddrBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 4, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIngressIpMaskDestIpAddrBitmask.setStatus('current')
+aclIngressIpMaskSourcePortBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 4, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIngressIpMaskSourcePortBitmask.setStatus('current')
+aclIngressIpMaskDestPortBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 4, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIngressIpMaskDestPortBitmask.setStatus('current')
+aclIngressIpMaskControlCodeBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 4, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIngressIpMaskControlCodeBitmask.setStatus('current')
+aclIngressIpMaskStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 4, 1, 12), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIngressIpMaskStatus.setStatus('current')
+aclEgressIpMaskTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 5), )
+if mibBuilder.loadTexts: aclEgressIpMaskTable.setStatus('current')
+aclEgressIpMaskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 5, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "aclEgressIpMaskIndex"))
+if mibBuilder.loadTexts: aclEgressIpMaskEntry.setStatus('current')
+aclEgressIpMaskIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
+if mibBuilder.loadTexts: aclEgressIpMaskIndex.setStatus('current')
+aclEgressIpMaskPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 5, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aclEgressIpMaskPrecedence.setStatus('current')
+aclEgressIpMaskIsEnableTos = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 5, 1, 3), EnabledStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclEgressIpMaskIsEnableTos.setStatus('current')
+aclEgressIpMaskIsEnableDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 5, 1, 4), EnabledStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclEgressIpMaskIsEnableDscp.setStatus('current')
+aclEgressIpMaskIsEnablePrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 5, 1, 5), EnabledStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclEgressIpMaskIsEnablePrecedence.setStatus('current')
+aclEgressIpMaskIsEnableProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 5, 1, 6), EnabledStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclEgressIpMaskIsEnableProtocol.setStatus('current')
+aclEgressIpMaskSourceIpAddrBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 5, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclEgressIpMaskSourceIpAddrBitmask.setStatus('current')
+aclEgressIpMaskDestIpAddrBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 5, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclEgressIpMaskDestIpAddrBitmask.setStatus('current')
+aclEgressIpMaskSourcePortBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 5, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclEgressIpMaskSourcePortBitmask.setStatus('current')
+aclEgressIpMaskDestPortBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 5, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclEgressIpMaskDestPortBitmask.setStatus('current')
+aclEgressIpMaskControlCodeBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 5, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclEgressIpMaskControlCodeBitmask.setStatus('current')
+aclEgressIpMaskStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 5, 1, 12), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclEgressIpMaskStatus.setStatus('current')
+aclIngressMacMaskTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 6), )
+if mibBuilder.loadTexts: aclIngressMacMaskTable.setStatus('current')
+aclIngressMacMaskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 6, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "aclIngressMacMaskIndex"))
+if mibBuilder.loadTexts: aclIngressMacMaskEntry.setStatus('current')
+aclIngressMacMaskIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
+if mibBuilder.loadTexts: aclIngressMacMaskIndex.setStatus('current')
+aclIngressMacMaskPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 6, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aclIngressMacMaskPrecedence.setStatus('current')
+aclIngressMacMaskSourceMacAddrBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 6, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIngressMacMaskSourceMacAddrBitmask.setStatus('current')
+aclIngressMacMaskDestMacAddrBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 6, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIngressMacMaskDestMacAddrBitmask.setStatus('current')
+aclIngressMacMaskVidBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 6, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIngressMacMaskVidBitmask.setStatus('current')
+aclIngressMacMaskEtherTypeBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 6, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIngressMacMaskEtherTypeBitmask.setStatus('current')
+aclIngressMacMaskIsEnablePktformat = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 6, 1, 7), EnabledStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIngressMacMaskIsEnablePktformat.setStatus('current')
+aclIngressMacMaskStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 6, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIngressMacMaskStatus.setStatus('current')
+aclEgressMacMaskTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 7), )
+if mibBuilder.loadTexts: aclEgressMacMaskTable.setStatus('current')
+aclEgressMacMaskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 7, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "aclEgressMacMaskIndex"))
+if mibBuilder.loadTexts: aclEgressMacMaskEntry.setStatus('current')
+aclEgressMacMaskIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 7, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
+if mibBuilder.loadTexts: aclEgressMacMaskIndex.setStatus('current')
+aclEgressMacMaskPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 7, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aclEgressMacMaskPrecedence.setStatus('current')
+aclEgressMacMaskSourceMacAddrBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 7, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclEgressMacMaskSourceMacAddrBitmask.setStatus('current')
+aclEgressMacMaskDestMacAddrBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 7, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclEgressMacMaskDestMacAddrBitmask.setStatus('current')
+aclEgressMacMaskVidBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 7, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclEgressMacMaskVidBitmask.setStatus('current')
+aclEgressMacMaskEtherTypeBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 7, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclEgressMacMaskEtherTypeBitmask.setStatus('current')
+aclEgressMacMaskIsEnablePktformat = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 7, 1, 7), EnabledStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclEgressMacMaskIsEnablePktformat.setStatus('current')
+aclEgressMacMaskStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 7, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclEgressMacMaskStatus.setStatus('current')
+aclIpTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 8), )
+if mibBuilder.loadTexts: aclIpTable.setStatus('current')
+aclIpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 8, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "aclIpAclName"))
+if mibBuilder.loadTexts: aclIpEntry.setStatus('current')
+aclIpAclName = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 8, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aclIpAclName.setStatus('current')
+aclMacTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 9), )
+if mibBuilder.loadTexts: aclMacTable.setStatus('current')
+aclMacEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 9, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "aclMacAclName"))
+if mibBuilder.loadTexts: aclMacEntry.setStatus('current')
+aclMacAclName = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 7, 9, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aclMacAclName.setStatus('current')
+ipFilterSnmpTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 9, 1), )
+if mibBuilder.loadTexts: ipFilterSnmpTable.setStatus('current')
+ipFilterSnmpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 9, 1, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "ipFilterSnmpStartAddress"))
+if mibBuilder.loadTexts: ipFilterSnmpEntry.setStatus('current')
+ipFilterSnmpStartAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 9, 1, 1, 1), IpAddress())
+if mibBuilder.loadTexts: ipFilterSnmpStartAddress.setStatus('current')
+ipFilterSnmpEndAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 9, 1, 1, 2), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ipFilterSnmpEndAddress.setStatus('current')
+ipFilterSnmpStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 9, 1, 1, 3), ValidStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ipFilterSnmpStatus.setStatus('current')
+ipFilterHTTPTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 9, 2), )
+if mibBuilder.loadTexts: ipFilterHTTPTable.setStatus('current')
+ipFilterHTTPEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 9, 2, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "ipFilterHTTPStartAddress"))
+if mibBuilder.loadTexts: ipFilterHTTPEntry.setStatus('current')
+ipFilterHTTPStartAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 9, 2, 1, 1), IpAddress())
+if mibBuilder.loadTexts: ipFilterHTTPStartAddress.setStatus('current')
+ipFilterHTTPEndAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 9, 2, 1, 2), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ipFilterHTTPEndAddress.setStatus('current')
+ipFilterHTTPStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 9, 2, 1, 3), ValidStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ipFilterHTTPStatus.setStatus('current')
+ipFilterTelnetTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 9, 3), )
+if mibBuilder.loadTexts: ipFilterTelnetTable.setStatus('current')
+ipFilterTelnetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 9, 3, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "ipFilterTelnetStartAddress"))
+if mibBuilder.loadTexts: ipFilterTelnetEntry.setStatus('current')
+ipFilterTelnetStartAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 9, 3, 1, 1), IpAddress())
+if mibBuilder.loadTexts: ipFilterTelnetStartAddress.setStatus('current')
+ipFilterTelnetEndAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 9, 3, 1, 2), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ipFilterTelnetEndAddress.setStatus('current')
+ipFilterTelnetStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 17, 9, 3, 1, 3), ValidStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ipFilterTelnetStatus.setStatus('current')
+arpMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 1))
+ripMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 2))
+ospfMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3))
+dvmrpMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4))
+routeMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 5))
+arpCacheDeleteAll = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("delete", 1), ("noDelete", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: arpCacheDeleteAll.setStatus('current')
+arpCacheTimeout = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(300, 86400))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: arpCacheTimeout.setStatus('current')
+arpTrafficStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 1, 3))
+arpStatSendRequestPackets = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 1, 3, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arpStatSendRequestPackets.setStatus('current')
+arpStatRcvRequestPackets = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 1, 3, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arpStatRcvRequestPackets.setStatus('current')
+arpStatSendReplyPackets = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 1, 3, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arpStatSendReplyPackets.setStatus('current')
+arpStatRcvReplyPackets = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 1, 3, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arpStatRcvReplyPackets.setStatus('current')
+arpProxyArpTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 1, 4), )
+if mibBuilder.loadTexts: arpProxyArpTable.setStatus('current')
+arpProxyArpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 1, 4, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "arpProxyArpIfIndex"))
+if mibBuilder.loadTexts: arpProxyArpEntry.setStatus('current')
+arpProxyArpIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 1, 4, 1, 1), Integer32())
+if mibBuilder.loadTexts: arpProxyArpIfIndex.setStatus('current')
+arpProxyArpStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 1, 4, 1, 2), EnabledStatus().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: arpProxyArpStatus.setStatus('current')
+ripTimers = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 2, 1))
+ripUpdateTime = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(15, 60)).clone(30)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ripUpdateTime.setStatus('current')
+ripTimeoutTime = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(90, 360)).clone(180)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ripTimeoutTime.setStatus('current')
+ripGarbageCollectionTime = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(60, 240)).clone(120)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ripGarbageCollectionTime.setStatus('current')
+ripRoutingProcessStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 2, 2), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ripRoutingProcessStatus.setStatus('current')
+ripRouterVersion = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("byInterface", 1), ("rip1", 2), ("rip2", 3))).clone('rip2')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ripRouterVersion.setStatus('current')
+ripInstabilityPreventingTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 2, 4), )
+if mibBuilder.loadTexts: ripInstabilityPreventingTable.setStatus('current')
+ripInstabilityPreventingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 2, 4, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "ripVlanIndex"))
+if mibBuilder.loadTexts: ripInstabilityPreventingEntry.setStatus('current')
+ripVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 2, 4, 1, 1), Integer32())
+if mibBuilder.loadTexts: ripVlanIndex.setStatus('current')
+ripSplitHorizonStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 2, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("splitHorizon", 1), ("poisonReverse", 2), ("none", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ripSplitHorizonStatus.setStatus('current')
+ripStatisticsReset = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 2, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("reset", 1), ("noReset", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ripStatisticsReset.setStatus('current')
+ripNetworkAddrTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 2, 6), )
+if mibBuilder.loadTexts: ripNetworkAddrTable.setStatus('current')
+ripNetworkAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 2, 6, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "ripNetworkAddrAddress"))
+if mibBuilder.loadTexts: ripNetworkAddrEntry.setStatus('current')
+ripNetworkAddrAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 2, 6, 1, 1), IpAddress())
+if mibBuilder.loadTexts: ripNetworkAddrAddress.setStatus('current')
+ripNetworkAddrStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 2, 6, 1, 2), ValidStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ripNetworkAddrStatus.setStatus('current')
+ospfSystemGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 1))
+ospfRouterIdType = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("auto", 1), ("manual", 2))).clone('auto')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ospfRouterIdType.setStatus('current')
+ospfRfc1583CompatibleState = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 1, 2), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ospfRfc1583CompatibleState.setStatus('current')
+ospfAutoCost = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 1, 3), Integer32().clone(100)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ospfAutoCost.setStatus('current')
+ospfOriginateDefaultRoute = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 1, 4), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ospfOriginateDefaultRoute.setStatus('current')
+ospfAdvertiseDefaultRoute = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("always", 1), ("notAlways", 2))).clone('notAlways')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ospfAdvertiseDefaultRoute.setStatus('current')
+ospfExternalMetricType = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("type1", 1), ("type2", 2))).clone('type2')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ospfExternalMetricType.setStatus('current')
+ospfDefaultExternalMetric = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 1, 7), OspfBigMetric().clone(10)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ospfDefaultExternalMetric.setStatus('current')
+ospfSpfHoldTime = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(10)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ospfSpfHoldTime.setStatus('current')
+ospfSpfDelayTime = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ospfSpfDelayTime.setStatus('current')
+ospfAreaNumber = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ospfAreaNumber.setStatus('current')
+ospfNssaTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 2), )
+if mibBuilder.loadTexts: ospfNssaTable.setStatus('current')
+ospfNssaEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 2, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "ospfNssaAreaId"))
+if mibBuilder.loadTexts: ospfNssaEntry.setStatus('current')
+ospfNssaAreaId = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 2, 1, 1), OspfAreaID())
+if mibBuilder.loadTexts: ospfNssaAreaId.setStatus('current')
+ospfNssaRedistributeStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 2, 1, 2), EnabledStatus().clone('enabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ospfNssaRedistributeStatus.setStatus('current')
+ospfNssaOriginateDefaultInfoStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 2, 1, 3), EnabledStatus().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ospfNssaOriginateDefaultInfoStatus.setStatus('current')
+ospfNssaStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ospfNssaStatus.setStatus('current')
+ospfRedistributeTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 3), )
+if mibBuilder.loadTexts: ospfRedistributeTable.setStatus('current')
+ospfRedistributeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 3, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "ospfRedistributeProtocol"))
+if mibBuilder.loadTexts: ospfRedistributeEntry.setStatus('current')
+ospfRedistributeProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("rip", 1), ("static", 2))))
+if mibBuilder.loadTexts: ospfRedistributeProtocol.setStatus('current')
+ospfRedistributeMetricType = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("type1", 1), ("type2", 2))).clone('type2')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ospfRedistributeMetricType.setStatus('current')
+ospfRedistributeMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 3, 1, 3), OspfBigMetric().clone(10)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ospfRedistributeMetric.setStatus('current')
+ospfRedistributeStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 3, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ospfRedistributeStatus.setStatus('current')
+ospfSummaryAddressTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 4), )
+if mibBuilder.loadTexts: ospfSummaryAddressTable.setStatus('current')
+ospfSummaryAddressEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 4, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "ospfSummaryAddress"), (0, "Hirschmann-LION-24TP-MIB", "ospfSummaryMask"))
+if mibBuilder.loadTexts: ospfSummaryAddressEntry.setStatus('current')
+ospfSummaryAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 4, 1, 1), IpAddress())
+if mibBuilder.loadTexts: ospfSummaryAddress.setStatus('current')
+ospfSummaryMask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 4, 1, 2), IpAddress())
+if mibBuilder.loadTexts: ospfSummaryMask.setStatus('current')
+ospfSummaryStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 4, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ospfSummaryStatus.setStatus('current')
+ospfNetworkAreaAddressTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 5), )
+if mibBuilder.loadTexts: ospfNetworkAreaAddressTable.setStatus('current')
+ospfNetworkAreaAddressEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 5, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "ospfNetworkAareaAddress"), (0, "Hirschmann-LION-24TP-MIB", "ospfNetworkAreaMask"))
+if mibBuilder.loadTexts: ospfNetworkAreaAddressEntry.setStatus('current')
+ospfNetworkAareaAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 5, 1, 1), IpAddress())
+if mibBuilder.loadTexts: ospfNetworkAareaAddress.setStatus('current')
+ospfNetworkAreaMask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 5, 1, 2), IpAddress())
+if mibBuilder.loadTexts: ospfNetworkAreaMask.setStatus('current')
+ospfNetworkAreaAreaId = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 5, 1, 3), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ospfNetworkAreaAreaId.setStatus('current')
+ospfNetworkAreaStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 3, 5, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ospfNetworkAreaStatus.setStatus('current')
+dvmrpScalar = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 1))
+dvmrpVersionString = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpVersionString.setStatus('current')
+dvmrpNumRoutes = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpNumRoutes.setStatus('current')
+dvmrpReachableRoutes = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpReachableRoutes.setStatus('current')
+dvmrpInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 2), )
+if mibBuilder.loadTexts: dvmrpInterfaceTable.setStatus('current')
+dvmrpInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 2, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "dvmrpInterfaceIndex"))
+if mibBuilder.loadTexts: dvmrpInterfaceEntry.setStatus('current')
+dvmrpInterfaceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 2, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: dvmrpInterfaceIndex.setStatus('current')
+dvmrpInterfaceLocalAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 2, 1, 2), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dvmrpInterfaceLocalAddress.setStatus('current')
+dvmrpInterfaceMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 31)).clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dvmrpInterfaceMetric.setStatus('current')
+dvmrpInterfaceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dvmrpInterfaceStatus.setStatus('current')
+dvmrpInterfaceRcvBadPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 2, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpInterfaceRcvBadPkts.setStatus('current')
+dvmrpInterfaceRcvBadRoutes = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 2, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpInterfaceRcvBadRoutes.setStatus('current')
+dvmrpInterfaceSentRoutes = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpInterfaceSentRoutes.setStatus('current')
+dvmrpInterfaceKey = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 2, 1, 8), SnmpAdminString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dvmrpInterfaceKey.setStatus('current')
+dvmrpInterfaceKeyVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 2, 1, 9), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dvmrpInterfaceKeyVersion.setStatus('current')
+dvmrpInterfaceGenerationId = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 2, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpInterfaceGenerationId.setStatus('current')
+dvmrpNeighborTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 3), )
+if mibBuilder.loadTexts: dvmrpNeighborTable.setStatus('current')
+dvmrpNeighborEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 3, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "dvmrpNeighborIfIndex"), (0, "Hirschmann-LION-24TP-MIB", "dvmrpNeighborAddress"))
+if mibBuilder.loadTexts: dvmrpNeighborEntry.setStatus('current')
+dvmrpNeighborIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 3, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: dvmrpNeighborIfIndex.setStatus('current')
+dvmrpNeighborAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 3, 1, 2), IpAddress())
+if mibBuilder.loadTexts: dvmrpNeighborAddress.setStatus('current')
+dvmrpNeighborUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 3, 1, 3), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpNeighborUpTime.setStatus('current')
+dvmrpNeighborExpiryTime = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 3, 1, 4), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpNeighborExpiryTime.setStatus('current')
+dvmrpNeighborGenerationId = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 3, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpNeighborGenerationId.setStatus('current')
+dvmrpNeighborMajorVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 3, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpNeighborMajorVersion.setStatus('current')
+dvmrpNeighborMinorVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 3, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpNeighborMinorVersion.setStatus('current')
+dvmrpNeighborCapabilities = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 3, 1, 8), Bits().clone(namedValues=NamedValues(("leaf", 0), ("prune", 1), ("generationID", 2), ("mtrace", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpNeighborCapabilities.setStatus('current')
+dvmrpNeighborRcvRoutes = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 3, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpNeighborRcvRoutes.setStatus('current')
+dvmrpNeighborRcvBadPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 3, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpNeighborRcvBadPkts.setStatus('current')
+dvmrpNeighborRcvBadRoutes = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 3, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpNeighborRcvBadRoutes.setStatus('current')
+dvmrpNeighborState = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 3, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("oneway", 1), ("active", 2), ("ignoring", 3), ("down", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpNeighborState.setStatus('current')
+dvmrpRouteTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 4), )
+if mibBuilder.loadTexts: dvmrpRouteTable.setStatus('current')
+dvmrpRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 4, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "dvmrpRouteSource"), (0, "Hirschmann-LION-24TP-MIB", "dvmrpRouteSourceMask"))
+if mibBuilder.loadTexts: dvmrpRouteEntry.setStatus('current')
+dvmrpRouteSource = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 4, 1, 1), IpAddress())
+if mibBuilder.loadTexts: dvmrpRouteSource.setStatus('current')
+dvmrpRouteSourceMask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 4, 1, 2), IpAddress())
+if mibBuilder.loadTexts: dvmrpRouteSourceMask.setStatus('current')
+dvmrpRouteUpstreamNeighbor = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 4, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpRouteUpstreamNeighbor.setStatus('current')
+dvmrpRouteIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 4, 1, 4), InterfaceIndexOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpRouteIfIndex.setStatus('current')
+dvmrpRouteMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 4, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpRouteMetric.setStatus('current')
+dvmrpRouteExpiryTime = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 4, 1, 6), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpRouteExpiryTime.setStatus('current')
+dvmrpRouteUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 4, 1, 7), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpRouteUpTime.setStatus('current')
+dvmrpRouteNextHopTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 5), )
+if mibBuilder.loadTexts: dvmrpRouteNextHopTable.setStatus('current')
+dvmrpRouteNextHopEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 5, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "dvmrpRouteNextHopSource"), (0, "Hirschmann-LION-24TP-MIB", "dvmrpRouteNextHopSourceMask"), (0, "Hirschmann-LION-24TP-MIB", "dvmrpRouteNextHopIfIndex"))
+if mibBuilder.loadTexts: dvmrpRouteNextHopEntry.setStatus('current')
+dvmrpRouteNextHopSource = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 5, 1, 1), IpAddress())
+if mibBuilder.loadTexts: dvmrpRouteNextHopSource.setStatus('current')
+dvmrpRouteNextHopSourceMask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 5, 1, 2), IpAddress())
+if mibBuilder.loadTexts: dvmrpRouteNextHopSourceMask.setStatus('current')
+dvmrpRouteNextHopIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 5, 1, 3), InterfaceIndex())
+if mibBuilder.loadTexts: dvmrpRouteNextHopIfIndex.setStatus('current')
+dvmrpRouteNextHopType = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 5, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("leaf", 1), ("branch", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpRouteNextHopType.setStatus('current')
+dvmrpPruneTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 6), )
+if mibBuilder.loadTexts: dvmrpPruneTable.setStatus('current')
+dvmrpPruneEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 6, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "dvmrpPruneGroup"), (0, "Hirschmann-LION-24TP-MIB", "dvmrpPruneSource"), (0, "Hirschmann-LION-24TP-MIB", "dvmrpPruneSourceMask"))
+if mibBuilder.loadTexts: dvmrpPruneEntry.setStatus('current')
+dvmrpPruneGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 6, 1, 1), IpAddress())
+if mibBuilder.loadTexts: dvmrpPruneGroup.setStatus('current')
+dvmrpPruneSource = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 6, 1, 2), IpAddress())
+if mibBuilder.loadTexts: dvmrpPruneSource.setStatus('current')
+dvmrpPruneSourceMask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 6, 1, 3), IpAddress())
+if mibBuilder.loadTexts: dvmrpPruneSourceMask.setStatus('current')
+dvmrpPruneExpiryTime = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 4, 6, 1, 4), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dvmrpPruneExpiryTime.setStatus('current')
+ipCidrRouteExtTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 5, 2), )
+if mibBuilder.loadTexts: ipCidrRouteExtTable.setStatus('current')
+ipCidrRouteExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 5, 2, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "ipCidrRouteExtDest"), (0, "Hirschmann-LION-24TP-MIB", "ipCidrRouteExtMask"), (0, "Hirschmann-LION-24TP-MIB", "ipCidrRouteExtTos"), (0, "Hirschmann-LION-24TP-MIB", "ipCidrRouteExtNextHop"))
+if mibBuilder.loadTexts: ipCidrRouteExtEntry.setStatus('current')
+ipCidrRouteExtDest = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 5, 2, 1, 1), IpAddress())
+if mibBuilder.loadTexts: ipCidrRouteExtDest.setStatus('current')
+ipCidrRouteExtMask = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 5, 2, 1, 2), IpAddress())
+if mibBuilder.loadTexts: ipCidrRouteExtMask.setStatus('current')
+ipCidrRouteExtTos = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 5, 2, 1, 3), Integer32())
+if mibBuilder.loadTexts: ipCidrRouteExtTos.setStatus('current')
+ipCidrRouteExtNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 5, 2, 1, 4), IpAddress())
+if mibBuilder.loadTexts: ipCidrRouteExtNextHop.setStatus('current')
+ipCidrRouteExtOspfSubType = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 18, 5, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("none", 1), ("ospfInter", 2), ("ospfIntra", 3), ("ospfNssa1", 4), ("ospfNssa2", 5), ("ospfType1", 6), ("ospfType2", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipCidrRouteExtOspfSubType.setStatus('current')
+sysLogStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sysLogStatus.setStatus('current')
+sysLogHistoryFlashLevel = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sysLogHistoryFlashLevel.setStatus('current')
+sysLogHistoryRamLevel = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sysLogHistoryRamLevel.setStatus('current')
+remoteLogMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 6))
+remoteLogStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 6, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: remoteLogStatus.setStatus('current')
+remoteLogLevel = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 6, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: remoteLogLevel.setStatus('current')
+remoteLogFacilityType = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 6, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(16, 17, 18, 19, 20, 21, 22, 23))).clone(namedValues=NamedValues(("localUse0", 16), ("localUse1", 17), ("localUse2", 18), ("localUse3", 19), ("localUse4", 20), ("localUse5", 21), ("localUse6", 22), ("localUse7", 23)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: remoteLogFacilityType.setStatus('current')
+remoteLogServerTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 6, 4), )
+if mibBuilder.loadTexts: remoteLogServerTable.setStatus('current')
+remoteLogServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 6, 4, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "remoteLogServerIp"))
+if mibBuilder.loadTexts: remoteLogServerEntry.setStatus('current')
+remoteLogServerIp = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 6, 4, 1, 1), IpAddress())
+if mibBuilder.loadTexts: remoteLogServerIp.setStatus('current')
+remoteLogServerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 6, 4, 1, 2), ValidStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: remoteLogServerStatus.setStatus('current')
+smtpMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 7))
+smtpStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 7, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: smtpStatus.setStatus('current')
+smtpSeverityLevel = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 7, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: smtpSeverityLevel.setStatus('current')
+smtpSourceEMail = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 7, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 41))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: smtpSourceEMail.setStatus('current')
+smtpServerIpTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 7, 4), )
+if mibBuilder.loadTexts: smtpServerIpTable.setStatus('current')
+smtpServerIpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 7, 4, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "smtpServerIp"))
+if mibBuilder.loadTexts: smtpServerIpEntry.setStatus('current')
+smtpServerIp = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 7, 4, 1, 1), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: smtpServerIp.setStatus('current')
+smtpServerIpStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 7, 4, 1, 2), ValidStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: smtpServerIpStatus.setStatus('current')
+smtpDestEMailTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 7, 5), )
+if mibBuilder.loadTexts: smtpDestEMailTable.setStatus('current')
+smtpDestEMailEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 7, 5, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "smtpDestEMail"))
+if mibBuilder.loadTexts: smtpDestEMailEntry.setStatus('current')
+smtpDestEMail = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 7, 5, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 41)))
+if mibBuilder.loadTexts: smtpDestEMail.setStatus('current')
+smtpDestEMailStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 19, 7, 5, 1, 2), ValidStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: smtpDestEMailStatus.setStatus('current')
+consoleMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 20, 1))
+telnetMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 20, 2))
+consoleDataBits = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 20, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("databits7", 1), ("databits8", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: consoleDataBits.setStatus('current')
+consoleParity = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 20, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("partyNone", 1), ("partyEven", 2), ("partyOdd", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: consoleParity.setStatus('current')
+consoleStopBits = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 20, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("stopbits1", 1), ("stopbits2", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: consoleStopBits.setStatus('current')
+consoleExecTimeout = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 20, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: consoleExecTimeout.setStatus('current')
+consolePasswordThreshold = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 20, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 120))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: consolePasswordThreshold.setStatus('current')
+consoleSilentTime = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 20, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: consoleSilentTime.setStatus('current')
+consoleAdminBaudRate = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 20, 1, 8), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: consoleAdminBaudRate.setStatus('current')
+consoleOperBaudRate = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 20, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: consoleOperBaudRate.setStatus('current')
+consoleLoginResponseTimeout = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 20, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 300))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: consoleLoginResponseTimeout.setStatus('current')
+telnetExecTimeout = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 20, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: telnetExecTimeout.setStatus('current')
+telnetPasswordThreshold = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 20, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 120))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: telnetPasswordThreshold.setStatus('current')
+telnetLoginResponseTimeout = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 20, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 300))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: telnetLoginResponseTimeout.setStatus('current')
+telnetStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 20, 2, 4), EnabledStatus().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: telnetStatus.setStatus('current')
+telnetPortNumber = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 20, 2, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(23)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: telnetPortNumber.setStatus('current')
+sntpMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 23, 1))
+sntpStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 23, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpStatus.setStatus('current')
+sntpServiceMode = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 23, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unicast", 1), ("broadcast", 2), ("anycast", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpServiceMode.setStatus('current')
+sntpPollInterval = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 23, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(16, 16384))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpPollInterval.setStatus('current')
+sntpServerTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 23, 1, 4), )
+if mibBuilder.loadTexts: sntpServerTable.setStatus('current')
+sntpServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 23, 1, 4, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "sntpServerIndex"))
+if mibBuilder.loadTexts: sntpServerEntry.setStatus('current')
+sntpServerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 23, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3)))
+if mibBuilder.loadTexts: sntpServerIndex.setStatus('current')
+sntpServerIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 23, 1, 4, 1, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpServerIpAddress.setStatus('current')
+sysCurrentTime = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 23, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(20, 20)).setFixedLength(20)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sysCurrentTime.setStatus('current')
+sysTimeZone = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 23, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sysTimeZone.setStatus('current')
+sysTimeZoneName = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 23, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sysTimeZoneName.setStatus('current')
+fileCopyMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 1))
+fileCopySrcOperType = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("file", 1), ("runningCfg", 2), ("startUpCfg", 3), ("tftp", 4), ("unit", 5)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fileCopySrcOperType.setStatus('current')
+fileCopySrcFileName = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fileCopySrcFileName.setStatus('current')
+fileCopyDestOperType = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("file", 1), ("runningCfg", 2), ("startUpCfg", 3), ("tftp", 4), ("unit", 5)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fileCopyDestOperType.setStatus('current')
+fileCopyDestFileName = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fileCopyDestFileName.setStatus('current')
+fileCopyFileType = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("opcode", 1), ("config", 2), ("bootRom", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fileCopyFileType.setStatus('current')
+fileCopyTftpServer = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 1, 6), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fileCopyTftpServer.setStatus('current')
+fileCopyUnitId = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 1, 7), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fileCopyUnitId.setStatus('current')
+fileCopyAction = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("notCopying", 1), ("copy", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fileCopyAction.setStatus('current')
+fileCopyStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 1, 9), FileCopyStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fileCopyStatus.setStatus('current')
+fileInfoMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 2))
+fileInfoTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 2, 1), )
+if mibBuilder.loadTexts: fileInfoTable.setStatus('current')
+fileInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 2, 1, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "fileInfoUnitID"), (1, "Hirschmann-LION-24TP-MIB", "fileInfoFileName"))
+if mibBuilder.loadTexts: fileInfoEntry.setStatus('current')
+fileInfoUnitID = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 2, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: fileInfoUnitID.setStatus('current')
+fileInfoFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 2, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32)))
+if mibBuilder.loadTexts: fileInfoFileName.setStatus('current')
+fileInfoFileType = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("diag", 1), ("runtime", 2), ("syslog", 3), ("cmdlog", 4), ("config", 5), ("postlog", 6), ("private", 7), ("certificate", 8), ("webarchive", 9)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fileInfoFileType.setStatus('current')
+fileInfoIsStartUp = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 2, 1, 1, 4), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fileInfoIsStartUp.setStatus('current')
+fileInfoFileSize = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 2, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fileInfoFileSize.setStatus('current')
+fileInfoCreationTime = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 2, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(20, 20)).setFixedLength(20)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fileInfoCreationTime.setStatus('current')
+fileInfoDelete = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noDelete", 1), ("delete", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fileInfoDelete.setStatus('current')
+fileAutoDownloadResultTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 3), )
+if mibBuilder.loadTexts: fileAutoDownloadResultTable.setStatus('current')
+fileAutoDownloadResultEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 3, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "fileAutoDownloadResultUnitID"))
+if mibBuilder.loadTexts: fileAutoDownloadResultEntry.setStatus('current')
+fileAutoDownloadResultUnitID = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 3, 1, 1), Integer32())
+if mibBuilder.loadTexts: fileAutoDownloadResultUnitID.setStatus('current')
+fileAutoDownloadResultAction = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("notCopying", 1), ("copying", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fileAutoDownloadResultAction.setStatus('current')
+fileAutoDownloadResultStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 24, 3, 1, 3), FileCopyStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fileAutoDownloadResultStatus.setStatus('current')
+dnsDomainLookup = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dnsDomainLookup.setStatus('current')
+dnsDomainName = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dnsDomainName.setStatus('current')
+dnsHostTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 3), )
+if mibBuilder.loadTexts: dnsHostTable.setStatus('current')
+dnsHostEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 3, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "dnsHostName"), (0, "Hirschmann-LION-24TP-MIB", "dnsHostIndex"))
+if mibBuilder.loadTexts: dnsHostEntry.setStatus('current')
+dnsHostName = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 3, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 255)))
+if mibBuilder.loadTexts: dnsHostName.setStatus('current')
+dnsHostIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)))
+if mibBuilder.loadTexts: dnsHostIndex.setStatus('current')
+dnsHostIp = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 3, 1, 3), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dnsHostIp.setStatus('current')
+dnsAliasTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 4), )
+if mibBuilder.loadTexts: dnsAliasTable.setStatus('current')
+dnsAliasEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 4, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "dnsAliasName"), (0, "Hirschmann-LION-24TP-MIB", "dnaAliasAlias"))
+if mibBuilder.loadTexts: dnsAliasEntry.setStatus('current')
+dnsAliasName = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 4, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dnsAliasName.setStatus('current')
+dnaAliasAlias = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 4, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dnaAliasAlias.setStatus('current')
+dnsDomainListTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 5), )
+if mibBuilder.loadTexts: dnsDomainListTable.setStatus('current')
+dnsDomainListEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 5, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "dnsDomainListName"))
+if mibBuilder.loadTexts: dnsDomainListEntry.setStatus('current')
+dnsDomainListName = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 5, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 255)))
+if mibBuilder.loadTexts: dnsDomainListName.setStatus('current')
+dnsDomainListStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 5, 1, 2), ValidStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dnsDomainListStatus.setStatus('current')
+dnsNameServerTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 6), )
+if mibBuilder.loadTexts: dnsNameServerTable.setStatus('current')
+dnsNameServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 6, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "dnsNameServerIndex"))
+if mibBuilder.loadTexts: dnsNameServerEntry.setStatus('current')
+dnsNameServerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 6)))
+if mibBuilder.loadTexts: dnsNameServerIndex.setStatus('current')
+dnsNameServerIp = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 6, 1, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dnsNameServerIp.setStatus('current')
+dnsCacheTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 7), )
+if mibBuilder.loadTexts: dnsCacheTable.setStatus('current')
+dnsCacheEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 7, 1), ).setIndexNames((0, "Hirschmann-LION-24TP-MIB", "dnsCacheIndex"))
+if mibBuilder.loadTexts: dnsCacheEntry.setStatus('current')
+dnsCacheIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 7, 1, 1), Integer32())
+if mibBuilder.loadTexts: dnsCacheIndex.setStatus('current')
+dnsCacheFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 7, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dnsCacheFlag.setStatus('current')
+dnsCacheType = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 7, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("address", 1), ("cname", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dnsCacheType.setStatus('current')
+dnsCacheIp = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 7, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dnsCacheIp.setStatus('current')
+dnsCacheTtl = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 7, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 876000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dnsCacheTtl.setStatus('current')
+dnsCacheDomain = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 26, 7, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dnsCacheDomain.setStatus('current')
+cHsrpGlobalConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 1))
+cHsrpGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2))
+cHsrpConfigTimeout = MibScalar((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 60)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cHsrpConfigTimeout.setStatus('current')
+cHsrpGrpTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2, 1), )
+if mibBuilder.loadTexts: cHsrpGrpTable.setStatus('current')
+cHsrpGrpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "Hirschmann-LION-24TP-MIB", "cHsrpGrpNumber"))
+if mibBuilder.loadTexts: cHsrpGrpEntry.setStatus('current')
+cHsrpGrpNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)))
+if mibBuilder.loadTexts: cHsrpGrpNumber.setStatus('current')
+cHsrpGrpAuth = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8)).clone('cisco')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cHsrpGrpAuth.setStatus('current')
+cHsrpGrpPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)).clone(100)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cHsrpGrpPriority.setStatus('current')
+cHsrpGrpPreempt = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2, 1, 1, 4), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cHsrpGrpPreempt.setStatus('current')
+cHsrpGrpPreemptDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 3600))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cHsrpGrpPreemptDelay.setStatus('current')
+cHsrpGrpUseConfiguredTimers = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2, 1, 1, 6), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cHsrpGrpUseConfiguredTimers.setStatus('current')
+cHsrpGrpConfiguredHelloTime = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2, 1, 1, 7), Unsigned32().clone(3000)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cHsrpGrpConfiguredHelloTime.setStatus('current')
+cHsrpGrpConfiguredHoldTime = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2, 1, 1, 8), Unsigned32().clone(10000)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cHsrpGrpConfiguredHoldTime.setStatus('current')
+cHsrpGrpLearnedHelloTime = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2, 1, 1, 9), Unsigned32().clone(3000)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cHsrpGrpLearnedHelloTime.setStatus('current')
+cHsrpGrpLearnedHoldTime = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2, 1, 1, 10), Unsigned32().clone(10000)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cHsrpGrpLearnedHoldTime.setStatus('current')
+cHsrpGrpVirtualIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2, 1, 1, 11), IpAddress().clone(hexValue="00000000")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cHsrpGrpVirtualIpAddr.setStatus('current')
+cHsrpGrpUseConfigVirtualIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2, 1, 1, 12), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cHsrpGrpUseConfigVirtualIpAddr.setStatus('current')
+cHsrpGrpActiveRouter = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2, 1, 1, 13), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cHsrpGrpActiveRouter.setStatus('current')
+cHsrpGrpStandbyRouter = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2, 1, 1, 14), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cHsrpGrpStandbyRouter.setStatus('current')
+cHsrpGrpStandbyState = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2, 1, 1, 15), HsrpState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cHsrpGrpStandbyState.setStatus('current')
+cHsrpGrpVirtualMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2, 1, 1, 16), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cHsrpGrpVirtualMacAddr.setStatus('current')
+cHsrpGrpEntryRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 2, 1, 1, 17), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cHsrpGrpEntryRowStatus.setStatus('current')
+cHsrpExtGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 3))
+cHsrpExtIfTrackedTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 3, 1), )
+if mibBuilder.loadTexts: cHsrpExtIfTrackedTable.setStatus('current')
+cHsrpExtIfTrackedEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 3, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "Hirschmann-LION-24TP-MIB", "cHsrpGrpNumber"), (0, "Hirschmann-LION-24TP-MIB", "cHsrpExtIfTracked"))
+if mibBuilder.loadTexts: cHsrpExtIfTrackedEntry.setStatus('current')
+cHsrpExtIfTracked = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 3, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: cHsrpExtIfTracked.setStatus('current')
+cHsrpExtIfTrackedPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 3, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cHsrpExtIfTrackedPriority.setStatus('current')
+cHsrpExtIfTrackedRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 3, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cHsrpExtIfTrackedRowStatus.setStatus('current')
+cHsrpExtSecAddrTable = MibTable((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 3, 2), )
+if mibBuilder.loadTexts: cHsrpExtSecAddrTable.setStatus('current')
+cHsrpExtSecAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 3, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "Hirschmann-LION-24TP-MIB", "cHsrpGrpNumber"), (0, "Hirschmann-LION-24TP-MIB", "cHsrpExtSecAddrAddress"))
+if mibBuilder.loadTexts: cHsrpExtSecAddrEntry.setStatus('current')
+cHsrpExtSecAddrAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 3, 2, 1, 1), IpAddress())
+if mibBuilder.loadTexts: cHsrpExtSecAddrAddress.setStatus('current')
+cHsrpExtSecAddrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 1, 29, 3, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cHsrpExtSecAddrRowStatus.setStatus('current')
+lion24tpTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 2, 1))
+lion24tpTrapsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 2, 1, 0))
+swPowerStatusChangeTrap = NotificationType((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 2, 1, 0, 1)).setObjects(("Hirschmann-LION-24TP-MIB", "swIndivPowerUnitIndex"), ("Hirschmann-LION-24TP-MIB", "swIndivPowerIndex"), ("Hirschmann-LION-24TP-MIB", "swIndivPowerStatus"))
+if mibBuilder.loadTexts: swPowerStatusChangeTrap.setStatus('current')
+swFanFailureTrap = NotificationType((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 2, 1, 0, 17)).setObjects(("Hirschmann-LION-24TP-MIB", "switchUnitIndex"), ("Hirschmann-LION-24TP-MIB", "switchFanIndex"))
+if mibBuilder.loadTexts: swFanFailureTrap.setStatus('current')
+swFanRecoverTrap = NotificationType((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 2, 1, 0, 18)).setObjects(("Hirschmann-LION-24TP-MIB", "switchUnitIndex"), ("Hirschmann-LION-24TP-MIB", "switchFanIndex"))
+if mibBuilder.loadTexts: swFanRecoverTrap.setStatus('current')
+swIpFilterRejectTrap = NotificationType((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 2, 1, 0, 40)).setObjects(("Hirschmann-LION-24TP-MIB", "trapIpFilterRejectMode"), ("Hirschmann-LION-24TP-MIB", "trapIpFilterRejectIp"))
+if mibBuilder.loadTexts: swIpFilterRejectTrap.setStatus('current')
+swSmtpConnFailureTrap = NotificationType((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 2, 1, 0, 41)).setObjects(("Hirschmann-LION-24TP-MIB", "smtpServerIp"))
+if mibBuilder.loadTexts: swSmtpConnFailureTrap.setStatus('current')
+swMainBoardVerMismatchNotificaiton = NotificationType((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 2, 1, 0, 56)).setObjects(("Hirschmann-LION-24TP-MIB", "swOpCodeVer"), ("Hirschmann-LION-24TP-MIB", "swOpCodeVer"))
+if mibBuilder.loadTexts: swMainBoardVerMismatchNotificaiton.setStatus('current')
+swModuleVerMismatchNotificaiton = NotificationType((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 2, 1, 0, 57)).setObjects(("Hirschmann-LION-24TP-MIB", "swExpectedModuleOpCodeVer"), ("Hirschmann-LION-24TP-MIB", "swModuleOpCodeVer"))
+if mibBuilder.loadTexts: swModuleVerMismatchNotificaiton.setStatus('current')
+swThermalRisingNotification = NotificationType((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 2, 1, 0, 58)).setObjects(("Hirschmann-LION-24TP-MIB", "switchThermalTempValue"), ("Hirschmann-LION-24TP-MIB", "switchThermalActionRisingThreshold"))
+if mibBuilder.loadTexts: swThermalRisingNotification.setStatus('current')
+swThermalFallingNotification = NotificationType((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 2, 1, 0, 59)).setObjects(("Hirschmann-LION-24TP-MIB", "switchThermalTempValue"), ("Hirschmann-LION-24TP-MIB", "switchThermalActionFallingThreshold"))
+if mibBuilder.loadTexts: swThermalFallingNotification.setStatus('current')
+swModuleInsertionNotificaiton = NotificationType((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 2, 1, 0, 60)).setObjects(("Hirschmann-LION-24TP-MIB", "swModuleOpCodeVer"))
+if mibBuilder.loadTexts: swModuleInsertionNotificaiton.setStatus('current')
+swModuleRemovalNotificaiton = NotificationType((1, 3, 6, 1, 4, 1, 248, 13, 7, 4, 2, 1, 0, 61)).setObjects(("Hirschmann-LION-24TP-MIB", "swModuleOpCodeVer"))
+if mibBuilder.loadTexts: swModuleRemovalNotificaiton.setStatus('current')
+mibBuilder.exportSymbols("Hirschmann-LION-24TP-MIB", sshDisconnect=sshDisconnect, ipMgt=ipMgt, xstMgt=xstMgt, markerDscp=markerDscp, aclIngressIpMaskIsEnableTos=aclIngressIpMaskIsEnableTos, dnsCacheIp=dnsCacheIp, markerIfIndex=markerIfIndex, xstInstanceCfgBridgeMaxAge=xstInstanceCfgBridgeMaxAge, bcastStormPktRate=bcastStormPktRate, cHsrpGrpLearnedHoldTime=cHsrpGrpLearnedHoldTime, netDefaultGateway=netDefaultGateway, prioIpDscpValue=prioIpDscpValue, xstInstancePortState=xstInstancePortState, cHsrpGroup=cHsrpGroup, consoleMgt=consoleMgt, mirrorDestinationPort=mirrorDestinationPort, prioCopyIpDscp=prioCopyIpDscp, sntpServerTable=sntpServerTable, portType=portType, ripRoutingProcessStatus=ripRoutingProcessStatus, ospfRedistributeStatus=ospfRedistributeStatus, switchRenumberUnitID=switchRenumberUnitID, mstInstanceOperVlansMap4k=mstInstanceOperVlansMap4k, mirrorTable=mirrorTable, consoleAdminBaudRate=consoleAdminBaudRate, dvmrpNeighborTable=dvmrpNeighborTable, ospfRouterIdType=ospfRouterIdType, radiusServerAddress=radiusServerAddress, fileInfoMgt=fileInfoMgt, prioIpPortEnableStatus=prioIpPortEnableStatus, aclIpAceDscp=aclIpAceDscp, dvmrpNeighborEntry=dvmrpNeighborEntry, swModuleRemovalNotificaiton=swModuleRemovalNotificaiton, staPortOperEdgePort=staPortOperEdgePort, cHsrpGrpAuth=cHsrpGrpAuth, radiusMultipleServerAddress=radiusMultipleServerAddress, ipFilterHTTPEndAddress=ipFilterHTTPEndAddress, igmpSnoopMulticastStaticEntry=igmpSnoopMulticastStaticEntry, sshDsaHostKey1=sshDsaHostKey1, fileCopyTftpServer=fileCopyTftpServer, prioWrrPortIfIndex=prioWrrPortIfIndex, dnsCacheType=dnsCacheType, ipCidrRouteExtNextHop=ipCidrRouteExtNextHop, cHsrpExtIfTrackedTable=cHsrpExtIfTrackedTable, consoleSilentTime=consoleSilentTime, swMainBoardVerMismatchNotificaiton=swMainBoardVerMismatchNotificaiton, lacpMgt=lacpMgt, remoteLogStatus=remoteLogStatus, swMicrocodeVer=swMicrocodeVer, ospfRedistributeEntry=ospfRedistributeEntry, arpCacheDeleteAll=arpCacheDeleteAll, cHsrpExtIfTrackedRowStatus=cHsrpExtIfTrackedRowStatus, portCapabilities=portCapabilities, trunkCreation=trunkCreation, sysTimeZone=sysTimeZone, aclIngressIpMaskStatus=aclIngressIpMaskStatus, dvmrpRouteExpiryTime=dvmrpRouteExpiryTime, trapIpFilterRejectMode=trapIpFilterRejectMode, markerPrecedence=markerPrecedence, dvmrpRouteUpTime=dvmrpRouteUpTime, prioQueueMode=prioQueueMode, portSecPortEntry=portSecPortEntry, xstInstanceCfgRootPort=xstInstanceCfgRootPort, aclIngressIpMaskTable=aclIngressIpMaskTable, aclEgressIpMaskSourcePortBitmask=aclEgressIpMaskSourcePortBitmask, sshTimeout=sshTimeout, OspfBigMetric=OspfBigMetric, arpProxyArpEntry=arpProxyArpEntry, dnsAliasEntry=dnsAliasEntry, swPowerStatusChangeTrap=swPowerStatusChangeTrap, sshUserDsaKey1=sshUserDsaKey1, aclIngressMacMaskVidBitmask=aclIngressMacMaskVidBitmask, fileCopyUnitId=fileCopyUnitId, igmpSnoopMulticastStaticVlanIndex=igmpSnoopMulticastStaticVlanIndex, smtpServerIpStatus=smtpServerIpStatus, ripInstabilityPreventingEntry=ripInstabilityPreventingEntry, switchThermalActionTable=switchThermalActionTable, cHsrpGrpVirtualIpAddr=cHsrpGrpVirtualIpAddr, fileCopySrcFileName=fileCopySrcFileName, aclAclGroupIfIndex=aclAclGroupIfIndex, ospfNetworkAreaStatus=ospfNetworkAreaStatus, lineMgt=lineMgt, arpMgt=arpMgt, dvmrpNeighborGenerationId=dvmrpNeighborGenerationId, trapVar=trapVar, telnetExecTimeout=telnetExecTimeout, sntpPollInterval=sntpPollInterval, mstInstanceOperVlansMap3k=mstInstanceOperVlansMap3k, lion24tpMIBObjects=lion24tpMIBObjects, ospfSystemGroup=ospfSystemGroup, prioWrrPortEntry=prioWrrPortEntry, xstInstanceCfgTopChanges=xstInstanceCfgTopChanges, sshHostKeyGenAction=sshHostKeyGenAction, bcastStormMgt=bcastStormMgt, xstInstancePortEnable=xstInstancePortEnable, radiusMgt=radiusMgt, ripUpdateTime=ripUpdateTime, fileInfoDelete=fileInfoDelete, lacpPortTable=lacpPortTable, sshRsaHostKey1=sshRsaHostKey1, smtpSourceEMail=smtpSourceEMail, sntpStatus=sntpStatus, dvmrpNeighborExpiryTime=dvmrpNeighborExpiryTime, swExpansionSlot2=swExpansionSlot2, switchNumber=switchNumber, swModuleSerialNumber=swModuleSerialNumber, ospfSummaryAddress=ospfSummaryAddress, dvmrpInterfaceSentRoutes=dvmrpInterfaceSentRoutes, swModuleVerMismatchNotificaiton=swModuleVerMismatchNotificaiton, rateLimitPortTable=rateLimitPortTable, privateVlanUplinkPorts=privateVlanUplinkPorts, vlanPortMode=vlanPortMode, prioAclToCosMappingAclName=prioAclToCosMappingAclName, dnsCacheIndex=dnsCacheIndex, cHsrpGlobalConfig=cHsrpGlobalConfig, dnsHostEntry=dnsHostEntry, trapDestStatus=trapDestStatus, swFanRecoverTrap=swFanRecoverTrap, cHsrpGrpVirtualMacAddr=cHsrpGrpVirtualMacAddr, tacacsMgt=tacacsMgt, ripNetworkAddrTable=ripNetworkAddrTable, markerTable=markerTable, aclEgressMacMaskIndex=aclEgressMacMaskIndex, smtpDestEMailStatus=smtpDestEMailStatus, fileInfoFileType=fileInfoFileType, sshServerStatus=sshServerStatus, lion24tpConformance=lion24tpConformance, ipCidrRouteExtTos=ipCidrRouteExtTos, igmpSnoopRouterStaticEntry=igmpSnoopRouterStaticEntry, aclMacEntry=aclMacEntry, dnsCacheEntry=dnsCacheEntry, sshServerMinorVersion=sshServerMinorVersion, dvmrpRouteMetric=dvmrpRouteMetric, ipCidrRouteExtEntry=ipCidrRouteExtEntry, lacpPortEntry=lacpPortEntry, cHsrpGrpActiveRouter=cHsrpGrpActiveRouter, fileInfoFileName=fileInfoFileName, staPortProtocolMigration=staPortProtocolMigration, sshUserRsaKey6=sshUserRsaKey6, swProdUrl=swProdUrl, aclEgressMacMaskEtherTypeBitmask=aclEgressMacMaskEtherTypeBitmask, xstInstanceCfgPriority=xstInstanceCfgPriority, aclIpAceTos=aclIpAceTos, dvmrpNeighborMinorVersion=dvmrpNeighborMinorVersion, sshConnStatus=sshConnStatus, switchIndivPowerEntry=switchIndivPowerEntry, ripMgt=ripMgt, swSerialNumber=swSerialNumber, sshRsaHostKey8=sshRsaHostKey8, dnsAliasTable=dnsAliasTable, xstInstanceCfgHoldTime=xstInstanceCfgHoldTime, cHsrpExtIfTrackedEntry=cHsrpExtIfTrackedEntry, sntpServiceMode=sntpServiceMode, aclIpAcePrecedence=aclIpAcePrecedence, fileInfoFileSize=fileInfoFileSize, igmpSnoopQuerier=igmpSnoopQuerier, xstInstanceCfgTimeSinceTopologyChange=xstInstanceCfgTimeSinceTopologyChange, ipCidrRouteExtTable=ipCidrRouteExtTable, cHsrpGrpTable=cHsrpGrpTable, sshUserRsaKey2=sshUserRsaKey2, radiusMultipleServerPortNumber=radiusMultipleServerPortNumber, mstMaxHops=mstMaxHops, dvmrpRouteEntry=dvmrpRouteEntry, switchFanIndex=switchFanIndex, sshDsaHostKey3=sshDsaHostKey3, mstInstanceEditVlansMap2k=mstInstanceEditVlansMap2k, HsrpState=HsrpState, sshServerMajorVersion=sshServerMajorVersion, aclIngressMacMaskSourceMacAddrBitmask=aclIngressMacMaskSourceMacAddrBitmask, portEntry=portEntry, igmpSnoopMulticastCurrentStatus=igmpSnoopMulticastCurrentStatus, ospfNssaAreaId=ospfNssaAreaId, fileInfoIsStartUp=fileInfoIsStartUp, swOpCodeVer=swOpCodeVer, mstInstanceEditRemainingHops=mstInstanceEditRemainingHops, radiusServerTimeout=radiusServerTimeout, sshUserName=sshUserName, lion24tpTrapsPrefix=lion24tpTrapsPrefix, prioIpDscpCos=prioIpDscpCos, portSecurityMgt=portSecurityMgt, remoteLogServerTable=remoteLogServerTable, smtpServerIp=smtpServerIp, dnsHostIndex=dnsHostIndex, dvmrpInterfaceGenerationId=dvmrpInterfaceGenerationId, aclIngressIpMaskEntry=aclIngressIpMaskEntry, igmpSnoopQueryCount=igmpSnoopQueryCount, swIndivPowerIndex=swIndivPowerIndex, rateLimitPortEntry=rateLimitPortEntry, igmpSnoopRouterCurrentTable=igmpSnoopRouterCurrentTable, tacacsServerAddress=tacacsServerAddress, xstInstancePortDesignatedRoot=xstInstancePortDesignatedRoot, mstInstanceOperIndex=mstInstanceOperIndex, ipFilterHTTPStartAddress=ipFilterHTTPStartAddress, consoleLoginResponseTimeout=consoleLoginResponseTimeout, igmpSnoopVersion=igmpSnoopVersion, trapDestCommunity=trapDestCommunity, cHsrpGrpPreempt=cHsrpGrpPreempt, cHsrpExtSecAddrAddress=cHsrpExtSecAddrAddress, sshUserDsaKey4=sshUserDsaKey4, aclIpAceStatus=aclIpAceStatus, cHsrpGrpLearnedHelloTime=cHsrpGrpLearnedHelloTime, aclMgt=aclMgt, ipHttpsState=ipHttpsState, swFanFailureTrap=swFanFailureTrap, aclIngressMacMaskTable=aclIngressMacMaskTable, staPortSystemStatus=staPortSystemStatus, sshHostKeySaveStatus=sshHostKeySaveStatus, portSecAction=portSecAction, swThermalRisingNotification=swThermalRisingNotification, ospfRedistributeTable=ospfRedistributeTable, qosMgt=qosMgt, cHsrpGrpNumber=cHsrpGrpNumber, hiway=hiway, portIndex=portIndex, sntpServerEntry=sntpServerEntry, sshDsaHostKey8=sshDsaHostKey8, prioAclToCosMappingEntry=prioAclToCosMappingEntry, layer3Mgt=layer3Mgt, aclIngressMacMaskIndex=aclIngressMacMaskIndex, xstInstancePortTable=xstInstancePortTable, aclEgressIpMaskStatus=aclEgressIpMaskStatus, aclIpEntry=aclIpEntry, smtpServerIpEntry=smtpServerIpEntry, aclEgressMacMaskSourceMacAddrBitmask=aclEgressMacMaskSourceMacAddrBitmask, cHsrpGrpStandbyState=cHsrpGrpStandbyState, aclMacAclName=aclMacAclName, aclIpAceDestIpAddr=aclIpAceDestIpAddr, consoleOperBaudRate=consoleOperBaudRate, dnsCacheTable=dnsCacheTable, telnetPortNumber=telnetPortNumber, prioIpPrecCos=prioIpPrecCos, fileAutoDownloadResultAction=fileAutoDownloadResultAction, dnsDomainListTable=dnsDomainListTable, dvmrpNeighborUpTime=dvmrpNeighborUpTime, aclEgressIpMaskIsEnablePrecedence=aclEgressIpMaskIsEnablePrecedence, aclIngressMacMaskStatus=aclIngressMacMaskStatus, arpProxyArpIfIndex=arpProxyArpIfIndex, markerEntry=markerEntry, dvmrpNeighborIfIndex=dvmrpNeighborIfIndex, dnsHostIp=dnsHostIp, rlPortOutputLimit=rlPortOutputLimit, sshDsaHostKey7=sshDsaHostKey7, swModuleMicrocodeVer=swModuleMicrocodeVer, prioAclToCosMappingTable=prioAclToCosMappingTable, sshHostKeySaveAction=sshHostKeySaveAction, sshUserRsaKey1=sshUserRsaKey1, dvmrpNeighborCapabilities=dvmrpNeighborCapabilities, xstInstanceCfgHelloTime=xstInstanceCfgHelloTime, dnsNameServerEntry=dnsNameServerEntry, igmpSnoopStatus=igmpSnoopStatus, aclAclGroupIngressMacAcl=aclAclGroupIngressMacAcl, ipCidrRouteExtMask=ipCidrRouteExtMask, prioIpPrecTable=prioIpPrecTable, sshRsaHostKey7=sshRsaHostKey7)
+mibBuilder.exportSymbols("Hirschmann-LION-24TP-MIB", aclMacAceEtherTypeOp=aclMacAceEtherTypeOp, ripNetworkAddrAddress=ripNetworkAddrAddress, mstInstanceOperTable=mstInstanceOperTable, sshRsaHostKey5=sshRsaHostKey5, mstInstanceEditIndex=mstInstanceEditIndex, trunkPorts=trunkPorts, ipHttpPort=ipHttpPort, ipFilterTelnetStartAddress=ipFilterTelnetStartAddress, sysTimeMgt=sysTimeMgt, sshUserKeyDelAction=sshUserKeyDelAction, prioIpPrecEntry=prioIpPrecEntry, cHsrpGrpUseConfiguredTimers=cHsrpGrpUseConfiguredTimers, fileCopyDestFileName=fileCopyDestFileName, ipFilterSnmpEndAddress=ipFilterSnmpEndAddress, swChassisServiceTag=swChassisServiceTag, cHsrpGrpPreemptDelay=cHsrpGrpPreemptDelay, securityMgt=securityMgt, prioIpDscpTable=prioIpDscpTable, aclMacAceMaxEtherType=aclMacAceMaxEtherType, ospfNssaTable=ospfNssaTable, ospfDefaultExternalMetric=ospfDefaultExternalMetric, aclIpAceSourceIpAddrBitmask=aclIpAceSourceIpAddrBitmask, sshDsaHostKey6=sshDsaHostKey6, aclEgressIpMaskIndex=aclEgressIpMaskIndex, FileCopyStatus=FileCopyStatus, dvmrpRouteNextHopType=dvmrpRouteNextHopType, igmpSnoopMulticastStaticPorts=igmpSnoopMulticastStaticPorts, trapDestTable=trapDestTable, sshUserRsaKey3=sshUserRsaKey3, swProdManufacturer=swProdManufacturer, xstInstanceCfgForwardDelay=xstInstanceCfgForwardDelay, portSecPortIndex=portSecPortIndex, igmpSnoopMulticastStaticStatus=igmpSnoopMulticastStaticStatus, xstInstancePortForwardTransitions=xstInstancePortForwardTransitions, aclEgressMacMaskPrecedence=aclEgressMacMaskPrecedence, switchFanStatus=switchFanStatus, dvmrpRouteNextHopSource=dvmrpRouteNextHopSource, remoteLogFacilityType=remoteLogFacilityType, ospfAdvertiseDefaultRoute=ospfAdvertiseDefaultRoute, swModulePortNumber=swModulePortNumber, dnsNameServerTable=dnsNameServerTable, staPortAdminPointToPoint=staPortAdminPointToPoint, dnaAliasAlias=dnaAliasAlias, sshUserDsaKey3=sshUserDsaKey3, xstInstanceCfgRootCost=xstInstanceCfgRootCost, aclIpAceEntry=aclIpAceEntry, ripSplitHorizonStatus=ripSplitHorizonStatus, igmpSnoopRouterStaticTable=igmpSnoopRouterStaticTable, radiusMultipleServerIndex=radiusMultipleServerIndex, prioIpPortEntry=prioIpPortEntry, prioIpPrecPort=prioIpPrecPort, staPortTable=staPortTable, trunkIndex=trunkIndex, mirrorStatus=mirrorStatus, igmpSnoopMulticastCurrentPorts=igmpSnoopMulticastCurrentPorts, ipFilterTelnetEntry=ipFilterTelnetEntry, ospfNetworkAreaAreaId=ospfNetworkAreaAreaId, switchThermalActionUnitIndex=switchThermalActionUnitIndex, lion24tpNotifications=lion24tpNotifications, aclMacAceSourceMacAddrBitmask=aclMacAceSourceMacAddrBitmask, dvmrpInterfaceStatus=dvmrpInterfaceStatus, aclMacAceVidBitmask=aclMacAceVidBitmask, trapDestVersion=trapDestVersion, swExpansionSlot1=swExpansionSlot1, switchJumboFrameStatus=switchJumboFrameStatus, dvmrpInterfaceRcvBadRoutes=dvmrpInterfaceRcvBadRoutes, dnsCacheDomain=dnsCacheDomain, ipFilterSnmpEntry=ipFilterSnmpEntry, igmpSnoopMulticastStaticIpAddress=igmpSnoopMulticastStaticIpAddress, markerPriority=markerPriority, dvmrpRouteTable=dvmrpRouteTable, switchThermalActionIndex=switchThermalActionIndex, switchFanOperSpeed=switchFanOperSpeed, sntpServerIndex=sntpServerIndex, portMgt=portMgt, xstInstanceCfgIndex=xstInstanceCfgIndex, cHsrpGrpStandbyRouter=cHsrpGrpStandbyRouter, arpCacheTimeout=arpCacheTimeout, mirrorType=mirrorType, xstInstanceCfgTable=xstInstanceCfgTable, aclIpAceSourceIpAddr=aclIpAceSourceIpAddr, aclIngressIpMaskSourcePortBitmask=aclIngressIpMaskSourcePortBitmask, lacpPortStatus=lacpPortStatus, ipFilterTelnetTable=ipFilterTelnetTable, ospfSummaryMask=ospfSummaryMask, prioIpPrecValue=prioIpPrecValue, ospfAutoCost=ospfAutoCost, igmpSnoopMulticastCurrentVlanIndex=igmpSnoopMulticastCurrentVlanIndex, sshDsaHostKey4=sshDsaHostKey4, prioIpPortCos=prioIpPortCos, lion24tpMIB=lion24tpMIB, fileMgt=fileMgt, swProdVersion=swProdVersion, dvmrpPruneGroup=dvmrpPruneGroup, sshUserRsaKey4=sshUserRsaKey4, vlanPortTable=vlanPortTable, aclAclGroupEntry=aclAclGroupEntry, amtrMgt=amtrMgt, ripNetworkAddrEntry=ripNetworkAddrEntry, iPAddrSubnetMask=iPAddrSubnetMask, swSmtpConnFailureTrap=swSmtpConnFailureTrap, ipHttpsPort=ipHttpsPort, swIndivPowerStatus=swIndivPowerStatus, switchThermalActionEntry=switchThermalActionEntry, mstInstanceEditVlansMap4k=mstInstanceEditVlansMap4k, prioAclToCosMappingIfIndex=prioAclToCosMappingIfIndex, ipFilterHTTPTable=ipFilterHTTPTable, smtpStatus=smtpStatus, xstInstanceCfgDesignatedRoot=xstInstanceCfgDesignatedRoot, sshConnUserName=sshConnUserName, consoleExecTimeout=consoleExecTimeout, fileCopyDestOperType=fileCopyDestOperType, aclIpAceMinSourcePort=aclIpAceMinSourcePort, igmpSnoopRouterPortExpireTime=igmpSnoopRouterPortExpireTime, radiusServerRetransmit=radiusServerRetransmit, aclIpTable=aclIpTable, sshAuthRetries=sshAuthRetries, xstInstancePortPortRole=xstInstancePortPortRole, dvmrpReachableRoutes=dvmrpReachableRoutes, dvmrpRouteIfIndex=dvmrpRouteIfIndex, ipFilterHTTPEntry=ipFilterHTTPEntry, arpStatRcvReplyPackets=arpStatRcvReplyPackets, aclEgressIpMaskPrecedence=aclEgressIpMaskPrecedence, ospfRedistributeMetric=ospfRedistributeMetric, cHsrpGrpEntry=cHsrpGrpEntry, aclIngressIpMaskPrecedence=aclIngressIpMaskPrecedence, fileCopySrcOperType=fileCopySrcOperType, trapDestAddress=trapDestAddress, swModuleOpCodeVer=swModuleOpCodeVer, xstInstancePortAdminPathCost=xstInstancePortAdminPathCost, switchThermalTempThermalIndex=switchThermalTempThermalIndex, switchProductId=switchProductId, remoteLogLevel=remoteLogLevel, markerStatus=markerStatus, sysCurrentTime=sysCurrentTime, radiusMultipleServerKey=radiusMultipleServerKey, dvmrpInterfaceKey=dvmrpInterfaceKey, swModuleType=swModuleType, xstInstanceCfgBridgeHelloTime=xstInstanceCfgBridgeHelloTime, igmpSnoopQueryInterval=igmpSnoopQueryInterval, cHsrpExtSecAddrEntry=cHsrpExtSecAddrEntry, mirrorEntry=mirrorEntry, cosMgt=cosMgt, portTable=portTable, swIpFilterRejectTrap=swIpFilterRejectTrap, OspfAreaID=OspfAreaID, prioIpPortTable=prioIpPortTable, ipFilterHTTPStatus=ipFilterHTTPStatus, ripRouterVersion=ripRouterVersion, cHsrpExtIfTracked=cHsrpExtIfTracked, aclIpAceSourcePortBitmask=aclIpAceSourcePortBitmask, mstInstanceOperVlansMap=mstInstanceOperVlansMap, aclAclGroupEgressIpAcl=aclAclGroupEgressIpAcl, igmpSnoopRouterStaticVlanIndex=igmpSnoopRouterStaticVlanIndex, sshUserDsaKey2=sshUserDsaKey2, ripInstabilityPreventingTable=ripInstabilityPreventingTable, switchThermalActionRisingThreshold=switchThermalActionRisingThreshold, aclIngressMacMaskEntry=aclIngressMacMaskEntry, switchThermalTempEntry=switchThermalTempEntry, switchThermalActionThermalIndex=switchThermalActionThermalIndex, fileInfoUnitID=fileInfoUnitID, aclIpAceDestPortBitmask=aclIpAceDestPortBitmask, aclIngressIpMaskDestIpAddrBitmask=aclIngressIpMaskDestIpAddrBitmask, sshHostKeyGenStatus=sshHostKeyGenStatus, dvmrpRouteNextHopSourceMask=dvmrpRouteNextHopSourceMask, xstInstanceCfgEntry=xstInstanceCfgEntry, iPAddrStatus=iPAddrStatus, aclMacAceMinEtherType=aclMacAceMinEtherType, ripVlanIndex=ripVlanIndex, ospfNetworkAreaAddressEntry=ospfNetworkAreaAddressEntry, mstInstanceEditVlansMap=mstInstanceEditVlansMap, ospfNssaOriginateDefaultInfoStatus=ospfNssaOriginateDefaultInfoStatus, igmpSnoopRouterStaticPorts=igmpSnoopRouterStaticPorts, vlanIndex=vlanIndex, aclIngressMacMaskPrecedence=aclIngressMacMaskPrecedence, dnsDomainLookup=dnsDomainLookup, dnsHostTable=dnsHostTable, aclMacAceStatus=aclMacAceStatus, portSecMaxMacCount=portSecMaxMacCount, sshConnInfoEntry=sshConnInfoEntry, aclIngressMacMaskDestMacAddrBitmask=aclIngressMacMaskDestMacAddrBitmask, trapDestEntry=trapDestEntry, sshRsaHostKey2=sshRsaHostKey2, ripTimers=ripTimers, aclIngressIpMaskIsEnableProtocol=aclIngressIpMaskIsEnableProtocol, ipFilterSnmpStartAddress=ipFilterSnmpStartAddress, igmpSnoopMulticastCurrentIpAddress=igmpSnoopMulticastCurrentIpAddress, swModuleUnitIndex=swModuleUnitIndex, swIdentifier=swIdentifier, switchThermalTempValue=switchThermalTempValue, priorityMgt=priorityMgt, swPortNumber=swPortNumber, aclMacAceName=aclMacAceName, aclEgressMacMaskIsEnablePktformat=aclEgressMacMaskIsEnablePktformat, aclAclGroupEgressMacAcl=aclAclGroupEgressMacAcl, arpStatRcvRequestPackets=arpStatRcvRequestPackets, bcastStormEntry=bcastStormEntry, dnsDomainListStatus=dnsDomainListStatus, arpProxyArpTable=arpProxyArpTable, prioIpPortStatus=prioIpPortStatus, markerActionBitList=markerActionBitList, dnsHostName=dnsHostName, rlPortInputLimit=rlPortInputLimit, vlanTable=vlanTable, sshConnMajorVersion=sshConnMajorVersion, ospfAreaNumber=ospfAreaNumber, ospfMgt=ospfMgt, igmpSnoopRouterCurrentVlanIndex=igmpSnoopRouterCurrentVlanIndex, igmpSnoopQueryMaxResponseTime=igmpSnoopQueryMaxResponseTime, aclEgressIpMaskTable=aclEgressIpMaskTable, swBootRomVer=swBootRomVer, aclIngressIpMaskSourceIpAddrBitmask=aclIngressIpMaskSourceIpAddrBitmask, aclAclGroupIngressIpAcl=aclAclGroupIngressIpAcl, telnetMgt=telnetMgt, radiusMultipleServerEntry=radiusMultipleServerEntry, aclIpAceTable=aclIpAceTable, fileAutoDownloadResultUnitID=fileAutoDownloadResultUnitID, consoleDataBits=consoleDataBits, mirrorMgt=mirrorMgt, vlanEntry=vlanEntry, dvmrpNeighborAddress=dvmrpNeighborAddress, arpStatSendReplyPackets=arpStatSendReplyPackets, mstRevision=mstRevision, sshDsaHostKey5=sshDsaHostKey5, radiusServerPortNumber=radiusServerPortNumber, trunkStatus=trunkStatus, aclIpAceSourcePortOp=aclIpAceSourcePortOp, ipFilterSnmpTable=ipFilterSnmpTable, sysLogHistoryRamLevel=sysLogHistoryRamLevel, prioWrrPortTable=prioWrrPortTable, prioCopy=prioCopy, lion24tpTraps=lion24tpTraps, swProdDescription=swProdDescription, mstName=mstName, dvmrpNeighborRcvBadRoutes=dvmrpNeighborRcvBadRoutes, igmpSnoopRouterStaticStatus=igmpSnoopRouterStaticStatus, consoleParity=consoleParity, trunkMgt=trunkMgt, rlPortIndex=rlPortIndex, aclIpAceIndex=aclIpAceIndex, iPAddrUnnumbered=iPAddrUnnumbered, smtpMgt=smtpMgt, aclEgressMacMaskVidBitmask=aclEgressMacMaskVidBitmask, dvmrpInterfaceMetric=dvmrpInterfaceMetric, PYSNMP_MODULE_ID=lion24tpMIB, portFlowCtrlCfg=portFlowCtrlCfg, portFlowCtrlStatus=portFlowCtrlStatus, aclMacAceEntry=aclMacAceEntry, portSecPortStatus=portSecPortStatus, swModelNumber=swModelNumber, switchFanTable=switchFanTable, portAutonegotiation=portAutonegotiation, mstInstanceEditEntry=mstInstanceEditEntry, aclIngressIpMaskIndex=aclIngressIpMaskIndex)
+mibBuilder.exportSymbols("Hirschmann-LION-24TP-MIB", sntpMgt=sntpMgt, sntpServerIpAddress=sntpServerIpAddress, aclIpAceMaxDestPort=aclIpAceMaxDestPort, privateVlanStatus=privateVlanStatus, sshDsaHostKey2=sshDsaHostKey2, aclMacAceMinVid=aclMacAceMinVid, mstInstanceEditTable=mstInstanceEditTable, staTxHoldCount=staTxHoldCount, staProtocolType=staProtocolType, trunkTable=trunkTable, swEpldVer=swEpldVer, dvmrpInterfaceLocalAddress=dvmrpInterfaceLocalAddress, fileCopyFileType=fileCopyFileType, dvmrpInterfaceEntry=dvmrpInterfaceEntry, ospfNssaStatus=ospfNssaStatus, cHsrpExtSecAddrTable=cHsrpExtSecAddrTable, sshRsaHostKey3=sshRsaHostKey3, ospfSummaryAddressEntry=ospfSummaryAddressEntry, aclMacAceDestMacAddrBitmask=aclMacAceDestMacAddrBitmask, switchThermalActionAction=switchThermalActionAction, igmpSnoopMgt=igmpSnoopMgt, dvmrpRouteSourceMask=dvmrpRouteSourceMask, privateVlanMgt=privateVlanMgt, prioIpPrecDscpStatus=prioIpPrecDscpStatus, aclEgressIpMaskSourceIpAddrBitmask=aclEgressIpMaskSourceIpAddrBitmask, switchModuleInfoEntry=switchModuleInfoEntry, aclMacAceEtherTypeBitmask=aclMacAceEtherTypeBitmask, dvmrpRouteNextHopEntry=dvmrpRouteNextHopEntry, cHsrpConfigTimeout=cHsrpConfigTimeout, ospfOriginateDefaultRoute=ospfOriginateDefaultRoute, sshConnID=sshConnID, switchFanEntry=switchFanEntry, switchFanAdminSpeed=switchFanAdminSpeed, switchThermalActionFallingThreshold=switchThermalActionFallingThreshold, portComboForcedMode=portComboForcedMode, xstInstanceCfgBridgeForwardDelay=xstInstanceCfgBridgeForwardDelay, fileInfoEntry=fileInfoEntry, ipDhcpRestart=ipDhcpRestart, staMgt=staMgt, sshUserDsaKey7=sshUserDsaKey7, aclEgressIpMaskIsEnableTos=aclEgressIpMaskIsEnableTos, prioIpPortPhysPort=prioIpPortPhysPort, ospfRfc1583CompatibleState=ospfRfc1583CompatibleState, aclEgressIpMaskDestPortBitmask=aclEgressIpMaskDestPortBitmask, swHardwareVer=swHardwareVer, telnetPasswordThreshold=telnetPasswordThreshold, bcastStormStatus=bcastStormStatus, staPortOperPointToPoint=staPortOperPointToPoint, trunkMaxId=trunkMaxId, staSystemStatus=staSystemStatus, ospfSummaryStatus=ospfSummaryStatus, consoleStopBits=consoleStopBits, dvmrpScalar=dvmrpScalar, swModuleModelNumber=swModuleModelNumber, portName=portName, staPortAdminEdgePort=staPortAdminEdgePort, ospfNssaEntry=ospfNssaEntry, sshUserDsaKey5=sshUserDsaKey5, ipCidrRouteExtOspfSubType=ipCidrRouteExtOspfSubType, radiusServerKey=radiusServerKey, aclEgressIpMaskIsEnableDscp=aclEgressIpMaskIsEnableDscp, dnsNameServerIndex=dnsNameServerIndex, xstInstancePortDesignatedPort=xstInstancePortDesignatedPort, sshUserTable=sshUserTable, fileInfoTable=fileInfoTable, KeySegment=KeySegment, swModuleEpldVer=swModuleEpldVer, portSpeedDpxStatus=portSpeedDpxStatus, switchUnitIndex=switchUnitIndex, aclEgressMacMaskDestMacAddrBitmask=aclEgressMacMaskDestMacAddrBitmask, cHsrpGrpEntryRowStatus=cHsrpGrpEntryRowStatus, swUnitIndex=swUnitIndex, sysTimeZoneName=sysTimeZoneName, switchInfoEntry=switchInfoEntry, ospfNetworkAreaAddressTable=ospfNetworkAreaAddressTable, iPAddrIfIndex=iPAddrIfIndex, switchIndivPowerTable=switchIndivPowerTable, xstInstanceCfgMaxAge=xstInstanceCfgMaxAge, rlPortInputStatus=rlPortInputStatus, aclEgressIpMaskEntry=aclEgressIpMaskEntry, swThermalFallingNotification=swThermalFallingNotification, aclMacAceTable=aclMacAceTable, aclIngressMacMaskIsEnablePktformat=aclIngressMacMaskIsEnablePktformat, ospfExternalMetricType=ospfExternalMetricType, sysLogHistoryFlashLevel=sysLogHistoryFlashLevel, dvmrpInterfaceIndex=dvmrpInterfaceIndex, StaPathCostMode=StaPathCostMode, remoteLogServerEntry=remoteLogServerEntry, switchInfoTable=switchInfoTable, telnetStatus=telnetStatus, fileInfoCreationTime=fileInfoCreationTime, trapIpFilterRejectIp=trapIpFilterRejectIp, sshHostKeyDelAction=sshHostKeyDelAction, aclMacAceDestMacAddr=aclMacAceDestMacAddr, remoteLogServerIp=remoteLogServerIp, prioIpPortValue=prioIpPortValue, prioIpPrecRestoreDefault=prioIpPrecRestoreDefault, aclIpAceDestPortOp=aclIpAceDestPortOp, ospfSpfHoldTime=ospfSpfHoldTime, arpTrafficStatistics=arpTrafficStatistics, switchFanFailureCount=switchFanFailureCount, swServiceTag=swServiceTag, aclIpAceAction=aclIpAceAction, switchOperState=switchOperState, rlPortOutputStatus=rlPortOutputStatus, trapDestMgt=trapDestMgt, ospfNetworkAreaMask=ospfNetworkAreaMask, fileCopyAction=fileCopyAction, aclEgressMacMaskStatus=aclEgressMacMaskStatus, swModuleHardwareVer=swModuleHardwareVer, fastEtherSwitch24=fastEtherSwitch24, iPAddrPrimaryInterface=iPAddrPrimaryInterface, xstInstancePortDesignatedBridge=xstInstancePortDesignatedBridge, aclIpAceProtocol=aclIpAceProtocol, aclMacAceVidOp=aclMacAceVidOp, smtpDestEMailTable=smtpDestEMailTable, vlanPortIndex=vlanPortIndex, xstInstanceCfgPathCostMethod=xstInstanceCfgPathCostMethod, swRoleInSystem=swRoleInSystem, dvmrpInterfaceTable=dvmrpInterfaceTable, radiusMultipleServerTimeout=radiusMultipleServerTimeout, aclMacAcePktformat=aclMacAcePktformat, swModuleInsertionNotificaiton=swModuleInsertionNotificaiton, sshMgt=sshMgt, fileAutoDownloadResultTable=fileAutoDownloadResultTable, portTrunkIndex=portTrunkIndex, cHsrpGrpUseConfigVirtualIpAddr=cHsrpGrpUseConfigVirtualIpAddr, dnsDomainListName=dnsDomainListName, prioAclToCosMappingCosValue=prioAclToCosMappingCosValue, aclIpAcePrec=aclIpAcePrec, routeMgt=routeMgt, dvmrpRouteNextHopTable=dvmrpRouteNextHopTable, aclMacAceIndex=aclMacAceIndex, prioCopyIpPort=prioCopyIpPort, swExpectedModuleOpCodeVer=swExpectedModuleOpCodeVer, trapDestUdpPort=trapDestUdpPort, dvmrpNeighborRcvRoutes=dvmrpNeighborRcvRoutes, xstInstancePortEntry=xstInstancePortEntry, aclIpAceMinDestPort=aclIpAceMinDestPort, smtpDestEMail=smtpDestEMail, aclMacAceMaxVid=aclMacAceMaxVid, dvmrpNeighborMajorVersion=dvmrpNeighborMajorVersion, sshKeySize=sshKeySize, ospfRedistributeMetricType=ospfRedistributeMetricType, sshConnInfoTable=sshConnInfoTable, iPAddrTable=iPAddrTable, dvmrpPruneTable=dvmrpPruneTable, ipFilterSnmpStatus=ipFilterSnmpStatus, staPortLongOperPathCost=staPortLongOperPathCost, staPortEntry=staPortEntry, sshRsaHostKey4=sshRsaHostKey4, aclMacAceAction=aclMacAceAction, aclIpAceControlCode=aclIpAceControlCode, prioIpDscpEntry=prioIpDscpEntry, mirrorSourcePort=mirrorSourcePort, prioIpDscpPort=prioIpDscpPort, switchThermalActionStatus=switchThermalActionStatus, amtrMacAddrAgingStatus=amtrMacAddrAgingStatus, dvmrpMgt=dvmrpMgt, cHsrpGrpConfiguredHelloTime=cHsrpGrpConfiguredHelloTime, vlanPortEntry=vlanPortEntry, aclMacAcePrecedence=aclMacAcePrecedence, aclEgressMacMaskTable=aclEgressMacMaskTable, markerAclName=markerAclName, igmpSnoopMulticastCurrentEntry=igmpSnoopMulticastCurrentEntry, igmpSnoopMulticastCurrentTable=igmpSnoopMulticastCurrentTable, vlanAddressMethod=vlanAddressMethod, ripTimeoutTime=ripTimeoutTime, aclEgressIpMaskControlCodeBitmask=aclEgressIpMaskControlCodeBitmask, dvmrpNeighborRcvBadPkts=dvmrpNeighborRcvBadPkts, igmpSnoopRouterCurrentEntry=igmpSnoopRouterCurrentEntry, switchMgt=switchMgt, tacacsServerKey=tacacsServerKey, igmpSnoopRouterCurrentPorts=igmpSnoopRouterCurrentPorts, switchModuleInfoTable=switchModuleInfoTable, prioWrrPortTrafficClass=prioWrrPortTrafficClass, dvmrpRouteUpstreamNeighbor=dvmrpRouteUpstreamNeighbor, markerMgt=markerMgt, swProdName=swProdName, dvmrpNeighborState=dvmrpNeighborState, dnsDomainListEntry=dnsDomainListEntry, sshUserDsaKey6=sshUserDsaKey6, aclIngressIpMaskControlCodeBitmask=aclIngressIpMaskControlCodeBitmask, xstInstanceCfgTxHoldCount=xstInstanceCfgTxHoldCount, ipFilterTelnetEndAddress=ipFilterTelnetEndAddress, ospfSummaryAddressTable=ospfSummaryAddressTable, ospfNssaRedistributeStatus=ospfNssaRedistributeStatus, dvmrpVersionString=dvmrpVersionString, aclMacTable=aclMacTable, sshUserDsaKey8=sshUserDsaKey8, igmpSnoopMulticastStaticTable=igmpSnoopMulticastStaticTable, fileCopyMgt=fileCopyMgt, cHsrpGrpConfiguredHoldTime=cHsrpGrpConfiguredHoldTime, sshRsaHostKey6=sshRsaHostKey6, remoteLogServerStatus=remoteLogServerStatus, restartConfigFile=restartConfigFile, prioWrrPortWeight=prioWrrPortWeight, aclIpAceControlCodeBitmask=aclIpAceControlCodeBitmask, swModuleModuleIndex=swModuleModuleIndex, dvmrpRouteNextHopIfIndex=dvmrpRouteNextHopIfIndex, aclIngressIpMaskIsEnablePrecedence=aclIngressIpMaskIsEnablePrecedence, restartOpCodeFile=restartOpCodeFile, prioIpDscpRestoreDefault=prioIpDscpRestoreDefault, arpStatSendRequestPackets=arpStatSendRequestPackets, trunkValidNumber=trunkValidNumber, ospfSpfDelayTime=ospfSpfDelayTime, swModuleLoaderVer=swModuleLoaderVer, aclEgressIpMaskIsEnableProtocol=aclEgressIpMaskIsEnableProtocol, dvmrpPruneSource=dvmrpPruneSource, portSecPortTable=portSecPortTable, sshConnMinorVersion=sshConnMinorVersion, swIndivPowerUnitIndex=swIndivPowerUnitIndex, dvmrpPruneExpiryTime=dvmrpPruneExpiryTime, sshConnEncryptionTypeStr=sshConnEncryptionTypeStr, privateVlanDownlinkPorts=privateVlanDownlinkPorts, aclIngressIpMaskIsEnableDscp=aclIngressIpMaskIsEnableDscp, switchThermalTempTable=switchThermalTempTable, fileAutoDownloadResultEntry=fileAutoDownloadResultEntry, sysLogStatus=sysLogStatus, cHsrpExtSecAddrRowStatus=cHsrpExtSecAddrRowStatus, aclIpAceName=aclIpAceName, dvmrpRouteSource=dvmrpRouteSource, mstInstanceEditVlansMap3k=mstInstanceEditVlansMap3k, restartMgt=restartMgt, aclIngressIpMaskDestPortBitmask=aclIngressIpMaskDestPortBitmask, aclIpAceMaxSourcePort=aclIpAceMaxSourcePort, ospfRedistributeProtocol=ospfRedistributeProtocol, rateLimitMgt=rateLimitMgt, sshUserEntry=sshUserEntry, prioAclToCosMappingStatus=prioAclToCosMappingStatus, ospfNetworkAareaAddress=ospfNetworkAareaAddress, bcastStormTable=bcastStormTable, arpProxyArpStatus=arpProxyArpStatus, telnetLoginResponseTimeout=telnetLoginResponseTimeout, aclIpAceDestIpAddrBitmask=aclIpAceDestIpAddrBitmask, iPAddrEntry=iPAddrEntry, iPAddrIPAddress=iPAddrIPAddress, staPortFastForward=staPortFastForward, ripNetworkAddrStatus=ripNetworkAddrStatus, smtpDestEMailEntry=smtpDestEMailEntry, dvmrpNumRoutes=dvmrpNumRoutes, vlanMgt=vlanMgt, restartControl=restartControl, ripStatisticsReset=ripStatisticsReset, remoteLogMgt=remoteLogMgt, smtpServerIpTable=smtpServerIpTable, dvmrpPruneSourceMask=dvmrpPruneSourceMask, radiusMultipleServerStatus=radiusMultipleServerStatus, dvmrpInterfaceRcvBadPkts=dvmrpInterfaceRcvBadPkts, fileCopyStatus=fileCopyStatus, sshUserRsaKey7=sshUserRsaKey7, aclEgressMacMaskEntry=aclEgressMacMaskEntry, consolePasswordThreshold=consolePasswordThreshold, aclAclGroupTable=aclAclGroupTable)
+mibBuilder.exportSymbols("Hirschmann-LION-24TP-MIB", dnsCacheTtl=dnsCacheTtl, dvmrpPruneEntry=dvmrpPruneEntry, smtpSeverityLevel=smtpSeverityLevel, staPortLongAdminPathCost=staPortLongAdminPathCost, radiusMultipleServerRetransmit=radiusMultipleServerRetransmit, lacpPortIndex=lacpPortIndex, fileAutoDownloadResultStatus=fileAutoDownloadResultStatus, swModuleBootRomVer=swModuleBootRomVer, aclEgressIpMaskDestIpAddrBitmask=aclEgressIpMaskDestIpAddrBitmask, tacacsServerPortNumber=tacacsServerPortNumber, ipFilterTelnetStatus=ipFilterTelnetStatus, hsrpMgt=hsrpMgt, dnsDomainName=dnsDomainName, dnsMgt=dnsMgt, ipCidrRouteExtDest=ipCidrRouteExtDest, sshUserRsaKey5=sshUserRsaKey5, cHsrpExtIfTrackedPriority=cHsrpExtIfTrackedPriority, cHsrpExtGroup=cHsrpExtGroup, swLoaderVer=swLoaderVer, aclIngressMacMaskEtherTypeBitmask=aclIngressMacMaskEtherTypeBitmask, dvmrpInterfaceKeyVersion=dvmrpInterfaceKeyVersion, ValidStatus=ValidStatus, trunkEntry=trunkEntry, xstInstancePortDesignatedCost=xstInstancePortDesignatedCost, xstInstancePortPriority=xstInstancePortPriority, mstInstanceOperEntry=mstInstanceOperEntry, dnsCacheFlag=dnsCacheFlag, swPowerStatus=swPowerStatus, ripGarbageCollectionTime=ripGarbageCollectionTime, switchThermalTempUnitIndex=switchThermalTempUnitIndex, dnsNameServerIp=dnsNameServerIp, igmpSnoopRouterCurrentStatus=igmpSnoopRouterCurrentStatus, portSpeedDpxCfg=portSpeedDpxCfg, ipHttpState=ipHttpState, prioCopyIpPrec=prioCopyIpPrec, sshUserRsaKey8=sshUserRsaKey8, dnsAliasName=dnsAliasName, xstInstancePortOperPathCost=xstInstancePortOperPathCost, cHsrpGrpPriority=cHsrpGrpPriority, bcastStormIfIndex=bcastStormIfIndex, swModuleDescr=swModuleDescr, radiusMultipleServerTable=radiusMultipleServerTable, staPathCostMethod=staPathCostMethod, ipFilterMgt=ipFilterMgt, aclMacAceSourceMacAddr=aclMacAceSourceMacAddr, mstInstanceOperVlansMap2k=mstInstanceOperVlansMap2k, sysLogMgt=sysLogMgt, aclIpAclName=aclIpAclName)

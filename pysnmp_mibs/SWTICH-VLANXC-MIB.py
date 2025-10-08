@@ -1,83 +1,44 @@
-_I='read-write'
-_H='rcVlanxcVlanIndex'
-_G='rcVlanxcInnerVid'
-_F='rcVlanxcOuterVid'
-_E='read-create'
-_D='not-accessible'
-_C='SWTICH-VLANXC-MIB'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-iscomSwitch,=mibBuilder.importSymbols('RAISECOM-BASE-MIB','iscomSwitch')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-rcVlanxc=ModuleIdentity((1,3,6,1,4,1,8886,6,1,72))
-class _RcVlanxcCurrentEntryCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1024))
-_RcVlanxcCurrentEntryCount_Type.__name__=_B
-_RcVlanxcCurrentEntryCount_Object=MibScalar
-rcVlanxcCurrentEntryCount=_RcVlanxcCurrentEntryCount_Object((1,3,6,1,4,1,8886,6,1,72,1),_RcVlanxcCurrentEntryCount_Type())
-rcVlanxcCurrentEntryCount.setMaxAccess('read-only')
-if mibBuilder.loadTexts:rcVlanxcCurrentEntryCount.setStatus(_A)
-_RcVlanxcTable_Object=MibTable
-rcVlanxcTable=_RcVlanxcTable_Object((1,3,6,1,4,1,8886,6,1,72,2))
-if mibBuilder.loadTexts:rcVlanxcTable.setStatus(_A)
-_RcVlanxcEntry_Object=MibTableRow
-rcVlanxcEntry=_RcVlanxcEntry_Object((1,3,6,1,4,1,8886,6,1,72,2,1))
-rcVlanxcEntry.setIndexNames((0,_C,_F),(0,_C,_G))
-if mibBuilder.loadTexts:rcVlanxcEntry.setStatus(_A)
-class _RcVlanxcOuterVid_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_RcVlanxcOuterVid_Type.__name__=_B
-_RcVlanxcOuterVid_Object=MibTableColumn
-rcVlanxcOuterVid=_RcVlanxcOuterVid_Object((1,3,6,1,4,1,8886,6,1,72,2,1,1),_RcVlanxcOuterVid_Type())
-rcVlanxcOuterVid.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcVlanxcOuterVid.setStatus(_A)
-class _RcVlanxcInnerVid_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094),ValueRangeConstraint(4096,4096))
-_RcVlanxcInnerVid_Type.__name__=_B
-_RcVlanxcInnerVid_Object=MibTableColumn
-rcVlanxcInnerVid=_RcVlanxcInnerVid_Object((1,3,6,1,4,1,8886,6,1,72,2,1,2),_RcVlanxcInnerVid_Type())
-rcVlanxcInnerVid.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcVlanxcInnerVid.setStatus(_A)
-_RcVlanxcPort1_Type=Integer32
-_RcVlanxcPort1_Object=MibTableColumn
-rcVlanxcPort1=_RcVlanxcPort1_Object((1,3,6,1,4,1,8886,6,1,72,2,1,3),_RcVlanxcPort1_Type())
-rcVlanxcPort1.setMaxAccess(_E)
-if mibBuilder.loadTexts:rcVlanxcPort1.setStatus(_A)
-_RcVlanxcPort2_Type=Integer32
-_RcVlanxcPort2_Object=MibTableColumn
-rcVlanxcPort2=_RcVlanxcPort2_Object((1,3,6,1,4,1,8886,6,1,72,2,1,4),_RcVlanxcPort2_Type())
-rcVlanxcPort2.setMaxAccess(_E)
-if mibBuilder.loadTexts:rcVlanxcPort2.setStatus(_A)
-_RcVlanxcRowStatus_Type=RowStatus
-_RcVlanxcRowStatus_Object=MibTableColumn
-rcVlanxcRowStatus=_RcVlanxcRowStatus_Object((1,3,6,1,4,1,8886,6,1,72,2,1,5),_RcVlanxcRowStatus_Type())
-rcVlanxcRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:rcVlanxcRowStatus.setStatus(_A)
-_RcVlanxcVlanTable_Object=MibTable
-rcVlanxcVlanTable=_RcVlanxcVlanTable_Object((1,3,6,1,4,1,8886,6,1,72,3))
-if mibBuilder.loadTexts:rcVlanxcVlanTable.setStatus(_A)
-_RcVlanxcVlanEntry_Object=MibTableRow
-rcVlanxcVlanEntry=_RcVlanxcVlanEntry_Object((1,3,6,1,4,1,8886,6,1,72,3,1))
-rcVlanxcVlanEntry.setIndexNames((0,_C,_H))
-if mibBuilder.loadTexts:rcVlanxcVlanEntry.setStatus(_A)
-class _RcVlanxcVlanIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_RcVlanxcVlanIndex_Type.__name__=_B
-_RcVlanxcVlanIndex_Object=MibTableColumn
-rcVlanxcVlanIndex=_RcVlanxcVlanIndex_Object((1,3,6,1,4,1,8886,6,1,72,3,1,1),_RcVlanxcVlanIndex_Type())
-rcVlanxcVlanIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcVlanxcVlanIndex.setStatus(_A)
-class _RcVlanxcVlanMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('bridge',0),('vlan-xc',1),('extend-vlan-xc',2)))
-_RcVlanxcVlanMode_Type.__name__=_B
-_RcVlanxcVlanMode_Object=MibTableColumn
-rcVlanxcVlanMode=_RcVlanxcVlanMode_Object((1,3,6,1,4,1,8886,6,1,72,3,1,2),_RcVlanxcVlanMode_Type())
-rcVlanxcVlanMode.setMaxAccess(_I)
-if mibBuilder.loadTexts:rcVlanxcVlanMode.setStatus(_A)
-_RcVlanxcVlanRowStatus_Type=RowStatus
-_RcVlanxcVlanRowStatus_Object=MibTableColumn
-rcVlanxcVlanRowStatus=_RcVlanxcVlanRowStatus_Object((1,3,6,1,4,1,8886,6,1,72,3,1,3),_RcVlanxcVlanRowStatus_Type())
-rcVlanxcVlanRowStatus.setMaxAccess(_I)
-if mibBuilder.loadTexts:rcVlanxcVlanRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'rcVlanxc':rcVlanxc,'rcVlanxcCurrentEntryCount':rcVlanxcCurrentEntryCount,'rcVlanxcTable':rcVlanxcTable,'rcVlanxcEntry':rcVlanxcEntry,_F:rcVlanxcOuterVid,_G:rcVlanxcInnerVid,'rcVlanxcPort1':rcVlanxcPort1,'rcVlanxcPort2':rcVlanxcPort2,'rcVlanxcRowStatus':rcVlanxcRowStatus,'rcVlanxcVlanTable':rcVlanxcVlanTable,'rcVlanxcVlanEntry':rcVlanxcVlanEntry,_H:rcVlanxcVlanIndex,'rcVlanxcVlanMode':rcVlanxcVlanMode,'rcVlanxcVlanRowStatus':rcVlanxcVlanRowStatus})
+#
+# PySNMP MIB module SWTICH-VLANXC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/SWTICH-VLANXC-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:52 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+iscomSwitch, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "iscomSwitch")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+rcVlanxc = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 6, 1, 72))
+if mibBuilder.loadTexts: rcVlanxc.setLastUpdated('201207100000Z')
+if mibBuilder.loadTexts: rcVlanxc.setOrganization('Raisecom, Inc.')
+rcVlanxcCurrentEntryCount = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 72, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1024))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcVlanxcCurrentEntryCount.setStatus('current')
+rcVlanxcTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 72, 2), )
+if mibBuilder.loadTexts: rcVlanxcTable.setStatus('current')
+rcVlanxcEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 72, 2, 1), ).setIndexNames((0, "SWTICH-VLANXC-MIB", "rcVlanxcOuterVid"), (0, "SWTICH-VLANXC-MIB", "rcVlanxcInnerVid"))
+if mibBuilder.loadTexts: rcVlanxcEntry.setStatus('current')
+rcVlanxcOuterVid = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 72, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094)))
+if mibBuilder.loadTexts: rcVlanxcOuterVid.setStatus('current')
+rcVlanxcInnerVid = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 72, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(1, 4094), ValueRangeConstraint(4096, 4096), )))
+if mibBuilder.loadTexts: rcVlanxcInnerVid.setStatus('current')
+rcVlanxcPort1 = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 72, 2, 1, 3), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcVlanxcPort1.setStatus('current')
+rcVlanxcPort2 = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 72, 2, 1, 4), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcVlanxcPort2.setStatus('current')
+rcVlanxcRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 72, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcVlanxcRowStatus.setStatus('current')
+rcVlanxcVlanTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 72, 3), )
+if mibBuilder.loadTexts: rcVlanxcVlanTable.setStatus('current')
+rcVlanxcVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 72, 3, 1), ).setIndexNames((0, "SWTICH-VLANXC-MIB", "rcVlanxcVlanIndex"))
+if mibBuilder.loadTexts: rcVlanxcVlanEntry.setStatus('current')
+rcVlanxcVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 72, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094)))
+if mibBuilder.loadTexts: rcVlanxcVlanIndex.setStatus('current')
+rcVlanxcVlanMode = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 72, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("bridge", 0), ("vlan-xc", 1), ("extend-vlan-xc", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcVlanxcVlanMode.setStatus('current')
+rcVlanxcVlanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 72, 3, 1, 3), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcVlanxcVlanRowStatus.setStatus('current')
+mibBuilder.exportSymbols("SWTICH-VLANXC-MIB", rcVlanxcCurrentEntryCount=rcVlanxcCurrentEntryCount, rcVlanxcPort2=rcVlanxcPort2, rcVlanxcPort1=rcVlanxcPort1, rcVlanxcVlanMode=rcVlanxcVlanMode, rcVlanxcVlanIndex=rcVlanxcVlanIndex, rcVlanxcVlanRowStatus=rcVlanxcVlanRowStatus, rcVlanxcOuterVid=rcVlanxcOuterVid, rcVlanxcTable=rcVlanxcTable, rcVlanxcEntry=rcVlanxcEntry, rcVlanxcVlanTable=rcVlanxcVlanTable, PYSNMP_MODULE_ID=rcVlanxc, rcVlanxcRowStatus=rcVlanxcRowStatus, rcVlanxcVlanEntry=rcVlanxcVlanEntry, rcVlanxcInnerVid=rcVlanxcInnerVid, rcVlanxc=rcVlanxc)

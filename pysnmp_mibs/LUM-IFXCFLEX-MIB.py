@@ -1,169 +1,84 @@
-_Y='ifXcFlexProcFuncMapGroupV1'
-_X='ifXcFlexInterfaceConfigGroupV1'
-_W='ifXcFlexGeneralGroupV1'
-_V='ifXcFlexProcFuncMapProcFuncIndex'
-_U='ifXcFlexProcFuncMapUId'
-_T='ifXcFlexProcFuncMapType'
-_S='ifXcFlexProcFuncMapName'
-_R='ifXcFlexInterfaceConfigInterfaceType'
-_Q='ifXcFlexInterfaceConfigProcFuncIndex'
-_P='ifXcFlexInterfaceConfigUId'
-_O='ifXcFlexInterfaceConfigName'
-_N='ifXcFlexProcFuncMapStateLastChangeTime'
-_M='ifXcFlexProcFuncMapConfigLastChangeTime'
-_L='ifXcFlexProcFuncMapTableSize'
-_K='ifXcFlexInterfaceConfigStateLastChangeTime'
-_J='ifXcFlexInterfaceConfigConfigLastChangeTime'
-_I='ifXcFlexInterfaceConfigTableSize'
-_H='ifXcFlexGeneralStateLastChangeTime'
-_G='ifXcFlexGeneralConfigLastChangeTime'
-_F='ifXcFlexProcFuncMapIndex'
-_E='ifXcFlexInterfaceConfigIndex'
-_D='Integer32'
-_C='read-only'
-_B='LUM-IFXCFLEX-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-lumIfXcFlexMIB,lumModules=mibBuilder.importSymbols('LUM-REG','lumIfXcFlexMIB','lumModules')
-MgmtNameString,Unsigned32WithNA=mibBuilder.importSymbols('LUM-TC','MgmtNameString','Unsigned32WithNA')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention')
-lumIfXcFlexMIBModule=ModuleIdentity((1,3,6,1,4,1,8708,1,1,70))
-if mibBuilder.loadTexts:lumIfXcFlexMIBModule.setRevisions(('2017-06-15 00:00','2016-08-18 00:00'))
-_LumIfXcFlexConfs_ObjectIdentity=ObjectIdentity
-lumIfXcFlexConfs=_LumIfXcFlexConfs_ObjectIdentity((1,3,6,1,4,1,8708,2,70,1))
-_LumIfXcFlexGroups_ObjectIdentity=ObjectIdentity
-lumIfXcFlexGroups=_LumIfXcFlexGroups_ObjectIdentity((1,3,6,1,4,1,8708,2,70,1,1))
-_LumIfXcFlexCompl_ObjectIdentity=ObjectIdentity
-lumIfXcFlexCompl=_LumIfXcFlexCompl_ObjectIdentity((1,3,6,1,4,1,8708,2,70,1,2))
-_LumIfXcFlexMIBObjects_ObjectIdentity=ObjectIdentity
-lumIfXcFlexMIBObjects=_LumIfXcFlexMIBObjects_ObjectIdentity((1,3,6,1,4,1,8708,2,70,2))
-_IfXcFlexGeneral_ObjectIdentity=ObjectIdentity
-ifXcFlexGeneral=_IfXcFlexGeneral_ObjectIdentity((1,3,6,1,4,1,8708,2,70,2,1))
-_IfXcFlexGeneralConfigLastChangeTime_Type=DateAndTime
-_IfXcFlexGeneralConfigLastChangeTime_Object=MibScalar
-ifXcFlexGeneralConfigLastChangeTime=_IfXcFlexGeneralConfigLastChangeTime_Object((1,3,6,1,4,1,8708,2,70,2,1,1),_IfXcFlexGeneralConfigLastChangeTime_Type())
-ifXcFlexGeneralConfigLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcFlexGeneralConfigLastChangeTime.setStatus(_A)
-_IfXcFlexGeneralStateLastChangeTime_Type=DateAndTime
-_IfXcFlexGeneralStateLastChangeTime_Object=MibScalar
-ifXcFlexGeneralStateLastChangeTime=_IfXcFlexGeneralStateLastChangeTime_Object((1,3,6,1,4,1,8708,2,70,2,1,2),_IfXcFlexGeneralStateLastChangeTime_Type())
-ifXcFlexGeneralStateLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcFlexGeneralStateLastChangeTime.setStatus(_A)
-_IfXcFlexInterfaceConfigTableSize_Type=Unsigned32
-_IfXcFlexInterfaceConfigTableSize_Object=MibScalar
-ifXcFlexInterfaceConfigTableSize=_IfXcFlexInterfaceConfigTableSize_Object((1,3,6,1,4,1,8708,2,70,2,1,3),_IfXcFlexInterfaceConfigTableSize_Type())
-ifXcFlexInterfaceConfigTableSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcFlexInterfaceConfigTableSize.setStatus(_A)
-_IfXcFlexInterfaceConfigConfigLastChangeTime_Type=DateAndTime
-_IfXcFlexInterfaceConfigConfigLastChangeTime_Object=MibScalar
-ifXcFlexInterfaceConfigConfigLastChangeTime=_IfXcFlexInterfaceConfigConfigLastChangeTime_Object((1,3,6,1,4,1,8708,2,70,2,1,4),_IfXcFlexInterfaceConfigConfigLastChangeTime_Type())
-ifXcFlexInterfaceConfigConfigLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcFlexInterfaceConfigConfigLastChangeTime.setStatus(_A)
-_IfXcFlexInterfaceConfigStateLastChangeTime_Type=DateAndTime
-_IfXcFlexInterfaceConfigStateLastChangeTime_Object=MibScalar
-ifXcFlexInterfaceConfigStateLastChangeTime=_IfXcFlexInterfaceConfigStateLastChangeTime_Object((1,3,6,1,4,1,8708,2,70,2,1,5),_IfXcFlexInterfaceConfigStateLastChangeTime_Type())
-ifXcFlexInterfaceConfigStateLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcFlexInterfaceConfigStateLastChangeTime.setStatus(_A)
-_IfXcFlexProcFuncMapTableSize_Type=Unsigned32
-_IfXcFlexProcFuncMapTableSize_Object=MibScalar
-ifXcFlexProcFuncMapTableSize=_IfXcFlexProcFuncMapTableSize_Object((1,3,6,1,4,1,8708,2,70,2,1,6),_IfXcFlexProcFuncMapTableSize_Type())
-ifXcFlexProcFuncMapTableSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcFlexProcFuncMapTableSize.setStatus(_A)
-_IfXcFlexProcFuncMapConfigLastChangeTime_Type=DateAndTime
-_IfXcFlexProcFuncMapConfigLastChangeTime_Object=MibScalar
-ifXcFlexProcFuncMapConfigLastChangeTime=_IfXcFlexProcFuncMapConfigLastChangeTime_Object((1,3,6,1,4,1,8708,2,70,2,1,7),_IfXcFlexProcFuncMapConfigLastChangeTime_Type())
-ifXcFlexProcFuncMapConfigLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcFlexProcFuncMapConfigLastChangeTime.setStatus(_A)
-_IfXcFlexProcFuncMapStateLastChangeTime_Type=DateAndTime
-_IfXcFlexProcFuncMapStateLastChangeTime_Object=MibScalar
-ifXcFlexProcFuncMapStateLastChangeTime=_IfXcFlexProcFuncMapStateLastChangeTime_Object((1,3,6,1,4,1,8708,2,70,2,1,8),_IfXcFlexProcFuncMapStateLastChangeTime_Type())
-ifXcFlexProcFuncMapStateLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcFlexProcFuncMapStateLastChangeTime.setStatus(_A)
-_IfXcFlexInterfaceConfigList_ObjectIdentity=ObjectIdentity
-ifXcFlexInterfaceConfigList=_IfXcFlexInterfaceConfigList_ObjectIdentity((1,3,6,1,4,1,8708,2,70,2,2))
-_IfXcFlexInterfaceConfigTable_Object=MibTable
-ifXcFlexInterfaceConfigTable=_IfXcFlexInterfaceConfigTable_Object((1,3,6,1,4,1,8708,2,70,2,2,1))
-if mibBuilder.loadTexts:ifXcFlexInterfaceConfigTable.setStatus(_A)
-_IfXcFlexInterfaceConfigEntry_Object=MibTableRow
-ifXcFlexInterfaceConfigEntry=_IfXcFlexInterfaceConfigEntry_Object((1,3,6,1,4,1,8708,2,70,2,2,1,1))
-ifXcFlexInterfaceConfigEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:ifXcFlexInterfaceConfigEntry.setStatus(_A)
-_IfXcFlexInterfaceConfigIndex_Type=Unsigned32
-_IfXcFlexInterfaceConfigIndex_Object=MibTableColumn
-ifXcFlexInterfaceConfigIndex=_IfXcFlexInterfaceConfigIndex_Object((1,3,6,1,4,1,8708,2,70,2,2,1,1,1),_IfXcFlexInterfaceConfigIndex_Type())
-ifXcFlexInterfaceConfigIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcFlexInterfaceConfigIndex.setStatus(_A)
-_IfXcFlexInterfaceConfigName_Type=MgmtNameString
-_IfXcFlexInterfaceConfigName_Object=MibTableColumn
-ifXcFlexInterfaceConfigName=_IfXcFlexInterfaceConfigName_Object((1,3,6,1,4,1,8708,2,70,2,2,1,1,2),_IfXcFlexInterfaceConfigName_Type())
-ifXcFlexInterfaceConfigName.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcFlexInterfaceConfigName.setStatus(_A)
-_IfXcFlexInterfaceConfigUId_Type=Unsigned32
-_IfXcFlexInterfaceConfigUId_Object=MibTableColumn
-ifXcFlexInterfaceConfigUId=_IfXcFlexInterfaceConfigUId_Object((1,3,6,1,4,1,8708,2,70,2,2,1,1,3),_IfXcFlexInterfaceConfigUId_Type())
-ifXcFlexInterfaceConfigUId.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcFlexInterfaceConfigUId.setStatus(_A)
-_IfXcFlexInterfaceConfigProcFuncIndex_Type=Unsigned32WithNA
-_IfXcFlexInterfaceConfigProcFuncIndex_Object=MibTableColumn
-ifXcFlexInterfaceConfigProcFuncIndex=_IfXcFlexInterfaceConfigProcFuncIndex_Object((1,3,6,1,4,1,8708,2,70,2,2,1,1,4),_IfXcFlexInterfaceConfigProcFuncIndex_Type())
-ifXcFlexInterfaceConfigProcFuncIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcFlexInterfaceConfigProcFuncIndex.setStatus(_A)
-class _IfXcFlexInterfaceConfigInterfaceType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('unused',1),('client',2),('line',3),('secondaryLine',4)))
-_IfXcFlexInterfaceConfigInterfaceType_Type.__name__=_D
-_IfXcFlexInterfaceConfigInterfaceType_Object=MibTableColumn
-ifXcFlexInterfaceConfigInterfaceType=_IfXcFlexInterfaceConfigInterfaceType_Object((1,3,6,1,4,1,8708,2,70,2,2,1,1,5),_IfXcFlexInterfaceConfigInterfaceType_Type())
-ifXcFlexInterfaceConfigInterfaceType.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcFlexInterfaceConfigInterfaceType.setStatus(_A)
-_IfXcFlexProcFuncMapList_ObjectIdentity=ObjectIdentity
-ifXcFlexProcFuncMapList=_IfXcFlexProcFuncMapList_ObjectIdentity((1,3,6,1,4,1,8708,2,70,2,3))
-_IfXcFlexProcFuncMapTable_Object=MibTable
-ifXcFlexProcFuncMapTable=_IfXcFlexProcFuncMapTable_Object((1,3,6,1,4,1,8708,2,70,2,3,1))
-if mibBuilder.loadTexts:ifXcFlexProcFuncMapTable.setStatus(_A)
-_IfXcFlexProcFuncMapEntry_Object=MibTableRow
-ifXcFlexProcFuncMapEntry=_IfXcFlexProcFuncMapEntry_Object((1,3,6,1,4,1,8708,2,70,2,3,1,1))
-ifXcFlexProcFuncMapEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:ifXcFlexProcFuncMapEntry.setStatus(_A)
-_IfXcFlexProcFuncMapIndex_Type=Unsigned32
-_IfXcFlexProcFuncMapIndex_Object=MibTableColumn
-ifXcFlexProcFuncMapIndex=_IfXcFlexProcFuncMapIndex_Object((1,3,6,1,4,1,8708,2,70,2,3,1,1,1),_IfXcFlexProcFuncMapIndex_Type())
-ifXcFlexProcFuncMapIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcFlexProcFuncMapIndex.setStatus(_A)
-_IfXcFlexProcFuncMapName_Type=MgmtNameString
-_IfXcFlexProcFuncMapName_Object=MibTableColumn
-ifXcFlexProcFuncMapName=_IfXcFlexProcFuncMapName_Object((1,3,6,1,4,1,8708,2,70,2,3,1,1,2),_IfXcFlexProcFuncMapName_Type())
-ifXcFlexProcFuncMapName.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcFlexProcFuncMapName.setStatus(_A)
-class _IfXcFlexProcFuncMapType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('transponder',1),('muxponder',2)))
-_IfXcFlexProcFuncMapType_Type.__name__=_D
-_IfXcFlexProcFuncMapType_Object=MibTableColumn
-ifXcFlexProcFuncMapType=_IfXcFlexProcFuncMapType_Object((1,3,6,1,4,1,8708,2,70,2,3,1,1,3),_IfXcFlexProcFuncMapType_Type())
-ifXcFlexProcFuncMapType.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcFlexProcFuncMapType.setStatus(_A)
-_IfXcFlexProcFuncMapUId_Type=Unsigned32
-_IfXcFlexProcFuncMapUId_Object=MibTableColumn
-ifXcFlexProcFuncMapUId=_IfXcFlexProcFuncMapUId_Object((1,3,6,1,4,1,8708,2,70,2,3,1,1,4),_IfXcFlexProcFuncMapUId_Type())
-ifXcFlexProcFuncMapUId.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcFlexProcFuncMapUId.setStatus(_A)
-_IfXcFlexProcFuncMapProcFuncIndex_Type=Unsigned32WithNA
-_IfXcFlexProcFuncMapProcFuncIndex_Object=MibTableColumn
-ifXcFlexProcFuncMapProcFuncIndex=_IfXcFlexProcFuncMapProcFuncIndex_Object((1,3,6,1,4,1,8708,2,70,2,3,1,1,5),_IfXcFlexProcFuncMapProcFuncIndex_Type())
-ifXcFlexProcFuncMapProcFuncIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcFlexProcFuncMapProcFuncIndex.setStatus(_A)
-ifXcFlexGeneralGroupV1=ObjectGroup((1,3,6,1,4,1,8708,2,70,1,1,1))
-ifXcFlexGeneralGroupV1.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:ifXcFlexGeneralGroupV1.setStatus(_A)
-ifXcFlexInterfaceConfigGroupV1=ObjectGroup((1,3,6,1,4,1,8708,2,70,1,1,2))
-ifXcFlexInterfaceConfigGroupV1.setObjects(*((_B,_E),(_B,_O),(_B,_P),(_B,_Q),(_B,_R)))
-if mibBuilder.loadTexts:ifXcFlexInterfaceConfigGroupV1.setStatus(_A)
-ifXcFlexProcFuncMapGroupV1=ObjectGroup((1,3,6,1,4,1,8708,2,70,1,1,3))
-ifXcFlexProcFuncMapGroupV1.setObjects(*((_B,_F),(_B,_S),(_B,_T),(_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:ifXcFlexProcFuncMapGroupV1.setStatus(_A)
-lumIfXcFlexComplV1=ModuleCompliance((1,3,6,1,4,1,8708,2,70,1,2,1))
-lumIfXcFlexComplV1.setObjects(*((_B,_W),(_B,_X),(_B,_Y)))
-if mibBuilder.loadTexts:lumIfXcFlexComplV1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'lumIfXcFlexMIBModule':lumIfXcFlexMIBModule,'lumIfXcFlexConfs':lumIfXcFlexConfs,'lumIfXcFlexGroups':lumIfXcFlexGroups,_W:ifXcFlexGeneralGroupV1,_X:ifXcFlexInterfaceConfigGroupV1,_Y:ifXcFlexProcFuncMapGroupV1,'lumIfXcFlexCompl':lumIfXcFlexCompl,'lumIfXcFlexComplV1':lumIfXcFlexComplV1,'lumIfXcFlexMIBObjects':lumIfXcFlexMIBObjects,'ifXcFlexGeneral':ifXcFlexGeneral,_G:ifXcFlexGeneralConfigLastChangeTime,_H:ifXcFlexGeneralStateLastChangeTime,_I:ifXcFlexInterfaceConfigTableSize,_J:ifXcFlexInterfaceConfigConfigLastChangeTime,_K:ifXcFlexInterfaceConfigStateLastChangeTime,_L:ifXcFlexProcFuncMapTableSize,_M:ifXcFlexProcFuncMapConfigLastChangeTime,_N:ifXcFlexProcFuncMapStateLastChangeTime,'ifXcFlexInterfaceConfigList':ifXcFlexInterfaceConfigList,'ifXcFlexInterfaceConfigTable':ifXcFlexInterfaceConfigTable,'ifXcFlexInterfaceConfigEntry':ifXcFlexInterfaceConfigEntry,_E:ifXcFlexInterfaceConfigIndex,_O:ifXcFlexInterfaceConfigName,_P:ifXcFlexInterfaceConfigUId,_Q:ifXcFlexInterfaceConfigProcFuncIndex,_R:ifXcFlexInterfaceConfigInterfaceType,'ifXcFlexProcFuncMapList':ifXcFlexProcFuncMapList,'ifXcFlexProcFuncMapTable':ifXcFlexProcFuncMapTable,'ifXcFlexProcFuncMapEntry':ifXcFlexProcFuncMapEntry,_F:ifXcFlexProcFuncMapIndex,_S:ifXcFlexProcFuncMapName,_T:ifXcFlexProcFuncMapType,_U:ifXcFlexProcFuncMapUId,_V:ifXcFlexProcFuncMapProcFuncIndex})
+#
+# PySNMP MIB module LUM-IFXCFLEX-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/LUM-IFXCFLEX-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:44 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+lumModules, lumIfXcFlexMIB = mibBuilder.importSymbols("LUM-REG", "lumModules", "lumIfXcFlexMIB")
+Unsigned32WithNA, MgmtNameString = mibBuilder.importSymbols("LUM-TC", "Unsigned32WithNA", "MgmtNameString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+lumIfXcFlexMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 8708, 1, 1, 70))
+lumIfXcFlexMIBModule.setRevisions(('2017-06-15 00:00', '2016-08-18 00:00',))
+if mibBuilder.loadTexts: lumIfXcFlexMIBModule.setLastUpdated('201706150000Z')
+if mibBuilder.loadTexts: lumIfXcFlexMIBModule.setOrganization('Infinera')
+lumIfXcFlexConfs = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 70, 1))
+lumIfXcFlexGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 70, 1, 1))
+lumIfXcFlexCompl = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 70, 1, 2))
+lumIfXcFlexMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2))
+ifXcFlexGeneral = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 1))
+ifXcFlexInterfaceConfigList = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 2))
+ifXcFlexProcFuncMapList = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 3))
+ifXcFlexGeneralConfigLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 1, 1), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcFlexGeneralConfigLastChangeTime.setStatus('current')
+ifXcFlexGeneralStateLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 1, 2), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcFlexGeneralStateLastChangeTime.setStatus('current')
+ifXcFlexInterfaceConfigTableSize = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcFlexInterfaceConfigTableSize.setStatus('current')
+ifXcFlexInterfaceConfigConfigLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 1, 4), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcFlexInterfaceConfigConfigLastChangeTime.setStatus('current')
+ifXcFlexInterfaceConfigStateLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 1, 5), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcFlexInterfaceConfigStateLastChangeTime.setStatus('current')
+ifXcFlexProcFuncMapTableSize = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcFlexProcFuncMapTableSize.setStatus('current')
+ifXcFlexProcFuncMapConfigLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 1, 7), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcFlexProcFuncMapConfigLastChangeTime.setStatus('current')
+ifXcFlexProcFuncMapStateLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 1, 8), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcFlexProcFuncMapStateLastChangeTime.setStatus('current')
+ifXcFlexInterfaceConfigTable = MibTable((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 2, 1), )
+if mibBuilder.loadTexts: ifXcFlexInterfaceConfigTable.setStatus('current')
+ifXcFlexInterfaceConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 2, 1, 1), ).setIndexNames((0, "LUM-IFXCFLEX-MIB", "ifXcFlexInterfaceConfigIndex"))
+if mibBuilder.loadTexts: ifXcFlexInterfaceConfigEntry.setStatus('current')
+ifXcFlexInterfaceConfigIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 2, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcFlexInterfaceConfigIndex.setStatus('current')
+ifXcFlexInterfaceConfigName = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 2, 1, 1, 2), MgmtNameString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcFlexInterfaceConfigName.setStatus('current')
+ifXcFlexInterfaceConfigUId = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 2, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcFlexInterfaceConfigUId.setStatus('current')
+ifXcFlexInterfaceConfigProcFuncIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 2, 1, 1, 4), Unsigned32WithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcFlexInterfaceConfigProcFuncIndex.setStatus('current')
+ifXcFlexInterfaceConfigInterfaceType = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unused", 1), ("client", 2), ("line", 3), ("secondaryLine", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcFlexInterfaceConfigInterfaceType.setStatus('current')
+ifXcFlexProcFuncMapTable = MibTable((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 3, 1), )
+if mibBuilder.loadTexts: ifXcFlexProcFuncMapTable.setStatus('current')
+ifXcFlexProcFuncMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 3, 1, 1), ).setIndexNames((0, "LUM-IFXCFLEX-MIB", "ifXcFlexProcFuncMapIndex"))
+if mibBuilder.loadTexts: ifXcFlexProcFuncMapEntry.setStatus('current')
+ifXcFlexProcFuncMapIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 3, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcFlexProcFuncMapIndex.setStatus('current')
+ifXcFlexProcFuncMapName = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 3, 1, 1, 2), MgmtNameString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcFlexProcFuncMapName.setStatus('current')
+ifXcFlexProcFuncMapType = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("transponder", 1), ("muxponder", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcFlexProcFuncMapType.setStatus('current')
+ifXcFlexProcFuncMapUId = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 3, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcFlexProcFuncMapUId.setStatus('current')
+ifXcFlexProcFuncMapProcFuncIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 70, 2, 3, 1, 1, 5), Unsigned32WithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcFlexProcFuncMapProcFuncIndex.setStatus('current')
+ifXcFlexGeneralGroupV1 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 70, 1, 1, 1)).setObjects(("LUM-IFXCFLEX-MIB", "ifXcFlexGeneralConfigLastChangeTime"), ("LUM-IFXCFLEX-MIB", "ifXcFlexGeneralStateLastChangeTime"), ("LUM-IFXCFLEX-MIB", "ifXcFlexInterfaceConfigTableSize"), ("LUM-IFXCFLEX-MIB", "ifXcFlexInterfaceConfigConfigLastChangeTime"), ("LUM-IFXCFLEX-MIB", "ifXcFlexInterfaceConfigStateLastChangeTime"), ("LUM-IFXCFLEX-MIB", "ifXcFlexProcFuncMapTableSize"), ("LUM-IFXCFLEX-MIB", "ifXcFlexProcFuncMapConfigLastChangeTime"), ("LUM-IFXCFLEX-MIB", "ifXcFlexProcFuncMapStateLastChangeTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifXcFlexGeneralGroupV1 = ifXcFlexGeneralGroupV1.setStatus('current')
+ifXcFlexInterfaceConfigGroupV1 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 70, 1, 1, 2)).setObjects(("LUM-IFXCFLEX-MIB", "ifXcFlexInterfaceConfigIndex"), ("LUM-IFXCFLEX-MIB", "ifXcFlexInterfaceConfigName"), ("LUM-IFXCFLEX-MIB", "ifXcFlexInterfaceConfigUId"), ("LUM-IFXCFLEX-MIB", "ifXcFlexInterfaceConfigProcFuncIndex"), ("LUM-IFXCFLEX-MIB", "ifXcFlexInterfaceConfigInterfaceType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifXcFlexInterfaceConfigGroupV1 = ifXcFlexInterfaceConfigGroupV1.setStatus('current')
+ifXcFlexProcFuncMapGroupV1 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 70, 1, 1, 3)).setObjects(("LUM-IFXCFLEX-MIB", "ifXcFlexProcFuncMapIndex"), ("LUM-IFXCFLEX-MIB", "ifXcFlexProcFuncMapName"), ("LUM-IFXCFLEX-MIB", "ifXcFlexProcFuncMapType"), ("LUM-IFXCFLEX-MIB", "ifXcFlexProcFuncMapUId"), ("LUM-IFXCFLEX-MIB", "ifXcFlexProcFuncMapProcFuncIndex"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifXcFlexProcFuncMapGroupV1 = ifXcFlexProcFuncMapGroupV1.setStatus('current')
+lumIfXcFlexComplV1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 8708, 2, 70, 1, 2, 1)).setObjects(("LUM-IFXCFLEX-MIB", "ifXcFlexGeneralGroupV1"), ("LUM-IFXCFLEX-MIB", "ifXcFlexInterfaceConfigGroupV1"), ("LUM-IFXCFLEX-MIB", "ifXcFlexProcFuncMapGroupV1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lumIfXcFlexComplV1 = lumIfXcFlexComplV1.setStatus('current')
+mibBuilder.exportSymbols("LUM-IFXCFLEX-MIB", lumIfXcFlexMIBObjects=lumIfXcFlexMIBObjects, ifXcFlexGeneralGroupV1=ifXcFlexGeneralGroupV1, ifXcFlexProcFuncMapEntry=ifXcFlexProcFuncMapEntry, ifXcFlexProcFuncMapUId=ifXcFlexProcFuncMapUId, lumIfXcFlexCompl=lumIfXcFlexCompl, ifXcFlexProcFuncMapStateLastChangeTime=ifXcFlexProcFuncMapStateLastChangeTime, ifXcFlexInterfaceConfigConfigLastChangeTime=ifXcFlexInterfaceConfigConfigLastChangeTime, ifXcFlexGeneral=ifXcFlexGeneral, PYSNMP_MODULE_ID=lumIfXcFlexMIBModule, ifXcFlexProcFuncMapTableSize=ifXcFlexProcFuncMapTableSize, lumIfXcFlexMIBModule=lumIfXcFlexMIBModule, ifXcFlexInterfaceConfigStateLastChangeTime=ifXcFlexInterfaceConfigStateLastChangeTime, ifXcFlexProcFuncMapName=ifXcFlexProcFuncMapName, ifXcFlexInterfaceConfigList=ifXcFlexInterfaceConfigList, ifXcFlexGeneralConfigLastChangeTime=ifXcFlexGeneralConfigLastChangeTime, ifXcFlexInterfaceConfigProcFuncIndex=ifXcFlexInterfaceConfigProcFuncIndex, ifXcFlexInterfaceConfigIndex=ifXcFlexInterfaceConfigIndex, ifXcFlexInterfaceConfigGroupV1=ifXcFlexInterfaceConfigGroupV1, ifXcFlexProcFuncMapGroupV1=ifXcFlexProcFuncMapGroupV1, ifXcFlexProcFuncMapConfigLastChangeTime=ifXcFlexProcFuncMapConfigLastChangeTime, ifXcFlexProcFuncMapTable=ifXcFlexProcFuncMapTable, ifXcFlexProcFuncMapProcFuncIndex=ifXcFlexProcFuncMapProcFuncIndex, ifXcFlexInterfaceConfigInterfaceType=ifXcFlexInterfaceConfigInterfaceType, lumIfXcFlexConfs=lumIfXcFlexConfs, ifXcFlexInterfaceConfigUId=ifXcFlexInterfaceConfigUId, ifXcFlexInterfaceConfigTable=ifXcFlexInterfaceConfigTable, ifXcFlexProcFuncMapType=ifXcFlexProcFuncMapType, ifXcFlexInterfaceConfigName=ifXcFlexInterfaceConfigName, ifXcFlexProcFuncMapIndex=ifXcFlexProcFuncMapIndex, ifXcFlexGeneralStateLastChangeTime=ifXcFlexGeneralStateLastChangeTime, lumIfXcFlexGroups=lumIfXcFlexGroups, ifXcFlexProcFuncMapList=ifXcFlexProcFuncMapList, lumIfXcFlexComplV1=lumIfXcFlexComplV1, ifXcFlexInterfaceConfigEntry=ifXcFlexInterfaceConfigEntry, ifXcFlexInterfaceConfigTableSize=ifXcFlexInterfaceConfigTableSize)

@@ -1,157 +1,80 @@
-_G='cucsDhcpLeaseInstanceId'
-_F='cucsDhcpInstInstanceId'
-_E='cucsDhcpAcquiredInstanceId'
-_D='not-accessible'
-_C='CISCO-UNIFIED-COMPUTING-DHCP-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-CiscoAlarmSeverity,CiscoInetAddressMask,CiscoNetworkAddress,TimeIntervalSec,Unsigned64=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity','CiscoInetAddressMask','CiscoNetworkAddress','TimeIntervalSec','Unsigned64')
-CucsManagedObjectDn,CucsManagedObjectId,ciscoUnifiedComputingMIBObjects=mibBuilder.importSymbols('CISCO-UNIFIED-COMPUTING-MIB','CucsManagedObjectDn','CucsManagedObjectId','ciscoUnifiedComputingMIBObjects')
-InetAddressIPv4,InetAddressIPv6=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowPointer','TextualConvention','TimeInterval','TimeStamp','TruthValue')
-cucsDhcpObjects=ModuleIdentity((1,3,6,1,4,1,9,9,719,1,11))
-_CucsDhcpAcquiredTable_Object=MibTable
-cucsDhcpAcquiredTable=_CucsDhcpAcquiredTable_Object((1,3,6,1,4,1,9,9,719,1,11,1))
-if mibBuilder.loadTexts:cucsDhcpAcquiredTable.setStatus(_A)
-_CucsDhcpAcquiredEntry_Object=MibTableRow
-cucsDhcpAcquiredEntry=_CucsDhcpAcquiredEntry_Object((1,3,6,1,4,1,9,9,719,1,11,1,1))
-cucsDhcpAcquiredEntry.setIndexNames((0,_C,_E))
-if mibBuilder.loadTexts:cucsDhcpAcquiredEntry.setStatus(_A)
-_CucsDhcpAcquiredInstanceId_Type=CucsManagedObjectId
-_CucsDhcpAcquiredInstanceId_Object=MibTableColumn
-cucsDhcpAcquiredInstanceId=_CucsDhcpAcquiredInstanceId_Object((1,3,6,1,4,1,9,9,719,1,11,1,1,1),_CucsDhcpAcquiredInstanceId_Type())
-cucsDhcpAcquiredInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsDhcpAcquiredInstanceId.setStatus(_A)
-_CucsDhcpAcquiredDn_Type=CucsManagedObjectDn
-_CucsDhcpAcquiredDn_Object=MibTableColumn
-cucsDhcpAcquiredDn=_CucsDhcpAcquiredDn_Object((1,3,6,1,4,1,9,9,719,1,11,1,1,2),_CucsDhcpAcquiredDn_Type())
-cucsDhcpAcquiredDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpAcquiredDn.setStatus(_A)
-_CucsDhcpAcquiredRn_Type=SnmpAdminString
-_CucsDhcpAcquiredRn_Object=MibTableColumn
-cucsDhcpAcquiredRn=_CucsDhcpAcquiredRn_Object((1,3,6,1,4,1,9,9,719,1,11,1,1,3),_CucsDhcpAcquiredRn_Type())
-cucsDhcpAcquiredRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpAcquiredRn.setStatus(_A)
-_CucsDhcpAcquiredAcqts_Type=DateAndTime
-_CucsDhcpAcquiredAcqts_Object=MibTableColumn
-cucsDhcpAcquiredAcqts=_CucsDhcpAcquiredAcqts_Object((1,3,6,1,4,1,9,9,719,1,11,1,1,4),_CucsDhcpAcquiredAcqts_Type())
-cucsDhcpAcquiredAcqts.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpAcquiredAcqts.setStatus(_A)
-_CucsDhcpAcquiredCookie_Type=SnmpAdminString
-_CucsDhcpAcquiredCookie_Object=MibTableColumn
-cucsDhcpAcquiredCookie=_CucsDhcpAcquiredCookie_Object((1,3,6,1,4,1,9,9,719,1,11,1,1,5),_CucsDhcpAcquiredCookie_Type())
-cucsDhcpAcquiredCookie.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpAcquiredCookie.setStatus(_A)
-_CucsDhcpAcquiredEnds_Type=DateAndTime
-_CucsDhcpAcquiredEnds_Object=MibTableColumn
-cucsDhcpAcquiredEnds=_CucsDhcpAcquiredEnds_Object((1,3,6,1,4,1,9,9,719,1,11,1,1,6),_CucsDhcpAcquiredEnds_Type())
-cucsDhcpAcquiredEnds.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpAcquiredEnds.setStatus(_A)
-_CucsDhcpAcquiredIp_Type=InetAddressIPv4
-_CucsDhcpAcquiredIp_Object=MibTableColumn
-cucsDhcpAcquiredIp=_CucsDhcpAcquiredIp_Object((1,3,6,1,4,1,9,9,719,1,11,1,1,7),_CucsDhcpAcquiredIp_Type())
-cucsDhcpAcquiredIp.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpAcquiredIp.setStatus(_A)
-_CucsDhcpAcquiredSysId_Type=SnmpAdminString
-_CucsDhcpAcquiredSysId_Object=MibTableColumn
-cucsDhcpAcquiredSysId=_CucsDhcpAcquiredSysId_Object((1,3,6,1,4,1,9,9,719,1,11,1,1,8),_CucsDhcpAcquiredSysId_Type())
-cucsDhcpAcquiredSysId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpAcquiredSysId.setStatus(_A)
-_CucsDhcpAcquiredMac_Type=MacAddress
-_CucsDhcpAcquiredMac_Object=MibTableColumn
-cucsDhcpAcquiredMac=_CucsDhcpAcquiredMac_Object((1,3,6,1,4,1,9,9,719,1,11,1,1,9),_CucsDhcpAcquiredMac_Type())
-cucsDhcpAcquiredMac.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpAcquiredMac.setStatus(_A)
-_CucsDhcpInstTable_Object=MibTable
-cucsDhcpInstTable=_CucsDhcpInstTable_Object((1,3,6,1,4,1,9,9,719,1,11,2))
-if mibBuilder.loadTexts:cucsDhcpInstTable.setStatus(_A)
-_CucsDhcpInstEntry_Object=MibTableRow
-cucsDhcpInstEntry=_CucsDhcpInstEntry_Object((1,3,6,1,4,1,9,9,719,1,11,2,1))
-cucsDhcpInstEntry.setIndexNames((0,_C,_F))
-if mibBuilder.loadTexts:cucsDhcpInstEntry.setStatus(_A)
-_CucsDhcpInstInstanceId_Type=CucsManagedObjectId
-_CucsDhcpInstInstanceId_Object=MibTableColumn
-cucsDhcpInstInstanceId=_CucsDhcpInstInstanceId_Object((1,3,6,1,4,1,9,9,719,1,11,2,1,1),_CucsDhcpInstInstanceId_Type())
-cucsDhcpInstInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsDhcpInstInstanceId.setStatus(_A)
-_CucsDhcpInstDn_Type=CucsManagedObjectDn
-_CucsDhcpInstDn_Object=MibTableColumn
-cucsDhcpInstDn=_CucsDhcpInstDn_Object((1,3,6,1,4,1,9,9,719,1,11,2,1,2),_CucsDhcpInstDn_Type())
-cucsDhcpInstDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpInstDn.setStatus(_A)
-_CucsDhcpInstRn_Type=SnmpAdminString
-_CucsDhcpInstRn_Object=MibTableColumn
-cucsDhcpInstRn=_CucsDhcpInstRn_Object((1,3,6,1,4,1,9,9,719,1,11,2,1,3),_CucsDhcpInstRn_Type())
-cucsDhcpInstRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpInstRn.setStatus(_A)
-_CucsDhcpLeaseTable_Object=MibTable
-cucsDhcpLeaseTable=_CucsDhcpLeaseTable_Object((1,3,6,1,4,1,9,9,719,1,11,3))
-if mibBuilder.loadTexts:cucsDhcpLeaseTable.setStatus(_A)
-_CucsDhcpLeaseEntry_Object=MibTableRow
-cucsDhcpLeaseEntry=_CucsDhcpLeaseEntry_Object((1,3,6,1,4,1,9,9,719,1,11,3,1))
-cucsDhcpLeaseEntry.setIndexNames((0,_C,_G))
-if mibBuilder.loadTexts:cucsDhcpLeaseEntry.setStatus(_A)
-_CucsDhcpLeaseInstanceId_Type=CucsManagedObjectId
-_CucsDhcpLeaseInstanceId_Object=MibTableColumn
-cucsDhcpLeaseInstanceId=_CucsDhcpLeaseInstanceId_Object((1,3,6,1,4,1,9,9,719,1,11,3,1,1),_CucsDhcpLeaseInstanceId_Type())
-cucsDhcpLeaseInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsDhcpLeaseInstanceId.setStatus(_A)
-_CucsDhcpLeaseDn_Type=CucsManagedObjectDn
-_CucsDhcpLeaseDn_Object=MibTableColumn
-cucsDhcpLeaseDn=_CucsDhcpLeaseDn_Object((1,3,6,1,4,1,9,9,719,1,11,3,1,2),_CucsDhcpLeaseDn_Type())
-cucsDhcpLeaseDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpLeaseDn.setStatus(_A)
-_CucsDhcpLeaseRn_Type=SnmpAdminString
-_CucsDhcpLeaseRn_Object=MibTableColumn
-cucsDhcpLeaseRn=_CucsDhcpLeaseRn_Object((1,3,6,1,4,1,9,9,719,1,11,3,1,3),_CucsDhcpLeaseRn_Type())
-cucsDhcpLeaseRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpLeaseRn.setStatus(_A)
-_CucsDhcpLeaseCliId_Type=SnmpAdminString
-_CucsDhcpLeaseCliId_Object=MibTableColumn
-cucsDhcpLeaseCliId=_CucsDhcpLeaseCliId_Object((1,3,6,1,4,1,9,9,719,1,11,3,1,4),_CucsDhcpLeaseCliId_Type())
-cucsDhcpLeaseCliId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpLeaseCliId.setStatus(_A)
-_CucsDhcpLeaseCookie_Type=SnmpAdminString
-_CucsDhcpLeaseCookie_Object=MibTableColumn
-cucsDhcpLeaseCookie=_CucsDhcpLeaseCookie_Object((1,3,6,1,4,1,9,9,719,1,11,3,1,5),_CucsDhcpLeaseCookie_Type())
-cucsDhcpLeaseCookie.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpLeaseCookie.setStatus(_A)
-_CucsDhcpLeaseEnds_Type=DateAndTime
-_CucsDhcpLeaseEnds_Object=MibTableColumn
-cucsDhcpLeaseEnds=_CucsDhcpLeaseEnds_Object((1,3,6,1,4,1,9,9,719,1,11,3,1,6),_CucsDhcpLeaseEnds_Type())
-cucsDhcpLeaseEnds.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpLeaseEnds.setStatus(_A)
-_CucsDhcpLeaseHostname_Type=SnmpAdminString
-_CucsDhcpLeaseHostname_Object=MibTableColumn
-cucsDhcpLeaseHostname=_CucsDhcpLeaseHostname_Object((1,3,6,1,4,1,9,9,719,1,11,3,1,7),_CucsDhcpLeaseHostname_Type())
-cucsDhcpLeaseHostname.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpLeaseHostname.setStatus(_A)
-_CucsDhcpLeaseIntf_Type=SnmpAdminString
-_CucsDhcpLeaseIntf_Object=MibTableColumn
-cucsDhcpLeaseIntf=_CucsDhcpLeaseIntf_Object((1,3,6,1,4,1,9,9,719,1,11,3,1,8),_CucsDhcpLeaseIntf_Type())
-cucsDhcpLeaseIntf.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpLeaseIntf.setStatus(_A)
-_CucsDhcpLeaseIp_Type=InetAddressIPv4
-_CucsDhcpLeaseIp_Object=MibTableColumn
-cucsDhcpLeaseIp=_CucsDhcpLeaseIp_Object((1,3,6,1,4,1,9,9,719,1,11,3,1,9),_CucsDhcpLeaseIp_Type())
-cucsDhcpLeaseIp.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpLeaseIp.setStatus(_A)
-_CucsDhcpLeaseMac_Type=MacAddress
-_CucsDhcpLeaseMac_Object=MibTableColumn
-cucsDhcpLeaseMac=_CucsDhcpLeaseMac_Object((1,3,6,1,4,1,9,9,719,1,11,3,1,10),_CucsDhcpLeaseMac_Type())
-cucsDhcpLeaseMac.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpLeaseMac.setStatus(_A)
-_CucsDhcpLeaseStarts_Type=DateAndTime
-_CucsDhcpLeaseStarts_Object=MibTableColumn
-cucsDhcpLeaseStarts=_CucsDhcpLeaseStarts_Object((1,3,6,1,4,1,9,9,719,1,11,3,1,11),_CucsDhcpLeaseStarts_Type())
-cucsDhcpLeaseStarts.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsDhcpLeaseStarts.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'cucsDhcpObjects':cucsDhcpObjects,'cucsDhcpAcquiredTable':cucsDhcpAcquiredTable,'cucsDhcpAcquiredEntry':cucsDhcpAcquiredEntry,_E:cucsDhcpAcquiredInstanceId,'cucsDhcpAcquiredDn':cucsDhcpAcquiredDn,'cucsDhcpAcquiredRn':cucsDhcpAcquiredRn,'cucsDhcpAcquiredAcqts':cucsDhcpAcquiredAcqts,'cucsDhcpAcquiredCookie':cucsDhcpAcquiredCookie,'cucsDhcpAcquiredEnds':cucsDhcpAcquiredEnds,'cucsDhcpAcquiredIp':cucsDhcpAcquiredIp,'cucsDhcpAcquiredSysId':cucsDhcpAcquiredSysId,'cucsDhcpAcquiredMac':cucsDhcpAcquiredMac,'cucsDhcpInstTable':cucsDhcpInstTable,'cucsDhcpInstEntry':cucsDhcpInstEntry,_F:cucsDhcpInstInstanceId,'cucsDhcpInstDn':cucsDhcpInstDn,'cucsDhcpInstRn':cucsDhcpInstRn,'cucsDhcpLeaseTable':cucsDhcpLeaseTable,'cucsDhcpLeaseEntry':cucsDhcpLeaseEntry,_G:cucsDhcpLeaseInstanceId,'cucsDhcpLeaseDn':cucsDhcpLeaseDn,'cucsDhcpLeaseRn':cucsDhcpLeaseRn,'cucsDhcpLeaseCliId':cucsDhcpLeaseCliId,'cucsDhcpLeaseCookie':cucsDhcpLeaseCookie,'cucsDhcpLeaseEnds':cucsDhcpLeaseEnds,'cucsDhcpLeaseHostname':cucsDhcpLeaseHostname,'cucsDhcpLeaseIntf':cucsDhcpLeaseIntf,'cucsDhcpLeaseIp':cucsDhcpLeaseIp,'cucsDhcpLeaseMac':cucsDhcpLeaseMac,'cucsDhcpLeaseStarts':cucsDhcpLeaseStarts})
+#
+# PySNMP MIB module CISCO-UNIFIED-COMPUTING-DHCP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-UNIFIED-COMPUTING-DHCP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:27 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+Unsigned64, CiscoAlarmSeverity, CiscoInetAddressMask, TimeIntervalSec, CiscoNetworkAddress = mibBuilder.importSymbols("CISCO-TC", "Unsigned64", "CiscoAlarmSeverity", "CiscoInetAddressMask", "TimeIntervalSec", "CiscoNetworkAddress")
+CucsManagedObjectId, ciscoUnifiedComputingMIBObjects, CucsManagedObjectDn = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-MIB", "CucsManagedObjectId", "ciscoUnifiedComputingMIBObjects", "CucsManagedObjectDn")
+InetAddressIPv6, InetAddressIPv4 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv6", "InetAddressIPv4")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, MacAddress, TimeInterval, TimeStamp, TruthValue, DateAndTime, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "TimeStamp", "TruthValue", "DateAndTime", "RowPointer", "TextualConvention")
+cucsDhcpObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11))
+if mibBuilder.loadTexts: cucsDhcpObjects.setLastUpdated('201807260000Z')
+if mibBuilder.loadTexts: cucsDhcpObjects.setOrganization('Cisco Systems Inc.')
+cucsDhcpAcquiredTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 1), )
+if mibBuilder.loadTexts: cucsDhcpAcquiredTable.setStatus('current')
+cucsDhcpAcquiredEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 1, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-DHCP-MIB", "cucsDhcpAcquiredInstanceId"))
+if mibBuilder.loadTexts: cucsDhcpAcquiredEntry.setStatus('current')
+cucsDhcpAcquiredInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 1, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsDhcpAcquiredInstanceId.setStatus('current')
+cucsDhcpAcquiredDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 1, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpAcquiredDn.setStatus('current')
+cucsDhcpAcquiredRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpAcquiredRn.setStatus('current')
+cucsDhcpAcquiredAcqts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 1, 1, 4), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpAcquiredAcqts.setStatus('current')
+cucsDhcpAcquiredCookie = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpAcquiredCookie.setStatus('current')
+cucsDhcpAcquiredEnds = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 1, 1, 6), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpAcquiredEnds.setStatus('current')
+cucsDhcpAcquiredIp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 1, 1, 7), InetAddressIPv4()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpAcquiredIp.setStatus('current')
+cucsDhcpAcquiredSysId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 1, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpAcquiredSysId.setStatus('current')
+cucsDhcpAcquiredMac = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 1, 1, 9), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpAcquiredMac.setStatus('current')
+cucsDhcpInstTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 2), )
+if mibBuilder.loadTexts: cucsDhcpInstTable.setStatus('current')
+cucsDhcpInstEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 2, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-DHCP-MIB", "cucsDhcpInstInstanceId"))
+if mibBuilder.loadTexts: cucsDhcpInstEntry.setStatus('current')
+cucsDhcpInstInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 2, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsDhcpInstInstanceId.setStatus('current')
+cucsDhcpInstDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 2, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpInstDn.setStatus('current')
+cucsDhcpInstRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 2, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpInstRn.setStatus('current')
+cucsDhcpLeaseTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 3), )
+if mibBuilder.loadTexts: cucsDhcpLeaseTable.setStatus('current')
+cucsDhcpLeaseEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 3, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-DHCP-MIB", "cucsDhcpLeaseInstanceId"))
+if mibBuilder.loadTexts: cucsDhcpLeaseEntry.setStatus('current')
+cucsDhcpLeaseInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 3, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsDhcpLeaseInstanceId.setStatus('current')
+cucsDhcpLeaseDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 3, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpLeaseDn.setStatus('current')
+cucsDhcpLeaseRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 3, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpLeaseRn.setStatus('current')
+cucsDhcpLeaseCliId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 3, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpLeaseCliId.setStatus('current')
+cucsDhcpLeaseCookie = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 3, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpLeaseCookie.setStatus('current')
+cucsDhcpLeaseEnds = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 3, 1, 6), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpLeaseEnds.setStatus('current')
+cucsDhcpLeaseHostname = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 3, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpLeaseHostname.setStatus('current')
+cucsDhcpLeaseIntf = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 3, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpLeaseIntf.setStatus('current')
+cucsDhcpLeaseIp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 3, 1, 9), InetAddressIPv4()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpLeaseIp.setStatus('current')
+cucsDhcpLeaseMac = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 3, 1, 10), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpLeaseMac.setStatus('current')
+cucsDhcpLeaseStarts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 11, 3, 1, 11), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsDhcpLeaseStarts.setStatus('current')
+mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-DHCP-MIB", cucsDhcpAcquiredCookie=cucsDhcpAcquiredCookie, cucsDhcpAcquiredIp=cucsDhcpAcquiredIp, cucsDhcpLeaseCliId=cucsDhcpLeaseCliId, cucsDhcpLeaseIntf=cucsDhcpLeaseIntf, cucsDhcpAcquiredTable=cucsDhcpAcquiredTable, cucsDhcpAcquiredMac=cucsDhcpAcquiredMac, cucsDhcpObjects=cucsDhcpObjects, cucsDhcpInstInstanceId=cucsDhcpInstInstanceId, cucsDhcpLeaseEnds=cucsDhcpLeaseEnds, cucsDhcpLeaseRn=cucsDhcpLeaseRn, cucsDhcpInstEntry=cucsDhcpInstEntry, cucsDhcpLeaseCookie=cucsDhcpLeaseCookie, cucsDhcpLeaseIp=cucsDhcpLeaseIp, cucsDhcpInstTable=cucsDhcpInstTable, cucsDhcpInstRn=cucsDhcpInstRn, cucsDhcpAcquiredEnds=cucsDhcpAcquiredEnds, cucsDhcpLeaseStarts=cucsDhcpLeaseStarts, cucsDhcpAcquiredRn=cucsDhcpAcquiredRn, cucsDhcpLeaseEntry=cucsDhcpLeaseEntry, cucsDhcpLeaseInstanceId=cucsDhcpLeaseInstanceId, cucsDhcpLeaseDn=cucsDhcpLeaseDn, cucsDhcpLeaseTable=cucsDhcpLeaseTable, PYSNMP_MODULE_ID=cucsDhcpObjects, cucsDhcpLeaseMac=cucsDhcpLeaseMac, cucsDhcpInstDn=cucsDhcpInstDn, cucsDhcpAcquiredAcqts=cucsDhcpAcquiredAcqts, cucsDhcpAcquiredSysId=cucsDhcpAcquiredSysId, cucsDhcpLeaseHostname=cucsDhcpLeaseHostname, cucsDhcpAcquiredEntry=cucsDhcpAcquiredEntry, cucsDhcpAcquiredInstanceId=cucsDhcpAcquiredInstanceId, cucsDhcpAcquiredDn=cucsDhcpAcquiredDn)

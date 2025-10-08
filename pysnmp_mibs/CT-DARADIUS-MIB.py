@@ -1,147 +1,67 @@
-_M='ssIndex'
-_L='secondaryAccounting'
-_K='primaryAccounting'
-_J='secondaryAuthentication'
-_I='primaryAuthentication'
-_H='scIndex'
-_G='disabled'
-_F='enabled'
-_E='CT-DARADIUS-MIB'
-_D='Integer32'
-_C='read-write'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-cabletron,=mibBuilder.importSymbols('CTRON-OIDS','cabletron')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_CtSSA_ObjectIdentity=ObjectIdentity
-ctSSA=_CtSSA_ObjectIdentity((1,3,6,1,4,1,52,4497))
-_DaRadius_ObjectIdentity=ObjectIdentity
-daRadius=_DaRadius_ObjectIdentity((1,3,6,1,4,1,52,4497,24))
-_DaRadiusConfig_ObjectIdentity=ObjectIdentity
-daRadiusConfig=_DaRadiusConfig_ObjectIdentity((1,3,6,1,4,1,52,4497,24,1))
-_DaRadiusGeneralConfig_ObjectIdentity=ObjectIdentity
-daRadiusGeneralConfig=_DaRadiusGeneralConfig_ObjectIdentity((1,3,6,1,4,1,52,4497,24,1,1))
-class _DaRadiusgcEnabled_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_DaRadiusgcEnabled_Type.__name__=_D
-_DaRadiusgcEnabled_Object=MibScalar
-daRadiusgcEnabled=_DaRadiusgcEnabled_Object((1,3,6,1,4,1,52,4497,24,1,1,1),_DaRadiusgcEnabled_Type())
-daRadiusgcEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:daRadiusgcEnabled.setStatus(_A)
-_DaRadiusgcAuthNumRetries_Type=Integer32
-_DaRadiusgcAuthNumRetries_Object=MibScalar
-daRadiusgcAuthNumRetries=_DaRadiusgcAuthNumRetries_Object((1,3,6,1,4,1,52,4497,24,1,1,2),_DaRadiusgcAuthNumRetries_Type())
-daRadiusgcAuthNumRetries.setMaxAccess(_C)
-if mibBuilder.loadTexts:daRadiusgcAuthNumRetries.setStatus(_A)
-_DaRadiusgcAuthSecsBtwnRetries_Type=Integer32
-_DaRadiusgcAuthSecsBtwnRetries_Object=MibScalar
-daRadiusgcAuthSecsBtwnRetries=_DaRadiusgcAuthSecsBtwnRetries_Object((1,3,6,1,4,1,52,4497,24,1,1,3),_DaRadiusgcAuthSecsBtwnRetries_Type())
-daRadiusgcAuthSecsBtwnRetries.setMaxAccess(_C)
-if mibBuilder.loadTexts:daRadiusgcAuthSecsBtwnRetries.setStatus(_A)
-_DaRadiusgcAcctNumRetries_Type=Integer32
-_DaRadiusgcAcctNumRetries_Object=MibScalar
-daRadiusgcAcctNumRetries=_DaRadiusgcAcctNumRetries_Object((1,3,6,1,4,1,52,4497,24,1,1,4),_DaRadiusgcAcctNumRetries_Type())
-daRadiusgcAcctNumRetries.setMaxAccess(_C)
-if mibBuilder.loadTexts:daRadiusgcAcctNumRetries.setStatus(_A)
-_GcAcctSecsBtwnRetries_Type=Integer32
-_GcAcctSecsBtwnRetries_Object=MibScalar
-gcAcctSecsBtwnRetries=_GcAcctSecsBtwnRetries_Object((1,3,6,1,4,1,52,4497,24,1,1,5),_GcAcctSecsBtwnRetries_Type())
-gcAcctSecsBtwnRetries.setMaxAccess(_C)
-if mibBuilder.loadTexts:gcAcctSecsBtwnRetries.setStatus(_A)
-_DaRadiusServerCfgTable_Object=MibTable
-daRadiusServerCfgTable=_DaRadiusServerCfgTable_Object((1,3,6,1,4,1,52,4497,24,1,2))
-if mibBuilder.loadTexts:daRadiusServerCfgTable.setStatus(_A)
-_DaRadiusServerCfgEntry_Object=MibTableRow
-daRadiusServerCfgEntry=_DaRadiusServerCfgEntry_Object((1,3,6,1,4,1,52,4497,24,1,2,1))
-daRadiusServerCfgEntry.setIndexNames((0,_E,_H))
-if mibBuilder.loadTexts:daRadiusServerCfgEntry.setStatus(_A)
-class _ScIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_I,1),(_J,2),(_K,3),(_L,4)))
-_ScIndex_Type.__name__=_D
-_ScIndex_Object=MibTableColumn
-scIndex=_ScIndex_Object((1,3,6,1,4,1,52,4497,24,1,2,1,1),_ScIndex_Type())
-scIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:scIndex.setStatus(_A)
-class _ScStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_ScStatus_Type.__name__=_D
-_ScStatus_Object=MibTableColumn
-scStatus=_ScStatus_Object((1,3,6,1,4,1,52,4497,24,1,2,1,2),_ScStatus_Type())
-scStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:scStatus.setStatus(_A)
-_ScIpAddress_Type=IpAddress
-_ScIpAddress_Object=MibTableColumn
-scIpAddress=_ScIpAddress_Object((1,3,6,1,4,1,52,4497,24,1,2,1,3),_ScIpAddress_Type())
-scIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:scIpAddress.setStatus(_A)
-_ScSharedSecret_Type=DisplayString
-_ScSharedSecret_Object=MibTableColumn
-scSharedSecret=_ScSharedSecret_Object((1,3,6,1,4,1,52,4497,24,1,2,1,4),_ScSharedSecret_Type())
-scSharedSecret.setMaxAccess(_C)
-if mibBuilder.loadTexts:scSharedSecret.setStatus(_A)
-_ScUdpPort_Type=Integer32
-_ScUdpPort_Object=MibTableColumn
-scUdpPort=_ScUdpPort_Object((1,3,6,1,4,1,52,4497,24,1,2,1,5),_ScUdpPort_Type())
-scUdpPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:scUdpPort.setStatus(_A)
-_DaRadiusStats_ObjectIdentity=ObjectIdentity
-daRadiusStats=_DaRadiusStats_ObjectIdentity((1,3,6,1,4,1,52,4497,24,2))
-_DaRadiusGeneralStats_ObjectIdentity=ObjectIdentity
-daRadiusGeneralStats=_DaRadiusGeneralStats_ObjectIdentity((1,3,6,1,4,1,52,4497,24,2,1))
-_GsInDiscards_Type=Integer32
-_GsInDiscards_Object=MibScalar
-gsInDiscards=_GsInDiscards_Object((1,3,6,1,4,1,52,4497,24,2,1,1),_GsInDiscards_Type())
-gsInDiscards.setMaxAccess(_B)
-if mibBuilder.loadTexts:gsInDiscards.setStatus(_A)
-_GsInErrors_Type=Integer32
-_GsInErrors_Object=MibScalar
-gsInErrors=_GsInErrors_Object((1,3,6,1,4,1,52,4497,24,2,1,2),_GsInErrors_Type())
-gsInErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:gsInErrors.setStatus(_A)
-_DaRadiusServerStatsTable_Object=MibTable
-daRadiusServerStatsTable=_DaRadiusServerStatsTable_Object((1,3,6,1,4,1,52,4497,24,2,2))
-if mibBuilder.loadTexts:daRadiusServerStatsTable.setStatus(_A)
-_DaRadiusServerStatsEntry_Object=MibTableRow
-daRadiusServerStatsEntry=_DaRadiusServerStatsEntry_Object((1,3,6,1,4,1,52,4497,24,2,2,1))
-daRadiusServerStatsEntry.setIndexNames((0,_E,_M))
-if mibBuilder.loadTexts:daRadiusServerStatsEntry.setStatus(_A)
-class _SsIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_I,1),(_J,2),(_K,3),(_L,4)))
-_SsIndex_Type.__name__=_D
-_SsIndex_Object=MibTableColumn
-ssIndex=_SsIndex_Object((1,3,6,1,4,1,52,4497,24,2,2,1,1),_SsIndex_Type())
-ssIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:ssIndex.setStatus(_A)
-_SsInPkts_Type=Integer32
-_SsInPkts_Object=MibTableColumn
-ssInPkts=_SsInPkts_Object((1,3,6,1,4,1,52,4497,24,2,2,1,2),_SsInPkts_Type())
-ssInPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:ssInPkts.setStatus(_A)
-_SsInDiscards_Type=Integer32
-_SsInDiscards_Object=MibTableColumn
-ssInDiscards=_SsInDiscards_Object((1,3,6,1,4,1,52,4497,24,2,2,1,3),_SsInDiscards_Type())
-ssInDiscards.setMaxAccess(_B)
-if mibBuilder.loadTexts:ssInDiscards.setStatus(_A)
-_SsInErrors_Type=Integer32
-_SsInErrors_Object=MibTableColumn
-ssInErrors=_SsInErrors_Object((1,3,6,1,4,1,52,4497,24,2,2,1,4),_SsInErrors_Type())
-ssInErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:ssInErrors.setStatus(_A)
-_SsOutPkts_Type=Integer32
-_SsOutPkts_Object=MibTableColumn
-ssOutPkts=_SsOutPkts_Object((1,3,6,1,4,1,52,4497,24,2,2,1,5),_SsOutPkts_Type())
-ssOutPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:ssOutPkts.setStatus(_A)
-_SsOutErrors_Type=Integer32
-_SsOutErrors_Object=MibTableColumn
-ssOutErrors=_SsOutErrors_Object((1,3,6,1,4,1,52,4497,24,2,2,1,6),_SsOutErrors_Type())
-ssOutErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:ssOutErrors.setStatus(_A)
-_SsResponseTimeouts_Type=Integer32
-_SsResponseTimeouts_Object=MibTableColumn
-ssResponseTimeouts=_SsResponseTimeouts_Object((1,3,6,1,4,1,52,4497,24,2,2,1,7),_SsResponseTimeouts_Type())
-ssResponseTimeouts.setMaxAccess(_B)
-if mibBuilder.loadTexts:ssResponseTimeouts.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'ctSSA':ctSSA,'daRadius':daRadius,'daRadiusConfig':daRadiusConfig,'daRadiusGeneralConfig':daRadiusGeneralConfig,'daRadiusgcEnabled':daRadiusgcEnabled,'daRadiusgcAuthNumRetries':daRadiusgcAuthNumRetries,'daRadiusgcAuthSecsBtwnRetries':daRadiusgcAuthSecsBtwnRetries,'daRadiusgcAcctNumRetries':daRadiusgcAcctNumRetries,'gcAcctSecsBtwnRetries':gcAcctSecsBtwnRetries,'daRadiusServerCfgTable':daRadiusServerCfgTable,'daRadiusServerCfgEntry':daRadiusServerCfgEntry,_H:scIndex,'scStatus':scStatus,'scIpAddress':scIpAddress,'scSharedSecret':scSharedSecret,'scUdpPort':scUdpPort,'daRadiusStats':daRadiusStats,'daRadiusGeneralStats':daRadiusGeneralStats,'gsInDiscards':gsInDiscards,'gsInErrors':gsInErrors,'daRadiusServerStatsTable':daRadiusServerStatsTable,'daRadiusServerStatsEntry':daRadiusServerStatsEntry,_M:ssIndex,'ssInPkts':ssInPkts,'ssInDiscards':ssInDiscards,'ssInErrors':ssInErrors,'ssOutPkts':ssOutPkts,'ssOutErrors':ssOutErrors,'ssResponseTimeouts':ssResponseTimeouts})
+#
+# PySNMP MIB module CT-DARADIUS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/CT-DARADIUS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:50 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ctSSA = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4497))
+daRadius = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4497, 24))
+daRadiusConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4497, 24, 1))
+daRadiusGeneralConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4497, 24, 1, 1))
+daRadiusStats = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4497, 24, 2))
+daRadiusGeneralStats = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4497, 24, 2, 1))
+daRadiusgcEnabled = MibScalar((1, 3, 6, 1, 4, 1, 52, 4497, 24, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: daRadiusgcEnabled.setStatus('mandatory')
+daRadiusgcAuthNumRetries = MibScalar((1, 3, 6, 1, 4, 1, 52, 4497, 24, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: daRadiusgcAuthNumRetries.setStatus('mandatory')
+daRadiusgcAuthSecsBtwnRetries = MibScalar((1, 3, 6, 1, 4, 1, 52, 4497, 24, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: daRadiusgcAuthSecsBtwnRetries.setStatus('mandatory')
+daRadiusgcAcctNumRetries = MibScalar((1, 3, 6, 1, 4, 1, 52, 4497, 24, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: daRadiusgcAcctNumRetries.setStatus('mandatory')
+gcAcctSecsBtwnRetries = MibScalar((1, 3, 6, 1, 4, 1, 52, 4497, 24, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: gcAcctSecsBtwnRetries.setStatus('mandatory')
+daRadiusServerCfgTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4497, 24, 1, 2), )
+if mibBuilder.loadTexts: daRadiusServerCfgTable.setStatus('mandatory')
+daRadiusServerCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4497, 24, 1, 2, 1), ).setIndexNames((0, "CT-DARADIUS-MIB", "scIndex"))
+if mibBuilder.loadTexts: daRadiusServerCfgEntry.setStatus('mandatory')
+scIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 24, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("primaryAuthentication", 1), ("secondaryAuthentication", 2), ("primaryAccounting", 3), ("secondaryAccounting", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scIndex.setStatus('mandatory')
+scStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 24, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: scStatus.setStatus('mandatory')
+scIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 24, 1, 2, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: scIpAddress.setStatus('mandatory')
+scSharedSecret = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 24, 1, 2, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: scSharedSecret.setStatus('mandatory')
+scUdpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 24, 1, 2, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: scUdpPort.setStatus('mandatory')
+gsInDiscards = MibScalar((1, 3, 6, 1, 4, 1, 52, 4497, 24, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: gsInDiscards.setStatus('mandatory')
+gsInErrors = MibScalar((1, 3, 6, 1, 4, 1, 52, 4497, 24, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: gsInErrors.setStatus('mandatory')
+daRadiusServerStatsTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4497, 24, 2, 2), )
+if mibBuilder.loadTexts: daRadiusServerStatsTable.setStatus('mandatory')
+daRadiusServerStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4497, 24, 2, 2, 1), ).setIndexNames((0, "CT-DARADIUS-MIB", "ssIndex"))
+if mibBuilder.loadTexts: daRadiusServerStatsEntry.setStatus('mandatory')
+ssIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 24, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("primaryAuthentication", 1), ("secondaryAuthentication", 2), ("primaryAccounting", 3), ("secondaryAccounting", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ssIndex.setStatus('mandatory')
+ssInPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 24, 2, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ssInPkts.setStatus('mandatory')
+ssInDiscards = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 24, 2, 2, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ssInDiscards.setStatus('mandatory')
+ssInErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 24, 2, 2, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ssInErrors.setStatus('mandatory')
+ssOutPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 24, 2, 2, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ssOutPkts.setStatus('mandatory')
+ssOutErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 24, 2, 2, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ssOutErrors.setStatus('mandatory')
+ssResponseTimeouts = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 24, 2, 2, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ssResponseTimeouts.setStatus('mandatory')
+mibBuilder.exportSymbols("CT-DARADIUS-MIB", daRadius=daRadius, gsInErrors=gsInErrors, ctSSA=ctSSA, gsInDiscards=gsInDiscards, daRadiusGeneralStats=daRadiusGeneralStats, daRadiusgcAuthSecsBtwnRetries=daRadiusgcAuthSecsBtwnRetries, daRadiusServerStatsEntry=daRadiusServerStatsEntry, scSharedSecret=scSharedSecret, daRadiusgcAuthNumRetries=daRadiusgcAuthNumRetries, ssOutErrors=ssOutErrors, daRadiusStats=daRadiusStats, daRadiusgcEnabled=daRadiusgcEnabled, scIndex=scIndex, scIpAddress=scIpAddress, ssIndex=ssIndex, daRadiusServerStatsTable=daRadiusServerStatsTable, ssInErrors=ssInErrors, daRadiusServerCfgEntry=daRadiusServerCfgEntry, scStatus=scStatus, scUdpPort=scUdpPort, ssInPkts=ssInPkts, daRadiusConfig=daRadiusConfig, ssResponseTimeouts=ssResponseTimeouts, daRadiusgcAcctNumRetries=daRadiusgcAcctNumRetries, ssInDiscards=ssInDiscards, gcAcctSecsBtwnRetries=gcAcctSecsBtwnRetries, daRadiusServerCfgTable=daRadiusServerCfgTable, daRadiusGeneralConfig=daRadiusGeneralConfig, ssOutPkts=ssOutPkts)

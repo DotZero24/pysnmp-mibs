@@ -1,81 +1,48 @@
-_G='MacSecViolationMode'
-_F='cnMacSecPortIndex'
-_E='CAMBIUM-NETWORKS-MACSEC-MIB'
-_D='read-only'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-cnMacSecMib=ModuleIdentity((1,3,6,1,4,1,17713,24,10))
-if mibBuilder.loadTexts:cnMacSecMib.setRevisions(('2021-11-28 00:00','2021-06-04 00:00'))
-class MacSecViolationMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('protect',1),('restrict',2),('shutdown',3)))
-_CnMacSecPort_ObjectIdentity=ObjectIdentity
-cnMacSecPort=_CnMacSecPort_ObjectIdentity((1,3,6,1,4,1,17713,24,10,1))
-_CnMacSecPortTable_Object=MibTable
-cnMacSecPortTable=_CnMacSecPortTable_Object((1,3,6,1,4,1,17713,24,10,1,1))
-if mibBuilder.loadTexts:cnMacSecPortTable.setStatus(_A)
-_CnMacSecPortEntry_Object=MibTableRow
-cnMacSecPortEntry=_CnMacSecPortEntry_Object((1,3,6,1,4,1,17713,24,10,1,1,1))
-cnMacSecPortEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:cnMacSecPortEntry.setStatus(_A)
-class _CnMacSecPortIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,52))
-_CnMacSecPortIndex_Type.__name__=_C
-_CnMacSecPortIndex_Object=MibTableColumn
-cnMacSecPortIndex=_CnMacSecPortIndex_Object((1,3,6,1,4,1,17713,24,10,1,1,1,1),_CnMacSecPortIndex_Type())
-cnMacSecPortIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:cnMacSecPortIndex.setStatus(_A)
-class _CnMacSecPortStatus_Type(Integer32):defaultValue=0
-_CnMacSecPortStatus_Type.__name__=_C
-_CnMacSecPortStatus_Object=MibTableColumn
-cnMacSecPortStatus=_CnMacSecPortStatus_Object((1,3,6,1,4,1,17713,24,10,1,1,1,2),_CnMacSecPortStatus_Type())
-cnMacSecPortStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cnMacSecPortStatus.setStatus(_A)
-class _CnMacSecPortMode_Type(MacSecViolationMode):defaultValue=1
-_CnMacSecPortMode_Type.__name__=_G
-_CnMacSecPortMode_Object=MibTableColumn
-cnMacSecPortMode=_CnMacSecPortMode_Object((1,3,6,1,4,1,17713,24,10,1,1,1,3),_CnMacSecPortMode_Type())
-cnMacSecPortMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cnMacSecPortMode.setStatus(_A)
-class _CnMacSecPortMaxAddr_Type(Integer32):defaultValue=1
-_CnMacSecPortMaxAddr_Type.__name__=_C
-_CnMacSecPortMaxAddr_Object=MibTableColumn
-cnMacSecPortMaxAddr=_CnMacSecPortMaxAddr_Object((1,3,6,1,4,1,17713,24,10,1,1,1,4),_CnMacSecPortMaxAddr_Type())
-cnMacSecPortMaxAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cnMacSecPortMaxAddr.setStatus(_A)
-_CnMacSecPortNumAddr_Type=Integer32
-_CnMacSecPortNumAddr_Object=MibTableColumn
-cnMacSecPortNumAddr=_CnMacSecPortNumAddr_Object((1,3,6,1,4,1,17713,24,10,1,1,1,5),_CnMacSecPortNumAddr_Type())
-cnMacSecPortNumAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:cnMacSecPortNumAddr.setStatus(_A)
-_CnMacSecPortNumViolations_Type=Gauge32
-_CnMacSecPortNumViolations_Object=MibTableColumn
-cnMacSecPortNumViolations=_CnMacSecPortNumViolations_Object((1,3,6,1,4,1,17713,24,10,1,1,1,6),_CnMacSecPortNumViolations_Type())
-cnMacSecPortNumViolations.setMaxAccess(_D)
-if mibBuilder.loadTexts:cnMacSecPortNumViolations.setStatus(_A)
-_CnMacSecPortLastViolationAddr_Type=MacAddress
-_CnMacSecPortLastViolationAddr_Object=MibTableColumn
-cnMacSecPortLastViolationAddr=_CnMacSecPortLastViolationAddr_Object((1,3,6,1,4,1,17713,24,10,1,1,1,7),_CnMacSecPortLastViolationAddr_Type())
-cnMacSecPortLastViolationAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:cnMacSecPortLastViolationAddr.setStatus(_A)
-_CnMacSecPortLastViolationTime_Type=DateAndTime
-_CnMacSecPortLastViolationTime_Object=MibTableColumn
-cnMacSecPortLastViolationTime=_CnMacSecPortLastViolationTime_Object((1,3,6,1,4,1,17713,24,10,1,1,1,8),_CnMacSecPortLastViolationTime_Type())
-cnMacSecPortLastViolationTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:cnMacSecPortLastViolationTime.setStatus(_A)
-_CnMacSecGlobalDebug_Type=Integer32
-_CnMacSecGlobalDebug_Object=MibScalar
-cnMacSecGlobalDebug=_CnMacSecGlobalDebug_Object((1,3,6,1,4,1,17713,24,10,2),_CnMacSecGlobalDebug_Type())
-cnMacSecGlobalDebug.setMaxAccess(_B)
-if mibBuilder.loadTexts:cnMacSecGlobalDebug.setStatus(_A)
-_CnMacSecDebugOption_Type=Integer32
-_CnMacSecDebugOption_Object=MibScalar
-cnMacSecDebugOption=_CnMacSecDebugOption_Object((1,3,6,1,4,1,17713,24,10,3),_CnMacSecDebugOption_Type())
-cnMacSecDebugOption.setMaxAccess(_B)
-if mibBuilder.loadTexts:cnMacSecDebugOption.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{_G:MacSecViolationMode,'cnMacSecMib':cnMacSecMib,'cnMacSecPort':cnMacSecPort,'cnMacSecPortTable':cnMacSecPortTable,'cnMacSecPortEntry':cnMacSecPortEntry,_F:cnMacSecPortIndex,'cnMacSecPortStatus':cnMacSecPortStatus,'cnMacSecPortMode':cnMacSecPortMode,'cnMacSecPortMaxAddr':cnMacSecPortMaxAddr,'cnMacSecPortNumAddr':cnMacSecPortNumAddr,'cnMacSecPortNumViolations':cnMacSecPortNumViolations,'cnMacSecPortLastViolationAddr':cnMacSecPortLastViolationAddr,'cnMacSecPortLastViolationTime':cnMacSecPortLastViolationTime,'cnMacSecGlobalDebug':cnMacSecGlobalDebug,'cnMacSecDebugOption':cnMacSecDebugOption})
+#
+# PySNMP MIB module CAMBIUM-NETWORKS-MACSEC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cambium/CAMBIUM-NETWORKS-MACSEC-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:43 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+cnMacSecMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 17713, 24, 10))
+cnMacSecMib.setRevisions(('2021-11-28 00:00', '2021-06-04 00:00',))
+if mibBuilder.loadTexts: cnMacSecMib.setLastUpdated('202111280000Z')
+if mibBuilder.loadTexts: cnMacSecMib.setOrganization('Cambium Networks, Inc.')
+class MacSecViolationMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("protect", 1), ("restrict", 2), ("shutdown", 3))
+
+cnMacSecPort = MibIdentifier((1, 3, 6, 1, 4, 1, 17713, 24, 10, 1))
+cnMacSecPortTable = MibTable((1, 3, 6, 1, 4, 1, 17713, 24, 10, 1, 1), )
+if mibBuilder.loadTexts: cnMacSecPortTable.setStatus('current')
+cnMacSecPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 17713, 24, 10, 1, 1, 1), ).setIndexNames((0, "CAMBIUM-NETWORKS-MACSEC-MIB", "cnMacSecPortIndex"))
+if mibBuilder.loadTexts: cnMacSecPortEntry.setStatus('current')
+cnMacSecPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 24, 10, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 52)))
+if mibBuilder.loadTexts: cnMacSecPortIndex.setStatus('current')
+cnMacSecPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 24, 10, 1, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cnMacSecPortStatus.setStatus('current')
+cnMacSecPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 24, 10, 1, 1, 1, 3), MacSecViolationMode().clone('protect')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cnMacSecPortMode.setStatus('current')
+cnMacSecPortMaxAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 24, 10, 1, 1, 1, 4), Integer32().clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cnMacSecPortMaxAddr.setStatus('current')
+cnMacSecPortNumAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 24, 10, 1, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cnMacSecPortNumAddr.setStatus('current')
+cnMacSecPortNumViolations = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 24, 10, 1, 1, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cnMacSecPortNumViolations.setStatus('current')
+cnMacSecPortLastViolationAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 24, 10, 1, 1, 1, 7), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cnMacSecPortLastViolationAddr.setStatus('current')
+cnMacSecPortLastViolationTime = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 24, 10, 1, 1, 1, 8), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cnMacSecPortLastViolationTime.setStatus('current')
+cnMacSecGlobalDebug = MibScalar((1, 3, 6, 1, 4, 1, 17713, 24, 10, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cnMacSecGlobalDebug.setStatus('current')
+cnMacSecDebugOption = MibScalar((1, 3, 6, 1, 4, 1, 17713, 24, 10, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cnMacSecDebugOption.setStatus('current')
+mibBuilder.exportSymbols("CAMBIUM-NETWORKS-MACSEC-MIB", cnMacSecPortMode=cnMacSecPortMode, cnMacSecPortStatus=cnMacSecPortStatus, MacSecViolationMode=MacSecViolationMode, PYSNMP_MODULE_ID=cnMacSecMib, cnMacSecPortEntry=cnMacSecPortEntry, cnMacSecPortMaxAddr=cnMacSecPortMaxAddr, cnMacSecPortNumAddr=cnMacSecPortNumAddr, cnMacSecPort=cnMacSecPort, cnMacSecPortLastViolationAddr=cnMacSecPortLastViolationAddr, cnMacSecGlobalDebug=cnMacSecGlobalDebug, cnMacSecMib=cnMacSecMib, cnMacSecPortIndex=cnMacSecPortIndex, cnMacSecDebugOption=cnMacSecDebugOption, cnMacSecPortLastViolationTime=cnMacSecPortLastViolationTime, cnMacSecPortTable=cnMacSecPortTable, cnMacSecPortNumViolations=cnMacSecPortNumViolations)

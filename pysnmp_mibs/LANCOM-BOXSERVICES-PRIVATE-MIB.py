@@ -1,308 +1,131 @@
-_m='boxsDyingGaspEventReason'
-_l='boxsTemperatureStatusPreviousEvent'
-_k='boxsTemperatureStatusCurrentEvent'
-_j='boxServicesThermalShutdownTemperature'
-_i='boxServicesThermalShutdownSensor'
-_h='boxsTemperatureChangeEvent'
-_g='boxServicesDiskUtilizationUnitIndex'
-_f='obsolete'
-_e='boxServicesUnitIndex'
-_d='boxServicesPowerSuppUnitIndex'
-_c='incompatible'
-_b='notpowering'
-_a='nopower'
-_Z='powering'
-_Y='failed'
-_X='operational'
-_W='boxServicesFanUnitIndex'
-_V='Gauge32'
-_U='boxsItemStateChangeEvent'
-_T='boxServicesTempUnitIndex'
-_S='boxServicesTempSensorIndex'
-_R='boxServicesPowSupplyIndex'
-_Q='removableAC'
-_P='fixedDC'
-_O='removableDC'
-_N='fixedAC'
-_M='removable'
-_L='fixed'
-_K='boxServicesFansIndex'
-_J='disable'
-_I='enable'
-_H='notpresent'
-_G='read-write'
-_F='Unsigned32'
-_E='accessible-for-notify'
-_D='Integer32'
-_C='LANCOM-BOXSERVICES-PRIVATE-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-CounterBasedGauge64,=mibBuilder.importSymbols('HCNUM-TC','CounterBasedGauge64')
-fastPath,=mibBuilder.importSymbols('LANCOM-REF-MIB','fastPath')
-DBmHundreths,DeciInteger32,MilliInteger32=mibBuilder.importSymbols('LANCOM-TC','DBmHundreths','DeciInteger32','MilliInteger32')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64',_V,_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_F,'iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-fastPathBoxServices=ModuleIdentity((1,3,6,1,4,1,2356,16,1,43))
-if mibBuilder.loadTexts:fastPathBoxServices.setRevisions(('2020-05-21 00:00','2018-06-30 00:00','2017-08-04 00:00','2011-01-26 00:00','2008-02-22 00:00'))
-class BoxsTemperatureStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6)));namedValues=NamedValues(*(('low',0),('normal',1),('warning',2),('critical',3),('shutdown',4),(_H,5),('notoperational',6)))
-_FastPathBoxServicesTraps_ObjectIdentity=ObjectIdentity
-fastPathBoxServicesTraps=_FastPathBoxServicesTraps_ObjectIdentity((1,3,6,1,4,1,2356,16,1,43,0))
-_BoxServicesGroup_ObjectIdentity=ObjectIdentity
-boxServicesGroup=_BoxServicesGroup_ObjectIdentity((1,3,6,1,4,1,2356,16,1,43,1))
-class _BoxServicesNormalTempRangeMin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-100,100))
-_BoxServicesNormalTempRangeMin_Type.__name__=_D
-_BoxServicesNormalTempRangeMin_Object=MibScalar
-boxServicesNormalTempRangeMin=_BoxServicesNormalTempRangeMin_Object((1,3,6,1,4,1,2356,16,1,43,1,1),_BoxServicesNormalTempRangeMin_Type())
-boxServicesNormalTempRangeMin.setMaxAccess(_G)
-if mibBuilder.loadTexts:boxServicesNormalTempRangeMin.setStatus(_A)
-class _BoxServicesNormalTempRangeMax_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-100,100))
-_BoxServicesNormalTempRangeMax_Type.__name__=_D
-_BoxServicesNormalTempRangeMax_Object=MibScalar
-boxServicesNormalTempRangeMax=_BoxServicesNormalTempRangeMax_Object((1,3,6,1,4,1,2356,16,1,43,1,2),_BoxServicesNormalTempRangeMax_Type())
-boxServicesNormalTempRangeMax.setMaxAccess(_G)
-if mibBuilder.loadTexts:boxServicesNormalTempRangeMax.setStatus(_A)
-class _BoxServicesTemperatureTrapEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_I,1),(_J,2)))
-_BoxServicesTemperatureTrapEnable_Type.__name__=_D
-_BoxServicesTemperatureTrapEnable_Object=MibScalar
-boxServicesTemperatureTrapEnable=_BoxServicesTemperatureTrapEnable_Object((1,3,6,1,4,1,2356,16,1,43,1,3),_BoxServicesTemperatureTrapEnable_Type())
-boxServicesTemperatureTrapEnable.setMaxAccess(_G)
-if mibBuilder.loadTexts:boxServicesTemperatureTrapEnable.setStatus(_A)
-class _BoxServicesPSMStateTrapEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_I,1),(_J,2)))
-_BoxServicesPSMStateTrapEnable_Type.__name__=_D
-_BoxServicesPSMStateTrapEnable_Object=MibScalar
-boxServicesPSMStateTrapEnable=_BoxServicesPSMStateTrapEnable_Object((1,3,6,1,4,1,2356,16,1,43,1,4),_BoxServicesPSMStateTrapEnable_Type())
-boxServicesPSMStateTrapEnable.setMaxAccess(_G)
-if mibBuilder.loadTexts:boxServicesPSMStateTrapEnable.setStatus(_A)
-class _BoxServicesFanStateTrapEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_I,1),(_J,2)))
-_BoxServicesFanStateTrapEnable_Type.__name__=_D
-_BoxServicesFanStateTrapEnable_Object=MibScalar
-boxServicesFanStateTrapEnable=_BoxServicesFanStateTrapEnable_Object((1,3,6,1,4,1,2356,16,1,43,1,5),_BoxServicesFanStateTrapEnable_Type())
-boxServicesFanStateTrapEnable.setMaxAccess(_G)
-if mibBuilder.loadTexts:boxServicesFanStateTrapEnable.setStatus(_A)
-_BoxServicesFansTable_Object=MibTable
-boxServicesFansTable=_BoxServicesFansTable_Object((1,3,6,1,4,1,2356,16,1,43,1,6))
-if mibBuilder.loadTexts:boxServicesFansTable.setStatus(_A)
-_BoxServicesFansEntry_Object=MibTableRow
-boxServicesFansEntry=_BoxServicesFansEntry_Object((1,3,6,1,4,1,2356,16,1,43,1,6,1))
-boxServicesFansEntry.setIndexNames((0,_C,_W),(0,_C,_K))
-if mibBuilder.loadTexts:boxServicesFansEntry.setStatus(_A)
-class _BoxServicesFansIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
-_BoxServicesFansIndex_Type.__name__=_D
-_BoxServicesFansIndex_Object=MibTableColumn
-boxServicesFansIndex=_BoxServicesFansIndex_Object((1,3,6,1,4,1,2356,16,1,43,1,6,1,1),_BoxServicesFansIndex_Type())
-boxServicesFansIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesFansIndex.setStatus(_A)
-class _BoxServicesFanItemType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_L,1),(_M,2),(_N,3),(_O,4),(_P,5),(_Q,6)))
-_BoxServicesFanItemType_Type.__name__=_D
-_BoxServicesFanItemType_Object=MibTableColumn
-boxServicesFanItemType=_BoxServicesFanItemType_Object((1,3,6,1,4,1,2356,16,1,43,1,6,1,2),_BoxServicesFanItemType_Type())
-boxServicesFanItemType.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesFanItemType.setStatus(_A)
-class _BoxServicesFanItemState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*((_H,1),(_X,2),(_Y,3),(_Z,4),(_a,5),(_b,6),(_c,7)))
-_BoxServicesFanItemState_Type.__name__=_D
-_BoxServicesFanItemState_Object=MibTableColumn
-boxServicesFanItemState=_BoxServicesFanItemState_Object((1,3,6,1,4,1,2356,16,1,43,1,6,1,3),_BoxServicesFanItemState_Type())
-boxServicesFanItemState.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesFanItemState.setStatus(_A)
-_BoxServicesFanSpeed_Type=Integer32
-_BoxServicesFanSpeed_Object=MibTableColumn
-boxServicesFanSpeed=_BoxServicesFanSpeed_Object((1,3,6,1,4,1,2356,16,1,43,1,6,1,4),_BoxServicesFanSpeed_Type())
-boxServicesFanSpeed.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesFanSpeed.setStatus(_A)
-_BoxServicesFanDutyLevel_Type=Integer32
-_BoxServicesFanDutyLevel_Object=MibTableColumn
-boxServicesFanDutyLevel=_BoxServicesFanDutyLevel_Object((1,3,6,1,4,1,2356,16,1,43,1,6,1,5),_BoxServicesFanDutyLevel_Type())
-boxServicesFanDutyLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesFanDutyLevel.setStatus(_A)
-class _BoxServicesFanUnitIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,12))
-_BoxServicesFanUnitIndex_Type.__name__=_F
-_BoxServicesFanUnitIndex_Object=MibTableColumn
-boxServicesFanUnitIndex=_BoxServicesFanUnitIndex_Object((1,3,6,1,4,1,2356,16,1,43,1,6,1,6),_BoxServicesFanUnitIndex_Type())
-boxServicesFanUnitIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesFanUnitIndex.setStatus(_A)
-_BoxServicesPowSuppliesTable_Object=MibTable
-boxServicesPowSuppliesTable=_BoxServicesPowSuppliesTable_Object((1,3,6,1,4,1,2356,16,1,43,1,7))
-if mibBuilder.loadTexts:boxServicesPowSuppliesTable.setStatus(_A)
-_BoxServicesPowSuppliesEntry_Object=MibTableRow
-boxServicesPowSuppliesEntry=_BoxServicesPowSuppliesEntry_Object((1,3,6,1,4,1,2356,16,1,43,1,7,1))
-boxServicesPowSuppliesEntry.setIndexNames((0,_C,_d),(0,_C,_R))
-if mibBuilder.loadTexts:boxServicesPowSuppliesEntry.setStatus(_A)
-class _BoxServicesPowSupplyIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_BoxServicesPowSupplyIndex_Type.__name__=_D
-_BoxServicesPowSupplyIndex_Object=MibTableColumn
-boxServicesPowSupplyIndex=_BoxServicesPowSupplyIndex_Object((1,3,6,1,4,1,2356,16,1,43,1,7,1,1),_BoxServicesPowSupplyIndex_Type())
-boxServicesPowSupplyIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesPowSupplyIndex.setStatus(_A)
-class _BoxServicesPowSupplyItemType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_L,1),(_M,2),(_N,3),(_O,4),(_P,5),(_Q,6)))
-_BoxServicesPowSupplyItemType_Type.__name__=_D
-_BoxServicesPowSupplyItemType_Object=MibTableColumn
-boxServicesPowSupplyItemType=_BoxServicesPowSupplyItemType_Object((1,3,6,1,4,1,2356,16,1,43,1,7,1,2),_BoxServicesPowSupplyItemType_Type())
-boxServicesPowSupplyItemType.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesPowSupplyItemType.setStatus(_A)
-class _BoxServicesPowSupplyItemState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*((_H,1),(_X,2),(_Y,3),(_Z,4),(_a,5),(_b,6),(_c,7)))
-_BoxServicesPowSupplyItemState_Type.__name__=_D
-_BoxServicesPowSupplyItemState_Object=MibTableColumn
-boxServicesPowSupplyItemState=_BoxServicesPowSupplyItemState_Object((1,3,6,1,4,1,2356,16,1,43,1,7,1,3),_BoxServicesPowSupplyItemState_Type())
-boxServicesPowSupplyItemState.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesPowSupplyItemState.setStatus(_A)
-class _BoxServicesPowerSuppUnitIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,12))
-_BoxServicesPowerSuppUnitIndex_Type.__name__=_F
-_BoxServicesPowerSuppUnitIndex_Object=MibTableColumn
-boxServicesPowerSuppUnitIndex=_BoxServicesPowerSuppUnitIndex_Object((1,3,6,1,4,1,2356,16,1,43,1,7,1,4),_BoxServicesPowerSuppUnitIndex_Type())
-boxServicesPowerSuppUnitIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesPowerSuppUnitIndex.setStatus(_A)
-_BoxServicesTempSensorsTable_Object=MibTable
-boxServicesTempSensorsTable=_BoxServicesTempSensorsTable_Object((1,3,6,1,4,1,2356,16,1,43,1,8))
-if mibBuilder.loadTexts:boxServicesTempSensorsTable.setStatus(_A)
-_BoxServicesTempSensorsEntry_Object=MibTableRow
-boxServicesTempSensorsEntry=_BoxServicesTempSensorsEntry_Object((1,3,6,1,4,1,2356,16,1,43,1,8,1))
-boxServicesTempSensorsEntry.setIndexNames((0,_C,_e),(0,_C,_S))
-if mibBuilder.loadTexts:boxServicesTempSensorsEntry.setStatus(_A)
-class _BoxServicesUnitIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,12))
-_BoxServicesUnitIndex_Type.__name__=_F
-_BoxServicesUnitIndex_Object=MibTableColumn
-boxServicesUnitIndex=_BoxServicesUnitIndex_Object((1,3,6,1,4,1,2356,16,1,43,1,8,1,1),_BoxServicesUnitIndex_Type())
-boxServicesUnitIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesUnitIndex.setStatus(_A)
-class _BoxServicesTempSensorIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
-_BoxServicesTempSensorIndex_Type.__name__=_F
-_BoxServicesTempSensorIndex_Object=MibTableColumn
-boxServicesTempSensorIndex=_BoxServicesTempSensorIndex_Object((1,3,6,1,4,1,2356,16,1,43,1,8,1,2),_BoxServicesTempSensorIndex_Type())
-boxServicesTempSensorIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesTempSensorIndex.setStatus(_A)
-class _BoxServicesTempSensorType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_L,1),(_M,2),(_N,3),(_O,4),(_P,5),(_Q,6)))
-_BoxServicesTempSensorType_Type.__name__=_D
-_BoxServicesTempSensorType_Object=MibTableColumn
-boxServicesTempSensorType=_BoxServicesTempSensorType_Object((1,3,6,1,4,1,2356,16,1,43,1,8,1,3),_BoxServicesTempSensorType_Type())
-boxServicesTempSensorType.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesTempSensorType.setStatus(_A)
-_BoxServicesTempSensorState_Type=BoxsTemperatureStatus
-_BoxServicesTempSensorState_Object=MibTableColumn
-boxServicesTempSensorState=_BoxServicesTempSensorState_Object((1,3,6,1,4,1,2356,16,1,43,1,8,1,4),_BoxServicesTempSensorState_Type())
-boxServicesTempSensorState.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesTempSensorState.setStatus(_f)
-_BoxServicesTempSensorTemperature_Type=Integer32
-_BoxServicesTempSensorTemperature_Object=MibTableColumn
-boxServicesTempSensorTemperature=_BoxServicesTempSensorTemperature_Object((1,3,6,1,4,1,2356,16,1,43,1,8,1,5),_BoxServicesTempSensorTemperature_Type())
-boxServicesTempSensorTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesTempSensorTemperature.setStatus(_A)
-_BoxServicesThermalShutdownSensor_Type=Unsigned32
-_BoxServicesThermalShutdownSensor_Object=MibScalar
-boxServicesThermalShutdownSensor=_BoxServicesThermalShutdownSensor_Object((1,3,6,1,4,1,2356,16,1,43,1,13),_BoxServicesThermalShutdownSensor_Type())
-boxServicesThermalShutdownSensor.setMaxAccess(_E)
-if mibBuilder.loadTexts:boxServicesThermalShutdownSensor.setStatus(_A)
-_BoxServicesThermalShutdownTemperature_Type=Unsigned32
-_BoxServicesThermalShutdownTemperature_Object=MibScalar
-boxServicesThermalShutdownTemperature=_BoxServicesThermalShutdownTemperature_Object((1,3,6,1,4,1,2356,16,1,43,1,14),_BoxServicesThermalShutdownTemperature_Type())
-boxServicesThermalShutdownTemperature.setMaxAccess(_E)
-if mibBuilder.loadTexts:boxServicesThermalShutdownTemperature.setStatus(_A)
-_BoxServicesTempUnitTable_Object=MibTable
-boxServicesTempUnitTable=_BoxServicesTempUnitTable_Object((1,3,6,1,4,1,2356,16,1,43,1,15))
-if mibBuilder.loadTexts:boxServicesTempUnitTable.setStatus(_A)
-_BoxServicesTempUnitEntry_Object=MibTableRow
-boxServicesTempUnitEntry=_BoxServicesTempUnitEntry_Object((1,3,6,1,4,1,2356,16,1,43,1,15,1))
-boxServicesTempUnitEntry.setIndexNames((0,_C,_T))
-if mibBuilder.loadTexts:boxServicesTempUnitEntry.setStatus(_A)
-class _BoxServicesTempUnitIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,12))
-_BoxServicesTempUnitIndex_Type.__name__=_F
-_BoxServicesTempUnitIndex_Object=MibTableColumn
-boxServicesTempUnitIndex=_BoxServicesTempUnitIndex_Object((1,3,6,1,4,1,2356,16,1,43,1,15,1,1),_BoxServicesTempUnitIndex_Type())
-boxServicesTempUnitIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesTempUnitIndex.setStatus(_A)
-_BoxServicesTempUnitState_Type=BoxsTemperatureStatus
-_BoxServicesTempUnitState_Object=MibTableColumn
-boxServicesTempUnitState=_BoxServicesTempUnitState_Object((1,3,6,1,4,1,2356,16,1,43,1,15,1,2),_BoxServicesTempUnitState_Type())
-boxServicesTempUnitState.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesTempUnitState.setStatus(_A)
-_BoxServicesTempUnitTemperature_Type=Integer32
-_BoxServicesTempUnitTemperature_Object=MibTableColumn
-boxServicesTempUnitTemperature=_BoxServicesTempUnitTemperature_Object((1,3,6,1,4,1,2356,16,1,43,1,15,1,3),_BoxServicesTempUnitTemperature_Type())
-boxServicesTempUnitTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesTempUnitTemperature.setStatus(_A)
-_BoxServicesDiskUtilizationTable_Object=MibTable
-boxServicesDiskUtilizationTable=_BoxServicesDiskUtilizationTable_Object((1,3,6,1,4,1,2356,16,1,43,1,16))
-if mibBuilder.loadTexts:boxServicesDiskUtilizationTable.setStatus(_A)
-_BoxServicesDiskUtilizationEntry_Object=MibTableRow
-boxServicesDiskUtilizationEntry=_BoxServicesDiskUtilizationEntry_Object((1,3,6,1,4,1,2356,16,1,43,1,16,1))
-boxServicesDiskUtilizationEntry.setIndexNames((0,_C,_g))
-if mibBuilder.loadTexts:boxServicesDiskUtilizationEntry.setStatus(_A)
-class _BoxServicesDiskUtilizationUnitIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_BoxServicesDiskUtilizationUnitIndex_Type.__name__=_D
-_BoxServicesDiskUtilizationUnitIndex_Object=MibTableColumn
-boxServicesDiskUtilizationUnitIndex=_BoxServicesDiskUtilizationUnitIndex_Object((1,3,6,1,4,1,2356,16,1,43,1,16,1,1),_BoxServicesDiskUtilizationUnitIndex_Type())
-boxServicesDiskUtilizationUnitIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:boxServicesDiskUtilizationUnitIndex.setStatus(_A)
-_BoxServicesDiskUtilizationTotalSpaceKb_Type=CounterBasedGauge64
-_BoxServicesDiskUtilizationTotalSpaceKb_Object=MibTableColumn
-boxServicesDiskUtilizationTotalSpaceKb=_BoxServicesDiskUtilizationTotalSpaceKb_Object((1,3,6,1,4,1,2356,16,1,43,1,16,1,2),_BoxServicesDiskUtilizationTotalSpaceKb_Type())
-boxServicesDiskUtilizationTotalSpaceKb.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesDiskUtilizationTotalSpaceKb.setStatus(_A)
-_BoxServicesDiskUtilizationFreeSpaceKb_Type=CounterBasedGauge64
-_BoxServicesDiskUtilizationFreeSpaceKb_Object=MibTableColumn
-boxServicesDiskUtilizationFreeSpaceKb=_BoxServicesDiskUtilizationFreeSpaceKb_Object((1,3,6,1,4,1,2356,16,1,43,1,16,1,3),_BoxServicesDiskUtilizationFreeSpaceKb_Type())
-boxServicesDiskUtilizationFreeSpaceKb.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesDiskUtilizationFreeSpaceKb.setStatus(_A)
-_BoxServicesDiskUtilizationUsedSpaceKb_Type=CounterBasedGauge64
-_BoxServicesDiskUtilizationUsedSpaceKb_Object=MibTableColumn
-boxServicesDiskUtilizationUsedSpaceKb=_BoxServicesDiskUtilizationUsedSpaceKb_Object((1,3,6,1,4,1,2356,16,1,43,1,16,1,4),_BoxServicesDiskUtilizationUsedSpaceKb_Type())
-boxServicesDiskUtilizationUsedSpaceKb.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesDiskUtilizationUsedSpaceKb.setStatus(_A)
-class _BoxServicesDiskUtilizationUsedSpaceInPercentage_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_BoxServicesDiskUtilizationUsedSpaceInPercentage_Type.__name__=_V
-_BoxServicesDiskUtilizationUsedSpaceInPercentage_Object=MibTableColumn
-boxServicesDiskUtilizationUsedSpaceInPercentage=_BoxServicesDiskUtilizationUsedSpaceInPercentage_Object((1,3,6,1,4,1,2356,16,1,43,1,16,1,5),_BoxServicesDiskUtilizationUsedSpaceInPercentage_Type())
-boxServicesDiskUtilizationUsedSpaceInPercentage.setMaxAccess(_B)
-if mibBuilder.loadTexts:boxServicesDiskUtilizationUsedSpaceInPercentage.setStatus(_A)
-_BoxsDyingGaspEventReason_Type=DisplayString
-_BoxsDyingGaspEventReason_Object=MibScalar
-boxsDyingGaspEventReason=_BoxsDyingGaspEventReason_Object((1,3,6,1,4,1,2356,16,1,43,1,17),_BoxsDyingGaspEventReason_Type())
-boxsDyingGaspEventReason.setMaxAccess(_E)
-if mibBuilder.loadTexts:boxsDyingGaspEventReason.setStatus(_A)
-_BoxServicesNotificationsGroup_ObjectIdentity=ObjectIdentity
-boxServicesNotificationsGroup=_BoxServicesNotificationsGroup_ObjectIdentity((1,3,6,1,4,1,2356,16,1,43,2))
-class _BoxsItemStateChangeEvent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('insertion',1),('removal',2),('becomeoperational',3),('failure',4),('losepower',5)))
-_BoxsItemStateChangeEvent_Type.__name__=_D
-_BoxsItemStateChangeEvent_Object=MibScalar
-boxsItemStateChangeEvent=_BoxsItemStateChangeEvent_Object((1,3,6,1,4,1,2356,16,1,43,2,1),_BoxsItemStateChangeEvent_Type())
-boxsItemStateChangeEvent.setMaxAccess(_E)
-if mibBuilder.loadTexts:boxsItemStateChangeEvent.setStatus(_A)
-class _BoxsTemperatureChangeEvent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('abovethreshold',1),('belowthreshold',2),('withinnormalrange',3)))
-_BoxsTemperatureChangeEvent_Type.__name__=_D
-_BoxsTemperatureChangeEvent_Object=MibScalar
-boxsTemperatureChangeEvent=_BoxsTemperatureChangeEvent_Object((1,3,6,1,4,1,2356,16,1,43,2,2),_BoxsTemperatureChangeEvent_Type())
-boxsTemperatureChangeEvent.setMaxAccess(_E)
-if mibBuilder.loadTexts:boxsTemperatureChangeEvent.setStatus(_A)
-_BoxsTemperatureStatusCurrentEvent_Type=BoxsTemperatureStatus
-_BoxsTemperatureStatusCurrentEvent_Object=MibScalar
-boxsTemperatureStatusCurrentEvent=_BoxsTemperatureStatusCurrentEvent_Object((1,3,6,1,4,1,2356,16,1,43,2,3),_BoxsTemperatureStatusCurrentEvent_Type())
-boxsTemperatureStatusCurrentEvent.setMaxAccess(_E)
-if mibBuilder.loadTexts:boxsTemperatureStatusCurrentEvent.setStatus(_A)
-_BoxsTemperatureStatusPreviousEvent_Type=BoxsTemperatureStatus
-_BoxsTemperatureStatusPreviousEvent_Object=MibScalar
-boxsTemperatureStatusPreviousEvent=_BoxsTemperatureStatusPreviousEvent_Object((1,3,6,1,4,1,2356,16,1,43,2,4),_BoxsTemperatureStatusPreviousEvent_Type())
-boxsTemperatureStatusPreviousEvent.setMaxAccess(_E)
-if mibBuilder.loadTexts:boxsTemperatureStatusPreviousEvent.setStatus(_A)
-boxsFanStateChange=NotificationType((1,3,6,1,4,1,2356,16,1,43,0,1))
-boxsFanStateChange.setObjects(*((_C,_K),(_C,_U)))
-if mibBuilder.loadTexts:boxsFanStateChange.setStatus(_A)
-boxsPowSupplyStateChange=NotificationType((1,3,6,1,4,1,2356,16,1,43,0,2))
-boxsPowSupplyStateChange.setObjects(*((_C,_R),(_C,_U)))
-if mibBuilder.loadTexts:boxsPowSupplyStateChange.setStatus(_A)
-boxsTemperatureChange=NotificationType((1,3,6,1,4,1,2356,16,1,43,0,3))
-boxsTemperatureChange.setObjects(*((_C,_S),(_C,_h)))
-if mibBuilder.loadTexts:boxsTemperatureChange.setStatus(_f)
-boxsThermalShutdown=NotificationType((1,3,6,1,4,1,2356,16,1,43,0,4))
-boxsThermalShutdown.setObjects(*((_C,_i),(_C,_j)))
-if mibBuilder.loadTexts:boxsThermalShutdown.setStatus(_A)
-boxsTemperatureStateChange=NotificationType((1,3,6,1,4,1,2356,16,1,43,0,5))
-boxsTemperatureStateChange.setObjects(*((_C,_T),(_C,_k),(_C,_l)))
-if mibBuilder.loadTexts:boxsTemperatureStateChange.setStatus(_A)
-boxsDyingGaspEventChange=NotificationType((1,3,6,1,4,1,2356,16,1,43,0,6))
-boxsDyingGaspEventChange.setObjects((_C,_m))
-if mibBuilder.loadTexts:boxsDyingGaspEventChange.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'BoxsTemperatureStatus':BoxsTemperatureStatus,'fastPathBoxServices':fastPathBoxServices,'fastPathBoxServicesTraps':fastPathBoxServicesTraps,'boxsFanStateChange':boxsFanStateChange,'boxsPowSupplyStateChange':boxsPowSupplyStateChange,'boxsTemperatureChange':boxsTemperatureChange,'boxsThermalShutdown':boxsThermalShutdown,'boxsTemperatureStateChange':boxsTemperatureStateChange,'boxsDyingGaspEventChange':boxsDyingGaspEventChange,'boxServicesGroup':boxServicesGroup,'boxServicesNormalTempRangeMin':boxServicesNormalTempRangeMin,'boxServicesNormalTempRangeMax':boxServicesNormalTempRangeMax,'boxServicesTemperatureTrapEnable':boxServicesTemperatureTrapEnable,'boxServicesPSMStateTrapEnable':boxServicesPSMStateTrapEnable,'boxServicesFanStateTrapEnable':boxServicesFanStateTrapEnable,'boxServicesFansTable':boxServicesFansTable,'boxServicesFansEntry':boxServicesFansEntry,_K:boxServicesFansIndex,'boxServicesFanItemType':boxServicesFanItemType,'boxServicesFanItemState':boxServicesFanItemState,'boxServicesFanSpeed':boxServicesFanSpeed,'boxServicesFanDutyLevel':boxServicesFanDutyLevel,_W:boxServicesFanUnitIndex,'boxServicesPowSuppliesTable':boxServicesPowSuppliesTable,'boxServicesPowSuppliesEntry':boxServicesPowSuppliesEntry,_R:boxServicesPowSupplyIndex,'boxServicesPowSupplyItemType':boxServicesPowSupplyItemType,'boxServicesPowSupplyItemState':boxServicesPowSupplyItemState,_d:boxServicesPowerSuppUnitIndex,'boxServicesTempSensorsTable':boxServicesTempSensorsTable,'boxServicesTempSensorsEntry':boxServicesTempSensorsEntry,_e:boxServicesUnitIndex,_S:boxServicesTempSensorIndex,'boxServicesTempSensorType':boxServicesTempSensorType,'boxServicesTempSensorState':boxServicesTempSensorState,'boxServicesTempSensorTemperature':boxServicesTempSensorTemperature,_i:boxServicesThermalShutdownSensor,_j:boxServicesThermalShutdownTemperature,'boxServicesTempUnitTable':boxServicesTempUnitTable,'boxServicesTempUnitEntry':boxServicesTempUnitEntry,_T:boxServicesTempUnitIndex,'boxServicesTempUnitState':boxServicesTempUnitState,'boxServicesTempUnitTemperature':boxServicesTempUnitTemperature,'boxServicesDiskUtilizationTable':boxServicesDiskUtilizationTable,'boxServicesDiskUtilizationEntry':boxServicesDiskUtilizationEntry,_g:boxServicesDiskUtilizationUnitIndex,'boxServicesDiskUtilizationTotalSpaceKb':boxServicesDiskUtilizationTotalSpaceKb,'boxServicesDiskUtilizationFreeSpaceKb':boxServicesDiskUtilizationFreeSpaceKb,'boxServicesDiskUtilizationUsedSpaceKb':boxServicesDiskUtilizationUsedSpaceKb,'boxServicesDiskUtilizationUsedSpaceInPercentage':boxServicesDiskUtilizationUsedSpaceInPercentage,_m:boxsDyingGaspEventReason,'boxServicesNotificationsGroup':boxServicesNotificationsGroup,_U:boxsItemStateChangeEvent,_h:boxsTemperatureChangeEvent,_k:boxsTemperatureStatusCurrentEvent,_l:boxsTemperatureStatusPreviousEvent})
+#
+# PySNMP MIB module LANCOM-BOXSERVICES-PRIVATE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/lancom/LANCOM-BOXSERVICES-PRIVATE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:43:42 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
+fastPath, = mibBuilder.importSymbols("LANCOM-REF-MIB", "fastPath")
+DeciInteger32, DBmHundreths, MilliInteger32 = mibBuilder.importSymbols("LANCOM-TC", "DeciInteger32", "DBmHundreths", "MilliInteger32")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+fastPathBoxServices = ModuleIdentity((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43))
+fastPathBoxServices.setRevisions(('2020-05-21 00:00', '2018-06-30 00:00', '2017-08-04 00:00', '2011-01-26 00:00', '2008-02-22 00:00',))
+if mibBuilder.loadTexts: fastPathBoxServices.setLastUpdated('202005210000Z')
+if mibBuilder.loadTexts: fastPathBoxServices.setOrganization('Broadcom ')
+class BoxsTemperatureStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))
+    namedValues = NamedValues(("low", 0), ("normal", 1), ("warning", 2), ("critical", 3), ("shutdown", 4), ("notpresent", 5), ("notoperational", 6))
+
+boxServicesGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1))
+boxServicesNormalTempRangeMin = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-100, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: boxServicesNormalTempRangeMin.setStatus('current')
+boxServicesNormalTempRangeMax = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-100, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: boxServicesNormalTempRangeMax.setStatus('current')
+boxServicesTemperatureTrapEnable = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: boxServicesTemperatureTrapEnable.setStatus('current')
+boxServicesPSMStateTrapEnable = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: boxServicesPSMStateTrapEnable.setStatus('current')
+boxServicesFanStateTrapEnable = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: boxServicesFanStateTrapEnable.setStatus('current')
+boxServicesThermalShutdownSensor = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 13), Unsigned32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: boxServicesThermalShutdownSensor.setStatus('current')
+boxServicesThermalShutdownTemperature = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 14), Unsigned32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: boxServicesThermalShutdownTemperature.setStatus('current')
+boxServicesFansTable = MibTable((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 6), )
+if mibBuilder.loadTexts: boxServicesFansTable.setStatus('current')
+boxServicesFansEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 6, 1), ).setIndexNames((0, "LANCOM-BOXSERVICES-PRIVATE-MIB", "boxServicesFanUnitIndex"), (0, "LANCOM-BOXSERVICES-PRIVATE-MIB", "boxServicesFansIndex"))
+if mibBuilder.loadTexts: boxServicesFansEntry.setStatus('current')
+boxServicesFanUnitIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 6, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 12))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesFanUnitIndex.setStatus('current')
+boxServicesFansIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesFansIndex.setStatus('current')
+boxServicesFanItemType = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("fixed", 1), ("removable", 2), ("fixedAC", 3), ("removableDC", 4), ("fixedDC", 5), ("removableAC", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesFanItemType.setStatus('current')
+boxServicesFanItemState = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("notpresent", 1), ("operational", 2), ("failed", 3), ("powering", 4), ("nopower", 5), ("notpowering", 6), ("incompatible", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesFanItemState.setStatus('current')
+boxServicesFanSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 6, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesFanSpeed.setStatus('current')
+boxServicesFanDutyLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 6, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesFanDutyLevel.setStatus('current')
+boxsDyingGaspEventReason = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 17), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: boxsDyingGaspEventReason.setStatus('current')
+boxServicesPowSuppliesTable = MibTable((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 7), )
+if mibBuilder.loadTexts: boxServicesPowSuppliesTable.setStatus('current')
+boxServicesPowSuppliesEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 7, 1), ).setIndexNames((0, "LANCOM-BOXSERVICES-PRIVATE-MIB", "boxServicesPowerSuppUnitIndex"), (0, "LANCOM-BOXSERVICES-PRIVATE-MIB", "boxServicesPowSupplyIndex"))
+if mibBuilder.loadTexts: boxServicesPowSuppliesEntry.setStatus('current')
+boxServicesPowerSuppUnitIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 7, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 12))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesPowerSuppUnitIndex.setStatus('current')
+boxServicesPowSupplyIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 7, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesPowSupplyIndex.setStatus('current')
+boxServicesPowSupplyItemType = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 7, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("fixed", 1), ("removable", 2), ("fixedAC", 3), ("removableDC", 4), ("fixedDC", 5), ("removableAC", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesPowSupplyItemType.setStatus('current')
+boxServicesPowSupplyItemState = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 7, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("notpresent", 1), ("operational", 2), ("failed", 3), ("powering", 4), ("nopower", 5), ("notpowering", 6), ("incompatible", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesPowSupplyItemState.setStatus('current')
+boxServicesTempSensorsTable = MibTable((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 8), )
+if mibBuilder.loadTexts: boxServicesTempSensorsTable.setStatus('current')
+boxServicesTempSensorsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 8, 1), ).setIndexNames((0, "LANCOM-BOXSERVICES-PRIVATE-MIB", "boxServicesUnitIndex"), (0, "LANCOM-BOXSERVICES-PRIVATE-MIB", "boxServicesTempSensorIndex"))
+if mibBuilder.loadTexts: boxServicesTempSensorsEntry.setStatus('current')
+boxServicesUnitIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 8, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 12))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesUnitIndex.setStatus('current')
+boxServicesTempSensorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 8, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesTempSensorIndex.setStatus('current')
+boxServicesTempSensorType = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 8, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("fixed", 1), ("removable", 2), ("fixedAC", 3), ("removableDC", 4), ("fixedDC", 5), ("removableAC", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesTempSensorType.setStatus('current')
+boxServicesTempSensorState = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 8, 1, 4), BoxsTemperatureStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesTempSensorState.setStatus('obsolete')
+boxServicesTempSensorTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 8, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesTempSensorTemperature.setStatus('current')
+boxServicesTempUnitTable = MibTable((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 15), )
+if mibBuilder.loadTexts: boxServicesTempUnitTable.setStatus('current')
+boxServicesTempUnitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 15, 1), ).setIndexNames((0, "LANCOM-BOXSERVICES-PRIVATE-MIB", "boxServicesTempUnitIndex"))
+if mibBuilder.loadTexts: boxServicesTempUnitEntry.setStatus('current')
+boxServicesTempUnitIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 15, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 12))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesTempUnitIndex.setStatus('current')
+boxServicesTempUnitState = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 15, 1, 2), BoxsTemperatureStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesTempUnitState.setStatus('current')
+boxServicesTempUnitTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 15, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesTempUnitTemperature.setStatus('current')
+boxServicesDiskUtilizationTable = MibTable((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 16), )
+if mibBuilder.loadTexts: boxServicesDiskUtilizationTable.setStatus('current')
+boxServicesDiskUtilizationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 16, 1), ).setIndexNames((0, "LANCOM-BOXSERVICES-PRIVATE-MIB", "boxServicesDiskUtilizationUnitIndex"))
+if mibBuilder.loadTexts: boxServicesDiskUtilizationEntry.setStatus('current')
+boxServicesDiskUtilizationUnitIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 16, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)))
+if mibBuilder.loadTexts: boxServicesDiskUtilizationUnitIndex.setStatus('current')
+boxServicesDiskUtilizationTotalSpaceKb = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 16, 1, 2), CounterBasedGauge64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesDiskUtilizationTotalSpaceKb.setStatus('current')
+boxServicesDiskUtilizationFreeSpaceKb = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 16, 1, 3), CounterBasedGauge64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesDiskUtilizationFreeSpaceKb.setStatus('current')
+boxServicesDiskUtilizationUsedSpaceKb = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 16, 1, 4), CounterBasedGauge64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesDiskUtilizationUsedSpaceKb.setStatus('current')
+boxServicesDiskUtilizationUsedSpaceInPercentage = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 1, 16, 1, 5), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boxServicesDiskUtilizationUsedSpaceInPercentage.setStatus('current')
+boxServicesNotificationsGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 2))
+boxsItemStateChangeEvent = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("insertion", 1), ("removal", 2), ("becomeoperational", 3), ("failure", 4), ("losepower", 5)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: boxsItemStateChangeEvent.setStatus('current')
+boxsTemperatureChangeEvent = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("abovethreshold", 1), ("belowthreshold", 2), ("withinnormalrange", 3)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: boxsTemperatureChangeEvent.setStatus('current')
+boxsTemperatureStatusCurrentEvent = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 2, 3), BoxsTemperatureStatus()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: boxsTemperatureStatusCurrentEvent.setStatus('current')
+boxsTemperatureStatusPreviousEvent = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 2, 4), BoxsTemperatureStatus()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: boxsTemperatureStatusPreviousEvent.setStatus('current')
+fastPathBoxServicesTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 0))
+boxsFanStateChange = NotificationType((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 0, 1)).setObjects(("LANCOM-BOXSERVICES-PRIVATE-MIB", "boxServicesFansIndex"), ("LANCOM-BOXSERVICES-PRIVATE-MIB", "boxsItemStateChangeEvent"))
+if mibBuilder.loadTexts: boxsFanStateChange.setStatus('current')
+boxsPowSupplyStateChange = NotificationType((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 0, 2)).setObjects(("LANCOM-BOXSERVICES-PRIVATE-MIB", "boxServicesPowSupplyIndex"), ("LANCOM-BOXSERVICES-PRIVATE-MIB", "boxsItemStateChangeEvent"))
+if mibBuilder.loadTexts: boxsPowSupplyStateChange.setStatus('current')
+boxsTemperatureChange = NotificationType((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 0, 3)).setObjects(("LANCOM-BOXSERVICES-PRIVATE-MIB", "boxServicesTempSensorIndex"), ("LANCOM-BOXSERVICES-PRIVATE-MIB", "boxsTemperatureChangeEvent"))
+if mibBuilder.loadTexts: boxsTemperatureChange.setStatus('obsolete')
+boxsThermalShutdown = NotificationType((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 0, 4)).setObjects(("LANCOM-BOXSERVICES-PRIVATE-MIB", "boxServicesThermalShutdownSensor"), ("LANCOM-BOXSERVICES-PRIVATE-MIB", "boxServicesThermalShutdownTemperature"))
+if mibBuilder.loadTexts: boxsThermalShutdown.setStatus('current')
+boxsTemperatureStateChange = NotificationType((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 0, 5)).setObjects(("LANCOM-BOXSERVICES-PRIVATE-MIB", "boxServicesTempUnitIndex"), ("LANCOM-BOXSERVICES-PRIVATE-MIB", "boxsTemperatureStatusCurrentEvent"), ("LANCOM-BOXSERVICES-PRIVATE-MIB", "boxsTemperatureStatusPreviousEvent"))
+if mibBuilder.loadTexts: boxsTemperatureStateChange.setStatus('current')
+boxsDyingGaspEventChange = NotificationType((1, 3, 6, 1, 4, 1, 2356, 16, 1, 43, 0, 6)).setObjects(("LANCOM-BOXSERVICES-PRIVATE-MIB", "boxsDyingGaspEventReason"))
+if mibBuilder.loadTexts: boxsDyingGaspEventChange.setStatus('current')
+mibBuilder.exportSymbols("LANCOM-BOXSERVICES-PRIVATE-MIB", boxServicesPowSupplyItemType=boxServicesPowSupplyItemType, boxServicesFansEntry=boxServicesFansEntry, boxServicesNormalTempRangeMax=boxServicesNormalTempRangeMax, boxsDyingGaspEventReason=boxsDyingGaspEventReason, boxServicesTempUnitTemperature=boxServicesTempUnitTemperature, boxServicesTemperatureTrapEnable=boxServicesTemperatureTrapEnable, boxServicesFansIndex=boxServicesFansIndex, boxServicesPowSuppliesEntry=boxServicesPowSuppliesEntry, boxServicesTempUnitEntry=boxServicesTempUnitEntry, boxsTemperatureStatusCurrentEvent=boxsTemperatureStatusCurrentEvent, boxServicesPowSupplyItemState=boxServicesPowSupplyItemState, boxsFanStateChange=boxsFanStateChange, boxServicesPSMStateTrapEnable=boxServicesPSMStateTrapEnable, boxServicesFansTable=boxServicesFansTable, boxServicesThermalShutdownTemperature=boxServicesThermalShutdownTemperature, boxServicesFanItemType=boxServicesFanItemType, PYSNMP_MODULE_ID=fastPathBoxServices, fastPathBoxServices=fastPathBoxServices, boxServicesFanDutyLevel=boxServicesFanDutyLevel, boxServicesTempSensorIndex=boxServicesTempSensorIndex, boxServicesNormalTempRangeMin=boxServicesNormalTempRangeMin, boxsItemStateChangeEvent=boxsItemStateChangeEvent, boxsTemperatureChangeEvent=boxsTemperatureChangeEvent, boxsPowSupplyStateChange=boxsPowSupplyStateChange, BoxsTemperatureStatus=BoxsTemperatureStatus, boxsThermalShutdown=boxsThermalShutdown, boxServicesTempUnitIndex=boxServicesTempUnitIndex, boxServicesTempSensorsTable=boxServicesTempSensorsTable, boxServicesDiskUtilizationUsedSpaceInPercentage=boxServicesDiskUtilizationUsedSpaceInPercentage, boxServicesNotificationsGroup=boxServicesNotificationsGroup, boxServicesTempSensorTemperature=boxServicesTempSensorTemperature, boxServicesPowSuppliesTable=boxServicesPowSuppliesTable, boxServicesFanStateTrapEnable=boxServicesFanStateTrapEnable, boxServicesFanItemState=boxServicesFanItemState, boxServicesPowSupplyIndex=boxServicesPowSupplyIndex, boxServicesDiskUtilizationUsedSpaceKb=boxServicesDiskUtilizationUsedSpaceKb, boxServicesDiskUtilizationTable=boxServicesDiskUtilizationTable, boxsTemperatureStatusPreviousEvent=boxsTemperatureStatusPreviousEvent, boxServicesTempSensorState=boxServicesTempSensorState, boxServicesThermalShutdownSensor=boxServicesThermalShutdownSensor, boxServicesTempUnitTable=boxServicesTempUnitTable, boxsDyingGaspEventChange=boxsDyingGaspEventChange, boxServicesGroup=boxServicesGroup, boxServicesDiskUtilizationTotalSpaceKb=boxServicesDiskUtilizationTotalSpaceKb, boxServicesFanSpeed=boxServicesFanSpeed, boxServicesTempUnitState=boxServicesTempUnitState, boxServicesDiskUtilizationEntry=boxServicesDiskUtilizationEntry, boxServicesDiskUtilizationFreeSpaceKb=boxServicesDiskUtilizationFreeSpaceKb, boxServicesDiskUtilizationUnitIndex=boxServicesDiskUtilizationUnitIndex, boxServicesPowerSuppUnitIndex=boxServicesPowerSuppUnitIndex, boxServicesTempSensorType=boxServicesTempSensorType, boxServicesFanUnitIndex=boxServicesFanUnitIndex, boxsTemperatureChange=boxsTemperatureChange, boxsTemperatureStateChange=boxsTemperatureStateChange, boxServicesTempSensorsEntry=boxServicesTempSensorsEntry, boxServicesUnitIndex=boxServicesUnitIndex, fastPathBoxServicesTraps=fastPathBoxServicesTraps)

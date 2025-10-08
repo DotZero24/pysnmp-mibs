@@ -1,90 +1,57 @@
-_O='pdnEntitySensorExtThresholdNtfyGroup'
-_N='pdnEntitySensorExtThresholdGroup'
-_M='pdnEntPhySensorExtThresholdExceededCleared'
-_L='pdnEntPhySensorExtThresholdExceededSet'
-_K='pdnEntPhySensorExtLowerThreshold'
-_J='pdnEntPhySensorExtUpperThreshold'
-_I='pdnEntPhySensorExtNotificationEnable'
-_H='pdnEntPhySensorExtEntry'
-_G='Integer32'
-_F='read-write'
-_E='entPhySensorValue'
-_D='ENTITY-SENSOR-MIB'
-_C='pdnEntPhySensorExtThresholdState'
-_B='current'
-_A='PDN-ENTITY-SENSOR-EXT-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-EntitySensorValue,entPhySensorEntry,entPhySensorValue=mibBuilder.importSymbols(_D,'EntitySensorValue','entPhySensorEntry',_E)
-pdn_common,=mibBuilder.importSymbols('PDN-HEADER-MIB','pdn-common')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-pdnEntitySensorExtMIB=ModuleIdentity((1,3,6,1,4,1,1795,2,24,2,45))
-if mibBuilder.loadTexts:pdnEntitySensorExtMIB.setRevisions(('2003-06-06 00:00','2003-04-24 00:00','2003-04-16 00:00'))
-_PdnEntitySensorExtNotifications_ObjectIdentity=ObjectIdentity
-pdnEntitySensorExtNotifications=_PdnEntitySensorExtNotifications_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,45,0))
-_PdnEntitySensorExtObjects_ObjectIdentity=ObjectIdentity
-pdnEntitySensorExtObjects=_PdnEntitySensorExtObjects_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,45,1))
-_PdnEntPhySensorExtTable_Object=MibTable
-pdnEntPhySensorExtTable=_PdnEntPhySensorExtTable_Object((1,3,6,1,4,1,1795,2,24,2,45,1,1))
-if mibBuilder.loadTexts:pdnEntPhySensorExtTable.setStatus(_B)
-_PdnEntPhySensorExtEntry_Object=MibTableRow
-pdnEntPhySensorExtEntry=_PdnEntPhySensorExtEntry_Object((1,3,6,1,4,1,1795,2,24,2,45,1,1,1))
-if mibBuilder.loadTexts:pdnEntPhySensorExtEntry.setStatus(_B)
-class _PdnEntPhySensorExtNotificationEnable_Type(Bits):namedValues=NamedValues(('thresholdExceeded',0))
-_PdnEntPhySensorExtNotificationEnable_Type.__name__='Bits'
-_PdnEntPhySensorExtNotificationEnable_Object=MibTableColumn
-pdnEntPhySensorExtNotificationEnable=_PdnEntPhySensorExtNotificationEnable_Object((1,3,6,1,4,1,1795,2,24,2,45,1,1,1,1),_PdnEntPhySensorExtNotificationEnable_Type())
-pdnEntPhySensorExtNotificationEnable.setMaxAccess(_F)
-if mibBuilder.loadTexts:pdnEntPhySensorExtNotificationEnable.setStatus(_B)
-_PdnEntPhySensorExtUpperThreshold_Type=EntitySensorValue
-_PdnEntPhySensorExtUpperThreshold_Object=MibTableColumn
-pdnEntPhySensorExtUpperThreshold=_PdnEntPhySensorExtUpperThreshold_Object((1,3,6,1,4,1,1795,2,24,2,45,1,1,1,2),_PdnEntPhySensorExtUpperThreshold_Type())
-pdnEntPhySensorExtUpperThreshold.setMaxAccess(_F)
-if mibBuilder.loadTexts:pdnEntPhySensorExtUpperThreshold.setStatus(_B)
-_PdnEntPhySensorExtLowerThreshold_Type=EntitySensorValue
-_PdnEntPhySensorExtLowerThreshold_Object=MibTableColumn
-pdnEntPhySensorExtLowerThreshold=_PdnEntPhySensorExtLowerThreshold_Object((1,3,6,1,4,1,1795,2,24,2,45,1,1,1,3),_PdnEntPhySensorExtLowerThreshold_Type())
-pdnEntPhySensorExtLowerThreshold.setMaxAccess(_F)
-if mibBuilder.loadTexts:pdnEntPhySensorExtLowerThreshold.setStatus(_B)
-class _PdnEntPhySensorExtThresholdState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('noThresholdsExceeded',1),('upperThresholdExceeded',2),('lowerThresholdExceeded',3)))
-_PdnEntPhySensorExtThresholdState_Type.__name__=_G
-_PdnEntPhySensorExtThresholdState_Object=MibTableColumn
-pdnEntPhySensorExtThresholdState=_PdnEntPhySensorExtThresholdState_Object((1,3,6,1,4,1,1795,2,24,2,45,1,1,1,4),_PdnEntPhySensorExtThresholdState_Type())
-pdnEntPhySensorExtThresholdState.setMaxAccess('read-only')
-if mibBuilder.loadTexts:pdnEntPhySensorExtThresholdState.setStatus(_B)
-_PdnEntitySensorExtAFNs_ObjectIdentity=ObjectIdentity
-pdnEntitySensorExtAFNs=_PdnEntitySensorExtAFNs_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,45,2))
-_PdnEntitySensorExtConformance_ObjectIdentity=ObjectIdentity
-pdnEntitySensorExtConformance=_PdnEntitySensorExtConformance_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,45,3))
-_PdnEntitySensorExtCompliances_ObjectIdentity=ObjectIdentity
-pdnEntitySensorExtCompliances=_PdnEntitySensorExtCompliances_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,45,3,1))
-_PdnEntitySensorExtGroups_ObjectIdentity=ObjectIdentity
-pdnEntitySensorExtGroups=_PdnEntitySensorExtGroups_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,45,3,2))
-_PdnEntitySensorExtObjGroups_ObjectIdentity=ObjectIdentity
-pdnEntitySensorExtObjGroups=_PdnEntitySensorExtObjGroups_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,45,3,2,1))
-_PdnEntitySensorExtAfnGroups_ObjectIdentity=ObjectIdentity
-pdnEntitySensorExtAfnGroups=_PdnEntitySensorExtAfnGroups_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,45,3,2,2))
-_PdnEntitySensorExtNtfyGroups_ObjectIdentity=ObjectIdentity
-pdnEntitySensorExtNtfyGroups=_PdnEntitySensorExtNtfyGroups_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,45,3,2,3))
-entPhySensorEntry.registerAugmentions((_A,_H))
+#
+# PySNMP MIB module PDN-ENTITY-SENSOR-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/paradyne/PDN-ENTITY-SENSOR-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:39 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+entPhySensorValue, EntitySensorValue, entPhySensorEntry = mibBuilder.importSymbols("ENTITY-SENSOR-MIB", "entPhySensorValue", "EntitySensorValue", "entPhySensorEntry")
+pdn_common, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdn-common")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+pdnEntitySensorExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45))
+pdnEntitySensorExtMIB.setRevisions(('2003-06-06 00:00', '2003-04-24 00:00', '2003-04-16 00:00',))
+if mibBuilder.loadTexts: pdnEntitySensorExtMIB.setLastUpdated('200306060000Z')
+if mibBuilder.loadTexts: pdnEntitySensorExtMIB.setOrganization('Paradyne Networks MIB Working Group Other information about group editing the MIB')
+pdnEntitySensorExtNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 0))
+pdnEntitySensorExtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 1))
+pdnEntitySensorExtAFNs = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 2))
+pdnEntitySensorExtConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 3))
+pdnEntPhySensorExtTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 1, 1), )
+if mibBuilder.loadTexts: pdnEntPhySensorExtTable.setStatus('current')
+pdnEntPhySensorExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 1, 1, 1), )
+entPhySensorEntry.registerAugmentions(("PDN-ENTITY-SENSOR-EXT-MIB", "pdnEntPhySensorExtEntry"))
 pdnEntPhySensorExtEntry.setIndexNames(*entPhySensorEntry.getIndexNames())
-pdnEntitySensorExtThresholdGroup=ObjectGroup((1,3,6,1,4,1,1795,2,24,2,45,3,2,1,1))
-pdnEntitySensorExtThresholdGroup.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_C)))
-if mibBuilder.loadTexts:pdnEntitySensorExtThresholdGroup.setStatus(_B)
-pdnEntPhySensorExtThresholdExceededSet=NotificationType((1,3,6,1,4,1,1795,2,24,2,45,0,1))
-pdnEntPhySensorExtThresholdExceededSet.setObjects(*((_D,_E),(_A,_C)))
-if mibBuilder.loadTexts:pdnEntPhySensorExtThresholdExceededSet.setStatus(_B)
-pdnEntPhySensorExtThresholdExceededCleared=NotificationType((1,3,6,1,4,1,1795,2,24,2,45,0,100))
-pdnEntPhySensorExtThresholdExceededCleared.setObjects(*((_D,_E),(_A,_C)))
-if mibBuilder.loadTexts:pdnEntPhySensorExtThresholdExceededCleared.setStatus(_B)
-pdnEntitySensorExtThresholdNtfyGroup=NotificationGroup((1,3,6,1,4,1,1795,2,24,2,45,3,2,3,1))
-pdnEntitySensorExtThresholdNtfyGroup.setObjects(*((_A,_L),(_A,_M)))
-if mibBuilder.loadTexts:pdnEntitySensorExtThresholdNtfyGroup.setStatus(_B)
-pdnEntitySensorExtMIBCompliance=ModuleCompliance((1,3,6,1,4,1,1795,2,24,2,45,3,1,1))
-pdnEntitySensorExtMIBCompliance.setObjects(*((_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:pdnEntitySensorExtMIBCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'pdnEntitySensorExtMIB':pdnEntitySensorExtMIB,'pdnEntitySensorExtNotifications':pdnEntitySensorExtNotifications,_L:pdnEntPhySensorExtThresholdExceededSet,_M:pdnEntPhySensorExtThresholdExceededCleared,'pdnEntitySensorExtObjects':pdnEntitySensorExtObjects,'pdnEntPhySensorExtTable':pdnEntPhySensorExtTable,_H:pdnEntPhySensorExtEntry,_I:pdnEntPhySensorExtNotificationEnable,_J:pdnEntPhySensorExtUpperThreshold,_K:pdnEntPhySensorExtLowerThreshold,_C:pdnEntPhySensorExtThresholdState,'pdnEntitySensorExtAFNs':pdnEntitySensorExtAFNs,'pdnEntitySensorExtConformance':pdnEntitySensorExtConformance,'pdnEntitySensorExtCompliances':pdnEntitySensorExtCompliances,'pdnEntitySensorExtMIBCompliance':pdnEntitySensorExtMIBCompliance,'pdnEntitySensorExtGroups':pdnEntitySensorExtGroups,'pdnEntitySensorExtObjGroups':pdnEntitySensorExtObjGroups,_N:pdnEntitySensorExtThresholdGroup,'pdnEntitySensorExtAfnGroups':pdnEntitySensorExtAfnGroups,'pdnEntitySensorExtNtfyGroups':pdnEntitySensorExtNtfyGroups,_O:pdnEntitySensorExtThresholdNtfyGroup})
+if mibBuilder.loadTexts: pdnEntPhySensorExtEntry.setStatus('current')
+pdnEntPhySensorExtNotificationEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 1, 1, 1, 1), Bits().clone(namedValues=NamedValues(("thresholdExceeded", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pdnEntPhySensorExtNotificationEnable.setStatus('current')
+pdnEntPhySensorExtUpperThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 1, 1, 1, 2), EntitySensorValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pdnEntPhySensorExtUpperThreshold.setStatus('current')
+pdnEntPhySensorExtLowerThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 1, 1, 1, 3), EntitySensorValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pdnEntPhySensorExtLowerThreshold.setStatus('current')
+pdnEntPhySensorExtThresholdState = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noThresholdsExceeded", 1), ("upperThresholdExceeded", 2), ("lowerThresholdExceeded", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pdnEntPhySensorExtThresholdState.setStatus('current')
+pdnEntPhySensorExtThresholdExceededSet = NotificationType((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 0, 1)).setObjects(("ENTITY-SENSOR-MIB", "entPhySensorValue"), ("PDN-ENTITY-SENSOR-EXT-MIB", "pdnEntPhySensorExtThresholdState"))
+if mibBuilder.loadTexts: pdnEntPhySensorExtThresholdExceededSet.setStatus('current')
+pdnEntPhySensorExtThresholdExceededCleared = NotificationType((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 0, 100)).setObjects(("ENTITY-SENSOR-MIB", "entPhySensorValue"), ("PDN-ENTITY-SENSOR-EXT-MIB", "pdnEntPhySensorExtThresholdState"))
+if mibBuilder.loadTexts: pdnEntPhySensorExtThresholdExceededCleared.setStatus('current')
+pdnEntitySensorExtCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 3, 1))
+pdnEntitySensorExtGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 3, 2))
+pdnEntitySensorExtMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 3, 1, 1)).setObjects(("PDN-ENTITY-SENSOR-EXT-MIB", "pdnEntitySensorExtThresholdGroup"), ("PDN-ENTITY-SENSOR-EXT-MIB", "pdnEntitySensorExtThresholdNtfyGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pdnEntitySensorExtMIBCompliance = pdnEntitySensorExtMIBCompliance.setStatus('current')
+pdnEntitySensorExtObjGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 3, 2, 1))
+pdnEntitySensorExtAfnGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 3, 2, 2))
+pdnEntitySensorExtNtfyGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 3, 2, 3))
+pdnEntitySensorExtThresholdGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 3, 2, 1, 1)).setObjects(("PDN-ENTITY-SENSOR-EXT-MIB", "pdnEntPhySensorExtNotificationEnable"), ("PDN-ENTITY-SENSOR-EXT-MIB", "pdnEntPhySensorExtUpperThreshold"), ("PDN-ENTITY-SENSOR-EXT-MIB", "pdnEntPhySensorExtLowerThreshold"), ("PDN-ENTITY-SENSOR-EXT-MIB", "pdnEntPhySensorExtThresholdState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pdnEntitySensorExtThresholdGroup = pdnEntitySensorExtThresholdGroup.setStatus('current')
+pdnEntitySensorExtThresholdNtfyGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 45, 3, 2, 3, 1)).setObjects(("PDN-ENTITY-SENSOR-EXT-MIB", "pdnEntPhySensorExtThresholdExceededSet"), ("PDN-ENTITY-SENSOR-EXT-MIB", "pdnEntPhySensorExtThresholdExceededCleared"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pdnEntitySensorExtThresholdNtfyGroup = pdnEntitySensorExtThresholdNtfyGroup.setStatus('current')
+mibBuilder.exportSymbols("PDN-ENTITY-SENSOR-EXT-MIB", pdnEntitySensorExtConformance=pdnEntitySensorExtConformance, pdnEntitySensorExtThresholdGroup=pdnEntitySensorExtThresholdGroup, pdnEntPhySensorExtThresholdExceededSet=pdnEntPhySensorExtThresholdExceededSet, pdnEntitySensorExtObjGroups=pdnEntitySensorExtObjGroups, pdnEntitySensorExtGroups=pdnEntitySensorExtGroups, pdnEntPhySensorExtThresholdState=pdnEntPhySensorExtThresholdState, pdnEntitySensorExtCompliances=pdnEntitySensorExtCompliances, pdnEntitySensorExtObjects=pdnEntitySensorExtObjects, pdnEntPhySensorExtTable=pdnEntPhySensorExtTable, pdnEntPhySensorExtLowerThreshold=pdnEntPhySensorExtLowerThreshold, pdnEntitySensorExtThresholdNtfyGroup=pdnEntitySensorExtThresholdNtfyGroup, pdnEntitySensorExtMIBCompliance=pdnEntitySensorExtMIBCompliance, pdnEntPhySensorExtThresholdExceededCleared=pdnEntPhySensorExtThresholdExceededCleared, pdnEntitySensorExtNotifications=pdnEntitySensorExtNotifications, pdnEntPhySensorExtNotificationEnable=pdnEntPhySensorExtNotificationEnable, pdnEntPhySensorExtUpperThreshold=pdnEntPhySensorExtUpperThreshold, pdnEntPhySensorExtEntry=pdnEntPhySensorExtEntry, pdnEntitySensorExtMIB=pdnEntitySensorExtMIB, pdnEntitySensorExtAfnGroups=pdnEntitySensorExtAfnGroups, PYSNMP_MODULE_ID=pdnEntitySensorExtMIB, pdnEntitySensorExtAFNs=pdnEntitySensorExtAFNs, pdnEntitySensorExtNtfyGroups=pdnEntitySensorExtNtfyGroups)

@@ -1,56 +1,37 @@
-_H='accessible-for-notify'
-_G='read-write'
-_F='hpnicfFcNsFloginPortWWN'
-_E='hpnicfFcNsLocalSwitchWWN'
-_D='hpnicfVsanIndex'
-_C='HPN-ICF-VSAN-MIB'
-_B='HPN-ICF-FC-NAME-SERVER-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-HpnicfFcNameId,=mibBuilder.importSymbols('HPN-ICF-FC-TC-MIB','HpnicfFcNameId')
-hpnicfSan,hpnicfVsanIndex=mibBuilder.importSymbols(_C,'hpnicfSan',_D)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-hpnicfFcNameServer=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,15,2,127,10))
-if mibBuilder.loadTexts:hpnicfFcNameServer.setRevisions(('2014-03-03 10:18',))
-_HpnicfFcNameServerMibObjects_ObjectIdentity=ObjectIdentity
-hpnicfFcNameServerMibObjects=_HpnicfFcNameServerMibObjects_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,127,10,1))
-_HpnicfFcNsNotification_ObjectIdentity=ObjectIdentity
-hpnicfFcNsNotification=_HpnicfFcNsNotification_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,127,10,1,1))
-_HpnicfFcNsNotificationPrefix_ObjectIdentity=ObjectIdentity
-hpnicfFcNsNotificationPrefix=_HpnicfFcNsNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,127,10,1,1,0))
-_HpnicfFcNsNotificationSwitch_ObjectIdentity=ObjectIdentity
-hpnicfFcNsNotificationSwitch=_HpnicfFcNsNotificationSwitch_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,127,10,1,1,1))
-_HpnicfFcNsPortLoginNotifyEnable_Type=TruthValue
-_HpnicfFcNsPortLoginNotifyEnable_Object=MibScalar
-hpnicfFcNsPortLoginNotifyEnable=_HpnicfFcNsPortLoginNotifyEnable_Object((1,3,6,1,4,1,11,2,14,11,15,2,127,10,1,1,1,1),_HpnicfFcNsPortLoginNotifyEnable_Type())
-hpnicfFcNsPortLoginNotifyEnable.setMaxAccess(_G)
-if mibBuilder.loadTexts:hpnicfFcNsPortLoginNotifyEnable.setStatus(_A)
-_HpnicfFcNsPortLogoutNotifyEnable_Type=TruthValue
-_HpnicfFcNsPortLogoutNotifyEnable_Object=MibScalar
-hpnicfFcNsPortLogoutNotifyEnable=_HpnicfFcNsPortLogoutNotifyEnable_Object((1,3,6,1,4,1,11,2,14,11,15,2,127,10,1,1,1,2),_HpnicfFcNsPortLogoutNotifyEnable_Type())
-hpnicfFcNsPortLogoutNotifyEnable.setMaxAccess(_G)
-if mibBuilder.loadTexts:hpnicfFcNsPortLogoutNotifyEnable.setStatus(_A)
-_HpnicfFcNsObjsForNotification_ObjectIdentity=ObjectIdentity
-hpnicfFcNsObjsForNotification=_HpnicfFcNsObjsForNotification_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,127,10,1,1,2))
-_HpnicfFcNsLocalSwitchWWN_Type=HpnicfFcNameId
-_HpnicfFcNsLocalSwitchWWN_Object=MibScalar
-hpnicfFcNsLocalSwitchWWN=_HpnicfFcNsLocalSwitchWWN_Object((1,3,6,1,4,1,11,2,14,11,15,2,127,10,1,1,2,1),_HpnicfFcNsLocalSwitchWWN_Type())
-hpnicfFcNsLocalSwitchWWN.setMaxAccess(_H)
-if mibBuilder.loadTexts:hpnicfFcNsLocalSwitchWWN.setStatus(_A)
-_HpnicfFcNsFloginPortWWN_Type=HpnicfFcNameId
-_HpnicfFcNsFloginPortWWN_Object=MibScalar
-hpnicfFcNsFloginPortWWN=_HpnicfFcNsFloginPortWWN_Object((1,3,6,1,4,1,11,2,14,11,15,2,127,10,1,1,2,2),_HpnicfFcNsFloginPortWWN_Type())
-hpnicfFcNsFloginPortWWN.setMaxAccess(_H)
-if mibBuilder.loadTexts:hpnicfFcNsFloginPortWWN.setStatus(_A)
-hpnicfFcNsPortLoginNotify=NotificationType((1,3,6,1,4,1,11,2,14,11,15,2,127,10,1,1,0,1))
-hpnicfFcNsPortLoginNotify.setObjects(*((_C,_D),(_B,_E),(_B,_F)))
-if mibBuilder.loadTexts:hpnicfFcNsPortLoginNotify.setStatus(_A)
-hpnicfFcNsPortLogoutNotify=NotificationType((1,3,6,1,4,1,11,2,14,11,15,2,127,10,1,1,0,2))
-hpnicfFcNsPortLogoutNotify.setObjects(*((_C,_D),(_B,_E),(_B,_F)))
-if mibBuilder.loadTexts:hpnicfFcNsPortLogoutNotify.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'hpnicfFcNameServer':hpnicfFcNameServer,'hpnicfFcNameServerMibObjects':hpnicfFcNameServerMibObjects,'hpnicfFcNsNotification':hpnicfFcNsNotification,'hpnicfFcNsNotificationPrefix':hpnicfFcNsNotificationPrefix,'hpnicfFcNsPortLoginNotify':hpnicfFcNsPortLoginNotify,'hpnicfFcNsPortLogoutNotify':hpnicfFcNsPortLogoutNotify,'hpnicfFcNsNotificationSwitch':hpnicfFcNsNotificationSwitch,'hpnicfFcNsPortLoginNotifyEnable':hpnicfFcNsPortLoginNotifyEnable,'hpnicfFcNsPortLogoutNotifyEnable':hpnicfFcNsPortLogoutNotifyEnable,'hpnicfFcNsObjsForNotification':hpnicfFcNsObjsForNotification,_E:hpnicfFcNsLocalSwitchWWN,_F:hpnicfFcNsFloginPortWWN})
+#
+# PySNMP MIB module HPN-ICF-FC-NAME-SERVER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-FC-NAME-SERVER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:21 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+HpnicfFcNameId, = mibBuilder.importSymbols("HPN-ICF-FC-TC-MIB", "HpnicfFcNameId")
+hpnicfSan, hpnicfVsanIndex = mibBuilder.importSymbols("HPN-ICF-VSAN-MIB", "hpnicfSan", "hpnicfVsanIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+hpnicfFcNameServer = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 10))
+hpnicfFcNameServer.setRevisions(('2014-03-03 10:18',))
+if mibBuilder.loadTexts: hpnicfFcNameServer.setLastUpdated('201403031018Z')
+if mibBuilder.loadTexts: hpnicfFcNameServer.setOrganization('')
+hpnicfFcNameServerMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 10, 1))
+hpnicfFcNsNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 10, 1, 1))
+hpnicfFcNsNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 10, 1, 1, 0))
+hpnicfFcNsNotificationSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 10, 1, 1, 1))
+hpnicfFcNsObjsForNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 10, 1, 1, 2))
+hpnicfFcNsPortLoginNotify = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 10, 1, 1, 0, 1)).setObjects(("HPN-ICF-VSAN-MIB", "hpnicfVsanIndex"), ("HPN-ICF-FC-NAME-SERVER-MIB", "hpnicfFcNsLocalSwitchWWN"), ("HPN-ICF-FC-NAME-SERVER-MIB", "hpnicfFcNsFloginPortWWN"))
+if mibBuilder.loadTexts: hpnicfFcNsPortLoginNotify.setStatus('current')
+hpnicfFcNsPortLogoutNotify = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 10, 1, 1, 0, 2)).setObjects(("HPN-ICF-VSAN-MIB", "hpnicfVsanIndex"), ("HPN-ICF-FC-NAME-SERVER-MIB", "hpnicfFcNsLocalSwitchWWN"), ("HPN-ICF-FC-NAME-SERVER-MIB", "hpnicfFcNsFloginPortWWN"))
+if mibBuilder.loadTexts: hpnicfFcNsPortLogoutNotify.setStatus('current')
+hpnicfFcNsPortLoginNotifyEnable = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 10, 1, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfFcNsPortLoginNotifyEnable.setStatus('current')
+hpnicfFcNsPortLogoutNotifyEnable = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 10, 1, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfFcNsPortLogoutNotifyEnable.setStatus('current')
+hpnicfFcNsLocalSwitchWWN = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 10, 1, 1, 2, 1), HpnicfFcNameId()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: hpnicfFcNsLocalSwitchWWN.setStatus('current')
+hpnicfFcNsFloginPortWWN = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 10, 1, 1, 2, 2), HpnicfFcNameId()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: hpnicfFcNsFloginPortWWN.setStatus('current')
+mibBuilder.exportSymbols("HPN-ICF-FC-NAME-SERVER-MIB", hpnicfFcNsLocalSwitchWWN=hpnicfFcNsLocalSwitchWWN, hpnicfFcNsPortLoginNotifyEnable=hpnicfFcNsPortLoginNotifyEnable, hpnicfFcNsPortLoginNotify=hpnicfFcNsPortLoginNotify, hpnicfFcNsFloginPortWWN=hpnicfFcNsFloginPortWWN, hpnicfFcNsNotificationSwitch=hpnicfFcNsNotificationSwitch, hpnicfFcNsPortLogoutNotify=hpnicfFcNsPortLogoutNotify, PYSNMP_MODULE_ID=hpnicfFcNameServer, hpnicfFcNsNotification=hpnicfFcNsNotification, hpnicfFcNsNotificationPrefix=hpnicfFcNsNotificationPrefix, hpnicfFcNameServer=hpnicfFcNameServer, hpnicfFcNameServerMibObjects=hpnicfFcNameServerMibObjects, hpnicfFcNsPortLogoutNotifyEnable=hpnicfFcNsPortLogoutNotifyEnable, hpnicfFcNsObjsForNotification=hpnicfFcNsObjsForNotification)

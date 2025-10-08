@@ -1,91 +1,51 @@
-_G='fsClkIwfGlobalErrTrapType'
-_F='SUPERMICRO-CLKIWF-MIB'
-_E='read-only'
-_D='TruthValue'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_D)
-fsClkIwfMIB=ModuleIdentity((1,3,6,1,4,1,10876,101,2,46))
-if mibBuilder.loadTexts:fsClkIwfMIB.setRevisions(('2012-09-05 00:00',))
-class FsClkIwfTimeInterval(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
-_FsClkIwfObjects_ObjectIdentity=ObjectIdentity
-fsClkIwfObjects=_FsClkIwfObjects_ObjectIdentity((1,3,6,1,4,1,10876,101,2,46,1))
-_FsClkIwfGeneralGroup_ObjectIdentity=ObjectIdentity
-fsClkIwfGeneralGroup=_FsClkIwfGeneralGroup_ObjectIdentity((1,3,6,1,4,1,10876,101,2,46,1,1))
-class _FsClkIwfClockVariance_Type(Integer32):defaultValue=0
-_FsClkIwfClockVariance_Type.__name__=_C
-_FsClkIwfClockVariance_Object=MibScalar
-fsClkIwfClockVariance=_FsClkIwfClockVariance_Object((1,3,6,1,4,1,10876,101,2,46,1,1,1),_FsClkIwfClockVariance_Type())
-fsClkIwfClockVariance.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsClkIwfClockVariance.setStatus(_A)
-class _FsClkIwfClockClass_Type(Integer32):defaultValue=248
-_FsClkIwfClockClass_Type.__name__=_C
-_FsClkIwfClockClass_Object=MibScalar
-fsClkIwfClockClass=_FsClkIwfClockClass_Object((1,3,6,1,4,1,10876,101,2,46,1,1,2),_FsClkIwfClockClass_Type())
-fsClkIwfClockClass.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsClkIwfClockClass.setStatus(_A)
-class _FsClkIwfClockAccuracy_Type(Integer32):defaultValue=254
-_FsClkIwfClockAccuracy_Type.__name__=_C
-_FsClkIwfClockAccuracy_Object=MibScalar
-fsClkIwfClockAccuracy=_FsClkIwfClockAccuracy_Object((1,3,6,1,4,1,10876,101,2,46,1,1,3),_FsClkIwfClockAccuracy_Type())
-fsClkIwfClockAccuracy.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsClkIwfClockAccuracy.setStatus(_A)
-class _FsClkIwfClockTimeSource_Type(Integer32):defaultValue=144;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(16,32,64,80,144,160)));namedValues=NamedValues(*(('atomicClock',16),('gps',32),('ptp',64),('ntp',80),('cmm',144),('internalOscillator',160)))
-_FsClkIwfClockTimeSource_Type.__name__=_C
-_FsClkIwfClockTimeSource_Object=MibScalar
-fsClkIwfClockTimeSource=_FsClkIwfClockTimeSource_Object((1,3,6,1,4,1,10876,101,2,46,1,1,4),_FsClkIwfClockTimeSource_Type())
-fsClkIwfClockTimeSource.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsClkIwfClockTimeSource.setStatus(_A)
-_FsClkIwfCurrentUtcOffset_Type=FsClkIwfTimeInterval
-_FsClkIwfCurrentUtcOffset_Object=MibScalar
-fsClkIwfCurrentUtcOffset=_FsClkIwfCurrentUtcOffset_Object((1,3,6,1,4,1,10876,101,2,46,1,1,5),_FsClkIwfCurrentUtcOffset_Type())
-fsClkIwfCurrentUtcOffset.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsClkIwfCurrentUtcOffset.setStatus('deprecated')
-_FsClkIwfARBTime_Type=FsClkIwfTimeInterval
-_FsClkIwfARBTime_Object=MibScalar
-fsClkIwfARBTime=_FsClkIwfARBTime_Object((1,3,6,1,4,1,10876,101,2,46,1,1,6),_FsClkIwfARBTime_Type())
-fsClkIwfARBTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsClkIwfARBTime.setStatus(_A)
-class _FsClkIwfHoldoverSpecification_Type(TruthValue):defaultValue=1
-_FsClkIwfHoldoverSpecification_Type.__name__=_D
-_FsClkIwfHoldoverSpecification_Object=MibScalar
-fsClkIwfHoldoverSpecification=_FsClkIwfHoldoverSpecification_Object((1,3,6,1,4,1,10876,101,2,46,1,1,7),_FsClkIwfHoldoverSpecification_Type())
-fsClkIwfHoldoverSpecification.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsClkIwfHoldoverSpecification.setStatus(_A)
-class _FsClkIwfLostSync_Type(TruthValue):defaultValue=2
-_FsClkIwfLostSync_Type.__name__=_D
-_FsClkIwfLostSync_Object=MibScalar
-fsClkIwfLostSync=_FsClkIwfLostSync_Object((1,3,6,1,4,1,10876,101,2,46,1,1,8),_FsClkIwfLostSync_Type())
-fsClkIwfLostSync.setMaxAccess(_E)
-if mibBuilder.loadTexts:fsClkIwfLostSync.setStatus(_A)
-_FsClkIwfUtcOffset_Type=DisplayString
-_FsClkIwfUtcOffset_Object=MibScalar
-fsClkIwfUtcOffset=_FsClkIwfUtcOffset_Object((1,3,6,1,4,1,10876,101,2,46,1,1,9),_FsClkIwfUtcOffset_Type())
-fsClkIwfUtcOffset.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsClkIwfUtcOffset.setStatus(_A)
-_FsClkIwfNotifications_ObjectIdentity=ObjectIdentity
-fsClkIwfNotifications=_FsClkIwfNotifications_ObjectIdentity((1,3,6,1,4,1,10876,101,2,46,2))
-_FsClkIwfTrap_ObjectIdentity=ObjectIdentity
-fsClkIwfTrap=_FsClkIwfTrap_ObjectIdentity((1,3,6,1,4,1,10876,101,2,46,2,0))
-class _FsClkIwfGlobalErrTrapType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7)));namedValues=NamedValues(*(('none',0),('memfail',1),('bufffail',2),('timesourcechange',3),('clockclasschange',4),('clockaccuracychange',5),('clockvariancechange',6),('holdovermodechange',7)))
-_FsClkIwfGlobalErrTrapType_Type.__name__=_C
-_FsClkIwfGlobalErrTrapType_Object=MibScalar
-fsClkIwfGlobalErrTrapType=_FsClkIwfGlobalErrTrapType_Object((1,3,6,1,4,1,10876,101,2,46,2,1),_FsClkIwfGlobalErrTrapType_Type())
-fsClkIwfGlobalErrTrapType.setMaxAccess(_E)
-if mibBuilder.loadTexts:fsClkIwfGlobalErrTrapType.setStatus(_A)
-_FsClkIwfNotification_Type=OctetString
-_FsClkIwfNotification_Object=MibScalar
-fsClkIwfNotification=_FsClkIwfNotification_Object((1,3,6,1,4,1,10876,101,2,46,2,2),_FsClkIwfNotification_Type())
-fsClkIwfNotification.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsClkIwfNotification.setStatus(_A)
-fsClkIwfGlobalErrorTrap=NotificationType((1,3,6,1,4,1,10876,101,2,46,2,0,1))
-fsClkIwfGlobalErrorTrap.setObjects((_F,_G))
-if mibBuilder.loadTexts:fsClkIwfGlobalErrorTrap.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'FsClkIwfTimeInterval':FsClkIwfTimeInterval,'fsClkIwfMIB':fsClkIwfMIB,'fsClkIwfObjects':fsClkIwfObjects,'fsClkIwfGeneralGroup':fsClkIwfGeneralGroup,'fsClkIwfClockVariance':fsClkIwfClockVariance,'fsClkIwfClockClass':fsClkIwfClockClass,'fsClkIwfClockAccuracy':fsClkIwfClockAccuracy,'fsClkIwfClockTimeSource':fsClkIwfClockTimeSource,'fsClkIwfCurrentUtcOffset':fsClkIwfCurrentUtcOffset,'fsClkIwfARBTime':fsClkIwfARBTime,'fsClkIwfHoldoverSpecification':fsClkIwfHoldoverSpecification,'fsClkIwfLostSync':fsClkIwfLostSync,'fsClkIwfUtcOffset':fsClkIwfUtcOffset,'fsClkIwfNotifications':fsClkIwfNotifications,'fsClkIwfTrap':fsClkIwfTrap,'fsClkIwfGlobalErrorTrap':fsClkIwfGlobalErrorTrap,_G:fsClkIwfGlobalErrTrapType,'fsClkIwfNotification':fsClkIwfNotification})
+#
+# PySNMP MIB module SUPERMICRO-CLKIWF-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-CLKIWF-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:06 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+fsClkIwfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876, 101, 2, 46))
+fsClkIwfMIB.setRevisions(('2012-09-05 00:00',))
+if mibBuilder.loadTexts: fsClkIwfMIB.setLastUpdated('201209050000Z')
+if mibBuilder.loadTexts: fsClkIwfMIB.setOrganization('Super Micro Computer Inc.')
+fsClkIwfObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 2, 46, 1))
+fsClkIwfNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 2, 46, 2))
+fsClkIwfGeneralGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 2, 46, 1, 1))
+class FsClkIwfTimeInterval(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(8, 8)
+    fixedLength = 8
+
+fsClkIwfClockVariance = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 2, 46, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsClkIwfClockVariance.setStatus('current')
+fsClkIwfClockClass = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 2, 46, 1, 1, 2), Integer32().clone(248)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsClkIwfClockClass.setStatus('current')
+fsClkIwfClockAccuracy = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 2, 46, 1, 1, 3), Integer32().clone(254)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsClkIwfClockAccuracy.setStatus('current')
+fsClkIwfClockTimeSource = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 2, 46, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(16, 32, 64, 80, 144, 160))).clone(namedValues=NamedValues(("atomicClock", 16), ("gps", 32), ("ptp", 64), ("ntp", 80), ("cmm", 144), ("internalOscillator", 160))).clone('cmm')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsClkIwfClockTimeSource.setStatus('current')
+fsClkIwfCurrentUtcOffset = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 2, 46, 1, 1, 5), FsClkIwfTimeInterval()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsClkIwfCurrentUtcOffset.setStatus('deprecated')
+fsClkIwfARBTime = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 2, 46, 1, 1, 6), FsClkIwfTimeInterval()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsClkIwfARBTime.setStatus('current')
+fsClkIwfHoldoverSpecification = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 2, 46, 1, 1, 7), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsClkIwfHoldoverSpecification.setStatus('current')
+fsClkIwfLostSync = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 2, 46, 1, 1, 8), TruthValue().clone('false')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsClkIwfLostSync.setStatus('current')
+fsClkIwfUtcOffset = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 2, 46, 1, 1, 9), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsClkIwfUtcOffset.setStatus('current')
+fsClkIwfTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 2, 46, 2, 0))
+fsClkIwfGlobalErrTrapType = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 2, 46, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("none", 0), ("memfail", 1), ("bufffail", 2), ("timesourcechange", 3), ("clockclasschange", 4), ("clockaccuracychange", 5), ("clockvariancechange", 6), ("holdovermodechange", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsClkIwfGlobalErrTrapType.setStatus('current')
+fsClkIwfNotification = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 2, 46, 2, 2), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsClkIwfNotification.setStatus('current')
+fsClkIwfGlobalErrorTrap = NotificationType((1, 3, 6, 1, 4, 1, 10876, 101, 2, 46, 2, 0, 1)).setObjects(("SUPERMICRO-CLKIWF-MIB", "fsClkIwfGlobalErrTrapType"))
+if mibBuilder.loadTexts: fsClkIwfGlobalErrorTrap.setStatus('current')
+mibBuilder.exportSymbols("SUPERMICRO-CLKIWF-MIB", fsClkIwfNotification=fsClkIwfNotification, fsClkIwfMIB=fsClkIwfMIB, fsClkIwfObjects=fsClkIwfObjects, fsClkIwfGlobalErrTrapType=fsClkIwfGlobalErrTrapType, fsClkIwfClockTimeSource=fsClkIwfClockTimeSource, fsClkIwfLostSync=fsClkIwfLostSync, fsClkIwfARBTime=fsClkIwfARBTime, fsClkIwfNotifications=fsClkIwfNotifications, fsClkIwfUtcOffset=fsClkIwfUtcOffset, fsClkIwfClockVariance=fsClkIwfClockVariance, fsClkIwfTrap=fsClkIwfTrap, fsClkIwfClockClass=fsClkIwfClockClass, PYSNMP_MODULE_ID=fsClkIwfMIB, FsClkIwfTimeInterval=FsClkIwfTimeInterval, fsClkIwfHoldoverSpecification=fsClkIwfHoldoverSpecification, fsClkIwfGlobalErrorTrap=fsClkIwfGlobalErrorTrap, fsClkIwfCurrentUtcOffset=fsClkIwfCurrentUtcOffset, fsClkIwfGeneralGroup=fsClkIwfGeneralGroup, fsClkIwfClockAccuracy=fsClkIwfClockAccuracy)

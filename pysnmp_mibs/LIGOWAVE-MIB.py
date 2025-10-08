@@ -1,18 +1,22 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ligowave=ModuleIdentity((1,3,6,1,4,1,32750))
-if mibBuilder.loadTexts:ligowave.setRevisions(('2008-09-05 00:00',))
-_LigoProducts_ObjectIdentity=ObjectIdentity
-ligoProducts=_LigoProducts_ObjectIdentity((1,3,6,1,4,1,32750,1))
-_LigoAdmin_ObjectIdentity=ObjectIdentity
-ligoAdmin=_LigoAdmin_ObjectIdentity((1,3,6,1,4,1,32750,2))
-_LigoMgmt_ObjectIdentity=ObjectIdentity
-ligoMgmt=_LigoMgmt_ObjectIdentity((1,3,6,1,4,1,32750,3))
-_LigoExperimental_ObjectIdentity=ObjectIdentity
-ligoExperimental=_LigoExperimental_ObjectIdentity((1,3,6,1,4,1,32750,7))
-mibBuilder.exportSymbols('LIGOWAVE-MIB',**{'ligowave':ligowave,'ligoProducts':ligoProducts,'ligoAdmin':ligoAdmin,'ligoMgmt':ligoMgmt,'ligoExperimental':ligoExperimental})
+#
+# PySNMP MIB module LIGOWAVE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ligowave/LIGOWAVE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:40 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ligowave = ModuleIdentity((1, 3, 6, 1, 4, 1, 32750))
+ligowave.setRevisions(('2008-09-05 00:00',))
+if mibBuilder.loadTexts: ligowave.setLastUpdated('200809050000Z')
+if mibBuilder.loadTexts: ligowave.setOrganization('LigoWave')
+ligoProducts = MibIdentifier((1, 3, 6, 1, 4, 1, 32750, 1))
+ligoAdmin = MibIdentifier((1, 3, 6, 1, 4, 1, 32750, 2))
+ligoMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 32750, 3))
+ligoExperimental = MibIdentifier((1, 3, 6, 1, 4, 1, 32750, 7))
+mibBuilder.exportSymbols("LIGOWAVE-MIB", ligoAdmin=ligoAdmin, ligoMgmt=ligoMgmt, ligoExperimental=ligoExperimental, ligoProducts=ligoProducts, PYSNMP_MODULE_ID=ligowave, ligowave=ligowave)

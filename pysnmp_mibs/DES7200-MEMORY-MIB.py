@@ -1,168 +1,85 @@
-_Y='myMemoryPoolUtilizationMIBGroup'
-_X='myNodeMemoryPoolCritical'
-_W='myNodeMemoryPoolWarning'
-_V='myNodeMemoryPoolFree'
-_U='myNodeMemoryPoolUsed'
-_T='myNodeMemoryPoolSize'
-_S='myNodeMemoryPoolLargestUtilization'
-_R='myNodeMemoryPoolLowestUtilization'
-_Q='myNodeMemoryPoolCurrentUtilization'
-_P='myNodeMemoryPoolName'
-_O='myMemoryPoolCritical'
-_N='myMemoryPoolWarning'
-_M='myMemoryPoolFree'
-_L='myMemoryPoolUsed'
-_K='myMemoryPoolSize'
-_J='myMemoryPoolLargestUtilization'
-_I='myMemoryPoolLowestUtilization'
-_H='myMemoryPoolCurrentUtilization'
-_G='myMemoryPoolName'
-_F='myNodeMemoryPoolIndex'
-_E='myMemoryPoolIndex'
-_D='read-write'
-_C='read-only'
-_B='DES7200-MEMORY-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-myMgmt,=mibBuilder.importSymbols('DES7200-SMI','myMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-myMemoryMIB=ModuleIdentity((1,3,6,1,4,1,171,10,97,2,35))
-if mibBuilder.loadTexts:myMemoryMIB.setRevisions(('2003-10-14 00:00',))
-class Percent(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_MyMemoryPoolMIBObjects_ObjectIdentity=ObjectIdentity
-myMemoryPoolMIBObjects=_MyMemoryPoolMIBObjects_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,35,1))
-_MyMemoryPoolUtilizationTable_Object=MibTable
-myMemoryPoolUtilizationTable=_MyMemoryPoolUtilizationTable_Object((1,3,6,1,4,1,171,10,97,2,35,1,1))
-if mibBuilder.loadTexts:myMemoryPoolUtilizationTable.setStatus(_A)
-_MyMemoryPoolUtilizationEntry_Object=MibTableRow
-myMemoryPoolUtilizationEntry=_MyMemoryPoolUtilizationEntry_Object((1,3,6,1,4,1,171,10,97,2,35,1,1,1))
-myMemoryPoolUtilizationEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:myMemoryPoolUtilizationEntry.setStatus(_A)
-_MyMemoryPoolIndex_Type=Integer32
-_MyMemoryPoolIndex_Object=MibTableColumn
-myMemoryPoolIndex=_MyMemoryPoolIndex_Object((1,3,6,1,4,1,171,10,97,2,35,1,1,1,1),_MyMemoryPoolIndex_Type())
-myMemoryPoolIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:myMemoryPoolIndex.setStatus(_A)
-_MyMemoryPoolName_Type=DisplayString
-_MyMemoryPoolName_Object=MibTableColumn
-myMemoryPoolName=_MyMemoryPoolName_Object((1,3,6,1,4,1,171,10,97,2,35,1,1,1,2),_MyMemoryPoolName_Type())
-myMemoryPoolName.setMaxAccess(_C)
-if mibBuilder.loadTexts:myMemoryPoolName.setStatus(_A)
-_MyMemoryPoolCurrentUtilization_Type=Percent
-_MyMemoryPoolCurrentUtilization_Object=MibTableColumn
-myMemoryPoolCurrentUtilization=_MyMemoryPoolCurrentUtilization_Object((1,3,6,1,4,1,171,10,97,2,35,1,1,1,3),_MyMemoryPoolCurrentUtilization_Type())
-myMemoryPoolCurrentUtilization.setMaxAccess(_C)
-if mibBuilder.loadTexts:myMemoryPoolCurrentUtilization.setStatus(_A)
-_MyMemoryPoolLowestUtilization_Type=Percent
-_MyMemoryPoolLowestUtilization_Object=MibTableColumn
-myMemoryPoolLowestUtilization=_MyMemoryPoolLowestUtilization_Object((1,3,6,1,4,1,171,10,97,2,35,1,1,1,4),_MyMemoryPoolLowestUtilization_Type())
-myMemoryPoolLowestUtilization.setMaxAccess(_C)
-if mibBuilder.loadTexts:myMemoryPoolLowestUtilization.setStatus(_A)
-_MyMemoryPoolLargestUtilization_Type=Percent
-_MyMemoryPoolLargestUtilization_Object=MibTableColumn
-myMemoryPoolLargestUtilization=_MyMemoryPoolLargestUtilization_Object((1,3,6,1,4,1,171,10,97,2,35,1,1,1,5),_MyMemoryPoolLargestUtilization_Type())
-myMemoryPoolLargestUtilization.setMaxAccess(_C)
-if mibBuilder.loadTexts:myMemoryPoolLargestUtilization.setStatus(_A)
-_MyMemoryPoolSize_Type=Integer32
-_MyMemoryPoolSize_Object=MibTableColumn
-myMemoryPoolSize=_MyMemoryPoolSize_Object((1,3,6,1,4,1,171,10,97,2,35,1,1,1,6),_MyMemoryPoolSize_Type())
-myMemoryPoolSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:myMemoryPoolSize.setStatus(_A)
-_MyMemoryPoolUsed_Type=Integer32
-_MyMemoryPoolUsed_Object=MibTableColumn
-myMemoryPoolUsed=_MyMemoryPoolUsed_Object((1,3,6,1,4,1,171,10,97,2,35,1,1,1,7),_MyMemoryPoolUsed_Type())
-myMemoryPoolUsed.setMaxAccess(_C)
-if mibBuilder.loadTexts:myMemoryPoolUsed.setStatus(_A)
-_MyMemoryPoolFree_Type=Integer32
-_MyMemoryPoolFree_Object=MibTableColumn
-myMemoryPoolFree=_MyMemoryPoolFree_Object((1,3,6,1,4,1,171,10,97,2,35,1,1,1,8),_MyMemoryPoolFree_Type())
-myMemoryPoolFree.setMaxAccess(_C)
-if mibBuilder.loadTexts:myMemoryPoolFree.setStatus(_A)
-_MyMemoryPoolWarning_Type=Percent
-_MyMemoryPoolWarning_Object=MibTableColumn
-myMemoryPoolWarning=_MyMemoryPoolWarning_Object((1,3,6,1,4,1,171,10,97,2,35,1,1,1,9),_MyMemoryPoolWarning_Type())
-myMemoryPoolWarning.setMaxAccess(_D)
-if mibBuilder.loadTexts:myMemoryPoolWarning.setStatus(_A)
-_MyMemoryPoolCritical_Type=Percent
-_MyMemoryPoolCritical_Object=MibTableColumn
-myMemoryPoolCritical=_MyMemoryPoolCritical_Object((1,3,6,1,4,1,171,10,97,2,35,1,1,1,10),_MyMemoryPoolCritical_Type())
-myMemoryPoolCritical.setMaxAccess(_D)
-if mibBuilder.loadTexts:myMemoryPoolCritical.setStatus(_A)
-_MyNodeMemoryPoolTable_Object=MibTable
-myNodeMemoryPoolTable=_MyNodeMemoryPoolTable_Object((1,3,6,1,4,1,171,10,97,2,35,1,2))
-if mibBuilder.loadTexts:myNodeMemoryPoolTable.setStatus(_A)
-_MyNodeMemoryPoolEntry_Object=MibTableRow
-myNodeMemoryPoolEntry=_MyNodeMemoryPoolEntry_Object((1,3,6,1,4,1,171,10,97,2,35,1,2,1))
-myNodeMemoryPoolEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:myNodeMemoryPoolEntry.setStatus(_A)
-_MyNodeMemoryPoolIndex_Type=Integer32
-_MyNodeMemoryPoolIndex_Object=MibTableColumn
-myNodeMemoryPoolIndex=_MyNodeMemoryPoolIndex_Object((1,3,6,1,4,1,171,10,97,2,35,1,2,1,1),_MyNodeMemoryPoolIndex_Type())
-myNodeMemoryPoolIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:myNodeMemoryPoolIndex.setStatus(_A)
-_MyNodeMemoryPoolName_Type=DisplayString
-_MyNodeMemoryPoolName_Object=MibTableColumn
-myNodeMemoryPoolName=_MyNodeMemoryPoolName_Object((1,3,6,1,4,1,171,10,97,2,35,1,2,1,2),_MyNodeMemoryPoolName_Type())
-myNodeMemoryPoolName.setMaxAccess(_C)
-if mibBuilder.loadTexts:myNodeMemoryPoolName.setStatus(_A)
-_MyNodeMemoryPoolCurrentUtilization_Type=Percent
-_MyNodeMemoryPoolCurrentUtilization_Object=MibTableColumn
-myNodeMemoryPoolCurrentUtilization=_MyNodeMemoryPoolCurrentUtilization_Object((1,3,6,1,4,1,171,10,97,2,35,1,2,1,3),_MyNodeMemoryPoolCurrentUtilization_Type())
-myNodeMemoryPoolCurrentUtilization.setMaxAccess(_C)
-if mibBuilder.loadTexts:myNodeMemoryPoolCurrentUtilization.setStatus(_A)
-_MyNodeMemoryPoolLowestUtilization_Type=Percent
-_MyNodeMemoryPoolLowestUtilization_Object=MibTableColumn
-myNodeMemoryPoolLowestUtilization=_MyNodeMemoryPoolLowestUtilization_Object((1,3,6,1,4,1,171,10,97,2,35,1,2,1,4),_MyNodeMemoryPoolLowestUtilization_Type())
-myNodeMemoryPoolLowestUtilization.setMaxAccess(_C)
-if mibBuilder.loadTexts:myNodeMemoryPoolLowestUtilization.setStatus(_A)
-_MyNodeMemoryPoolLargestUtilization_Type=Percent
-_MyNodeMemoryPoolLargestUtilization_Object=MibTableColumn
-myNodeMemoryPoolLargestUtilization=_MyNodeMemoryPoolLargestUtilization_Object((1,3,6,1,4,1,171,10,97,2,35,1,2,1,5),_MyNodeMemoryPoolLargestUtilization_Type())
-myNodeMemoryPoolLargestUtilization.setMaxAccess(_C)
-if mibBuilder.loadTexts:myNodeMemoryPoolLargestUtilization.setStatus(_A)
-_MyNodeMemoryPoolSize_Type=Integer32
-_MyNodeMemoryPoolSize_Object=MibTableColumn
-myNodeMemoryPoolSize=_MyNodeMemoryPoolSize_Object((1,3,6,1,4,1,171,10,97,2,35,1,2,1,6),_MyNodeMemoryPoolSize_Type())
-myNodeMemoryPoolSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:myNodeMemoryPoolSize.setStatus(_A)
-_MyNodeMemoryPoolUsed_Type=Integer32
-_MyNodeMemoryPoolUsed_Object=MibTableColumn
-myNodeMemoryPoolUsed=_MyNodeMemoryPoolUsed_Object((1,3,6,1,4,1,171,10,97,2,35,1,2,1,7),_MyNodeMemoryPoolUsed_Type())
-myNodeMemoryPoolUsed.setMaxAccess(_C)
-if mibBuilder.loadTexts:myNodeMemoryPoolUsed.setStatus(_A)
-_MyNodeMemoryPoolFree_Type=Integer32
-_MyNodeMemoryPoolFree_Object=MibTableColumn
-myNodeMemoryPoolFree=_MyNodeMemoryPoolFree_Object((1,3,6,1,4,1,171,10,97,2,35,1,2,1,8),_MyNodeMemoryPoolFree_Type())
-myNodeMemoryPoolFree.setMaxAccess(_C)
-if mibBuilder.loadTexts:myNodeMemoryPoolFree.setStatus(_A)
-_MyNodeMemoryPoolWarning_Type=Percent
-_MyNodeMemoryPoolWarning_Object=MibTableColumn
-myNodeMemoryPoolWarning=_MyNodeMemoryPoolWarning_Object((1,3,6,1,4,1,171,10,97,2,35,1,2,1,9),_MyNodeMemoryPoolWarning_Type())
-myNodeMemoryPoolWarning.setMaxAccess(_D)
-if mibBuilder.loadTexts:myNodeMemoryPoolWarning.setStatus(_A)
-_MyNodeMemoryPoolCritical_Type=Percent
-_MyNodeMemoryPoolCritical_Object=MibTableColumn
-myNodeMemoryPoolCritical=_MyNodeMemoryPoolCritical_Object((1,3,6,1,4,1,171,10,97,2,35,1,2,1,10),_MyNodeMemoryPoolCritical_Type())
-myNodeMemoryPoolCritical.setMaxAccess(_D)
-if mibBuilder.loadTexts:myNodeMemoryPoolCritical.setStatus(_A)
-_MyMemoryMIBConformance_ObjectIdentity=ObjectIdentity
-myMemoryMIBConformance=_MyMemoryMIBConformance_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,35,2))
-_MyMemoryMIBCompliances_ObjectIdentity=ObjectIdentity
-myMemoryMIBCompliances=_MyMemoryMIBCompliances_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,35,2,1))
-_MyMemoryMIBGroups_ObjectIdentity=ObjectIdentity
-myMemoryMIBGroups=_MyMemoryMIBGroups_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,35,2,2))
-myMemoryPoolUtilizationMIBGroup=ObjectGroup((1,3,6,1,4,1,171,10,97,2,35,2,2,1))
-myMemoryPoolUtilizationMIBGroup.setObjects(*((_B,_E),(_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:myMemoryPoolUtilizationMIBGroup.setStatus(_A)
-myNodeMemoryPoolMIBGroup=ObjectGroup((1,3,6,1,4,1,171,10,97,2,35,2,2,2))
-myNodeMemoryPoolMIBGroup.setObjects(*((_B,_F),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X)))
-if mibBuilder.loadTexts:myNodeMemoryPoolMIBGroup.setStatus(_A)
-myMemoryMIBCompliance=ModuleCompliance((1,3,6,1,4,1,171,10,97,2,35,2,1,1))
-myMemoryMIBCompliance.setObjects((_B,_Y))
-if mibBuilder.loadTexts:myMemoryMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'Percent':Percent,'myMemoryMIB':myMemoryMIB,'myMemoryPoolMIBObjects':myMemoryPoolMIBObjects,'myMemoryPoolUtilizationTable':myMemoryPoolUtilizationTable,'myMemoryPoolUtilizationEntry':myMemoryPoolUtilizationEntry,_E:myMemoryPoolIndex,_G:myMemoryPoolName,_H:myMemoryPoolCurrentUtilization,_I:myMemoryPoolLowestUtilization,_J:myMemoryPoolLargestUtilization,_K:myMemoryPoolSize,_L:myMemoryPoolUsed,_M:myMemoryPoolFree,_N:myMemoryPoolWarning,_O:myMemoryPoolCritical,'myNodeMemoryPoolTable':myNodeMemoryPoolTable,'myNodeMemoryPoolEntry':myNodeMemoryPoolEntry,_F:myNodeMemoryPoolIndex,_P:myNodeMemoryPoolName,_Q:myNodeMemoryPoolCurrentUtilization,_R:myNodeMemoryPoolLowestUtilization,_S:myNodeMemoryPoolLargestUtilization,_T:myNodeMemoryPoolSize,_U:myNodeMemoryPoolUsed,_V:myNodeMemoryPoolFree,_W:myNodeMemoryPoolWarning,_X:myNodeMemoryPoolCritical,'myMemoryMIBConformance':myMemoryMIBConformance,'myMemoryMIBCompliances':myMemoryMIBCompliances,'myMemoryMIBCompliance':myMemoryMIBCompliance,'myMemoryMIBGroups':myMemoryMIBGroups,_Y:myMemoryPoolUtilizationMIBGroup,'myNodeMemoryPoolMIBGroup':myNodeMemoryPoolMIBGroup})
+#
+# PySNMP MIB module DES7200-MEMORY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DES7200-MEMORY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:28 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+myMgmt, = mibBuilder.importSymbols("DES7200-SMI", "myMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+myMemoryMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35))
+myMemoryMIB.setRevisions(('2003-10-14 00:00',))
+if mibBuilder.loadTexts: myMemoryMIB.setLastUpdated('200310140000Z')
+if mibBuilder.loadTexts: myMemoryMIB.setOrganization('D-Link Crop.')
+class Percent(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 100)
+
+myMemoryPoolMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1))
+myMemoryPoolUtilizationTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 1), )
+if mibBuilder.loadTexts: myMemoryPoolUtilizationTable.setStatus('current')
+myMemoryPoolUtilizationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 1, 1), ).setIndexNames((0, "DES7200-MEMORY-MIB", "myMemoryPoolIndex"))
+if mibBuilder.loadTexts: myMemoryPoolUtilizationEntry.setStatus('current')
+myMemoryPoolIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myMemoryPoolIndex.setStatus('current')
+myMemoryPoolName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myMemoryPoolName.setStatus('current')
+myMemoryPoolCurrentUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 1, 1, 3), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myMemoryPoolCurrentUtilization.setStatus('current')
+myMemoryPoolLowestUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 1, 1, 4), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myMemoryPoolLowestUtilization.setStatus('current')
+myMemoryPoolLargestUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 1, 1, 5), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myMemoryPoolLargestUtilization.setStatus('current')
+myMemoryPoolSize = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myMemoryPoolSize.setStatus('current')
+myMemoryPoolUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 1, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myMemoryPoolUsed.setStatus('current')
+myMemoryPoolFree = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myMemoryPoolFree.setStatus('current')
+myMemoryPoolWarning = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 1, 1, 9), Percent()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: myMemoryPoolWarning.setStatus('current')
+myMemoryPoolCritical = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 1, 1, 10), Percent()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: myMemoryPoolCritical.setStatus('current')
+myNodeMemoryPoolTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 2), )
+if mibBuilder.loadTexts: myNodeMemoryPoolTable.setStatus('current')
+myNodeMemoryPoolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 2, 1), ).setIndexNames((0, "DES7200-MEMORY-MIB", "myNodeMemoryPoolIndex"))
+if mibBuilder.loadTexts: myNodeMemoryPoolEntry.setStatus('current')
+myNodeMemoryPoolIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myNodeMemoryPoolIndex.setStatus('current')
+myNodeMemoryPoolName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myNodeMemoryPoolName.setStatus('current')
+myNodeMemoryPoolCurrentUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 2, 1, 3), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myNodeMemoryPoolCurrentUtilization.setStatus('current')
+myNodeMemoryPoolLowestUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 2, 1, 4), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myNodeMemoryPoolLowestUtilization.setStatus('current')
+myNodeMemoryPoolLargestUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 2, 1, 5), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myNodeMemoryPoolLargestUtilization.setStatus('current')
+myNodeMemoryPoolSize = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 2, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myNodeMemoryPoolSize.setStatus('current')
+myNodeMemoryPoolUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 2, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myNodeMemoryPoolUsed.setStatus('current')
+myNodeMemoryPoolFree = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 2, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myNodeMemoryPoolFree.setStatus('current')
+myNodeMemoryPoolWarning = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 2, 1, 9), Percent()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: myNodeMemoryPoolWarning.setStatus('current')
+myNodeMemoryPoolCritical = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 1, 2, 1, 10), Percent()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: myNodeMemoryPoolCritical.setStatus('current')
+myMemoryMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 2))
+myMemoryMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 2, 1))
+myMemoryMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 2, 2))
+myMemoryMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 2, 1, 1)).setObjects(("DES7200-MEMORY-MIB", "myMemoryPoolUtilizationMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    myMemoryMIBCompliance = myMemoryMIBCompliance.setStatus('current')
+myMemoryPoolUtilizationMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 2, 2, 1)).setObjects(("DES7200-MEMORY-MIB", "myMemoryPoolIndex"), ("DES7200-MEMORY-MIB", "myMemoryPoolName"), ("DES7200-MEMORY-MIB", "myMemoryPoolCurrentUtilization"), ("DES7200-MEMORY-MIB", "myMemoryPoolLowestUtilization"), ("DES7200-MEMORY-MIB", "myMemoryPoolLargestUtilization"), ("DES7200-MEMORY-MIB", "myMemoryPoolSize"), ("DES7200-MEMORY-MIB", "myMemoryPoolUsed"), ("DES7200-MEMORY-MIB", "myMemoryPoolFree"), ("DES7200-MEMORY-MIB", "myMemoryPoolWarning"), ("DES7200-MEMORY-MIB", "myMemoryPoolCritical"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    myMemoryPoolUtilizationMIBGroup = myMemoryPoolUtilizationMIBGroup.setStatus('current')
+myNodeMemoryPoolMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 35, 2, 2, 2)).setObjects(("DES7200-MEMORY-MIB", "myNodeMemoryPoolIndex"), ("DES7200-MEMORY-MIB", "myNodeMemoryPoolName"), ("DES7200-MEMORY-MIB", "myNodeMemoryPoolCurrentUtilization"), ("DES7200-MEMORY-MIB", "myNodeMemoryPoolLowestUtilization"), ("DES7200-MEMORY-MIB", "myNodeMemoryPoolLargestUtilization"), ("DES7200-MEMORY-MIB", "myNodeMemoryPoolSize"), ("DES7200-MEMORY-MIB", "myNodeMemoryPoolUsed"), ("DES7200-MEMORY-MIB", "myNodeMemoryPoolFree"), ("DES7200-MEMORY-MIB", "myNodeMemoryPoolWarning"), ("DES7200-MEMORY-MIB", "myNodeMemoryPoolCritical"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    myNodeMemoryPoolMIBGroup = myNodeMemoryPoolMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("DES7200-MEMORY-MIB", myMemoryPoolFree=myMemoryPoolFree, myNodeMemoryPoolIndex=myNodeMemoryPoolIndex, myNodeMemoryPoolEntry=myNodeMemoryPoolEntry, myMemoryPoolCritical=myMemoryPoolCritical, Percent=Percent, myMemoryPoolSize=myMemoryPoolSize, myNodeMemoryPoolTable=myNodeMemoryPoolTable, myMemoryPoolIndex=myMemoryPoolIndex, myNodeMemoryPoolWarning=myNodeMemoryPoolWarning, myNodeMemoryPoolLowestUtilization=myNodeMemoryPoolLowestUtilization, myNodeMemoryPoolCurrentUtilization=myNodeMemoryPoolCurrentUtilization, myMemoryPoolMIBObjects=myMemoryPoolMIBObjects, myNodeMemoryPoolCritical=myNodeMemoryPoolCritical, myMemoryMIBConformance=myMemoryMIBConformance, myMemoryMIB=myMemoryMIB, myMemoryMIBCompliance=myMemoryMIBCompliance, myMemoryPoolUtilizationMIBGroup=myMemoryPoolUtilizationMIBGroup, myNodeMemoryPoolMIBGroup=myNodeMemoryPoolMIBGroup, myNodeMemoryPoolUsed=myNodeMemoryPoolUsed, myMemoryMIBGroups=myMemoryMIBGroups, myMemoryPoolLowestUtilization=myMemoryPoolLowestUtilization, myMemoryMIBCompliances=myMemoryMIBCompliances, myNodeMemoryPoolName=myNodeMemoryPoolName, myMemoryPoolWarning=myMemoryPoolWarning, myMemoryPoolUtilizationTable=myMemoryPoolUtilizationTable, myNodeMemoryPoolLargestUtilization=myNodeMemoryPoolLargestUtilization, PYSNMP_MODULE_ID=myMemoryMIB, myNodeMemoryPoolFree=myNodeMemoryPoolFree, myNodeMemoryPoolSize=myNodeMemoryPoolSize, myMemoryPoolName=myMemoryPoolName, myMemoryPoolUtilizationEntry=myMemoryPoolUtilizationEntry, myMemoryPoolCurrentUtilization=myMemoryPoolCurrentUtilization, myMemoryPoolLargestUtilization=myMemoryPoolLargestUtilization, myMemoryPoolUsed=myMemoryPoolUsed)
